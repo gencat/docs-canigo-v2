@@ -1,0 +1,672 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Servei de multiidioma</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Servei de multiidioma
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Sep 12, 2007 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="Serveidemultiidioma-SERVEIDEMULTIIDIOMA"></a>SERVEI DE MULTIIDIOMA</h1>
+
+<p><br clear="all" />
+<br clear="all" />
+<div>
+<ul><a href='#Serveidemultiidioma-SERVEIDEMULTIIDIOMA'>
+    <li>SERVEI DE MULTIIDIOMA</li></a><a href='#Serveidemultiidioma-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#Serveidemultiidioma-Prop%C3%B3sit'>
+    <li>Propósit</li></a><a href='#Serveidemultiidioma-ContextiEscenarisd%27%C3%9As'>
+    <li>Context i  Escenaris d'Ús</li></a><a href='#Serveidemultiidioma-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i  Dependències</li></a><a href='#Serveidemultiidioma-Aquivadirigit'>
+    <li>A qui va  dirigit</li></a><a href='#Serveidemultiidioma-Glossari'>
+    <li>Glossari</li></a>
+</ul><a href='#Serveidemultiidioma-Descripci%C3%B3Detallada'>
+    <li>Descripció  Detallada</li></a>
+<ul><a href='#Serveidemultiidioma-ArquitecturaiComponents'>
+    <li>Arquitectura i  Components</li></a>
+<ul><a href='#Serveidemultiidioma-ArquitecturadelsFiltres'>
+    <li>Arquitectura dels  Filtres</li></a><a href='#Serveidemultiidioma-Interf%C3%ADciesiComponentsGen%C3%A9rics'>
+    <li>Interfícies  i Components Genérics</li></a>
+</ul><a href='#Serveidemultiidioma-Instal%5Claci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal&#45; lació  i Configuració</li></a>
+<ul><a href='#Serveidemultiidioma-Instal%5Claci%C3%B3'>
+    <li>Instal&#45; lació</li></a><a href='#Serveidemultiidioma-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#Serveidemultiidioma-Utilitzaci%C3%B3delServei'>
+    <li>Utilització del  Servei</li></a>
+<ul><a href='#Serveidemultiidioma-Canviarl%27Idiomadel%27Usuari'>
+    <li>Canviar  l'Idioma de l'Usuari</li></a><a href='#Serveidemultiidioma-Obtenci%C3%B3deTraduccions'>
+    <li>Obtenció de  Traduccions</li></a>
+</ul><a href='#Serveidemultiidioma-Integraci%C3%B3ambAltresServeis'>
+    <li>Integració  amb Altres Serveis</li></a>
+</ul><a href='#Serveidemultiidioma-Exemples'>
+    <li>Exemples</li></a>
+<ul><a href='#Serveidemultiidioma-ExempledeTestUnitari'>
+    <li>Exemple de Test  Unitari</li></a>
+</ul>
+</ul></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+&nbsp;
+<br clear="all" />
+<br clear="all" /></p>
+
+<h1><a name="Serveidemultiidioma-Introducci%C3%B3"></a>Introducció</h1>
+
+
+<h2><a name="Serveidemultiidioma-Prop%C3%B3sit"></a>Propósit</h2>
+
+<p>El Servei de multiidioma té com a objectiu principal permetre el  desenvolupament d'aplicacions en el que no sigui necessària cap reenginyeria  cada vegada que s'incorpori un nou llenguatge a l'aplicació.</p>
+
+<p>En general tota aplicació internacionalitzada pot realitzar-se de 2 formes  diferenciades:</p>
+<ol>
+	<li>Mitjançant la rèplica d'un conjunt de pàgines per a cada idioma</li>
+	<li>Mitjançant un únic conjunt de pàgines que obtenen diferents literals de  forma externa segons l'idioma.</li>
+</ol>
+
+
+<p>La primera solució, fins ara utilizada en moltes pàgines Web, implica un cost  gran de rèplica i manteniment, ja que qualsevol nou requeriment o canvi comporta  realitzar més d'un desenvolupament, un per cada idioma.</p>
+
+<p>La segona solució, recomanada per canigo permet que:</p>
+<ol>
+	<li>Es puguin afegir llenguatges sense haver de realitzar canvis al codi.</li>
+	<li>Els textes, imatges i missatges s'emmagatzemen de forma externa al  codi.</li>
+	<li>La informació (per exemple dates) es pot formatejar segons l'idioma de  l'usuari</li>
+</ol>
+
+
+<h2><a name="Serveidemultiidioma-ContextiEscenarisd%27%C3%9As"></a>Context i  Escenaris d'Ús</h2>
+
+<p>El Servei de Multiidioma es troba localitzat a la Capa de Presentació. El seu  ús és necessari sempre i quan es requereixi de la internacionalització de les  nostres aplicacions. En qualsevol cas encara que es faci ús d'un únic idioma a  l'aplicació es recomana seguir la seva internacionalització per preveure futurs  canvis i adaptacions.</p>
+
+<p>El Servei de Multiidioma és utilitzat pel framework entre d'altres pel:</p>
+<ol>
+	<li>Servei de Tags. Per generar els literals dels components d'entrada de  formularis</li>
+	<li>Arquitectura base de la Capa de Presentació. Per la integració transparent  amb JSTL i Struts en l'ús de la internacionalització</li>
+</ol>
+
+
+<h2><a name="Serveidemultiidioma-VersionsiDepend%C3%A8ncies"></a>Versions i  Dependències</h2>
+
+<p>Les dependències descrites a la següent url son requerides per tal de compilar i fer funcionar el projecte:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-i18n/dependencies.html" title="Visit page outside Confluence">Dependències Servei de Multiidioma</a></p>
+
+<h2><a name="Serveidemultiidioma-Aquivadirigit"></a>A qui va  dirigit</h2>
+
+<p>Aquest document va dirigit als següents perfils:</p>
+<ol>
+	<li>Programador. Per conéixer l'ús del servei</li>
+	<li>Arquitecte. Per conéixer quins són els components i la configuració del  servei</li>
+	<li>Administrador. Per conéixer cóm configurar el servei en cadascun dels  entorns en cas de necessitat</li>
+</ol>
+
+
+<h2><a name="Serveidemultiidioma-Glossari"></a>Glossari</h2>
+
+<p><b>i18N (Internationalization)</b></p>
+
+<p>i18N o Internationalization (el 18 correspon a les 18 lletres que hi ha entre  la I inicial i la n final) és el procés d'agafar una aplicació dissenyada i  reestructurar-la per a que pugui ser usada en diferents localitats o bé definir  el procés de crear-la per a ser totalment flexible per executar-se en qualsevol  localitat. Java defineix les classes bàsiques d'ús de la  internacionalizació.</p>
+
+<h1><a name="Serveidemultiidioma-Descripci%C3%B3Detallada"></a>Descripció  Detallada</h1>
+
+
+<h2><a name="Serveidemultiidioma-ArquitecturaiComponents"></a>Arquitectura i  Components</h2>
+
+<p>El Servei es basa en l'ús de la internacionalització i18N. Seguint el patró  comú a tots els serveis defineix una interfície i ofereix implementacions per  diferents tecnologies específiques.</p>
+
+<p>Els components podem classificar-los en:</p>
+<ol>
+	<li>Interfícies i Components Genérics. Interfícies del servei i components d'ús  general amb independència de la implementació escollida.</li>
+	<li>Implementació de les interfícies basada en Spring</li>
+	<li>Components d'integració amb la capa de presentació</li>
+</ol>
+
+
+<h3><a name="Serveidemultiidioma-ArquitecturadelsFiltres"></a>Arquitectura dels  Filtres</h3>
+
+<p>La internacionalització té en consideració la configuració de l'idioma de  l'usuari al seu navegador. D'aquesta forma, els literals mostrats s'obtindran  del fitxer de traduccions associat a aquest idioma.</p>
+
+<p>En qualsevol cas, és possible especificar un paràmetre 'set-locale' amb el  llenguatge i el país com a valor separats per '_'. En el següent diagrama podem  veure quin és el procediment de tractament de tota petició:</p>
+<ol>
+	<li>Si no es rep el paràmetre 'set-locale', es considera si existeix la variable  de Struts que especifica l'idioma de la sessió de l'usuari . Si aquest no està  especificat, s'obté de la petició HTTP. Aquest idioma serà el que es troba  configurat en primer lloc a la llista d'idiomes del navegador (dins  'Preferències').<br/>
+<img src="Servei de multiidioma_attachments/image002.gif" align="absmiddle" border="0" /></li>
+	<li>Si es rep el paràmetre 'set-locale', el seu valor és parsejat en 2 parts i  es crea l'objecte 'Locale' corresponent</li>
+</ol>
+
+
+<p>Finalment, amb el locale obtingut es realitzen 3 pasos:</p>
+<ol>
+	<li>Introducció del locale escollit a la sessió de Struts</li>
+	<li>Introducció del locale a la sessió de Spring</li>
+	<li>Introducció del locale a l'objecte 'ThreadLocalProperties' de canigo. Aquest  objecte permet passar informació entre els objectes dins el fil d'execució  actual, i serà usat pel mètode 'getCurrentLocale' de la implementació del servei  d'internacionalització.</li>
+</ol>
+
+
+<h3><a name="Serveidemultiidioma-Interf%C3%ADciesiComponentsGen%C3%A9rics"></a>Interfícies  i Components Genérics</h3>
+
+<p>Es pot trobar tota la documentació JavaDoc y el codi font referent aquests components a les següents urls:</p>
+
+<p><ins>JavaDoc:</ins> <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-i18n/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-i18n/apidocs/index.html</a><br/>
+<ins>Codi Font:</ins>&nbsp; <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-i18n/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-i18n/xref/index.html</a></p>
+
+<h2><a name="Serveidemultiidioma-Instal%5Claci%C3%B3iConfiguraci%C3%B3"></a>Instal&#45; lació  i Configuració</h2>
+
+
+<h3><a name="Serveidemultiidioma-Instal%5Claci%C3%B3"></a>Instal&#45; lació</h3>
+
+<p>La instal&#45; lació del servei requereix de la utilització de la llibreria  'canigo-services-i18n' i les dependències indicades a l'apartat  'Introducció-Versions i Dependències'.</p>
+
+<h3><a name="Serveidemultiidioma-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p>Per a configurar el servei de multi idioma s'han de manipular els següents  fitxers:</p>
+<ol>
+	<li>Definició de la font de missatges on el servei cercarà les traduccions</li>
+	<li>Definició del servei (típicament applicationContext.xml)</li>
+	<li>Definició dels fitxers de traduccions (típicament els fitxers dels diferents  idiomes: application.properties, application_XX_XX.properties)</li>
+	<li>Definició de la Integració amb el servei de presentació (web.xml)</li>
+</ol>
+
+
+<p>Definició de la Font de Missatges<br/>
+<img src="Servei de multiidioma_attachments/image006.gif" align="absmiddle" border="0" /></p>
+
+<p>Mitjançant la definició de la font de missatges podem especificar la llista  de fitxers internacionalitzats (resourceBundles) on el servei cercarà les  traduccions.</p>
+
+<p>Com a class del bean podem especificar els següents valors:</p>
+<ul>
+	<li>ReloadableResourceBundleMessageSource</li>
+</ul>
+
+
+<ul>
+	<li>Package: 'org.springframework.context.support'</li>
+	<li>Està basat en la classe 'Properties' de Java, que permet recarregar els  missatges en temps d'execució de l'aplicatiu.</li>
+	<li>ResourceBundleMessageSource</li>
+	<li>&nbsp;</li>
+</ul>
+
+
+<ul>
+	<li>Package: 'org.springframework.context.support'</li>
+</ul>
+
+
+<p>Està basada en la classe 'ResourceBundle' que no permet la recàrrega dels  missatges en temps d'execució. El fet de recarregar els missatges no és crític,  ja que depèn de la forma de desplegar l'aplicació en el nostre servidor.</p>
+
+<p>Per totes les classes indicades podem especificar les següents  propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> baseNames </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Llista de referències a fitxers.  Usar el tag '&lt;list&gt;' i per cada fitxer especificar un tag '&lt;value&gt;'  que contingui el path del fitxer (<b>no s'ha d'incloure l'extensió .properties  dels fitxers</b>). <br clear="all" />
+<br clear="all" />
+Recomanació: Especificar el valor  de cada fitxer mitjançant 'classpath:rutaFitxer' per cercar a partir del  classpath <br clear="all" />
+<br clear="all" />
+Veure 'Definició dels Fitxers de Traducció'  per configurar cadascun dels fitxers aquí referenciats. <br clear="all" /> </td>
+<td class='confluenceTd'> <br clear="all" />  <br clear="all" />  <br clear="all" />
+<br clear="all" /> </td>
+<td class='confluenceTd'><br clear="all" /></td>
+</tr>
+</tbody></table>
+
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean  id=<span class="code-quote">"messageSource"</span>
+
+class=<span class="code-quote">"org.springframework.context.support.ResourceBundleMessageSource"</span>&gt;
+
+&lt;!--  Fitxers de multi idioma --&gt;
+
+&lt;property  name=<span class="code-quote">"basenames"</span>&gt;
+
+&lt;list&gt;
+
+&lt;value&gt;application&lt;/value&gt;
+
+&lt;value&gt;fitxer  1&lt;/value&gt;
+
+...
+
+&lt;value&gt;fitxer  <span class="code-quote">"n"</span>&lt;/value&gt;
+
+&lt;/list&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" /> <br clear="all" /></p>
+
+<p>Definició del Servei</p>
+
+<p><img src="Servei de multiidioma_attachments/image007.gif" align="absmiddle" border="0" /></p>
+
+<p>La definició del servei implica indicar quina implementació específica es  farà servir</p>
+
+<p>Atributs:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atributs</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> class </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Implementació concreta del servei a  utilitzar <br clear="all" />
+<br clear="all" />
+Opcions: <br clear="all" />
+&#35;  net.gencat.ctti.canigo.services.i18n.impl.SpringI18nServiceImpl <br clear="all" /> </td>
+</tr>
+</tbody></table>
+<ul>
+	<li>SpringI18nServiceImpl</li>
+</ul>
+
+
+<p>Per aquesta classe podem definir les següents propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> messageSource </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Referència a la font de missatges  definida al pas previ </td>
+</tr>
+<tr>
+<td class='confluenceTd'> defaultLocale </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Permet especificar quin és el Locale  (idioma) per defecte de l'aplicació </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"defaultLocale"</span>  class=<span class="code-quote">"java.util.Locale"</span>&gt;
+
+&lt;constructor-arg  type=<span class="code-quote">"<span class="code-object">String</span>"</span>&gt;&lt;value&gt;es&lt;/value&gt;&lt;/constructor-arg&gt;
+
+&lt;/bean&gt;
+
+&lt;bean  id=<span class="code-quote">"i18nService"</span>
+
+class=<span class="code-quote">"net.gencat.ctti.canigo.services.i18n.impl.SpringI18nServiceImpl"</span>&gt;
+
+&lt;!--  Propietat que referència a la font de missatges --&gt;
+
+&lt;property  name=<span class="code-quote">"messageSource"</span> ref=<span class="code-quote">"messageSource"</span>/&gt;
+
+&lt;property  name=<span class="code-quote">"defaultLocale"</span> ref=<span class="code-quote">"defaultLocale"</span>/&gt;
+
+&lt;/bean&gt;
+
+&lt;!-- Font  de missatges --&gt;
+
+&lt;bean  id=<span class="code-quote">"messageSource"</span>
+
+class=<span class="code-quote">"org.springframework.context.support.ResourceBundleMessageSource"</span>&gt;
+
+...
+
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Definició dels Fitxers de Traducció
+<br clear="all" /></p>
+
+<p><b>Ubicació</b>:</p>
+
+<p>Els fitxers s'han de trobar en el classpath de l'aplicació. Es pot configurar  la seva localització mitjançant la propietat baseNames (veure 'Definició de la  Font de Missatges').</p>
+
+<p>En el cas que especifiquem com a 'baseName' 'i18n/application' i ens trobem  en una aplicació Web la cerca del fitxer es realitzarà al directori  'WEB-INF/classes/i18n'.</p>
+
+<p><img src="Servei de multiidioma_attachments/image008.gif" align="absmiddle" border="0" /></p>
+
+<p><b>Explicació</b>:</p>
+
+<p>Els fitxers de traducció són els fitxers que contenen els missatges en els  diferents idiomes. Es basen en l'ús de la internacionalització de Java (i18n o  Internationalization).</p>
+
+<p>Aquests fitxers s'han de construir tenint en compte que:</p>
+<ol>
+	<li>
+	<ol>
+		<li>
+		<ol>
+			<li>La seva extensió ha de ser '.properties' (es denominen resource  bundles).</li>
+		</ol>
+		</li>
+	</ol>
+	</li>
+	<li>El seu contingut es basa en l'ús de parells clau-valor tal i com es mostra a  continuació:</li>
+</ol>
+
+
+<p>&#35;fitxer de multi idioma  application.properties<br/>
+clau_1=valor_1<br/>
+clau_2=valor_2<br/>
+...</p>
+<ol>
+	<li>Per cada idioma que volguem suportar cal crear un nou fitxer. Aquest fitxer  tindrà la següent nomenclatura:<br/>
+'nomFitxer__lg_pa._properties',</li>
+</ol>
+
+
+<p>on 'lg correspon al codi del llenguatge i 'pa' correspon al codi del país pel  qual volem definir els literals. El codi del país és opcional, pel que podem  definir un fitxer en el format:</p>
+
+<p>Es poden consultar quines són les codificacions per cada llenguatge i país  a:</p>
+
+<p><a href="http://www.unicode.org/unicode/onlinedat/languages.html" title="Visit page outside Confluence">http://www.unicode.org/unicode/onlinedat/languages.html</a><br/>
+<a href="http://www.unicode.org/unicode/onlinedat/countries.html" title="Visit page outside Confluence">http://www.unicode.org/unicode/onlinedat/countries.html</a></p>
+<ol>
+	<li>En cas de que l'idioma escollit per l'usuari no correspongui amb cap fitxer,  es pot crear un fitxer per defecte. Aquest fitxer tindrà el format  'nomFitxer.properties'<em>.</em></li>
+</ol>
+
+
+<p>Exemple:</p>
+<ol>
+	<li>'applicationResources_en.properties', per representar els literals en  anglès</li>
+	<li>'applicationResources_es.properties', per representar els literals en  castellà</li>
+	<li>'applicationResources_ca.properties', per representar els literals  català</li>
+	<li>'applicationResources.properties', per representar els literals de qualsevol  altre idioma</li>
+</ol>
+
+
+<p><b>? Important</b></p>
+
+<p>És important que es proporcioni un fitxer de recursos per defecte. Aquest  serà el fitxer utilitzat pel servei en cas de que el llenguatge escollit per  l'usuari no correspongui a cap dels fitxers de recursos definits.</p>
+
+<p>En cas de que per un llenguatge determinat existeixi un fitxer específic,  l'obtenció del literal a partir d'una clau s'obtindrà des d'aquest fitxer. Si no  es troba la clau en cap cas s'anirà al fitxer per defecte. Així doncs és  important que es mantinguin actualitzats els fitxers de recursos per cada idioma  de l'aplicació per evitar problemes.</p>
+
+<p>Definició de la Integració amb el servei de presentació</p>
+
+<p><em>Fitxer de configuració: web.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/webapp/WEB-INF/web.xml</em><br/>
+NOTA: Aquesta  ubicació és la proposada en cas d'utilització de Maven</p>
+
+<p><img src="Servei de multiidioma_attachments/image009.gif" align="absmiddle" border="0" /></p>
+<ol>
+	<li>Struts Locale Filter</li>
+</ol>
+
+
+<p>Aquest filtre s'encarrega de integrar el Servei<br/>
+d'Internacionalització per  tal que des de Struts es pugui fer ús de fitxers d'internacionalització.</p>
+
+<p>Atributs:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Valor</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> filter-name </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Nom del filtre <br clear="all" />
+Exemple:  Struts Locale Filter </td>
+</tr>
+<tr>
+<td class='confluenceTd'> filter-class </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> net.gencat.ctti.canigo.services.web.i18n.StrutsLocaleFilter </td>
+<td class='confluenceTd'> <br clear="all" /> </td>
+<td class='confluenceTd'><br clear="all" /></td>
+</tr>
+</tbody></table>
+
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;filter&gt;
+
+&lt;filter-name&gt;Struts Locale  Filter&lt;/filter-name&gt;
+
+&lt;filter-class&gt;
+
+net.gencat.ctti.canigo.services.web.i18n.StrutsLocaleFilter
+
+&lt;/filter-class&gt;
+
+&lt;/filter&gt;</pre>
+</div></div><br clear="all" /></p>
+<ol>
+	<li>JSTL Locale Filter<br clear="all" /></li>
+</ol>
+
+
+<p>Aquest filtre s'encarrega de integrar el Servei<br/>
+d'Internacionalització per  tal que es pugui fer servir des de tags JSTL de tipus fmt</p>
+
+<p>Atributs:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> filter-name </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Nom del filtre <br clear="all" />
+Exemple:  Struts Locale Filter </td>
+</tr>
+<tr>
+<td class='confluenceTd'> filter-class </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Usar  'net.gencat.ctti.canigo.services.web.i18n.JSTLLocaleFilter' </td>
+<td class='confluenceTd'> <br clear="all" /> </td>
+</tr>
+</tbody></table>
+
+
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;filter&gt;
+
+&lt;filter-name&gt;JSTL Locale  Filter&lt;/filter-name&gt;
+
+&lt;filter-class&gt;
+
+net.gencat.ctti.canigo.services.web.i18n.JSTLLocaleFilter
+
+&lt;/filter-class&gt;
+
+&lt;/filter&gt;</pre>
+</div></div><br clear="all" /></p>
+
+<h2><a name="Serveidemultiidioma-Utilitzaci%C3%B3delServei"></a>Utilització del  Servei</h2>
+
+
+<h3><a name="Serveidemultiidioma-Canviarl%27Idiomadel%27Usuari"></a>Canviar  l'Idioma de l'Usuari</h3>
+
+<p>Es pot canviar l'idioma d'un usuari passant un paràmetre a la request amb nom  'set-locale'. El valor d'aquest paràmetre ha de tenir el següent format:</p>
+
+<p>'llenguatge_país',</p>
+
+<p>on llenguatge correspon a la codificació del llenguatge i país a la seva  codificació</p>
+
+<p>També es pot passar únicament el llenguatge.</p>
+
+<h3><a name="Serveidemultiidioma-Obtenci%C3%B3deTraduccions"></a>Obtenció de  Traduccions</h3>
+
+<p>Podem obtenir les traduccions d'un missatge amb els mètodes proporcionats per  la interfície:</p>
+
+<p><em>&#35; public String getMessage(String code)</em><b>: retorna un missatge a  partir de la seva clau i del 'Locale' per defecte</b> <em>(getDefaultLocale())</em><b>.</b><br/>
+<em>&#35; public String getMessage(String  code, Locale locale)</em><b>: retorna un missatge a partir de la seva clau i un  'Locale'</b><br/>
+<em>&#35; public String getMessage(String code, Object[]  args)</em><b>: retorna un missatge a partir de la seva clau, uns arguments per  construir un el missatge (típicament els paràmetres {0},{1}, etc) i del  'Locale' per defecte</b><br/>
+<em>&#35; public String getMessage(String code, Object[]  args, Locale locale)</em><b>: retorna un missatge a partir de la seva clau, uns  arguments per construir un el missatge (típicament els paràmetres {0},{1},  etc) i un 'Locale'</b></p>
+
+<p><b>En els mètodes en el que no passem el Locale, es farà ús del llenguatge  escollit per l'usuari (veure anterior apartat). En cas de no trobar-se cap  llenguatge s'usarà el llenguatge per defecte (definit com a propietat del servei  'defaultLocale' o en cas de no trobar-se segons el locale de la màquina  virtual).</b></p>
+
+<h2><a name="Serveidemultiidioma-Integraci%C3%B3ambAltresServeis"></a>Integració  amb Altres Serveis</h2>
+
+<p>El Servei d'Internacionalització canigo es tracta d'un servei àmpliament  utilitzat des de varis components de la capa de Presentació, principalment en el  Servei de Tags.</p>
+
+<h1><a name="Serveidemultiidioma-Exemples"></a>Exemples</h1>
+
+
+<h2><a name="Serveidemultiidioma-ExempledeTestUnitari"></a>Exemple de Test  Unitari</h2>
+
+<p>Com a exemple d'utilització es mostra cóm podem fer una prova unitària:</p>
+<ol>
+	<li>Creem la classe de test 'I18nServiceTest' que extèn de 'TestCase' i afegim  un mètode 'testI18N()'
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> class I18nServiceTest <span class="code-keyword">extends</span> TestCase {
+    ...
+    <span class="code-keyword">public</span> void testI18N() {
+
+        ...
+          }
+}</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Afegim el fitxer de configuració del servei  (applicationContext.xml)
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;beans&gt;
+
+&lt;bean  id=<span class="code-quote">"i18nService"</span>
+
+class=<span class="code-quote">"net.gencat.ctti.canigo.services.i18n.impl.SpringI18nServiceImpl"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"messageSource"</span> ref=<span class="code-quote">"messageSource"</span>/&gt;
+
+&lt;/bean&gt;
+
+&lt;bean  id=<span class="code-quote">"messageSource"</span>
+
+class=<span class="code-quote">"org.springframework.context.support.ResourceBundleMessageSource"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"basenames"</span>&gt;
+
+&lt;list&gt;
+
+&lt;value&gt;application&lt;/value&gt;
+
+&lt;/list&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;
+
+&lt;/beans&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ol>
+
+
+<p>i els fitxers dels diferents idiomes (application_XX_XX.properties)</p>
+
+<p>&#35;application.properties (fitxer per defecte)<br/>
+var1=Hola&#33;</p>
+
+<p>&#35;application_en_US.properties (fitxer pel 'Locale'  'US')<br/>
+var1=Attaaaaaack&#33;</p>
+
+<p>&#35;application_en_GB.properties (fitxer pel 'Locale' 'GB')<br/>
+var1=Hi&#33;</p>
+<ol>
+	<li>Implementem el nostre métode de test:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> void testI18N() {
+        ClassPathXmlApplicationContext appContext =
+            <span class="code-keyword">new</span> ClassPathXmlApplicationContext(
+                        <span class="code-quote">"applicationContext.xml"</span>);
+        BeanFactory factory = (BeanFactory) appContext;
+
+       /**
+        * Busquem el servei
+        */
+        I18nService service = (I18nService)factory.getBean(<span class="code-quote">"i18nService"</span>);
+
+        <span class="code-keyword">try</span> {
+            assertNotSame(<span class="code-quote">"Hola!"</span>,service.getMessage(<span class="code-quote">"var1"</span>));
+            assertNotSame(<span class="code-quote">"Hi!"</span>,service.getMessage(<span class="code-quote">"var1"</span>,Locale.UK));
+            assertNotSame(<span class="code-quote">"Attaaaaaack!"</span>,service.getMessage(<span class="code-quote">"var1"</span>,Locale.US));
+        }
+        <span class="code-keyword">catch</span>(I18nServiceException ex){
+            assertTrue(<span class="code-quote">"var1 not found"</span>,<span class="code-keyword">false</span>);
+        }
+    }</pre>
+</div></div><br clear="all" /></li>
+</ol>
+
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de multiidioma_attachments/image004.gif">image004.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de multiidioma_attachments/image005.gif">image005.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de multiidioma_attachments/image002.gif">image002.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de multiidioma_attachments/image003.gif">image003.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de multiidioma_attachments/image001.jpg">image001.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de multiidioma_attachments/image007.gif">image007.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de multiidioma_attachments/image008.gif">image008.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de multiidioma_attachments/image006.gif">image006.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de multiidioma_attachments/image009.gif">image009.gif</a> (image/gif)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

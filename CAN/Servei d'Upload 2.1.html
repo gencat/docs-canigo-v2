@@ -1,0 +1,424 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Servei d'Upload 2.1</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Servei d'Upload 2.1
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Jul 06, 2007 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="Serveid%27Upload2.1-SERVEID%27UPLOAD"></a>SERVEI D'UPLOAD</h1>
+
+
+<h1><a name="Serveid%27Upload2.1-Introducci%C3%B3"></a>Introducció</h1>
+
+<p><br clear="all" />
+<br clear="all" />
+<div>
+<ul><a href='#Serveid%27Upload2.1-SERVEID%27UPLOAD'>
+    <li>SERVEI D'UPLOAD</li></a><a href='#Serveid%27Upload2.1-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#Serveid%27Upload2.1-Prop%C3%B3sit'>
+    <li>Propósit</li></a><a href='#Serveid%27Upload2.1-ContextiEscenarisd%27%C3%9As'>
+    <li>Context i  Escenaris d'Ús</li></a><a href='#Serveid%27Upload2.1-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i  Dependències</li></a><a href='#Serveid%27Upload2.1-Aquivadirigit'>
+    <li>A qui va  dirigit</li></a><a href='#Serveid%27Upload2.1-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents i  Fonts de Referència</li></a>
+</ul><a href='#Serveid%27Upload2.1-Descripci%C3%B3Detallada'>
+    <li>Descripció  Detallada</li></a>
+<ul><a href='#Serveid%27Upload2.1-ArquitecturaiComponents'>
+    <li>Arquitectura i  Components</li></a><a href='#Serveid%27Upload2.1-Instal%5Claci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal&#45; lació  i Configuració</li></a>
+<ul><a href='#Serveid%27Upload2.1-Instal%5Claci%C3%B3'>
+    <li>Instal&#45; lació</li></a><a href='#Serveid%27Upload2.1-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#Serveid%27Upload2.1-Utilitzaci%C3%B3delServei'>
+    <li>Utilització del  Servei</li></a>
+<ul><a href='#Serveid%27Upload2.1-Definici%C3%B3delap%C3%A0ginaJSP'>
+    <li>Definició de  la pàgina JSP</li></a><a href='#Serveid%27Upload2.1-Acc%C3%A9sdesdelaclasseAction'>
+    <li>Accés des de la  classe Action</li></a>
+</ul><a href='#Serveid%27Upload2.1-EinesdeSuport'>
+    <li>Eines de  Suport</li></a><a href='#Serveid%27Upload2.1-Integraci%C3%B3ambAltresServeis'>
+    <li>Integració amb  Altres Serveis</li></a>
+<ul><a href='#Serveid%27Upload2.1-Integraci%C3%B3ambelServeiMultiidiomaiExcepcions'>
+    <li>Integració  amb el Servei Multiidioma i Excepcions</li></a>
+</ul>
+</ul><a href='#Serveid%27Upload2.1-Exemples'>
+    <li>Exemples</li></a>
+<ul><a href='#Serveid%27Upload2.1-Exemple'>
+    <li>Exemple</li></a>
+<ul><a href='#Serveid%27Upload2.1-Exempledeformulari'>
+    <li>Exemple de  formulari</li></a><a href='#Serveid%27Upload2.1-Exempled%27acc%C3%A9sdesdelaAction'>
+    <li>Exemple  d'accés des de la Action</li></a>
+</ul>
+</ul>
+</ul></div><br clear="all" /> <br clear="all" />
+&nbsp;
+<br clear="all" />
+<br clear="all" /></p>
+
+<h2><a name="Serveid%27Upload2.1-Prop%C3%B3sit"></a>Propósit</h2>
+
+<p>Aquest servei permet que poguem llegir tractar els fitxers que hagin adjuntat  els usuaris des dels formularis HTML en el seu navegador Web. Aquest tractament  pot ser llegir el fitxer de forma directa, desar-lo al sistema de fitxers o per  exemple emmagatzemar-lo en una base de dades.</p>
+
+<h2><a name="Serveid%27Upload2.1-ContextiEscenarisd%27%C3%9As"></a>Context i  Escenaris d'Ús</h2>
+
+<p>El Servei de Upload de Fitxers es troba ubicat dins els serveis continguts a  la capa de Presentació de canigo.</p>
+
+<h2><a name="Serveid%27Upload2.1-VersionsiDepend%C3%A8ncies"></a>Versions i  Dependències</h2>
+
+<p>Les dependències descrites a la següent url son requerides per tal de compilar i fer funcionar el projecte:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-fileupload/dependencies.html" title="Visit page outside Confluence">Dependències Servei d'Upload</a></p>
+
+<h2><a name="Serveid%27Upload2.1-Aquivadirigit"></a>A qui va  dirigit</h2>
+
+<p>Aquest document va dirigit als següents perfils:</p>
+<ol>
+	<li>Programador. Per conéixer l'ús del servei</li>
+	<li>Arquitecte. Per conéixer quins són els components i la configuració del  servei</li>
+</ol>
+
+
+<h2><a name="Serveid%27Upload2.1-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents i  Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> [1] </th>
+<th class='confluenceTh'> Spring File Upload </th>
+<th class='confluenceTh'> <a href="http://static.springframework.org/spring/docs/1.2.x/reference/mvc.html#mvc-multipart" title="Visit page outside Confluence">http://static.springframework.org/spring/docs/1.2.x/reference/mvc.html#mvc-multipart</a> </th>
+</tr>
+</tbody></table>
+<h1><a name="Serveid%27Upload2.1-Descripci%C3%B3Detallada"></a>Descripció  Detallada</h1>
+
+
+<h2><a name="Serveid%27Upload2.1-ArquitecturaiComponents"></a>Arquitectura i  Components</h2>
+
+<p>Els components podem classificar-los en:</p>
+<ol>
+	<li>Interfícies i Components Genérics. Interfícies del servei i components d'ús  general amb independència de la implementació escollida.</li>
+	<li>Implementació basada en Spring<br/>
+Es pot trobar tota la documentació JavaDoc y el codi font referent aquests components a les següents urls:</li>
+</ol>
+
+
+<p><ins>JavaDoc:</ins> <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-fileupload/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-fileupload/apidocs/index.html</a><br/>
+<ins>Codi Font:</ins>&nbsp; <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-fileupload/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-fileupload/xref/index.html</a></p>
+
+<h2><a name="Serveid%27Upload2.1-Instal%5Claci%C3%B3iConfiguraci%C3%B3"></a>Instal&#45; lació  i Configuració</h2>
+
+
+<h3><a name="Serveid%27Upload2.1-Instal%5Claci%C3%B3"></a>Instal&#45; lació</h3>
+
+<p>La instal&#45; lació del servei requereix de la utilització de la llibreria  'canigo-services-fileupload i les dependències indicades a l'apartat  'Introducció-Versions i Dependències'.</p>
+
+<h3><a name="Serveid%27Upload2.1-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p>La configuració del Servei implica els següents pasos:</p>
+<ol>
+	<li>Definir la implementació del Servei que s'usarà</li>
+	<li>Definir la localització del fitxer de propietats del servei</li>
+	<li>Definir les propietats del servei</li>
+</ol>
+
+
+<p>Definició del Servei<br/>
+<img src="Servei d'Upload 2.1_attachments/image007.gif" align="absmiddle" border="0" /></p>
+
+<p><em>Fitxer de configuració: canigo-services-fileupload.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>Indicar el bean del servei (amb id 'fileUploadService') i la implementació  escollida. Per la implementació 'FileUploadServiceImpl' definirem les següents  propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> maxAttachmentSize </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Màxim tamany permés abans que es  rebutgin els fitxers. Valor per defecte: 1 (no hi ha límit). Usar millor una  referència per definir el seu valor en un fitxer extern (veure 'Definició de les  Propietats del Servei') </td>
+</tr>
+<tr>
+<td class='confluenceTd'> logService </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Referència al Servei de Traces </td>
+</tr>
+<tr>
+<td class='confluenceTd'> resolver </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Detector de càrrega de fitxers .  Usar el valor <br clear="all" />
+'org.springframework.web.multipart.commons.CommonsMultipartResolver' <br clear="all" /> </td>
+</tr>
+</tbody></table>
+<p>Exemple:</p>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"uploadResolver"</span> class=<span class="code-quote">"org.springframework.web.multipart.commons.CommonsMultipartResolver"</span>&gt;
+&lt;/bean&gt;
+
+&lt;bean id=<span class="code-quote">"fileUploadService"</span> class="net.gencat.ctti.canigo.services.fileupload.impl.
+FileUploadServiceImpl"&gt;
+    &lt;property name=<span class="code-quote">"maxAttachmentSize"</span> value=<span class="code-quote">"$\{fileUploadService.maxAttachmentSize\}"</span>/&gt;
+    &lt;property name=<span class="code-quote">"logService"</span> ref=<span class="code-quote">"loggingService"</span>/&gt;
+    &lt;property name=<span class="code-quote">"resolver"</span> ref=<span class="code-quote">"uploadResolver"</span>/&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Definició de la Localització del Fitxer de Propietats del Servei<br/>
+<img src="Servei d'Upload 2.1_attachments/image008.gif" align="absmiddle" border="0" /><br clear="all" /></p>
+
+<p><em>Fitxer de configuració: canigo-services-configuration.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>Seguint el propósit general del Servei de Configuració definirem a la  propietat 'basePropertyFiles' una nova localització pel fitxer de propietats del  servei.</p>
+
+<p>Exemple:</p>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"configurationService"</span> class="net.gencat.ctti.canigo.services.configuration.
+springframework.beans.factory.config.HostPropertyPlaceholderConfigurer"&gt;
+    &lt;property name=<span class="code-quote">"basePropertyFiles"</span>&gt;
+        &lt;list&gt;
+            &lt;value&gt;classpath:jdbc/jdbc.properties&lt;/value&gt;
+            &lt;value&gt;classpath:mail/mail.properties&lt;/value&gt;
+            &lt;value&gt;classpath:file/fileUploadService.properties&lt;/value&gt;
+            &lt;value&gt;classpath:file/fileService.properties&lt;/value&gt;
+        &lt;/list&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Definició de les Propietats del Servei
+<br clear="all" /></p>
+
+<p><em>Fitxer de configuració: fileUploadService.properties</em></p>
+
+<p><em>Ubicació proposada: &lt;PROJECT_ROOT&gt;/src/main/resources/file</em></p>
+
+<p>En aquest fitxer definirem les propietats que permet el servei (veure  'Definició del Servei')<br/>
+Exemple:</p>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java">fileUploadService.maxAttachmentSize=1024</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h2><a name="Serveid%27Upload2.1-Utilitzaci%C3%B3delServei"></a>Utilització del  Servei</h2>
+
+<p>La utilització del servei comporta 2 pasos:</p>
+<ol>
+	<li>Definir la pàgina JSP</li>
+	<li>Definir l'accés des de la classe Action</li>
+</ol>
+
+
+<h3><a name="Serveid%27Upload2.1-Definici%C3%B3delap%C3%A0ginaJSP"></a>Definició de  la pàgina JSP</h3>
+
+<p>A la pàgina JSP cal fer tenir en consideració:</p>
+<ol>
+	<li>En el tag &lt;form&gt; (veure 'Servei de Tags') assegurar-se de definir les  propietats i valors:</li>
+	<li>method="post"</li>
+	<li>enctype="multipart/form-data"</li>
+</ol>
+
+
+<p>Exemple:</p>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java">&lt;fwk:form action=<span class="code-quote">"files.<span class="code-keyword">do</span>"</span> styleId=<span class="code-quote">"actionForm"</span> reqCode=<span class="code-quote">"upload"</span> width=<span class="code-quote">"500"</span>
+method=<span class="code-quote">"post"</span> enctype=<span class="code-quote">"multipart/form-data"</span>&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Usar el tag '&lt;file&gt;' (veure document 'Servei de Tags')
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;fwk:file styleId=<span class="code-quote">"tramitFile"</span> property=<span class="code-quote">"tramitFile"</span>/&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ol>
+
+
+<h3><a name="Serveid%27Upload2.1-Acc%C3%A9sdesdelaclasseAction"></a>Accés des de la  classe Action</h3>
+
+<p>canigo exposa una interfície d'utilització,  "net.gencat.ctti.canigo.fileupload.FileUploadService", que amaga la  implementació real. La interfície té el següent aspecte:</p>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">package</span> net.gencat.ctti.canigo.services.fileupload*;*
+
+...
+
+/**
+* Interface to detect fileUploads.
+*
+*/
+<span class="code-keyword">public</span> <span class="code-keyword">interface</span> FileUploadService {
+    <span class="code-keyword">public</span> <span class="code-keyword">static</span> <span class="code-keyword">final</span> <span class="code-object">String</span> FILE_UPLOAD_BEAN_FACTORY_KEY=<span class="code-quote">"FileUploadService"</span>;
+    UploadedFiles getUploadedFiles(HttpServletRequest request, <span class="code-object">String</span>[] fieldsToBind);
+}</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Aquesta interfíciee només exposa un métode 'getUploadedFiles' que a partir  del 'HttpServletRequest' retorna un objecte de tipus UploadedFiles. Aquest  objecte permet obtenir cadascun dels fitxers enviats.
+<br clear="all" /></p>
+
+<p>Així, podem realitzar les següents crides:</p>
+<ol>
+	<li>getFile(String tagId): obtenir el contingut del fitxer que s'adjuntat en el  camp del formulari amb el nom indicat a 'tagId'</li>
+	<li>isFileAvailable(String tagId): comprovar que s'ha adjuntat un fitxer en el  camp del formulari amb nom indicat amb 'tagId'</li>
+	<li>hasFiles: comprovar si s'han adjuntat fitxers
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> <span class="code-keyword">interface</span> UploadedFiles {
+    ...
+    <span class="code-keyword">public</span> UploadedFile getFile(<span class="code-object">String</span> tagId);
+    <span class="code-keyword">public</span> <span class="code-object">boolean</span> isFileAvailable(<span class="code-object">String</span> tagId);
+    <span class="code-keyword">public</span> <span class="code-object">boolean</span> hasFiles();
+}</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ol>
+
+
+<p>Per últim, una vegada obtingut un 'UploadFile' en concret podem obtenir la  seva informació i les seves dades de vàries formes (veure la signatura dels  mètodes continguts a la interfície).</p>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> <span class="code-keyword">interface</span> UploadedFile {
+    <span class="code-object">String</span> getName();
+         <span class="code-object">boolean</span> isEmpty();
+         <span class="code-object">String</span> getOriginalFilename();
+         <span class="code-object">String</span> getContentType();
+         <span class="code-object">long</span> getSize();
+         <span class="code-object">byte</span>[] getBytes() <span class="code-keyword">throws</span> IOException;
+    InputStream getInputStream() <span class="code-keyword">throws</span> IOException;
+    void transferTo(File dest) <span class="code-keyword">throws</span> IOException, IllegalStateException;
+}</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Val la pena observar que mitjançant el métode getInputStream es possible  llegit l'objecte per tal de transferir-lo per entrada-sortida java convencional,  però a més el mètode "transferTo" possibilita exportar el fitxer pujar a un  destí de fitxer en el servidor.
+<br clear="all" /></p>
+
+<p>Si hi ha qualsevol error com per exemple que excedeixi el límit configurable  de tamany de fitxers, la implementació llença una  "net.gencat.ctti.canigo.services.fileupload.exception.FileServiceException" on  s'especifican els detalls de l'error (error, codi d'error, capa i subsistema).</p>
+
+<h2><a name="Serveid%27Upload2.1-EinesdeSuport"></a>Eines de  Suport</h2>
+
+
+<h2><a name="Serveid%27Upload2.1-Integraci%C3%B3ambAltresServeis"></a>Integració amb  Altres Serveis</h2>
+
+
+<h3><a name="Serveid%27Upload2.1-Integraci%C3%B3ambelServeiMultiidiomaiExcepcions"></a>Integració  amb el Servei Multiidioma i Excepcions</h3>
+
+<p>El Servei de Upload de Fitxers llença vàries excepcions amb codis per tal que  el missatge pugui ser internacionalitzat. En el següent exemple es mostren els  codis que s'han de definir:</p>
+
+<p><b>canigo.services.fileupload.attachment_size_exceeded=Attachment size  exceeded:</b> {0} <b>bytes (max:</b> {1}*)&#42;<br/>
+canigo.services.fileupload.error_resolving_multipart_uploads=Error  retrieving file <b>{0}</b> from request</p>
+
+<h1><a name="Serveid%27Upload2.1-Exemples"></a>Exemples</h1>
+
+
+<h2><a name="Serveid%27Upload2.1-Exemple"></a>Exemple</h2>
+
+
+<h3><a name="Serveid%27Upload2.1-Exempledeformulari"></a>Exemple de  formulari</h3>
+
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;fwk:form action=<span class="code-quote">"files.<span class="code-keyword">do</span>"</span> styleId=<span class="code-quote">"actionForm"</span> reqCode=<span class="code-quote">"upload"</span> width=<span class="code-quote">"500"</span>
+method=<span class="code-quote">"post"</span> enctype=<span class="code-quote">"multipart/form-data"</span>&gt;
+    &lt;fwk:text styleId=<span class="code-quote">"currentDir"</span> property=<span class="code-quote">"currentDir"</span>/&gt;
+    &lt;fwk:file styleId=<span class="code-quote">"file"</span> property=<span class="code-quote">"file"</span>/&gt;
+    &lt;fwk:submit styleId=<span class="code-quote">"uploadActionImage"</span>/&gt;
+&lt;/fwk:form&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h3><a name="Serveid%27Upload2.1-Exempled%27acc%C3%A9sdesdelaAction"></a>Exemple  d'accés des de la Action</h3>
+
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">UploadedFiles files = FileUploadServiceUtils.getFiles(
+context.getRequest(),
+<span class="code-keyword">new</span> <span class="code-object">String</span>[] {<span class="code-quote">"file1"</span>});
+<span class="code-keyword">if</span>(files.hasFiles()){
+    <span class="code-keyword">if</span>(files.isFileAvailable(<span class="code-quote">"file1"</span>)){
+        UploadedFile file1 = files.getFile(<span class="code-quote">"file1"</span>);
+    }
+}</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+En aquest cas hem fet servir el mètode estàtic "getFiles" de la classe  auxiliar<br/>
+"net.gencat.ctti.canigo.services.fileupload.FileUploadServiceUtils"<br/>
+Aquest  mètode permet utilitzar el servei sense haver de localitzar-lo expressament.
+<br clear="all" /></p>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei d'Upload 2.1_attachments/image001.jpg">image001.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei d'Upload 2.1_attachments/image008.gif">image008.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei d'Upload 2.1_attachments/image003.gif">image003.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei d'Upload 2.1_attachments/image002.gif">image002.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei d'Upload 2.1_attachments/image004.gif">image004.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei d'Upload 2.1_attachments/image007.gif">image007.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei d'Upload 2.1_attachments/image005.gif">image005.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei d'Upload 2.1_attachments/image006.gif">image006.gif</a> (image/gif)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

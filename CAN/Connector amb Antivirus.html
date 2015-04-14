@@ -1,0 +1,392 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Connector amb Antivirus</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Connector amb Antivirus
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Jul 21, 2010 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="ConnectorambAntivirus-CONNECTORAMBANTIVIRUS"></a>CONNECTOR AMB ANTIVIRUS</h1>
+
+<p><br clear="all" />
+<br clear="all" />
+<div>
+<ul><a href='#ConnectorambAntivirus-CONNECTORAMBANTIVIRUS'>
+    <li>CONNECTOR AMB ANTIVIRUS</li></a><a href='#ConnectorambAntivirus-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#ConnectorambAntivirus-Prop%C3%B2sit'>
+    <li>Propòsit</li></a><a href='#ConnectorambAntivirus-ContextiEscenarisd%27%C3%9As'>
+    <li>Context i Escenaris d'Ús</li></a><a href='#ConnectorambAntivirus-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i Dependències</li></a><a href='#ConnectorambAntivirus-Aquivadirigit'>
+    <li>A qui va dirigit</li></a><a href='#ConnectorambAntivirus-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents i Fonts de Referència</li></a>
+</ul><a href='#ConnectorambAntivirus-Descripci%C3%B3Detallada'>
+    <li>Descripció Detallada</li></a>
+<ul><a href='#ConnectorambAntivirus-ArquitecturaiComponents'>
+    <li>Arquitectura i Components</li></a>
+<ul><a href='#ConnectorambAntivirus-Interf%C3%ADciesiComponentsGen%C3%A8rics'>
+    <li>Interfícies i Components Genèrics</li></a><a href='#ConnectorambAntivirus-Requeriments'>
+    <li>Requeriments</li></a>
+</ul><a href='#ConnectorambAntivirus-Instal.laci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal.lació i Configuració</li></a>
+<ul><a href='#ConnectorambAntivirus-Instal.laci%C3%B3'>
+    <li>Instal.lació</li></a><a href='#ConnectorambAntivirus-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#ConnectorambAntivirus-Utilitzaci%C3%B3delConnector'>
+    <li>Utilització del Connector</li></a>
+<ul><a href='#ConnectorambAntivirus-ModeLocal'>
+    <li>Mode Local</li></a><a href='#ConnectorambAntivirus-ModeRemot'>
+    <li>Mode Remot</li></a><a href='#ConnectorambAntivirus-Exempled%27utilitzaci%C3%B3'>
+    <li>Exemple d'utilització</li></a>
+</ul><a href='#ConnectorambAntivirus-Integraci%C3%B3ambAltresServeis'>
+    <li>Integració amb Altres Serveis</li></a>
+<ul><a href='#ConnectorambAntivirus-Integraci%C3%B3ambelServeideInternacionalitzaci%C3%B3'>
+    <li>Integració amb el Servei de Internacionalització</li></a>
+</ul>
+</ul>
+</ul></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h1><a name="ConnectorambAntivirus-Introducci%C3%B3"></a>Introducció</h1>
+
+
+<h2><a name="ConnectorambAntivirus-Prop%C3%B2sit"></a>Propòsit</h2>
+
+<p><font color="black">El propòsit del connector és proporcionar una interfície per poder utilitzar el servei d'Antivirus Central del CTTI.</font></p>
+
+<h2><a name="ConnectorambAntivirus-ContextiEscenarisd%27%C3%9As"></a>Context i Escenaris d'Ús</h2>
+
+<p><font color="black">El connector d'Antivirus es troba dins els connectors de serveis funcionals.</font></p>
+
+<h2><a name="ConnectorambAntivirus-VersionsiDepend%C3%A8ncies"></a>Versions i Dependències</h2>
+
+<p><font color="black">En el present apartat es mostren quines són les versions i dependències necessàries per fer ús del Connector.</font></p>
+
+<p><font color="black">Les dependències descrites a la següent url són requerides per tal de fer funcionar el servei:</font><br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_7/canigo-connectors-root/canigo-connectors-antivirus/dependencies.html" title="Visit page outside Confluence">Dependències del Connector Antivirus</a></p>
+
+<h2><a name="ConnectorambAntivirus-Aquivadirigit"></a>A qui va dirigit</h2>
+
+<p><font color="black">Aquest document va dirigit als següents perfils:</font></p>
+<ol>
+	<li><font color="black">Programador. Per conèixer l'ús del connector.</font></li>
+	<li><font color="black">Arquitecte. Per conèixer quins són els components i la configuració del connector.</font></li>
+</ol>
+
+
+<h2><a name="ConnectorambAntivirus-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents i Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<td class='confluenceTd'> <font color="red">[1]</font> </td>
+<td class='confluenceTd'> <font color="red">Guia d'ús de l'API del Connector Antivirus.</font> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> <font color="red">[2]</font> </td>
+<td class='confluenceTd'> <font color="red">Documentació funcional i tècnica del Connector Antivirus.</font> </td>
+</tr>
+</tbody></table>
+
+<h1><a name="ConnectorambAntivirus-Descripci%C3%B3Detallada"></a>Descripció Detallada</h1>
+
+
+<h2><a name="ConnectorambAntivirus-ArquitecturaiComponents"></a>Arquitectura i Components</h2>
+
+
+<h3><a name="ConnectorambAntivirus-Interf%C3%ADciesiComponentsGen%C3%A8rics"></a>Interfícies i Components Genèrics</h3>
+
+<p><font color="black">Es pot trobar tota la documentació JavaDoc i el codi font referent aquests components a les següents url's:</font></p>
+
+<p><font color="red"><ins>JavaDoc:</ins></font><font color="red">&nbsp;</font><a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_7/canigo-connectors-root/canigo-connectors-antivirus/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_7/canigo-connectors-root/canigo-connectors-antivirus/apidocs/index.html</a><br/>
+<font color="red"><ins>Codi Font:</ins></font><font color="red">&nbsp;</font><font color="red">&nbsp;</font><a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_7/canigo-connectors-root/canigo-connectors-antivirus/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_7/canigo-connectors-root/canigo-connectors-antivirus/xref/index.html</a></p>
+
+<h3><a name="ConnectorambAntivirus-Requeriments"></a>Requeriments</h3>
+
+<p><font color="black">El connector</font> <font color="black">Antivirus és compatible amb les versions 1.4 o superior de Java. Per versions inferiors no es garantitza el seu correcte funcionament. Si fos necessària la utilització d'una versió inferior a 1.4</font><font color="black">&nbsp;</font> <font color="black">s'hauria de posar-se en contacte amb el</font><br/>
+Centre de Suport de Canigó, <b>oficina-tecnica.canigo.ctti@gencat.net</b></p>
+
+<p>Per tal de que el connector Antivirus funcioni correctament sobre l'aplicació que l'utilitzi, és necessari que tingui definides les següents Keys en l'arxiu applicationResources.properties</p>
+
+<p>antivirus.message1=S'han trobat<br/>
+antivirus.message2=amenaces</p>
+
+<h2><a name="ConnectorambAntivirus-Instal.laci%C3%B3iConfiguraci%C3%B3"></a>Instal.lació i Configuració</h2>
+
+
+<h3><a name="ConnectorambAntivirus-Instal.laci%C3%B3"></a>Instal.lació</h3>
+
+<p><font color="black">La instal.lació del connector requereix de la utilització de la llibreria 'canigo-connectors-antivirus' i les dependències indicades a l'apartat '</font>Introducció-Versions i Dependències<font color="black">'.</font></p>
+
+<p><font color="black">Per poder disposar del Connector Antivirus en una aplicació Canigó s'ha de modificar el pom.xml de l'aplicació per incloure la llibreria del Connector com una dependència.</font><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;dependency&gt;
+        &lt;groupId&gt;canigo.connectors&lt;/groupId&gt;
+        &lt;artifactId&gt;canigo-connectors-antivirus&lt;/artifactId&gt;
+	&lt;version&gt;2.3.7&lt;/version&gt;
+&lt;/dependency&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h3><a name="ConnectorambAntivirus-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p><br clear="all" /></p>
+
+<p>Per poder configurar el connector Antivirus és necessari incloure el següent bean&nbsp; en l'arxiu de configuració canigo-services.xml&lt;import resource="canigo-connectors.xml"/&gt;<br/>
+Posteriorment es crearà aquest arxiu en</p>
+
+<p>Classpath: src/main/resources/spring/canigo-connectors.xml</p>
+
+<p>En aquest arxiu s'haurà de declarar el bean següent:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span> ?&gt;
+&lt;!DOCTYPE beans PUBLIC <span class="code-quote">"-<span class="code-comment">//SPRING//DTD BEAN//EN"</span> <span class="code-quote">"http://www.springframework.org/dtd/spring-beans.dtd"</span>&gt;
+</span>&lt;beans&gt;
+&lt;!-- Altres beans que hi pugui haber --&gt;
+    &lt;bean id=<span class="code-quote">"antivirusConnector"</span>  class=<span class="code-quote">"net.gencat.connectors.antivirus.impl.AntivirusConnectorImpl"</span>&gt;
+        &lt;property name=<span class="code-quote">"remote"</span> value=<span class="code-quote">"<span class="code-keyword">true</span>"</span> /&gt;
+    	&lt;property name=<span class="code-quote">"serverIP"</span> value=<span class="code-quote">"10.30.26.74"</span> /&gt;
+        &lt;property name=<span class="code-quote">"serverPort"</span> value=<span class="code-quote">"1344"</span> /&gt;
+        &lt;property name=<span class="code-quote">"numDayDBCaduc"</span> value=<span class="code-quote">"15"</span> /&gt;
+   &lt;/bean&gt;
+&lt;/beans&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> <font color="black">Les dades representades en aquest bean son:</font><br clear="all" /> <font color="black"><b>Remote</b></font><font color="black">: Indica si l'arxiu es troba en remot o en local.</font><br clear="all" /> <font color="black"><b>ServerIP</b></font><font color="black">: Direcció IP del servidor Engine Scan del CTTI, responsable dels escaneigs.</font><br clear="all" /> <font color="black"><b>ServerPort</b></font><font color="black">: Port pel qual es comunica l'aplicació amb el servidor Antivirus Central.</font><br clear="all" /> <font color="black"><b>numDayDBCaduc</b></font><font color="black">: Número de dies a partir del qual es considera que la definició de la base de dades de l'antivirus és obsoleta. Si es retornés que la base de dades de la definició de virus es troba obsoleta el connector retornarà un estat de Warning (veure detall).</font><br clear="all" /> <font color="black">Amb aquests pasos el connector romandrà configurat.</font><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h2><a name="ConnectorambAntivirus-Utilitzaci%C3%B3delConnector"></a>Utilització del Connector</h2>
+
+<p><br clear="all" /></p>
+
+<p><font color="black">El connector Antivirus disposa de dos modes de funcionament principals diferents en funció de on es trobi el document a escanejar.</font></p>
+<ul>
+	<li><font color="black">El mode remot.</font></li>
+	<li><font color="black">El mode local.</font></li>
+</ul>
+
+
+<p>L'antivirus te restriccions en la mida màxima del fitxer a escanejar i el nombre de nivells d'anidament dintre d'un fitxer zip:</p>
+
+<p>&#45; Mida màxima (20MB)</p>
+
+<p>&#45; Nombre màxim de nivells d'anidament (10nivells)</p>
+
+<h3><a name="ConnectorambAntivirus-ModeLocal"></a>Mode Local</h3>
+
+<p><br clear="all" /></p>
+
+<p><font color="black">Amb aquest mètode d'escaneig es pretén escanejar un arxiu que es trobi en la màquina local de l'usuari que esta utilitzant una aplicació Canigó que disposa d'aquest Connector.</font></p>
+
+<p><font color="black">En la configuració del connector aquest mode ve representat per la propietat:</font><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;property name=<span class="code-quote">"remote"</span> value=<span class="code-quote">"<span class="code-keyword">false</span>"</span> /&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" /> <font color="black">L'arxiu seleccionat es pujarà de forma automàtica al servidor d'aplicacions mitjançant el servei de upload de Canigó i posteriorment s'enviarà al Servidor Antivirus Central.</font><font color="black">Aquest últim retornarà la resposta que serà interpretada pel connector i facilitada a l'aplicació.</font><br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h3><a name="ConnectorambAntivirus-ModeRemot"></a>Mode Remot</h3>
+
+<p><br clear="all" /> <font color="black">Aquest mode està pensat per poder escanejar arxius que ja es trobin pujats en el servidor Antivirus Central. Això implica que el path que es passarà com a paràmetre a la API es el path de l'arxiu a escanejar dintre del Servidor Antivirus Central.</font></p>
+
+<p><font color="black">En la configuració del connector aquest mode ve representat per la propietat:</font><br clear="all" /></p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;property name=<span class="code-quote">"remote"</span> value=<span class="code-quote">"<span class="code-keyword">true</span>"</span> /&gt;</pre>
+</div></div>
+<p>Aquest mode de funcionament te com a premissa que l'arxiu a escanejar ja es trobi pujat al servidor Central Antivirus. Els procediments per poder pujar un arxiu a aquest servidor no són de l'abast d'aquest document.
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h3><a name="ConnectorambAntivirus-Exempled%27utilitzaci%C3%B3"></a>Exemple d'utilització</h3>
+
+<p><font color="black">A continuació es mostra la descripció de l'ús pràctic del Connector Antivirus.</font></p>
+
+<p><font color="black">1.&#45; Reproduir els passos del punt 2.1.4 Configuració.</font></p>
+
+<p><font color="black">2.&#45; Creació de la JSP amb un TAG &lt;fwk:file&gt; per poder pujar l'arxiu:</font></p>
+
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;fwk:file styleId=<span class="code-quote">"Arxiu"</span> property=<span class="code-quote">"arxiu"</span>&gt;&lt;/fwk:file&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> <font color="black">3.&#45; Definir el TAG file en canigo-services-web.xml.</font><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"fileFieldTag"</span>	class="net.gencat.ctti.canigo.services.web.struts.
+taglib.forms.fields.FileFieldTag"&gt;
+      &lt;property name=<span class="code-quote">"layout"</span> value=<span class="code-quote">"<span class="code-keyword">false</span>"</span>/&gt;
+      &lt;property name=<span class="code-quote">"i18nService"</span> ref=<span class="code-quote">"i18nService"</span>/&gt;
+      &lt;property name=<span class="code-quote">"validationService"</span> ref=<span class="code-quote">"webValidationService"</span>/&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> <font color="black">4. Definir el Bean associat al TAG file en el seu arxiu de configuració pertinent (action-servlet-xxx.xml).</font><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean parent=<span class="code-quote">"fileFieldTag"</span>&gt;
+      &lt;property name=<span class="code-quote">"styleId"</span> value=<span class="code-quote">"Arxiu"</span>&gt;&lt;/property&gt;
+      &lt;property name=<span class="code-quote">"layout"</span> value=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;&lt;/property&gt;
+      &lt;property name=<span class="code-quote">"mode"</span> value = <span class="code-quote">"E,E,E"</span>&gt;&lt;/property&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> <font color="black">5.Definir el servei al l'arxiu de configuració del servlet (action-servlet-xxxx.xml).</font><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;property name=<span class="code-quote">"fileUpload"</span> ref=<span class="code-quote">"fileUploadService"</span> /&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> <font color="black">6. Al utilitzar el TAG &lt;fwk:file&gt; s'està utilitzant de forma implícita el servei de upload de fitxers del Framework. Per tant farà falta configurar-lo.</font><br/>
+<font color="black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6.1.Modificar el pom.xml de l'aplicació per incloure les dependències les llibreries dels serveis</font><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;dependency&gt;
+	&lt;groupId&gt;canigo&lt;/groupId&gt;
+        &lt;artifactId&gt;canigo-services-fileupload&lt;/artifactId&gt;
+        &lt;version&gt;2.3.7&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+        &lt;groupId&gt;canigo&lt;/groupId&gt;
+        &lt;artifactId&gt;canigo-services-file&lt;/artifactId&gt;
+        &lt;version&gt;2.3.7&lt;/version&gt;
+&lt;/dependency&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> <font color="black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6.2. Modificar el canigo-services.xml per incloure els serveis nous.</font><br/>
+<font color="black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;<span class="code-keyword">import</span> resource=<span class="code-quote">"canigo-services-fileupload.xml"</span>/&gt;
+&lt;<span class="code-keyword">import</span> resource=<span class="code-quote">"canigo-services-file.xml"</span>/&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> <font color="black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6.3.Afegim els arxius de configuració dels serveis nous.</font><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">Classpath:/src/main/resources/file
+	fileService.properties
+	fileService.properties.desenvolupament
+	fileUploadService.properties
+	fileUploadService.properties.desenvolupament</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">Contingut exemple de fileService.properties
+	fileService.tempDir=d:</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">Contingut exemple de fileUploadService.properties
+	fileUploadService.maxAttachmentSize=2048
+        uploadResolver.maxUploadSize=1000000
+        uploadResolver.maxInMemorySize=10000000
+        uploadResolver.defaultEncoding=ISO-8859-1</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> <font color="black">Per més informació sobre el servei de upload de Canigó veure la informació de referència en el</font> <a href="http://canigo.ctti.gencat.cat/confluence/display/CAN/Servei+d%27Upload+2.3.x" title="Visit page outside Confluence">portal</a><font color="black">.</font><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> <font color="black">7. Finalment modificar la classe java de l'action per incloure el següent codi:</font><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">private</span> AntivirusConnector antivirus;
+<span class="code-keyword">private</span> FileUploadService fileUpload;
+...
+<span class="code-object">String</span>[] UPLOADED_FILES = <span class="code-keyword">new</span> <span class="code-object">String</span>[] { <span class="code-quote">"arxiu"</span> };
+UploadedFiles uploadedFiles = <span class="code-keyword">this</span>.fileUpload.
+getUploadedFiles(request, UPLOADED_FILES);
+UploadedFile fitxerCarregat = uploadedFiles.getFile(<span class="code-quote">"arxiu"</span>);
+
+ResultatEscaneig res = antivirus.scan(fitxerCarregat.getBytes());</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+8. Per poder recuperar la informació d'escaneig que el connector retorna s'haurà de consultar de l'objecte de retorn ResultatEscaneig. En aquest cas:
+<br clear="all" />
+<br clear="all" /> res.getEstat() &lt;&#45; Retorna l'estat general del procés d'escaneig (OK = 0, KO = &#45;1, WARNING = 1).<br/>
+<font color="black">res.getMissatge() &lt;&#45; Missatge que acompanya l'estat de finalització de l'escaneig.</font><br/>
+<font color="black">res.getArrayVirus() &lt;&#45; Array d'objectes tipus InfectionInfo amb la informació de les amenaces trobades si fos el cas.</font><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h2><a name="ConnectorambAntivirus-Integraci%C3%B3ambAltresServeis"></a>Integració amb Altres Serveis</h2>
+
+
+<h3><a name="ConnectorambAntivirus-Integraci%C3%B3ambelServeideInternacionalitzaci%C3%B3"></a>Integració amb el Servei de Internacionalització</h3>
+
+<p>En els fitxers de configuració es defineixen claus que permeten especificar quins missatges retornar en cas errors. Per a poder traduir aquestes claus és necessari especificar que el connector utilitzarà el Servei d'Internacionalització (veure Configuració).
+<br clear="all" /></p>
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

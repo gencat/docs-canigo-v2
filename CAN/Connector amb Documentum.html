@@ -1,0 +1,401 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Connector amb Documentum</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Connector amb Documentum
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Mar 15, 2010 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="ConnectorambDocumentum-CONNECTORAMBDOCUMENTUM"></a>CONNECTOR AMB DOCUMENTUM</h1>
+
+<p><br clear="all" />
+<br clear="all" />
+<div>
+<ul><a href='#ConnectorambDocumentum-CONNECTORAMBDOCUMENTUM'>
+    <li>CONNECTOR AMB DOCUMENTUM</li></a><a href='#ConnectorambDocumentum-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#ConnectorambDocumentum-Prop%C3%B3sit'>
+    <li>Propósit</li></a><a href='#ConnectorambDocumentum-ContextiEscenarisd%27%C3%9As'>
+    <li>Context i  Escenaris d'Ús</li></a><a href='#ConnectorambDocumentum-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i  Dependències</li></a><a href='#ConnectorambDocumentum-Aquivadirigit'>
+    <li>A qui va  dirigit</li></a><a href='#ConnectorambDocumentum-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents  i Fonts de Referència</li></a><a href='#ConnectorambDocumentum-Glossari'>
+    <li>Glossari</li></a>
+</ul><a href='#ConnectorambDocumentum-Descripci%C3%B3Detallada'>
+    <li>Descripció  Detallada</li></a>
+<ul><a href='#ConnectorambDocumentum-ArquitecturaiComponents'>
+    <li>Arquitectura i  Components</li></a>
+<ul><a href='#ConnectorambDocumentum-Interf%C3%ADciesiComponentsGen%C3%A9rics'>
+    <li>Interfícies  i Components Genérics</li></a>
+</ul><a href='#ConnectorambDocumentum-Instal%5Claci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal&#45; lació  i Configuració</li></a>
+<ul><a href='#ConnectorambDocumentum-Instal%5Claci%C3%B3'>
+    <li>Instal&#45; lació</li></a><a href='#ConnectorambDocumentum-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#ConnectorambDocumentum-Utilitzaci%C3%B3delServei'>
+    <li>Utilització  del Servei</li></a>
+<ul><a href='#ConnectorambDocumentum-Creaci%C3%B3fitxerpropietats'>
+    <li>Creació  fitxer propietats</li></a><a href='#ConnectorambDocumentum-Creaci%C3%B3beand%27Spring'>
+    <li>Creació  bean d'Spring</li></a><a href='#ConnectorambDocumentum-Injecci%C3%B3delbeanenelBO'>
+    <li>Injecció  del bean en el BO</li></a><a href='#ConnectorambDocumentum-Inicisessi%C3%B3documentumi%C3%BAs'>
+    <li>Inici  sessió documentum i ús</li></a>
+</ul><a href='#ConnectorambDocumentum-Integraci%C3%B3ambAltresServeis'>
+    <li>Integració  amb Altres Serveis</li></a>
+<ul><a href='#ConnectorambDocumentum-Integraci%C3%B3ambelServeideInternacionalitzaci%C3%B3'>
+    <li>Integració  amb el Servei de Internacionalització</li></a>
+</ul>
+</ul>
+</ul></div><br clear="all" /> <br clear="all" />
+&nbsp;
+<br clear="all" />
+<br clear="all" /></p>
+
+<h1><a name="ConnectorambDocumentum-Introducci%C3%B3"></a>Introducció</h1>
+
+
+<h2><a name="ConnectorambDocumentum-Prop%C3%B3sit"></a>Propósit</h2>
+
+<p>El propósit del connector és proporcionar una interfície Java per accedir a  Documentum. Permetent emmagatzemar i recuperar documents a més d'altres  operacions relacionades com crear carpetes i associar propietats.</p>
+
+<h2><a name="ConnectorambDocumentum-ContextiEscenarisd%27%C3%9As"></a>Context i  Escenaris d'Ús</h2>
+
+<p>El connector documentum es troba dins els Connectors de Serveis  Funcionals.</p>
+
+<h2><a name="ConnectorambDocumentum-VersionsiDepend%C3%A8ncies"></a>Versions i  Dependències</h2>
+
+<p>&nbsp;Les dependències descrites a la següent url son requerides per tal de fer funcionar el servei:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-connectors-root/canigo-connectors-documentum/dependencies.html" title="Visit page outside Confluence">Dependències Connector amb Documentum</a></p>
+
+<h2><a name="ConnectorambDocumentum-Aquivadirigit"></a>A qui va  dirigit</h2>
+
+<p>Aquest document va dirigit als següents perfils:</p>
+<ol>
+	<li>Programador. Per conéixer l'ús del connector.</li>
+	<li>Arquitecte. Per conéixer quins són els components i la configuració del  connector.</li>
+</ol>
+
+
+<h2><a name="ConnectorambDocumentum-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents  i Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> [1] </th>
+<th class='confluenceTh'> Anàlisi Funcional - Connector  Serveis Funcionals - 16-Nov.doc </th>
+<th class='confluenceTh'> Document d'anàlisi dels connectors  de serveis funcionals. </th>
+</tr>
+<tr>
+<td class='confluenceTd'> [2] </td>
+<td class='confluenceTd'> Documentum Foundation Classes (DFC) </td>
+<td class='confluenceTd'> <a href="http://www.dmdeveloper.com/articles/dfc/" title="Visit page outside Confluence">http://www.dmdeveloper.com/articles/dfc/</a> </td>
+</tr>
+</tbody></table>
+
+<h2><a name="ConnectorambDocumentum-Glossari"></a>Glossari</h2>
+
+
+<h1><a name="ConnectorambDocumentum-Descripci%C3%B3Detallada"></a>Descripció  Detallada</h1>
+
+
+<h2><a name="ConnectorambDocumentum-ArquitecturaiComponents"></a>Arquitectura i  Components</h2>
+
+
+<h3><a name="ConnectorambDocumentum-Interf%C3%ADciesiComponentsGen%C3%A9rics"></a>Interfícies  i Components Genérics</h3>
+
+<p>Es pot trobar tota la documentació JavaDoc y el codi font referent aquests components a les següents urls:</p>
+
+<p><ins>JavaDoc:</ins> <ins><a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-connectors-root/canigo-connectors-documentum/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-connectors-root/canigo-connectors-documentum/apidocs/index.html</a></ins></p>
+
+<p><ins>Codi Font:</ins>&nbsp; <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-connectors-root/canigo-connectors-documentum/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-connectors-root/canigo-connectors-documentum/xref/index.html</a></p>
+
+<h2><a name="ConnectorambDocumentum-Instal%5Claci%C3%B3iConfiguraci%C3%B3"></a>Instal&#45; lació  i Configuració</h2>
+
+
+<h3><a name="ConnectorambDocumentum-Instal%5Claci%C3%B3"></a>Instal&#45; lació</h3>
+
+<p>La instal&#45; lació del connector requereix de la utilització de la llibreria  'canigo-connectors-documentum' i les dependències indicades a l'apartat  'Introducció-Versions i Dependències'.</p>
+
+<p>Ademés s'han de instal.lar les llibreries <em>DFC_5.3_SP1_windows.exe</em> que formen part del producte Documentum. Els passos a seguir en l'instal.lació  són els següents:</p>
+
+<p><img src="Connector amb Documentum_attachments/image005.jpg" align="absmiddle" border="0" /></p>
+
+<p><img src="Connector amb Documentum_attachments/image006.jpg" align="absmiddle" border="0" /></p>
+
+<p><img src="Connector amb Documentum_attachments/image007.jpg" align="absmiddle" border="0" /></p>
+
+<p><img src="Connector amb Documentum_attachments/image008.jpg" align="absmiddle" border="0" /></p>
+
+<p>Aquí indicarem el host i el port de documentum. Aquesta part crearà el fitxer  C:\WINDOWS &#42;dmcl.ini*, que és on guardarà paràmetres com el host i el port. En  aquest fitxer podrem canviar aquesta configuració un cop finalitzada la  instal.lació. Tindrà el següent format:</p>
+
+<p><b>[DOCBROKER_PRIMARY]</b><br/>
+<b>host =es-hg2r02j</b><br/>
+<b>port  =1489</b></p>
+
+<p><b>[DMAPI_CONFIGURATION]</b><br/>
+<b>cache_queries =  T</b><br/>
+<b>token_storage_enabled=F</b><br/>
+<b>token_storage_path=D:\Documentum\apptoken</b></p>
+
+<p><img src="Connector amb Documentum_attachments/image009.jpg" align="absmiddle" border="0" /></p>
+
+<p><img src="Connector amb Documentum_attachments/image010.jpg" align="absmiddle" border="0" /></p>
+
+<p><img src="Connector amb Documentum_attachments/image011.jpg" align="absmiddle" border="0" /></p>
+
+<p><img src="Connector amb Documentum_attachments/image012.jpg" align="absmiddle" border="0" /></p>
+
+<p><img src="Connector amb Documentum_attachments/image013.jpg" align="absmiddle" border="0" /></p>
+
+<p><img src="Connector amb Documentum_attachments/image014.jpg" align="absmiddle" border="0" /></p>
+
+<h3><a name="ConnectorambDocumentum-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p>Serà necesari el fitxer de configuració de la pròpia aplicació que utilitza  el connector documentum on inclourem l'utilització del connector.</p>
+
+<p>Exemple:</p>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean name=<span class="code-quote">"documentumConnectorBean"</span>  class=<span class="code-quote">"net.soluziona.documentum.DocumentumConnectorImpl"</span>/&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>L'arxiu de configuració del projecte per Maven 2 (<em>pom.xml</em>) ha d'incloure la dependència del connector:<br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;dependency&gt;
+    &lt;groupId&gt;canigo.connectors&lt;/groupId&gt;
+    &lt;artifactId&gt;canigo-connectors-documentum&lt;/artifactId&gt;
+    &lt;version&gt;num_versio&lt;/version&gt;
+&lt;/dependency&gt;</pre>
+</div></div><br clear="all" /></p>
+
+<p><b>NOTA:</b> El <tt>num_versio</tt> ha de ser:</p>
+<ul>
+	<li>1.0 &#45;-&gt; Si es vol connectar a Documentum 5.3</li>
+	<li>1.1 &#45;-&gt; Si es vol connectar a Documentum 6.5</li>
+</ul>
+
+
+<h2><a name="ConnectorambDocumentum-Utilitzaci%C3%B3delServei"></a>Utilització  del Servei</h2>
+
+<p>La utilització del Connector es basa principalment en la configuració. L'ús  directe des dels clients es permet mitjançant les interfícies definides.</p>
+
+<p><img src="Connector amb Documentum_attachments/image015.gif" align="absmiddle" border="0" /></p>
+
+<h3><a name="ConnectorambDocumentum-Creaci%C3%B3fitxerpropietats"></a>Creació  fitxer propietats</h3>
+
+<p>Hem de crear un fitxer de propietats (p.e. documentum.properties) amb els  següents paràmetres:</p>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java">documentum.user=usr
+
+documentum.password=pwd
+
+documentum.docBase=DTIDev
+
+documentum.path=/CTTI
+
+documentum.dir=dir  CTTI
+
+documentum.cabinet=CTTI
+
+documentum.exportDir=c:
+
+
+Export_Dir</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Definició dels paràmetres:<br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java">documentum.user=usuari del documentum
+
+documentum.password=password  documentum
+
+documentum.docBase=doc base
+
+documentum.path=path en  documentum
+
+documentum.dir=directori de  documentum
+
+documentum.cabinet=cabinet  documentum
+
+documentum.exportDir=directori fitxers aplicació</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Aquest fitxer de propietats l'inclourem al classpath de l'aplicació  mitjançant el servei de configuració:<br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;beans&gt;
+&lt;bean id=<span class="code-quote">"configurationService"</span> class="net.ctti.canigo.services.configuration.
+springframework.beans.factory.config.HostPropertyPlaceholderConfigurer"&gt;
+&lt;property name=<span class="code-quote">"basePropertyFiles"</span>&gt;
+&lt;list&gt;
+&lt;value&gt;classpath: Documentum/documentum.properties&lt;/value&gt;
+&lt;/list&gt;
+&lt;/property&gt;
+&lt;/bean&gt;
+&lt;/beans&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h3><a name="ConnectorambDocumentum-Creaci%C3%B3beand%27Spring"></a>Creació  bean d'Spring</h3>
+
+<p>Després haurem de crear un bean d'Spring de configuració de Documentum que  inclogui aquestes variables. Aquest bean el crearem dins d'un fitxer xml dins  del directori d'Spring (p.e. \spring\canigo-connectors-documentum.xml):</p>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java">&lt;beans&gt;
+&lt;bean id=<span class="code-quote">"documentumConfig"</span>
+class=<span class="code-quote">"net.gencat.pilot.connectors.documentum.DocumentumConfig"</span>&gt;
+&lt;property name=<span class="code-quote">"user"</span> value=<span class="code-quote">"$\{documentum.user\}"</span>/&gt;
+&lt;property name=<span class="code-quote">"password"</span> value=<span class="code-quote">"$\{documentum.password\}"</span>/&gt;
+&lt;property name=<span class="code-quote">"docBase"</span> value=<span class="code-quote">"$\{documentum.docBase\}"</span>/&gt;
+&lt;property name=<span class="code-quote">"path"</span> value=<span class="code-quote">"$\{documentum.path\}"</span>/&gt;
+&lt;property name=<span class="code-quote">"cabinet"</span> value=<span class="code-quote">"$\{documentum.cabinet\}"</span>/&gt;
+&lt;property name=<span class="code-quote">"exportDir"</span> value=<span class="code-quote">"$\{documentum.exportDir\}"</span>/&gt;
+&lt;/bean&gt;
+&lt;/beans&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Podríem informar les propietats d'aquest bean directament, però és  aconsellable fer-ho amb el fitxer de propietats, tal com acabem d'explicar.
+<br clear="all" /></p>
+
+<h3><a name="ConnectorambDocumentum-Injecci%C3%B3delbeanenelBO"></a>Injecció  del bean en el BO</h3>
+
+<p>En aquest bean tenim tota la informació necessaria per connectar-nos a  documentum. Podem injectar aquest bean, p.e., a un BO:</p>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean lazy-init=<span class="code-quote">"<span class="code-keyword">true</span>"</span> id=<span class="code-quote">"documentBOTarget"</span>
+class=<span class="code-quote">"net.gencat.pilot.model.bo.impl.DocumentBOImpl"</span>&gt;
+&lt;property name=<span class="code-quote">"documentumConfig"</span> ref=<span class="code-quote">"documentumConfig"</span>/&gt;
+&lt;property name=<span class="code-quote">"documentDAO"</span> ref=<span class="code-quote">"documentDaoTarget"</span>/&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h3><a name="ConnectorambDocumentum-Inicisessi%C3%B3documentumi%C3%BAs"></a>Inici  sessió documentum i ús</h3>
+
+<p>En el BO ja podem accedir a Documentum:</p>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> <span class="code-object">String</span> openDocument(<span class="code-object">String</span> idDocumentum) <span class="code-keyword">throws</span> Exception {
+
+<span class="code-object">String</span> exportDir = <span class="code-keyword">null</span>;
+
+<span class="code-keyword">try</span> {
+<span class="code-keyword">if</span> (idDocumentum != <span class="code-keyword">null</span>) {
+dS = DocumentumServiceImpl.getInstance();
+dci = <span class="code-keyword">new</span> DocumentumConnectorImpl();
+
+sessio = dS.login(documentumConfig.getUser(),
+documentumConfig.getPassword(),
+documentumConfig.getDocBase(), dci);
+
+dci.exportarFitxer(documentumConfig.getExportDir(),
+idDocumentum, sessio);
+
+exportDir = documentumConfig.getExportDir();
+}
+
+<span class="code-keyword">return</span> exportDir;
+
+} <span class="code-keyword">catch</span>(DocumentumException de) {
+<span class="code-keyword">throw</span> de;
+} <span class="code-keyword">catch</span> (Exception e) {
+<span class="code-keyword">throw</span> e;
+}
+}</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h2><a name="ConnectorambDocumentum-Integraci%C3%B3ambAltresServeis"></a>Integració  amb Altres Serveis</h2>
+
+
+<h3><a name="ConnectorambDocumentum-Integraci%C3%B3ambelServeideInternacionalitzaci%C3%B3"></a>Integració  amb el Servei de Internacionalització</h3>
+
+<p>En els fitxers de configuració es defineixen claus que permeten especificar  quins missatges retornar en cas errors. Per a poder traduir aquestes claus és  necessari especificar que el connector usarà el Servei d'Internacionalització  (veure Configuració).</p>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb Documentum_attachments/image003.gif">image003.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb Documentum_attachments/image004.gif">image004.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb Documentum_attachments/image001.gif">image001.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb Documentum_attachments/image002.gif">image002.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb Documentum_attachments/image005.jpg">image005.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb Documentum_attachments/image009.jpg">image009.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb Documentum_attachments/image010.jpg">image010.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb Documentum_attachments/image007.jpg">image007.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb Documentum_attachments/image008.jpg">image008.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb Documentum_attachments/image006.jpg">image006.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb Documentum_attachments/image015.gif">image015.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb Documentum_attachments/image014.jpg">image014.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb Documentum_attachments/image013.jpg">image013.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb Documentum_attachments/image012.jpg">image012.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb Documentum_attachments/image011.jpg">image011.jpg</a> (image/jpeg)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

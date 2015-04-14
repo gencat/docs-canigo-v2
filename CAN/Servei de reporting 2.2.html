@@ -1,0 +1,711 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Servei de reporting 2.2</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Servei de reporting 2.2
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Sep 21, 2007 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="Serveidereporting2.2-SERVEIDEREPORTING"></a>SERVEI DE REPORTING</h1>
+
+<p><br clear="all" />
+<br clear="all" />
+<div>
+<ul><a href='#Serveidereporting2.2-SERVEIDEREPORTING'>
+    <li>SERVEI DE REPORTING</li></a><a href='#Serveidereporting2.2-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#Serveidereporting2.2-Prop%C3%B2sit'>
+    <li>Propòsit</li></a><a href='#Serveidereporting2.2-ContextiEscenarisd%27%C3%9As'>
+    <li>Context i  Escenaris d'Ús</li></a><a href='#Serveidereporting2.2-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i  Dependències</li></a><a href='#Serveidereporting2.2-Aquivadirigit'>
+    <li>A qui va  dirigit</li></a><a href='#Serveidereporting2.2-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents  i Fonts de Referència</li></a><a href='#Serveidereporting2.2-Glossari'>
+    <li>Glossari</li></a>
+</ul><a href='#Serveidereporting2.2-Descripci%C3%B3Detallada'>
+    <li>Descripció  Detallada</li></a>
+<ul><a href='#Serveidereporting2.2-ArquitecturaiComponents'>
+    <li>Arquitectura i  Components</li></a><a href='#Serveidereporting2.2-Instal%5Claci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal&#45; lació  i Configuració</li></a>
+<ul><a href='#Serveidereporting2.2-Instal%5Claci%C3%B3'>
+    <li>Instal&#45; lació</li></a><a href='#Serveidereporting2.2-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#Serveidereporting2.2-Utilitzaci%C3%B3delServei'>
+    <li>Utilització del  Servei</li></a>
+<ul><a href='#Serveidereporting2.2-Realitzareldissenydelreport'>
+    <li>Realitzar el  disseny del report</li></a><a href='#Serveidereporting2.2-Registrarelreportenelservei%28fitxerviews.xml%29'>
+    <li>Registrar  el report en el servei (fitxer views.xml)</li></a><a href='#Serveidereporting2.2-Modelarlesdadesamostrar%28opcional%29'>
+    <li>Modelar  les dades a mostrar (opcional)</li></a><a href='#Serveidereporting2.2-Invocarelreport'>
+    <li>Invocar el  report</li></a>
+</ul><a href='#Serveidereporting2.2-EinesdeSuport'>
+    <li>Eines de  Suport</li></a>
+<ul><a href='#Serveidereporting2.2-iReport'>
+    <li>iReport</li></a>
+</ul>
+</ul>
+</ul></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+&nbsp;
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h1><a name="Serveidereporting2.2-Introducci%C3%B3"></a>Introducció</h1>
+
+
+<h2><a name="Serveidereporting2.2-Prop%C3%B2sit"></a>Propòsit</h2>
+
+<p>El servei de Reporting de canigo permet integrar d'una manera senzilla dades  des de fonts heterogènees i mostrar-les en diferents formats: PDF, XLS, CSV, RTF i  HTML, dins d'un marc homogeni de desenvolupament.</p>
+
+<h2><a name="Serveidereporting2.2-ContextiEscenarisd%27%C3%9As"></a>Context i  Escenaris d'Ús</h2>
+
+<p>El servei de Reporting es troba dins dels serveis de presentació de  canigo.<br/>
+El seu ús és necessari  en cas de voler presentar informació en format report (ja sigui PDF o els  formats que suporta el servei).</p>
+
+<h2><a name="Serveidereporting2.2-VersionsiDepend%C3%A8ncies"></a>Versions i  Dependències</h2>
+
+<p>Les dependències descrites a la següent url son requerides per tal de compilar i fer funcionar el projecte:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-reporting/dependencies.html" title="Visit page outside Confluence">Dependències Servei de Reporting</a></p>
+
+<h2><a name="Serveidereporting2.2-Aquivadirigit"></a>A qui va  dirigit</h2>
+
+<p>Aquest document va dirigit als següents perfils:</p>
+<ol>
+	<li>Programador. Per conèixer l'ús del servei.</li>
+	<li>Arquitecte. Per conèixer quins són els components i la configuració del  servei.</li>
+</ol>
+
+
+<h2><a name="Serveidereporting2.2-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents  i Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> [1] </th>
+<th class='confluenceTh'> JasperReports </th>
+<th class='confluenceTh'> +<a href="http://jasperreports.sourceforge.net/+" title="Visit page outside Confluence">http://jasperreports.sourceforge.net/+</a> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> [2] </td>
+<td class='confluenceTd'> iReport </td>
+<td class='confluenceTd'> <a href="http://ireport.sourceforge.net/" title="Visit page outside Confluence">http://ireport.sourceforge.net</a> </td>
+</tr>
+</tbody></table>
+
+<h2><a name="Serveidereporting2.2-Glossari"></a>Glossari</h2>
+
+<p><b>JasperReports</b><br/>
+Es tracta d'una eina de reporting <em>open  source</em> que és capaç de gestionar les dades obtingudes (d'una &#45;o més&#45;  connexions JDBC, TableModels, JavaBeans, XML, etc.) i mostrar-les segons un  disseny definit en XML.</p>
+
+<h1><a name="Serveidereporting2.2-Descripci%C3%B3Detallada"></a>Descripció  Detallada</h1>
+
+
+<h2><a name="Serveidereporting2.2-ArquitecturaiComponents"></a>Arquitectura i  Components</h2>
+
+<p><b>canigo</b> ofereix una arquitectura del servei de reporting totalment  deslligada de qualsevol implementació.</p>
+
+<p>Els components podem classificar-los en:</p>
+<ol>
+	<li>Interfícies i Components Genèrics. Interfícies del servei i components d'ús  general amb independència de la implementació escollida.</li>
+	<li>Implementació de les interfícies basada en JasperReports.<br/>
+Es pot trobar tota la documentació JavaDoc y el codi font referent aquests components a les següents urls:</li>
+</ol>
+
+
+<p><ins>JavaDoc:</ins> <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-reporting/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-reporting/apidocs/index.html</a><br/>
+<ins>Codi Font:</ins>&nbsp; <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-reporting/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-reporting/xref/index.html</a></p>
+
+<h2><a name="Serveidereporting2.2-Instal%5Claci%C3%B3iConfiguraci%C3%B3"></a>Instal&#45; lació  i Configuració</h2>
+
+
+<h3><a name="Serveidereporting2.2-Instal%5Claci%C3%B3"></a>Instal&#45; lació</h3>
+
+<p>La instal&#45; lació del servei requereix de la utilització de la llibreria  'canigo-services-reporting' i les dependències indicades a l'apartat  'Introducció - Versions i Dependències'.</p>
+
+<h3><a name="Serveidereporting2.2-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p>La configuració del Servei de Reporting implica realitzar els següents  pasos:</p>
+<ol>
+	<li>Definir la configuració bàsica del servei (abans de generar qualsevol  vista)</li>
+	<li>Definir la localització dels reports i el seu tipus de  visualització</li>
+</ol>
+
+
+<p>Definició de la Configuració Bàsica</p>
+
+<p>La configuració bàsica implica:</p>
+<ol>
+	<li>Definir el mapeig de les urls amb sufix '.report' al Servlet  principal</li>
+</ol>
+
+
+<p><img src="Servei de reporting 2.2_attachments/image004.gif" align="absmiddle" border="0" /></p>
+
+<p>_ Fitxer de configuració: web.xml&#95;<br/>
+_ Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/webapp/WEB-INF&#95;</p>
+
+<p>Definir que totes les URIs que finalitzin amb ".report" les tractarà <b>canigo</b> amb el servlet org.springframework.web.servlet.DispatcherServlet:</p>
+
+<p>Usar el següent codi:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+
+&lt;servlet&gt;
+
+&lt;servlet-name&gt;application&lt;/servlet-name&gt;
+
+&lt;servlet-class&gt;
+
+org.springframework.web.servlet.DispatcherServlet
+
+&lt;/servlet-class&gt;
+
+&lt;load-on-startup&gt;2&lt;/load-on-startup&gt;
+
+&lt;/servlet&gt;
+
+...
+
+&lt;servlet-mapping&gt;
+
+&lt;servlet-name&gt;application&lt;/servlet-name&gt;
+
+&lt;url-pattern&gt;*.report&lt;/url-pattern&gt;
+
+&lt;/servlet-mapping&gt;
+
+...</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Definir la localització de les definicions de les vistes</li>
+</ol>
+
+
+<p><img src="Servei de reporting 2.2_attachments/image005.gif" align="absmiddle" border="0" /><br/>
+_ _</p>
+
+<p>_ Fitxer de configuració: canigo-services-reporting.xml&#95;<br/>
+_ Ubicació  proposada: &lt;PROJECT_ROOT&gt;/src/main/resources/spring&#95;</p>
+
+<p>Configurar un bean amb un identificador (es recomana usar 'viewResolver' ) i  els següents atributs:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> class </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Defineix el tipus de resolver de  Spring utilitzarem per indicar on trobar el fitxer amb la definició dels  reports. <br clear="all" />
+<br clear="all" />
+Es recomana utilitzar la notació XML: <br clear="all" />
+&#35; org.springframework.web.servlet.view.XmlViewResolver <br clear="all" /> </td>
+</tr>
+</tbody></table>
+<p>Configurar les següents propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> location </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Referència a la localització del  fitxer amb la definició dels reports. </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+
+&lt;!-- REPORTING service --&gt;
+
+&lt;bean id=<span class="code-quote">"viewResolver"</span>  class=<span class="code-quote">"org.springframework.web.servlet.view.XmlViewResolver"</span>  &gt;
+
+&lt;property name=<span class="code-quote">"location"</span> value=<span class="code-quote">"classpath:reports/views.xml"</span>  /&gt;
+
+&lt;/bean&gt;
+
+...</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Declaració dels forwards globals per poder usar el servei des d'una  Action</li>
+</ol>
+
+
+<p><img src="Servei de reporting 2.2_attachments/image006.gif" align="absmiddle" border="0" /></p>
+
+<p>_ _</p>
+
+<p>_ _<br/>
+_ _<br/>
+_ Fitxer de configuració: canigo-services-reporting.xml&#95;<br/>
+_  Ubicació proposada: &lt;PROJECT_ROOT&gt;/src/main/resources/spring&#95;</p>
+
+<p>Definir un forward per cada format de renderització emprat, seguint el  següent patró:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;forward name=<span class="code-quote">"report*&lt;FORMAT&gt;*"</span>
+
+path=<span class="code-quote">"/view.report?contentType=&lt;format&gt;"</span>
+
+redirect=<span class="code-quote">"<span class="code-keyword">true</span>"</span>  /&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Usar el següent codi:
+<br clear="all" />
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+
+&lt;global-forwards&gt;
+
+...
+
+&lt;!-- Forward to report --&gt;
+
+&lt;forward name=<span class="code-quote">"reportPDF"</span>  path=<span class="code-quote">"/view.report?contentType=pdf"</span> redirect=<span class="code-quote">"<span class="code-keyword">true</span>"</span> /&gt;
+
+&lt;forward  name=<span class="code-quote">"reportXLS"</span> path=<span class="code-quote">"/view.report?contentType=xls"</span> redirect=<span class="code-quote">"<span class="code-keyword">true</span>"</span>  /&gt;
+
+&lt;forward name=<span class="code-quote">"reportCSV"</span> path=<span class="code-quote">"/view.report?contentType=csv"</span>  redirect=<span class="code-quote">"<span class="code-keyword">true</span>"</span> /&gt;
+
+&lt;forward name=<span class="code-quote">"reportHTML"</span>  path=<span class="code-quote">"/view.report?contentType=html"</span> redirect=<span class="code-quote">"<span class="code-keyword">true</span>"</span> /&gt;
+
+&lt;forward name=<span class="code-quote">"reportRTF"</span>  path=<span class="code-quote">"/view.report?contentType=rtf"</span> redirect=<span class="code-quote">"<span class="code-keyword">true</span>"</span> /&gt;
+...
+
+&lt;/global-forwards&gt;
+
+...</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" /> <br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Declaració del control&#45; lador assignat als reports</li>
+</ol>
+
+
+<p><img src="Servei de reporting 2.2_attachments/image007.gif" align="absmiddle" border="0" /><br/>
+_ _</p>
+
+<p>_ _<br/>
+_ _<br/>
+_ Fitxer de configuració: canigo-services-reporting.xml&#95;<br/>
+_  Ubicació proposada: &lt;PROJECT_ROOT&gt;/src/main/resources/spring&#95;</p>
+
+<p>Definir el controlador a utilitzar en la renderització dels reports, per això  s'ha de definir el següent bean:</p>
+
+<p>&lt;bean id="reportingController"  class="net.gencat.ctti.canigo.services.reporting.ReportingController" /&gt;</p>
+
+<p>En la definició del bean "ExportInterceptor", a la propietat "redirections"  s'ha d'afegir l'entrada:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;entry key=<span class="code-quote">"<span class="code-comment">//.report"</span> value=<span class="code-quote">"/view.report"</span> /&gt;</span></pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+En la definició del bean "urlMapping", a la propietat "mappings" s'ha  d'afegir l'entrada:<br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;prop key=<span class="code-quote">"view.report"</span>&gt;reportingController&lt;/prop&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Exemple:<br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+
+&lt;bean id=<span class="code-quote">"ExportInterceptor"</span> class="net.gencat.ctti.canigo.services.web.spring.
+BufferedResponseSpringInterceptor"&gt;
+    &lt;property name=<span class="code-quote">"redirections"</span>&gt;
+        &lt;map&gt;
+        ...
+            &lt;entry key=<span class="code-quote">"<span class="code-comment">//.report"</span> value=<span class="code-quote">"/view.report"</span> /&gt;*
+</span>        &lt;/map&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;bean id=<span class="code-quote">"urlMapping"</span> class=<span class="code-quote">"org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"</span>&gt;
+    ...
+    &lt;property name=<span class="code-quote">"mappings"</span>&gt;
+        &lt;props&gt;
+            ...
+            &lt;prop key=<span class="code-quote">"view.report"</span>&gt;reportingController&lt;/prop&gt;
+            &lt;/props&gt;
+          &lt;/property&gt;
+&lt;/bean&gt;
+
+...
+&lt;bean id=<span class="code-quote">"reportingController"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.services.reporting.ReportingController"</span>/&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Localització dels reports i el seu tipus de visualització<br/>
+<img src="Servei de reporting 2.2_attachments/image008.gif" align="absmiddle" border="0" /><br/>
+&#95;Fitxer de configuració: views.xml&#95;<br/>
+<em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/reports</em><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> La definició de cada report requereix configurar un bean amb un identificador  (es recomana usar '&lt;nom_report&gt;Report' ) i els següents atributs:</p>
+
+<p>Atributs:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> class </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Defineix la classe que s'emprarà per  realitzar el renderitzat del report. <br clear="all" />
+<br clear="all" />
+Exemple:  net.gencat.ctti.canigo.services.reporting.impl.WrapperJasperMultiFormatView </td>
+</tr>
+</tbody></table>
+<p>També es poden configurar les següents propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> url </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Localització del fitxer <em>jrxml</em> amb el disseny del report. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> contentType </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Format del fitxer a mostrar (pdf,  xls, html, csv, rtf) </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span> ?&gt;
+&lt;!DOCTYPE beans PUBLIC <span class="code-quote">"-<span class="code-comment">//SPRING//DTD BEAN//EN"</span>
+</span><span class="code-quote">"http:<span class="code-comment">//www.springframework.org/dtd/spring-beans.dtd?"</span>&gt;
+</span>
+&lt;beans&gt;
+
+    ...
+    &lt;bean id=<span class="code-quote">"RotationReport"</span> class="net.gencat.ctti.canigo.services.reporting.impl.
+    WrapperJasperMultiFormatView" &gt;
+        &lt;property name=<span class="code-quote">"url"</span> value=<span class="code-quote">"classpath:reports/rotation/RotationReport.jrxml"</span> /&gt;
+    &lt;/bean&gt;
+    &lt;bean id=<span class="code-quote">"CustomersReport"</span> class="net.gencat.ctti.canigo.services.reporting.impl.
+    WrapperJasperMultiFormatView" &gt;
+        &lt;property name=<span class="code-quote">"url"</span> value=<span class="code-quote">"classpath:reports/customers/CustomersReport.jrxml"</span> /&gt;
+    &lt;/bean&gt;
+    ...
+
+&lt;/beans&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h2><a name="Serveidereporting2.2-Utilitzaci%C3%B3delServei"></a>Utilització del  Servei</h2>
+
+<p>canigo defineix 2 maneres d'integrar les dades d'un report:</p>
+<ol>
+	<li>Utilitzant el "data source" específic proporcionat per JasperReports</li>
+	<li>Injectant les dades des del model de l'aplicació (obtingudes mitjançant el  servei de persistència, fitxers de <em>properties</em>, etc.)</li>
+</ol>
+
+
+<p>Com exemple d'utilització del servei de Reporting s'inclou un exemple en el  que es visualitza un report senzill. A continuació es mostren els pasos a seguir  per integrar un report dins d'una aplicació:</p>
+
+<h3><a name="Serveidereporting2.2-Realitzareldissenydelreport"></a>Realitzar el  disseny del report</h3>
+
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;
+&lt;!DOCTYPE jasperReport PUBLIC <span class="code-quote">"-<span class="code-comment">//JasperReports//DTD Report Design//EN"</span>
+</span><span class="code-quote">"http:<span class="code-comment">//jasperreports.sourceforge.net/dtds/jasperreport.dtd"</span>&gt;
+</span>
+&lt;jasperReport name=<span class="code-quote">"RotationReport"</span> pageWidth=<span class="code-quote">"595"</span> pageHeight=<span class="code-quote">"842"</span> columnWidth=<span class="code-quote">"555"</span>
+leftMargin=<span class="code-quote">"20"</span> rightMargin=<span class="code-quote">"20"</span> topMargin=<span class="code-quote">"30"</span> bottomMargin=<span class="code-quote">"30"</span>&gt;
+    &lt;title&gt;
+    &lt;band height=<span class="code-quote">"782"</span>&gt;
+    &lt;staticText&gt;
+    &lt;reportElement mode=<span class="code-quote">"Opaque"</span> x=<span class="code-quote">"0"</span> y=<span class="code-quote">"0"</span> width=<span class="code-quote">"90"</span> height=<span class="code-quote">"350"</span> backcolor=<span class="code-quote">"#c0c0c0"</span>/&gt;
+    &lt;textElement rotation=<span class="code-quote">"Left"</span>&gt;
+    &lt;font size=<span class="code-quote">"14"</span>/&gt;
+    &lt;/textElement&gt;
+    &lt;text&gt;&lt;![CDATA[rotation=<span class="code-quote">"Left"</span>
+    textAlignment=<span class="code-quote">"Left"</span>
+    verticalAlignment=<span class="code-quote">"Top"</span>]]&gt;&lt;/text&gt;
+    &lt;/staticText&gt;
+    &lt;staticText&gt;
+    &lt;reportElement mode=<span class="code-quote">"Opaque"</span> x=<span class="code-quote">"100"</span> y=<span class="code-quote">"0"</span> width=<span class="code-quote">"90"</span> height=<span class="code-quote">"350"</span> backcolor=<span class="code-quote">"#c0c0c0"</span>/&gt;
+    &lt;textElement textAlignment=<span class="code-quote">"Center"</span> verticalAlignment=<span class="code-quote">"Bottom"</span> rotation=<span class="code-quote">"Left"</span>&gt;
+    &lt;font size=<span class="code-quote">"14"</span>/&gt;
+    &lt;/textElement&gt;
+    &lt;text&gt;&lt;![CDATA[rotation=<span class="code-quote">"Left"</span>
+    textAlignment=<span class="code-quote">"Center"</span>
+    verticalAlignment=<span class="code-quote">"Bottom"</span>]]&gt;&lt;/text&gt;
+    &lt;/staticText&gt;
+    &lt;staticText&gt;
+    &lt;reportElement mode=<span class="code-quote">"Opaque"</span> x=<span class="code-quote">"200"</span> y=<span class="code-quote">"0"</span> width=<span class="code-quote">"90"</span> height=<span class="code-quote">"350"</span> backcolor=<span class="code-quote">"#c0c0c0"</span>/&gt;
+    &lt;textElement textAlignment=<span class="code-quote">"Right"</span> verticalAlignment=<span class="code-quote">"Middle"</span> rotation=<span class="code-quote">"Left"</span>&gt;
+    &lt;font size=<span class="code-quote">"14"</span>/&gt;
+    &lt;/textElement&gt;
+    &lt;text&gt;&lt;![CDATA[rotation=<span class="code-quote">"Left"</span>
+    textAlignment=<span class="code-quote">"RIght"</span>
+    verticalAlignment=<span class="code-quote">"Middle"</span>]]&gt;&lt;/text&gt;
+    &lt;/staticText&gt;
+    &lt;staticText&gt;
+    &lt;reportElement mode=<span class="code-quote">"Opaque"</span> x=<span class="code-quote">"255"</span> y=<span class="code-quote">"410"</span> width=<span class="code-quote">"90"</span> height=<span class="code-quote">"350"</span>
+    forecolor=<span class="code-quote">"#ffffff"</span> backcolor=<span class="code-quote">"#404040"</span>/&gt;
+    &lt;textElement textAlignment=<span class="code-quote">"Right"</span> verticalAlignment=<span class="code-quote">"Middle"</span> rotation=<span class="code-quote">"Right"</span>&gt;
+    &lt;font size=<span class="code-quote">"14"</span>/&gt;
+    &lt;/textElement&gt;
+    &lt;text&gt;&lt;![CDATA[rotation=<span class="code-quote">"Right"</span>
+    textAlignment=<span class="code-quote">"RIght"</span>
+    verticalAlignment=<span class="code-quote">"Middle"</span>]]&gt;&lt;/text&gt;
+    &lt;/staticText&gt;
+    &lt;staticText&gt;
+    &lt;reportElement mode=<span class="code-quote">"Opaque"</span> x=<span class="code-quote">"355"</span> y=<span class="code-quote">"410"</span> width=<span class="code-quote">"90"</span> height=<span class="code-quote">"350"</span>
+    forecolor=<span class="code-quote">"#ffffff"</span> backcolor=<span class="code-quote">"#404040"</span>/&gt;
+    &lt;textElement textAlignment=<span class="code-quote">"Center"</span> verticalAlignment=<span class="code-quote">"Bottom"</span> rotation=<span class="code-quote">"Right"</span>&gt;
+    &lt;font size=<span class="code-quote">"14"</span>/&gt;
+    &lt;/textElement&gt;
+    &lt;text&gt;&lt;![CDATA[rotation=<span class="code-quote">"Right"</span>
+    textAlignment=<span class="code-quote">"Center"</span>
+    verticalAlignment=<span class="code-quote">"Bottom"</span>]]&gt;&lt;/text&gt;
+    &lt;/staticText&gt;
+    &lt;staticText&gt;
+    &lt;reportElement mode=<span class="code-quote">"Opaque"</span> x=<span class="code-quote">"455"</span> y=<span class="code-quote">"410"</span> width=<span class="code-quote">"90"</span> height=<span class="code-quote">"350"</span>
+    forecolor=<span class="code-quote">"#ffffff"</span> backcolor=<span class="code-quote">"#404040"</span>/&gt;
+    &lt;textElement rotation=<span class="code-quote">"Right"</span>&gt;
+    &lt;font size=<span class="code-quote">"14"</span>/&gt;
+    &lt;/textElement&gt;
+    &lt;text&gt;&lt;![CDATA[rotation=<span class="code-quote">"Right"</span>
+    textAlignment=<span class="code-quote">"Left"</span>
+    verticalAlignment=<span class="code-quote">"Top"</span>]]&gt;&lt;/text&gt;
+    &lt;/staticText&gt;
+    &lt;/band&gt;
+    &lt;/title&gt;
+&lt;/jasperReport&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />  <em>Nota</em><br/>
+Per realitzar el disseny del report es recomana  l'utilizació d'una eina visual tipus iReport. Veure l'apartat "Eines de  Suport".
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h3><a name="Serveidereporting2.2-Registrarelreportenelservei%28fitxerviews.xml%29"></a>Registrar  el report en el servei (fitxer views.xml)</h3>
+
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span> ?&gt;
+&lt;!DOCTYPE beans PUBLIC <span class="code-quote">"-<span class="code-comment">//SPRING//DTD BEAN//EN"</span>
+</span><span class="code-quote">"http:<span class="code-comment">//www.springframework.org/dtd/spring-beans.dtd"</span>&gt;
+</span>
+&lt;beans&gt;
+...
+    &lt;bean id=<span class="code-quote">"RotationReport"</span> class="net.gencat.ctti.canigo.services.reporting.impl.
+    WrapperJasperMultiFormatView" &gt;
+        &lt;property name=<span class="code-quote">"url"</span> value=<span class="code-quote">"classpath:reports/rotation/RotationReport.jrxml"</span> /&gt;
+    &lt;/bean&gt;
+...
+
+&lt;/beans&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h3><a name="Serveidereporting2.2-Modelarlesdadesamostrar%28opcional%29"></a>Modelar  les dades a mostrar (opcional)</h3>
+
+<p>Per renderitzar el report amb dades modelades per un <em>Action</em>, s'ha de  definir específicament un Map i informar-lo amb parells "nom/valor" que el  servei de reporting utilitzarà per omplir el report al visualitzar-lo.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">/**
+* Modeling data <span class="code-keyword">for</span> report
+*/
+<span class="code-keyword">public</span> ActionForward reportRotation(Category vo, StrutsContext context) {
+    <span class="code-comment">// Get data <span class="code-keyword">for</span> render report
+</span>    Map model = getModel();
+
+    <span class="code-comment">// Save data in session
+</span>    context.getRequest().getSession().setAttribute(ReportingController.
+    REPORTING_CONTROLLER_MODEL,model);
+
+    <span class="code-comment">// Set view name to render
+</span>    context.getRequest().getSession().setAttribute(ReportingController.
+    REPORTING_CONTROLLER_REPORTID,<span class="code-quote">"RotationReport"</span>);
+
+    <span class="code-comment">// Forward to report Controller
+</span>    <span class="code-keyword">return</span> context.getActionMapping().findForward(<span class="code-quote">"reportPDF"</span>);
+}
+
+<span class="code-keyword">private</span> Map getModel() {
+    Map model = <span class="code-keyword">new</span> HashMap();
+    Collection beanData = getData();
+    model.put(<span class="code-quote">"myBeanData"</span>, beanData);
+    <span class="code-keyword">return</span> model;
+}
+
+<span class="code-keyword">protected</span> List getData() {
+    List list = <span class="code-keyword">new</span> ArrayList();
+    <span class="code-keyword">for</span> (<span class="code-object">int</span> x = 0; x &lt; 10; x++) {
+        Category bean = <span class="code-keyword">new</span> Category();
+        bean.setId(""+x);
+        bean.setName(<span class="code-quote">"canigo"</span>);
+        list.add(bean);
+    }
+    <span class="code-keyword">return</span> list;
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />  <em>Nota</em><br/>
+Si el report utilitza el seu propi "<em>data source</em>"  (o no mostra dades dinàmiques) no serà necessari realitzar aquest pas.
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h3><a name="Serveidereporting2.2-Invocarelreport"></a>Invocar el  report</h3>
+
+<p>Per invocar el report dins de l'aplicació es pot realitzar mitjançant:</p>
+<ul>
+	<li><b>&#35; Un&#42;</b> <b><em>Action</em></b> <b>&#42;</b>(si s'ha de modelar les dades):</li>
+</ul>
+
+
+<p>http://localhost:8080/canigo\-samples\-Petstore/categories.do?*reqCode=reportRotation\\\\\\\\\\\\\\*</p>
+<ul>
+	<li>&#42;# Un&#42; <em>servlet</em> (només si el report utilitza el seu propi "&#95;<em>data  source</em>&#95;"). S'han d'especificar els següents paràmetres:<br/>
+<ins>&#35;  reportId</ins>: identificador del report segons s'hagi definit en el fitxer  views.xml<br/>
+<ins>&#35; contentType</ins>: tipus de format a visualitzar (csv, pdf, xls  o html)</li>
+</ul>
+
+
+<p>http://localhost:8080/canigo\-samples\-Petstore*/view.report?contentType=pdf&reportId=RotationReport\\\\\\\\\\\\\\*</p>
+
+<p><img src="Servei de reporting 2.2_attachments/image009.gif" align="absmiddle" border="0" /></p>
+
+<h2><a name="Serveidereporting2.2-EinesdeSuport"></a>Eines de  Suport</h2>
+
+
+<h3><a name="Serveidereporting2.2-iReport"></a>iReport</h3>
+
+<p>El disseny d'un report representa una plantilla que serà utilitzada pel  servei per mostrar contingut dinàmic en el format escollit. Està definit en  fitxers XML que han de tenir una estructura predefinida. Aquests XML s'han de  compilar per poder realitzar les operacions d'omplir dades, aquesta tasca de  compilació la realitza el servei de manera "on the fly".</p>
+
+<p>És aconsellable utilitzar una eina visual per realitzar el disseny dels  reports, aquesta eina ha de facilitar l'edició de reports complexes amb gràfics,  imatges, subreports, etc. Una eina que compleix tots aquests requisits és  iReport <a href="http://ireport.sourceforge.net/" title="Visit page outside Confluence">http://ireport.sourceforge.net</a>.</p>
+
+<p>Algunes de les característiques que proporciona iReport són:</p>
+<ol>
+	<li>Suport per gràfics:<br/>
+<img src="Servei de reporting 2.2_attachments/image010.jpg" align="absmiddle" border="0" /></li>
+	<li>Agrupacions i seccions<br/>
+<img src="Servei de reporting 2.2_attachments/image011.jpg" align="absmiddle" border="0" /></li>
+	<li>Diferents tipus de connexions<br/>
+<img src="Servei de reporting 2.2_attachments/image012.jpg" align="absmiddle" border="0" /></li>
+	<li>Formateig del document</li>
+</ol>
+
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de reporting 2.2_attachments/image003.gif">image003.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de reporting 2.2_attachments/image004.gif">image004.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de reporting 2.2_attachments/image005.gif">image005.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de reporting 2.2_attachments/image011.jpg">image011.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de reporting 2.2_attachments/image006.gif">image006.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de reporting 2.2_attachments/image007.gif">image007.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de reporting 2.2_attachments/image008.gif">image008.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de reporting 2.2_attachments/image009.gif">image009.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de reporting 2.2_attachments/image010.jpg">image010.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de reporting 2.2_attachments/image002.gif">image002.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de reporting 2.2_attachments/image012.jpg">image012.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de reporting 2.2_attachments/image001.jpg">image001.jpg</a> (image/jpeg)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

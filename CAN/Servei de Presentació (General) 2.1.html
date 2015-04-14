@@ -1,0 +1,1408 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Servei de Presentació (General) 2.1</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Servei de Presentació (General) 2.1
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Jul 11, 2007 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="ServeidePresentaci%C3%B3%28General%292.1-SERVEIDEPRESENTACI%C3%93%28GENERAL%29"></a>SERVEI DE PRESENTACIÓ (GENERAL)</h1>
+
+<p><br clear="all" />
+<div>
+<ul><a href='#ServeidePresentaci%C3%B3%28General%292.1-SERVEIDEPRESENTACI%C3%93%28GENERAL%29'>
+    <li>SERVEI DE PRESENTACIÓ (GENERAL)</li></a><a href='#ServeidePresentaci%C3%B3%28General%292.1-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#ServeidePresentaci%C3%B3%28General%292.1-Prop%C3%B3sit'>
+    <li>Propósit</li></a><a href='#ServeidePresentaci%C3%B3%28General%292.1-ContextiEscenarisd%27%C3%9As'>
+    <li>Context i  Escenaris d'Ús</li></a><a href='#ServeidePresentaci%C3%B3%28General%292.1-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i  Dependències</li></a><a href='#ServeidePresentaci%C3%B3%28General%292.1-Aquivadirigit'>
+    <li>A qui va  dirigit</li></a><a href='#ServeidePresentaci%C3%B3%28General%292.1-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents  i Fonts de Referència</li></a><a href='#ServeidePresentaci%C3%B3%28General%292.1-Glossari'>
+    <li>Glossari</li></a>
+</ul><a href='#ServeidePresentaci%C3%B3%28General%292.1-Descripci%C3%B3Detallada'>
+    <li>Descripció  Detallada</li></a>
+<ul><a href='#ServeidePresentaci%C3%B3%28General%292.1-ArquitecturaiComponents'>
+    <li>Arquitectura i  Components</li></a>
+<ul><a href='#ServeidePresentaci%C3%B3%28General%292.1-ArquitecturaiPatronsd%27%C3%9As'>
+    <li>Arquitectura  i Patrons d'Ús</li></a><a href='#ServeidePresentaci%C3%B3%28General%292.1-Vinculaci%C3%B3del%27ObjectedeNegoci'>
+    <li>Vinculació  de l'Objecte de Negoci</li></a><a href='#ServeidePresentaci%C3%B3%28General%292.1-TractamentdelespeticionsWeb'>
+    <li>Tractament  de les peticions Web</li></a><a href='#ServeidePresentaci%C3%B3%28General%292.1-ComponentsControl%5Clador'>
+    <li>Components  Control&#45; lador</li></a>
+</ul><a href='#ServeidePresentaci%C3%B3%28General%292.1-Instal%5Claci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal&#45; lació  i Configuració</li></a>
+<ul><a href='#ServeidePresentaci%C3%B3%28General%292.1-Configuraci%C3%B3B%C3%A0sica'>
+    <li>Configuració  Bàsica</li></a><a href='#ServeidePresentaci%C3%B3%28General%292.1-Configuraci%C3%B3delesAccions'>
+    <li>Configuració  de les Accions</li></a>
+</ul><a href='#ServeidePresentaci%C3%B3%28General%292.1-Utilitzaci%C3%B3'>
+    <li>Utilització</li></a><a href='#ServeidePresentaci%C3%B3%28General%292.1-EinesdeSuport'>
+    <li>Eines de  Suport</li></a>
+<ul><a href='#ServeidePresentaci%C3%B3%28General%292.1-StrutsEasyPlugin'>
+    <li>Struts  Easy Plugin</li></a>
+</ul>
+</ul>
+</ul></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h1><a name="ServeidePresentaci%C3%B3%28General%292.1-Introducci%C3%B3"></a>Introducció</h1>
+
+
+<h2><a name="ServeidePresentaci%C3%B3%28General%292.1-Prop%C3%B3sit"></a>Propósit</h2>
+
+<p>El propósit d'aquest document és donar una visió general de quina és  l'arquitectura base de la capa de presentació i els seus components, així com la  configuració necessària.Es tractarà entre d'altres:</p>
+<ol>
+	<li>Quins són els components principals de l'arquitectura de la capa de  presentació</li>
+	<li>Quin és el patró recomanat en el desenvolupament de les aplicacions</li>
+	<li>Quin és el procediment que segueix l'arquitectura interna de canigo en el  tractament d'una petició</li>
+	<li>Quina és la configuració bàsica de la capa de presentació, precondició per  la utilització dels nostres serveis de presentació.</li>
+</ol>
+
+
+<h2><a name="ServeidePresentaci%C3%B3%28General%292.1-ContextiEscenarisd%27%C3%9As"></a>Context i  Escenaris d'Ús</h2>
+
+<p>Els serveis de presentació es troben dins la Capa de Presentació definida a  la partició en 3 capes de canigo.</p>
+
+<h2><a name="ServeidePresentaci%C3%B3%28General%292.1-VersionsiDepend%C3%A8ncies"></a>Versions i  Dependències</h2>
+
+<p>Les dependències descrites a la següent url son requerides per tal de compilar i fer funcionar el projecte:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-web/dependencies.html" title="Visit page outside Confluence">Dependències Servei de Presentació</a></p>
+
+<h2><a name="ServeidePresentaci%C3%B3%28General%292.1-Aquivadirigit"></a>A qui va  dirigit</h2>
+
+<p>Aquest document va dirigit als següents perfils:</p>
+<ol>
+	<li>Programador. Per tal d'utilitzar els serveis de presentació proporcionats,  l'ús de les classes bàsiques de control i els tags JSP a incorporar a les  pàgines</li>
+</ol>
+
+
+<ol>
+	<li>Arquitectes. Per conéixer quin és el procediment de tractament d'una  petició, quins són els components principals i l'arquitectura genèrica del  servei.</li>
+</ol>
+
+
+<h2><a name="ServeidePresentaci%C3%B3%28General%292.1-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents  i Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'>&nbsp;</th>
+<th class='confluenceTh'> Desavantatges de Struts </th>
+<th class='confluenceTh'> <a href="http://rollerjm.free.fr/pro/Struts11.html" title="Visit page outside Confluence">http://rollerjm.free.fr/pro/Struts11.html</a> </th>
+</tr>
+</tbody></table>
+
+<h2><a name="ServeidePresentaci%C3%B3%28General%292.1-Glossari"></a>Glossari</h2>
+
+<p><b>POJO (Plain Old Java Object)</b></p>
+
+<p>S'utilitza per anomenar classes que són ordinàries, és a dir no implementa  cap interfície ni extén cap classe d'un framework concret. Tot i que s'apropa  molt al terme 'JavaBeans' es tracta d'un terme més atractiu pel fet que el nom  "bean" dóna lloc a un conflicte entre 2 termes totalment diferents com són  'JavaBeans' i 'Enterprise Java Beans'.</p>
+
+<p><b>DAO (Data Access Object)</b></p>
+
+<p>Patró de disseny mitjançant un component proporciona una interfície entre  l'aplicació i un o més dispositius d'emmagatzematge de dades (base de dades,  fitxer, ...).</p>
+
+<p>Els Data Access Objects o DAOs són un patró de disseny J2EE. L'avantatge  principal del seu ús és que l'objecte de negoci (Business Objects) no necessita  conéixer el destí de la informació que manipula. En Java es poden usar per  aillar l'aplicació de la tecnologia de persistència utilitzada (JDBC, JDO, EJBs,  Hibernate, etc.). En cas de que es canvii la tecnologia de persistència no  caldrà canviar cap part de l'aplicació de negoci.</p>
+
+<p><b>BO (Business Object)</b></p>
+
+<p>Els Business Objects (o BO) abstrauen les entitats del domini que utilitza  l'aplicació. A vegades són anomenats 'Domain Objects'. Encapsulen les dades i el  comportament associat a l'entitat que representen.</p>
+
+<h1><a name="ServeidePresentaci%C3%B3%28General%292.1-Descripci%C3%B3Detallada"></a>Descripció  Detallada</h1>
+
+
+<h2><a name="ServeidePresentaci%C3%B3%28General%292.1-ArquitecturaiComponents"></a>Arquitectura i  Components</h2>
+
+<p>El propósit d'aquest apartat és mostrar quina és l'arquitectura del servei i  els components que la composen.</p>
+
+<p>En aquest apartat es detallen els següents aspectes:</p>
+<ol>
+	<li>Tractament de les peticions Web. Quin és el procediment de tractament d'una  petició, des de que arriba al contenidor fins que és tractat per una classe  concreta.</li>
+	<li>Components Control&#45; lador. Components o classes de tipus control&#45; lador dins  l'arquitectura MVC (model-vista-control&#45; lador)</li>
+	<li>Components Vista. Components o classes de tipus vista dins l'arquitectura  MVC</li>
+	<li>Components Model. Cóm integrar els components de negoci o de model amb els  components control&#45; lador</li>
+</ol>
+
+
+<h3><a name="ServeidePresentaci%C3%B3%28General%292.1-ArquitecturaiPatronsd%27%C3%9As"></a>Arquitectura  i Patrons d'Ús</h3>
+
+<p>A l'hora de definir les nostres aplicacions és important que es faci un ús  coherent de varis patrons de disseny.</p>
+
+<p>El patró de disseny a considerar és el Model Vista Control&#45; lador clàssic.</p>
+
+<p>Així, el Servei de Presentació està enfocat a la resolució dels components  Vista i Control&#45; lador, propis d'una capa de presentació. El model no ha de fer  servir cap tecnologia concreta i es poden desenvolupar mitjançant classes planes  o POJOs. La interacció entre l'acció i el negoci ha de ser totalment transparent  dels objectes de presentació usats. És a dir, el negoci no ha de tractar amb  paràmetres de tipus 'HttpServletRequest' o 'ActionForms', pel que és tasca de la  capa de presentació fer la transformació entre els objectes de presentació i els  de negoci.</p>
+
+<p>Qualsevol petició rebuda haurà de ser gestionada per classes de tipus  'Action'. Aquestes han d'heretar de la classe  'net.gencat.ctti.canigo.services.web.struts.DispatchActionSupport'.</p>
+
+<p>L'acció no ha de realitzar cap tractament de negoci, només aspectes de  presentació. Així no es permet que l'acció pugui accedir a la base de dades de  forma directa. Tota delegació l'ha de fer sobre objectes de negoci que  gestionaran el tractament. Aquests objectes de negoci, poden, de forma adicional  fer ús de classes DAO d'accés a la base de dades per a persistir els objectes de  negoci o obtenir-los.</p>
+
+<p><img src="Servei de Presentació (General) 2.1_attachments/image002.gif" align="absmiddle" border="0" /></p>
+
+<h3><a name="ServeidePresentaci%C3%B3%28General%292.1-Vinculaci%C3%B3del%27ObjectedeNegoci"></a>Vinculació  de l'Objecte de Negoci</h3>
+
+<p>Una de les parts més important de canigo és la utilizació dels objectes de  negoci com a models de la nostra presentació (al contrari que Struts on es fan  servir 'ActionForms' per a representar el nostre model i cal fer el pas entre  aquests objectes i els objectes de negoci).</p>
+
+<p>Per a que les nostres accions sàpiguen quin tipus de classe és el que han de  utilitzar cal configurar la propietat 'pojoClass').
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean name=<span class="code-quote">"/accounts"</span>
+class=<span class="code-quote">"net.gencat.ctti.canigo.samples.jactionServlet.struts.action.AccountAction"</span>&gt;
+&lt;property name=<span class="code-quote">"pojoClass"</span>
+value=<span class="code-quote">"net.gencat.ctti.canigo.samples.jactionServlet.model.Account"</span> /&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h3><a name="ServeidePresentaci%C3%B3%28General%292.1-TractamentdelespeticionsWeb"></a>Tractament  de les peticions Web</h3>
+
+<p>En aquest apartat s'explica quin és el flux que segueix una petició des de  que arriba al contenidor del servidor d'aplicacions fins que és tractat per un  component control&#45; lador específic.</p>
+
+<p>El tractament d'una petició des d'un navegador inclou els següents pasos:</p>
+<ul>
+	<li>Tota petició HTTP dirigida a l'aplicatiu és capturada per un servlet  principal (DispatcherServlet), tal i com s'ha configurat al fitxer de deployment  'web.xml'.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;servlet&gt;
+&lt;servlet-name&gt;mainServlet&lt;/servlet-name&gt;
+&lt;servlet-class&gt;
+org.springframework.web.servlet.DispatcherServlet?
+&lt;/servlet-class&gt;
+&lt;init-param&gt;
+&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+&lt;param-value&gt;
+/WEB-INF/classes/spring/apl-servlet.xml?
+&lt;/param-value&gt;
+&lt;/init-param&gt;
+&lt;load-on-startup&gt;2&lt;/load-on-startup&gt;
+&lt;/servlet&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<p>Servlet principal que rep les peticions<br/>
+&nbsp;Fitxer que defineix els  mappings de gestors per patró de url</p>
+<ul>
+	<li>El Servlet consulta la variable 'urlMapping' en el fitxer especificat al  paràmetre 'contextConfigLocation'. En aquesta variable s'especifiquen patrons de  tractament de peticions i quins són els seus gestors.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"urlMapping"</span>
+class=<span class="code-quote">"org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"</span>&gt;
+&lt;property name=<span class="code-quote">"interceptors"</span>&gt;
+&lt;list&gt;
+&lt;ref bean=<span class="code-quote">"openSessionInViewInterceptor"</span> /&gt;
+&lt;ref bean=<span class="code-quote">"exportInterceptor"</span> /&gt;
+&lt;/list&gt;
+&lt;/property&gt;
+&lt;property name=<span class="code-quote">"mappings"</span>&gt;
+&lt;props&gt;
+&lt;prop key=<span class="code-quote">"*.<span class="code-keyword">do</span>"</span>&gt;strutsWrappingController?&lt;/prop&gt;
+&lt;prop key=<span class="code-quote">"pdfView.pdf"</span>&gt;pdfController&lt;/prop&gt;
+&lt;prop key=<span class="code-quote">"excelView.xls"</span>&gt;excelController&lt;/prop&gt;
+&lt;/props&gt;
+&lt;/property&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<p>En rebre una petició amb el patró final '*.do' (patró utilitzat per Struts)  detecta que el gestor associat és 'strutsWrappingController'</p>
+<ul>
+	<li>Una vegada detectat el gestor associat (en el cas més comú la classe  'ActionServlet', de Struts) li cedeix la petició
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"strutsWrappingController"</span>
+class=<span class="code-quote">"org.springframework.web.servlet.mvc.ServletWrappingController"</span>&gt;
+&lt;property name=<span class="code-quote">"servletClass"</span>&gt;
+&lt;value&gt;org.apache.struts.action.ActionServlet?&lt;/value&gt;
+&lt;/property&gt;
+&lt;property name=<span class="code-quote">"servletName"</span>&gt;
+&lt;value&gt;action&lt;/value&gt;
+&lt;/property&gt;
+&lt;property name=<span class="code-quote">"initParameters"</span>&gt;
+&lt;props&gt;
+&lt;prop key=<span class="code-quote">"config"</span>&gt;
+/WEB-INF/classes/struts/struts-config.xml?
+&lt;/prop&gt;
+&lt;/props&gt;
+&lt;/property&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<p>Servlet principal de Struts<br/>
+Fitxer de mappings de Struts. Aquest  fitxer serà utilitzat per determinar on anirà cada petició (una classe  'Action'), quins beans de formulari usar i on anar una vegada la petició s'hagi  resolt.</p>
+
+<p>NOTA: Es recomana una lectura prèvia de 'http://struts.apache.org/struts-doc&#45;  1.2.8/userGuide/index.html' per conéixer en detall cóm funciona Struts.</p>
+<ul>
+	<li>El 'ActionServlet' de Struts, segons el fitxer de mappings definit (veure  'config' a la propietat 'initParameters') cedeix la petició al 'processorClass'  configurat.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;controller&gt;
+&lt;set-property property=<span class="code-quote">"processorClass"</span>
+value=<span class="code-quote">"net.gencat.ctti.canigo.services.web.struts.ExtendedDelegatingTilesRequestProcessor"</span> ?/&gt;
+&lt;/controller&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<p>RequestProcessor de Struts al que es delega la petició. Cal recordar que  Struts permet l'extensió del seu comportament mitjançant l'extensió del seu  bàsic RequestProcessor.</p>
+<ul>
+	<li>La classe 'RequestProcessor' consulta al fitxer 'struts.config.xml' quina és  la classe 'Action' que tractarà la petició
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;action path=<span class="code-quote">"/accounts"</span> name=<span class="code-quote">"actionForm"</span> scope=<span class="code-quote">"request"</span>
+parameter=<span class="code-quote">"reqCode"</span>&gt;
+&lt;forward name=<span class="code-quote">"error"</span> path=<span class="code-quote">"pages.accounts"</span> /&gt;
+&lt;forward name=<span class="code-quote">"success"</span> path=<span class="code-quote">"pages.accounts"</span>/&gt;
+&lt;/action&gt;&lt;controller&gt;
+&lt;set-property property=<span class="code-quote">"processorClass"</span>
+value=<span class="code-quote">"net.gencat.ctti.canigo.services.web.struts.ExtendedDelegatingTilesRequestProcessor"</span> ?/&gt;
+&lt;/controller&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+	<li>La classe 'ExtendedDelegatingTilesRequestProcessor', en heretar de la classe  de Spring 'org.springframework.web.struts.DelegatingTilesRequestProcessor'  redefineix la creació de la classe 'Action' per tal d'injectar-li les propietats  que haguem configurat (aquest és un comportament diferenciat del clàssic  Struts).</li>
+</ul>
+
+
+<p>Aquesta injecció es realitza amb el mecanisme genèric de Spring com si d'una  classe normal es tractés.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean name=<span class="code-quote">"/accounts"</span> parent=<span class="code-quote">"accountBaseDefinition"</span>&gt;
+&lt;property name=<span class="code-quote">"valueListActionHelper"</span>&gt;
+&lt;bean parent=<span class="code-quote">"valueListActionHelper"</span>&gt;
+&lt;property name=<span class="code-quote">"listName"</span>&gt; &lt;value&gt;accountList&lt;/value&gt;
+&lt;/property&gt;
+&lt;property name=<span class="code-quote">"tableId"</span> value=<span class="code-quote">"ACCOUNT"</span>/&gt;
+&lt;/bean&gt;
+&lt;/property&gt;
+&lt;property name=<span class="code-quote">"servletRequestDataBinderFactory"</span> ref=<span class="code-quote">"servletRequestDataBinderFactory"</span>/&gt;
+&lt;property name=<span class="code-quote">"logService"</span> ref=<span class="code-quote">"loggingService"</span>/&gt;
+&lt;property name=<span class="code-quote">"pojoClass"</span>
+value=<span class="code-quote">"net.gencat.ctti.canigo.samples.jactionServlet.model.Account"</span> /&gt;
+&lt;property name=<span class="code-quote">"accountBO"</span> ref=<span class="code-quote">"accountBO"</span>/&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+NOTA: Per a injectar-hi les propietats, el processador ha de conéixer en quin  fitxer es realitzen les injeccions, per això es defineix en el fitxer 'web.xml'  el paràmetres de context 'contextConfigLocation'
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;context-param&gt;
+&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+&lt;param-value&gt;
+/WEB-INF/classes/spring/applicationContext.xml
+/WEB-INF/classes/spring/action-servlet.xml
+&lt;/param-value&gt;
+&lt;/context-param&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+ConsuLtar  'http://static.springframework.org/spring/docs/1.2.x/reference/beans.html' per  més referència del mecanisme d'injecció.
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>Mitjançant aquest mecanisme hem eliminat la necessitat de que les nostres  Action siguin 'thread-safe' (una de les restriccions de Struts).</p>
+
+<p>Una vegada obtinguda la instància 'Action' que tracta la petició, el  processador consulta si s'ha definit la propietat 'pojoClass' de la Action (en  la injecció l'haurem incorporat). Si és així, i aquí radica una de les  diferències més importants amb el tractament tradicional de Struts, el  processador canigo realitza la traducció dels paràmetres rebuts a la petició en  atributs de l'objecte definit al 'pojoClass'. Per a fer aquesta traducció  s'ajuda del 'servletRequestDataBinderFactory' que s'ha definit al Action.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean name=<span class="code-quote">"/accounts"</span> parent=<span class="code-quote">"accountBaseDefinition"</span>&gt;
+...
+&lt;property name=<span class="code-quote">"servletRequestDataBinderFactory"</span> ref=<span class="code-quote">"servletRequestDataBinderFactory"</span>/&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Mitjançant aquesta característica, eliminem un dels desavantatges de Struts  (comentat prèviament) pel qual que no s'establia la política de translació des  dels paràmetres de la petició (HttpServletRequest) a objectes Java comuns.
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>Per a que des dels nostres Action poguem accedir a l'objecte populat, es fa  ús de formularis de tipus 'SpringBindingActionForm'. L'ús d'aquests tipus,  enlloc del tradicional 'ActionForm' de Struts, permet l'ús de objectes des dels  tags clàssics de Struts (i per tant de l'extensió realitzada a canigo) sense  necessitat de definir formularis cópia dels objectes de negoci.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;form-beans&gt;
+&lt;form-bean name=<span class="code-quote">"actionForm"</span>
+type=<span class="code-quote">"net.gencat.ctti.canigo.services.web.struts.SpringBindingActionForm"</span>/&gt;
+&lt;/form-beans&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+La nostra acció, per tant farà ús d'aquest formulari:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;action path=<span class="code-quote">"/accounts"</span> name=<span class="code-quote">"actionForm"</span> ...</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+En aquest moment ja hem eliminat un altre dels desavantatges de Struts  comentat prèviament en el que es feia palés que els ActionForms són estructures  innecessàries per expressar el model.
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Finalment, es delega al Action el tractament de la petició. Aquest Action té  injectats tots els objectes necessaris.</li>
+</ol>
+
+
+<p>El Action pot accedir a l'objecte populat mitjançant el mètode 'getTarget'  del form:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">SpringBindingActionForm actionForm = (SpringBindingActionForm) form;
+Account vo = (Account) actionForm.getTarget();</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ul>
+	<li>A partir d'aquest moment, és important que es segueixi el patró de MVC pel  que les nostres Action no haurien de realitzar cap funcionalitat de negoci i  delegar tot el que no sigui própiament presentació a una classe manager o BO  (Business Object). A aquesta classe li passarà l'objecte de negoci populat  internament per l'arquitectura i obtingut en el pas anterior.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">vo = accountBO?.load(vo);</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<p>Aquest objecte ha estat declarat mitjançant injecció de Spring a la nostra  Action</p>
+<ul>
+	<li>Una vegada finalitzat el tractament, la classe Action només ha de retornar  la pantalla de finalització de la petició.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">return</span> mapping.findForward(<span class="code-quote">"success"</span>);</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<p>El nom de la pantalla és un nom lógic que correspon a un dels forwards  definits al fitxer de configuració de l'acció (struts-config.xml).
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;forward name=<span class="code-quote">"success"</span> path=<span class="code-quote">"pages.accounts"</span>/&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+En cas que el path de retorn no correspongui a una pàgina JSP, entra el  mecanisme de pantalles definit pel Servei de Pantalles. En aquest cas, la  pantalla és construída a partir de la definició realitzada al fitxer  'tiles-defs.xml'.
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Finalment, la pàgina construída és retornada a l'usuari</li>
+</ol>
+
+
+<p>En el següent gràfic podem veure de forma resumida el procés descrit:</p>
+
+<p><img src="Servei de Presentació (General) 2.1_attachments/image003.jpg" align="absmiddle" border="0" /><br/>
+Dins aquest gràfic és  tasca del programador la de definir:</p>
+<ol>
+	<li>Fitxer de configuració 'action-servlet.xml'. Per definir les accions per tal  que puguin injectar-se atributs</li>
+	<li>Fitxer de configuració 'applicationContext.xml'. Per definir els atributs i  objectes injectables</li>
+	<li>Fitxer de configuració 'struts-config.xml'. Per definir el fitxer de  configuració de accions de Struts (formulari, path de l'acció, forwards,  ...)</li>
+	<li>Fitxer de configuració 'tiles-defs.xml'. Per definir les pantalles de  l'aplicació</li>
+	<li>Classe Action. Per definir cóm gestionar una petició web concreta i la  integració amb la capa de negoci.</li>
+	<li>Altres classes. Una vegada definida la classe Action caldrà definir classes  (si no es troben ja definides) per realitzar la funcionalitat del  negoci.</li>
+</ol>
+
+
+<h3><a name="ServeidePresentaci%C3%B3%28General%292.1-ComponentsControl%5Clador"></a>Components  Control&#45; lador</h3>
+
+<p>Dins els components Control&#45; lador trobem tots aquells elements que  s'encarreguen de gestionar una petició i interaccionar amb les vistes que  presentaran les dades del model a l'usuari.</p>
+
+<p>Es pot trobar tota la documentació JavaDoc y el codi font referent aquests components a les següents urls:</p>
+
+<p><ins>JavaDoc:</ins> <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-web/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-web/apidocs/index.html</a><br/>
+<ins>Codi Font:</ins>&nbsp; <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-web/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-web/xref/index.html</a></p>
+
+<h2><a name="ServeidePresentaci%C3%B3%28General%292.1-Instal%5Claci%C3%B3iConfiguraci%C3%B3"></a>Instal&#45; lació  i Configuració</h2>
+
+
+<h3><a name="ServeidePresentaci%C3%B3%28General%292.1-Configuraci%C3%B3B%C3%A0sica"></a>Configuració  Bàsica</h3>
+
+<p>Paràmetres de context</p>
+
+<p><em>Fitxer de configuració: web.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/webapp/WEB-INF/web.xml</em><br/>
+NOTA: Aquesta  ubicació és la proposada en cas d'utilització de Maven</p>
+
+<p>En aquest apartat definirem els següents paràmetres:</p>
+
+<p><img src="Servei de Presentació (General) 2.1_attachments/image007.gif" align="absmiddle" border="0" /></p>
+<ol>
+	<li>contextConfigLocation</li>
+</ol>
+
+
+<p>Indicar les referències als fitxers de configuració 'action-servlet.xml', on  definirem les configuracions de les accions de Struts, i el fitxer  'applicationContext.xml' on definirem la injecció dels altres objectes (negoci,  daos, ...)
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;context-param&gt;
+&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+&lt;param-value&gt;
+/WEB-INF/classes/spring/applicationContext.xml
+/WEB-INF/classes/spring/action-servlet.xml
+&lt;/param-value&gt;
+&lt;/context-param&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Filtres
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p><em>Fitxer de configuració: web.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/webapp/WEB-INF/web.xml</em><br/>
+NOTA: Aquesta  ubicació és la proposada en cas d'utilització de Maven</p>
+
+<p><img src="Servei de Presentació (General) 2.1_attachments/image008.gif" align="absmiddle" border="0" /></p>
+<ul>
+	<li>Struts Locale Filter</li>
+</ul>
+
+
+<p>Aquest filtre s'encarrega de integrar el Servei<br/>
+d'Internacionalització per  tal que des de Struts es pugui fer ús de fitxers d'internacionalització.</p>
+
+<p>Atributs:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Valor</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> filter-name </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Nom del filtre <br clear="all" />
+Exemple:  Struts Locale Filter </td>
+</tr>
+<tr>
+<td class='confluenceTd'> filter-class </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> net.gencat.ctti.canigo.services.web.i18n.StrutsLocaleFilter </td>
+<td class='confluenceTd'> <br clear="all" />  <br clear="all" />  <br clear="all" /> </td>
+</tr>
+</tbody></table>
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;filter&gt;
+&lt;filter-name&gt;Struts Locale Filter&lt;/filter-name&gt;
+&lt;filter-class&gt;
+net.gencat.ctti.canigo.services.web.i18n.StrutsLocaleFilter
+&lt;/filter-class&gt;
+&lt;/filter&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ul>
+	<li>&nbsp;JSTL Locale Filter</li>
+</ul>
+
+
+<p>Aquest filtre s'encarrega de integrar el Servei<br/>
+d'Internacionalització per  tal que es pugui fer servir des de tags JSTL de tipus fmt</p>
+
+<p>Atributs:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> filter-name </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Nom del filtre <br clear="all" />
+Exemple:  Struts Locale Filter </td>
+</tr>
+<tr>
+<td class='confluenceTd'> filter-class </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Usar  'net.gencat.ctti.canigo.services.web.i18n.JSTLLocaleFilter' </td>
+<td class='confluenceTd'> <br clear="all" />  <br clear="all" /> </td>
+<td class='confluenceTd'> <br clear="all" />
+<br clear="all" />  <br clear="all" />  <br clear="all" />
+<br clear="all" /> </td>
+</tr>
+</tbody></table>
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;filter&gt;
+&lt;filter-name&gt;JSTL Locale Filter&lt;/filter-name&gt;
+&lt;filter-class&gt;
+net.gencat.ctti.canigo.services.web.i18n.JSTLLocaleFilter
+&lt;/filter-class&gt;
+&lt;/filter&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ul>
+	<li>Acegi Filter Chain Proxy
+<br clear="all" /></li>
+</ul>
+
+
+<p>&nbsp;Aquest filtre s'ha definir per integrar el <b>Servei de Seguretat</b> de  forma que qualsevol petició sigui filtrada prèviament abans d'arribar a  l'Action.</p>
+
+<p>Atributs:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> filter-name </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Nom del filtre <br clear="all" />
+Exemple:  Acegi Filter Chain Proxy </td>
+</tr>
+<tr>
+<td class='confluenceTd'> filter-class </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Usar  'net.gencat.ctti.canigo.services.web.i18n.JSTLLocaleFilter' </td>
+</tr>
+</tbody></table>
+<p>Paràmetres  d'inicialització:</p>
+
+<p><img src="Servei de Presentació (General) 2.1_attachments/image009.gif" align="absmiddle" border="0" /></p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Valor</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> param-name </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> targetClass </td>
+</tr>
+<tr>
+<td class='confluenceTd'> param-value </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> 'net.sf.acegisecurity.util.FilterChainProxy'' </td>
+<td class='confluenceTd'> <br clear="all" />
+<br clear="all" />  <br clear="all" />  <br clear="all" />  <br clear="all" /> </td>
+<td class='confluenceTd'> <br clear="all" />  <br clear="all" />
+<br clear="all" />
+<br clear="all" /> </td>
+</tr>
+</tbody></table>
+<p>&nbsp;
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;filter&gt;
+&lt;filter-name&gt;Acegi Filter Chain Proxy&lt;/filter-name&gt;
+&lt;filter-class&gt;
+net.sf.acegisecurity.util.FilterToBeanProxy
+&lt;/filter-class&gt;
+&lt;init-param&gt;
+&lt;param-name&gt;targetClass&lt;/param-name&gt;
+&lt;param-value&gt;
+net.sf.acegisecurity.util.FilterChainProxy
+&lt;/param-value&gt;
+&lt;/init-param&gt;
+&lt;/filter&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Mapeig dels Filtres
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p><em>Fitxer de configuració: web.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/webapp/WEB-INF/web.xml</em><br/>
+NOTA: Aquesta  ubicació és la proposada en cas d'utilització de Maven</p>
+
+<p>En aquest apartat configurarem en quins casos s'apliquen els  filtres</p>
+
+<p><img src="Servei de Presentació (General) 2.1_attachments/image010.gif" align="absmiddle" border="0" /><br clear="all" /></p>
+<ol>
+	<li>Struts Locale Filter</li>
+</ol>
+
+
+<p>Definirem que s'activi el filtre 'Struts Locale Filter' en els següents  casos:</p>
+<ol>
+	<li>&#42;.do. Per activar el filtre quan es facin peticions als Action de  Struts</li>
+	<li>&#42;.pdf. Per activar el filtre per generar els fitxers pdf de sortida dels  llistats</li>
+	<li>&#42;.xls. Per activar el filtre per generar els fitxers xls de sortida dels  llistats</li>
+	<li>/dwr/*. Per activar el filtre des de Ajax
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;filter-mapping&gt;
+&lt;filter-name&gt;Struts Locale Filter&lt;/filter-name&gt;
+&lt;url-pattern&gt;*.<span class="code-keyword">do</span>&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+&lt;filter-mapping&gt;
+&lt;filter-name&gt;Struts Locale Filter&lt;/filter-name&gt;
+&lt;url-pattern&gt;*.pdf&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+&lt;filter-mapping&gt;
+&lt;filter-name&gt;Struts Locale Filter&lt;/filter-name&gt;
+&lt;url-pattern&gt;/dwr/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+
+&lt;filter-mapping&gt;
+&lt;filter-name&gt;Struts Locale Filter&lt;/filter-name&gt;
+&lt;url-pattern&gt;*.xls&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+	<li>JSTL Locale Filter</li>
+</ol>
+
+
+<p>Definirem que s'activi el filtre 'JSTL Locale Filter' en els mateixos casos  anteriors:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;filter-mapping&gt;
+&lt;filter-name&gt;JSTL Locale Filter&lt;/filter-name&gt;
+&lt;url-pattern&gt;*.<span class="code-keyword">do</span>&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+&lt;filter-mapping&gt;
+&lt;filter-name&gt;JSTL Locale Filter&lt;/filter-name&gt;
+&lt;url-pattern&gt;/dwr/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+&lt;filter-mapping&gt;
+&lt;filter-name&gt;JSTL Locale Filter&lt;/filter-name&gt;
+&lt;url-pattern&gt;*.pdf&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+&lt;filter-mapping&gt;
+&lt;filter-name&gt;JSTL Locale Filter&lt;/filter-name&gt;
+&lt;url-pattern&gt;*.xls&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Acegi Filter Chain Proxy</li>
+</ol>
+
+
+<p>Definirem que s'activi el filtre per qualsevol url
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;filter-mapping&gt;
+&lt;filter-name&gt;Acegi Filter Chain Proxy&lt;/filter-name&gt;
+&lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Listeners<br/>
+<img src="Servei de Presentació (General) 2.1_attachments/image011.gif" align="absmiddle" border="0" /><br/>
+<em>Fitxer de  configuració: web.xml</em><br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/webapp/WEB-INF/web.xml</em><br/>
+NOTA: Aquesta  ubicació és la proposada en cas d'utilització de Maven<br/>
+Es definiran els  següents listeners:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;listener&gt;
+&lt;listener-class&gt;
+org.springframework.web.context.ContextLoaderListener
+&lt;/listener-class&gt;
+&lt;/listener&gt;
+&lt;listener&gt;
+&lt;listener-class&gt;
+net.gencat.ctti.canigo.services.web.context.AspectWerkzContextListener
+&lt;/listener-class&gt;
+&lt;/listener&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Per a més referència consultar '<a href="http://www.springframework.org/docs/api/org/springframework/web/context/ContextLoaderListener.html" title="Visit page outside Confluence">http://www.springframework.org/docs/api/org/springframework/web/context/ContextLoaderListener.html</a>'
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>Servlets</p>
+
+<p><em>Fitxer de configuració: web.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/webapp/WEB-INF/web.xml</em><br/>
+NOTA:  Aquesta ubicació és la proposada en cas d'utilització de Maven</p>
+
+<p><img src="Servei de Presentació (General) 2.1_attachments/image012.gif" align="absmiddle" border="0" /></p>
+
+<p>En aquest apartat configurarem en quins casos s'apliquen els filtres definits  prèviament</p>
+<ul>
+	<li>Servlet Central de les Peticions Struts</li>
+</ul>
+
+
+<p>Atributs:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> servlet-name </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Nom del servlet <br clear="all" />
+Exemple: actionServlet </td>
+</tr>
+<tr>
+<td class='confluenceTd'> servlet-class </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Usar  'org.springframework.web.servlet.DispatcherServlet' </td>
+</tr>
+<tr>
+<td class='confluenceTd'> init-param </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Inicialització dels paràmetres: <br clear="all" />
+&#35; contextConfigLocation <br clear="all" />
+<br clear="all" />
+Ubicació del fitxer  que lliga els Action de Struts definits a 'struts-config.xml' amb la injecció  dels seus <br clear="all" />
+atributs <br clear="all" />
+<br clear="all" />
+Valor: <br clear="all" />
+/WEB-INF/classes/spring/action-servlet.xml <br clear="all" /> </td>
+<td class='confluenceTd'> <br clear="all" />  <br clear="all" /> </td>
+</tr>
+</tbody></table>
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;servlet&gt;
+&lt;servlet-name&gt;actionServlet&lt;/servlet-name&gt;
+&lt;servlet-class&gt;
+org.springframework.web.servlet.DispatcherServlet
+&lt;/servlet-class&gt;
+&lt;init-param&gt;
+&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+&lt;param-value&gt;
+/WEB-INF/classes/spring/action-servlet.xml
+&lt;/param-value&gt;
+&lt;/init-param&gt;
+&lt;load-on-startup&gt;2&lt;/load-on-startup&gt;
+&lt;/servlet&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ul>
+	<li>Servlet de comunicació Ajax amb el Servidor</li>
+</ul>
+
+
+<p>Atributs:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> servlet-name </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Nom del servlet <br clear="all" />
+Exemple: dwr-invoker </td>
+</tr>
+<tr>
+<td class='confluenceTd'> servlet-class </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Usar  'uk.ltd.getahead.dwr.DWRServlet' </td>
+</tr>
+<tr>
+<td class='confluenceTd'> init-param </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Inicialització dels paràmetres: <br clear="all" />
+&#35; config <br clear="all" />
+<br clear="all" />
+Ubicació del fitxer de definició  dels objectes Spring exposats. <br clear="all" />
+<br clear="all" />
+Valor: <br clear="all" />
+/WEB-INF/classes/dwr/dwr.xml <br clear="all" /> </td>
+<td class='confluenceTd'> <br clear="all" />  <br clear="all" />  <br clear="all" />  <br clear="all" />  <br clear="all" />  <br clear="all" />  <br clear="all" />  <br clear="all" />
+<br clear="all" /> </td>
+<td class='confluenceTd'> <br clear="all" />  <br clear="all" />
+<br clear="all" /> </td>
+</tr>
+</tbody></table>
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;servlet&gt;
+&lt;servlet-name&gt;dwr-invoker&lt;/servlet-name&gt;
+&lt;servlet-class&gt;uk.ltd.getahead.dwr.DWRServlet&lt;/servlet-class&gt;
+&lt;init-param&gt;
+&lt;param-name&gt;config&lt;/param-name&gt;
+&lt;param-value&gt;/WEB-INF/classes/dwr/dwr.xml&lt;/param-value&gt;
+&lt;/init-param&gt;
+&lt;/servlet&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Mappings de urls i Servlets
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p><em>Fitxer de configuració: web.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/webapp/WEB-INF/web.xml</em><br/>
+NOTA:  Aquesta ubicació és la proposada en cas d'utilització de Maven</p>
+
+<p><img src="Servei de Presentació (General) 2.1_attachments/image013.gif" align="absmiddle" border="0" /></p>
+
+<p>En aquest apartat configurarem quins servlets s'usaran<br/>
+per rebre les  peticions segons el patró de url rebut.</p>
+
+<p>Definirem els mapejos dels patrons següents al servlet 'actionServlet':</p>
+<ol>
+	<li>&#42;.do, &#42;.doc, &#42;.report, &#42;:xml, &#42;.xls i &#42;.pdf</li>
+</ol>
+
+
+<p>Tal i com es mostra a continuació:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;servlet-mapping&gt;
+&lt;servlet-name&gt;actionServlet&lt;/servlet-name&gt;
+&lt;url-pattern&gt;*.<span class="code-keyword">do</span>&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+&lt;servlet-mapping&gt;
+&lt;servlet-name&gt;actionServlet&lt;/servlet-name&gt;
+&lt;url-pattern&gt;*.doc&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+&lt;servlet-mapping&gt;
+&lt;servlet-name&gt;actionServlet&lt;/servlet-name&gt;
+&lt;url-pattern&gt;*.report&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+&lt;servlet-mapping&gt;
+&lt;servlet-name&gt;actionServlet&lt;/servlet-name&gt;
+&lt;url-pattern&gt;*.xml&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+&lt;servlet-mapping&gt;
+&lt;servlet-name&gt;actionServlet&lt;/servlet-name&gt;
+&lt;url-pattern&gt;*.xls&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+&lt;servlet-mapping&gt;
+&lt;servlet-name&gt;actionServlet&lt;/servlet-name&gt;
+&lt;url-pattern&gt;*.pdf&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Configuració de Struts
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p><em>Fitxer de configuració: struts-config.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/struts/struts-config.xml</em></p>
+
+<p>Per a la integració amb Struts definirem els següents elements:</p>
+<ol>
+	<li>Control&#45; lador
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;controller&gt;
+&lt;set-property property=<span class="code-quote">"processorClass"</span> value="net.gencat.ctti.canigo.services.web.
+struts.ExtendedDelegatingTilesRequestProcessor"/&gt;
+&lt;/controller&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ol>
+
+
+<p>Com a processorClass cal indicar la classe '  'ExtendedDelegatingTilesRequestProcessor' del package '  net.gencat.ctti.canigo.services.web.struts'</p>
+<ol>
+	<li>Recursos de missatges</li>
+</ol>
+
+
+<p>Referència al fitxer base de internacionalització.</p>
+
+<p>&lt;message-resources parameter="i18n.applicationResources"  null="false"/&gt;</p>
+<ol>
+	<li>Plugins</li>
+</ol>
+
+
+<p>En aquest apartat es defineixen els plugins d'integració amb Tiles (Servei de  Pantalles) i la integració amb Spring.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;plug-in className=<span class="code-quote">"org.apache.struts.tiles.TilesPlugin"</span>&gt;
+&lt;set-property property=<span class="code-quote">"definitions-config"</span> value=<span class="code-quote">"/WEB-INF/classes/struts/tiles-definitions.xml"</span>/&gt;
+&lt;/plug-in&gt;
+
+&lt;plug-in className=<span class="code-quote">"org.springframework.web.struts.ContextLoaderPlugIn"</span>&gt;
+&lt;set-property property=<span class="code-quote">"contextConfigLocation"</span> value=<span class="code-quote">"/WEB-INF/classes/spring/action-servlet.xml"</span>/&gt;
+&lt;/plug-in&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Configuració del mapeig entre paràmetres Web i objectes negoci
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>Dins la classe 'ExtendedDelegatingTilesRequestProcessor' es realitza un  mapeig entre els paràmetres rebuts i l'objecte configurat a la propietat  'pojoClass' de l'acció. Els valors dels paràmetres rebuts són de tipus 'String'  (dins el protocol HTTP).</p>
+
+<p><em>Fitxer de configuració: property-editors.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring/property-editors.xml</em></p>
+<ol>
+	<li>&#33;image017.jpg&#33;Configuració dels editors</li>
+</ol>
+
+
+<p>En aquest apartat es poden definir editors específics de transformació entre  tipus. Per defecte no cal definir els editors de transformació entre tipus  bàsics (String a boolean, String a Integer, etc.)</p>
+
+<p>S'ofereixen els següents editors:</p>
+<ol>
+	<li>CustomDateEditor</li>
+</ol>
+
+
+<p>Package:net.gencat.ctti.canigo.services.i18n.spring.beans.propertyeditors</p>
+
+<p>Cal definir les següents propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> i18nService </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Referència al Servei  d'Internacionalització <br clear="all" />
+<br clear="all" />
+El fa servir per obtenir el  llenguatge de l'usuari </td>
+</tr>
+<tr>
+<td class='confluenceTd'> localeDatePatternsMap </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Mapa amb la següents  característiques: <br clear="all" />
+<br clear="all" />
+&#35; La clau correspon a un idioma <br clear="all" />
+&#35; El valor correspon al patró de transformació (basat en  SimpleDateFormat) <br clear="all" /> </td>
+</tr>
+</tbody></table>
+<p>Segons el llenguatge de l'usuari, cerca si es troba com aaclau en el mapa. Si  el troba, realitza el pas de tipus segons el patró definit al valor de la clau  del mapa.</p>
+
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"customEditors"</span> class=<span class="code-quote">"java.util.HashMap"</span>&gt;
+&lt;constructor-arg&gt;
+&lt;map&gt;
+&lt;entry key=<span class="code-quote">"java.util.Date"</span>&gt;
+&lt;bean class=<span class="code-quote">"net.gencat.ctti.canigo.services.i18n.spring.beans.propertyeditors.CustomDateEditor"</span>&gt;
+&lt;property name=<span class="code-quote">"i18nService"</span> ref=<span class="code-quote">"i18nService"</span>/&gt; &lt;property name=<span class="code-quote">"localeDatePatternsMap"</span>&gt;
+&lt;map&gt;
+&lt;entry&gt;
+&lt;key&gt;&lt;value&gt;es&lt;/value&gt;&lt;/key&gt;
+&lt;value&gt;dd/MM/yyyy&lt;/value&gt;
+&lt;/entry&gt;
+&lt;entry&gt;
+&lt;key&gt;&lt;value&gt;es_ES&lt;/value&gt;&lt;/key&gt;
+&lt;value&gt;dd/MM/yyyy&lt;/value&gt;
+&lt;/entry&gt;
+&lt;entry&gt;
+&lt;key&gt;&lt;value&gt;ca_ES&lt;/value&gt;&lt;/key&gt;
+&lt;value&gt;dd/MM/yyyy&lt;/value&gt;
+&lt;/entry&gt;
+&lt;entry&gt;
+&lt;key&gt;&lt;value&gt;ca&lt;/value&gt;&lt;/key&gt;
+&lt;value&gt;dd/MM/yyyy&lt;/value&gt;
+&lt;/entry&gt;
+&lt;entry&gt;
+&lt;key&gt;&lt;value&gt;en&lt;/value&gt;&lt;/key&gt;
+&lt;value&gt;MM/dd/yyyy&lt;/value&gt;
+&lt;/entry&gt;
+&lt;entry&gt;
+&lt;key&gt;&lt;value&gt;en_GB&lt;/value&gt;&lt;/key&gt;
+&lt;value&gt;MM/dd/yyyy&lt;/value&gt;
+&lt;/entry&gt;
+&lt;/map&gt;
+&lt;/property&gt;
+&lt;/bean&gt;
+&lt;/entry&gt;
+&lt;/map&gt;
+&lt;/constructor-arg&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Configuració del configurador d'editors</li>
+</ol>
+
+
+<p><img src="Servei de Presentació (General) 2.1_attachments/image015.gif" align="absmiddle" border="0" /></p>
+
+<p>Per tal que funcioni correctament la transformació definirem el configurador  d'editors.</p>
+
+<p>Classe: CustomEditorConfigurer<br/>
+Package:  org.springframework.beans.factory.config.CustomEditorConfigurer</p>
+
+<p>I definirem les següents propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> customEditors </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Referència als editors definits en  el pas previ </td>
+<td class='confluenceTd'> <br clear="all" />  <br clear="all" />  <br clear="all" />
+<br clear="all" /> </td>
+<td class='confluenceTd'> <br clear="all" /> </td>
+</tr>
+</tbody></table>
+<p><br clear="all" />
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"customEditorConfigurer"</span> class="org.springframework.beans.factory.config.
+CustomEditorConfigurer"&gt;
+&lt;property name=<span class="code-quote">"customEditors"</span>&gt;&lt;ref local=<span class="code-quote">"customEditors"</span>&gt;&lt;/ref&gt;&lt;/property&gt;
+&lt;/bean&gt;
+&lt;/beans&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h3><a name="ServeidePresentaci%C3%B3%28General%292.1-Configuraci%C3%B3delesAccions"></a>Configuració  de les Accions</h3>
+
+<p><br clear="all" /></p>
+
+<p>La configuració de cadascuna de les nostres accions inclou 2 pasos:</p>
+<ol>
+	<li>Configuració Struts. Definició de les accions segons Struts amb algunes  particularitats específiques</li>
+	<li>Configuració d'injecció de dependències. Definició de la injecció dels  atributs de l'acció, com per exemple la implementació de negoci amb la que  interactuarà</li>
+</ol>
+
+
+<p>Configuració Struts</p>
+
+<p><em>Fitxer de configuració: struts-config.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/struts/struts-config.xml</em></p>
+<ol>
+	<li>Configuració dels formularis</li>
+</ol>
+
+
+<p>A diferència de Struts, en la que hem de definir un formulari per cada  pantalla, en canigo s'ofereix una classe 'SpringBindingActionForm' a utilitzar  per les accions.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;form-bean name=<span class="code-quote">"actionForm"</span> type="net.gencat.ctti.canigo.services.web.struts.
+SpringBindingActionForm"/&gt;
+&lt;/form-beans&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Configuració de l'acció</li>
+</ol>
+
+
+<p>La configuració de l'acció es realitza de la mateixa forma que Struts, pel  que es recomana una lectura prèvia de Struts per a més detalls.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;action path=<span class="code-quote">"/categories"</span> name=<span class="code-quote">"actionForm"</span> scope=<span class="code-quote">"request"</span> parameter=<span class="code-quote">"reqCode"</span>&gt;
+&lt;forward name=<span class="code-quote">"error"</span> path=<span class="code-quote">"pages.categoryEdit"</span>/&gt;
+&lt;forward name=<span class="code-quote">"edit"</span> path=<span class="code-quote">"pages.categoryEdit"</span>/&gt;
+&lt;forward name=<span class="code-quote">"create"</span> path=<span class="code-quote">"pages.categoryEdit"</span>/&gt;
+&lt;forward name=<span class="code-quote">"list"</span> path=<span class="code-quote">"pages.categories"</span>/&gt;
+&lt;forward name=<span class="code-quote">"errorList"</span> path=<span class="code-quote">"pages.categories"</span>/&gt;
+&lt;forward name=<span class="code-quote">"success"</span> redirect=<span class="code-quote">"<span class="code-keyword">true</span>"</span>/&gt;
+&lt;/action&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Configuració d'injecció de dependències
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p><em>Fitxer de configuració: action-servlet.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring/action-servlet.xml</em></p>
+
+<p>Per cadascuna de les accions de Struts definides al fitxer  'struts-config.xml' injectarem propietats adicionals que podran ser usades des  de l'acció (tal i com es realitza entre qualsevol objecte segons defineix el  Servei de Configuració).</p>
+
+<p>Per tal que es pugui fer la injecció el id del bean ha de coincidir amb la  propietat 'path' definida a l'acció dins el fitxer 'struts-config.xml'.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"/editAccount"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.samples.jpetstore.struts.action.AccountAction"</span>&gt;
+&lt;property name=<span class="code-quote">"logService"</span> ref=<span class="code-quote">"loggingService"</span>/&gt;
+&lt;property name=<span class="code-quote">"serializationService"</span> ref=<span class="code-quote">"xmlSerializationService"</span>/&gt;
+&lt;property name=<span class="code-quote">"pojoClass"</span>
+value=<span class="code-quote">"net.gencat.ctti.canigo.samples.jpetstore.model.Account"</span> /&gt;
+&lt;property name=<span class="code-quote">"accountBO"</span> ref=<span class="code-quote">"accountBO"</span>/&gt;
+&lt;property name=<span class="code-quote">"defaultSuccessMessage"</span> value=<span class="code-quote">"action.defaultSuccessMessage"</span>/&gt;
+&lt;property name=<span class="code-quote">"tagsConfiguration"</span>&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" /></p>
+
+<p>En aquest exemple podem veure com injectar propietats en una acció. Algunes d'aquestes són serveis, altres objectes de negoci. N'hi ha que són comuns a totes les accions com <em>pojoClass</em> i <em>defaultSuccessMessage</em>. La primera indica el formulari que s'utilitzarà per a l'acció mentre que la segona permet introduïr missatges de confirmació per a l'acció executada.</p>
+
+<p>Els missatges de confirmació tenen el següent funcionament:</p>
+
+<p>S'especifica la clau i18n mitjançant la propietat defaultSuccessMessage, la qual tindrà que estar en el message-resources configurat en el fitxer struts-config.xml. Aquest serà el missatge generic per a totes les accions, independenment del reqCode, que s'utilitzarà si no es troba un clau i18n en el message-resources que cumpleixi el següent patró <em>defaultSuccesMessage.reqCode</em>. Per tant, primer es buscarà un missatge concret per a l'acció segons el seu reqCode. Si no es troba s'utilitzarà el missatge genèric, i si aquest no s'ha configurat o no es pot resoldre la clau especificada, no apareixerà missatge de confirmació en l'execució de l'acció.</p>
+
+<p>Pel que fa a la presentació del missatge, es tindrà que incloure la jsp <em>success.jsp</em> que s'inclou en la plantilla de projecte a Canigó.
+<br clear="all" /></p>
+
+<p><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Seguint amb la configuració de les accions, es recomana crear petits fitxers que incloguin un determinat módul d'accions  relacionats (per exemple tots els que tractin amb una entitat, ...) i  referenciar-los des del fitxer 'action-servlet.xml' amb la sentència import.
+<br clear="all" />
+<br clear="all" /></p>
+
+<p><img src="Servei de Presentació (General) 2.1_attachments/image016.gif" align="absmiddle" border="0" /><br/>
+Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;<span class="code-keyword">import</span> resource=<span class="code-quote">"action-servlet-accounts.xml"</span>/&gt;
+&lt;<span class="code-keyword">import</span> resource=<span class="code-quote">"action-servlet-categories.xml"</span>/&gt;
+&lt;<span class="code-keyword">import</span> resource=<span class="code-quote">"action-servlet-products.xml"</span>/&gt;
+&lt;<span class="code-keyword">import</span> resource=<span class="code-quote">"action-servlet-items.xml"</span>/&gt;
+&lt;<span class="code-keyword">import</span> resource=<span class="code-quote">"action-servlet-mails.xml"</span>/&gt;
+&lt;<span class="code-keyword">import</span> resource=<span class="code-quote">"action-servlet-files.xml"</span>/&gt;
+...</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h2><a name="ServeidePresentaci%C3%B3%28General%292.1-Utilitzaci%C3%B3"></a>Utilització</h2>
+
+
+<h2><a name="ServeidePresentaci%C3%B3%28General%292.1-EinesdeSuport"></a>Eines de  Suport</h2>
+
+
+<h3><a name="ServeidePresentaci%C3%B3%28General%292.1-StrutsEasyPlugin"></a>Struts  Easy Plugin</h3>
+
+<p>Amb la instal&#45; lació d'aquest plugin a Eclipse podem visualitzar de forma  gràfica els nostres fitxers de configuració de Struts.</p>
+
+<p>Pàgina de descàrrega:<br/>
+<a href="https://sourceforge.jp/projects/amateras/files/?release_id=16539" title="Visit page outside Confluence">https://sourceforge.jp/projects/amateras/files/?release_id=16539#16539</a></p>
+
+<p>Versió actual: 1.1.7<br/>
+(<a href="http://prdownloads.sourceforge.jp/amateras/16539/tk.eclipse.plugin.struts_1.1.7.zip" title="Visit page outside Confluence">http://prdownloads.sourceforge.jp/amateras/16539/tk.eclipse.plugin.struts_1.1.7.zip</a>)</p>
+
+<p>Tancar Eclipse i descomprimir el fitxer al directori d'instal&#45; lació de  eclipse.</p>
+<ol>
+	<li>Comprovació instal&#45; lació</li>
+</ol>
+
+
+<ol>
+	<li>Comprovar que dins el directori 'plugins' es troba un subdirectori anomenat  'tk.eclipse.plugin.struts_1.1.7'</li>
+	<li>Obrir Eclipse</li>
+	<li>Crear un fitxer 'struts-config.xml' si no existia prèviament</li>
+	<li>Seleccionar el fitxer al navegador i amb click dret seleccionar 'Open  With&gt;struts.config.xml Editor'</li>
+	<li>Veure que es representa gràficament la configuració i que a la vista  'Outline' ens apareix l'estructura jeràrquica dels elements.
+<br clear="all" />  <div align="center"><img src="Servei de Presentació (General) 2.1_attachments/image017.jpg" border="0" /></div><br/>
+<div align="center"><img src="Servei de Presentació (General) 2.1_attachments/image018.jpg" border="0" /></div></li>
+</ol>
+
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Presentació (General) 2.1_attachments/image012.gif">image012.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Presentació (General) 2.1_attachments/image001.gif">image001.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Presentació (General) 2.1_attachments/image010.gif">image010.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Presentació (General) 2.1_attachments/image006.gif">image006.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Presentació (General) 2.1_attachments/image018.jpg">image018.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Presentació (General) 2.1_attachments/image009.gif">image009.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Presentació (General) 2.1_attachments/image017.jpg">image017.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Presentació (General) 2.1_attachments/image008.gif">image008.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Presentació (General) 2.1_attachments/image007.gif">image007.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Presentació (General) 2.1_attachments/image005.gif">image005.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Presentació (General) 2.1_attachments/image014.gif">image014.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Presentació (General) 2.1_attachments/image002.gif">image002.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Presentació (General) 2.1_attachments/image013.gif">image013.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Presentació (General) 2.1_attachments/image011.gif">image011.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Presentació (General) 2.1_attachments/image016.gif">image016.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Presentació (General) 2.1_attachments/image004.gif">image004.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Presentació (General) 2.1_attachments/image015.gif">image015.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Presentació (General) 2.1_attachments/image003.jpg">image003.jpg</a> (image/jpeg)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

@@ -1,0 +1,459 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Servei de Correu</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Servei de Correu
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Sep 12, 2007 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="ServeideCorreu-SERVEIDECORREU"></a>SERVEI DE CORREU</h1>
+
+<p><br clear="all" />
+<div>
+<ul><a href='#ServeideCorreu-SERVEIDECORREU'>
+    <li>SERVEI DE CORREU</li></a><a href='#ServeideCorreu-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#ServeideCorreu-Prop%C3%B3sit'>
+    <li>Propósit</li></a><a href='#ServeideCorreu-ContextiEscenarisd%27%C3%9As'>
+    <li>Context i  Escenaris d'Ús</li></a><a href='#ServeideCorreu-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i  Dependències</li></a><a href='#ServeideCorreu-Aquivadirigit'>
+    <li>A qui va  dirigit</li></a><a href='#ServeideCorreu-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents i  Fonts de Referència</li></a>
+</ul><a href='#ServeideCorreu-Descripci%C3%B3Detallada'>
+    <li>Descripció  Detallada</li></a>
+<ul><a href='#ServeideCorreu-ArquitecturaiComponents'>
+    <li>Arquitectura i  Components</li></a><a href='#ServeideCorreu-Instal%5Claci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal&#45; lació  i Configuració</li></a>
+<ul><a href='#ServeideCorreu-Instal%5Claci%C3%B3'>
+    <li>Instal&#45; lació</li></a><a href='#ServeideCorreu-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#ServeideCorreu-Utilitzaci%C3%B3delServei'>
+    <li>Utilització del  Servei</li></a>
+<ul><a href='#ServeideCorreu-EnviamentdeCorreus'>
+    <li>Enviament  de Correus</li></a>
+</ul>
+</ul><a href='#ServeideCorreu-Exemples'>
+    <li>Exemples</li></a>
+<ul><a href='#ServeideCorreu-ExempledeProvaUnit%C3%A0ria'>
+    <li>Exemple de Prova  Unitària</li></a>
+</ul>
+</ul></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h1><a name="ServeideCorreu-Introducci%C3%B3"></a>Introducció</h1>
+
+
+<h2><a name="ServeideCorreu-Prop%C3%B3sit"></a>Propósit</h2>
+
+<p>Aquest servei té com a objectiu permetre l'enviament de correus electrònics a  una o diverses adreces especificades a qualsevol dels següents recipients:</p>
+<ol>
+	<li>Destinataris principals</li>
+	<li>Destinataris secundaris</li>
+	<li>Destinataris ocults</li>
+</ol>
+
+
+<p>Permet diferents modes d'enviament, tant en text pla, com en mode HTML, i en  tots 2 casos oferint la possibilitat d'adjuntar un o més fitxers.</p>
+
+<h2><a name="ServeideCorreu-ContextiEscenarisd%27%C3%9As"></a>Context i  Escenaris d'Ús</h2>
+
+<p>El Servei de Correu es troba dins dels serveis de Propósit General de  canigo.
+<br clear="all" />
+<br clear="all" /></p>
+
+<h2><a name="ServeideCorreu-VersionsiDepend%C3%A8ncies"></a>Versions i  Dependències</h2>
+
+<p>Les dependències descrites a la següent url son requerides per tal de compilar i fer funcionar el projecte:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-mailing/dependencies.html" title="Visit page outside Confluence">Dependències Servei de Correu</a></p>
+
+<h2><a name="ServeideCorreu-Aquivadirigit"></a>A qui va  dirigit</h2>
+
+<p>Aquest document va dirigit als següents perfils:</p>
+<ol>
+	<li>Programador. Per conèixer l'ús del servei</li>
+	<li>Arquitecte. Per conèixer quins són els components i la configuració del  servei</li>
+	<li>Administrador. Per conèixer com configurar el servei en cadascun dels  entorns en cas de necessitat</li>
+</ol>
+
+
+<h2><a name="ServeideCorreu-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents i  Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> [1] </th>
+<th class='confluenceTh'> Spring Mail </th>
+<th class='confluenceTh'> <a href="http://www.springframework.org/docs/reference/mail.html" title="Visit page outside Confluence">http://www.springframework.org/docs/reference/mail.html</a> </th>
+</tr>
+</tbody></table>
+
+<h1><a name="ServeideCorreu-Descripci%C3%B3Detallada"></a>Descripció  Detallada</h1>
+
+
+<h2><a name="ServeideCorreu-ArquitecturaiComponents"></a>Arquitectura i  Components</h2>
+
+<p><b>canigo</b> ofereix la possibilitat d'utilitzar diferents implementacions  del Servei de Correu. Dins la filosofia general d'oferir interfícies, els  clients no es veurien afectats per un canvi d'implementació.</p>
+
+<p>Els components podem classificar-los en:</p>
+<ol>
+	<li>Interfícies i Components Genérics. Interfícies del servei i components d'ús  general amb independència de la implementació escollida.</li>
+	<li>Implementació de les interfícies basada en Spring i JavaMail</li>
+</ol>
+
+
+<p>Es pot trobar tota la documentació JavaDoc y el codi font referent aquests components a les següents urls:</p>
+
+<p><ins>JavaDoc:</ins> <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-mailing/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-mailing/apidocs/index.html</a><br/>
+<ins>Codi Font:</ins>&nbsp; <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-mailing/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-mailing/xref/index.html</a></p>
+
+<h2><a name="ServeideCorreu-Instal%5Claci%C3%B3iConfiguraci%C3%B3"></a>Instal&#45; lació  i Configuració</h2>
+
+
+<h3><a name="ServeideCorreu-Instal%5Claci%C3%B3"></a>Instal&#45; lació</h3>
+
+<p>La instal&#45; lació del servei requereix de la utilització de la llibreria  'canigo-services-mailing' i les dependències indicades a l'apartat  'Introducció-Versions i Dependències'.</p>
+
+<h3><a name="ServeideCorreu-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p>La configuració del Servei de Correu implica els següents pasos:</p>
+<ol>
+	<li>Definir el delegador d'enviaments</li>
+	<li>Definir el servei</li>
+	<li>Definir les propietats del servei</li>
+	<li>Definir els literals multiidioma de les excepcions</li>
+</ol>
+
+
+<p>Definició del Delegador d'Enviaments<br/>
+<img src="Servei de Correu_attachments/ServeiCorreu_image004.jpg" align="left" border="0" /><br clear="all" /></p>
+
+<p><em>Fitxer de configuració: canigo-services-mailing.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>Es permet l'ús de la classe  'org.springframework.mail.javamail.JavaMailSenderImpl'. Aquesta defineix les  següents propietats:</p>
+
+<p>Propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> host </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Nom del servidor de correu sortint  (smtp) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> port </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Port del servidor de correu sortint  (smtp) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> username </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Usuari de connexió al servidor de  correu sorting (smtp) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> password </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Password de l'usuari de connexió </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"mailSender"</span>  class=<span class="code-quote">"net.gencat.ctti.canigo.services.mail.impl.SpringJavaMailSenderImpl"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"host"</span> value=<span class="code-quote">"$\{mailSender.host\}"</span>/&gt;
+
+&lt;property name=<span class="code-quote">"port"</span>  value=<span class="code-quote">"$\{mailSender.port\}"</span>/&gt;
+
+&lt;property name=<span class="code-quote">"username"</span>  value=<span class="code-quote">"$\{mailSender.username\}"</span>/&gt;
+
+&lt;property name=<span class="code-quote">"password"</span>  value=<span class="code-quote">"$\{mailSender.password\}"</span>/&gt;
+
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>Definició del Servei<br/>
+<img src="Servei de Correu_attachments/ServeiCorreu_image005.jpg" align="left" border="0" /><br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p><em>Fitxer de configuració: canigo-services-mailing.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>En l'actualitat s'ofereix la implementació  'net.gencat.ctti.canigo.services.mail.impl.SpringMailServiceImpl', en la que  definirem les següents propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> mailSender </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Referència a l'enviador </td>
+</tr>
+<tr>
+<td class='confluenceTd'> logService </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Referència al Servei de Traces </td>
+</tr>
+<tr>
+<td class='confluenceTd'> maxAttachmentSize </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Tamany màxim permés dels fitxers  adjunts </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"mailService"</span>  class=<span class="code-quote">"net.gencat.ctti.canigo.services.mail.impl.SpringMailServiceImpl"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"maxAttachmentSize"</span>  value=<span class="code-quote">"$\{mailService.maxAttachmentSize\}"</span>/&gt;
+
+&lt;property  name=<span class="code-quote">"mailSender"</span>&gt;&lt;ref  bean=<span class="code-quote">"mailSender"</span>/&gt;&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"logService"</span>&gt;&lt;ref  bean=<span class="code-quote">"loggingService"</span>/&gt;&lt;/property&gt;
+
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>Definició de les Propietats del Servei<br/>
+<img src="Servei de Correu_attachments/ServeiCorreu_image006.jpg" align="left" border="0" /><br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p><em>Fitxer de configuració: mail.properties</em></p>
+
+<p><em>Ubicació proposada: &lt;PROJECT_ROOT&gt;/src/main/resources/mail</em></p>
+
+<p>En aquest fitxer definirem les propietats del servei. Aquestes propietats  corresponen amb les que hem definit a les configuracions de l'enviador i del  servei.</p>
+
+<p>Com a recordatori, tal i com s'ha vist al 'Servei de Configuració' podem fer  ús de la classe 'HostPropertyPlaceHolderConfigurer' per definir tots els nostres  fitxers de propietats.</p>
+
+<p>En el cas del Servei de Correu podem seguir la mateix filosofia, tal i com es  mostra en el següent exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"configurationService"</span> class="net.gencat.ctti.canigo.services.configuration.
+springframework.beans.factory.config.HostPropertyPlaceholderConfigurer"&gt;
+&lt;property name=<span class="code-quote">"basePropertyFiles"</span>&gt;
+&lt;list&gt;
+&lt;value&gt;classpath:jdbc/jdbc.properties&lt;/value&gt;
+&lt;value&gt;classpath:mail/mail.propertiesc&lt;/value&gt;
+&lt;value&gt;classpath:file/fileUploadService.properties&lt;/value&gt;
+&lt;value&gt;classpath:file/fileService.properties&lt;/value&gt;
+&lt;/list&gt;
+&lt;/property&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>&gt;&gt; Referència al fitxer de propietats 'mail.properties', que estarà  ubicat al directori '/mail' dins el classpath</p>
+
+<p>En l'exemple el configurador fa ús d'un localitzador de fitxers depenent del  host (<em>HostPropertyResourceConfigurer</em>). Això vol dir que si en aquest  configurador incloem una referència a un fitxer de propietats anomenat "  mail.properties", realment es buscarà un fitxer anomenat  "mail.properties.nom_del_host". No obstant, aquesta no és l'única possibilitat,  ja que es pot fer servir un altre configurador que no depengui del host (com per  exemple <em>PropertyOverrideConfigurer</em>). Per a més informació sobre els  configuradors veure el document del <b>Servei de Configuració.</b></p>
+
+<p>Exemple de fitxer de propietats:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">mailSender.host=smtp.es.<span class="code-object">int</span>.atosorigin.com
+
+mailSender.port=25
+
+mailSender.username=user name
+
+mailSender.password=
+
+mailService.maxAttachmentSize=1024</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>Definició dels Missatges d'Error del Servei<br/>
+<img src="Servei de Correu_attachments/ServeiCorreu_image007.jpg" align="left" border="0" /><br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p><em>Fitxer de configuració: canigo-errorCodes.properties</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/i18n/errorCodes.properties</em></p>
+
+<p>Configurar els següents codis d'error:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">canigo.services.mail.attachment_size_exceeded=Attachment size exceeded: \{0\} bytes (max: \{1\})
+
+canigo.services.mail.error_preparing_addresses=Error preparing  addresses (to,bcc,cc)
+
+canigo.services.mail.error_sending_mail=Error sending  mail</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h2><a name="ServeideCorreu-Utilitzaci%C3%B3delServei"></a>Utilització del  Servei</h2>
+
+
+<h3><a name="ServeideCorreu-EnviamentdeCorreus"></a>Enviament  de Correus</h3>
+
+<p>Per enviar correus, les classes client definiran un atribut 'mailService' de  tipus 'MailService'. Mitjançant el Servei de Configuració s'especificarà quina  és la implementació escollida (transparent al client).</p>
+
+<p>Es permeten diferents combinacions d'enviament de correus (per a més  referència consultar el javadoc de la interfície 'MailService). A mode de resum,  podem enumerar:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"># <span class="code-keyword">public</span> void send(<span class="code-object">String</span> from, <span class="code-object">String</span> subject, <span class="code-object">String</span> aMessage, <span class="code-object">boolean</span>  isHtml, <span class="code-object">String</span> to)</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>Envia un missatge ("<em>aMessage</em>") des d'una direcció a una altra  ("<em>from</em>","<em>to</em>") amb un tópic ("<em>subject</em>") en format de  text pla o HTML ("<em>isHtml</em>").
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"># <span class="code-keyword">public</span> void send(<span class="code-object">String</span> from,  <span class="code-object">String</span> subject, <span class="code-object">String</span> aMessage, <span class="code-object">boolean</span> isHtml, <span class="code-object">String</span> to,
+File  attachment)</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>Envia un missatge ("<em>aMessage</em>") des d'una direcció a una altra  ("<em>from</em>","<em>to</em>") amb un tópic ("<em>subject</em>") en format text  pla o HTML ("<em>isHtml</em>") amb un fitxer annex ("<em>attachment</em>")
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"># <span class="code-keyword">public</span> void send(<span class="code-object">String</span> from, <span class="code-object">String</span> subject, <span class="code-object">String</span> aMessage, <span class="code-object">boolean</span>  isHtml, <span class="code-object">String</span> to,
+Map recipients, List attachment)</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>Envia un missatge ("<em>aMessage</em>") des d'una direcció a unes altres  ("<em>from</em>","<em>recipients</em>") amb un tópic ("<em>subject</em>") en  format text pla o HTML ("<em>isHtml</em>") amb una llista (o sense llista) de  fitxers annexes ("<em>attachments</em>"). La llista de direccions annexes té  forma de taula ("<em>java.util.Map</em>") on els continguts d'aquesta taula  són:</p>
+<ul>
+	<li>Clau: pot ser un <em>javax.mail.Message.RecipientType.TO</em>, un <em>javax.mail.Message.RecipientType.BCC</em> ó javax.mail.Message.RecipientType.CC</li>
+	<li>Valor: és un literal ("<em>String"</em>) o una llista de literals  ("<em>String[]"</em>)</li>
+</ul>
+
+
+<p>La llista d'anexes és una llista de fitxers ("<em>java.io.File</em>"). Si és  nul&#45; la no s'enviarà cap fitxer anexe.</p>
+
+<h1><a name="ServeideCorreu-Exemples"></a>Exemples</h1>
+
+
+<h2><a name="ServeideCorreu-ExempledeProvaUnit%C3%A0ria"></a>Exemple de Prova  Unitària</h2>
+
+<p>Un exemple d'utilització del servei de correu són els tests unitaris, a on  s'obté el bean del servei a partir del fitxer de definició  (applicationContext.xml) i s'envia un correu electrònic a les adreces de test  especificades.
+<br clear="all" /></p>
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">package</span> net.gencat.ctti.canigo.services.mail.test;
+
+...
+
+<span class="code-keyword">public</span> class MailServiceTest <span class="code-keyword">extends</span> TestCase \{
+...
+<span class="code-keyword">public</span> void testMailingWithoutAttachment()\{
+/**
+* Obtenim les definicions dels beans utilitzats
+*/
+BeanFactory beanFactory = <span class="code-keyword">new</span> ClassPathXmlApplicationContext(<span class="code-quote">"applicationContext.xml"</span>);
+/**
+* Obtenim el servei de correu
+*/
+MailService mailService = (MailService) beanFactory.getBean(<span class="code-quote">"mailService"</span>);
+/**
+* Obtenim les adreces de test
+*/
+TestClient clientTest = (TestClient) beanFactory.getBean(<span class="code-quote">"clientTest"</span>);
+/**
+* Obtenim el servei de logs per deixar traces
+*/
+LoggingService logService = (LoggingService) beanFactory.getBean(<span class="code-quote">"logService"</span>);
+
+<span class="code-keyword">try</span> \{
+logService.getLog(<span class="code-keyword">this</span>.getClass()).debug(<span class="code-quote">"From test="</span>clientTest.getFromTest()<span class="code-quote">",To test="</span>+clientTest.
+getToTest());
+/**
+* Enviem el correu de forma fàcil i senzilla
+*/
+mailService.send(clientTest.getFromTest(),<span class="code-quote">"MailServiceTest "</span>+<span class="code-keyword">new</span> Date(),"MailServiceTest without
+attachment",<span class="code-keyword">false</span>,clientTest.getToTest());
+\}
+<span class="code-keyword">catch</span> (Exception e) \{...\}
+\}
+...
+\}</pre>
+</div></div>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Correu_attachments/ServeiCorreu_image001.jpg">ServeiCorreu_image001.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Correu_attachments/ServeiCorreu_image002.jpg">ServeiCorreu_image002.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Correu_attachments/ServeiCorreu_image003.jpg">ServeiCorreu_image003.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Correu_attachments/ServeiCorreu_image004.jpg">ServeiCorreu_image004.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Correu_attachments/ServeiCorreu_image005.jpg">ServeiCorreu_image005.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Correu_attachments/ServeiCorreu_image006.jpg">ServeiCorreu_image006.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Correu_attachments/ServeiCorreu_image007.jpg">ServeiCorreu_image007.jpg</a> (image/jpeg)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

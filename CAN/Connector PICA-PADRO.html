@@ -1,0 +1,303 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Connector PICA-PADRO</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Connector PICA-PADRO
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Feb 28, 2012 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="ConnectorPICA-PADRO-CONNECTORPICAPADRO"></a>CONNECTOR PICA-PADRO</h1>
+
+<p><br clear="all" />
+<br clear="all" />
+<div>
+<ul><a href='#ConnectorPICA-PADRO-CONNECTORPICAPADRO'>
+    <li>CONNECTOR PICA-PADRO</li></a><a href='#ConnectorPICA-PADRO-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#ConnectorPICA-PADRO-Prop%C3%B2sit'>
+    <li>Propòsit</li></a><a href='#ConnectorPICA-PADRO-ContextiEscenarisd%27%C3%BAs'>
+    <li>Context i Escenaris d'ús</li></a><a href='#ConnectorPICA-PADRO-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i Dependències</li></a><a href='#ConnectorPICA-PADRO-Aquivadirigit'>
+    <li>A qui va dirigit</li></a><a href='#ConnectorPICA-PADRO-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents i Fonts de Referència</li></a>
+</ul><a href='#ConnectorPICA-PADRO-Descripci%C3%B3Detallada'>
+    <li>Descripció Detallada</li></a>
+<ul><a href='#ConnectorPICA-PADRO-ArquitecturaiComponents'>
+    <li>Arquitectura i Components</li></a>
+<ul><a href='#ConnectorPICA-PADRO-Interf%C3%ADciesiComponentsGen%C3%A8rics'>
+    <li>Interfícies i Components Genèrics</li></a><a href='#ConnectorPICA-PADRO-Requeriments'>
+    <li>Requeriments</li></a>
+</ul><a href='#ConnectorPICA-PADRO-Instal.laci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal.lació i Configuració</li></a>
+<ul><a href='#ConnectorPICA-PADRO-Instal.laci%C3%B3'>
+    <li>Instal.lació</li></a><a href='#ConnectorPICA-PADRO-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#ConnectorPICA-PADRO-Utilitzaci%C3%B3delConnector'>
+    <li>Utilització del Connector</li></a>
+<ul><a href='#ConnectorPICA-PADRO-Exempled%27utilitzaci%C3%B3d%27unServeiSincron'>
+    <li>Exemple d'utilització d'un Servei Sincron</li></a><a href='#ConnectorPICA-PADRO-Exempled%27utilitzaci%C3%B3d%27unServeiAs%C3%ADncron'>
+    <li>Exemple d'utilització d'un Servei Asíncron</li></a>
+</ul>
+</ul>
+</ul></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h1><a name="ConnectorPICA-PADRO-Introducci%C3%B3"></a>Introducció</h1>
+
+<p>L'objectiu d'aquest connector, és el de proporcionar un punt d'accés utilitzant la plataforma PICA cap serveis d'empadronament publicats en aquesta plataforma.</p>
+
+<h2><a name="ConnectorPICA-PADRO-Prop%C3%B2sit"></a>Propòsit</h2>
+
+<p><font color="black">El propòsit del connector és proporcionar una interfície funcional reduida al connector de la Pica que</font> <font color="black"><b>simplifica</b></font> <font color="black">l'utilització&nbsp;dels diferents serveis d'empadronament oferts per la generalitat.</font></p>
+
+<h2><a name="ConnectorPICA-PADRO-ContextiEscenarisd%27%C3%BAs"></a>Context i Escenaris d'ús</h2>
+
+<p><font color="black">El connector PICA-PADRO es troba dins els connectors de serveis funcionals de la Generalitat.</font></p>
+
+<h2><a name="ConnectorPICA-PADRO-VersionsiDepend%C3%A8ncies"></a>Versions i Dependències</h2>
+
+<p><font color="black">En el present apartat es mostren quines són les versions i dependències necessàries per fer ús del Connector.</font></p>
+
+<p><font color="black">Les dependències descrites a la següent url són requerides per tal de fer funcionar el servei:</font><br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_17/canigo-connectors-pica-padro/dependencies.html" title="Visit page outside Confluence">Dependències del Connector PICA-PADRO</a></p>
+
+<h2><a name="ConnectorPICA-PADRO-Aquivadirigit"></a>A qui va dirigit</h2>
+
+<p><font color="black">Aquest document va dirigit als següents perfils:</font></p>
+<ol>
+	<li><font color="black">Programador. Per conèixer l'ús del connector.</font></li>
+	<li><font color="black">Arquitecte. Per conèixer quins són els components i la configuració del connector.</font></li>
+</ol>
+
+
+<h2><a name="ConnectorPICA-PADRO-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents i Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<td class='confluenceTd'> <font color="red">[1]</font> </td>
+<td class='confluenceTd'> <font color="red">Guia d'us del servei de PADRO v1.5x.pdf.</font> </td>
+</tr>
+</tbody></table>
+
+<h1><a name="ConnectorPICA-PADRO-Descripci%C3%B3Detallada"></a>Descripció Detallada</h1>
+
+<p>Aquest connector permet utilitzar els diferents serveis del PADRO a través de l'accés a través d'una API de les següents modalitats de consum:</p>
+
+<p><b>Serveis Síncrons</b></p>
+
+<ul class="alternate" type="square">
+	<li>PADRO_COMPROVACIO_CONVIVENTS</li>
+	<li>PADRO_DADES_CONVIVENTS_PDF</li>
+	<li>PADRO_DADES_CONVIVENTS</li>
+	<li>PADRO_DADES_TITULAR</li>
+	<li>PADRO_DADES_TITULAR_INE</li>
+	<li>PADRO_DADES_TITULAR_PDF</li>
+	<li>PADRO_MUNICIPI_RESIDENCIA</li>
+	<li>PADRO_NUMERO_CONVIVENTS</li>
+	<li>PADRO_RESIDENT</li>
+	<li>PADRO_RESIDENT_MUNICIPI</li>
+	<li>PADRO_VALIDACIO_CONVIVENTS</li>
+</ul>
+
+
+<p><b>Serveis Asíncrons</b></p>
+
+<ul class="alternate" type="square">
+	<li>PADRO_TITULAR_CERCA</li>
+</ul>
+
+
+<h2><a name="ConnectorPICA-PADRO-ArquitecturaiComponents"></a>Arquitectura i Components</h2>
+
+
+<h3><a name="ConnectorPICA-PADRO-Interf%C3%ADciesiComponentsGen%C3%A8rics"></a>Interfícies i Components Genèrics</h3>
+
+<p><font color="black">Es pot trobar tota la documentació JavaDoc i el codi font referent aquests components a les següents url's:</font></p>
+
+<p><font color="red"><ins>JavaDoc:</ins></font><font color="red">&nbsp;</font><a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_17/canigo-connectors-root/canigo-connectors-pica-padro/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_17/canigo-connectors-root/canigo-connectors-pica-padro/apidocs/index.html</a><br/>
+<font color="red"><ins>Codi Font:</ins></font><font color="red">&nbsp;</font><font color="red">&nbsp;</font>[ <a href="http://canigo.ctti.gencat.net/repository/maven2/canigo/connectors/canigo-connectors-pica-padro/1.0.0/" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/repository/maven2/canigo/connectors/canigo-connectors-pica-padro/1.0.0/</a>]</p>
+
+<h3><a name="ConnectorPICA-PADRO-Requeriments"></a>Requeriments</h3>
+
+<p><font color="black">El connector</font> PADRO és compatible amb les versions 1.5 o superior de Java. Per versions inferiors no es garantit el seu correcte funcionament.</p>
+
+<p>Per tal de que el connector PADRO funcioni correctament sobre l'aplicació que l'utilitzi, s'ha de tenir configurat el servei connector genèric de la PICA 1.0.</p>
+
+<h2><a name="ConnectorPICA-PADRO-Instal.laci%C3%B3iConfiguraci%C3%B3"></a>Instal.lació i Configuració</h2>
+
+
+<h3><a name="ConnectorPICA-PADRO-Instal.laci%C3%B3"></a>Instal.lació</h3>
+
+<p><font color="black">La instal.lació del connector requereix de la utilització de la llibreria 'canigo.integration.padro.pica' i les dependències indicades a l'apartat '</font>Introducció-Versions i Dependències<font color="black">'.</font></p>
+
+<p>Es pot afegir el mòdul de forma automàtica a través del plugin de Canigó 3 per l'eclipse. Afegint el mòdul d'integració amb PADRO.</p>
+
+<p>Per fer-ho de forma manual<font color="black"> modificar el pom.xml de l'aplicació per incloure la llibreria del Connector com a dependència.</font><br clear="all" /></p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;dependency&gt;
+      &lt;groupId&gt;canigo.connectors&lt;/groupId&gt;
+      &lt;artifactId&gt;canigo-connectors-pica-padro&lt;/artifactId&gt;
+      &lt;version&gt;1.0.0&lt;/version&gt;
+&lt;/dependency&gt;</pre>
+</div></div>
+
+<p>També és necessari afegir una exclusió sobre la dependència de la PICA;</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;dependency&gt;
+    &lt;groupId&gt;canigo.connectors&lt;/groupId&gt;
+	&lt;artifactId&gt;canigo-connectors-pica&lt;/artifactId&gt;
+	&lt;version&gt;1.0&lt;/version&gt;
+	&lt;exclusions&gt;
+	        &lt;exclusion&gt;
+				&lt;groupId&gt;xmlbeans&lt;/groupId&gt;
+	            &lt;artifactId&gt;xbean&lt;/artifactId&gt;
+	        &lt;/exclusion&gt;
+	&lt;/exclusions&gt;
+&lt;/dependency&gt;</pre>
+</div></div>
+
+<h3><a name="ConnectorPICA-PADRO-Configuraci%C3%B3"></a>Configuració</h3>
+<p><br clear="all" />
+1.- Per poder configurar el connector PADRO és necessari tenir configurat el connector genèric a la PICA.</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"requeridor"</span> class=<span class="code-quote">"cat.gencat.pica.peticio.core.beans.Requeridor"</span> singleton=<span class="code-quote">"<span class="code-keyword">true</span>"</span>&gt;
+&lt;property name=<span class="code-quote">"fitxerSignatura"</span> value=<span class="code-quote">"signatura.properties"</span>&gt; &lt;/property&gt;
+	&lt;property name=<span class="code-quote">"idSolicitante"</span> value=<span class="code-quote">"1DPGO049"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"idTransmision"</span> value=<span class="code-quote">"213421"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"nombreSolicitante"</span> value=<span class="code-quote">"CTTI"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"password"</span> value=<span class="code-quote">"password"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"user"</span> value=<span class="code-quote">"usuari"</span>&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;bean name=<span class="code-quote">"ProducteModalitatBase"</span> <span class="code-keyword">abstract</span>=<span class="code-quote">"<span class="code-keyword">true</span>"</span> class=<span class="code-quote">"cat.gencat.pica.peticio.core.beans.ProducteModalitat"</span>&gt;
+	&lt;property name=<span class="code-quote">"passwordType"</span> value=<span class="code-quote">"PasswordText"</span>&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;bean id=<span class="code-quote">"picaService"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.connectors.pica.impl.PicaServiceWrapper"</span> singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
+	&lt;property name=<span class="code-quote">"axisDefinition"</span> value=<span class="code-quote">"classpath:axis2client/"</span>&gt;&lt;/property&gt;
+
+	&lt;property name=<span class="code-quote">"loggingService"</span> ref=<span class="code-quote">"loggingService"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"requeridor"</span> ref=<span class="code-quote">"requeridor"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"modalitats"</span>&gt;
+		&lt;map&gt;
+			...
+		&lt;/map&gt;
+	&lt;/property&gt;
+&lt;/bean&gt;</pre>
+</div></div>
+
+<p>2.- Configuiració e inicialització del bean d'spring que generarà el servei.</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"padroService"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.connectors.pica.padro.impl.PadroConnectorImpl"</span> singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
+		&lt;property name=<span class="code-quote">"picaService"</span> ref=<span class="code-quote">"picaService"</span>/&gt;
+		&lt;property name=<span class="code-quote">"nifEmisor"</span> value=<span class="code-quote">"[nifEmissor]"</span> /&gt;
+		&lt;property name=<span class="code-quote">"nomEmisor"</span> value=<span class="code-quote">"[nomEmisor]"</span> /&gt;
+		&lt;property name=<span class="code-quote">"finalitat"</span> value=<span class="code-quote">"[finalitat]"</span>/&gt;
+		&lt;property name=<span class="code-quote">"urlPica"</span> value=<span class="code-quote">"http:<span class="code-comment">//preproduccio.pica.gencat.intranet/pica_cataleg/AppJava/services/"</span>/&gt;
+</span>	&lt;/bean&gt;</pre>
+</div></div>
+
+<p>Els valors d finalitat, urlPica, nifEmisor i nomEmisor s'han de consultar a la OT PICA en requeridors.otpica.ctti@gencat.cat</p>
+
+<p>NOTA: El valor per defecte de urlPica es la de l'entorn de Pre-producció.</p>
+
+<h2><a name="ConnectorPICA-PADRO-Utilitzaci%C3%B3delConnector"></a>Utilització del Connector</h2>
+
+<p><br clear="all" /></p>
+
+<h3><a name="ConnectorPICA-PADRO-Exempled%27utilitzaci%C3%B3d%27unServeiSincron"></a>Exemple d'utilització d'un Servei Sincron</h3>
+
+<p>1.- Referenciar al servei PADRO des de l'acció que es vulgui utilitzar (action-servlet-aaa.xml):</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;property name=<span class="code-quote">"padroConnector"</span> ref=<span class="code-quote">"padroService"</span>&gt;&lt;/property&gt;</pre>
+</div></div>
+
+<p>2.- En l'acció, s'hauran de crear els getters i setters corresponents per al connector de PADRO:</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">private</span> PadroConnectorImpl padroConnector;
+<span class="code-keyword">public</span> PadroConnectorImpl getPadroConnector() {
+	<span class="code-keyword">return</span> padroConnector;
+}
+
+<span class="code-keyword">public</span> void setPadroConnector(PadroConnectorImpl padroConnector) {
+	<span class="code-keyword">this</span>.padroConnector = padroConnector;
+}</pre>
+</div></div>
+
+<p>En aquest cas d'exemple es consumirà la modalitat de servei PADRO_COMPROVACIO_CONVIVENTS.<br/>
+NOTA: Les dades de nom, cognom1 i 2, nom complet i el valor del document sobre l'exemple son inventades.</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-object">String</span> numExpedient = <span class="code-quote">"CAT-1234567890ABCDEF"</span>;
+	<span class="code-object">int</span> tipusDocumentacio = Constants.NIE;
+	<span class="code-object">String</span> documentacio = <span class="code-quote">"X02649265X"</span>;
+	<span class="code-object">String</span> codMun = <span class="code-quote">"999"</span>;
+	<span class="code-object">int</span> numConv = 99;
+	<span class="code-object">String</span> codProv = <span class="code-quote">"1"</span>;
+	<span class="code-object">int</span> idesCat = 0;
+	
+	RespuestaComprobacionConvivientes resposta = padroConnector.padroComprovacioConvivents(numExpedient, 
+		tipusDocumentacio, documentacio, codMun, codProv, numConv, idesCat);</pre>
+</div></div>
+
+<p>Per consultar la totalitat de possibles codis de retorn i objectes de la resposta consultar el document de la PICA <b>Guia d'us del servei de PADRO v1.5x.pdf</b> disponible via petició a requeridors.otpica.ctti@gencat.cat</p>
+
+<h3><a name="ConnectorPICA-PADRO-Exempled%27utilitzaci%C3%B3d%27unServeiAs%C3%ADncron"></a>Exemple d'utilització d'un Servei Asíncron</h3>
+
+<p>L'única modalitat de servei del connector PICA-PADRO que és asíncrona es tracta de la PADRO_TITULAR_CERCA. Els passos per consumir un servei d'aquest tipus són:</p>
+
+<p>1.- Fer petició al Servei<br/>
+2.- Testar l'estat de resolució de la petició<br/>
+3.- Recuperar les dades de la petició</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-object">String</span> numExpedient = <span class="code-quote">"123456"</span>;
+	<span class="code-object">int</span> tipusDocumentacio = Constants.NIF;
+	<span class="code-object">String</span> documentacio = <span class="code-quote">"46583836G"</span>;
+
+	DataResponse resposta = padroConnector.padroTitularCerca(numExpedient, 
+		tipusDocumentacio, documentacio); <span class="code-comment">//&lt;-- Petició al servei
+</span>	
+	EstatAsincron estat = padroConnector.getEstatPadroTitularCerca(resposta.getServei(), resposta.getResponse()); <span class="code-comment">//&lt;-- Comprovació estat petició
+</span>	<span class="code-object">int</span> tempsEstimat = estat.getTempsEstimatResposta();
+	...
+	
+	RespostaCercaTitular dades = padroConnector.getDadesPadroTitularCerca(resposta.getServei()); <span class="code-comment">//&lt;-- Recuperació resposta a la petició</span></pre>
+</div></div>
+
+<p>Per consultar la totalitat de possibles codis de retorn i objectes de la resposta consultar el document de la PICA <b>Guia d'us del servei de PADRO v1.5x.pdf</b> disponible via petició a requeridors.otpica.ctti@gencat.cat</p>
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

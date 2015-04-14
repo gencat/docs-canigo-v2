@@ -1,0 +1,798 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Servei d'Excepcions 2.1</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Servei d'Excepcions 2.1
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Jul 06, 2007 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="Serveid%27Excepcions2.1-SERVEID%27EXCEPCIONS"></a>SERVEI D'EXCEPCIONS</h1>
+
+<p><br clear="all" />
+<div>
+<ul><a href='#Serveid%27Excepcions2.1-SERVEID%27EXCEPCIONS'>
+    <li>SERVEI D'EXCEPCIONS</li></a><a href='#Serveid%27Excepcions2.1-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#Serveid%27Excepcions2.1-Prop%C3%B3sit'>
+    <li>Propósit</li></a><a href='#Serveid%27Excepcions2.1-ContextiEscenarisd%27%C3%9As'>
+    <li>Context i  Escenaris d'Ús</li></a><a href='#Serveid%27Excepcions2.1-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i  Dependències</li></a><a href='#Serveid%27Excepcions2.1-Aquivadirigit'>
+    <li>A qui va  dirigit</li></a><a href='#Serveid%27Excepcions2.1-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents  i Fonts de Referència</li></a><a href='#Serveid%27Excepcions2.1-Glossari'>
+    <li>Glossari</li></a>
+</ul><a href='#Serveid%27Excepcions2.1-Descripci%C3%B3Detallada'>
+    <li>Descripció  Detallada</li></a>
+<ul><a href='#Serveid%27Excepcions2.1-ArquitecturaiComponents'>
+    <li>Arquitectura i  Components</li></a><a href='#Serveid%27Excepcions2.1-Instal%5Claci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal&#45; lació  i Configuració</li></a>
+<ul><a href='#Serveid%27Excepcions2.1-Instal%5Claci%C3%B3'>
+    <li>Instal&#45; lació</li></a><a href='#Serveid%27Excepcions2.1-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#Serveid%27Excepcions2.1-Utilitzaci%C3%B3delServei'>
+    <li>Utilització del  Servei</li></a>
+<ul><a href='#Serveid%27Excepcions2.1-Creaci%C3%B3d%27Excepcions'>
+    <li>Creació  d'Excepcions</li></a><a href='#Serveid%27Excepcions2.1-Declaraci%C3%B3d%27Excepcionsllen%C3%A7adesalsm%C3%A8todes'>
+    <li>Declaració  d'Excepcions llençades als mètodes</li></a><a href='#Serveid%27Excepcions2.1-Generaci%C3%B3d%27Excepcions'>
+    <li>Generació  d'Excepcions</li></a><a href='#Serveid%27Excepcions2.1-Encapsulaci%C3%B3d%27Excepcionsrebudesdeterceresparts'>
+    <li>Encapsulació  d'Excepcions rebudes de terceres parts</li></a><a href='#Serveid%27Excepcions2.1-Intercepci%C3%B3itractamentdelesExcepcions'>
+    <li>Intercepció  i tractament de les Excepcions</li></a>
+</ul><a href='#Serveid%27Excepcions2.1-EinesdeSuport'>
+    <li>Eines de  Suport</li></a>
+<ul><a href='#Serveid%27Excepcions2.1-Generaci%C3%B3delbytecoded%27intercepci%C3%B3ambAspectWerkz'>
+    <li>Generació  del bytecode d'intercepció amb AspectWerkz</li></a>
+</ul><a href='#Serveid%27Excepcions2.1-Integraci%C3%B3ambAltresServeis'>
+    <li>Integració  amb Altres Serveis</li></a>
+<ul><a href='#Serveid%27Excepcions2.1-Integraci%C3%B3ambelServeidePresentaci%C3%B3%28ArquitecturaBase%29'>
+    <li>Integració  amb el Servei de Presentació (Arquitectura Base)</li></a>
+</ul>
+</ul>
+</ul></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h1><a name="Serveid%27Excepcions2.1-Introducci%C3%B3"></a>Introducció</h1>
+
+
+<h2><a name="Serveid%27Excepcions2.1-Prop%C3%B3sit"></a>Propósit</h2>
+
+<p>La gestió d'excepcions permet informar que s'ha produït un error al realitzar  una petició. Aquest error podrà ser tractat adequadament i en cas necessari  informar a l'usuari, llençar una traça, enviar un correu, etc.</p>
+
+<p>La gestió correcta de les excepcions és molt important i crítica, però  generalment la forma en la que es generen i getionen les excepcions en les  aplicacions és un dels aspectes més ignorats en el disseny de les mateixes. L'ús  apropiat de les excepcions fa que els nostres aplicatius siguin més robusts, més  fàcils de desenvolupar i mantenir, més lliures d'errors i més fàcils de  utilitzar. Per aquest motiu és important que donem el màxim de detall en les  excepcions.</p>
+
+<p>Per evitar l'ús innecessari de blocs 'try-catch' dins el codi dels nostres  aplicatius canigo proporciona un mecanisme d'intercepció, pel qual indicarem  quines excepcions volem tractar i quins gestors les tractaran sense haver  d'incorporar cap referència a cap classe de l'aplicació.</p>
+
+<h2><a name="Serveid%27Excepcions2.1-ContextiEscenarisd%27%C3%9As"></a>Context i  Escenaris d'Ús</h2>
+
+<p>El Servei de Traces es troba dins dels serveis de Propósit General de canigo.</p>
+
+<p>El seu ús és  imprescindible en canigo, ja que tots els serveis utilitzen la gestió  d'excepcions definida per aquest servei.
+<br clear="all" />
+<br clear="all" /></p>
+
+<h2><a name="Serveid%27Excepcions2.1-VersionsiDepend%C3%A8ncies"></a>Versions i  Dependències</h2>
+
+<p>Les dependències descrites a la següent url son requerides per tal de compilar i fer funcionar el projecte:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-exceptions/dependencies.html" title="Visit page outside Confluence">Dependències Servei de d'Excepcions</a></p>
+
+<h2><a name="Serveid%27Excepcions2.1-Aquivadirigit"></a>A qui va  dirigit</h2>
+
+<p>Aquest document va dirigit als següents perfils:</p>
+<ol>
+	<li>Programador. Per conéixer l'ús del servei</li>
+	<li>Arquitecte. Per conéixer quins són els components i la configuració del  servei</li>
+	<li>Administrador. Per conéixer cóm configurar el servei en cadascun dels  entorns en cas de necessitat</li>
+</ol>
+
+
+<h2><a name="Serveid%27Excepcions2.1-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents  i Fonts de Referència</h2>
+
+
+<h2><a name="Serveid%27Excepcions2.1-Glossari"></a>Glossari</h2>
+
+<p><b>AOP (Aspect Oriented Programming)</b></p>
+
+<p>AOP permet definir funcionalitats comunes a diferents components d'un  aplicatiu de forma única i amb un tractament general i localitzat, mitjançant la  intercepció de la funcionalitat própia del mateix. Aquestes funcionalitats  comunes es denominen <em>aspectes</em>.</p>
+
+<p><b>Aspectwerkz</b><br/>
+AspectWerkz és un framework AOP que ofereix gran  simplicitat permetent la definició de aspectes, advices i introduccions amb  classes POJOs. A més permet que els aspectes puguin ser definits mitjançant  anotacions Java 5, doclets per JDK 1.3 i 1.4 o fins i tot mitjançant un fitxer  XML simple.</p>
+
+<p>El codi d'intercepció s'afegeix de forma automàtica al bytecode de la classe  original mitjançant una compilació adicional. Aquest 'bytecode' modificat canvia  la forma de cridar els nostres mètodes sense canviar la funcionalitat, i afegir  així els conceptes importants en la programació orientada a aspectes: joinpoint,  advice, etc...</p>
+
+<p><b>Checked Exception</b></p>
+
+<p>Tipus d'excepció que hereta de java.lang.Exception. El llenguatge Java obliga  a que aquestes excepcions hagin de ser capturades mitjançant un bloc 'try-catch'  o bé declarar al mètode que es torna a llençar l'excepció (finalment algú  l'haurà de capturar) mitjançant la clàusula 'throws'.</p>
+
+<p><b>Unchecked Exception</b></p>
+
+<p>A diferència de les <em>checked exceptions,</em> poden ser ignorades i per  tant no és necessari capturar-les ni declarar-les, encara que com veurem  posteriorment, és una bona pràctica declarar-les en la signatura del mètode.</p>
+
+<h1><a name="Serveid%27Excepcions2.1-Descripci%C3%B3Detallada"></a>Descripció  Detallada</h1>
+
+
+<h2><a name="Serveid%27Excepcions2.1-ArquitecturaiComponents"></a>Arquitectura i  Components</h2>
+
+<p><b>canigo</b> ofereix una arquitectura d'excepcions totalment deslligada  de qualsevol implementació. Únicament es basa en les característiques de les  excepcions del llenguatge Java.</p>
+
+<p>Els components podem classificar-los en:</p>
+<ol>
+	<li>Components per representar diferents tipus d'excepcions</li>
+	<li>Components per donar detall de les excepcions</li>
+	<li>Components per a la gestió de les excepcions</li>
+	<li>Components d'integració AOP (interns arquitectura)</li>
+</ol>
+
+
+<p>Es pot trobar tota la documentació JavaDoc y el codi font referent aquests components a les següents urls:</p>
+
+<p><ins>JavaDoc:</ins> <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-exceptions/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-exceptions/apidocs/index.html</a><br/>
+<ins>Codi Font:</ins>&nbsp; <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-exceptions/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-exceptions/xref/index.html</a></p>
+
+<h2><a name="Serveid%27Excepcions2.1-Instal%5Claci%C3%B3iConfiguraci%C3%B3"></a>Instal&#45; lació  i Configuració</h2>
+
+
+<h3><a name="Serveid%27Excepcions2.1-Instal%5Claci%C3%B3"></a>Instal&#45; lació</h3>
+
+<p>La instal&#45; lació del servei requereix de la utilització de la llibreria  'canigo-services-exceptions' i les dependències indicades a l'apartat  'Introducció-Versions i Dependències'.</p>
+
+<h3><a name="Serveid%27Excepcions2.1-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p>La configuració del Servei d'Excepcions implica 3 pasos:</p>
+<ol>
+	<li>Definir els gestors d'excepcions</li>
+	<li>Definir el mapeig entre tipus d'excepcions i els gestors que les  tractaran</li>
+	<li>Definir el mecanisme automàtic d'intercepció (per integrar les 2 definicions  anteriors)</li>
+</ol>
+
+
+<p>Definició dels gestors d'Excepcions<br/>
+<img src="Servei d'Excepcions 2.1_attachments/ServeiExcepcions_image008.jpg" align="absmiddle" border="0" /></p>
+
+<p>Path desenvolupament:  main/resources/spring/canigo-services-exceptions.xml<br/>
+Path deployment web:  WEB-INF/classes/spring/canigo-services-exceptions.xml</p>
+
+<p>Per cada gestor d'excepcions que volem crear (es pot crear un únic per una  classe pare d'excepció, una per cada subtipus d'excepció, ..) crearem un bean de  configuració amb la següent informació:</p>
+
+<p>Atributs:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atributs</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> id </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Identificador del gestor </td>
+</tr>
+<tr>
+<td class='confluenceTd'> class </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Classe gestora que implementa la  interfície 'ExceptionHandler' </td>
+</tr>
+</tbody></table>
+<p>Podem afegir propietats a cadascun dels gestors (per exemple el seu Servei de  Traces) dins la definició del gestor.</p>
+
+<p>Exemple:</p>
+
+<p>&lt;beanid="systemExceptionHandler"  class="net.gencat.ctti.canigo.services.exceptions.handlers.SystemExceptionHandler"&gt;<br/>
+&lt;property  name="loggingService"&gt;<br/>
+&lt;ref  local="loggingService"/&gt;<br/>
+&lt;/property&gt;<br/>
+&lt;/bean&gt;</p>
+
+<p>Definició del mapeig de tipus d'excepcions i gestors<br/>
+<img src="Servei d'Excepcions 2.1_attachments/ServeiExcepcions_image009.jpg" align="absmiddle" border="0" /></p>
+
+<p>Path desenvolupament:  main/resources/spring/canigo-services-exceptions.xml<br/>
+Path deployment web:  WEB-INF/classes/spring/canigo-services-exceptions.xml</p>
+
+<p>Atributs:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atributs</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> id </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Usar  'net.gencat.ctti.canigo.services.exceptions.aop.aspectwerkz.ExceptionHandlerAspect' </td>
+</tr>
+<tr>
+<td class='confluenceTd'> class </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Usar'  'net.gencat.ctti.canigo.services.exceptions.aop.aspectwerkz.ExceptionHandlerAspect' </td>
+</tr>
+<tr>
+<td class='confluenceTd'> singleton </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Especificar 'true'. D'aquesta forma  es crearà una instància per a cada petició </td>
+</tr>
+</tbody></table>
+<p>Propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> exceptionHandlers </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Mapa de clau-valor on la clau ha de  ser la classe excepció full qualified i el valor la referència al gestor. </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean  id=<span class="code-quote">"net.gencat.ctti.canigo.services.exceptions.aop.aspectwerkz.ExceptionHandlerAspect"</span>
+
+class=<span class="code-quote">"net.gencat.ctti.canigo.services.exceptions.aop.aspectwerkz.ExceptionHandlerAspect"</span>
+
+singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"exceptionHandlers"</span>&gt;
+
+&lt;map&gt;
+
+&lt;entry&gt;
+
+&lt;key&gt;&lt;value&gt;net.gencat.ctti.canigo.services.exceptions.SystemException&lt;/value&gt;&lt;/key&gt;
+
+&lt;ref  bean=<span class="code-quote">"systemExceptionHandler"</span>/&gt;
+
+&lt;key&gt;&lt;value&gt;net.gencat.ctti.canigo.services.mail.exception.MailServiceException&lt;/value&gt;&lt;/key&gt;
+
+&lt;ref  bean=<span class="code-quote">"unAltreExceptionHandler"</span>/&gt;
+
+...
+
+&lt;!-- tantes entrades com  gestors --&gt;
+
+&lt;/entry&gt;
+
+&lt;/map&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+A l'exemple es mostra cóm s'ha configurat el gestor 'systemExceptionHandler'  per l'excepció de tipus  'net.gencat.ctti.canigo.services.exceptions.SystemException'.
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>Definició del mecanisme d'intercepció automàtica<br/>
+<img src="Servei d'Excepcions 2.1_attachments/ServeiExcepcions_image010.jpg" align="absmiddle" border="0" /></p>
+
+<p>Path desenvolupament: main/resources/aop.xml<br/>
+Path deployment web:  WEB-INF/classes/aop.xml</p>
+
+<p>Aquest fitxer defineix: les característiques de l'AOP AspectWerkz per definir  l'aspecte. Per a més informació es recomana consultar  'http://aspectwerkz.codehaus.org/'.</p>
+
+<p>Definirem els següents elements:</p>
+<ol>
+	<li>Aspecte</li>
+	<li>Advice. En quins punts s'afegeix l'aspecte</li>
+</ol>
+
+
+<p>Aspecte<br/>
+<img src="Servei d'Excepcions 2.1_attachments/ServeiExcepcions_image011.jpg" align="absmiddle" border="0" /></p>
+
+<p>Definir els següents atributs:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atributs</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> class </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Classe que defineix l'aspecte.  Utilitzar: 'ExceptionHandlerAspect' </td>
+</tr>
+<tr>
+<td class='confluenceTd'> container </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Contenidor d'integració <br clear="all" />
+<br clear="all" />
+Usar '  net.gencat.ctti.canigo.services.exceptions.aop.aspectwerkz.container.SpringAspectContainer </td>
+</tr>
+</tbody></table>
+<p>&lt;&#33;-&#45; ExceptionHandlerAspect: classe que defineix la funcionalitat comuna  implementada per aquest aspecte;<br/>
+El atribut container indica la classe que  proporciona les instàncies del gestor &#45;-&gt;<br/>
+&lt;aspect  class="ExceptionHandlerAspect"  container="net.gencat.ctti.canigo.services.exceptions.aop.aspectwerkz.container.SpringAspectContainer"&gt;</p>
+
+<p>&lt;/aspect&gt;</p>
+<ol>
+	<li>Advice. Definició de la intercepció</li>
+</ol>
+
+
+<p><img src="Servei d'Excepcions 2.1_attachments/ServeiExcepcions_image012.jpg" align="absmiddle" border="0" /></p>
+
+<p>Definir els següents atributs:
+<br clear="all" /></p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atributs</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> type </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Usar 'after throwing(exception)' per indicar que volem realitzar la intercepció en qualsevol punt de l'aplicació en el que es llenci una excepció </td>
+</tr>
+<tr>
+<td class='confluenceTd'> bind-to </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Usar 'execution(&#42; &#42;.*(..))' per  indicar que interceptarem el llençament d'excepcions que es faci des de  qualsevol mètode </td>
+</tr>
+<tr>
+<td class='confluenceTd'> name </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Usar  'handleException(java.lang.Throwable exception)' per indicar que es cridi a  aquest mètode de l'aspecte </td>
+</tr>
+</tbody></table>
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+
+&lt;!-- Els asteriscs indiquen qualsevol paquet, qualsevol classe i  qualsevol mètode;
+El tipus es <span class="code-quote">"després de produïr-se"</span> qualsevol tipus  d'exceptió --&gt;
+
+&lt;advice type=<span class="code-quote">"after throwing(exception)"</span>  bind-to=<span class="code-quote">"execution(* *.*(..))"</span>
+name=<span class="code-quote">"handleException(java.lang.Throwable  exception)"</span>/&gt;
+
+...</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+A la següent figura es presenta un exemple d'aquest fitxer:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;aspectwerkz&gt;
+	&lt;system  id=<span class="code-quote">"ExceptionHandlingAspect"</span>&gt;
+		&lt;<span class="code-keyword">package</span>  name=<span class="code-quote">"net.gencat.ctti.canigo.services.exceptions.aop.aspectwerkz"</span>&gt;
+			&lt;aspect  class=<span class="code-quote">"ExceptionHandlerAspect"</span> container="net.gencat.ctti.canigo.
+			services.exceptions.aop.aspectwerkz.container.SpringAspectContainer"&gt;
+			&lt;advice  type=<span class="code-quote">"after throwing(exception)"</span>
+			bind-to=<span class="code-quote">"execution(* *.*(..))"</span>  name="handleException(java.
+			lang.Throwable  exception)"/&gt;
+			&lt;/aspect&gt;
+		&lt;/<span class="code-keyword">package</span>&gt;
+	&lt;/system&gt;
+&lt;/aspectwerkz&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h2><a name="Serveid%27Excepcions2.1-Utilitzaci%C3%B3delServei"></a>Utilització del  Servei</h2>
+
+
+<h3><a name="Serveid%27Excepcions2.1-Creaci%C3%B3d%27Excepcions"></a>Creació  d'Excepcions</h3>
+
+<p>La creació d'excepcions és un aspecte de disseny molt important. Quants tipus  d'excepcions generar?</p>
+
+<p>La resposta no és única i si bé existeixen diferents possibilitats la  recomanació és:</p>
+<ol>
+	<li>Definir una excepció base per les excepcions d'un subsistema en concret. Per  exemple, podem definir un tipus d'excepció per un módul concret de  l'aplicació</li>
+	<li>Definir una excepció específica per cada classe de negoci. D'aquesta forma,  podrem determinar de forma més senzilla des de quin punt s'ha llençat una  excepció i realitzar tractaments diferenciats</li>
+</ol>
+
+
+<p>A més, seguirem els següents patrons d'ús:</p>
+<ol>
+	<li>Si l'excepció base o específica és de negoci, aquesta haurà d'heretar de  'BusinessException'</li>
+	<li>Si l'excepció base o específica és d'aspectes de serveis o infrastructura  (DAOs, serveis d'integració, etc.), aquesta haurà d'heretar de  'SystemException'</li>
+</ol>
+
+
+<h3><a name="Serveid%27Excepcions2.1-Declaraci%C3%B3d%27Excepcionsllen%C3%A7adesalsm%C3%A8todes"></a>Declaració  d'Excepcions llençades als mètodes</h3>
+
+<p>Segons si l'excepció és de subtipus 'BusinessException' o de subtipus  'SystemException' es seguiran diferents estratègies:</p>
+<ol>
+	<li>Excepció de subtipus 'BusinessException'</li>
+</ol>
+
+
+<p>En cas de que el mètode llenci una excepció de subtipus 'BusinessException'  declarar '<b>throws Exception</b>'.</p>
+
+<p>Com hem comentat, BusinessException és una excepció de tipus 'checked', el  que implica que segons el mecanisme tradicional de Java qualsevol classe que  rebi l'excepció hauria de control&#45; lar-la mitjançant 'try-catch' o declarar-la de  nou als seus mètodes (pràctica totalment prohibida).<br/>
+En els mecanismes  tradicionals de Java, capturar una excepció de tipus checked implica afegir un  control poc útil d'encapsulació de l'excepció rebuda en una nova excepció.  Aquest control és degut a la pràctica poc correcta d'haver de gestionar  obligatóriament les excepcions rebudes.</p>
+
+<p>Segons el comentat, evitem el tractament innecessari declarant l'excepció amb  'throws Exception'. Aquesta incorporació és necessària per a que el compilador  no es queixi de que no s'ha declarat l'excepció.</p>
+
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> <span class="code-keyword">interface</span> AccountBO {
+
+<span class="code-keyword">public</span> void save(Account account) <span class="code-keyword">throws</span>  Exception;
+
+<span class="code-keyword">public</span> void saveOrUpdate(Account account) <span class="code-keyword">throws</span>  Exception;
+
+<span class="code-keyword">public</span> void update(Account account) <span class="code-keyword">throws</span> Exception;
+
+<span class="code-keyword">public</span>  void delete(Account account) <span class="code-keyword">throws</span> Exception ;
+
+<span class="code-keyword">public</span> Account load(Account  account);
+
+}</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Excepció de subtipus 'SystemException'</li>
+</ol>
+
+
+<p>Si el mètode llença una excepció de tipus pare 'SystemException' hem de  mantenir el mecanisme de Java, ja que aquestes excepcions, per ser de tipus  'unchecked' no requereixen del control al nivell superior.</p>
+
+<p>public void send(String from, String subject, String aMessage, boolean  isHtml, String to) throws MailServiceException;</p>
+
+<h3><a name="Serveid%27Excepcions2.1-Generaci%C3%B3d%27Excepcions"></a>Generació  d'Excepcions</h3>
+
+<p>La generació d'excepcions es realitza mitjançant la clàusula 'throws' de  Java.</p>
+
+<p>En la generació de les excepcions afegirem el màxim de detall possible  mitjançant l'ús de la classe 'ExceptionDetails' (consultar l'apartat  'Arquitectura i Components' per a més informació). Aquesta classe permet que es  pugui informar entre d'altres del nivell (Level), de la capa (Layer) i del  subsistema (Subsystem) en que s'ha produit l'excepció que llencen l'excepció. A  més, es pot informat un codi d'error (que tindrà la seva descripció en un fitxer  de propietats) i unes propietats adicionals que serveixen per depurar l'error.</p>
+
+<p>El patró recomanat per llençar una excepció és el mostrat a continuació:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">ExceptionDetails exDetails = <span class="code-keyword">new</span> ExceptionDetails(...)
+
+exDetails.setProperties(...);
+
+...
+
+<span class="code-keyword">throw</span>  <span class="code-keyword">new</span> XXXException(exDetails);</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h3><a name="Serveid%27Excepcions2.1-Encapsulaci%C3%B3d%27Excepcionsrebudesdeterceresparts"></a>Encapsulació  d'Excepcions rebudes de terceres parts</h3>
+
+<p>Si volem integrar tercers components externs a canigo és convenient que  s'encapsulin les excepcions rebudes en el mecanisme d'excepcions de canigo.  El patró de tractament pot ser com el mostrat a continuació:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">try</span> {    ...
+    cridaServeiExtern();
+} <span class="code-keyword">catch</span>(ServeiExternException  ex) {
+    ExceptionDetails exDetails = <span class="code-keyword">new</span> ExceptionDetails(<span class="code-quote">"codiExcepcio"</span>,
+    ...,Layer.XXXX,Subsystem.XXXX);
+    exDetails.setProperties(mailProperties);
+    <span class="code-keyword">throw</span>  <span class="code-keyword">new</span> XXXCanigoException(ex,exDetails);}</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+Cóm veiem, capturem l'excepció del component de tercers i li afegim la  informació necessària. Per últim llencem l'excepció incorporant com a segon  paràmetre els detalls que hem indicat i en el primer paràmetre l'excepció arrel  del tercer component.
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">package</span> net.gencat.ctti.canigo.services.mail.impl;
+...
+<span class="code-keyword">public</span>  class SpringMailServiceImpl <span class="code-keyword">implements</span> MailService {
+...
+<span class="code-keyword">public</span> void send(<span class="code-object">String</span> from, <span class="code-object">String</span> subject,  <span class="code-object">String</span> aMessage, <span class="code-object">boolean</span> isHtml,
+Map recipients, List attachments) <span class="code-keyword">throws</span>  MailException {
+...
+    <span class="code-keyword">try</span> {
+        ...
+        message = <span class="code-keyword">this</span>.mailSender.createMimeMessage();
+        ...
+        helper.setFrom(from);
+        helper.setSubject(subject);
+        helper.setText(aMessage,isHtml);
+        ...
+        <span class="code-keyword">this</span>.mailSender.send(message);
+    }
+
+    <span class="code-keyword">catch</span>(MessagingException  ex){
+        ExceptionDetails exDetails = <span class="code-keyword">new</span> ExceptionDetails(<span class="code-quote">"canigo.services.mail.error_preparing_addresses"</span>,
+        <span class="code-keyword">null</span>,Layer.SERVICES, Subsystem.MAIL_SERVICES);
+        exDetails.setProperties(mailProperties);
+        <span class="code-keyword">throw</span>  <span class="code-keyword">new</span> MailServiceException(ex,exDetails);
+
+    }
+
+    <span class="code-keyword">catch</span>(Exception  ex){
+        ExceptionDetails exDetails = <span class="code-keyword">new</span> ExceptionDetails(<span class="code-quote">"canigo.services.mail.error_sending_mail"</span>,
+        <span class="code-keyword">null</span>,Layer.SERVICES, Subsystem.MAIL_SERVICES);
+        exDetails.setProperties(mailProperties);
+        <span class="code-keyword">throw</span>  <span class="code-keyword">new</span> MailServiceException(ex,exDetails);
+
+    }
+
+}</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h3><a name="Serveid%27Excepcions2.1-Intercepci%C3%B3itractamentdelesExcepcions"></a>Intercepció  i tractament de les Excepcions</h3>
+
+<p>Mitjançant l'ús de la programació orientada a aspectes (AOP) i les classes  proporcionades pel servei d'excepcions s'obté una solució integral a la gestió  intel.ligent d'excepcions.</p>
+
+<p>La intercepció de les excepcions es realitza mitjançant el mecanisme definit  als fitxers de configuració (veure apartat 'Configuració i Instal&#45; lació). Per  definir un gestor s'han de seguir els següents pasos:</p>
+<ol>
+	<li>Extendre de la classe 'ExceptionHandlerAdapter'</li>
+	<li>Definir el mètode 'public void handleException(Throwable e) throws  Throwable'</li>
+	<li>Dins aquest mètode realitzar la implementació del tractament</li>
+	<li>Si l'excepció rebuda és de negoci encapsular-la en una excepció de tipus  'WrappedCheckedException'. D'aquesta forma capes superiors no hauran de definir  la declaració de l'excepció ni capturar-la.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> class XXXExceptionHandler <span class="code-keyword">extends</span> ExceptionHandlerAdapter {
+...
+    <span class="code-keyword">public</span> void handleException(Throwable e) <span class="code-keyword">throws</span> Throwable {
+         ...
+        WrappedCheckedException wExc = <span class="code-keyword">new</span> WrappedCheckedException(e,...);
+        <span class="code-keyword">throws</span> wExc;
+       }
+    }
+...
+}</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ol>
+
+
+<ul>
+	<li>Generar mitjançant el Servei de Traces un missatge de tipus informatiu de  l'excepció.</li>
+	<li>Generar mitjançant el Servei de Traces un missatge de diferent nivell segons  el nivell de l'excepció rebuda (es pot obtenir mitjançant l'atribut 'level' de  l'objecte 'ExceptionDetails').</li>
+	<li>Integració amb serveis externs que necessiten del coneixement de  determinades excepcions</li>
+	<li>Altres necessitats</li>
+</ul>
+
+
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">package</span> net.gencat.ctti.canigo.services.exceptions.handlers;
+<span class="code-keyword">package</span> net.gencat.ctti.openframe.services.exceptions.handlers;
+...
+<span class="code-keyword">public</span> class SystemExceptionHandler <span class="code-keyword">extends</span> ExceptionHandlerAdapter {
+...
+    <span class="code-keyword">public</span> void handleException(Throwable e) <span class="code-keyword">throws</span> Throwable {
+  	Log log = <span class="code-keyword">this</span>.loggingService.getLog(<span class="code-keyword">this</span>.getClass());
+  	log.debug(<span class="code-quote">"Exception received: SystemExceptionHandler, Exception catched:"</span> + e);
+      	<span class="code-keyword">throw</span> e;
+    }
+...
+}</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h2><a name="Serveid%27Excepcions2.1-EinesdeSuport"></a>Eines de  Suport</h2>
+
+
+<h3><a name="Serveid%27Excepcions2.1-Generaci%C3%B3delbytecoded%27intercepci%C3%B3ambAspectWerkz"></a>Generació  del bytecode d'intercepció amb AspectWerkz</h3>
+
+<p>Per tal de que funcioni en execució el mecanisme d'intercepció cal un procés  adicional de compilació a les classes. Aquest procés adicional es pot executar  en Maven mitjançant el goal 'aspectwerkz:weave' tal i com es mostra en la figura  següent:
+<br clear="all" />  <div align="center"><img src="Servei d'Excepcions 2.1_attachments/ServeiExcepcions_image013.jpg" border="0" /></div><br clear="all" />
+<br clear="all" />
+Aquest procés fa servir les següents variables de configuració que hauran  d'estar en el nostre fitxer 'project.properties':
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;!-- mode de màxima informació en el procés de modificació de bytecode  --&gt;
+maven.aspectwerkz.verbose=<span class="code-keyword">true</span>
+
+&lt;!-- compilació basada en  anotacions  --&gt;
+maven.aspectwerkz.mode=attribdef
+maven.aspectwerkz.definition.validate=<span class="code-keyword">true</span>
+
+&lt;!--  fitxer de propietats del servei (veure Configuració) o de definició del nostre  aspecte  --&gt;
+maven.aspectwerkz.definition.file.src=$\{basedir\}/src/main/resources/aop.xml
+
+&lt;!--  directori a on es copien totes les classes que s'han de passar pel nostre procés
+addicional de modificació de bytecode  --&gt;
+maven.aspectwerkz.build.dest=$\{basedir\}/target/aspectwerkz/classes
+
+&lt;!--  directori a on s'ubicaran les classes modificades. És important que aquest  directori sigui
+el directori WEB-INF/classes de l'aplicació desplegada al  servidor  --&gt;
+maven.aspectwerkz.weave.build.dir=$\{basedir\}/.deployables/$\{  ctti.war.wtp.module\}/WEB-INF/classes</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Per evitar la necessitat manual de realitzar aquest goal, podem incorporar el  següent codi 'Maven' en la creació de l'aplicatiu Web o de la llibreria:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;u:available  file=<span class="code-quote">"$\{maven.aspectwerkz.weave.build.dir\}/aop.xml"</span>&gt;
+	&lt;attainGoal  name=<span class="code-quote">"aspectwerkz:weave"</span>/&gt;
+	&lt;ant:echo&gt;Moving file  $\{maven.aspectwerkz.weave.build.dir\}/aop.xml to
+	$\{maven.aspectwerkz.weave.build.dir\}/../aop.xml&lt;/ant:echo&gt;
+	&lt;ant:move  failonerror=<span class="code-quote">"<span class="code-keyword">false</span>"</span> file=<span class="code-quote">"$\{maven.aspectwerkz.weave.build.dir\}/aop.xml"</span>
+	tofile=<span class="code-quote">"$\{maven.aspectwerkz.weave.build.dir\}/../aop.xml"</span>/&gt;
+&lt;/u:available&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h2><a name="Serveid%27Excepcions2.1-Integraci%C3%B3ambAltresServeis"></a>Integració  amb Altres Serveis</h2>
+
+
+<h3><a name="Serveid%27Excepcions2.1-Integraci%C3%B3ambelServeidePresentaci%C3%B3%28ArquitecturaBase%29"></a>Integració  amb el Servei de Presentació (Arquitectura Base)</h3>
+
+<p>Aplicar les estratègies definides prèviament implica que l'excepció és  llençada a les capes superiors. Aquestes poden decidir si tractar-la o no  tractar-la. Si la petició ha estat realitzada per un usuari en mode on-line és  convenient que li informem de l'excepció que s'ha produit.</p>
+
+<p>Tota excepció produïda per l'aplicació arriba finalment a la classe principal  de l'arquitectura de canigo 'ExtendedDelegatingTilesRequestProcessor' (veure  el document 'Serveis de Presentació' per a més informació).</p>
+
+<p>Aquesta classe captura l'excepció rebuda i realitza els següents pasos:</p>
+<ol>
+	<li>Extreu la següent informació de detall de l'excepció  ('ExceptionDetails'):</li>
+</ol>
+
+
+<ol>
+	<li>Codi d'error</li>
+	<li>Arguments per construir un missatge a partir del codi d'error</li>
+	<li>Propietats adicionals de l'excepció.</li>
+	<li>Nivel de l'error</li>
+	<li>'Layer' o capa d'on prové</li>
+	<li>Subsistema d'on prové</li>
+</ol>
+
+
+<ol>
+	<li>Construeix varis objectes de tipus 'ActionMessage' de Struts a partir  d'aquesta informació que afegeix a l'object 'ActionMessages'.</li>
+</ol>
+
+
+<ol>
+	<li>El primer missatge conté el missatge d'error (construit mitjançant el Servei  de Multiidioma segons el codi d'error de l'excepció i els arguments).</li>
+</ol>
+
+
+<p>message = new  ActionMessage(exDetails.getErrorCode(),<br/>
+exDetails.getArguments());</p>
+
+<p>Afegeix aquest missatge a l'objecte 'ActionMessages' amb clau  'org.apache.struts.action.ERROR'.</p>
+<ol>
+	<li>El segon missatge es construeix amb els detalls de l'excepció. Si l'excepció  rebuda és de tipus 'SystemException' la clau del missatge és '  'net.gencat.ctti.canigo.services.exceptions.Layer.error', mentre que si és de  tipus 'WrappedCheckedException' el deixa a '  net.gencat.ctti.canigo.services.exceptions.Layer.warning'.</li>
+</ol>
+
+
+<ol>
+	<li>L'objecte 'ActionMessages' és deixat a l'atribut del request  'Globals.ERROR_KEY' per integració amb Struts.</li>
+</ol>
+
+
+<p>request.setAttribute(Globals.ERROR_KEY, messages);</p>
+
+<p>Els errors que s'insereixen fan ús del Servei Multidioma. És necessari afegir  al fitxer de multiidioma les següents entrades:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">net.gencat.ctti.canigo.services.exceptions.WrappedCheckedException=&lt;br&gt;Error  type=\{0\}
+&lt;br&gt;Localized message=\{1\}&lt;br&gt;Properties=\{2\}&lt;br&gt;  Layer=\{3\}&lt;br&gt;Subsystem=\{4\}
+&lt;br&gt;Error  code=\{5\}&lt;br&gt;Arguments=\{6\}
+
+net.gencat.ctti.canigo.services.exceptions.SystemException=&lt;br&gt;Error  type=\{0\}
+&lt;br&gt;Localized message=\{1\}&lt;br&gt;Properties=\{2\}&lt;br&gt;  Layer=\{3\}&lt;br&gt;Subsystem=\{4\}
+&lt;br&gt;Error  code=\{5\}&lt;br&gt;Arguments=\{6\}</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Finalment, consulta a la configuració de l'acció d'Struts si existeix un  'ActionForward' anomenat '<b>error</b>'. Si es troba, es redirigeix la petició  cap aquest 'forward' (típicament per mostrar la mateixa pantalla d'on venim amb  els missatges d'error). Si no es troba, l'excepció puja i es delega la  possibilitat del tractament a algun gestor d'excepcions d'Struts (típicament  definint dintre del tag &lt;global-exceptions/&gt; l'excepció que volem manegar  i el gestor corresponent).</li>
+</ol>
+
+
+<p>Pàgina per presentar els errors</p>
+
+<p>Podem representar els errors en una pàgina JSP fent ús del tag 'messages' de  Struts.</p>
+
+<p>A continuació es mostra un exemple de la seva utilització, on es mostren els  missatges en colors diferents segons la severitat de l'error:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;html:messages id=<span class="code-quote">"msg"</span>  property=<span class="code-quote">"org.apache.struts.action.ERROR"</span>&gt;
+    &lt;div class=<span class="code-quote">"error"</span>  style=<span class="code-quote">"margin-right: 10px; margin-bottom: 3px; margin-top: 3px"</span>&gt;
+        &lt;img  src=<span class="code-quote">"images/iconWarning.gif"</span>  class=<span class="code-quote">"icon"</span>  alt=<span class="code-quote">"Warning"</span> /&gt;
+        &lt;bean:write name=<span class="code-quote">"msg"</span> filter=<span class="code-quote">"<span class="code-keyword">false</span>"</span>/&gt;&lt;a  href=<span class="code-quote">"javascript:showEL('errorDetails')"</span>&gt;
+        &lt;b&gt;&lt;bean:message  key=<span class="code-quote">"jsp.includes.see_error_details"</span>/&gt;&lt;/b&gt;&lt;/a&gt;
+        &lt;a  href=<span class="code-quote">"javascript:showEL('stackTrace')"</span> &gt;
+        &lt;b&gt;&lt;bean:message  key=<span class="code-quote">"jsp.includes.see_stack_trace"</span>/&gt;&lt;/b&gt;&lt;/a&gt;]&lt;br&gt;
+        &lt;html:messages  id=<span class="code-quote">"msg"</span>  property=<span class="code-quote">"net.gencat.ctti.canigo.services.exceptions.Level.WARNING"</span>&gt;
+            &lt;div  id=<span class="code-quote">"errorDetails"</span> style=<span class="code-quote">"display: none"</span>&gt;&lt;br&gt;&lt;font  color=<span class="code-quote">"#ff0000"</span>&gt;
+            &lt;bean:write name=<span class="code-quote">"msg"</span>  filter=<span class="code-quote">"<span class="code-keyword">false</span>"</span>/&gt;&lt;/font&gt;            &lt;/div&gt;
+        &lt;/html:messages&gt;
+        &lt;html:messages  id=<span class="code-quote">"msg"</span>  property=<span class="code-quote">"net.gencat.ctti.canigo.services.exceptions.Level.ERROR"</span>&gt;
+            &lt;div  id=<span class="code-quote">"errorDetails"</span> style=<span class="code-quote">"display: none"</span>&gt;
+                &lt;font  color=<span class="code-quote">"#00cc00"</span>&gt;&lt;bean:write name=<span class="code-quote">"msg"</span>  filter=<span class="code-quote">"<span class="code-keyword">false</span>"</span>/&gt;&lt;/font&gt;
+            &lt;/div&gt;
+        &lt;/html:messages&gt;
+        &lt;html:messages  id=<span class="code-quote">"msg"</span>  property=<span class="code-quote">"net.gencat.ctti.canigo.services.exceptions.STACKTRACE"</span>&gt;
+            &lt;div  id=<span class="code-quote">"stackTrace"</span> style=<span class="code-quote">"display: none"</span>&gt;&lt;br&gt;
+                &lt;pre&gt;&lt;bean:write  name=<span class="code-quote">"msg"</span>  filter=<span class="code-quote">"<span class="code-keyword">false</span>"</span>/&gt;&lt;/pre&gt;
+            &lt;/div&gt;
+        &lt;/html:messages&gt;
+    &lt;/div&gt;
+&lt;/html:messages&gt;</pre>
+</div></div><br clear="all" /></p>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei d'Excepcions 2.1_attachments/ServeiExcepcions_image009.jpg">ServeiExcepcions_image009.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei d'Excepcions 2.1_attachments/ServeiExcepcions_image010.jpg">ServeiExcepcions_image010.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei d'Excepcions 2.1_attachments/ServeiExcepcions_image007.jpg">ServeiExcepcions_image007.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei d'Excepcions 2.1_attachments/ServeiExcepcions_image005.jpg">ServeiExcepcions_image005.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei d'Excepcions 2.1_attachments/ServeiExcepcions_image008.jpg">ServeiExcepcions_image008.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei d'Excepcions 2.1_attachments/ServeiExcepcions_image013.jpg">ServeiExcepcions_image013.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei d'Excepcions 2.1_attachments/ServeiExcepcions_image003.jpg">ServeiExcepcions_image003.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei d'Excepcions 2.1_attachments/ServeiExcepcions_image006.jpg">ServeiExcepcions_image006.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei d'Excepcions 2.1_attachments/ServeiExcepcions_image004.jpg">ServeiExcepcions_image004.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei d'Excepcions 2.1_attachments/ServeiExcepcions_image011.jpg">ServeiExcepcions_image011.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei d'Excepcions 2.1_attachments/ServeiExcepcions_image001.jpg">ServeiExcepcions_image001.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei d'Excepcions 2.1_attachments/ServeiExcepcions_image012.jpg">ServeiExcepcions_image012.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei d'Excepcions 2.1_attachments/ServeiExcepcions_image002.jpg">ServeiExcepcions_image002.jpg</a> (image/jpeg)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

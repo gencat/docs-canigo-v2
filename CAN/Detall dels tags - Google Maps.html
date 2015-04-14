@@ -1,0 +1,329 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Detall dels tags - Google Maps</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Detall dels tags - Google Maps
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Jun 23, 2010 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="Detalldelstags-GoogleMaps-DetalldelstagsGoogleMaps"></a>Detall dels tags - Google Maps</h1>
+
+<p>Aquests tags integren l'api de Google Maps <b>v2</b> amb Canigó.</p>
+
+<p>Per a utilitzar els mapes de google s'han creat dos tags:</p>
+<ol>
+	<li>fwk:gMap: crea un mapa on es poden indicar diferents opcions.</li>
+	<li>fwk:gMapMarker: afegeix marcadors sobre el mapa podent indicar events sobre cadascun d'ells.</li>
+</ol>
+
+
+<p>Aquests tags no implementen totes les funcionalitats de Google Maps, podeu trobar més informació de l'api de Google a ( <a href="http://code.google.com/intl/es-ES/apis/maps/" title="Visit page outside Confluence">http://code.google.com/intl/es-ES/apis/maps/</a> ).</p>
+
+<p><b>Per a poder utilitzar Google Maps és necessari sol&#45; licitar un apiKey</b> <b><a href="http://code.google.com/intl/es-ES/apis/maps/signup.html" title="Visit page outside Confluence">http://code.google.com/intl/es-ES/apis/maps/signup.html</a></b></p>
+
+<p>&#45;--&#45;
+<br clear="all" />
+<div>
+<ul><a href='#Detalldelstags-GoogleMaps-DetalldelstagsGoogleMaps'>
+    <li>Detall dels tags - Google Maps</li></a>
+<ul><a href='#Detalldelstags-GoogleMaps-Configuraci%C3%B3Spring'>
+    <li>Configuració Spring</li></a><a href='#Detalldelstags-GoogleMaps-Configuraci%C3%B3js'>
+    <li>Configuració js</li></a><a href='#Detalldelstags-GoogleMaps-fwk%3AgMap'>
+    <li>fwk:gMap</li></a>
+<ul><a href='#Detalldelstags-GoogleMaps-Atributsdevisualitzaci%C3%B3'>
+    <li>Atributs de visualització</li></a><a href='#Detalldelstags-GoogleMaps-AtributsdeControl'>
+    <li>Atributs de Control</li></a><a href='#Detalldelstags-GoogleMaps-Atributsd%27events'>
+    <li>Atributs d'events</li></a>
+</ul><a href='#Detalldelstags-GoogleMaps-fwk%3AgMapMarker'>
+    <li>fwk:gMapMarker</li></a>
+<ul><a href='#Detalldelstags-GoogleMaps-Atributs'>
+    <li>Atributs</li></a>
+</ul><a href='#Detalldelstags-GoogleMaps-Exemple1'>
+    <li>Exemple 1</li></a>
+<ul><a href='#Detalldelstags-GoogleMaps-P%C3%A0ginaJSP'>
+    <li>Pàgina JSP</li></a>
+</ul><a href='#Detalldelstags-GoogleMaps-Exemple2'>
+    <li>Exemple 2</li></a>
+<ul><a href='#Detalldelstags-GoogleMaps-P%C3%A0ginaJSP'>
+    <li>Pàgina JSP</li></a><a href='#Detalldelstags-GoogleMaps-Javascript'>
+    <li>Javascript</li></a>
+</ul>
+</ul>
+</ul></div><br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<hr />
+<h2><a name="Detalldelstags-GoogleMaps-Configuraci%C3%B3Spring"></a>Configuració Spring</h2>
+
+<p>Validar que existeix el tag configurat a <b>canigo-services-web.xml</b> i sinó afegir-lo.<br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"googleMapsTag"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.services.web.taglib.google.GoogleMapsTag"</span>&gt;
+    &lt;property name=<span class="code-quote">"logService"</span> ref=<span class="code-quote">"loggingService"</span>/&gt;
+    &lt;property name=<span class="code-quote">"i18nService"</span> ref=<span class="code-quote">"i18nService"</span>/&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+Afegir a <b>l'action-servlet-&#42;</b> la configuració del tag indicant l'apiKey.<br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;beans&gt;
+  &lt;bean name=<span class="code-quote">"/provesTagsSimple"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.provesTags.struts.action.ProvesTagsSimpleAction"</span>&gt;
+    &lt;property name=<span class="code-quote">"tagsConfiguration"</span>&gt;
+      &lt;map&gt;
+        &lt;entry key=<span class="code-quote">"*"</span>&gt;
+          &lt;list&gt;
+            &lt;bean parent=<span class="code-quote">"googleMapsTag"</span>&gt;
+		&lt;property name=<span class="code-quote">"apiKey"</span> value=<span class="code-quote">"ABQIAAAAh9RRLpUAwEMRmjhrFT4d9BTwM0brOpm-All5BF6PoaKBxRWWERSSalJFRcWqtpOpjaojckl1YGGtMA"</span>/&gt;
+	    &lt;/bean&gt;
+          &lt;/list&gt;
+        &lt;/entry&gt;
+      &lt;/map&gt;
+    &lt;/property&gt;
+  &lt;/bean&gt;
+&lt;/beans&gt;</pre>
+</div></div><br clear="all" /></p>
+<h2><a name="Detalldelstags-GoogleMaps-Configuraci%C3%B3js"></a>Configuració js</h2>
+
+<p>Per a que el component funcioni correctament és necessari tenir el fitxer maps.js porporcionat en la part estàtica del framework colocada a scripts/google/maps.js</p>
+
+<p><br clear="all" /></p>
+
+<h2><a name="Detalldelstags-GoogleMaps-fwk%3AgMap"></a>fwk:gMap</h2>
+
+<p>Mostra un mapa que s'ajusta en alçada i amplada al 100% del contenidor.</p>
+
+<h3><a name="Detalldelstags-GoogleMaps-Atributsdevisualitzaci%C3%B3"></a>Atributs de visualització</h3>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> Atribut </th>
+<th class='confluenceTh'> Obligatori </th>
+<th class='confluenceTh'> Funció </th>
+</tr>
+<tr>
+<td class='confluenceTd'> id </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Identificador del mapa. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> longitude </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> longitud corresponent amb una ubicació de la superfície terrestre. Valor entre &#45;180 i 180 amb una precisió de 6 decimals. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> latitude </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> latitud corresponent amb una ubicació de la superfície terrestre. Valor entre &#45;90 i 90 amb una precisió de 6 decimals. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> address </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Si no coneixes la longitud i latitud, pots indicar l'adreça de la següent manera: carrer nº, ciutat, país </td>
+</tr>
+<tr>
+<td class='confluenceTd'> zoom </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Valor numèric per indicar l'ampliació del mapa. Per defecte 12. </td>
+</tr>
+</tbody></table>
+
+<h3><a name="Detalldelstags-GoogleMaps-AtributsdeControl"></a>Atributs de Control</h3>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> Atribut </th>
+<th class='confluenceTh'> Obligatori </th>
+<th class='confluenceTh'> Funció </th>
+</tr>
+<tr>
+<td class='confluenceTd'> showScaleControl </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> true / false Mostra o oculta l'escala del mapa. Defecte true </td>
+</tr>
+<tr>
+<td class='confluenceTd'> showMapTypeControl </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> true / false Mostra o oculta els tipus de mapes. Defecte true </td>
+</tr>
+<tr>
+<td class='confluenceTd'> showLargeMapControl </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> true / false Mostra o oculta el zoom i control del mapa. Defecte true </td>
+</tr>
+<tr>
+<td class='confluenceTd'> mapType </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Tipus de mapa a mostrar: <br clear="all" />
+&#45; G_NORMAL_MAP <br clear="all" />
+&#45; G_SATELLITE_MAP <br clear="all" />
+&#45; G_HYBRID_MAP <br clear="all" />
+Valor per defecte G_NORMAL_MAP </td>
+</tr>
+</tbody></table>
+
+<p><img src="Detall dels tags - Google Maps_attachments/fwk_gmap_control.jpg" align="absmiddle" border="0" /></p>
+
+<h3><a name="Detalldelstags-GoogleMaps-Atributsd%27events"></a>Atributs d'events</h3>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> Atribut </th>
+<th class='confluenceTh'> Obligatori </th>
+<th class='confluenceTh'> Funció </th>
+</tr>
+<tr>
+<td class='confluenceTd'> enableDragging </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> true / false Permet moure el mapa. Per defecte true. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> enableDoubleClickZoom </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> true / false Realitza un zoom al fer doble click. Per defecte false. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> onclick </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> S'ha d'especificar el nom de la funció javascript que es cridarà al fer click sobre el mapa. Aquesta funció pot rebre 2 paràmetres latitud i longitud del lloc on s'ha realitzat el click. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> onmousemove </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> S'ha d'especificar el nom de la funció javascript que es cridarà al moure el ratolí sobre el mapa. Aquesta funció pot rebre 2 paràmetres latitud i longitud del lloc on està el mouse. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> onmouseout </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> S'ha d'especificar el nom de la funció javascript que es cridarà al sortir del mapa. Aquesta funció pot rebre 2 paràmetres latitud i longitud del lloc on ha sortit el ratolí. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> onmouseover </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> S'ha d'especificar el nom de la funció javascript que es cridarà al entrar en el mapa. Aquesta funció pot rebre 2 paràmetres latitud i longitud del lloc on ha entrat el ratolí. </td>
+</tr>
+</tbody></table>
+
+<h2><a name="Detalldelstags-GoogleMaps-fwk%3AgMapMarker"></a>fwk:gMapMarker</h2>
+
+<p>Permet afegir marcadors al mapa.</p>
+
+<h3><a name="Detalldelstags-GoogleMaps-Atributs"></a>Atributs</h3>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> Atribut </th>
+<th class='confluenceTh'> Obligatori </th>
+<th class='confluenceTh'> Funció </th>
+</tr>
+<tr>
+<td class='confluenceTd'> longitude </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> longitud corresponent amb una ubicació de la superfície terrestre en la que es mostrarà el marcador. Valor entre &#45;180 i 180 amb una precisió de 6 decimals. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> latitude </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> latitud corresponent amb una ubicació de la superfície terrestre en la que es mostrarà el marcador. Valor entre &#45;90 i 90 amb una precisió de 6 decimals. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> address </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Si no coneixes la longitud i latitud, pots indicar l'adreça de la següent manera: carrer nº, ciutat, país </td>
+</tr>
+<tr>
+<td class='confluenceTd'> info </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Informació que es mostrarà al fer click en el marcador. Permet introduir codi HTML </td>
+</tr>
+</tbody></table>
+
+<h2><a name="Detalldelstags-GoogleMaps-Exemple1"></a>Exemple 1</h2>
+
+<p>A continuació es presenta un fragment de pàgina que utilitza el tag <b>fwk:gMap</b>.</p>
+
+<p><img src="Detall dels tags - Google Maps_attachments/fwk_gmap1.jpg" align="absmiddle" border="0" /></p>
+
+<h3><a name="Detalldelstags-GoogleMaps-P%C3%A0ginaJSP"></a>Pàgina JSP</h3>
+
+<p>Cal especificar un contenidor amb una mida específica, sinó ocuparà el 100% de la pantalla.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;tr&gt;&lt;td style=<span class="code-quote">"width: 800px; height: 600px;"</span>&gt;
+&lt;fwk:gMap id=<span class="code-quote">"mapa1"</span> address=<span class="code-quote">"Canigó"</span> /&gt;
+&lt;/td&gt;&lt;/tr&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" /></p>
+<h2><a name="Detalldelstags-GoogleMaps-Exemple2"></a>Exemple 2</h2>
+
+<p>A continuació es presenta un fragment de pàgina que utilitza el tag <b>fwk:gMap</b> i <b>fwk:gMapMarker</b>.</p>
+
+<p><img src="Detall dels tags - Google Maps_attachments/fwk_gmap2.jpg" align="absmiddle" border="0" /></p>
+
+<h3><a name="Detalldelstags-GoogleMaps-P%C3%A0ginaJSP"></a>Pàgina JSP</h3>
+
+<p>Cal especificar un contenidor amb una mida específica, sinó ocuparà el 100% de la pantalla.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;tr&gt;&lt;td style=<span class="code-quote">"width: 800px; height: 600px;"</span>&gt;
+	&lt;fwk:gMap id=<span class="code-quote">"mapa1"</span> address=<span class="code-quote">"Canigó"</span> zoom=<span class="code-quote">"15"</span> showLargeMapControl=<span class="code-quote">"<span class="code-keyword">true</span>"</span> showScaleControl=<span class="code-quote">"<span class="code-keyword">true</span>"</span> showMapTypeControl=<span class="code-quote">"<span class="code-keyword">true</span>"</span> mapType=<span class="code-quote">"G_PHYSICAL_MAP"</span> enableDragging=<span class="code-quote">"<span class="code-keyword">true</span>"</span> enableDoubleClickZoom=<span class="code-quote">"<span class="code-keyword">true</span>"</span> onclick=<span class="code-quote">"mostraCoordenades"</span>&gt;
+		&lt;fwk:gMapMarker address=<span class="code-quote">"Canigó"</span> info=<span class="code-quote">"&lt;b&gt;Canigó&lt;/b&gt; the Framework &lt;br /&gt;&lt;img src=\"</span>http:<span class="code-comment">//canigo.ctti.gencat.cat/confluence/download/resources/com.atlassian.confluence.themes.ctti:ctti/images/company_logo.gif\<span class="code-quote">" /&gt;&lt;br /&gt;&lt;img src=\"</span>http://canigo.ctti.gencat.cat/confluence/download/resources/com.atlassian.confluence.themes.ctti:ctti/images/OTCanigo_logo175x36.png\<span class="code-quote">" /&gt;"</span>&gt;&lt;/fwk:gMapMarker&gt;
+</span>	&lt;/fwk:gMap&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td style=<span class="code-quote">"width: 800px; height: 200px; background-color: blue;"</span>&gt;
+	&lt;fwk:gMap id=<span class="code-quote">"mapa2"</span> latitude=<span class="code-quote">"20"</span> longitude=<span class="code-quote">"-2"</span> zoom=<span class="code-quote">"5"</span>&gt;
+		&lt;fwk:gMapMarker latitude=<span class="code-quote">"20.5"</span> longitude=<span class="code-quote">"-1.8"</span>&gt;&lt;/fwk:gMapMarker&gt;
+	&lt;/fwk:gMap&gt;
+&lt;/td&gt;
+&lt;/tr&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" /></p>
+<h3><a name="Detalldelstags-GoogleMaps-Javascript"></a>Javascript</h3>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">function mostraCoordenades(latitud, longitud) {
+	alert(latitud + <span class="code-quote">", "</span> + longitud);
+}</pre>
+</div></div>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Detall dels tags - Google Maps_attachments/fwk_gmap1.jpg">fwk_gmap1.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Detall dels tags - Google Maps_attachments/fwk_gmap2.jpg">fwk_gmap2.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Detall dels tags - Google Maps_attachments/fwk_gmap_control.jpg">fwk_gmap_control.jpg</a> (image/jpeg)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

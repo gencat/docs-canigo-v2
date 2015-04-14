@@ -1,0 +1,212 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Detall dels tags - tab</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Detall dels tags - tab
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Nov 19, 2007 by <font color="#0050B2">manel.batlles</font>.
+				    </div>
+
+				    <h1><a name="Detalldelstags-tab-Detalldelstagstab"></a>Detall dels tags - tab</h1>
+
+<p>Defineix una pestanya dins d'un panel amb pestanyes (fwk:tabPanel).</p>
+
+<p>Estén el tag el tag ajax:tab ( <a href="http://ajaxtags.sourceforge.net/usage.html" title="Visit page outside Confluence">http://ajaxtags.sourceforge.net/usage.html</a> ) de AjaxTags</p>
+
+<p>La documentació auto-generada del tag és a <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_2/tlddoc/fwk/tab.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_2/tlddoc/fwk/tab.html</a></p>
+
+<hr />
+<div>
+<ul><a href='#Detalldelstags-tab-Detalldelstagstab'>
+    <li>Detall dels tags - tab</li></a>
+<ul><a href='#Detalldelstags-tab-Atributsheredats'>
+    <li>Atributs heredats</li></a><a href='#Detalldelstags-tab-Atributsespec%C3%ADficsdeCanig%C3%B3'>
+    <li>Atributs específics de Canigó</li></a><a href='#Detalldelstags-tab-Exemple'>
+    <li>Exemple</li></a>
+<ul><a href='#Detalldelstags-tab-P%C3%A0ginaJSP'>
+    <li>Pàgina JSP</li></a><a href='#Detalldelstags-tab-Arxiusd%27internacionalitzaci%C3%B3'>
+    <li>Arxius d'internacionalització</li></a>
+</ul>
+</ul>
+</ul></div>
+<hr />
+
+<h2><a name="Detalldelstags-tab-Atributsheredats"></a>Atributs heredats</h2>
+
+<p>Els atributs heredats de <b>ajax:tab</b> son: baseUrl, caption, defaultTab, parameters.</p>
+
+<h2><a name="Detalldelstags-tab-Atributsespec%C3%ADficsdeCanig%C3%B3"></a>Atributs específics de Canigó</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> Atribut </th>
+<th class='confluenceTh'> Funció </th>
+</tr>
+<tr>
+<td class='confluenceTd'> callbackJSFunction </td>
+<td class='confluenceTd'> Funció JavaScript a cridar un cop s'ha carregat el fragment de formulari associat a la pestanya (per les pestanyes que es carreguen dinàmicament) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> captionKey </td>
+<td class='confluenceTd'> Entrada que defineix el texte de la pestanya en els arxius d'internacionalització </td>
+</tr>
+<tr>
+<td class='confluenceTd'> existingDivId </td>
+<td class='confluenceTd'> Identificador del &lt;div&gt; en el que es vol situar la pestanya. Si no es defineix, s'en crea un </td>
+</tr>
+<tr>
+<td class='confluenceTd'> imageCaption </td>
+<td class='confluenceTd'> url de la imatge a associar al títol de la pestanya </td>
+</tr>
+<tr>
+<td class='confluenceTd'> imagePosition </td>
+<td class='confluenceTd'> (left / right) posició de la imatge definida per l'atribut imageCaption </td>
+</tr>
+<tr>
+<td class='confluenceTd'> isActive </td>
+<td class='confluenceTd'>&nbsp;</td>
+</tr>
+<tr>
+<td class='confluenceTd'> linkStyleClass </td>
+<td class='confluenceTd'>&nbsp;</td>
+</tr>
+<tr>
+<td class='confluenceTd'> styleClass </td>
+<td class='confluenceTd'> Estil que s'aplica al &lt;div&gt; que constitueix el cos de la pestanya </td>
+</tr>
+</tbody></table>
+<p>Hi ha dues formes de construir un tab:</p>
+<ul>
+	<li>de forma estàtica, posant tots els elements (tags) que composen la pestanya en la mateixa pàgina, entre els tags &lt;fwk:tab&gt; i &lt;/fwk:tab&gt;</li>
+	<li>de forma dinàmica, carregant la composició de la pestanya la primera vegada que es selecciona</li>
+</ul>
+
+
+<p>La càrrega dinàmica s'activa definint la URL en l'atribut baseUrl. Aquesta URL ha d'apuntar a un fragment de formulari que sigui compatible amb el context on es carregarà. La càrrega es fà mitjançant una crida <em>ajax</em> per lo que no hi haurà una recàrrega de la pàgina.</p>
+
+<h2><a name="Detalldelstags-tab-Exemple"></a>Exemple</h2>
+
+<p>A continuació es presenta un fragment de pàgina que utilitza el tag <b>fwk:tab</b></p>
+
+<p>L'exemple crea un panel amb tres pestanyes, definides estàticament. La primera de les pestanyes conté un layout de tipus columna amb un conjunt de camps.</p>
+
+<p><img src="Detall dels tags - tab_attachments/fwk_tabPanel2.jpg" align="absmiddle" border="0" /></p>
+
+<p>Els estils del panel de pestanyes estan definits en la fulla d'estil css/tabuladors.css.</p>
+
+<h3><a name="Detalldelstags-tab-P%C3%A0ginaJSP"></a>Pàgina JSP</h3>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;%@ include file=<span class="code-quote">"/WEB-INF/jsp/includes/fwkTagLibs.jsp"</span>%&gt;
+
+&lt;link rel=<span class="code-quote">"Stylesheet"</span>
+      href=<span class="code-quote">"css/tabuladors.css"</span>
+      type=<span class="code-quote">"text/css"</span>
+      media=<span class="code-quote">"screen"</span>&gt;
+
+&lt;fwk:form action=<span class="code-quote">"provesTagsComplex.<span class="code-keyword">do</span>"</span>
+          styleId=<span class="code-quote">"myActionForm"</span>
+          key=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.form"</span>
+          reqCode=<span class="code-quote">"show"</span>
+          layout=<span class="code-quote">"<span class="code-keyword">false</span>"</span>
+          method=<span class="code-quote">"post"</span>&gt;
+    &lt;fwk:tabPanel panelStyleId=<span class="code-quote">"pestanas"</span>
+                  contentStyleId=<span class="code-quote">"tabContent"</span>
+                  currentStyleId=<span class="code-quote">"active"</span>&gt;
+        &lt;fwk:tab captionKey=<span class="code-quote">"jsp.provesTags.ProvesTagsComplex.tab1"</span>
+                 defaultTab=<span class="code-quote">"<span class="code-keyword">true</span>"</span>
+                 styleClass=<span class="code-quote">"contingut_tab"</span>
+                 imageCaption=<span class="code-quote">"/images/ico-sm-docnotes.gif"</span>
+                 imagePosition=<span class="code-quote">"left"</span>
+                 linkStyleClass=<span class="code-quote">"pestanya1"</span>&gt;
+
+            &lt;fwk:column&gt;
+                &lt;fwk:checkbox styleId=<span class="code-quote">"camp3"</span>
+                              key=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.camp3"</span>
+                              mode=<span class="code-quote">"E,E,E"</span>
+                              tooltipTitleKey=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.camp3.tipTitle"</span>
+                              tooltipKey=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.camp3.tip"</span>
+                              property=<span class="code-quote">"camp3"</span>/&gt;
+
+                &lt;fwk:text key=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.camp1"</span>
+                          styleId=<span class="code-quote">"camp1"</span>
+                          mode=<span class="code-quote">"E,E,E"</span>
+                          mask=<span class="code-quote">"########-x"</span>
+                          maskType=<span class="code-quote">"text"</span>
+                          convertTo=<span class="code-quote">"uppercase"</span>
+                          tooltipTitleKey=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.camp1.tipTitle"</span>
+                          tooltipKey=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.camp1.tip"</span>
+                          tabindex=<span class="code-quote">"11"</span>
+                          property=<span class="code-quote">"camp1"</span>/&gt;
+
+                (...)
+
+                &lt;fwk:submit key=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.boto1"</span>
+                            styleId=<span class="code-quote">"boto1"</span>/&gt;
+
+            &lt;/fwk:column&gt;
+        &lt;/fwk:tab&gt;
+        &lt;fwk:tab captionKey=<span class="code-quote">"jsp.provesTags.ProvesTagsComplex.tab2"</span>
+                 defaultTab=<span class="code-quote">"<span class="code-keyword">false</span>"</span>
+                 styleClass=<span class="code-quote">"contingut_tab"</span>
+                 imageCaption=<span class="code-quote">"/images/ico-sm-orgburst.gif"</span>
+                 imagePosition=<span class="code-quote">"left"</span>
+                 linkStyleClass=<span class="code-quote">"pestanya2"</span>&gt;
+            &lt;br&gt;&amp;nbsp;segona pestanya&amp;nbsp;&lt;br&gt;
+        &lt;/fwk:tab&gt;
+        &lt;fwk:tab captionKey=<span class="code-quote">"jsp.provesTags.ProvesTagsComplex.tab3"</span>
+                 defaultTab=<span class="code-quote">"<span class="code-keyword">false</span>"</span>
+                 styleClass=<span class="code-quote">"contingut_tab"</span>
+                 imageCaption=<span class="code-quote">"/images/ico-sm-docnew.gif"</span>
+                 imagePosition=<span class="code-quote">"left"</span>
+                 linkStyleClass=<span class="code-quote">"pestanya3"</span>&gt;
+            &lt;br&gt;&amp;nbsp;tercera pestanya&amp;nbsp;&lt;br&gt;
+        &lt;/fwk:tab&gt;
+    &lt;/fwk:tabPanel&gt;
+&lt;/fwk:form&gt;
+&lt;br&gt;&amp;nbsp;&lt;br&gt;</pre>
+</div></div>
+
+<h3><a name="Detalldelstags-tab-Arxiusd%27internacionalitzaci%C3%B3"></a>Arxius d'internacionalització</h3>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">jsp.provesTags.ProvesTagsComplex.tab1=Pestanya 1
+jsp.provesTags.ProvesTagsComplex.tab2=Pestanya 2
+jsp.provesTags.ProvesTagsComplex.tab3=Pestanya 3</pre>
+</div></div>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Detall dels tags - tab_attachments/fwk_tabPanel2.jpg">fwk_tabPanel2.jpg</a> (image/jpeg)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

@@ -1,0 +1,1594 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Servei de portlets 2.2</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Servei de portlets 2.2
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Sep 12, 2007 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="Serveideportlets2.2-SERVEIDEPORTLETS"></a>SERVEI  DE PORTLETS</h1>
+
+
+<h1><a name="Serveideportlets2.2-Introducci%C3%B3"></a>Introducció</h1>
+
+<p><br clear="all" />
+<br clear="all" />
+<div>
+<ul><a href='#Serveideportlets2.2-SERVEIDEPORTLETS'>
+    <li>SERVEI  DE PORTLETS</li></a><a href='#Serveideportlets2.2-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#Serveideportlets2.2-Prop%C3%B2sit'>
+    <li>Propòsit</li></a><a href='#Serveideportlets2.2-ContextiEscenarisd%27%C3%9As'>
+    <li>Context i  Escenaris d'Ús</li></a><a href='#Serveideportlets2.2-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i  Dependències</li></a>
+<ul><a href='#Serveideportlets2.2-Versions'>
+    <li>Versions</li></a>
+</ul><a href='#Serveideportlets2.2-Glossari'>
+    <li>Glossari</li></a>
+</ul><a href='#Serveideportlets2.2-Descripci%C3%B3Detallada'>
+    <li>Descripció  Detallada</li></a>
+<ul><a href='#Serveideportlets2.2-ArquitecturaiComponents'>
+    <li>Arquitectura i  Components</li></a>
+<ul><a href='#Serveideportlets2.2-Interf%C3%ADciesiComponentsGen%C3%A8rics'>
+    <li>Interfícies  i Components Genèrics</li></a>
+</ul><a href='#Serveideportlets2.2-Instal%5Claci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal&#45;  lació i Configuració</li></a>
+<ul><a href='#Serveideportlets2.2-Instal%5Claci%C3%B3'>
+    <li>Instal&#45; lació</li></a><a href='#Serveideportlets2.2-Instal%5Claci%C3%B3ApacheJetspeed2.0'>
+    <li>Instal&#45;  lació Apache Jetspeed 2.0</li></a><a href='#Serveideportlets2.2-Instal%5Claci%C3%B3ApacheTomcat5.0.28VignettePortal7.2.2'>
+    <li>Instal&#45;  lació Apache Tomcat 5.0.28 - Vignette Portal 7.2.2</li></a><a href='#Serveideportlets2.2-Configuraci%C3%B3'>
+    <li>Configuració</li></a><a href='#Serveideportlets2.2-Configuraci%C3%B3General'>
+    <li>Configuració  General</li></a><a href='#Serveideportlets2.2-Configuraci%C3%B3ApacheJetspeed2.0'>
+    <li>Configuració  Apache Jetspeed 2.0</li></a><a href='#Serveideportlets2.2-Configuraci%C3%B3Tomcat5.0.28Vignette7.2.2'>
+    <li>Configuració  Tomcat 5.0.28 - Vignette7.2.2</li></a>
+</ul><a href='#Serveideportlets2.2-EinesdeSuport'>
+    <li>Eines de  Suport</li></a>
+<ul><a href='#Serveideportlets2.2-DebugdelesP%C3%A0gines'>
+    <li>Debug de les  Pàgines</li></a>
+</ul><a href='#Serveideportlets2.2-PreguntesFreq%C3%BCents'>
+    <li>Preguntes  Freqüents</li></a>
+</ul>
+</ul></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+&nbsp;
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h2><a name="Serveideportlets2.2-Prop%C3%B2sit"></a>Propòsit</h2>
+
+<p>El Servei de Portlets té com a propòsit oferir un pont entre els components  del Framework i les implementacions dels Portals. En aquest document es detalla  com configurar aplicacions fetes amb el Framework per a que siguin compatibles  amb dues implementacions de Portals: Apache Jetspeed 2.0 i Vignette 7.2.2.</p>
+
+<h2><a name="Serveideportlets2.2-ContextiEscenarisd%27%C3%9As"></a>Context i  Escenaris d'Ús</h2>
+
+<p>El Servei de Portlets es troba dins dels serveis de Presentació de  canigo.</p>
+
+<p>Per a la utilització d'canigo en Portals, serà necessaria la utilització de  la implementació d'Apache (Jetspeed 2.0) o la de Vignette (Vignette Portal  7.2.2).</p>
+
+<h2><a name="Serveideportlets2.2-VersionsiDepend%C3%A8ncies"></a>Versions i  Dependències</h2>
+
+<p>Les dependències descrites a la següent url son requerides per tal de compilar i fer funcionar el projecte:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-portlets/dependencies.html" title="Visit page outside Confluence">Dependències Servei de Portlets</a></p>
+
+<h3><a name="Serveideportlets2.2-Versions"></a>Versions</h3>
+
+<p>En la utilització del Framework amb el servei de portlets, només està  suportada la versió 1.0 .</p>
+
+<h2><a name="Serveideportlets2.2-Glossari"></a>Glossari</h2>
+
+<p><b>Portal</b><br/>
+Un Portal és un Web Site o servei que ofereix un gran  ventall de recursos per accedir als serveis d'una Web.</p>
+
+<p><b>Portlet</b><br/>
+Aplicació web que permet ser desplegada en un Portal.</p>
+
+<p><b>Page</b><br/>
+Component d'un Portal que permet agrupar diversos portlets a  la vegada i aplicar-lis diferents estils de presentació i layouts.</p>
+
+<p><b>Site</b><br/>
+Component d'un Portal que permet agrupar diverses pàgines  (pages) formades per portlets.</p>
+
+<h1><a name="Serveideportlets2.2-Descripci%C3%B3Detallada"></a>Descripció  Detallada</h1>
+
+
+<h2><a name="Serveideportlets2.2-ArquitecturaiComponents"></a>Arquitectura i  Components</h2>
+
+<p>L'arquitectura del Servei de Portlets és basa en l'ús dels components del  Framework complint els requeriments de la implementació de Portal que estiguem  utilitzant.</p>
+
+<h3><a name="Serveideportlets2.2-Interf%C3%ADciesiComponentsGen%C3%A8rics"></a>Interfícies  i Components Genèrics</h3>
+
+<p>Els tags del servei es troben definits mitjançant un conjunt d'interfícies  que defineixen què s'espera de les implementacions mitjançant un conjunt de  mètodes.</p>
+
+<p>Es pot trobar tota la documentació JavaDoc y el codi font referent aquests components a les següents urls:</p>
+
+<p><ins>JavaDoc:</ins> <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-portlets/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-portlets/apidocs/index.html</a><br/>
+<ins>Codi Font:</ins>&nbsp; <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-portlets/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-portlets/xref/index.html</a>
+<br clear="all" /></p>
+
+<h2><a name="Serveideportlets2.2-Instal%5Claci%C3%B3iConfiguraci%C3%B3"></a>Instal&#45;  lació i Configuració</h2>
+
+
+<h3><a name="Serveideportlets2.2-Instal%5Claci%C3%B3"></a>Instal&#45; lació</h3>
+
+<p>Per a la utilització del Servei de Portlets és necessària una prèvia instal&#45;  lació del portal en un servidor (Tomcat, Weblogic, Websphere, etc..). Per fer-ho  haurem de seguir el manual d'instal&#45; lació de Vignette.  En aquest document s'explicarà la instal&#45; lació del Portal de Vignette sobre un  servidor Apache Tomcat 5.0.28.</p>
+
+<h3><a name="Serveideportlets2.2-Instal%5Claci%C3%B3ApacheJetspeed2.0"></a>Instal&#45;  lació Apache Jetspeed 2.0</h3>
+
+<p>En aquesta implementació de portal apache ha decidit oferir conjuntament el  servidor i el portal. El servidor és, realment, un Apache Tomcat i el portal és  una aplicació anomenada jetspeed desplegada en ell.</p>
+
+<p>Si la instal&#45; lació ha estat correcta, accedint a []<a href="http://host:Port/jetspeed" title="Visit page outside Confluence">http://host:Port/jetspeed</a> hauríem d'accedir a la pàgina principal de Jestpeed.</p>
+
+<h3><a name="Serveideportlets2.2-Instal%5Claci%C3%B3ApacheTomcat5.0.28VignettePortal7.2.2"></a>Instal&#45;  lació Apache Tomcat 5.0.28 - Vignette Portal 7.2.2</h3>
+
+<p>Per assegurar-nos de que el portal s'ha instal&#45; lat correctament, ens hem  d'assegurar que s'ha desplegat l'aplicació portal dins de %TOMCAT_HOME%\webapps  i que s'ha creat el fitxer de context del portal (portal.xml) dins de  %TOMCAT_HOME%\conf\Catalina\localhost.</p>
+
+<p>També haurem de comprovar que en el directori %TOMCAT_HOME%\shared\lib hi  tenim les següents llibreries:</p>
+
+<p>portlet.jar<br/>
+vgn-jsr-container-shared.jar<br/>
+vgn-jsr-container-taglib.jar<br/>
+vgn-portal-config.jar<br/>
+vgn-portal-log-spi.jar<br/>
+vgn-portal-naming-portlet.jar<br/>
+vgn-portal-shared.jar<br/>
+vgn-portlet-app-registry.jar</p>
+
+<p>Si la instal&#45; lació ha estat correcta, accedint a <a href="http://host:Port/portal/console" title="Visit page outside Confluence">http://host:Port/portal/console</a> hauríem  d'accedir a la pàgina de login del Vignette Portal.</p>
+
+<h3><a name="Serveideportlets2.2-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p>L'apartat de configuració varia notablement depenent del servidor i de la  implementació de portal que fem servir. Per això s'han definit configuracions  específiques a part de la general.</p>
+
+<h3><a name="Serveideportlets2.2-Configuraci%C3%B3General"></a>Configuració  General</h3>
+
+<p>Per a configurar una aplicació per poder desplegar-se dins d'un portal,  haurem de seguir els següents passos:</p>
+<ul>
+	<li>Crear el fitxer WEB-INF\portlet.xml
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span>  encoding=<span class="code-quote">"UTF-8"</span>?&gt;
+
+&lt;portlet-app
+
+xmlns=<span class="code-quote">"http:<span class="code-comment">//java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd"</span>
+</span>
+version=<span class="code-quote">"1.0"</span>  xmlns:xsi=<span class="code-quote">"http:<span class="code-comment">//www.w3.org/2001/XMLSchema-instance"</span>
+</span>
+xsi:schemaLocation="http:<span class="code-comment">//java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd
+</span>
+http:<span class="code-comment">//java.sun.com/xml/ns/portlet/portlet\-app\_1\_0.xsd"&gt;
+</span>
+&lt;portlet&gt;
+
+&lt;portlet-name&gt;JPetstorePortlet2&lt;/portlet-name&gt;
+
+&lt;portlet-class&gt;
+
+org.apache.portal.bridges.struts.StrutsPortlet
+
+&lt;/portlet-class&gt;
+
+&lt;init-param&gt;
+
+&lt;name&gt;ServletContextProvider&lt;/name&gt;
+
+&lt;value&gt;
+
+provider.<span class="code-keyword">package</span>.ServletContextProviderImpl
+
+&lt;/value&gt;
+
+&lt;/init-param&gt;
+
+&lt;init-param&gt;
+
+&lt;name&gt;ViewPage&lt;/name&gt;
+
+&lt;value&gt;/start.<span class="code-keyword">do</span>&lt;/value&gt;
+
+&lt;/init-param&gt;
+
+&lt;init-param&gt;
+
+&lt;name&gt;HelpPage&lt;/name&gt;
+
+&lt;value&gt;/help.shtml&lt;/value&gt;
+
+&lt;/init-param&gt;
+
+&lt;expiration-cache&gt;-1&lt;/expiration-cache&gt;
+
+&lt;supports&gt;
+
+&lt;mime-type&gt;text/html&lt;/mime-type&gt;
+
+&lt;portlet-mode&gt;VIEW&lt;/portlet-mode&gt;
+
+&lt;portlet-mode&gt;HELP&lt;/portlet-mode&gt;
+
+&lt;/supports&gt;
+
+&lt;portlet-info&gt;
+
+&lt;title&gt;JPetstore&lt;/title&gt;
+
+&lt;keywords&gt;Struts&lt;/keywords&gt;
+
+&lt;/portlet-info&gt;
+
+&lt;/portlet&gt;
+
+&lt;/portlet-app&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<p>Aquest fitxer descriu el nom i la classe del portlet  (portals-bridges-struts-1.2.7-1.0.jar) i la implementació de la interface  ServletContextProvider d'Struts-Bridge (portals-bridges-commons-1.0.jar). En  aquest cas, la implementació ens l'ha de facilitar el proveïdor del portal.</p>
+<ul>
+	<li>Crear el fitxer META-INF\context.xml
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;
+
+&lt;Context  path=<span class="code-quote">"/canigo-samples-jPetstore-portlets"</span> debug=<span class="code-quote">"5"</span>  reloadable=<span class="code-quote">"<span class="code-keyword">true</span>"</span>
+crossContext=<span class="code-quote">"<span class="code-keyword">true</span>"</span>&gt;&lt;Resource auth=<span class="code-quote">"Container"</span> name=<span class="code-quote">"canigoDS"</span>  type=<span class="code-quote">"javax.sql.DataSource"</span>/&gt;
+	&lt;ResourceParams  name=<span class="code-quote">"canigoDS"</span>&gt;
+		&lt;parameter&gt;
+			&lt;name&gt;driverClassName&lt;/name&gt;
+			&lt;value&gt;oracle.jdbc.driver.OracleDriver&lt;/value&gt;
+		&lt;/parameter&gt;
+		&lt;parameter&gt;
+			&lt;name&gt;url&lt;/name&gt;
+			&lt;value&gt;jdbc:oracle:thin:@bna-s007.es.<span class="code-object">int</span>.atosorigin.com:1521:Legolas&lt;/value&gt;
+		&lt;/parameter&gt;&lt;parameter&gt;&lt;name&gt;username&lt;/name&gt;&lt;value&gt;canigo&lt;/value&gt;&lt;/parameter&gt;
+		&lt;parameter&gt;
+			&lt;name&gt;password&lt;/name&gt;
+			&lt;value&gt;canigo&lt;/value&gt;
+		&lt;/parameter&gt;&lt;parameter&gt;
+			&lt;name&gt;maxActive&lt;/name&gt;
+			&lt;value&gt;20&lt;/value&gt;
+		&lt;/parameter&gt;&lt;parameter&gt;
+			&lt;name&gt;maxIdle&lt;/name&gt;
+			&lt;value&gt;10&lt;/value&gt;
+		&lt;/parameter&gt;
+		&lt;parameter&gt;
+			&lt;name&gt;maxWait&lt;/name&gt;
+			&lt;value&gt;-1&lt;/value&gt;&lt;/parameter&gt;
+	&lt;/ResourceParams&gt;
+&lt;/Context&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Modificar la classe del actionServlet dins del fitxer web.xml per a que  apunti a la implementació del servei de portlets.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;servlet-name&gt;actionServlet&lt;/servlet-name&gt;
+
+&lt;servlet-class&gt;
+
+com.atosorigin.canigo.services.portlets.DispatcherServlet
+
+&lt;/servlet-class&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Crear el fitxer nom_app-portlet.xml (petstore-portlet.xml) i importar-lo en  el fitxer nom_app-servlet.xml (petstore-servlet.xml).<br/>
+En aquest fitxer hem de  definir tots els filtres que tenim definits en el fitxer WEB-INF\web.xml de  l'aplicació. En la propietat order definim l'ordre d'execució dels  filtres.</li>
+</ul>
+
+
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+
+&lt;bean  id=<span class="code-quote">"acegiFilterInterceptor"</span>
+
+class=<span class="code-quote">"com.atosorigin.canigo.services.portlets.struts.FilterInterceptor"</span>
+
+singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"filterClass"</span>
+
+value=<span class="code-quote">"net.sf.acegisecurity.util.FilterToBeanProxy"</span>&gt;
+
+&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"configMap"</span>&gt;
+
+&lt;map&gt;
+
+&lt;entry  key=<span class="code-quote">"targetClass"</span>
+
+value=<span class="code-quote">"net.sf.acegisecurity.util.FilterChainProxy"</span>&gt;
+
+&lt;/entry&gt;
+
+&lt;entry  key=<span class="code-quote">"init"</span>  value=<span class="code-quote">"lazy"</span>&gt;&lt;/entry&gt;
+
+&lt;/map&gt;
+
+&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"order"</span> value=<span class="code-quote">"2"</span>&gt;&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"urlPatternList"</span>&gt;
+
+&lt;list&gt;
+
+&lt;value&gt;/*/&lt;/value&gt;
+
+&lt;/list&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;
+
+&lt;bean  id=<span class="code-quote">"localeFilterInterceptor"</span>
+
+class=<span class="code-quote">"com.atosorigin.canigo.services.portlets.struts.FilterInterceptor"</span>
+
+singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"filterClass"</span>
+
+value=<span class="code-quote">"net.gencat.ctti.canigo.services.web.i18n.StrutsLocaleFilter"</span>&gt;
+
+&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"order"</span> value=<span class="code-quote">"0"</span>&gt;&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"urlPatternList"</span>&gt;
+
+&lt;list&gt;
+
+&lt;value&gt;*.<span class="code-keyword">do</span>&lt;/value&gt;
+
+&lt;value&gt;*.doc&lt;/value&gt;
+
+&lt;value&gt;*.report&lt;/value&gt;
+
+&lt;value&gt;*.pdf&lt;/value&gt;
+
+&lt;value&gt;/dwr/*&lt;/value&gt;
+
+&lt;value&gt;*.xls&lt;/value&gt;
+
+&lt;/list&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;
+
+...</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ul>
+	<li>Afegim les dependències necessàries en el fitxer project.xml.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;dependency&gt;
+
+&lt;groupId&gt;portals-bridges-common&lt;/groupId&gt;
+
+&lt;artifactId&gt;portals-bridges-common&lt;/artifactId&gt;
+
+&lt;version&gt;1.0&lt;/version&gt;
+
+&lt;properties&gt;
+
+&lt;war.bundle&gt;<span class="code-keyword">true</span>&lt;/war.bundle&gt;
+
+&lt;/properties&gt;
+
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+
+&lt;groupId&gt;portals-bridges-struts&lt;/groupId&gt;
+
+&lt;artifactId&gt;portals-bridges-struts&lt;/artifactId&gt;
+
+&lt;version&gt;1.2.7-1.0&lt;/version&gt;
+
+&lt;properties&gt;
+
+&lt;war.bundle&gt;<span class="code-keyword">true</span>&lt;/war.bundle&gt;
+
+&lt;/properties&gt;
+
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+
+&lt;groupId&gt;canigo&lt;/groupId&gt;
+
+&lt;artifactId&gt;canigo-services-portlets&lt;/artifactId&gt;
+
+&lt;version&gt;1.0&lt;/version&gt;
+
+&lt;properties&gt;
+
+&lt;war.bundle&gt;<span class="code-keyword">true</span>&lt;/war.bundle&gt;
+
+&lt;/properties&gt;
+
+&lt;/dependency&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Deployar el war en el servidor tal com es detalla en els manuals de  configuració del portal.</li>
+</ul>
+
+
+<h3><a name="Serveideportlets2.2-Configuraci%C3%B3ApacheJetspeed2.0"></a>Configuració  Apache Jetspeed 2.0</h3>
+
+<p>Per a configurar una aplicació per poder desplegar-se dins del portal  Jestpeed 2.0, haurem de seguir els següents passos:</p>
+<ul>
+	<li>Crear el fitxer WEB-INF\portlet.xml
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span>  encoding=<span class="code-quote">"UTF-8"</span>?&gt;
+
+&lt;portlet-app
+
+xmlns=<span class="code-quote">"http:<span class="code-comment">//java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd"</span>
+</span>
+version=<span class="code-quote">"1.0"</span>  xmlns:xsi=<span class="code-quote">"http:<span class="code-comment">//www.w3.org/2001/XMLSchema-instance"</span>
+</span>
+xsi:schemaLocation="http:<span class="code-comment">//java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd
+</span>
+http:<span class="code-comment">//java.sun.com/xml/ns/portlet/portlet\-app\_1\_0.xsd"&gt;
+</span>
+&lt;portlet&gt;
+
+&lt;portlet-name&gt;JPetstorePortlet2&lt;/portlet-name&gt;
+
+&lt;portlet-class&gt;
+
+org.apache.portal.bridges.struts.StrutsPortlet
+
+&lt;/portlet-class&gt;
+
+&lt;init-param&gt;
+
+&lt;name&gt;ServletContextProvider&lt;/name&gt;
+
+&lt;value&gt;
+
+org.apache.jetspeed.portlet.ServletContextProviderImpl
+
+&lt;/value&gt;
+
+&lt;/init-param&gt;
+
+&lt;init-param&gt;
+
+&lt;name&gt;ViewPage&lt;/name&gt;
+
+&lt;value&gt;/start.<span class="code-keyword">do</span>&lt;/value&gt;
+
+&lt;/init-param&gt;
+
+&lt;init-param&gt;
+
+&lt;name&gt;HelpPage&lt;/name&gt;
+
+&lt;value&gt;/help.shtml&lt;/value&gt;
+
+&lt;/init-param&gt;
+
+&lt;expiration-cache&gt;-1&lt;/expiration-cache&gt;
+
+&lt;supports&gt;
+
+&lt;mime-type&gt;text/html&lt;/mime-type&gt;
+
+&lt;portlet-mode&gt;VIEW&lt;/portlet-mode&gt;
+
+&lt;portlet-mode&gt;HELP&lt;/portlet-mode&gt;
+
+&lt;/supports&gt;
+
+&lt;portlet-info&gt;
+
+&lt;title&gt;JPetstore&lt;/title&gt;
+
+&lt;keywords&gt;Struts&lt;/keywords&gt;
+
+&lt;/portlet-info&gt;
+
+&lt;/portlet&gt;
+
+&lt;/portlet-app&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<p>Aquest fitxer descriu el nom i la classe del portlet  (portals-bridges-struts-1.2.7-1.0.jar) i la implementació de la interface  ServletContextProvider d'Struts-Bridge (portals-bridges-commons-1.0.jar). En  aquest cas, la implementació es troba dins de la llibreria  jetspeed-commons-2.0.jar.</p>
+<ul>
+	<li>Crear el fitxer META-INF\context.xml</li>
+</ul>
+
+
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;
+
+&lt;Context  path=<span class="code-quote">"/canigo-samples-jPetstore-portlets"</span> debug=<span class="code-quote">"5"</span>  reloadable=<span class="code-quote">"<span class="code-keyword">true</span>"</span>
+
+crossContext=<span class="code-quote">"<span class="code-keyword">true</span>"</span>&gt;
+
+&lt;Resource auth=<span class="code-quote">"Container"</span> name=<span class="code-quote">"canigoDS"</span>  type=<span class="code-quote">"javax.sql.DataSource"</span>/&gt;
+
+&lt;ResourceParams  name=<span class="code-quote">"canigoDS"</span>&gt;
+
+&lt;parameter&gt;
+
+&lt;name&gt;driverClassName&lt;/name&gt;
+
+&lt;value&gt;oracle.jdbc.driver.OracleDriver&lt;/value&gt;
+
+&lt;/parameter&gt;
+
+&lt;parameter&gt;
+
+&lt;name&gt;url&lt;/name&gt;
+
+&lt;value&gt;jdbc:oracle:thin:@bna-s007.es.<span class="code-object">int</span>.atosorigin.com:1521:Legolas&lt;/value&gt;
+
+&lt;/parameter&gt;
+
+&lt;parameter&gt;
+
+&lt;name&gt;username&lt;/name&gt;
+
+&lt;value&gt;username&lt;/value&gt;
+
+&lt;/parameter&gt;
+
+&lt;parameter&gt;
+
+&lt;name&gt;password&lt;/name&gt;
+
+&lt;value&gt;password&lt;/value&gt;
+
+&lt;/parameter&gt;
+
+&lt;parameter&gt;
+
+&lt;name&gt;maxActive&lt;/name&gt;
+
+&lt;value&gt;20&lt;/value&gt;
+
+&lt;/parameter&gt;
+
+&lt;parameter&gt;
+
+&lt;name&gt;maxIdle&lt;/name&gt;
+
+&lt;value&gt;10&lt;/value&gt;
+
+&lt;/parameter&gt;
+
+&lt;parameter&gt;
+
+&lt;name&gt;maxWait&lt;/name&gt;
+
+&lt;value&gt;-1&lt;/value&gt;
+
+&lt;/parameter&gt;
+
+&lt;/ResourceParams&gt;
+
+&lt;/Context&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ul>
+	<li>Modificar la classe del actionServlet dins del fitxer web.xml per a que  apunti a la implementació del servei de portlets.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;servlet-name&gt;actionServlet&lt;/servlet-name&gt;
+
+&lt;servlet-class&gt;
+
+com.atosorigin.canigo.services.portlets.DispatcherServlet
+
+&lt;/servlet-class&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Crear el fitxer nom_app-portlet.xml (petstore-portlet.xml) i importar-lo en  el fitxer nom_app-servlet.xml (petstore-servlet.xml).<br/>
+En aquest fitxer hem de  definir tots els filtres que tenim definits en el fitxer WEB-INF\web.xml de  l'aplicació. En la propietat order definim l'ordre d'execució dels  filtres.</li>
+</ul>
+
+
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+
+&lt;bean  id=<span class="code-quote">"acegiFilterInterceptor"</span>
+
+class=<span class="code-quote">"com.atosorigin.canigo.services.portlets.struts.FilterInterceptor"</span>
+
+singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"filterClass"</span>
+
+value=<span class="code-quote">"net.sf.acegisecurity.util.FilterToBeanProxy"</span>&gt;
+
+&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"configMap"</span>&gt;
+
+&lt;map&gt;
+
+&lt;entry  key=<span class="code-quote">"targetClass"</span>
+
+value=<span class="code-quote">"net.sf.acegisecurity.util.FilterChainProxy"</span>&gt;
+
+&lt;/entry&gt;
+
+&lt;entry  key=<span class="code-quote">"init"</span>  value=<span class="code-quote">"lazy"</span>&gt;&lt;/entry&gt;
+
+&lt;/map&gt;
+
+&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"order"</span> value=<span class="code-quote">"2"</span>&gt;&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"urlPatternList"</span>&gt;
+
+&lt;list&gt;
+
+&lt;value&gt;/*/&lt;/value&gt;
+
+&lt;/list&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;
+
+&lt;bean  id=<span class="code-quote">"localeFilterInterceptor"</span>
+
+class=<span class="code-quote">"com.atosorigin.canigo.services.portlets.struts.FilterInterceptor"</span>
+
+singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"filterClass"</span>
+
+value=<span class="code-quote">"net.gencat.ctti.canigo.services.web.i18n.StrutsLocaleFilter"</span>&gt;
+
+&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"order"</span> value=<span class="code-quote">"0"</span>&gt;&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"urlPatternList"</span>&gt;
+
+&lt;list&gt;
+
+&lt;value&gt;*.<span class="code-keyword">do</span>&lt;/value&gt;
+
+&lt;value&gt;*.doc&lt;/value&gt;
+
+&lt;value&gt;*.report&lt;/value&gt;
+
+&lt;value&gt;*.pdf&lt;/value&gt;
+
+&lt;value&gt;/dwr/*&lt;/value&gt;
+
+&lt;value&gt;*.xls&lt;/value&gt;
+
+&lt;/list&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;
+
+...</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ul>
+	<li>Afegim les dependències necessàries en el fitxer project.xml.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;dependency&gt;
+
+&lt;groupId&gt;portals-bridges-common&lt;/groupId&gt;
+
+&lt;artifactId&gt;portals-bridges-common&lt;/artifactId&gt;
+
+&lt;version&gt;1.0&lt;/version&gt;
+
+&lt;properties&gt;
+
+&lt;war.bundle&gt;<span class="code-keyword">true</span>&lt;/war.bundle&gt;
+
+&lt;/properties&gt;
+
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+
+&lt;groupId&gt;portals-bridges-struts&lt;/groupId&gt;
+
+&lt;artifactId&gt;portals-bridges-struts&lt;/artifactId&gt;
+
+&lt;version&gt;1.2.7-1.0&lt;/version&gt;
+
+&lt;properties&gt;
+
+&lt;war.bundle&gt;<span class="code-keyword">true</span>&lt;/war.bundle&gt;
+
+&lt;/properties&gt;
+
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+
+&lt;groupId&gt;canigo&lt;/groupId&gt;
+
+&lt;artifactId&gt;canigo-services-portlets&lt;/artifactId&gt;
+
+&lt;version&gt;1.0&lt;/version&gt;
+
+&lt;properties&gt;
+
+&lt;war.bundle&gt;<span class="code-keyword">true</span>&lt;/war.bundle&gt;
+
+&lt;/properties&gt;
+
+&lt;/dependency&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Deployar el war en el servidor. Això ho farem copiant el war en  %JETSPEED_HOME%\webapps\jetspeed\deploy.</li>
+</ul>
+
+
+<h3><a name="Serveideportlets2.2-Configuraci%C3%B3Tomcat5.0.28Vignette7.2.2"></a>Configuració  Tomcat 5.0.28 - Vignette7.2.2</h3>
+
+<p>Per a configurar una aplicació per poder desplegar-se dins d'un portal,  haurem de seguir els següents passos:</p>
+<ul>
+	<li>Crear el fitxer WEB-INF\portlet.xml
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span>  encoding=<span class="code-quote">"UTF-8"</span>?&gt;
+
+&lt;portlet-app
+
+xmlns=<span class="code-quote">"http:<span class="code-comment">//java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd"</span>
+</span>
+version=<span class="code-quote">"1.0"</span>  xmlns:xsi=<span class="code-quote">"http:<span class="code-comment">//www.w3.org/2001/XMLSchema-instance"</span>
+</span>
+xsi:schemaLocation="http:<span class="code-comment">//java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd
+</span>
+http:<span class="code-comment">//java.sun.com/xml/ns/portlet/portlet\-app\_1\_0.xsd"&gt;
+</span>
+&lt;portlet&gt;
+
+&lt;portlet-name&gt;JPetstorePortlet2&lt;/portlet-name&gt;
+
+&lt;portlet-class&gt;
+
+com.vignette.portal.bridges.struts.StrutsPortlet
+
+&lt;/portlet-class&gt;
+
+&lt;init-param&gt;
+
+&lt;name&gt;ServletContextProvider&lt;/name&gt;
+
+&lt;value&gt;
+
+com.vignette.portal.bridges.ServletContextProviderImpl
+
+&lt;/value&gt;
+
+&lt;/init-param&gt;
+
+&lt;init-param&gt;
+
+&lt;name&gt;ViewPage&lt;/name&gt;
+
+&lt;value&gt;/start.<span class="code-keyword">do</span>&lt;/value&gt;
+
+&lt;/init-param&gt;
+
+&lt;init-param&gt;
+
+&lt;name&gt;HelpPage&lt;/name&gt;
+
+&lt;value&gt;/help.shtml&lt;/value&gt;
+
+&lt;/init-param&gt;
+
+&lt;expiration-cache&gt;-1&lt;/expiration-cache&gt;
+
+&lt;supports&gt;
+
+&lt;mime-type&gt;text/html&lt;/mime-type&gt;
+
+&lt;portlet-mode&gt;VIEW&lt;/portlet-mode&gt;
+
+&lt;portlet-mode&gt;HELP&lt;/portlet-mode&gt;
+
+&lt;/supports&gt;
+
+&lt;portlet-info&gt;
+
+&lt;title&gt;JPetstore&lt;/title&gt;
+
+&lt;keywords&gt;Struts&lt;/keywords&gt;
+
+&lt;/portlet-info&gt;
+
+&lt;/portlet&gt;
+
+&lt;/portlet-app&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<p>Aquest fitxer descriu el nom i la classe del portlet i la implementació de la  interface ServletContextProvider d'Struts-Bridge  (portals-bridges-commmons-1.0.jar). En aquest cas, la implementació es troba  dins de la llibreria vgn-portal-jsrextensions-1.0.jar.</p>
+<ul>
+	<li>Crear el fitxer META-INF\context.xml</li>
+</ul>
+
+
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;
+
+&lt;Context  path=<span class="code-quote">"/canigo-samples-jPetstore-portlets"</span> debug=<span class="code-quote">"5"</span>  reloadable=<span class="code-quote">"<span class="code-keyword">true</span>"</span>
+
+crossContext=<span class="code-quote">"<span class="code-keyword">true</span>"</span>&gt;
+
+&lt;Resource auth=<span class="code-quote">"Container"</span> name=<span class="code-quote">"canigoDS"</span>  type=<span class="code-quote">"javax.sql.DataSource"</span>/&gt;
+
+&lt;ResourceParams  name=<span class="code-quote">"canigoDS"</span>&gt;
+
+&lt;parameter&gt;
+
+&lt;name&gt;driverClassName&lt;/name&gt;
+
+&lt;value&gt;oracle.jdbc.driver.OracleDriver&lt;/value&gt;
+
+&lt;/parameter&gt;
+
+&lt;parameter&gt;
+
+&lt;name&gt;url&lt;/name&gt;
+
+&lt;value&gt;jdbc:oracle:thin:@bna-s007.es.<span class="code-object">int</span>.atosorigin.com:1521:Legolas&lt;/value&gt;
+
+&lt;/parameter&gt;
+
+&lt;parameter&gt;
+
+&lt;name&gt;username&lt;/name&gt;
+
+&lt;value&gt;username&lt;/value&gt;
+
+&lt;/parameter&gt;
+
+&lt;parameter&gt;
+
+&lt;name&gt;password&lt;/name&gt;
+
+&lt;value&gt;password&lt;/value&gt;
+
+&lt;/parameter&gt;
+
+&lt;parameter&gt;
+
+&lt;name&gt;maxActive&lt;/name&gt;
+
+&lt;value&gt;20&lt;/value&gt;
+
+&lt;/parameter&gt;
+
+&lt;parameter&gt;
+
+&lt;name&gt;maxIdle&lt;/name&gt;
+
+&lt;value&gt;10&lt;/value&gt;
+
+&lt;/parameter&gt;
+
+&lt;parameter&gt;
+
+&lt;name&gt;maxWait&lt;/name&gt;
+
+&lt;value&gt;-1&lt;/value&gt;
+
+&lt;/parameter&gt;
+
+&lt;/ResourceParams&gt;
+
+&lt;/Context&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ul>
+	<li>Modificar la classe del actionServlet dins del fitxer web.xml per a que  apunti a la implementació del servei de portlets.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;servlet-name&gt;actionServlet&lt;/servlet-name&gt;
+
+&lt;servlet-class&gt;
+
+com.atosorigin.canigo.services.portlets.DispatcherServlet
+
+&lt;/servlet-class&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Crear el fitxer nom_app-portlet.xml (petstore-portlet.xml) i importar-lo en  el fitxer nom_app-servlet.xml (petstore-servlet.xml).<br/>
+En aquest fitxer hem de  definir tots els filtres que tenim definits en el fitxer WEB-INF\web.xml de  l'aplicació. En la propietat order definim l'ordre d'execució dels  filtres.</li>
+</ul>
+
+
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean  id=<span class="code-quote">"strutsMenuFilterInterceptor"</span>
+
+class=<span class="code-quote">"com.atosorigin.canigo.services.portlets.struts.FilterInterceptor"</span>
+
+singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"filterClass"</span>
+
+value=<span class="code-quote">"net.gencat.ctti.canigo.samples.jpetstore.struts.menu.AcegiPermissionsFilter"</span>&gt;
+
+&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"urlPatternList"</span>&gt;
+
+&lt;list&gt;
+
+&lt;value&gt;*.<span class="code-keyword">do</span>&lt;/value&gt;
+
+&lt;/list&gt;
+
+&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"order"</span> value=<span class="code-quote">"3"</span>&gt;&lt;/property&gt;
+
+&lt;/bean&gt;
+
+&lt;bean  id=<span class="code-quote">"UrlRewriteFilterInterceptor"</span>
+
+class=<span class="code-quote">"com.atosorigin.canigo.services.portlets.struts.FilterInterceptor"</span>
+
+singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"filterClass"</span>
+
+value=<span class="code-quote">"net.gencat.ctti.canigo.services.web.filter.urlrewrite.UrlRewriteFilter"</span>&gt;
+
+&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"configMap"</span>&gt;
+
+&lt;map&gt;
+
+&lt;entry key=<span class="code-quote">"logLevel"</span>  value=<span class="code-quote">"LOG4J"</span>&gt;&lt;/entry&gt;
+
+&lt;/map&gt;
+
+&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"order"</span> value=<span class="code-quote">"4"</span>&gt;&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"urlPatternList"</span>&gt;
+
+&lt;list&gt;
+
+&lt;value&gt;/*/&lt;/value&gt;
+
+&lt;/list&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;
+
+&lt;bean  id=<span class="code-quote">"acegiFilterInterceptor"</span>
+
+class=<span class="code-quote">"com.atosorigin.canigo.services.portlets.struts.FilterInterceptor"</span>
+
+singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"filterClass"</span>
+
+value=<span class="code-quote">"net.sf.acegisecurity.util.FilterToBeanProxy"</span>&gt;
+
+&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"configMap"</span>&gt;
+
+&lt;map&gt;
+
+&lt;entry  key=<span class="code-quote">"targetClass"</span>
+
+value=<span class="code-quote">"net.sf.acegisecurity.util.FilterChainProxy"</span>&gt;
+
+&lt;/entry&gt;
+
+&lt;entry  key=<span class="code-quote">"init"</span>  value=<span class="code-quote">"lazy"</span>&gt;&lt;/entry&gt;
+
+&lt;/map&gt;
+
+&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"order"</span> value=<span class="code-quote">"2"</span>&gt;&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"urlPatternList"</span>&gt;
+
+&lt;list&gt;
+
+&lt;value&gt;/*/&lt;/value&gt;
+
+&lt;/list&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;
+
+&lt;bean  id=<span class="code-quote">"localeFilterInterceptor"</span>
+
+class=<span class="code-quote">"com.atosorigin.canigo.services.portlets.struts.FilterInterceptor"</span>
+
+singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"filterClass"</span>
+
+value=<span class="code-quote">"net.gencat.ctti.canigo.services.web.i18n.StrutsLocaleFilter"</span>&gt;
+
+&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"order"</span> value=<span class="code-quote">"0"</span>&gt;&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"urlPatternList"</span>&gt;
+
+&lt;list&gt;
+
+&lt;value&gt;*.<span class="code-keyword">do</span>&lt;/value&gt;
+
+&lt;value&gt;*.doc&lt;/value&gt;
+
+&lt;value&gt;*.report&lt;/value&gt;
+
+&lt;value&gt;*.pdf&lt;/value&gt;
+
+&lt;value&gt;/dwr/*&lt;/value&gt;
+
+&lt;value&gt;*.xls&lt;/value&gt;
+
+&lt;/list&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;
+
+&lt;bean  id=<span class="code-quote">"jstlLocaleFilterInterceptor"</span>
+
+class=<span class="code-quote">"com.atosorigin.canigo.services.portlets.struts.FilterInterceptor"</span>
+
+singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"filterClass"</span>
+
+value=<span class="code-quote">"net.gencat.ctti.canigo.services.web.i18n.JSTLLocaleFilter"</span>&gt;
+
+&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"order"</span> value=<span class="code-quote">"1"</span>&gt;&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"urlPatternList"</span>&gt;
+
+&lt;list&gt;
+
+&lt;value&gt;*.<span class="code-keyword">do</span>&lt;/value&gt;
+
+&lt;value&gt;*.doc&lt;/value&gt;
+
+&lt;value&gt;*.report&lt;/value&gt;
+
+&lt;value&gt;*.pdf&lt;/value&gt;
+
+&lt;value&gt;/dwr/*&lt;/value&gt;
+
+&lt;value&gt;*.xls&lt;/value&gt;
+
+&lt;/list&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ul>
+	<li>Definir els beans strutsWrappingController i dwrInvokerController dins del  fitxer nom_app-portlet.xml (petstore-portlet.xml).
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean  id=<span class="code-quote">"dwrInvokerController"</span>
+
+class=<span class="code-quote">"com.atosorigin.canigo.services.portlets.ServletWrappingController"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"servletClass"</span>
+
+value=<span class="code-quote">"uk.ltd.getahead.dwr.DWRServlet"</span>  /&gt;
+
+&lt;property name=<span class="code-quote">"servletName"</span> value=<span class="code-quote">"dwr-invoker"</span>  /&gt;
+
+&lt;property name=<span class="code-quote">"initParameters"</span>&gt;
+
+&lt;props&gt;
+
+&lt;prop  key=<span class="code-quote">"debug"</span>&gt;<span class="code-keyword">true</span>&lt;/prop&gt;
+
+&lt;prop  key=<span class="code-quote">"config"</span>&gt;/WEB-INF/classes/dwr/dwr.xml&lt;/prop&gt;
+
+&lt;/props&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;
+
+&lt;bean  id=<span class="code-quote">"strutsWrappingController"</span>
+
+class=<span class="code-quote">"org.springframework.web.servlet.mvc.ServletWrappingController"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"servletClass"</span>&gt;
+
+&lt;value&gt;
+
+com.atosorigin.canigo.services.portlets.struts.PortletServlet
+
+&lt;/value&gt;
+
+&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"servletName"</span>&gt;
+
+&lt;value&gt;action&lt;/value&gt;
+
+&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"initParameters"</span>&gt;
+
+&lt;props&gt;
+
+&lt;prop  key=<span class="code-quote">"config"</span>&gt;
+
+/WEB-INF/classes/struts/struts-  config.xml
+
+&lt;/prop&gt;
+
+&lt;prop  key=<span class="code-quote">"config/ptop"</span>&gt;
+
+/WEB-INF/classes/struts/ptop/struts-  config.xml
+
+&lt;/prop&gt;
+
+&lt;prop  key=<span class="code-quote">"config/admin"</span>&gt;
+
+/WEB-INF/classes/struts/admin/struts-  config.xml
+
+&lt;/prop&gt;
+
+&lt;/props&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Afegim les dependències necessàries en el fitxer project.xml.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;dependency&gt;
+
+&lt;groupId&gt;vgn-portal-jsrextensions&lt;/groupId&gt;
+
+&lt;artifactId&gt;vgn-portal-jsrextensions&lt;/artifactId&gt;
+
+&lt;version&gt;1.0&lt;/version&gt;
+
+&lt;properties&gt;
+
+&lt;war.bundle&gt;<span class="code-keyword">true</span>&lt;/war.bundle&gt;
+
+&lt;/properties&gt;
+
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+
+&lt;groupId&gt;portals-bridges-common&lt;/groupId&gt;
+
+&lt;artifactId&gt;portals-bridges-common&lt;/artifactId&gt;
+
+&lt;version&gt;1.0&lt;/version&gt;
+
+&lt;properties&gt;
+
+&lt;war.bundle&gt;<span class="code-keyword">true</span>&lt;/war.bundle&gt;
+
+&lt;/properties&gt;
+
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+
+&lt;groupId&gt;portals-bridges-struts&lt;/groupId&gt;
+
+&lt;artifactId&gt;portals-bridges-struts&lt;/artifactId&gt;
+
+&lt;version&gt;1.2.7-1.0&lt;/version&gt;
+
+&lt;properties&gt;
+
+&lt;war.bundle&gt;<span class="code-keyword">true</span>&lt;/war.bundle&gt;
+
+&lt;/properties&gt;
+
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+
+&lt;groupId&gt;canigo&lt;/groupId&gt;
+
+&lt;artifactId&gt;canigo-services-portlets&lt;/artifactId&gt;
+
+&lt;version&gt;1.0&lt;/version&gt;
+
+&lt;properties&gt;
+
+&lt;war.bundle&gt;<span class="code-keyword">true</span>&lt;/war.bundle&gt;
+
+&lt;/properties&gt;
+
+&lt;/dependency&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Modificar el fitxer web.xml per a que compleixi els requeriments del  Vignette Portal. Això podem fer-ho automàticament mitjançant una eina de  Vignette. Per utilitzar-la còmodament podem crear els següents goals de  maven:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;!-Vignette Portal Tool-&gt;
+&lt;property environment=<span class="code-quote">"env"</span>/&gt;
+
+&lt;property name=<span class="code-quote">"maven.repo"</span> value=<span class="code-quote">"$\{env.MAVEN_REPO\}"</span>/&gt;
+
+&lt;path id=<span class="code-quote">"classpath"</span>&gt;
+&lt;pathelement path=<span class="code-quote">"classes"</span> /&gt;
+&lt;echo message=<span class="code-quote">"maven.repo=$\{maven.repo\}"</span>/&gt;
+&lt;fileset dir=<span class="code-quote">"$\{maven.repo\}"</span> includes=<span class="code-quote">"vgn-portal-ant/jars/*.jar"</span> /&gt;
+&lt;fileset dir=<span class="code-quote">"$\{maven.repo\}"</span> includes=<span class="code-quote">"ant/jars/*.jar"</span> /&gt;
+&lt;fileset dir=<span class="code-quote">"$\{maven.repo\}"</span> includes=<span class="code-quote">"xalan/jars/xalan.jar"</span> /&gt;
+&lt;/path&gt;
+
+&lt;taskdef name=<span class="code-quote">"PortletPackageTool"</span> classname=<span class="code-quote">"com.vignette.portal.ant.external.portlet.PackageTask"</span>&gt;
+&lt;classpath refid=<span class="code-quote">"classpath"</span> /&gt;
+&lt;/taskdef&gt;
+
+&lt;goal name=<span class="code-quote">"canigo: PortletPackageTool"</span>&gt;
+
+&lt;echo message=<span class="code-quote">"Rebuilding war file."</span>/&gt;
+&lt;record name=<span class="code-quote">"portlet_package_log.txt"</span> loglevel=<span class="code-quote">"info"</span>/&gt;
+&lt;PortletPackageTool file=<span class="code-quote">"target\$\{canigo.war.wtp.module\}.war"</span>
+contextroot = <span class="code-quote">"$\{canigo.war.wtp.module\}"</span>
+rename=<span class="code-quote">"<span class="code-keyword">false</span>"</span>
+failonerror=<span class="code-quote">"<span class="code-keyword">true</span>"</span>&gt;
+&lt;/PortletPackageTool&gt;
+&lt;/goal&gt;
+
+&lt;goal name=<span class="code-quote">"canigo:WarPortletPackageTool"</span>&gt;
+
+&lt;attainGoal name=<span class="code-quote">"war:war"</span>/&gt;
+&lt;attainGoal name=<span class="code-quote">"canigo: PortletPackageTool"</span>/&gt;
+
+&lt;/goal&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<p>El goal canigo: PortletPackageTool ddd modifica el war que tenim creat en el  directori \target. El goal canigo:WarPortletPackageTool crea prèviament el war  en el directori \target. Per a que aquest goal funcioni hem de tenir definida la  propietat ctti.war.wtp.module dins del fitxer project.properties:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">ctti.war.wtp.module=canigo-samples-jPetstore-portlets</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+També és necessari tenir en el repositori maven la llibreria  vgn-portal-ant.jar, que trobarem a %PORTAL_HOME%\ant\lib_portal. També hi hem de  tenir les llibreries d'ant i de xalan.
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>Les modificacions que fa aquesta eina en el fitxer.xml són les següents:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;!-- ADDED BY VIGNETTE PORTLET PACKAGING TOOL. DO NOT EDIT --&gt;&lt;context-param&gt;
+&lt;param-name&gt;contextPath&lt;/param-name&gt;
+&lt;param-value&gt;appContextPath&lt;/param-value&gt;
+&lt;description&gt;Context root to which <span class="code-keyword">this</span> web application is deployed. Used by the Portal JSR
+168 implementation.&lt;/description&gt;
+&lt;/context-param&gt;
+&lt;!-- END THIS VIGNETTE PACKAGING TOOL ADDITION. --&gt;
+
+&lt;!-- ADDED BY VIGNETTE PORTLET PACKAGING TOOL. DO NOT EDIT --&gt;
+&lt;filter&gt;
+&lt;filter-name&gt;PortletApplicationSecurityFilter&lt;/filter-name&gt;
+&lt;filter-class&gt;com.vignette.portal.portlet.jsrcontainer.PortletApplicationSecurityFilter&lt;/filter-class&gt;
+&lt;/filter&gt;
+&lt;!-- END THIS VIGNETTE PACKAGING TOOL ADDITION. --&gt;
+
+&lt;!-- ADDED BY VIGNETTE PORTLET PACKAGING TOOL. DO NOT EDIT --&gt;
+&lt;filter-mapping&gt;
+&lt;filter-name&gt;PortletApplicationSecurityFilter&lt;/filter-name&gt;
+&lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+&lt;!-- END THIS VIGNETTE PACKAGING TOOL ADDITION. --&gt;
+
+&lt;!-- ADDED BY VIGNETTE PORTLET PACKAGING TOOL. DO NOT EDIT --&gt;
+&lt;listener&gt;
+&lt;listener-class&gt;com.vignette.portal.portlet.jsrcontainer.PortletApplicationServletContextListener
+&lt;/listener-class&gt;
+&lt;/listener&gt;
+&lt;!-- END THIS VIGNETTE PACKAGING TOOL ADDITION. --&gt;
+
+&lt;!-- ADDED BY VIGNETTE PORTLET PACKAGING TOOL. DO NOT EDIT --&gt;
+&lt;servlet&gt;
+&lt;servlet-name&gt;PortletCommandServlet&lt;/servlet-name&gt;
+&lt;display-name&gt;Portlet Command Servlet&lt;/display-name&gt;
+&lt;description&gt;Utilized by Portal to invoke JSR 168 portlets&lt;/description&gt;
+&lt;servlet-class&gt;com.vignette.portal.portlet.jsrcontainer.PortletCommandServlet&lt;/servlet-class&gt;
+&lt;/servlet&gt;
+&lt;!-- END THIS VIGNETTE PACKAGING TOOL ADDITION. --&gt;
+
+&lt;!-- ADDED BY VIGNETTE PORTLET PACKAGING TOOL. DO NOT EDIT --&gt;
+&lt;servlet-mapping&gt;
+&lt;servlet-name&gt;PortletCommandServlet&lt;/servlet-name&gt;
+&lt;url-pattern&gt;/portletCommand/*&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+&lt;!-- END THIS VIGNETTE PACKAGING TOOL ADDITION. --&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ul>
+	<li>Deployar el war en el servidor. En Tomcat, el copiarem en  %TOMCAT_HOME%\webapps.</li>
+</ul>
+
+
+<p>Seguint tots els passos descrits fins aquest punt, simplement arrancant el  servidor el Vignette Portal reconeixerà l'aplicació que hem deployat en el  servidor com un portlet.</p>
+
+<p><b>Els components que el Framework encara no suporta en la seva integració amb el Servei de Portlets són els següents:</b></p>
+<ul>
+	<li>Search Panel</li>
+	<li>Autocomplete</li>
+	<li>Paginació de selects.</li>
+</ul>
+
+
+<p><b>Els components suportats pel Framework són els següents:</b></p>
+<ul>
+	<li>Dirty Form Warning</li>
+	<li>Botons amb imatges</li>
+	<li>Pestanyes</li>
+	<li>GridBagLayout</li>
+	<li>Format i limitació d'entrada de dades.</li>
+	<li>Calendari.</li>
+	<li>Tag Swap Select.</li>
+</ul>
+
+
+<h2><a name="Serveideportlets2.2-EinesdeSuport"></a>Eines de  Suport</h2>
+
+
+<h3><a name="Serveideportlets2.2-DebugdelesP%C3%A0gines"></a>Debug de les  Pàgines</h3>
+
+<p>En l'ús de les nostres pàgines és convenient sempre conèixer si estan ben  construïdes. Aquesta comprovació es pot realitzar amb l'extensió 'Web Developer' i 'Javascript Debugger', que ens permetràn detectar problemàtiques de les nostres pàgines.</p>
+
+<h2><a name="Serveideportlets2.2-PreguntesFreq%C3%BCents"></a>Preguntes  Freqüents</h2>
+
+<ol>
+	<li>Al accedir em dona un error: <b>"java.lang.ClassNotFoundException"</b></li>
+</ol>
+
+
+<p>Si al provar d'accedir a qualsevol mòdul de l'aplicació portal de Vignette  ens trobem amb una excepció del tipus "java.lang.ClassNotFoundException", el més  probable és que algun mòdul de Vignette no s'hagi deployat correctament. Per  solucionar-ho haurem de redeployar el mòdul. Això ho farem copiant el fitxer  ".car" corresponent del directori %VIGNETTE_HOME%\system\bootstrap a  %VIGNETTE_HOME%\deployment\upload i fent un restart del Tomcat. Això ho trobarem  explicat amb més detall en el document portalinstallguide.pdf en l'apartat de  "upgrade portal".</p>
+<ol>
+	<li>Em surt un avís: <b>"This system is currently starting up".</b></li>
+</ol>
+
+
+<p>Quan deployem per primera vegada el portal de Vignette o redeployem algun  dels seus mòduls, depenent de la màquina on es trobi el servidor, pot ser que  veiem l'avís de "This system is currently starting up." durant molt de temps i  sembli que el portal s'hagi bloquejat. No és així, si editem el log corresponent  (%VIGNETTE_HOME%\logs) veurem que el portal realment està arrancant.</p>
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

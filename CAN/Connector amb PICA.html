@@ -1,0 +1,563 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Connector amb PICA</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Connector amb PICA
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Feb 16, 2015 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="ConnectorambPICA-ConnectoramblaPICA"></a>Connector amb la PICA</h1>
+
+<p><br clear="all" />
+<div>
+<ul><a href='#ConnectorambPICA-ConnectoramblaPICA'>
+    <li>Connector amb la PICA</li></a><a href='#ConnectorambPICA-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#ConnectorambPICA-Prop%C3%B2sit'>
+    <li>Propòsit</li></a><a href='#ConnectorambPICA-ContextiEscenarisd%27%C3%9As'>
+    <li>Context i Escenaris d'Ús</li></a><a href='#ConnectorambPICA-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i Dependències</li></a><a href='#ConnectorambPICA-Aquivadirigit'>
+    <li>A qui va dirigit</li></a><a href='#ConnectorambPICA-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents i Fonts de Referència</li></a><a href='#ConnectorambPICA-Glossari'>
+    <li>Glossari</li></a>
+</ul><a href='#ConnectorambPICA-Descripci%C3%B3Detallada'>
+    <li>Descripció Detallada</li></a>
+<ul><a href='#ConnectorambPICA-ArquitecturaiComponents'>
+    <li>Arquitectura i Components</li></a>
+<ul><a href='#ConnectorambPICA-Interf%C3%ADciesiComponentsGen%C3%A8rics'>
+    <li>Interfícies i Components Genèrics</li></a><a href='#ConnectorambPICA-Requeriments'>
+    <li>Requeriments</li></a>
+</ul><a href='#ConnectorambPICA-Instal.laci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal.lació i Configuració</li></a>
+<ul><a href='#ConnectorambPICA-Instal.laci%C3%B3'>
+    <li>Instal.lació</li></a><a href='#ConnectorambPICA-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#ConnectorambPICA-Utilitzaci%C3%B3delServei'>
+    <li>Utilització del Servei</li></a>
+<ul><a href='#ConnectorambPICA-FuncionsPICA'>
+    <li>Funcions PICA</li></a><a href='#ConnectorambPICA-Exempled%27utilitzaci%C3%B3'>
+    <li>Exemple d'utilització</li></a>
+</ul><a href='#ConnectorambPICA-Integraci%C3%B3ambAltresServeis'>
+    <li>Integració amb Altres Serveis</li></a>
+<ul><a href='#ConnectorambPICA-Integraci%C3%B3ambelServeid%27Internacionalitzaci%C3%B3'>
+    <li>Integració amb el Servei d'Internacionalització</li></a>
+</ul>
+</ul>
+</ul></div><br clear="all" />
+<br clear="all" /></p>
+<table cellpadding='5' width='85%' cellspacing='8px' class='infoMacro' border="0" align='center'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="./icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td><b class="strong">Important</b><br />
+<p>El connector amb la PICA de Canigó utilitza <b>Java 1.5</b> (veure Requeriments)</p>
+
+<p>&nbsp;A partir de la <b>versió 2.3.9</b> del framework el connector genèric a la pica adopta el nou versionat de connectors (independent del framework), per tant per incloure el connector a la pica caldrà fer-ho amb la <b>versió 1.0</b>:</p>
+
+<p>&nbsp;<font color="#000091">&lt;dependency&gt;</font><br/>
+&lt;groupId&gt;canigo.connectors&lt;/groupId&gt;<br/>
+&lt;artifactId&gt;canigo-connectors-pica&lt;/artifactId&gt;<br/>
+&lt;version&gt;1.0&lt;/version&gt;<br/>
+&lt;/dependency&gt;</p></td></tr></table>
+<p><br clear="all" /></p>
+
+<h1><a name="ConnectorambPICA-Introducci%C3%B3"></a>Introducció</h1>
+
+
+<h2><a name="ConnectorambPICA-Prop%C3%B2sit"></a>Propòsit</h2>
+
+<p>El propòsit del connector és proporcionar una interfície java per accedir a la PICA.</p>
+
+<p>El connector amb la PICA disposa de dos tipus de comunicació, un d'ells a través de web service síncron, i l'altre, mitjançant web service asíncron.</p>
+
+<h2><a name="ConnectorambPICA-ContextiEscenarisd%27%C3%9As"></a>Context i Escenaris d'Ús</h2>
+
+<p>El connector PICA es troba dins els connectors de serveis funcional.</p>
+
+<h2><a name="ConnectorambPICA-VersionsiDepend%C3%A8ncies"></a>Versions i Dependències</h2>
+
+<p>En el present apartat es mostren quines són les versions i dependències necessàries per fer ús del Servei.</p>
+
+<p>Les dependències descrites a la següent url són requerides per tal de fer funcionar el servei:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_9/canigo-connectors-root/canigo-connectors-pica/dependencies.html" title="Visit page outside Confluence">Dependències Connector amb PICA</a></p>
+
+<p>A l'incloure la dependència del connector en el projecte, podreu veure que s'afegeixen dues llibreries anomenades client-pica-2.3.2.jar i api-pica-2.3.2.jar. Aquestes llibreries són dependències directes del connector amb la PICA de Canigó i han estat desenvolupades per l'OT PICA. L'OT Canigó ha empaquetat aquestes llibreries i s'han publicat al repositori, dins el package canigo.connectors.</p>
+
+<p>Qualsevol dubte/consulta respecte funcionalitats, documentació, etc. d'aquestes llibreries, us podeu adreçar a l'OT PICA: <a href="mailto:oficinapica.ctti@gencat.cat" title="Send mail to oficinapica.ctti@gencat.cat">oficinapica.ctti@gencat.cat</a></p>
+
+<h2><a name="ConnectorambPICA-Aquivadirigit"></a>A qui va dirigit</h2>
+
+<p>Aquest document va dirigit als següents perfils:</p>
+<ol>
+	<li>Programador. Per conéixer l'ús del connector.</li>
+	<li>Arquitecte. Per conéixer quins són els components i la configuració del connector.</li>
+</ol>
+
+
+<h2><a name="ConnectorambPICA-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents i Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<td class='confluenceTd'> [1] </td>
+<td class='confluenceTd'> Guia d'ús de l'API de comunicació amb la PICA - Projecte: P070085-OTPICA </td>
+</tr>
+<tr>
+<td class='confluenceTd'> [2] </td>
+<td class='confluenceTd'> Missatgeria PICA (P060025-PICA &gt; PD2 &gt; Fase I  &gt; Missatgeria PICA &gt; P060025-PICA-PD2-DTE-V05.3.Missatgeria PICA_pdf.pdf) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> [3] </td>
+<td class='confluenceTd'> Oficina Tècnica PICA <a href="mailto:oficinapica.ctti@gencat.cat" title="Send mail to oficinapica.ctti@gencat.cat">oficinapica.ctti@gencat.cat</a> </td>
+</tr>
+</tbody></table>
+
+<h2><a name="ConnectorambPICA-Glossari"></a>Glossari</h2>
+
+<ul class="alternate" type="square">
+	<li>PICA: Plataforma d'Integració i Col.laboració Administrativa</li>
+	<li>TER: Temps Estimat de Resposta</li>
+</ul>
+
+
+<h1><a name="ConnectorambPICA-Descripci%C3%B3Detallada"></a>Descripció Detallada</h1>
+
+
+<h2><a name="ConnectorambPICA-ArquitecturaiComponents"></a>Arquitectura i Components</h2>
+
+
+<h3><a name="ConnectorambPICA-Interf%C3%ADciesiComponentsGen%C3%A8rics"></a>Interfícies i Components Genèrics</h3>
+
+<p>Es pot trobar tota la documentació JavaDoc i el codi font referent aquests components a les següents urls:</p>
+
+<p><ins>JavaDoc:</ins> <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_9/canigo-connectors-root/canigo-connectors-pica/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_9/canigo-connectors-root/canigo-connectors-pica/apidocs/index.html</a><br/>
+<ins>Codi Font:</ins>&nbsp; <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_9/canigo-connectors-root/canigo-connectors-pica/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_9/canigo-connectors-root/canigo-connectors-pica/xref/index.html</a></p>
+
+<h3><a name="ConnectorambPICA-Requeriments"></a>Requeriments</h3>
+
+<p>El connector amb la PICA de Canigó, ha estat desenvolupat amb <b>Java 1.5</b>, degut a requeriments tècnics que venien establerts. Per tant, es pot utilitzar el connector si s'està desenvolupant amb aquesta versió. En canvi, si s'està treballant amb versions anteriors, s'ha de realitzar la comunicació amb la PICA de forma directa. Per a més informació podeu adreçar-vos directament a l'Oficina Tècnica de la PICA (<a href="mailto:oficinapica.ctti@gencat.cat" title="Send mail to oficinapica.ctti@gencat.cat">oficinapica.ctti@gencat.cat</a>).</p>
+
+<h2><a name="ConnectorambPICA-Instal.laci%C3%B3iConfiguraci%C3%B3"></a>Instal.lació i Configuració</h2>
+
+
+<h3><a name="ConnectorambPICA-Instal.laci%C3%B3"></a>Instal.lació</h3>
+
+<p>La instal.lació del connector requereix de la utilització de la llibreria 'canigo-connectors-pica' i les dependències indicades a l'apartat '<a href="#ConnectorambPICA-VersionsiDepend%C3%A8ncies" title="Versions i Dependències on Connector amb PICA">Introducció-Versions i Dependències</a>'.</p>
+
+<p>La instal.lació es realitza seguint el procediment habitual per components/serveis Canigó.</p>
+
+<p>És necessari tenir accés a la intranet de la Generalitat per poder fer proves i/o utilitzar-lo.</p>
+
+<p>Pel que fa a les dependències, n'hi ha dues que s'han de descarregar manualment:</p>
+<ul>
+	<li><b>SOAPMONITOR</b>: descarregar la versió 1.3 de <a href="http://dmp.jdl.ac.cn/svn/chillout/m2_repo/axis2/soapmonitor/1.3/" title="Visit page outside Confluence">http://dmp.jdl.ac.cn/svn/chillout/m2_repo/axis2/soapmonitor/1.3/</a> i instal.lar-lo amb la comanda<br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java">mvn install:install-file
+    -DgroupId=org.apache.axis2
+    -DartifactId=soapmonitor
+    -Dversion=1.3
+    -Dpackaging=jar
+     -Dfile=soapmonitor-1.3.jar</pre>
+</div></div><br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<ul>
+	<li><b>AXIS2-ANT-PLUGIN</b>: descarregar la versió 1.3 de <a href="http://ubuntu2.cica.es/mirrors/maven2/org/apache/axis2/axis2-ant-plugin/1.3/" title="Visit page outside Confluence">http://ubuntu2.cica.es/mirrors/maven2/org/apache/axis2/axis2-ant-plugin/1.3/</a> i instal.lar-lo amb la comanda:<br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java">mvn install:install-file
+    -DgroupId=org.apache.axis2
+    -DartifactId=axis2-ant-plugin
+    -Dversion=1.3
+    -Dpackaging=jar
+    -Dclassifier=maven-plugin
+    -Dfile=axis2-ant-plugin.jar</pre>
+</div></div><br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<p>Una alternativa és descarregar-se els artefactes i ubicar-los en els packages indicats, amb la particularitat que el axis2-ant-plugin, ha de tenir el nom: <tt>axis2-ant-plugin-1.3-maven-plugin.jar</tt>.</p>
+
+<h3><a name="ConnectorambPICA-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p>Primer de tot, s'ha de crear una estructura de directoris a qualsevol ubicació <b>dins el classpath del projecte</b>, per exemple dins de "resources". L'estructura de directoris ha de ser com segueix:<br/>
+&#45; Crear un directori anomenat "axis2client"<br/>
+&#45; Dins d'aquest directori crear-ne dos més: "conf" i "modules".<br/>
+&#45; Descarregar-se els següents fitxers:</p>
+<ul>
+	<li><a href="http://canigo.ctti.gencat.net/confluence/download/attachments/3238/client.axis2.xml?version=1" title="client.axis2.xml attached to Connector amb PICA">client.axis2.xml</a> dins la carpeta "conf"</li>
+	<li><a href="http://canigo.ctti.gencat.net/confluence/download/attachments/3238/rampart-1.3.mar?version=1" title="rampart-1.3.mar attached to Connector amb PICA">rampart-1.3.mar</a> dins la carpeta "modules"</li>
+</ul>
+
+
+<p>Tot seguit mostrem gràficament l'estructura de directoris amb els fitxers inclosos:
+<br clear="all" /></p>
+<div class="" align="center"> <img src="Connector amb PICA_attachments/axis2client.JPG" align="absmiddle" border="0" /></div>
+<p><br clear="all" />
+<br clear="all" /></p>
+
+<p>És necessari un fitxer de configuració Spring a la pròpia aplicació, en el qual es defineixen les dades necessàries per a realitzar una correcta comunicació amb la PICA (requeridor, producte, configuració SSL &#45;si s'escau-, etc.).</p>
+
+<p><b>Fitxer de configuració:</b> <tt>picaServiceConfiguration.xml</tt><br/>
+<b>Ubicació proposada:</b> <tt>&lt;PROJECT_ROOT&gt;/src/main/resources/spring</tt></p>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-xml"><span class="code-tag">&lt;beans&gt;</span>
+   &lt;bean name=<span class="code-quote">"ProducteModalitatBase"</span> abstract=<span class="code-quote">"true"</span>
+	class=<span class="code-quote">"cat.gencat.pica.peticio.core.beans.ProducteModalitat"</span>&gt;
+	   <span class="code-tag">&lt;property name=<span class="code-quote">"passwordType"</span> value=<span class="code-quote">"PasswordDigest"</span>/&gt;</span>
+   <span class="code-tag">&lt;/bean&gt;</span>
+
+   <span class="code-tag">&lt;bean id=<span class="code-quote">"requeridor"</span> class=<span class="code-quote">"cat.gencat.pica.peticio.core.beans.Requeridor"</span> singleton=<span class="code-quote">"true"</span>&gt;</span>
+        <span class="code-tag">&lt;property name=<span class="code-quote">"fitxerSignatura"</span> value=<span class="code-quote">"signatura.properties"</span>/&gt;</span>
+        <span class="code-tag">&lt;property name=<span class="code-quote">"idSolicitante"</span> value=<span class="code-quote">"ID_SOL"</span>/&gt;</span>
+	<span class="code-tag">&lt;property name=<span class="code-quote">"idTransmision"</span> value=<span class="code-quote">"ID_TRANS"</span>/&gt;</span>
+	<span class="code-tag">&lt;property name=<span class="code-quote">"nombreSolicitante"</span> value=<span class="code-quote">"SOL"</span>/&gt;</span>
+	<span class="code-tag">&lt;property name=<span class="code-quote">"password"</span> value=<span class="code-quote">"PSW"</span>/&gt;</span>
+	<span class="code-tag">&lt;property name=<span class="code-quote">"user"</span> value=<span class="code-quote">"USER"</span>/&gt;</span>
+   <span class="code-tag">&lt;/bean&gt;</span>
+
+   <span class="code-tag">&lt;bean id=<span class="code-quote">"PicaCanigoService"</span> class=<span class="code-quote">"cat.gencat.testpica.prova.PicaServiceWrapper"</span> singleton=<span class="code-quote">"false"</span>&gt;</span>
+        <span class="code-tag"><span class="code-comment">&lt;!-- és requerit que s'indiqui aquest valor per axisDefinition --&gt;</span></span>
+	<span class="code-tag">&lt;property name=<span class="code-quote">"axisDefinition"</span> value=<span class="code-quote">"classpath:axis2client/"</span> /&gt;</span>
+
+ 	<span class="code-tag"><span class="code-comment">&lt;!-- configuració SSL (opcional) --&gt;</span></span>
+	<span class="code-tag">&lt;property name=<span class="code-quote">"trustStoreSSLKeystore"</span> value=<span class="code-quote">"certificats/cert.jks"</span> /&gt;</span>
+	<span class="code-tag">&lt;property name=<span class="code-quote">"trustStoreSSLKeystoreType"</span> value=<span class="code-quote">"JKS"</span> /&gt;</span>
+	<span class="code-tag">&lt;property name=<span class="code-quote">"trustStoreSSLKeystorePassword"</span> value=<span class="code-quote">"password"</span> /&gt;</span>
+
+	<span class="code-tag">&lt;property name=<span class="code-quote">"loggingService"</span> ref=<span class="code-quote">"loggingService"</span>/&gt;</span>
+	<span class="code-tag">&lt;property name=<span class="code-quote">"requeridor"</span> ref=<span class="code-quote">"requeridor"</span>/&gt;</span>
+	<span class="code-tag">&lt;property name=<span class="code-quote">"modalitats"</span>&gt;</span>
+ 	  <span class="code-tag">&lt;map&gt;</span>
+	    <span class="code-tag">&lt;entry key=<span class="code-quote">"KEY_MODALITAT"</span>&gt;</span>
+	      <span class="code-tag">&lt;bean parent=<span class="code-quote">"ProducteModalitatBase"</span>&gt;</span>
+		 <span class="code-tag">&lt;property name=<span class="code-quote">"signat"</span> value=<span class="code-quote">"false"</span>/&gt;</span>
+		 &lt;property name=<span class="code-quote">"urlPICA"</span> value="http://preproduccio.pica.gencat.intranet/
+                         pica_cataleg/AppJava/services/PADRO_MUNICIPI_RESIDENCIA"/&gt;
+		 <span class="code-tag">&lt;property name=<span class="code-quote">"codCertificado"</span> value=<span class="code-quote">"COD_CERT"</span>/&gt;</span>
+    		 <span class="code-tag">&lt;property name=<span class="code-quote">"codProducto"</span> value=<span class="code-quote">"COD_PRODUCTE"</span>/&gt;</span>
+  	         <span class="code-tag">&lt;property name=<span class="code-quote">"finalidad"</span> value=<span class="code-quote">"FIN"</span>/&gt;</span>
+ 	 	 <span class="code-tag">&lt;property name=<span class="code-quote">"nifEmisor"</span> value=<span class="code-quote">"NNNNNNNNX"</span>/&gt;</span>
+ 		 <span class="code-tag">&lt;property name=<span class="code-quote">"nombreEmisor"</span> value=<span class="code-quote">"DEP. D'ACCIO SOCIAL I CIUTADANIA"</span>/&gt;</span>
+ 	      <span class="code-tag">&lt;/bean&gt;</span>
+ 	    <span class="code-tag">&lt;/entry&gt;</span>
+	  <span class="code-tag">&lt;/map&gt;</span>
+	<span class="code-tag">&lt;/property&gt;</span>
+   <span class="code-tag">&lt;/bean&gt;</span>
+
+   &lt;bean id=<span class="code-quote">"loggingConfigurator"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.services.logging.log4j.xml.HostDOMConfigurator"</span>
+       init-method=<span class="code-quote">"init"</span>&gt;
+	<span class="code-tag">&lt;property name=<span class="code-quote">"configFileName"</span>&gt;</span>
+ 	   <span class="code-tag">&lt;value&gt;</span>classpath:log4j-test.xml<span class="code-tag">&lt;/value&gt;</span>
+	<span class="code-tag">&lt;/property&gt;</span>
+   <span class="code-tag">&lt;/bean&gt;</span>
+
+   &lt;bean id=<span class="code-quote">"loggingService"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.services.logging.log4j.Log4JServiceImpl"</span>
+      init-method=<span class="code-quote">"init"</span>&gt;
+	<span class="code-tag">&lt;property name=<span class="code-quote">"configurator"</span>&gt;</span>
+	   <span class="code-tag">&lt;ref local=<span class="code-quote">"loggingConfigurator"</span> /&gt;</span>
+	<span class="code-tag">&lt;/property&gt;</span>
+   <span class="code-tag">&lt;/bean&gt;</span>
+<span class="code-tag">&lt;/beans&gt;</span></pre>
+</div></div><br clear="all" />
+Els beans definits en aquest fitxer són:</p>
+<ul class="alternate" type="square">
+	<li><b>PicaCanigoService</b>: correspon a la classe embolcall <tt>PicaServiceWrapper</tt>, que és l'encarregada d'invocar als serveis de la PICA. Conté el servei de log de Canigó, el requeridor i un map de modalitats, que conté els productes que es volen consumir contra la PICA. També s'inclou la informació necessària per a la comunicació HTTPS, si es vol utilitzar.</li>
+</ul>
+
+
+<ul class="alternate" type="square">
+	<li><b>Requeridor</b>: Conté les dades relacionades amb el requeridor que vol consumir un producte/modalitat de la PICA. A partir de la versió 2.3.6 del connector, s'afegeix la possibilitat de poder modificar el requeridor i per tant, no s'obliga a tenir el mateix a totes les instàncies del servei, per fer-ho possible hem de configurar el bean del servei com a <b>no</b> singleton, tal i com es pot comprovar a l'exemple de més a dalt.</li>
+</ul>
+
+
+<ul class="alternate" type="square">
+	<li><b>ProducteModalitat</b> (definits dins el map de modalitats): Conté les dades relacionades amb el producte i la modalitat que es vol consumir: codi del producte i la modalitat (codi de certificat), finalitat, URL de la PICA a la que es vol atacar, etc.</li>
+</ul>
+
+
+<p>Els valors introduïts a cadascuna de les propietats dels beans han de correspondre amb les dades pertanyents al producte/modalitat que es vol consumir, dades de l'emissor, etc.</p>
+
+<p>L'únic valor requerit és el que es defineix per a la propietat de la definició d'Axis (dins el bean <tt>PicaCanigoService</tt>):</p>
+<div class="" align="center"><tt>&lt;property name="axisDefinition" value="classpath:axis2client/"/&gt;</tt></div>
+<p><br clear="all" /></p>
+<table cellpadding='5' width='85%' cellspacing='8px' class='infoMacro' border="0" align='center'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="./icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td><b class="strong">Important</b><br />
+<p>Si l'aplicació ha de ser desplegada en format empaquetat (.war, .ear) caldrà indicar la ubicació de la carpeta de configuració d'axis 2 com a Path absolut dins el servidor on desplegarà. Caldrà acordar aquest Path amb els responsables del CPD on anirà desplegada l'aplicació.<br/>
+Exemple:</p>
+<div class="" align="center"><tt>&lt;property name="axisDefinition" value="file:/export/AppJavaDades/int/.../axis2client/"/&gt;</tt></div></td></tr></table>
+<p><br clear="all" /></p>
+
+<p>D'altra banda, l'atribut <tt>fitxerSignatura</tt> del bean <tt>Requeridor</tt>, correspon a un fitxer de propietats que tindrà definides les dades del certificat:</p>
+
+<p><b>Fitxer de propietats:</b> <tt>signatura.properties</tt><br/>
+<b>Ubicació proposada:</b> <tt>&lt;PROJECT_ROOT&gt;/src/main/resources</tt></p>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java">org.apache.ws.security.crypto.provider=org.apache.ws.security.components.crypto.Merlin
+#org.apache.ws.security.crypto.merlin.file=certificats.p12
+#org.apache.ws.security.crypto.merlin.keystore.type=PKCS12
+org.apache.ws.security.crypto.merlin.file=certificats.jks
+org.apache.ws.security.crypto.merlin.keystore.type=JKS
+org.apache.ws.security.crypto.merlin.keystore.password=CANIGO
+#org.apache.ws.security.crypto.merlin.keystore.provider=SunJSSE
+org.apache.ws.security.crypto.merlin.keystore.provider=SUN
+org.apache.ws.security.crypto.merlin.keystore.alias=CANIGO
+org.apache.ws.security.crypto.merlin.alias.password=CANIGO</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Finalment, cal incloure la dependència amb el connector a l'arxiu de configuració Maven2 del projecte (<tt>pom.xml</tt>):<br/>
+<div class="code"><div class="codeContent">
+<pre class="code-xml"><span class="code-tag">&lt;dependency&gt;</span>
+    <span class="code-tag">&lt;groupId&gt;</span>canigo.connectors<span class="code-tag">&lt;/groupId&gt;</span>
+    <span class="code-tag">&lt;artifactId&gt;</span>canigo-connectors-pica<span class="code-tag">&lt;/artifactId&gt;</span>
+    <span class="code-tag">&lt;version&gt;</span>2.3.2<span class="code-tag">&lt;/version&gt;</span>
+<span class="code-tag">&lt;/dependency&gt;</span></pre>
+</div></div><br clear="all" />
+La versió de Canigó 2.3.2 és la primera en la qual es publica el connector amb la PICA, que correspon a la darrera release del framework. Per tant, a mida que es vagin publicant versions, s'haurà de modificar el nombre de versió indicat en el <tt>pom.xml</tt>.</p>
+
+<h2><a name="ConnectorambPICA-Utilitzaci%C3%B3delServei"></a>Utilització del Servei</h2>
+
+
+<h3><a name="ConnectorambPICA-FuncionsPICA"></a>Funcions PICA</h3>
+
+<p>La utilització del Connector es basa principalment en la configuració. L'ús directe des dels clients es permet mitjançant la intefície del servei.</p>
+
+<p>Per utilitzar el servei PICA instanciarem un objecte IPicaServiceWrapper, cridant després a qualsevol dels mètodes que aquesta intefície presenta.</p>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java">IPicaServiceWrapper picaServiceWrapper = (IPicaServiceWrapper)beanFactory.getBean(<span class="code-quote">"PicaCanigoService"</span>);
+assertNotNull(picaServiceWrapper);
+IPICAServiceSincron service = picaServiceWrapper.getPicaWebServiceSincronInstance(<span class="code-quote">"KEY_MODALITAT"</span>);
+assertNotNull(service);</pre>
+</div></div><br clear="all" />
+On <tt>KEY_MODALITAT</tt> correspondrà a la clau del producte/modalitat definit en el map de modalitats que es troba al fitxer de configuració.<br/>
+Tot seguit, mostrarem les funcionalitats que incorpora aquesta interfície:<br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> <span class="code-keyword">interface</span> IPicaServiceWrapper {
+
+  <span class="code-comment">//obtenir les instancies de ws sincron/asincron
+</span>  <span class="code-keyword">public</span> <span class="code-keyword">abstract</span> IPICAServiceSincron getPicaWebServiceSincronInstance(<span class="code-object">String</span> modalitat);
+  <span class="code-keyword">public</span> <span class="code-keyword">abstract</span> IPICAServiceAsincron getPicaWebServiceAsincronInstance(<span class="code-object">String</span> modalitat);
+
+  <span class="code-comment">//peticio al servei de la PICA per a ws sincron/asincron
+</span>  <span class="code-keyword">public</span> <span class="code-keyword">abstract</span> CridaSincronaResponseDocument ferPeticioAlServei(IPICAServiceSincron serviceSincron);
+  <span class="code-keyword">public</span> <span class="code-keyword">abstract</span> CridaAsincronaResponseDocument ferPeticioAlServei(IPICAServiceAsincron serviceAsincron);
+
+  <span class="code-comment">//extreure les dades a partir de la resposta per a ws sincron/asincron
+</span>  <span class="code-keyword">public</span> <span class="code-keyword">abstract</span> List&lt;DadesEspecifiques&gt; extreuDadesEspecifiques(IPICAServiceSincron service,
+      CridaSincronaResponseDocument resposta);
+  <span class="code-keyword">public</span> <span class="code-keyword">abstract</span> List&lt;DadesEspecifiques&gt; extreuDadesEspecifiques(IPICAServiceAsincron service,
+      ObtindreResultatResponseDocument resposta);
+
+  <span class="code-comment">//obtenir l'estat en que es troba la peticio (nomes ws asincron)
+</span>  <span class="code-keyword">public</span> <span class="code-keyword">abstract</span> EstatAsincron extreuEstatPeticio(IPICAServiceAsincron serviceAsincron,
+     ObtindreResultatResponseDocument resposta);
+
+  <span class="code-comment">//obtenir resultat <span class="code-keyword">final</span> de la peticio (nomes ws asincron)
+</span>  <span class="code-keyword">public</span> <span class="code-keyword">abstract</span> ObtindreResultatResponseDocument obtenirResultatPeticio(IPICAServiceAsincron serviceAsincron);
+}</pre>
+</div></div><br clear="all" /></p>
+<h3><a name="ConnectorambPICA-Exempled%27utilitzaci%C3%B3"></a>Exemple d'utilització</h3>
+
+<p>A continuació mostrem exemples d'ús de diferents les funcionalitats que ens proporciona la interfície, tant per a peticions síncrones com asíncrones.</p>
+<ul class="alternate" type="square">
+	<li>Petició WebService Síncron</li>
+</ul>
+
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> void testPicaServiceSincronWrapper() {
+   <span class="code-keyword">try</span> {
+      IPicaServiceWrapper picaServiceWrapper =
+          (IPicaServiceWrapper)beanFactory.getBean(<span class="code-quote">"PicaCanigoService"</span>);
+      assertNotNull(picaServiceWrapper);
+      IPICAServiceSincron service =
+          picaServiceWrapper.getPicaWebServiceSincronInstance(<span class="code-quote">"KEY_MODALITAT"</span>);
+      assertNotNull(picaServiceWrapper);
+
+      <span class="code-comment">//veure explicacio d'aquests metodes al <span class="code-keyword">final</span> de l'exemple
+</span>      Funcionari func = creaFuncionari();
+      Titular tit = creaTitular();
+      List&lt;DadesEspecifiques&gt; datosEspecificosXML = createDadesEspecifiques();
+
+      service.setFuncionari( func );
+      service.setTitular( tit );
+      service.setDadesEspecifiques( datosEspecificosXML );
+      service.crearPeticio( <span class="code-quote">"PROVA_OTCANIGO_"</span> + <span class="code-object">System</span>.currentTimeMillis() );
+
+      <span class="code-comment">//fer peticio
+</span>      CridaSincronaResponseDocument resp = picaServiceWrapper.ferPeticioAlServei(service);
+      <span class="code-comment">//extreure resultat
+</span>      List&lt;DadesEspecifiques&gt; resposta= picaServiceWrapper.extreuDadesEspecifiques(service,resp);
+
+      <span class="code-keyword">if</span> (loggingService != <span class="code-keyword">null</span>) {
+        Iterator&lt;DadesEspecifiques&gt; it = resposta.iterator();
+        <span class="code-keyword">while</span> (it.hasNext()) {
+	   DadesEspecifiques object = it.next();
+           loggingService.getLog(<span class="code-keyword">this</span>.getClass()).info(object.getDadesXML());
+	}
+      }
+    } <span class="code-keyword">catch</span> (Exception e) {
+       <span class="code-keyword">if</span> (loggingService != <span class="code-keyword">null</span>) {
+          loggingService.getLog(<span class="code-keyword">this</span>.getClass()).error(e.getMessage());
+       }
+    } <span class="code-keyword">finally</span> {
+       SSLConfiguration.resetSSL();
+    }
+ }</pre>
+</div></div><br clear="all" />
+<br clear="all" /></p>
+<ul class="alternate" type="square">
+	<li>Petició WebService Asíncron</li>
+</ul>
+
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> void testPicaServiceAsincronWrapper() {
+   <span class="code-keyword">try</span> {
+      IPicaServiceWrapper picaServiceWrapper = (IPicaServiceWrapper) beanFactory.getBean(<span class="code-quote">"PicaCanigoService"</span>);
+      assertNotNull(picaServiceWrapper);
+      IPICAServiceAsincron service = picaServiceWrapper.getPicaWebServiceAsincronInstance(<span class="code-quote">"KEY_MODALITAT"</span>);
+      assertNotNull(service);
+
+      <span class="code-comment">//veure explicacio d'aquests metodes al <span class="code-keyword">final</span> de l'exemple
+</span>      Funcionari func = creaFuncionari();
+      Titular tit = creaTitular();
+      List&lt;DadesEspecifiques&gt; datosEspecificosXML = createDadesEspecifiques();
+
+      service.setFuncionari( func );
+      service.setTitular( tit );
+      service.setDadesEspecifiques( datosEspecificosXML );
+      service.crearPeticio( <span class="code-quote">"OTCANIGO_"</span> + <span class="code-object">System</span>.currentTimeMillis() );
+
+      <span class="code-comment">//fer la peticio al servei
+</span>      CridaAsincronaResponseDocument resp = picaServiceWrapper.ferPeticioAlServei(service);
+      EstatAsincron estat = picaServiceWrapper.extreuEstatPeticio(service,resp);
+
+      <span class="code-object">String</span> codiEstat = estat.getCodiEstat();
+      <span class="code-object">int</span> ter = estat.getTempsEstimatResposta();
+
+      <span class="code-keyword">if</span> (loggingService != <span class="code-keyword">null</span>) {
+      	loggingService.getLog(<span class="code-keyword">this</span>.getClass()).info(<span class="code-quote">"TER: "</span> + ter);
+        loggingService.getLog(<span class="code-keyword">this</span>.getClass()).info(<span class="code-quote">"Estat Petició:"</span> + codiEstat);
+      }
+      <span class="code-keyword">if</span> (codiEstat.equals(<span class="code-quote">"PeticioEnProces"</span>)) {
+       	<span class="code-object">Thread</span>.sleep(<span class="code-keyword">new</span> <span class="code-object">Long</span>(estat.getTempsEstimatResposta()).longValue()*36000);
+      }<span class="code-keyword">else</span> {
+         <span class="code-keyword">if</span> (loggingService != <span class="code-keyword">null</span>) {
+            loggingService.getLog(<span class="code-keyword">this</span>.getClass()).error(<span class="code-quote">"Codi estat peticio: "</span> + codiEstat);
+            loggingService.getLog(<span class="code-keyword">this</span>.getClass()).error(<span class="code-quote">"Literal error: "</span> + estat.getLiteralError());
+         }
+      }
+
+      <span class="code-comment">//obtenir resultat peticio
+</span>      ObtindreResultatResponseDocument resultat = picaServiceWrapper.obtenirResultatPeticio(service);
+
+      <span class="code-comment">//extreure resultat peticio
+</span>      List&lt;DadesEspecifiques&gt; llistaResultat = picaServiceWrapper.extreuDadesEspecifiques(service,resultat);
+
+      <span class="code-keyword">if</span> (loggingService != <span class="code-keyword">null</span>) {
+         Iterator&lt;DadesEspecifiques&gt; it = llistaResultat.iterator();
+         <span class="code-keyword">while</span> (it.hasNext()) {
+	    DadesEspecifiques object = it.next();
+ 	    loggingService.getLog(<span class="code-keyword">this</span>.getClass()).info(object.getDadesXML());
+         }
+      }
+   } <span class="code-keyword">catch</span> (WrappedCheckedException e) {
+    	ExceptionDetails details = e.getExceptionDetails();
+    	<span class="code-keyword">if</span> (details != <span class="code-keyword">null</span>) {
+      	   <span class="code-keyword">if</span> (loggingService != <span class="code-keyword">null</span>) {
+       	     loggingService.getLog(<span class="code-keyword">this</span>.getClass()).error(details.getErrorMessage());
+           }
+    	}
+   } <span class="code-keyword">catch</span> (Exception e) {
+    	<span class="code-keyword">if</span> (loggingService != <span class="code-keyword">null</span>) {
+    	   loggingService.getLog(<span class="code-keyword">this</span>.getClass()).error(e.getMessage());
+   	}
+   } <span class="code-keyword">finally</span> {
+	SSLConfiguration.resetSSL();
+   }
+}</pre>
+</div></div><br clear="all" />
+Cal destacar que l'identificador de la petició ha de ser únic, per aquest motiu es concatena un prefix de text qualsevol amb el timestamp del sistema.<br/>
+Per a més informació respecte l'especificació tècnica i funcional podeu contactar amb l'OT PICA.<br/>
+En aquest exemple, els mètodes privats <tt>crearFuncionari()</tt> i <tt>crearTitular()</tt> (creats simplement per aquest test) s'encarreguen de setejar les propietats del funcionari que fa la petició i titular sobre el que es fa la petició respectivament. El mètode també privat <tt>createDadesEspecifiques()</tt> conté una llista de les sol.licituds, en format XML, que s'enviaran dins la petició.</p>
+
+<p>Tot seguit mostrem un exemple del format que han de seguir les dades específiques (que depen del producte/modalitat que es vol consumir):</p>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">private</span> List&lt;DadesEspecifiques&gt; createDadesEspecifiques() {
+
+   List&lt;DadesEspecifiques&gt; datosEspecificosXML = <span class="code-keyword">new</span> ArrayList&lt;DadesEspecifiques&gt;(  );
+   <span class="code-object">StringBuffer</span> sb = <span class="code-keyword">new</span> <span class="code-object">StringBuffer</span>(<span class="code-quote">"&lt;ns1:request xmlns:ns1=\"</span>http:<span class="code-comment">//www.gencat.net/tfn\<span class="code-quote">"&gt;"</span> );
+</span>   sb.append( <span class="code-quote">"&lt;ns1:simpleparam name=\"</span>NUMTIT\<span class="code-quote">"&gt;83746573&lt;/ns1:simpleparam&gt;"</span> );
+   sb.append( <span class="code-quote">"&lt;ns1:simpleparam name=\"</span>NUMNIF\<span class="code-quote">"&gt;111111111H&lt;/ns1:simpleparam&gt;"</span> );
+   sb.append( <span class="code-quote">"&lt;/ns1:request&gt;"</span> );
+
+   DadesEspecifiques dades = <span class="code-keyword">new</span> DadesEspecifiques();
+   dades.setIdSolicitud(<span class="code-quote">"1"</span>);
+   dades.setDadesXML(sb.toString());
+   datosEspecificosXML.add(dades);
+
+   <span class="code-keyword">return</span> datosEspecificosXML;
+}</pre>
+</div></div><br clear="all" />
+Dins una petició (llista de dades específiques) es poden incloure diverses sol&#45; licituds, els identificadors de les quals han de ser únics dins una mateixa petició. Si volguéssim afegir una altra sol&#45; licitud en l'exemple, només caldria instanciar un nou objecte DadesEspecifiques, amb IdSolicitud="2", un nou StringBuffer amb les dades i afegirlo a la llista <tt>datosEspecificosXML</tt>.</p>
+
+<h2><a name="ConnectorambPICA-Integraci%C3%B3ambAltresServeis"></a>Integració amb Altres Serveis</h2>
+
+
+<h3><a name="ConnectorambPICA-Integraci%C3%B3ambelServeid%27Internacionalitzaci%C3%B3"></a>Integració amb el Servei d'Internacionalització</h3>
+
+<p>En els fitxers de configuració es defineixen claus que permeten especificar  quins missatges retornar en cas errors. Per a poder traduir aquestes claus és necessari especificar que el connector usarà el Servei d'Internacionalització  (veure Configuració).</p>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb PICA_attachments/image002.gif">image002.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb PICA_attachments/image003.gif">image003.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb PICA_attachments/image001.gif">image001.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb PICA_attachments/axis2client.JPG">axis2client.JPG</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb PICA_attachments/client.axis2.xml">client.axis2.xml</a> (text/xml)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb PICA_attachments/rampart-1.3.mar">rampart-1.3.mar</a> (application/octet-stream)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

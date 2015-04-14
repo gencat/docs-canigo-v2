@@ -1,0 +1,202 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Migració de Canigó 2.2 a Canigó 2.3</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Migració de Canigó 2.2 a Canigó 2.3
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Sep 02, 2008 by <font color="#0050B2">otc</font>.
+				    </div>
+
+				    <h2><a name="Migraci%C3%B3deCanig%C3%B32.2aCanig%C3%B32.3-Migraci%C3%B3deCanig%C3%B32.2aCanig%C3%B32.3"></a>Migració de Canigó 2.2 a Canigó 2.3</h2>
+
+<table cellpadding='5' width='85%' cellspacing='8px' class='infoMacro' border="0" align='center'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="./icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td><b class="strong">Important: Canvis en la plantilla de Canigó.</b><br />
+<p>Al migrar una aplicació a una nova versió de Canigó s'han de migrar també totes les dependències de serveis del propi Canigó.</p>
+
+<p>En aquest cas concret modificarem el <tt><b>pom.xml</b></tt> de la nostra aplicació i canviarem les versions dels serveis de Canigó de la 2.2 a la 2.3.</p>
+
+<p><b>Nota:</b> És molt recomenable baixar-se el <tt><b>pom.xml</b></tt> de la plantilla de Canigó ja que s'ha fet una restructuració del mateix. Un cop descarregat, si és el cas, afegir les pròpies dependències.</p>
+
+<p>Pel que fa a la <b>part estàtica</b> de l'aplicació (css, js, imatges, etc.), cal saber que aquesta també s'inclou a la plantilla i cal tenir en compte que si s'han fet modificacions pròpies, aquestes s'hauran de tornar a incloure en la nova versió, ja que aquests fitxers també poden haver estat modificats i/o corregits i es perdrien els canvis.</p>
+
+<p>S'han fet també algunes modificacions en la configuració de l'aplicació-plantilla que pot ser important incorporar a l'aplicació que es migri de versió.&nbsp; Aquestes modificacions es detallen més avall en aquesta mateixa pàgina.</p>
+</td></tr></table>
+<table cellpadding='5' width='85%' cellspacing='8px' class='infoMacro' border="0" align='center'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="./icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td><b class="strong">Important: Canvi en la versió de la llibreria de xFire.</b><br />
+<p>En les versions anteriors de Canigó es feia servir la versió 1.0-M5 de xFire, per la versió 2.3 s'ha passat a la versió 1.2.6 de xFire.</p>
+
+<p>Si en el <tt><b>pom.xml</b></tt> de l'aplicació hi ha la dependència amb la versió de xFire anterior, simplement s'ha d'eliminar, ja que aquesta ha estat afegida al <tt><b>pom.xml</b></tt> arrel de Canigó.</p>
+</td></tr></table>
+
+<h3><a name="Migraci%C3%B3deCanig%C3%B32.2aCanig%C3%B32.3-Canvisenlaconfiguraci%C3%B3"></a>Canvis en la configuració</h3>
+
+<p>Hi ha canvis en els següents arxius de configuració inclosos en l'aplicació plantilla:</p>
+<ul>
+	<li><b>web.xml</b> : s'afegeix el filtre OpenSessionInViewFilter a les peticions dwr</li>
+	<li>spring/<b>canigo-services-security.xml</b> : s'afegeix la internacionalització a l'autentificació mitjançant SACE</li>
+	<li>spring/<b>canigo-services-security.xml</b> : s'afegeix l'autenticació mitjançant GICAR</li>
+	<li>spring/<b>canigo-services-web.xml</b> : s'afegeix la injecció del servei de logging al FormTag</li>
+	<li>spring/<b>prototip-servlet.xml</b> : s'afegeix un tractament d'excepcions genèriques</li>
+	<li>i18n/<b>applicationResources</b>.properties&#42; : s'afegeix un missatje d'error</li>
+</ul>
+
+
+<p>Al migrar una aplicació de Canigó 2.2 a Canigó 2.3.x cal tenir en compte que aquests canvis s'han d'incorporar manualment als arxius de configuració de l'aplicació.</p>
+
+<p>A continuació es mostra cada un d'aquests canvis:</p>
+
+<h4><a name="Migraci%C3%B3deCanig%C3%B32.2aCanig%C3%B32.3-web.xml"></a>web.xml</h4>
+
+<p>S'afegeix el filtre OpenSessionInViewFilter a les peticions dwr. Caldrá afegir al web.xml de l'aplicació tant la definició del filtre com el seu mapping.</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;filter&gt;
+    &lt;filter-name&gt;hibernateFilter&lt;/filter-name&gt;
+    &lt;filter-class&gt;org.springframework.orm.hibernate3.support.OpenSessionInViewFilter&lt;/filter-class&gt;
+&lt;/filter&gt;
+
+    (...)
+
+&lt;filter-mapping&gt;
+    &lt;filter-name&gt;hibernateFilter&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/dwr/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;</pre>
+</div></div>
+<p><br clear="all" />
+<br clear="all" /></p>
+<h4><a name="Migraci%C3%B3deCanig%C3%B32.2aCanig%C3%B32.3-canigoservicessecurity.xml"></a>canigo-services-security.xml</h4>
+
+<h5><a name="Migraci%C3%B3deCanig%C3%B32.2aCanig%C3%B32.3-SACE"></a>SACE</h5>
+
+<p>S'afegeix la internacionalització a l'autentificació mitjançant SACE. Per fer-ho, s'afegeix la propietat i18nSecurityService al bean SACEAuthenticationConfiguration1 i es defineixen els beans securityDefaultLocale, securityMessageSource i securityI18nService.</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"SACEAuthenticationConfiguration1"</span>
+      class=<span class="code-quote">"net.gencat.ctti.canigo.services.security.SACEAuthenticationConfiguration"</span>&gt;
+    &lt;property name=<span class="code-quote">"i18nSecurityService"</span> ref=<span class="code-quote">"securityI18nService"</span> /&gt;
+    &lt;property name=<span class="code-quote">"logService"</span> ref=<span class="code-quote">"loggingService"</span> /&gt;
+    &lt;property name=<span class="code-quote">"urlSACE"</span> value=<span class="code-quote">"https:<span class="code-comment">//sace.prepdc.gencat.intranet/SACE/SACE_Logon.aspx?XMLIn="</span> /&gt;
+</span>    &lt;property name=<span class="code-quote">"userNameFormat"</span> value=<span class="code-quote">"NIF"</span> /&gt;
+    &lt;property name=<span class="code-quote">"httpsConfigBean"</span> ref=<span class="code-quote">"httpsConfigBean"</span> /&gt;
+    &lt;property name=<span class="code-quote">"certificates"</span>&gt;
+        &lt;props&gt;
+            &lt;prop key=<span class="code-quote">"ACC"</span>&gt;classpath:certificates/PREPRODUCCIO EC-ACC_csrs.crt&lt;/prop&gt;
+            &lt;prop key=<span class="code-quote">"GENCAT"</span>&gt;classpath:certificates/PREPRODUCCIO EC-GENCAT_csrs.crt&lt;/prop&gt;
+            &lt;prop key=<span class="code-quote">"SAFP"</span>&gt;classpath:certificates/PREPRODUCCIO EC-SAFP_csrs.crt&lt;/prop&gt;
+        &lt;/props&gt;
+    &lt;/property&gt;
+    &lt;property name=<span class="code-quote">"keyStore"</span> value=<span class="code-quote">"classpath:keystore/DemoTrust.jks"</span>/&gt;
+    &lt;property name=<span class="code-quote">"keyStorePassPhrase"</span> value=<span class="code-quote">"DemoTrustKeyStorePassPhrase"</span>/&gt;
+&lt;/bean&gt;
+
+&lt;bean id=<span class="code-quote">"securityDefaultLocale"</span> class=<span class="code-quote">"java.util.Locale"</span>&gt;
+    &lt;constructor-arg type=<span class="code-quote">"java.lang.<span class="code-object">String</span>"</span>&gt;&lt;value&gt;es&lt;/value&gt;&lt;/constructor-arg&gt;
+&lt;/bean&gt;
+
+&lt;bean id=<span class="code-quote">"securityMessageSource"</span> class=<span class="code-quote">"org.springframework.context.support.ResourceBundleMessageSource"</span>&gt;
+    &lt;property name=<span class="code-quote">"basenames"</span>&gt;
+        &lt;list&gt;
+            &lt;value&gt;i18n/saceErrorMessages&lt;/value&gt;
+        &lt;/list&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;bean id=<span class="code-quote">"securityI18nService"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.services.i18n.impl.SpringI18nServiceImpl"</span>&gt;
+    &lt;property name=<span class="code-quote">"messageSource"</span> ref=<span class="code-quote">"securityMessageSource"</span>/&gt;
+    &lt;property name=<span class="code-quote">"defaultLocale"</span> ref=<span class="code-quote">"securityDefaultLocale"</span>/&gt;
+&lt;/bean&gt;</pre>
+</div></div>
+
+<h5><a name="Migraci%C3%B3deCanig%C3%B32.2aCanig%C3%B32.3-GICAR"></a>GICAR</h5>
+
+<p>En aquest mateix fitxer de configuració del servei de seguretat també s'inclou la nova modalitat d'autenticació GICAR. Per fer-ho, s'ha d'afegir la configuració d'aquest tipus d'auntenticació:</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"GICARAuthenticationConfiguration"</span>
+      class=<span class="code-quote">"net.gencat.ctti.canigo.services.security.GICARAuthenticationConfiguration"</span> &gt;
+    &lt;property name=<span class="code-quote">"httpGicarHeaderUsernameKey"</span> value=<span class="code-quote">"CODIINTERN"</span> /&gt;
+&lt;/bean&gt;</pre>
+</div></div>
+
+<p>Si es vol utilitzar l'autenticació mitjançant GICAR només cal canviar la referència en la llista de providers cap al bean que s'acaba de definir:</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"authenticationConfiguration"</span>.... &gt;
+...
+   &lt;property name=<span class="code-quote">"authenticationProvidersConfigurationList"</span>&gt;
+      &lt;list&gt;
+         &lt;!-- ref local=<span class="code-quote">"SACEAuthenticationConfiguration1"</span> /--&gt;
+         &lt;!-- &lt;ref local=<span class="code-quote">"ldapAuthenticationConfiguration2"</span> /&gt; --&gt;
+         &lt;!-- &lt;ref local=<span class="code-quote">"databaseAuthenticationConfiguration3"</span> /&gt; --&gt; 
+         &lt;ref local=<span class="code-quote">"GICARAuthenticationConfiguration"</span> /&gt;
+      &lt;/list&gt;
+   &lt;/property&gt;
+&lt;/bean&gt;</pre>
+</div></div>
+<p><br clear="all" />
+<br clear="all" /></p>
+<h4><a name="Migraci%C3%B3deCanig%C3%B32.2aCanig%C3%B32.3-canigoservicesweb.xml"></a>canigo-services-web.xml</h4>
+
+<p>S'afegeix la injecció del servei de logging al FormTag, definint la propietat logService.</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"formTag"</span>
+      class=<span class="code-quote">"net.gencat.ctti.canigo.services.web.struts.taglib.forms.FormTag"</span>&gt;
+    &lt;property name=<span class="code-quote">"logService"</span> ref=<span class="code-quote">"loggingService"</span>/&gt;
+    &lt;property name=<span class="code-quote">"i18nService"</span> ref=<span class="code-quote">"i18nService"</span>/&gt;
+&lt;/bean&gt;</pre>
+</div></div>
+<p><br clear="all" />
+<br clear="all" /></p>
+<h4><a name="Migraci%C3%B3deCanig%C3%B32.2aCanig%C3%B32.3-prototipservlet.xml"></a>prototip-servlet.xml</h4>
+
+<p>S'afegeix un tractament d'excepcions genèriques, definit els beans viewResolver i exceptionResolver.</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"viewResolver"</span>
+      class=<span class="code-quote">"org.springframework.web.servlet.view.UrlBasedViewResolver"</span>&gt;
+    &lt;property name=<span class="code-quote">"prefix"</span> value=<span class="code-quote">"/WEB-INF/jsp/"</span>/&gt;
+    &lt;property name=<span class="code-quote">"suffix"</span> value=<span class="code-quote">".jsp"</span>/&gt;
+    &lt;property name=<span class="code-quote">"viewClass"</span> value=<span class="code-quote">"org.springframework.web.servlet.view.JstlView"</span>/&gt;
+&lt;/bean&gt;
+&lt;bean id=<span class="code-quote">"exceptionResolver"</span>
+      class=<span class="code-quote">"org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"</span>&gt;
+    &lt;property name=<span class="code-quote">"exceptionMappings"</span>&gt;
+        &lt;props&gt;
+            &lt;prop key=<span class="code-quote">"net.gencat.ctti.canigo.services.exceptions.SystemException"</span>&gt;errorSystem&lt;/prop&gt;
+            &lt;prop key=<span class="code-quote">"java.io.IOException"</span>&gt;IOEx&lt;/prop&gt;
+        &lt;/props&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;</pre>
+</div></div>
+<p><br clear="all" />
+<br clear="all" /></p>
+<h4><a name="Migraci%C3%B3deCanig%C3%B32.2aCanig%C3%B32.3-applicationResources.properties"></a>applicationResources.properties</h4>
+
+<p>S'afegeix el missatje d'error net.gencat.ctti.canigo.services.web.error_application en cada un dels idiomes.</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">net.gencat.ctti.canigo.services.web.error_application=S'ha produït un error</pre>
+</div></div>
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

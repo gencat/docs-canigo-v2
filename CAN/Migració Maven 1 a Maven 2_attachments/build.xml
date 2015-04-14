@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<project name="versions" default="default">
+    <target name="default">
+            <copy tofile="${basedir}/project.new" overwrite="true">
+		<filterchain>
+        	<tokenfilter>
+        	    <replaceregex pattern="\$\{basedir\}"  replace="${basedir}" flags="gi"/>
+        	</tokenfilter>
+        	<tokenfilter>
+        	    <replaceregex pattern="\$\{" replace="#" flags="gi"/>
+        	</tokenfilter>
+        </filterchain>
+            	<filterset begintoken="#" endtoken="}">
+            		<filtersfile file="${basedir}/project.properties"/>
+            	</filterset>
+        	<fileset file="${basedir}/project.xml"></fileset>
+   		</copy>
+    	<copy  tofile="${basedir}/project.xml">
+			<fileset file="${basedir}/project.new"></fileset>
+    	</copy>
+    </target>
+</project>

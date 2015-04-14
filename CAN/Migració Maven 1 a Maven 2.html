@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Migració Maven 1 a Maven 2</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Migració Maven 1 a Maven 2
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on May 23, 2007 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h2><a name="Migraci%C3%B3Maven1aMaven2-%26nbsp%3BIntroducci%C3%B3"></a>&nbsp;Introducció</h2>
+
+<p>Maven 2 ha canviat el seu model d'objectes de projecte i ha eliminat certs fitxers que no es pode utilitzar actualment. El fitxer únic per a Maven 2.0 és <b>pom.xml</b></p>
+
+<p>Actualment no cal el fitxer project.properties, ja que totes les propietats que es configuraven per aquest mitjà estan dins el fitxer pom.xml. Les dades més importants que s'han de passar del fitxer project.properties a pom.xml són les versiones de les diferents APIs que s'estan utilitzant.</p>
+
+<p>El sistema de definició de nous goals també ha canviat, ja no es poden definir directament al fitxer maven.xml (l'han suprimit) sinó que s'han de desenvolupar plugins de Maven2 amb les tasques especials. Per tant aquest fitxer es pot eliminar dels projectes Maven 2.0. Des de l'Oficina Tècnica estem actualment desenvolupant els plugins necessaris per a la generació de goals útils als projectes amb Canigó (separar part estàtica i dinàmica). Fins a la publicació d'aquests plugins es poden utilitzar <a href="http://canigo.ctti.gencat.net/confluence/download/attachments/1252/build_canigo.xml?version=1" title="build_canigo.xml attached to Migració Maven 1 a Maven 2">aquestes tasques</a> Ant per la separació de la part estàtica i dinàmica.</p>
+
+<h2><a name="Migraci%C3%B3Maven1aMaven2-%26nbsp%3BPassos"></a>&nbsp;Passos</h2>
+
+
+<h3><a name="Migraci%C3%B3Maven1aMaven2-1.Recuperarelsn%C3%BAmerosdeversi%C3%B3"></a>1. Recuperar els números de versió</h3>
+
+<p>Hem pujat un <a href="http://canigo.ctti.gencat.net/confluence/download/attachments/1252/build.xml?version=1" title="build.xml attached to Migració Maven 1 a Maven 2">fitxer de construcció d'Ant</a> que fa el traspàs de tots els numeros de versió que tenim al fitxer project.properties, dins el fixter projext.xml (que posterioment serà migrat a pom.xml). D'aquesta manera no haurem de fer la còpia un a un dels codis de versions. Només caldrà executar aquesta tasca d'ant dins l'arrel del projecte a modificar.</p>
+
+<h3><a name="Migraci%C3%B3Maven1aMaven2-%26nbsp%3B2.Instal.larelpluginmigrador"></a>&nbsp;2. Instal.lar el plugin migrador</h3>
+
+<p>La forma més senzilla de convertir de maven1 a maven2 és fer servir el plugin de maven <em>maven-maven1-plugin,</em> que es pot descarregar del <a href="http://jira.codehaus.org/secure/attachment/17540/maven-maven1-plugin.zip" title="Visit page outside Confluence">jira de Codehaus </a></p>
+
+<p>Un cop descomprimit cal incorporar-lo al repositori local maven:<br clear="all" />
+<div class="panel"><div class="panelContent">
+<p>Executar "mvn install" des de la carpeta on s'ha descomprimit</p>
+</div></div><br clear="all" /></p>
+
+<p>Un cop instal&#45; lat el plugin cal executar el goal de migració del projecte que volem convertir<br clear="all" />
+<div class="panel"><div class="panelContent">
+<p>mvn convert</p>
+</div></div><br clear="all" /></p>
+
+<p>Aconseguirem aixi que es generi el pom.xml (maven2) equivalent al project.xml (maven1)</p>
+
+<h3><a name="Migraci%C3%B3Maven1aMaven2-3.Esborrarelfitxerproject.properties"></a>3. Esborrar el fitxer project.properties</h3>
+
+<p>Es recomanable esborrar el fitxer de project.properties per a que no interfereixi en posteriors execucions dels goals de Maven 2.</p>
+
+<h3><a name="Migraci%C3%B3Maven1aMaven2-%26nbsp%3B4.Comprovarmigraci%C3%B3"></a>&nbsp;4. Comprovar migració</h3>
+
+<p>Amb els passos 1 i 2 ja estaria migrat, però és recomenable també fer una comprovació de la correctesa de la migració</p>
+<ol>
+	<li>Comprovar que al pom.xml estan els números de versió ben migrats</li>
+	<li>Executar el goal "mvn install" per a comprovar que s'executa bé amb Maven 2.0&nbsp;</li>
+</ol>
+
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Migració Maven 1 a Maven 2_attachments/build.xml">build.xml</a> (text/xml)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Migració Maven 1 a Maven 2_attachments/build_canigo.xml">build_canigo.xml</a> (text/xml)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

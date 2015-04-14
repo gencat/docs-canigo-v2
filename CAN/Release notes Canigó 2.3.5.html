@@ -1,0 +1,111 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Release notes Canigó 2.3.5</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Release notes Canigó 2.3.5
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Jul 03, 2009 by <font color="#0050B2">otc</font>.
+				    </div>
+
+				    <h2><a name="ReleasenotesCanig%C3%B32.3.5-Releasenotesdelaversi%C3%B32.3.5deCanig%C3%B3"></a>Release notes de la versió 2.3.5 de Canigó</h2>
+
+
+<h3><a name="ReleasenotesCanig%C3%B32.3.5-%28%29BugsfixatsaCanig%C3%B32.3.5%3A"></a><img class="emoticon" src="./icons/emoticons/add.gif" height="16" width="16" align="absmiddle" alt="" border="0"/> Bugs fixats a Canigó 2.3.5:</h3>
+
+
+<h5><a name="ReleasenotesCanig%C3%B32.3.5-Consultes"></a>Consultes</h5>
+
+<ul>
+	<li>Consulta <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-916" title="Visit page outside Confluence"><b>CAN-916</b></a>: Accents a les cerques amb Valuelist i a l'enviament de emails.
+<br clear="all" />
+<b>Context</b>: Accents a les cerques amb Valuelist i a l'enviament de emails.
+<br clear="all" />
+<b>Solució</b>: es propossa canviar de locale i la query de les cerques.
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<h5><a name="ReleasenotesCanig%C3%B32.3.5-Incid%C3%A8ncies"></a>Incidències</h5>
+
+<ul>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-888" title="Visit page outside Confluence"><b>CAN-888</b></a>: Pestanya activa en carregar un sistema de pestanyes.
+<br clear="all" />
+<b>Context</b>: a l'indicar l'atribut "baseUrl" en el tag tab, no es mostra quina es la pestanya activa al carregar la pàgina.
+<br clear="all" />
+<b>Solució</b>: modificat setDefaultTabClient(true), en lloc de false.
+<br clear="all" />
+<b>Classe afectada</b>: net.gencat.ctti.canigo.services.web.taglib.tabs.TabPageTag<br/>
+<b>Serveis afectats</b>: canigo-services-web-2.3.5.jar
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<h5><a name="ReleasenotesCanig%C3%B32.3.5-Peticionsdecanvi"></a>Peticions de canvi</h5>
+
+<ul>
+	<li><a href="http://canigo.ctti.gencat.net/jira/browse/CAN-661" title="Visit page outside Confluence"><b>CAN-661</b></a>: Canvi de càrrega del fitxer de configuracio de log4j segons entorn.
+<br clear="all" />
+<b>Solució</b>: s'ha creat una nova classe al servei de logging que permet realitzar la càrrega del fitxer de log segons l'entorn en què s'executa l'aplicació. Per fer-ho, s'ha d'indicar com a paràmetre d'arrancada l'entorn, per exemple "int", i aquest anirà a buscar el fitxer de "log4j.xml" a la carpeta "int/log4j.xml"
+<br clear="all" />
+<b>Classe afectada</b>: net.gencat.ctti.canigo.services.logging.log4j.xml.EnvDOMConfigurator<br/>
+<b>Serveis afectats</b>: canigo-services-logging-2.3.5.jar
+<br clear="all" />
+<br clear="all" /></li>
+	<li><a href="http://canigo.ctti.gencat.net/jira/browse/CAN-731" title="Visit page outside Confluence"><b>CAN-731</b></a>: Servei de configuració per tot Canigó.
+<br clear="all" />
+<b>Solució</b>: s'ha modificat el servei de configuració de Canigó per tal d'unificar la càrrega de fitxers de configuració de Canigó, és a dir, agrupar-los tots sota la carpeta "resources".
+<br clear="all" />
+<b>Serveis afectats</b>: canigo-services-configuration-2.3.5.jar
+<br clear="all" />
+<b>Documentació</b>: la documentació del servei ha estat actualitzada per mostrar-ne l'ús: <br/>
+     <a href="http://canigo.ctti.gencat.net/confluence/display/CAN/Servei+de+rewriting+2.3.x" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/display/CAN/Servei+de+rewriting+2.3.x</a>
+<br clear="all" />
+<br clear="all" /></li>
+	<li><a href="http://canigo.ctti.gencat.net/jira/browse/CAN-807" title="Visit page outside Confluence"><b>CAN-807</b></a>: Escapar caràcters al tag c:out.
+<br clear="all" />
+<b>Solució</b>: s'ha creat un nou tag a Canigó fwk:out que exten del tag de core de JSTL, afegint la funcionalitat d'escapar JavaScript (nou atribut "escapeJavascript").
+<br clear="all" />
+<b>Serveis afectats</b>: canigo-services-web-2.3.5.jar<br/>
+<b>Noves classes</b>: net.gencat.ctti.canigo.services.web.taglib.core.OutTag, net.gencat.ctti.canigo.services.web.taglib.core.OutSupport<br/>
+<b>Altres fitxers</b>: actualització del tld de Canigó amb el nou tag.
+<br clear="all" />
+<br clear="all" /></li>
+	<li><a href="http://canigo.ctti.gencat.net/jira/browse/CAN-899" title="Visit page outside Confluence"><b>CAN-899</b></a>: Suport per a transferències SFTP al connector S@arcat.
+<br clear="all" />
+<b>Solució</b>: modificació del connector S@RCAT per tal que suporti connexions FTP segures.
+<br clear="all" />
+<b>Serveis afectats</b>: canigo-connectors-sarcat-2.3.5.jar
+<br clear="all" />
+<b>Documentació</b>: podeu consultar com fer-ne ús a <a href="http://canigo.ctti.gencat.net/confluence/display/CAN/Connector+amb+Sarcat+2.1" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/display/CAN/Connector+amb+Sarcat+2.1</a>
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

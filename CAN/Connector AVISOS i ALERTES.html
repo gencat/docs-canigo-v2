@@ -1,0 +1,290 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Connector AVISOS i ALERTES</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Connector AVISOS i ALERTES
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Jun 14, 2012 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="ConnectorAVISOSiALERTES-CONNECTORPICAAVISOSiALERTES"></a>CONNECTOR PICA-AVISOS i ALERTES</h1>
+
+<p><br clear="all" />
+<br clear="all" />
+<div>
+<ul><a href='#ConnectorAVISOSiALERTES-CONNECTORPICAAVISOSiALERTES'>
+    <li>CONNECTOR PICA-AVISOS i ALERTES</li></a><a href='#ConnectorAVISOSiALERTES-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#ConnectorAVISOSiALERTES-Prop%C3%B2sit'>
+    <li>Propòsit</li></a><a href='#ConnectorAVISOSiALERTES-ContextiEscenarisd%27%C3%BAs'>
+    <li>Context i Escenaris d'ús</li></a><a href='#ConnectorAVISOSiALERTES-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i Dependències</li></a><a href='#ConnectorAVISOSiALERTES-Aquivadirigit'>
+    <li>A qui va dirigit</li></a><a href='#ConnectorAVISOSiALERTES-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents i Fonts de Referència</li></a>
+</ul><a href='#ConnectorAVISOSiALERTES-Descripci%C3%B3Detallada'>
+    <li>Descripció Detallada</li></a>
+<ul><a href='#ConnectorAVISOSiALERTES-ArquitecturaiComponents'>
+    <li>Arquitectura i Components</li></a>
+<ul><a href='#ConnectorAVISOSiALERTES-Interf%C3%ADciesiComponentsGen%C3%A8rics'>
+    <li>Interfícies i Components Genèrics</li></a><a href='#ConnectorAVISOSiALERTES-Requeriments'>
+    <li>Requeriments</li></a>
+</ul><a href='#ConnectorAVISOSiALERTES-Instal.laci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal.lació i Configuració</li></a>
+<ul><a href='#ConnectorAVISOSiALERTES-Instal.laci%C3%B3'>
+    <li>Instal.lació</li></a><a href='#ConnectorAVISOSiALERTES-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#ConnectorAVISOSiALERTES-Utilitzaci%C3%B3delConnector'>
+    <li>Utilització del Connector</li></a>
+<ul><a href='#ConnectorAVISOSiALERTES-Exempled%27utilitzaci%C3%B3d%27unServeiS%C3%ADncron'>
+    <li>Exemple d'utilització d'un Servei Síncron</li></a><a href='#ConnectorAVISOSiALERTES-Exempled%27utilitzaci%C3%B3d%27unServeiAs%C3%ADncron'>
+    <li>Exemple d'utilització d'un Servei Asíncron</li></a>
+</ul>
+</ul>
+</ul></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h1><a name="ConnectorAVISOSiALERTES-Introducci%C3%B3"></a>Introducció</h1>
+
+<p>L'objectiu d'aquest connector és el de proporcionar accés als serveis d'enviament de MAIL i SMS del CTTI a través del servei AVISALERT de la PICA.</p>
+
+<h2><a name="ConnectorAVISOSiALERTES-Prop%C3%B2sit"></a>Propòsit</h2>
+
+<p><font color="black">El propòsit del connector és proporcionar una interfície funcional reduïda al connector de la Pica que</font> <font color="black"><b>simplifica</b></font> <font color="black">l'utilització&nbsp;dels diferents serveis d'enviament de Mail i Sms oferts per la generalitat.</font></p>
+
+<h2><a name="ConnectorAVISOSiALERTES-ContextiEscenarisd%27%C3%BAs"></a>Context i Escenaris d'ús</h2>
+
+<p><font color="black">El connector PICA-AVISALERT es troba dins els connectors de serveis funcionals de la Generalitat.</font></p>
+
+<h2><a name="ConnectorAVISOSiALERTES-VersionsiDepend%C3%A8ncies"></a>Versions i Dependències</h2>
+
+<p><font color="black">En el present apartat es mostren quines són les versions i dependències necessàries per fer ús del Connector.</font></p>
+
+<p><font color="black">Les dependències descrites a la següent url són requerides per tal de fer funcionar el servei:</font><br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_18/canigo-connectors-root/canigo-connectors-pica-avisosalertes/dependencies.html" title="Visit page outside Confluence">Dependències del Connector PICA-PADRO</a></p>
+
+<h2><a name="ConnectorAVISOSiALERTES-Aquivadirigit"></a>A qui va dirigit</h2>
+
+<p><font color="black">Aquest document va dirigit als següents perfils:</font></p>
+<ol>
+	<li><font color="black">Programador. Per conèixer l'ús del connector.</font></li>
+	<li><font color="black">Arquitecte. Per conèixer quins són els components i la configuració del connector.</font></li>
+</ol>
+
+
+<h2><a name="ConnectorAVISOSiALERTES-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents i Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<td class='confluenceTd'> <font color="red">[1]</font> </td>
+<td class='confluenceTd'> <font color="red">Guia d'us del servei Avisos i Alertes v1.5.pdf.</font> </td>
+</tr>
+</tbody></table>
+
+<h1><a name="ConnectorAVISOSiALERTES-Descripci%C3%B3Detallada"></a>Descripció Detallada</h1>
+
+<p>Aquest connector permet utilitzar les diferents modalitats del servei AVISALERT en les seves modalitats asíncrones i síncrones, a través de les modalitats de servei següents:</p>
+
+<p><b>Serveis Síncrons</b></p>
+
+<ul class="alternate" type="square">
+	<li>AVISALERT_SMS</li>
+	<li>AVISALERT_CORREU-E</li>
+</ul>
+
+
+
+<p><b>Serveis Asíncrons</b></p>
+
+<ul class="alternate" type="square">
+	<li>AVISALERT_CORREU-E</li>
+</ul>
+
+
+<h2><a name="ConnectorAVISOSiALERTES-ArquitecturaiComponents"></a>Arquitectura i Components</h2>
+
+
+<h3><a name="ConnectorAVISOSiALERTES-Interf%C3%ADciesiComponentsGen%C3%A8rics"></a>Interfícies i Components Genèrics</h3>
+
+<p><font color="black">Es pot trobar tota la documentació JavaDoc i el codi font referent aquests components a les següents url's:</font></p>
+
+<p><font color="red"><ins>JavaDoc:</ins></font><font color="red">&nbsp;</font><a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_18/canigo-connectors-root/canigo-connectors-pica-avisosalertes/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_18/canigo-connectors-root/canigo-connectors-pica-avisosalertes/apidocs/index.html</a><br/>
+<font color="red"><ins>Codi Font:</ins></font><font color="red">&nbsp;</font><font color="red">&nbsp;</font>[ <a href="http://canigo.ctti.gencat.net/repository/maven2/canigo/connectors/canigo-connectors-pica-avisosalertes/1.0.0/" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/repository/maven2/canigo/connectors/canigo-connectors-pica-avisosalertes/1.0.0/</a>]</p>
+
+<h3><a name="ConnectorAVISOSiALERTES-Requeriments"></a>Requeriments</h3>
+
+<p><font color="black">El connector</font> PICA-AVISALERT és compatible amb les versions 1.5 o superior de Java. Per versions inferiors no es garanteix el seu correcte funcionament.</p>
+
+<p>Per tal de que el connector PICA-AVISALERT funcioni correctament sobre l'aplicació que l'utilitzi, s'ha de tenir configurat el servei connector genèric de la PICA 1.0.</p>
+
+<h2><a name="ConnectorAVISOSiALERTES-Instal.laci%C3%B3iConfiguraci%C3%B3"></a>Instal.lació i Configuració</h2>
+
+
+<h3><a name="ConnectorAVISOSiALERTES-Instal.laci%C3%B3"></a>Instal.lació</h3>
+
+<p><font color="black">La instal.lació del connector requereix de la utilització de la llibreria 'canigo.integration.padro.pica' i les dependències indicades a l'apartat '</font>Introducció-Versions i Dependències<font color="black">'.</font></p>
+
+<p>Es pot afegir el mòdul de forma automàtica a través del plugin de Canigó 3 per l'eclipse. Afegint el mòdul d'integració amb PICA-AVISALERT</p>
+
+<p>Per fer-ho de forma manual<font color="black"> modificar el pom.xml de l'aplicació per incloure la llibreria del Connector com a dependència.</font><br clear="all" /></p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;dependency&gt;
+      &lt;groupId&gt;canigo.connectors&lt;/groupId&gt;
+      &lt;artifactId&gt;canigo-connectors-pica-avisosalertes&lt;/artifactId&gt;
+      &lt;version&gt;1.0.0&lt;/version&gt;
+&lt;/dependency&gt;</pre>
+</div></div>
+
+<p>També és necessari afegir una exclusió sobre la dependència de la PICA;</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;dependency&gt;
+    &lt;groupId&gt;canigo.connectors&lt;/groupId&gt;
+	&lt;artifactId&gt;canigo-connectors-pica&lt;/artifactId&gt;
+	&lt;version&gt;1.0&lt;/version&gt;
+	&lt;exclusions&gt;
+	        &lt;exclusion&gt;
+		    &lt;groupId&gt;xmlbeans&lt;/groupId&gt;
+	            &lt;artifactId&gt;xbean&lt;/artifactId&gt;
+	        &lt;/exclusion&gt;
+	&lt;/exclusions&gt;
+&lt;/dependency&gt;</pre>
+</div></div>
+
+<h3><a name="ConnectorAVISOSiALERTES-Configuraci%C3%B3"></a>Configuració</h3>
+<p><br clear="all" />
+1.- Per poder configurar el connector PADRO és necessari tenir configurat el connector genèric a la PICA.</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"requeridor"</span> class=<span class="code-quote">"cat.gencat.pica.peticio.core.beans.Requeridor"</span> singleton=<span class="code-quote">"<span class="code-keyword">true</span>"</span>&gt;
+&lt;property name=<span class="code-quote">"fitxerSignatura"</span> value=<span class="code-quote">"signatura.properties"</span>&gt; &lt;/property&gt;
+	&lt;property name=<span class="code-quote">"idSolicitante"</span> value=<span class="code-quote">"1DPGO049"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"idTransmision"</span> value=<span class="code-quote">"213421"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"nombreSolicitante"</span> value=<span class="code-quote">"CTTI"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"password"</span> value=<span class="code-quote">"password"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"user"</span> value=<span class="code-quote">"usuari"</span>&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;bean name=<span class="code-quote">"ProducteModalitatBase"</span> <span class="code-keyword">abstract</span>=<span class="code-quote">"<span class="code-keyword">true</span>"</span> class=<span class="code-quote">"cat.gencat.pica.peticio.core.beans.ProducteModalitat"</span>&gt;
+	&lt;property name=<span class="code-quote">"passwordType"</span> value=<span class="code-quote">"PasswordText"</span>&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;bean id=<span class="code-quote">"picaService"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.connectors.pica.impl.PicaServiceWrapper"</span> singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
+	&lt;property name=<span class="code-quote">"axisDefinition"</span> value=<span class="code-quote">"classpath:axis2client/"</span>&gt;&lt;/property&gt;
+
+	&lt;property name=<span class="code-quote">"loggingService"</span> ref=<span class="code-quote">"loggingService"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"requeridor"</span> ref=<span class="code-quote">"requeridor"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"modalitats"</span>&gt;
+		&lt;map&gt;
+			...
+		&lt;/map&gt;
+	&lt;/property&gt;
+&lt;/bean&gt;</pre>
+</div></div>
+
+<p>2.- Configuració e inicialització del bean d'Spring que generarà el servei.</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"avisalertService"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.connectors.pica.avisosalertes.impl.AvisosAlertesConnectorImpl"</span> singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
+		&lt;property name=<span class="code-quote">"picaService"</span> ref=<span class="code-quote">"picaService"</span>/&gt;
+		&lt;property name=<span class="code-quote">"nifEmisor"</span> value=<span class="code-quote">"[nifEmisor]"</span> /&gt;
+		&lt;property name=<span class="code-quote">"nomEmisor"</span> value=<span class="code-quote">"[nomEmisor]"</span> /&gt;
+		&lt;property name=<span class="code-quote">"finalitat"</span> value=<span class="code-quote">"[finalitat]"</span>/&gt;
+		&lt;property name=<span class="code-quote">"urlPica"</span> value=<span class="code-quote">"http:<span class="code-comment">//preproduccio.pica.gencat.intranet/pica_cataleg/AppJava/services/"</span>/&gt;
+</span>	&lt;/bean&gt;</pre>
+</div></div>
+
+<p>Els valors d finalitat, urlPica, nifEmisor i nomEmisor s'han de consultar a la OT PICA en requeridors.otpica.ctti@gencat.cat</p>
+
+<p>NOTA: El valor per defecte de urlPica es la de l'entorn de Pre-producció.</p>
+
+<h2><a name="ConnectorAVISOSiALERTES-Utilitzaci%C3%B3delConnector"></a>Utilització del Connector</h2>
+
+<p><br clear="all" /></p>
+
+<h3><a name="ConnectorAVISOSiALERTES-Exempled%27utilitzaci%C3%B3d%27unServeiS%C3%ADncron"></a>Exemple d'utilització d'un Servei Síncron</h3>
+
+<p>1.- Referenciar al servei AVISALERT des de l'acció que es vulgui utilitzar (action-servlet-aaa.xml):</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;property name=<span class="code-quote">"avisalertConnector"</span> ref=<span class="code-quote">"avisalertService"</span>&gt;&lt;/property&gt;</pre>
+</div></div>
+
+<p>2.- En l'acció, s'hauran de crear els getters i setters corresponents per al connector de AVISALERT</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">private</span> AvisalertConnectorImpl avisalertConnector;
+<span class="code-keyword">public</span> AvisalertConnectorImpl getAvisalertConnector() {
+	<span class="code-keyword">return</span> avisalertConnector;
+}
+
+<span class="code-keyword">public</span> void setAvisalertConnector(AvisalertConnectorImpl avisalertConnector) {
+	<span class="code-keyword">this</span>.avisalertConnector = avisalertConnector;
+}</pre>
+</div></div>
+
+<p>En aquest cas d'exemple es consumirà la modalitat de servei AVISALERT_CORREU-E.<br/>
+NOTA: Les dades de nom, cognom1 i 2, nom complet i el valor del document sobre l'exemple son inventades.</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-object">String</span> from = <span class="code-quote">"from@cscanigo.com"</span>;
+	<span class="code-object">String</span> to = <span class="code-quote">"to@cscanigo.com"</span>;
+	<span class="code-object">String</span> title = <span class="code-quote">"cscanigo"</span>;
+	<span class="code-object">String</span> message = <span class="code-quote">"Això és una prova"</span>;
+	<span class="code-object">String</span> arxiu = <span class="code-keyword">null</span>;
+	<span class="code-object">String</span> resposta = avisalertService.avisAlertCorreuESincron(from, to, title, message, arxiu);</pre>
+</div></div>
+
+<p>Per consultar la totalitat de possibles codis de retorn i objectes de la resposta consultar el document de la PICA <b>Guia d'us del servei Avisos i Alertes v1.5.pdf</b> disponible via petició a requeridors.otpica.ctti@gencat.cat</p>
+
+<h3><a name="ConnectorAVISOSiALERTES-Exempled%27utilitzaci%C3%B3d%27unServeiAs%C3%ADncron"></a>Exemple d'utilització d'un Servei Asíncron</h3>
+
+<p>S'exposarà el cas del servei AVISALERT_SMS en la seva versió asíncrona. Els passos per consumir un servei d'aquest tipus són:</p>
+
+<p>1.- Fer petició al Servei<br/>
+2.- Testar l'estat de resolució de la petició<br/>
+3.- Recuperar les dades de la petició</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-object">String</span> mobile = MOV_NUMBER;
+	<span class="code-object">String</span> serviceNumber = <span class="code-quote">"6666"</span>;
+	<span class="code-object">String</span> message = <span class="code-quote">"Test"</span>;
+			
+	DataResponse resposta = avisosAlertesConnector.avisAlertSMSsimpleASincron(serviceNumber, mobile, message); <span class="code-comment">//&lt;-- Petició al servei
+</span>	
+	EstatAsincron estat = avisosAlertesConnector.getEstatAvisAlertSMSASincron(resposta.getServei(), resposta.getResponse()); <span class="code-comment">//&lt;-- Comprovació estat petició
+</span>	<span class="code-object">int</span> tempsEstimat = estat.getTempsEstimatResposta();
+	...
+	
+	RespostaCercaTitular dades = avisosAlertesConnector.getDadesAvisAlertSMSASincron(resposta.getServei()); <span class="code-comment">//&lt;-- Recuperació resposta a la petició</span></pre>
+</div></div>
+
+<p>Per consultar la totalitat de possibles codis de retorn i objectes de la resposta consultar el document de la PICA <b>Guia d'us del servei Avisos i Alertes v1.5.pdf</b> disponible via petició a requeridors.otpica.ctti@gencat.cat</p>
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

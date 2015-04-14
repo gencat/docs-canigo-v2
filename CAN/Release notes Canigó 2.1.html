@@ -1,0 +1,153 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Release notes Canigó 2.1</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Release notes Canigó 2.1
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Jul 20, 2007 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h2><a name="ReleasenotesCanig%C3%B32.1-Releasenotesdelaversi%C3%B32.1deCanig%C3%B3"></a>Release notes de la versió 2.1 de Canigó</h2>
+
+
+<h3><a name="ReleasenotesCanig%C3%B32.1-%28%29BugsfixatsaCanig%C3%B32.1%3A"></a><img class="emoticon" src="./icons/emoticons/add.gif" height="16" width="16" align="absmiddle" alt="" border="0"/> Bugs fixats a Canigó 2.1:</h3>
+
+<ul>
+	<li>Incidència <b>CAN-31</b> (escala a petició de canvi: <b>CAN-79</b>).<br/>
+Errors en documentació.<br/>
+<b>Context</b>: Actualització de la documentació dels serveis: urlRewriting i tags.</li>
+</ul>
+
+
+<ul>
+	<li>Incidència <b>CAN-103</b> (escala a petició de canvi: <b>CAN-128</b>).<br/>
+Conflictes amb dos pagedSelects.<br/>
+<b>Context</b>: Quan en un formulari es disposa de dos pagedSelect's i es despleguen, segons la posició, es solapen.</li>
+</ul>
+
+
+<ul>
+	<li>Incidència <b>CAN-109</b> (escala a petició de canvi: <b>CAN-130</b>).<br/>
+L'escriptura ràpida de caracters en les màscares d'escriptura no funciona correctament en Firefox.<br/>
+<b>Context</b>: Quan s'escriu ràpidament en les màscares de limitació d'entrada de dades no acaben de funcionar correctament i es posen caràcters estranys.</li>
+</ul>
+
+
+<ul>
+	<li>Incidència <b>CAN-123</b> (escala a petició de canvi: <b>CAN-132</b>).<br/>
+Selects aniuades com a criteri de cerca amb una opció en blanc.<br/>
+<b>Context</b>: En afegir dos criteris de cerca aniuats que permetin l'opció en blanc ens trobem amb un error.</li>
+</ul>
+
+
+<ul>
+	<li>Incidència <b>CAN-137</b> (escala a petició de canvi: <b>CAN-146</b>).<br/>
+Validacions submit amb alert.<br/>
+<b>Context</b>: Resoldre el problema d'obtenir missatges de "Sending error request timeout" quan en les validacions de submit en servidor es configura que els missatges es mostring en alerts.</li>
+</ul>
+
+
+<ul>
+	<li>Incidència <b>CAN-138</b> (escala a petició de canvi: <b>CAN-153</b>).<br/>
+Parseig validacions onchange<br/>
+<b>Context</b>: El parseig del contingut de l'element validations no funciona correctament quan només hi ha validacions onchange.</li>
+</ul>
+
+
+<ul>
+	<li>Consulta <b>CAN-142</b> (escala a peticions de canvi: <b>CAN-136</b> i <b>CAN-168</b>).<br/>
+Crear un autocomplete.<br/>
+<b>Context</b>: Error en documentació amb autocomplete.</li>
+</ul>
+
+
+<ul>
+	<li>Incidència <b>CAN-149</b> (escala a petició de canvi: <b>CAN-161</b>).<br/>
+Missatges de timeout en ONCHANGE<br/>
+<b>Context</b>: Quan es desenvolupa una funció a mida de presentació d'errors per validacions onchange apareixen alerts de timeout.</li>
+</ul>
+
+
+<ul>
+	<li>Incidència <b>CAN-165</b> (escala a petició de canvi: <b>CAN-166</b>).<br/>
+El parser de la classe PatternXMLLayout.java al servei de logging no "escapa" els carècters "&lt;" i "&gt;".<br/>
+<b>Context</b>: S'ha modificat la classe PatternXMLLayout.java per a que escapi els caràcters XML.</li>
+</ul>
+
+
+<ul>
+	<li>Incidència <b>CAN-179</b> (escala a petició de canvi: <b>CAN-241</b>).<br/>
+Validacions noves amb WINDOW mostren el panell.<br/>
+<b>Context</b>: Quan es configuraren les validacions noves on les validacions de submit només mostrin un alert, es mostra també el panell d'errors sense cap error.</li>
+</ul>
+
+
+<ul>
+	<li>Incidència <b>CAN-219</b> (escala a petició de canvi: <b>CAN-255</b>).<br/>
+Personalització de la imatge d'ordenació en ValueList.<br/>
+<b>Context</b>: Personalització de la imatge d'ordenació en ValueList.</li>
+</ul>
+
+
+<ul>
+	<li>Incidència <b>CAN-280</b> (escala a petició de canvi: <b>CAN-212</b>).<br/>
+El servei de Webservices no connecta al webservice de s@rcat<br/>
+<b>Context</b>: En fer la connexió al webservice de S@rcat es produeix un error.</li>
+</ul>
+
+
+<h3><a name="ReleasenotesCanig%C3%B32.1-%28%29MilloresdesenvolupadesaCanig%C3%B32.1%3A"></a><img class="emoticon" src="./icons/emoticons/add.gif" height="16" width="16" align="absmiddle" alt="" border="0"/> Millores desenvolupades a Canigó 2.1:</h3>
+
+<ul>
+	<li>Millora <b>CAN-50</b>.<br/>
+Funcionalitat per mostrar un missatge de confirmació de l'operació.<br/>
+<b>Requeriment</b>: Oferir una funció que permeti, en finalitzar una operació indicar el missatge de confirmació a la pantalla, i com s'ha de definir a la pantalla l'àrea de presentació.</li>
+</ul>
+
+
+<ul>
+	<li>Millora <b>CAN-84</b>.<br/>
+Validacions noves amb paràmetres.<br/>
+<b>Requeriment</b>: Modificar el parseig de les validacions.</li>
+</ul>
+
+
+<ul>
+	<li>Millora <b>CAN-100</b>.<br/>
+Suport a RTF.<br/>
+<b>Requeriment</b>: Integrar al servei de reporting un wrapper per la generació de RTF a partir d'un JasperReport.</li>
+</ul>
+
+
+<ul>
+	<li>Millora <b>CAN-155</b>.<br/>
+Afegir Sitemesh.<br/>
+<b>Requeriment</b>: Afegir Sitemesh com a gestor de les plantilles de pantalla per a oferir una possibilitat més senzilla que Tiles.</li>
+</ul>
+
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

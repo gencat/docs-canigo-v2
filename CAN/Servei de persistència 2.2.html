@@ -1,0 +1,1291 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Servei de persistència 2.2</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Servei de persistència 2.2
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Sep 21, 2007 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="Serveidepersist%C3%A8ncia2.2-SERVEIDEPERSIST%C3%88NCIA"></a>SERVEI DE PERSISTÈNCIA</h1>
+
+<p><br clear="all" />
+<br clear="all" />
+<div>
+<ul><a href='#Serveidepersist%C3%A8ncia2.2-SERVEIDEPERSIST%C3%88NCIA'>
+    <li>SERVEI DE PERSISTÈNCIA</li></a><a href='#Serveidepersist%C3%A8ncia2.2-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#Serveidepersist%C3%A8ncia2.2-Prop%C3%B3sit'>
+    <li>Propósit</li></a><a href='#Serveidepersist%C3%A8ncia2.2-ContextiEscenarisd%27%C3%9As'>
+    <li>Context i  Escenaris d'Ús</li></a><a href='#Serveidepersist%C3%A8ncia2.2-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i  Dependències</li></a>
+<ul><a href='#Serveidepersist%C3%A8ncia2.2-Depend%C3%A8nciesB%C3%A0siques'>
+    <li>Dependències  Bàsiques</li></a>
+</ul><a href='#Serveidepersist%C3%A8ncia2.2-Aquivadirigit'>
+    <li>A qui va  dirigit</li></a><a href='#Serveidepersist%C3%A8ncia2.2-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents  i Fonts de Referència</li></a><a href='#Serveidepersist%C3%A8ncia2.2-Glossari'>
+    <li>Glossari</li></a>
+</ul><a href='#Serveidepersist%C3%A8ncia2.2-Descripci%C3%B3Detallada'>
+    <li>Descripció  Detallada</li></a>
+<ul><a href='#Serveidepersist%C3%A8ncia2.2-ArquitecturaiComponents'>
+    <li>Arquitectura i  Components</li></a><a href='#Serveidepersist%C3%A8ncia2.2-%26nbsp%3BInstal%5Claci%C3%B3iConfiguraci%C3%B3'>
+    <li>&nbsp;Instal&#45; lació  i Configuració</li></a>
+<ul><a href='#Serveidepersist%C3%A8ncia2.2-Instal%5Claci%C3%B3'>
+    <li>Instal&#45; lació</li></a><a href='#Serveidepersist%C3%A8ncia2.2-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#Serveidepersist%C3%A8ncia2.2-Utilitzaci%C3%B3delServei'>
+    <li>Utilització  del Servei</li></a>
+<ul><a href='#Serveidepersist%C3%A8ncia2.2-Actors'>
+    <li>Actors</li></a><a href='#Serveidepersist%C3%A8ncia2.2-Transaccionalitat'>
+    <li>Transaccionalitat</li></a>
+</ul><a href='#Serveidepersist%C3%A8ncia2.2-EinesdeSuport'>
+    <li>Eines de  Suport</li></a>
+<ul><a href='#Serveidepersist%C3%A8ncia2.2-HibernateSynchronizer'>
+    <li>Hibernate  Synchronizer</li></a>
+</ul>
+</ul><a href='#Serveidepersist%C3%A8ncia2.2-Exemples'>
+    <li>Exemples</li></a>
+<ul><a href='#Serveidepersist%C3%A8ncia2.2-Testunitaris'>
+    <li>Test  unitaris</li></a>
+</ul>
+</ul></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h1><a name="Serveidepersist%C3%A8ncia2.2-Introducci%C3%B3"></a>Introducció</h1>
+
+
+<h2><a name="Serveidepersist%C3%A8ncia2.2-Prop%C3%B3sit"></a>Propósit</h2>
+
+<p>El Servei de Persistència permet persistir i recuperar dades entre  l'aplicatiu i el motor de base de dades. La base tecnològica està basada en Spring i Hibernate, i entre d'altres característiques ofereix:</p>
+<ol>
+	<li>Suport per a DAO (Data Access Object) orientat principalment a facilitar la  feina amb les tecnologies d'accés a dades a dades.</li>
+	<li>Traducció d'excepcions específiques de la tecnologia utilitzada a una  jerarquia d'excepcions genérica</li>
+	<li>Transaccionalitat declarativa</li>
+</ol>
+
+
+<h2><a name="Serveidepersist%C3%A8ncia2.2-ContextiEscenarisd%27%C3%9As"></a>Context i  Escenaris d'Ús</h2>
+
+<p>El Servei de Persistència es troba dins dels serveis de Propósit General de  canigo.
+<br clear="all" />
+<br clear="all" /></p>
+
+<h2><a name="Serveidepersist%C3%A8ncia2.2-VersionsiDepend%C3%A8ncies"></a>Versions i  Dependències</h2>
+
+<p>En el present apartat es mostren quines són les versions i dependències  necessàries per fer ús del Servei.</p>
+
+<h3><a name="Serveidepersist%C3%A8ncia2.2-Depend%C3%A8nciesB%C3%A0siques"></a>Dependències  Bàsiques</h3>
+
+<p>Les dependències descrites a la següent url son requerides per tal de compilar i fer funcionar el projecte:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-persistence/dependencies.html" title="Visit page outside Confluence">Dependències Servei de Persistència</a></p>
+
+<p>Cal destacar que dintre de la dependència "Hibernate" s'inclouen totes les  llibreries necessàries per al funcionament correcte d'aquesta capa de  persistència. Per a veure quines són es pot consultar la web <a href="http://www.hibernate.org" title="Visit page outside Confluence">http://www.hibernate.org</a></p>
+
+<h2><a name="Serveidepersist%C3%A8ncia2.2-Aquivadirigit"></a>A qui va  dirigit</h2>
+
+<p>Aquest document va dirigit als següents perfils:</p>
+<ol>
+	<li>Programador. Per conéixer l'ús del servei</li>
+	<li>Arquitecte. Per conéixer quins són els components i la configuració del  servei</li>
+	<li>Administrador. Per conéixer cóm configurar el servei en cadascun dels  entorns en cas de necessitat</li>
+</ol>
+
+
+<h2><a name="Serveidepersist%C3%A8ncia2.2-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents  i Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> [1] </th>
+<th class='confluenceTh'> Hibernate </th>
+<th class='confluenceTh'> <a href="http://jakarta.apache.org/log4j/docs/manual.html" title="Visit page outside Confluence">http://www.hibernate.org</a> </th>
+</tr>
+</tbody></table>
+
+<h2><a name="Serveidepersist%C3%A8ncia2.2-Glossari"></a>Glossari</h2>
+
+<p><b>DAO</b><br/>
+Data Access Object, permet persistir les dades d'un objecte  Java (normalment un POJO) a una base de dades</p>
+
+<p><b>POJO</b><br/>
+Plain Old Java Object, nom que se li dóna a les classes Java  normals que no són de cap tipus especial (EJB's, etc) i que segueixen la  convenció JavaBean.</p>
+
+<p><b>BO</b><br/>
+Business Object, objecte que implementa la lógica de negoci.</p>
+
+<p><b>VO</b><br/>
+Value Object, objecte que fa de transport de les dades  necessàries per a la lógica de negoci.</p>
+
+<h1><a name="Serveidepersist%C3%A8ncia2.2-Descripci%C3%B3Detallada"></a>Descripció  Detallada</h1>
+
+
+<h2><a name="Serveidepersist%C3%A8ncia2.2-ArquitecturaiComponents"></a>Arquitectura i  Components</h2>
+
+<p>Existeixen tres tipus de components. Podem classificar-los en:</p>
+<ol>
+	<li>Interfícies i components genèrics.</li>
+	<li>Implementació de les interfícies.</li>
+</ol>
+
+
+<p>Es pot trobar tota la documentació JavaDoc y el codi font referent aquests components a les següents urls:</p>
+
+<p><ins>JavaDoc:</ins> <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-persistence/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-persistence/apidocs/index.html</a><br/>
+<ins>Codi Font:</ins>&nbsp; <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-persistence/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-persistence/xref/index.html</a></p>
+
+<h2><a name="Serveidepersist%C3%A8ncia2.2-%26nbsp%3BInstal%5Claci%C3%B3iConfiguraci%C3%B3"></a>&nbsp;Instal&#45; lació  i Configuració</h2>
+
+
+<h3><a name="Serveidepersist%C3%A8ncia2.2-Instal%5Claci%C3%B3"></a>Instal&#45; lació</h3>
+
+<p>La instal&#45; lació del servei requereix de la utilització de la llibreria  'canigo-services-persistence' i les dependències indicades a l'apartat  'Introducció-Versions i Dependències'.</p>
+
+<h3><a name="Serveidepersist%C3%A8ncia2.2-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p>La configuració del servei implica:</p>
+<ol>
+	<li>Definir el servei i injectar-li les seves dependències</li>
+	<li>Enllaç d'una acció amb el seu "DAO"</li>
+</ol>
+
+
+<p>Definició del servei i de les seves dependències<br/>
+<img src="Servei de persistència 2.2_attachments/image005.jpg" align="left" border="0" /><br clear="all" />
+<br clear="all" /></p>
+
+<p><em>Fitxer de configuració: canigo-services-persistence.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>Factoria de sessions d'Hibernate</p>
+
+<p>Atributs:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> class </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Implementació de la factoria de  sessions <br clear="all" />
+<br clear="all" />
+Opcions: <br clear="all" />
+&#35;  org.springframework.orm.hibernate3.LocalSessionFactoryBean <br clear="all" /> </td>
+</tr>
+</tbody></table>
+<p>També es necessari configurar les següents propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> configLocation </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Ubicació del fitxer de propietats  d'Hibernate </td>
+</tr>
+<tr>
+<td class='confluenceTd'> hibernateProperties </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Propietats d'Hibernate opcionals per  a sobreescriure en funció del host </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+
+&lt;bean  id=<span class="code-quote">"sessionFactory"</span>
+
+class=<span class="code-quote">"org.springframework.orm.hibernate3.LocalSessionFactoryBean"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"configLocation"</span>
+
+value=<span class="code-quote">"classpath:$\{sessionFactory.configLocation\}"</span>  /&gt;
+
+&lt;property  name=<span class="code-quote">"hibernateProperties"</span>&gt;
+
+&lt;props&gt;
+
+&lt;prop  key=<span class="code-quote">"hibernate.connection.datasource"</span>&gt;$\{dataSource.jndiName\}&lt;/prop&gt;
+
+&lt;/props&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;
+
+...</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />  <img src="Servei de persistència 2.2_attachments/image006.jpg" align="left" border="0" /><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> <em>Fitxer de configuració: canigo-services-persistence.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>Delegat transaccional</p>
+
+<p>Atributs:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> class </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Implementació del delegat  transaccional <br clear="all" />
+<br clear="all" />
+Opcions: <br clear="all" />
+&#35;  org.springframework.orm.hibernate3.HibernateTransactionManager <br clear="all" /> </td>
+</tr>
+</tbody></table>
+<p>També es necessari configurar les següents propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> sessionFactory </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Referència a la factoria de sessions </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+
+&lt;!-- Transaction manager <span class="code-keyword">for</span> a single Hibernate SessionFactory  --&gt;
+
+&lt;bean  id=<span class="code-quote">"transactionManager"</span>
+
+class=<span class="code-quote">"org.springframework.orm.hibernate3.HibernateTransactionManager"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"sessionFactory"</span> ref=<span class="code-quote">"sessionFactory"</span> /&gt;
+
+&lt;/bean&gt;
+
+...</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />  <img src="Servei de persistència 2.2_attachments/image007.jpg" align="absmiddle" border="0" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> <em>Fitxer de configuració: canigo-services-persistence.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>Proxy per a la definició declarativa de la transaccionalitat dels nostres  DAO's. Servirà de bean "pare" d'altres beans.</p>
+
+<p>Atributs:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> class </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Implementació proxy <br clear="all" />
+<br clear="all" />
+Opcions: <br clear="all" />
+&#35;  org.springframework.transaction.interceptor.TransactionProxyFactoryBean <br clear="all" /> </td>
+</tr>
+</tbody></table>
+<p>També es necessari configurar les següents propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> target </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Implementació del DAO sobre la que  actuarà el proxy. Com estem en la definició "pare" del proxy, el valor serà  "java.lang.Object" </td>
+</tr>
+<tr>
+<td class='confluenceTd'> transactionAttributes </td>
+<td class='confluenceTd'> Si </td>
+<td class='confluenceTd'> Atributs transaccionals dels  diferents mètodes dels DAO's. Per a més informació sobre les diferents opcions  consultar <br clear="all" />
+<a href="http://www.springframework.org/docs/api/index.html?org/springframework/transaction/interceptor/TransactionProxyFactoryBean.html" title="Visit page outside Confluence">http://www.springframework.org/docs/api/index.html?org/springframework/ transaction/interceptor/TransactionProxyFactoryBean.html</a> <br clear="all" /> </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+
+&lt;bean  id=<span class="code-quote">"baseDaoProxy"</span>
+
+class=<span class="code-quote">"org.springframework.transaction.interceptor.TransactionProxyFactoryBean"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"transactionManager"</span>&gt;
+
+&lt;ref local=<span class="code-quote">"transactionManager"</span>  /&gt;
+
+&lt;/property&gt;
+
+&lt;property name=<span class="code-quote">"target"</span>&gt;
+
+&lt;bean  class=<span class="code-quote">"java.lang.<span class="code-object">Object</span>"</span> /&gt;
+
+&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"transactionAttributes"</span>&gt;
+
+&lt;props&gt;
+
+&lt;prop  key=<span class="code-quote">"get*"</span>&gt;PROPAGATION_REQUIRED,readOnly&lt;/prop&gt;
+
+&lt;prop  key=<span class="code-quote">"find*"</span>&gt;PROPAGATION_REQUIRED,readOnly&lt;/prop&gt;
+
+&lt;prop  key=<span class="code-quote">"load*"</span>&gt;PROPAGATION_REQUIRED,readOnly&lt;/prop&gt;
+
+&lt;prop  key=<span class="code-quote">"store*"</span>&gt;PROPAGATION_REQUIRED&lt;/prop&gt;
+
+&lt;prop  key=<span class="code-quote">"save*"</span>&gt;PROPAGATION_REQUIRED&lt;/prop&gt;
+
+&lt;prop  key=<span class="code-quote">"delete*"</span>&gt;PROPAGATION_REQUIRED&lt;/prop&gt;
+
+&lt;/props&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;
+
+...</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Enllaç d'una acció amb el seu DAO
+<br clear="all" />!image008.jpg!
+<br clear="all" />
+<br clear="all" /></p>
+
+<p><em>Fitxer de configuració: action-servlet-XXX.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>Cada acció que implementi una búsqueda necessita la definició d'un bean que  hereti del bean "pare" del servei i que tingui els següents atributs:</p>
+
+<p>Atributs:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> parent </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Bean "pare". Opcions: <br clear="all" />
+<br clear="all" />
+&#35; baseDaoProxy <br clear="all" /> </td>
+</tr>
+</tbody></table>
+<p>A més és necessari configurar les següents propietats</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerida</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> target </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Implementació del DAO sobre la que  es definirà la transaccionalitat </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+
+&lt;property name=<span class="code-quote">"dao"</span> &gt;
+
+&lt;bean  parent=<span class="code-quote">"baseDaoProxy"</span>&gt;
+
+&lt;property name=<span class="code-quote">"target"</span>  ref=<span class="code-quote">"productDaoTarget"</span>/&gt;
+
+&lt;/bean&gt;
+
+&lt;/property&gt;
+
+...</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />  <img src="Servei de persistència 2.2_attachments/image009.jpg" align="absmiddle" border="0" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> <em>Fitxer de configuració: action-servlet-XXX.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>Cada acció que implementi una búsqueda necessita la definició d'un bean que  hereti de la implementació DAO "pare" del servei (Spring amb Hibernate) i que  tingui els següents atributs:</p>
+
+<p>Atributs:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> class </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Implementació particular del DAO. </td>
+</tr>
+</tbody></table>
+<p>A més és necessari configurar les següents propietats</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerida</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> sessionFactory </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Referència a la factoria de sessions  d'Hibernate </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+
+&lt;bean id=<span class="code-quote">"productDaoTarget"</span>  class="net.gencat.ctti.canigo.samples.jpetstore.model.dao.
+hibernate.impl.HibernateProductDAOImpl"&gt;
+	&lt;property  name=<span class="code-quote">"sessionFactory"</span> ref=<span class="code-quote">"sessionFactory"</span> /&gt;
+&lt;/bean&gt;
+
+...</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h2><a name="Serveidepersist%C3%A8ncia2.2-Utilitzaci%C3%B3delServei"></a>Utilització  del Servei</h2>
+
+
+<h3><a name="Serveidepersist%C3%A8ncia2.2-Actors"></a>Actors</h3>
+
+<p>En un escenari típic d'utilització de canigo hi han aspectes importants a  considerar. En concret són els derivats de la relació dels nostres DAO's amb les  'BeanFactory' &#95;_que proporciona Spring i les 'SessionFactory' que proporciona  Hibernate. Aquests aspectes són básicament tres:</p>
+
+<p><em>1. D'ón treiem les instàncies dels DAO's.</em> Una vegada tenim els  DAO's ja els podem començar a utilitzar a qualsevol classe. Se'ns ocòrrer, per  exemple, una classe 'Action' d'Struts a on tinguem una variable d'instància que  sigui un dels nostres DAO's i que guardi un objecte de negoci
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+<span class="code-keyword">public</span> class CategoryAction <span class="code-keyword">extends</span> ActionExtendedSupport {
+
+    <span class="code-keyword">private</span> CategoryDAO dao = <span class="code-keyword">null</span>;
+        ...
+        <span class="code-keyword">public</span> ActionForward save(Category vo, StrutsContext context) {
+        ...
+        dao.saveOrUpdate(vo);
+        ...
+        <span class="code-keyword">return</span> context.getActionMapping().findForward(<span class="code-quote">"success"</span>);
+        }
+
+           ...
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+A l'exemple, la instància del CategoryDAO no la hem creat nosaltres si no que  és <b>Spring</b> qui la <b>injecta</b> al nostre 'Action'. Això <b>és aplicable  sempre</b> i és l'<b>escenari</b> <b>correcte</b> d'utilització dels DAO's, es a  dir, no serem nosaltres qui instanciaran els DAO's si no que deixarem a Spring  aquesta tasca mitjançant els fitxers de configuració (típicament  applicationContext.xml; a l'apartat Configuració s'explica com fer-ho). La  següent figura mostra la gerarquia de dependències dels 'beans' d'Spring per  aquest cas senzill (sense introduir cap concepte de transaccionalitat):
+<br clear="all" />
+<br clear="all" />  <em>2. Com es relacionen  els nostres DAO's amb la 'SessionFactory' d'Hibernate que han de fer  servir.</em> A la figura anterior veiem que el nostre DAO es relaciona amb la  'SessionFactory' d'Hibernate a partir de la propietat 'sessionFactory'. Això es  així perque els nostres DAO's hereten tots de  'net.gencat.ctti.canigo.services.persistence.spring.dao.impl.SpringHibernateDAOImpl'.  Aquesta herència la definim a nivel de configuració de projecte d'Hibernate  Synchronizer. A l'apartat Configuració s'explica com.
+<br clear="all" />
+<div align="center"><img src="Servei de persistència 2.2_attachments/image010.jpg" border="0" /></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />  <em>3. Com saben els  nostres DAO's les característiques de transaccionalitat dels seus  métodes.</em><br/>
+Aquest punt requereix un apartat separat que analitzem a  continuació.
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h3><a name="Serveidepersist%C3%A8ncia2.2-Transaccionalitat"></a>Transaccionalitat</h3>
+
+<p>L'escenari plantejat en l'apartat anterior es correspon amb un exemple  senzill d'utilització d'un DAO qualsevol sense introduir en cap moment el  concepte de transaccionalitat. Això no es correspon amb una aplicació complexe,  a on les operacions de base de dades es realitzen en bloc (transacció) i a on el  resultat pot ser que volguem fer enrera tota la transacció si es produeix un  error.<br/>
+Hem de definir per tant la transaccionalitat de les nostres  operacions. Això implica, mirant l'exemple anterior, que el nostre <em>dao.saveOrUpdate( ... )</em> ha de fer rollback o commit en funció de si es  produeix o no un error. Així doncs definirem que el nostre métode en questió és  transacional o no i quines característiques s'apliquen (segons s'ha introduït en  l'apartat primer d'aquest document). La següent figura mostra la gerarquia de  beans que es faria servir en aquest cas (típicament al fitxer  applicationContext.xml), i que aprofitarem per anar explicant el  procediment:</p>
+
+<p>El primer que destaca és l'aparició en escena d'un 'categoryDaoProxy' i un  'transactionManager'. El que abans era el 'categoryDao' ara és el  'categoryDaoTarget'. Ambdós beans són classes que ens proporciona Spring.  L'explicació de com configurar-les es troba a l'apartat Configuració. La idea  que hi ha darrere de tot això és ben senzilla. En lloc d'utilitzar directament  el nostre DAO, utilitzem un proxy que ens intercepta les crides als nostres  métodes i que afegeix la transaccionalitat amb el manager que li indiquem, en  aquest cas un manager d'Hibernate que fa ús de la 'sessionFactory' configurada.  A nivell de codi tot queda igual, és a dir, farem ús de les nostres interfícies  DAO però per sota s'apliquen els conceptes necessaris per garantir la coherència  de les nostres dades. Tot això és possible perquè és Spring qui ens proporciona  les instàncies de les implementacions dels nostres DAO's, tal i com s'ha  remarcat en l'apartat anterior.</p>
+
+<h2><a name="Serveidepersist%C3%A8ncia2.2-EinesdeSuport"></a>Eines de  Suport</h2>
+
+
+<h3><a name="Serveidepersist%C3%A8ncia2.2-HibernateSynchronizer"></a>Hibernate  Synchronizer</h3>
+
+<p><em>? Important</em><br/>
+La versió que es fa servir d'Hibernate Synchronizer,  3.1.1, només funciona correctament en un Eclipse 3.1 que s'executi sota una JDK  5. Per tant, cal arrencar eclipse amb una definició de la variable d'entorn  JAVA_HOME que apunti a un directori d'instalació d'aquest JDK. Alternativament,  es pot crear un .bat o .sh que arrenqui l'eclipse amb aquesta variable  correctament assignada.<br/>
+Això no implica que el codi que es generi  posteriorment es compili amb JDK 5, ja que es pot configurar en el menú  'Window/Preferences/Java/Installed JREs' tal.<br/>
+La versió d'Hibernate  Synchronizer que s'utilitza amb Canigo no és directament la que es pot baixar de  la web, si no que és una versió modificada amb la correcció d'alguns bugs  proporcionada amb el propi framework.</p>
+
+<p>Per a configurar aquest plugin, s'ha d'accedir a  'Window/Preferences/Hibernate Synchronizer':
+<br clear="all" />
+<br clear="all" />  <div align="center"><img src="Servei de persistència 2.2_attachments/image011.jpg" border="0" /></div><br clear="all" />
+<br clear="all" />
+Els dos ítems a configurar són:
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Snippets</li>
+	<li>Templates</li>
+</ol>
+
+
+<p>Els 'Snippets' són troços de codi que es faran servir als 'Templates'. Per a  poder utilitzar el framework correctament s'han d'importar els 'Snippets' que es  proporcionen amb el mateix (típicament 'canigo-hibernate_sync-snippets.zip') que  són les versions modificades dels 'Snippets' originals de l'Hib.Sync. modificats  per funcionar amb JDK 1.4.2 o superior i amb Spring, seguint un patró de treball  DAO + interface DAO.<br/>
+Per tant, en la vista 'Snippets' fem clic al botó  'Import' y seleccionem el fitxer comprimit amb els continguts correctes. Si tot  va bé obtindrem una finestra a on ens indica el número de 'Snippets'  importats:
+<br clear="all" />
+<br clear="all" />  <div align="center"><img src="Servei de persistència 2.2_attachments/image012.jpg" border="0" /></div><br clear="all" />
+<br clear="all" />
+Els 'Templates' o plantilles són els que generen les classes que després  farem servir. Per a poder utilitzar el framework correctament s'han d'importar  els 'Templates' que es proporcionen amb el mateix (típicament  'Canigo-hibernate_sync-templates.zip') que són templates nous per funcionar  seguint un patró de treball DAO + interface DAO.<br/>
+Per tant, en la vista  'Templates' fem clic al botó 'Import' y seleccionem el fitxer comprimit amb els  continguts correctes. Si tot va bé obtindrem una finestra a on ens indica el  número de 'Templates' importats:</p>
+
+<p><br clear="all" />  <div align="center"><img src="Servei de persistència 2.2_attachments/image013.jpg" border="0" /></div>
+<br clear="all" />
+Una vegada fet això ja  tenim configurat l'Hibernate Sycn. a nivell de 'Workspace'. Per a poder fer-lo  servir correctament encara ens manca un altre pas, i és configurar-lo a nivell  de projecte a on definirem, entre d'altres, la gerarquia i noms de les classes.  Obrim les propietats del nostre projecte amb el menú contextual  'Project/Properties/Hibernate Synchronizer':
+<br clear="all" />
+<br clear="all" />  <div align="center"><img src="Servei de persistència 2.2_attachments/image014.jpg" border="0" /></div><br clear="all" />
+<br clear="all" />
+Apareixen diverses pestanyes per a configurar la generació automàtica de  classes. A continuació es detalla la informació que conté cadascuna d'elles:
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ul>
+	<li>Pestanya '<b>General</b>': Informació relativa als noms i ubicacions de les  classes generades.<br/>
+Activem&#42; 'I would like to have the synchronization performed automatically.'  per tal de fer la sincronització automàtica amb la base de  dades.
+<br clear="all" />
+<br clear="all" />  <div align="center"><img src="Servei de persistència 2.2_attachments/image015.jpg" border="0" /></div><br clear="all" />
+<br clear="all" /></li>
+	<li>Seleccionem el 'Source Location': en una estructura de projecte amb suport  'Maven', hauríem de ser capaços de seleccionar entre les següents quatre  alternatives:
+<br clear="all" />
+<br clear="all" />  <div align="center"><img src="Servei de persistència 2.2_attachments/image016.jpg" border="0" /></div><br/>
+segons la configuració  del projecte. La que ens interessa és la que fa referència a  '/src/main/java'
+<br clear="all" /></li>
+	<li>Activem 'I would like to have value objects created for me.' per tal de  crear el 'Value Objects'. Aquests objectes són els POJO's (<em>Java Plain  Object</em>) que es passaran als DAO's per guardar els registres a la base de  dades.
+<br clear="all" />  <div align="center"><img src="Servei de persistència 2.2_attachments/image017.jpg" border="0" /></div><br clear="all" />
+<br clear="all" /></li>
+	<li><b>Seleccionem 'Base Package Location' amb valor 'Relative' i &#42;introduïm</b> a 'Choose a package location relative to the value objects.' el literal 'base'.  Això fa que les classes base dels POJO's es guardin en un 'package' diferent i  així tenir una estructura de directoris més  neta.
+<br clear="all" />  <div align="center"><img src="Servei de persistència 2.2_attachments/image018.jpg" border="0" /></div><br clear="all" />
+<br clear="all" /></li>
+	<li>Activem a la pestanya 'Data Access Objects' 'I would like to have DAO's  created for me.' per tal de crear els DAO's (interfícies i  implementacions)
+<br clear="all" />  <div align="center"><img src="Servei de persistència 2.2_attachments/image019.jpg" border="0" /></div><br clear="all" />
+<br clear="all" /></li>
+	<li>Introduïm els prefix i sufix dels noms de les classes de les  implementacions dels DAO's generats i el valor del nome de la superclasse de  totes les implementacions ('Root'). Els valors són el literal 'Hibernate' pel  prefix, i el literal 'Impl' pel sufix i 'HibernateRootDAOImpl'. Aquests valors  són aquests i no uns altres per la tecnologia utilitzada per fer el mapeig d'un  model relacional a objectes.
+<br clear="all" />  <div align="center"><img src="Servei de persistència 2.2_attachments/image020.jpg" border="0" /></div><br clear="all" />
+<br clear="all" /></li>
+	<li><b>Seleccionem 'Base Package Location' amb valor 'Relative' i introduïm</b> a 'Choose a package location relative to the value objects.' el literal  'dao.hibernate.impl'. Això fa que les classes de les implementacions dels DAO's  es guardin en un 'package' diferent i així tenir una estructura de directoris  més neta.
+<br clear="all" />  <div align="center"><img src="Servei de persistència 2.2_attachments/image021.jpg" border="0" /></div><br clear="all" />
+<br clear="all" /></li>
+	<li>Desactivem 'I would like the base DAOs in the base value objects package'  per tal de no barrejar els 'Value Objects' amb els  DAO's.
+<br clear="all" />  <div align="center"><img src="Servei de persistència 2.2_attachments/image022.jpg" border="0" /></div><br clear="all" />
+<br clear="all" /></li>
+	<li><b>Seleccionem 'Base DAO Location' amb valor 'Relative' i introduïm</b> a  'Package:' el literal 'base'
+<br clear="all" />  <div align="center"><img src="Servei de persistència 2.2_attachments/image023.jpg" border="0" /></div><br/>
+El resultat d'aquesta  ruta relativa és que ens generarà les classes base de les implementacions dels  DAO's en el package 'dao.hibernate.impl.base'
+<br clear="all" /></li>
+</ul>
+
+
+<ol>
+	<li>Per últim només ens queda <b>seleccionar</b> la classe base dels nostres  DAO's que serà la que ens proporciona el framework. Per això, seleccionem 'I  would like to use a custom DAO root' i <b>introduïm</b> 'net.gencat.ctti.canigo.services.persistence.spring.dao.impl.SpringHibernateDAOImpl'  com a 'DAO class' i  'net.gencat.ctti.canigo.services.persistence.exception.PersistenceServiceException'  com a 'DAO Exception'
+<br clear="all" />
+<div align="center"><img src="Servei de persistència 2.2_attachments/image024.jpg" border="0" /></div>
+<br clear="all" />
+<b>Cal remarcar que per  poder utilitzar el 'DAO root' y 'DAO Exception' especificades, cal tenir ven  configurada la dependència del servei d'excepcions en el nostre projecte tant a  nivell de maven com de classpath de projecte.</b>
+<br clear="all" /></li>
+	<li>Pestanya '<b>Templates</b>': Informació relativa a les plantilles 'extres'  que s'utilitzaran per generar les nostres classes. Per defecte el plugin genera  les implementacions dels DAOs que farem servir en el nostre projecte, però manca  la generació de les interfícies correctes per aquestes implementacions.<br/>
+Fem  clic a 'New' per afegir la nostra plantilla i ens apareix una finestra a on  introduirem els següents valors:
+<br clear="all" />
+<br clear="all" />  <div align="center"><img src="Servei de persistència 2.2_attachments/image025.jpg" border="0" /></div><br clear="all" />
+<br clear="all" /></li>
+	<li>Template: la plantilla que farem servir. En aquest cas només tenim una  opció: 'DAOInterface'</li>
+	<li>Output Name: és el nom del fitxer generat que es correspon amb el nom de la  classe de la interfície. En aquest cas: '${class.DAOInterface}.java'</li>
+	<li>Output Location: és el directori a on es crearà la interfície. Fent clic en  el botó 'Browse' <b>hem de seleccionar</b> el subdirectori 'dao' a partir del  directori de creació dels 'Value Objects'. Per exemple, suposem que els nostres  objectes de negoci els guardem en un directori que es diu 'com.myapp.model'. El  'Output Location' en aquest cas seria 'com.myapp.model.dao'.</li>
+</ol>
+
+
+<p>Ara ja tenim el Hibernate Synchronizer correctament configurat per a la  generació automàtica de les nostres classes segons el patró de treball  DAO+Interfície DAO.</p>
+
+<p>La utilització del servei de dades comporta el coneixement de l'eina  Hibernate Synchronizer, els conceptes que es maneguen i els passos a seguir per  a poder persistir les dades, més enllà de les classes disponibles en el propi  framework. Els passos a seguir en aquest ordre són:</p>
+<ol>
+	<li>Configuració d'Hibernate Synchronizer (com s'ha vist adalt)</li>
+	<li>Creació dels fitxers propis d'Hibernate: <b>hibernate.cfg.xml</b> i <b>fitxers de mappings (</b>.hbm.xml)&#42;</li>
+	<li>Sincronizació dels fitxers de mappings per a la creació dels DAO's i  objectes de negoci.</li>
+	<li>Definició del actors que intervenen en el servei de dades</li>
+	<li>Definició de la transaccionalitat de les nostres operacions de negoci</li>
+	<li>Utilització dels DAO's en la nostra aplicació</li>
+</ol>
+
+
+<p>A continuació es detalla cadascun dels passos a seguir per a completar amb  éxit una operació de persistència (el pas de configuració d'Hibernate Sync. el  passarem per alt ja que es detalla ampliament en apartats posteriors)</p>
+
+<p>Lo primer que tenim que fer és definir les propietats necessàries per al  motor de persistència que farem servir: Hibernate 3. Típicament aquestes  propietats es defineixen en un fitxer que es diu '<b>hibernate.cfg.xml</b>'.<br/>
+Per tant, en el menú 'File/New/Other' seleccionem 'Hibernate/Hibernate  Configuration File'. Aquesta opció està disponible gràcies a que ens em  instal.lat l'Hibernate Synchronizer.<br/>
+Se'ns obrirà una finestra a on tenim  que informar:</p>
+<ol>
+	<li>Container: ubicació a on situarem el fitxer que es crearà. Aquesta ubicació  tindrà que ser el directori de 'resources' del nostre projecte. Mitjançant el  botó 'Browse' podem seleccionar aquesta destinació amb facilitat. Típicament  serà '<em>project_name</em>\src\main\resources'</li>
+	<li>File name: nom del fitxer. El valor per defecte, 'hibernate.cfg.xml', ja ens  està bé.</li>
+	<li>Session Factory Name: nom sota el que podem trobar la factoria de sessions  hibernate en un arbre JNDI.</li>
+	<li>Database Type: tipus de base de dades que farem servir.</li>
+	<li>Application Server: nom del servidor d'aplicacions sota el que desplegarem  l'aplicació. En entorns de desenvolupament no fa falta informar aquest valor.  Això afecta a la transaccionalitat de les nostres operacions, ja que hibernate  ens proporciona diferents classes per a buscar les transaccions en el contenidor  J2EE. El valor 'N/A' ja ens està bé, la qual cosa implica que és el propi driver  JDBC qui implementa la transaccionalitat.</li>
+	<li>Local: si estem en entorns de desenvolupament lo més normal és obtenir  connexions a la BD mitjançant una cadena de connexió i un driver adequat. En  aquest cas les dades a informar són:
+	<ol>
+		<li>Driver Class: nom de la classe que fa de 'driver' per a la connexió amb la  BD. Depèn de la BD que fem servir. Per exemple, per MySQL seria  'com.mysql.jdbc.Driver'. Mitjançant el botó 'Browse' podem localitzar amb  facilitat aquesta classe. És important però que les llibreries que contenen els  'drivers' estiguin en el classpath del nostre projecte.</li>
+		<li>Database URL: cadena de connexió del a BD. Depèn de la BD que fem servir.  Per exemple, per MySQL seria algo com 'jdbc:mysql://localhost/test'</li>
+		<li>Username: usuari per la BD</li>
+		<li>Password: contrasenya per la BD</li>
+	</ol>
+	</li>
+	<li>Datasource: es possible que les connexions a la BD les obtenim d'un  datasource. En aquest cas les dades a informar són:
+	<ol>
+		<li>Name: nom JNDI a on podem trobar el 'datasource'</li>
+		<li>JNDI URL: no es necessari especificar cap valor</li>
+		<li>JNDI Class: no es necessari especificar cap valor</li>
+		<li>Username: no es necessari especificar cap valor</li>
+	</ol>
+	</li>
+	<li>Password: no es necessari especificar cap valor</li>
+</ol>
+
+
+<p>Cliquem a 'Finish' i ja tenim el fitxer 'hibernate.cfg.xml' al directori que  li hem dit:
+<br clear="all" />
+<br clear="all" />  <div align="center"><img src="Servei de persistència 2.2_attachments/image026.jpg" border="0" /></div><br clear="all" />
+<br clear="all" />
+Aquest és només el primer pas en la configuració del nostre motor de  persistència. Realment falta afegir la informació relevant: els 'mappings' dels  nostres objectes de negoci. Cada taula presenta (en la majoria de casos) un  objecte de negoci i té associat un fitxer de mapping. Aquest fitxer es diu igual  que el nom de la taula (però amb la convenció Java) i té extensió '.hbm.xml'.  Anem a crear doncs aquests fitxers. En el menú 'File/New/Other' seleccionem  'Hibernate/Hibernate Mapping File'. Aquesta opció està disponible gràcies a que  ens em instal.lat l'Hibernate Synchronizer. Se'ns obrirà una finestra a on hem  d'informar dues pestanyes: 'Configuration' i 'Properties'. En la primera  informem:
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Container: ubicació a on situarem els fitxers que es crearan. Aquesta  ubicació tindrà que ser el directori de 'resources' del nostre projecte i  subdirectori el nom del package a on creaem els objectes de negoci però en  format 'folders'. Per exemple, imaginem que volem crear els objectes de negoci  en un package que es dirà 'com.myapp.model'. El directori a on desarem els  fitxers de mappings serà doncs  '/<em>project_name</em>/src/main/resources/com/myapp/model'. Mitjançant el botó  'Browse' podem seleccionar aquesta destinació amb facilitat. Cal remarcar que  aquest directori ha d'existir. Per tant, en el cas que no el tinguem, <b>el  crearem abans de crear els fitxers de mappings</b>.</li>
+	<li>Driver: nom de la classe que fa de 'driver' per a la connexió amb la BD.  Depèn de la BD que fem servir. Per exemple, per MySQL seria  'com.mysql.jdbc.Driver'. Mitjançant el botó 'Browse' podem localitzar amb  facilitat aquesta classe. És important però que les llibreries que contenen els  'drivers' estiguin en el classpath del nostre projecte. Per defecte ens apareix  el que havíem informat al crear el fitxer de configuració  'hibernate.cfg.xml'</li>
+	<li>Database URL: cadena de connexió del a BD. Depèn de la BD que fem servir.  Per exemple, per MySQL seria algo com 'jdbc:mysql://localhost/test'. Per defecte  ens apareix el que havíem informat al crear el fitxer de configuració  'hibernate.cfg.xml'</li>
+	<li>Username: usuari de connexió a la BD. Per defecte ens apareix el que havíem  informat al crear el fitxer de configuració 'hibernate.cfg.xml'</li>
+	<li>Password: contrasenya de connexió a la BD. Per defecte ens apareix el que  havíem informat al crear el fitxer de configuració 'hibernate.cfg.xml'</li>
+	<li>Table pattern: patró de les taules que volem visualitzar. Això ens permet  filtrar en el cas que hi haguessin moltes taules (per defecte blanc ja ens està  bé)</li>
+	<li>Schema pattern: patró del schema que volem visualitzar (per defecte blanc ja  ens està bé)</li>
+	<li>Package: nom del package a on volem desar els objectes de negoci. Aquest  valor és important ja moltes classes es crearan a partir d'aquest valor. Es  recomana un valor similar a 'net.myapp.model'</li>
+	<li>Fent clic ara al botó 'Refresh' ens apareixeran (si no em comés cap error)  les taules per a les quals podem generar mappings:
+<br clear="all" />
+<div align="center"><img src="Servei de persistència 2.2_attachments/image027.jpg" border="0" /></div><br clear="all" />
+Seleccionem les que ens  interessin.
+<br clear="all" /></li>
+</ol>
+
+
+<p>En la segona pestanya, 'Properties', informem:</p>
+<ol>
+	<li>Extension: extensió per defecte dels fitxers generats. Ja ens està bé  'hbm.xml'</li>
+	<li>Composite ID Name: nom de la clau primària de les taules</li>
+	<li>ID Generator: tipus de generador de claus primàries. Això està molt lligat a  l'API d'hibernate. Podem consultar la següent URL en cas de fer ús d'un  generador de claus primàries proporcionat per aquesta API <a href="http://www.hibernate.org/hib_docs/v3/reference/en/html_single/" title="Visit page outside Confluence">http://www.hibernate.org/hib_docs/v3/reference/en/html_single/#mapping-declaration-id</a> o introduir la  nostra classe que ens genera les claus primàries.</li>
+	<li>Generate Sets to represent inverse foreign relationships: ho activem</li>
+	<li>Use Lazy Loading: ho activem</li>
+	<li>Start Properties with Lower Case: ho activem</li>
+	<li>Use Proxy Classes: ho desactivem</li>
+</ol>
+
+
+<p>Ara ja estem en condicions de generar els fitxers. Fem clic a 'Finish' i sens crearan els fitxers indicats per les taules que hem seleccionat:
+<br clear="all" />
+\\!image029.jpg|align=center!<br clear="all" />
+<br clear="all" />  <div align="center"><img src="Servei de persistència 2.2_attachments/image028.jpg" border="0" /></div><br clear="all" />
+<br clear="all" />
+Ara tenim per una banda  els fitxers de mapeig i per altra el fitxer de configuració d'hibernate. Però  com els lliguem? És tan fàcil com seleccionar els fitxers de mapeig que volem  incloure en el fitxer de configuració, obrir el menú contextual i seleccionar  l'opció 'Hibernate Synchronizer/Add mapping reference'
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Amb això aconseguim incloure al 'hibernate.cfg.xml' els fitxers  seleccionats:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"utf-8"</span>?&gt;
+
+&lt;!DOCTYPE  hibernate-configuration
+
+PUBLIC <span class="code-quote">"-<span class="code-comment">//Hibernate/Hibernate Configuration  DTD//EN"</span>
+</span>
+<span class="code-quote">"http:<span class="code-comment">//hibernate.sourceforge.net/hibernate-configuration-3.0.dtd"</span>&gt;
+</span>
+&lt;hibernate-configuration&gt;
+
+...
+
+&lt;mapping  resource=<span class="code-quote">"test/Category.hbm.xml"</span> /&gt;
+
+&lt;mapping  resource=<span class="code-quote">"test/Item.hbm.xml"</span> /&gt;
+
+&lt;mapping  resource=<span class="code-quote">"test/Product.hbm.xml"</span> /&gt;
+
+&lt;mapping  resource=<span class="code-quote">"test/Supplier.hbm.xml"</span>  /&gt;
+
+&lt;/session-factory&gt;
+
+&lt;/hibernate-configuration&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+El següent pas en l'utilització del servei de dades es crear les següents  classes:
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Interfícies DAO</li>
+	<li>Implementacions DAO</li>
+	<li>Objectes de negoci</li>
+</ol>
+
+
+<p>Per a aquesta creació seleccionem les fitxers de mapeig i en el menú  contextual selccionem 'Hibernate Synchronizer/Sincronize Files':</p>
+
+<p>Si tot va bé apareixan  cinc directoris i l'estructura dels mateixos ha de ser algo similar a la figura  següent:
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+A on veiem:
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />  <em>&#35; test</em>: package dels objectes de negoci<br/>
+<em>&#35; test.base</em>:  package base dels objectes de negoci<br/>
+<em>&#35; test.dao</em>: interfícies dels  DAO's<br/>
+<em>&#35; test.dao.hibernate.impl</em>: implementacions dels DAO's<br/>
+<em>&#35;  test.dao.hibernate.impl.base</em>: implementacions base dels DAO's
+<br clear="all" /></p>
+
+<p>Qualsevol canvi a la base de dades només implicaria una resincronització dels  fitxers de mapeig per tornar a generar les classes implicades amb l'opció  'Synchronize And Overwrite'. S'ha de tenir en compte que una resincronització fa  que es sobreescriguin els fitxers que ja tenim amb els nous.</p>
+
+<h1><a name="Serveidepersist%C3%A8ncia2.2-Exemples"></a>Exemples</h1>
+
+
+<h2><a name="Serveidepersist%C3%A8ncia2.2-Testunitaris"></a>Test  unitaris</h2>
+
+<p>Com a exemple d'utilització implementarem un test unitari que faci recull de  tots els conceptes implicats. Resumint, necessitem:</p>
+<ol>
+	<li>Fitxer de configuració d'Hibernate (típicament 'hibernate.cfg.xml')</li>
+	<li>Fitxers de mapeig de les taules que volem manegar (típicament  '*.hbm.xml')</li>
+	<li>Interfícies i implementacions dels DAO's.</li>
+	<li>Objectes de negoci (també coneguts com 'Value Objects')</li>
+	<li>Fitxer de configuració d'Spring (típicament applicationContext.xml)</li>
+	<li>Classe principal. En el nostre cas extendrà TestCase i farà les vegades de  'Action' en una aplicació d'Struts.</li>
+</ol>
+
+
+<p>Partim doncs d'una base de dades Hypersonic senzilla amb dues taules:  CATEGORY i PRODUCT i una relació '1..n' entre Category i Product. També obviem  la part de configuració de l'Hibernate Sync. ja que s'explica en detall en  apartats posteriors.<br/>
+Així doncs els passos són:</p>
+<ol>
+	<li>Crear el fitxer de propietats d'Hibernate. Menú 'File/New/Other',  seleccionem 'Hibernate/Hibernate Configuration File' i omplim totes les  propietats correctament:
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Crear els directoris a on situarem els fitxers de mapeig:  '/src/test/resources/com/myapp/model'
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Crear el fitxer de mapeig de les taules seleccionades. Menú  'File/New/Other', seleccionem 'Hibernate/Hibernate Mapping File' i omplim totes  les propietats correctament:
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Sincronitzem els fitxers de mapeig per crear les classes Java i obtenim el  següent resultat:
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Afegim el fitxer 'applicationContext.xml' al directori '/src/test/resources'  per a configurar les nostres classes com a beans d'Spring. Farem servir un  escenari transaccional per a veure tots els conceptes:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;
+&lt;!DOCTYPE beans PUBLIC <span class="code-quote">"-<span class="code-comment">//SPRING//DTD BEAN//EN"</span> "http://www.springframework.org/dtd/
+</span>spring-beans.dtd"&gt;
+
+&lt;beans&gt;
+&lt;!-- Hibernate SessionFactory --&gt;
+&lt;bean name=<span class="code-quote">"sessionFactory"</span> class=<span class="code-quote">"org.springframework.orm.hibernate3.LocalSessionFactoryBean"</span>&gt;
+&lt;property name=<span class="code-quote">"configLocation"</span> value=<span class="code-quote">"classpath:hibernate.cfg.xml"</span> /&gt;
+&lt;/bean&gt;
+
+&lt;!-- Transaction manager <span class="code-keyword">for</span> a single Hibernate SessionFactory (alternative to JTA) --&gt;
+&lt;bean id=<span class="code-quote">"transactionManager"</span>
+class=<span class="code-quote">"org.springframework.orm.hibernate3.HibernateTransactionManager"</span>&gt;
+&lt;property name=<span class="code-quote">"sessionFactory"</span> ref=<span class="code-quote">"sessionFactory"</span> /&gt;
+&lt;/bean&gt;
+
+&lt;!-- Category DAO Proxy --&gt;
+&lt;bean id=<span class="code-quote">"categoryDaoProxy"</span>
+class=<span class="code-quote">"org.springframework.transaction.interceptor.TransactionProxyFactoryBean"</span>&gt;
+&lt;property name=<span class="code-quote">"transactionManager"</span>&gt;
+&lt;ref local=<span class="code-quote">"transactionManager"</span> /&gt;
+&lt;/property&gt;
+&lt;property name=<span class="code-quote">"target"</span>&gt;
+&lt;ref local=<span class="code-quote">"categoryDaoTarget"</span> /&gt;
+&lt;/property&gt;
+&lt;property name=<span class="code-quote">"transactionAttributes"</span>&gt;
+&lt;props&gt;
+&lt;prop key=<span class="code-quote">"get*"</span>&gt;PROPAGATION_REQUIRED,readOnly&lt;/prop&gt;
+&lt;prop key=<span class="code-quote">"find*"</span>&gt;PROPAGATION_REQUIRED,readOnly&lt;/prop&gt;
+&lt;prop key=<span class="code-quote">"load*"</span>&gt;PROPAGATION_REQUIRED,readOnly&lt;/prop&gt;
+&lt;prop key=<span class="code-quote">"store*"</span>&gt;PROPAGATION_REQUIRED&lt;/prop&gt;
+&lt;prop key=<span class="code-quote">"save*"</span>&gt;PROPAGATION_REQUIRED&lt;/prop&gt;
+&lt;/props&gt;
+&lt;/property&gt;
+&lt;/bean&gt;
+&lt;!-- Category DAO Target --&gt;
+&lt;bean id=<span class="code-quote">"categoryDaoTarget"</span> class=<span class="code-quote">"com.myapp.model.dao.hibernate.impl.HibernateCategoryDAOImpl"</span>&gt;
+&lt;property name=<span class="code-quote">"sessionFactory"</span> ref=<span class="code-quote">"sessionFactory"</span> /&gt;
+&lt;/bean&gt;
+&lt;!-- Category Instances --&gt;
+&lt;bean id=<span class="code-quote">"category"</span> class=<span class="code-quote">"com.myapp.model.Category"</span> singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>/&gt;
+&lt;!-- Product Instances --&gt;
+&lt;bean id=<span class="code-quote">"product"</span> class=<span class="code-quote">"com.myapp.model.Product"</span> singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>/&gt;
+&lt;!-- Loggig Service --&gt;
+&lt;bean id=<span class="code-quote">"loggingConfigurator"</span> class="net.gencat.ctti.canigo.services.logging.log4j.xml.
+HostDOMConfigurator<span class="code-quote">" init-method="</span>init"&gt;
+&lt;property name=<span class="code-quote">"configFileName"</span>&gt;&lt;value&gt;D:\users\manelix\workspace\canigo-services-persistence \src\
+test\resources\log4j-test.xml&lt;/value&gt;&lt;/property&gt;
+&lt;/bean&gt;
+&lt;bean id=<span class="code-quote">"loggingService"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.services.logging.log4j.Log4JServiceImpl"</span>
+init-method=<span class="code-quote">"init"</span>&gt;
+&lt;property name=<span class="code-quote">"configurator"</span>&gt;&lt;ref local=<span class="code-quote">"loggingConfigurator"</span>/&gt;&lt;/property&gt;
+&lt;/bean&gt;
+&lt;/beans&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Ara només queda implementar el TestCase.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+<span class="code-keyword">public</span> class DAOTest <span class="code-keyword">extends</span> TestCase {
+    ...
+    <span class="code-keyword">protected</span> void setUp() <span class="code-keyword">throws</span> Exception {
+        <span class="code-keyword">super</span>.setUp();
+        ClassPathXmlApplicationContext appContext = <span class="code-keyword">new</span> ClassPathXmlApplicationContext
+        (<span class="code-quote">"applicationContext.xml"</span>);
+        <span class="code-keyword">this</span>.factory = (BeanFactory) appContext;
+        /**
+        * Logging service
+        */
+        LoggingService logService = (LoggingService)factory.getBean(<span class="code-quote">"loggingService"</span>);
+        <span class="code-keyword">this</span>.log = logService.getLog(<span class="code-keyword">this</span>.getClass());
+    }
+
+    <span class="code-keyword">public</span> void testSave(){
+        /**
+        * Request the DAO to manipulate category instances
+        */
+        CategoryDAO categoryDAO = (CategoryDAO)factory.getBean(<span class="code-quote">"categoryDaoProxy"</span>);
+        /**
+        * Request a <span class="code-keyword">new</span> category instance
+        */
+        Category newCategory = (Category)factory.getBean(<span class="code-quote">"category"</span>);
+        newCategory.setName(<span class="code-quote">"name at "</span>+<span class="code-object">System</span>.currentTimeMillis());
+        newCategory.setDescn(<span class="code-quote">"descn at "</span>+<span class="code-object">System</span>.currentTimeMillis());
+        <span class="code-keyword">try</span> {
+            categoryDAO.save(newCategory);
+        }
+        <span class="code-keyword">catch</span>(PersistenceServiceException ex){
+            log.warn(<span class="code-quote">"Se ha producido un error: "</span>+ex.getLocalizedMessage());
+        }
+        log.debug(<span class="code-quote">"El ID de la nueva category es: "</span>+newCategory.getId());
+        assertTrue(<span class="code-quote">"La category no se ha guardado correctamente!"</span>,newCategory.getId()!=<span class="code-keyword">null</span>);
+    }
+...
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ol>
+
+
+<p>A l'exemple anterior cal destacar:</p>
+<ol>
+	<li>La utilització dels DAO's al nostre codi es a través de les interfícies i no  les implementacions, encara que al fitxer de configuració d'Spring que el bean  retorna la implementació.</li>
+	<li>Només hi ha una operació de base de dades. Com tot va bé s'executa un  'commit' totalment transparent per l'usuari que consolida les dades a la BD.  Això poder no reflexa massa una transacció real, en la que en la mateixa  transacció es poden executar múltiples operacions de BD. Anem per tant a crear  una situació fictícia d'aquest comportament.</li>
+</ol>
+
+
+<ol>
+	<li>Afegim un objecte fictifi que fagi varies operacions de 'save' i que  contingui el nostre DAO:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"multiSaveTarget"</span>  class=<span class="code-quote">"com.myapp.test.MultiSave"</span>&gt;
+
+&lt;property name=<span class="code-quote">"categoryDAO"</span>  ref=<span class="code-quote">"categoryDaoProxy"</span> /&gt;
+
+&lt;property name=<span class="code-quote">"logService"</span>  ref=<span class="code-quote">"loggingService"</span> /&gt;
+
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ol>
+
+
+<p>i afeguim un gestor transaccional sobre aquest objecte per indicar que volem  una transacció sobre el métode que inicia la transacció i llença totes les  operacions de base de dades:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"multiSaveProxy"</span>  class="org.springframework.transaction.interceptor.
+TransactionProxyFactoryBean"&gt;
+
+&lt;property  name=<span class="code-quote">"transactionManager"</span>&gt;
+
+&lt;ref local=<span class="code-quote">"transactionManager"</span>  /&gt;
+
+&lt;/property&gt;
+
+&lt;property name=<span class="code-quote">"target"</span>&gt;
+
+&lt;ref  local=<span class="code-quote">"multiSaveTarget"</span> /&gt;
+
+&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"transactionAttributes"</span>&gt;
+
+&lt;props&gt;
+
+&lt;prop  key=<span class="code-quote">"save*"</span>&gt;PROPAGATION_REQUIRED&lt;/prop&gt;
+
+&lt;prop  key=<span class="code-quote">"load*"</span>&gt;PROPAGATION_REQUIRED,readOnly&lt;/prop&gt;
+
+&lt;/props&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Ara només tenim que crear la classe 'MultiSave' :
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+<span class="code-keyword">public</span> class MultiSave {
+    ...
+    <span class="code-keyword">public</span> void saveMultiple*(List categories) {
+        Iterator it = categories*.iterator();
+        <span class="code-object">int</span> i = 0;
+        <span class="code-keyword">while</span>(it.hasNext())\{
+            Category c = (Category)it.next();
+            <span class="code-keyword">this</span>.logService.getLog(<span class="code-keyword">this</span>.getClass()).debug(<span class="code-quote">"Trying to save category..."</span>);
+            <span class="code-keyword">if</span>(i==categories.size()-1)\
+                <span class="code-keyword">this</span>.categoryDAO.update(c);
+            }
+            <span class="code-keyword">else</span> {
+                <span class="code-keyword">this</span>.categoryDAO.save(c);
+            }
+            <span class="code-keyword">this</span>.logService.getLog(<span class="code-keyword">this</span>.getClass()).debug(<span class="code-quote">"Category saved with id "</span>+
+            c.getId());
+            i++;
+        }
+    }
+    ...
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ol>
+
+
+<p>i afegir un altre cas de test a la nostra classe DAOTest:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+<span class="code-keyword">public</span> class DAOTest <span class="code-keyword">extends</span> TestCase {
+    ...
+    <span class="code-keyword">public</span> void testMultipleSave(){
+        /**
+        * Request a the 'multisave object'
+        */
+        MultiSave multiSave = (MultiSave)factory.getBean(<span class="code-quote">"multiSaveProxy"</span>);
+        ArrayList list = <span class="code-keyword">new</span> ArrayList();
+        <span class="code-keyword">for</span>(<span class="code-object">int</span> i=0;i&lt;3;i++)\{
+            /**
+            * Request a <span class="code-keyword">new</span> category instance
+            */
+            Category newCategory = (Category)factory.getBean(<span class="code-quote">"category"</span>);
+            newCategory.setName(<span class="code-quote">"name at "</span>+<span class="code-object">System</span>.currentTimeMillis());
+            newCategory.setDescn(<span class="code-quote">"descn at "</span>+<span class="code-object">System</span>.currentTimeMillis());
+            list.add(newCategory);
+        }
+        <span class="code-keyword">try</span> {
+            multiSave.saveMultiple(list);
+        }
+        <span class="code-keyword">catch</span>(PersistenceServiceException ex){
+            log.warn(<span class="code-quote">"Se ha producido un error: "</span>+ex.getLocalizedMessage());
+        }
+        Iterator it = list.iterator();
+        <span class="code-keyword">while</span>(it.hasNext()){
+            Category c = (Category)it.next();
+            <span class="code-keyword">if</span>(c.getId()!=<span class="code-keyword">null</span>){
+                log.debug(<span class="code-quote">"Loading category with ID="</span>+c.getId());
+                Category cLoaded = multiSave*.loadCategory( c.getId() );
+                log.debug(<span class="code-quote">"Loaded from BD a category "</span>cLoaded<span class="code-quote">" with Id="</span>c.getId()<span class="code-quote">"?"</span>+(cLoaded!=<span class="code-keyword">null</span>));
+                assertTrue(<span class="code-quote">"The category has been saved into DB and should not!"</span>,cLoaded==<span class="code-keyword">null</span>);
+            }
+        }
+        log.debug(<span class="code-quote">"End."</span>);
+    }
+    ...
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Si ens fixem, en el mètode <em>saveMultiple( ... )</em> el que estem fent es  provocar un error a l'hora de guardar la última Category, ja que estem cridant a <em>update( ... )</em> quan la instància és nova i hauríem de cridar a <em>save(  ... )</em>. Això provocarà un 'rollback' de totes les instàncies previament  guardades. Com ho comprovem? Posteriorment en el codi intentem fem un <em>load(  ... )</em> per a veure si s'ha desat algun registre. Això mateix ho podem mirar  veient els logs generats:
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> DEBUG [main] org.hibernate.transaction.JDBCTransaction - <b>begin</b><br/>
+DEBUG [main] org.hibernate.transaction.JDBCTransaction - current  autocommit status: false<br/>
+DEBUG [main] com.myapp.test.MultiSave - Trying to  save category...<br/>
+DEBUG [main] com.myapp.test.MultiSave - Category saved with  id 1<br/>
+DEBUG [main] com.myapp.test.MultiSave - Trying to save  category...<br/>
+DEBUG [main] com.myapp.test.MultiSave - Category saved with id  2<br/>
+DEBUG [main] com.myapp.test.MultiSave - Trying to save category...<br/>
+DEBUG  [main] com.myapp.test.MultiSave - <b>Persistence error will  occur...</b><br/>
+DEBUG [main] org.hibernate.transaction.JDBCTransaction - <b>rollback</b><br/>
+DEBUG [main] org.hibernate.transaction.JDBCTransaction -  rolled back JDBC Connection<br/>
+WARN [main] com.myapp.test.DAOTest - Se ha  producido un error: org.springframework.dao.InvalidDataAccessApiUsageException:  The given object has a null identifier: com.myapp.model.Category; nested  exception is org.hibernate.TransientObjectException: The given object has a null  identifier: com.myapp.model.Category<br/>
+DEBUG [main] com.myapp.test.DAOTest -  Loading category with ID=1<br/>
+DEBUG [main]  org.hibernate.transaction.JDBCTransaction - begin<br/>
+DEBUG [main]  org.hibernate.transaction.JDBCTransaction - current autocommit status:  false<br/>
+DEBUG [main] org.hibernate.transaction.JDBCTransaction -  commit<br/>
+DEBUG [main] org.hibernate.transaction.JDBCTransaction - committed  JDBC Connection<br/>
+DEBUG [main] com.myapp.test.DAOTest - Loaded from BD a  category null with Id=1?false<br/>
+DEBUG [main] com.myapp.test.DAOTest - Loading  category with ID=2<br/>
+DEBUG [main] org.hibernate.transaction.JDBCTransaction -  begin<br/>
+DEBUG [main] org.hibernate.transaction.JDBCTransaction - current  autocommit status: false<br/>
+DEBUG [main]  org.hibernate.transaction.JDBCTransaction - commit<br/>
+DEBUG [main]  org.hibernate.transaction.JDBCTransaction - committed JDBC Connection<br/>
+DEBUG  [main] com.myapp.test.DAOTest - Loaded from BD a category null with  Id=2?false<br/>
+DEBUG [main] com.myapp.test.DAOTest - End.</p>
+
+<p>La seqüència és la següent:</p>
+<ol>
+	<li>S'obre una transacció (missatge: <em>org.hibernate.transaction.JDBCTransaction - begin</em>)</li>
+	<li>S'intenten desar els dues primeres 'Category'. Tot correcte</li>
+	<li>S'intenta actualitzar la tercera 'Category'. Error. El framework fa un  rollback de tot i no es desar res (missatge: <em>org.hibernate.transaction.JDBCTransaction - rollback</em>). Tanquem  transacció.</li>
+	<li>Obrim transacció (missatge: <em>org.hibernate.transaction.JDBCTransaction -  begin</em>)</li>
+	<li>Intentem carregar de la base de dades els suposats registres que s'havien  desat sense problemes (ID=1 i ID=2; missatge: <em>Loading category with ID=1 i  ID=2</em>)</li>
+	<li>Tanquem transacció (missatge: <em>org.hibernate.transaction.JDBCTransaction  - commit</em>)</li>
+	<li>Les dades no existeixen. Tot és correcte (missatge: <em>Loaded from BD a  category null with Id=1 i Id=2?false)</em></li>
+</ol>
+
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image009.jpg">image009.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image020.jpg">image020.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image032.jpg">image032.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image011.jpg">image011.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image021.jpg">image021.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image010.jpg">image010.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image033.jpg">image033.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image012.jpg">image012.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image001.jpg">image001.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image022.jpg">image022.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image024.jpg">image024.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image013.jpg">image013.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image034.jpg">image034.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image023.jpg">image023.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image025.jpg">image025.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image002.jpg">image002.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image035.jpg">image035.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image014.jpg">image014.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image005.jpg">image005.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image016.jpg">image016.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image026.jpg">image026.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image015.jpg">image015.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image036.jpg">image036.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image003.jpg">image003.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image027.jpg">image027.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image029.jpg">image029.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image006.jpg">image006.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image028.jpg">image028.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image007.jpg">image007.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image030.jpg">image030.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image017.jpg">image017.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image008.jpg">image008.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image019.jpg">image019.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image031.jpg">image031.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image004.jpg">image004.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de persistència 2.2_attachments/image018.jpg">image018.jpg</a> (image/jpeg)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

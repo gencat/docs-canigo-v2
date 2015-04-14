@@ -1,0 +1,1161 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Servei de WebServices 2.3.x</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Servei de WebServices 2.3.x
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on May 05, 2014 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="ServeideWebServices2.3.x-SERVEIDEWEBSERVICES"></a>SERVEI DE WEBSERVICES</h1>
+
+<p><br clear="all" />
+<br clear="all" />
+<div>
+<ul><a href='#ServeideWebServices2.3.x-SERVEIDEWEBSERVICES'>
+    <li>SERVEI DE WEBSERVICES</li></a><a href='#ServeideWebServices2.3.x-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#ServeideWebServices2.3.x-Prop%C3%B2sit'>
+    <li>Propòsit</li></a><a href='#ServeideWebServices2.3.x-ContextiEscenarisd%27%C3%9As'>
+    <li>Context i Escenaris d'Ús</li></a><a href='#ServeideWebServices2.3.x-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i Dependències</li></a><a href='#ServeideWebServices2.3.x-Aquivadirigit'>
+    <li>A qui va dirigit</li></a><a href='#ServeideWebServices2.3.x-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents i Fonts de Referència</li></a>
+</ul><a href='#ServeideWebServices2.3.x-Descripci%C3%B3Detallada'>
+    <li>Descripció Detallada</li></a>
+<ul><a href='#ServeideWebServices2.3.x-ArquitecturaiComponents'>
+    <li>Arquitectura i Components</li></a><a href='#ServeideWebServices2.3.x-Instal.laci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal.lació i Configuració</li></a>
+<ul><a href='#ServeideWebServices2.3.x-Instal.laci%C3%B3'>
+    <li>Instal.lació</li></a><a href='#ServeideWebServices2.3.x-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#ServeideWebServices2.3.x-Utilitzaci%C3%B3delServei'>
+    <li>Utilització del Servei</li></a><a href='#ServeideWebServices2.3.x-EinesdeSuport'>
+    <li>Eines de Suport</li></a>
+<ul><a href='#ServeideWebServices2.3.x-Generaci%C3%B3deClassesapartirdeWDSL'>
+    <li>Generació de Classes a partir de WDSL</li></a>
+</ul><a href='#ServeideWebServices2.3.x-Integraci%C3%B3ambAltresServeis'>
+    <li>Integració amb Altres Serveis</li></a>
+<ul><a href='#ServeideWebServices2.3.x-Definici%C3%B3delesExcepcionsInternacionalitzades'>
+    <li>Definició de les Excepcions Internacionalitzades</li></a>
+</ul><a href='#ServeideWebServices2.3.x-PreguntesFreq%C3%BCents'>
+    <li>Preguntes Freqüents</li></a>
+<ul>
+<ul>
+<ul><a href='#ServeideWebServices2.3.x-java.lang.NoSuchMethodError'>
+    <li>java.lang.NoSuchMethodError</li></a><a href='#ServeideWebServices2.3.x-javax.xml.stream.FactoryConfigurationErrorApareix'>
+    <li>javax.xml.stream.FactoryConfigurationErrorApareix</li></a>
+</ul>
+</ul>
+</ul>
+</ul><a href='#ServeideWebServices2.3.x-Exemples'>
+    <li>Exemples</li></a>
+<ul><a href='#ServeideWebServices2.3.x-ExempledeTest'>
+    <li>Exemple de Test</li></a><a href='#ServeideWebServices2.3.x-ExempledePublicaci%C3%B3d%27unServeideCodisPostals'>
+    <li>Exemple de Publicació d'un Servei de Codis Postals</li></a>
+<ul><a href='#ServeideWebServices2.3.x-Creaci%C3%B3delaInterf%C3%ADcie'>
+    <li>Creació de la Interfície</li></a><a href='#ServeideWebServices2.3.x-Implementaci%C3%B3delaInterf%C3%ADcie'>
+    <li>Implementació de la Interfície</li></a><a href='#ServeideWebServices2.3.x-Publicaci%C3%B3delServei'>
+    <li>Publicació del Servei</li></a><a href='#ServeideWebServices2.3.x-DesplegamentdelServeiiProvad%27Acc%C3%A9salWSDL'>
+    <li>Desplegament del Servei i Prova d'Accés al WSDL</li></a><a href='#ServeideWebServices2.3.x-Acc%C3%A9sdesd%27unClient'>
+    <li>Accés des d'un Client</li></a><a href='#ServeideWebServices2.3.x-Exempled%27%C3%BAsdeAjaxambelServeiPublicat'>
+    <li>Exemple d'ús de Ajax amb el Servei Publicat</li></a>
+</ul>
+</ul>
+</ul></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h1><a name="ServeideWebServices2.3.x-Introducci%C3%B3"></a>Introducció</h1>
+
+
+<h2><a name="ServeideWebServices2.3.x-Prop%C3%B2sit"></a>Propòsit</h2>
+
+<p>Aquest servei permet configurar i usar de forma senzilla la infraestructura de Web Services en dues modalitats:</p>
+<ol>
+	<li>Exportació de serveis Java mitjançant Web Services.</li>
+	<li>Importació de Web Services externs, generació si cal de classes Java d'invocació.</li>
+</ol>
+
+
+<p>L'enfocament d'aquest servei és el de simplificar tant la definició de Web Services a partir de serveis Java simples (que no tindran dependències amb la implementació particular de Web Services) així com la de facilitar la invocació a Web Services externs.</p>
+
+<h2><a name="ServeideWebServices2.3.x-ContextiEscenarisd%27%C3%9As"></a>Context i Escenaris d'Ús</h2>
+
+<p>El Servei d'Integració de WebServices es troba ubicat dins els serveis continguts a la capa de Dades/Integració de Canigó.
+<br clear="all" />
+<br clear="all" /></p>
+
+<h2><a name="ServeideWebServices2.3.x-VersionsiDepend%C3%A8ncies"></a>Versions i Dependències</h2>
+
+<p>Les dependències descrites a la següent url son requerides per tal de compilar i fer funcionar el projecte:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-webservices/dependencies.html" title="Visit page outside Confluence">Dependències Servei de WebServices</a></p>
+
+<h2><a name="ServeideWebServices2.3.x-Aquivadirigit"></a>A qui va dirigit</h2>
+
+<p>Aquest document va dirigit als següents perfils:</p>
+<ol>
+	<li>Programador. Per conéixer l'ús del servei</li>
+	<li>Arquitecte. Per conéixer quins són els components i la configuració del servei</li>
+	<li>Administrador. Per conéixer cóm configurar el servei en cadascun dels entorns en cas de necessitat</li>
+</ol>
+
+
+<h2><a name="ServeideWebServices2.3.x-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents i Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> [1] </th>
+<th class='confluenceTh'> Spring Web Services </th>
+<th class='confluenceTh'> <a href="http://static.springframework.org/spring/docs/1.2.x/reference/webservices.html" title="Visit page outside Confluence">http://static.springframework.org/spring/docs/1.2.x/reference/webservices.html</a> </th>
+</tr>
+</tbody></table>
+
+<h1><a name="ServeideWebServices2.3.x-Descripci%C3%B3Detallada"></a>Descripció Detallada</h1>
+
+
+<h2><a name="ServeideWebServices2.3.x-ArquitecturaiComponents"></a>Arquitectura i Components</h2>
+
+<p>Els components podem classificar-los en:</p>
+<ol>
+	<li>Interfícies i Components Genérics. Interfícies del servei i components d'ús general amb independència de la implementació escollida.</li>
+	<li>Implementació basada en Spring<br/>
+Es pot trobar tota la documentació JavaDoc i el codi font referent aquests components a les següents urls:</li>
+</ol>
+
+
+<p><ins>JavaDoc:</ins> <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-webservices/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-webservices/apidocs/index.html</a><br/>
+<ins>Codi Font:</ins>&nbsp; <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-webservices/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-webservices/xref/index.html</a></p>
+
+<h2><a name="ServeideWebServices2.3.x-Instal.laci%C3%B3iConfiguraci%C3%B3"></a>Instal.lació i Configuració</h2>
+
+
+<h3><a name="ServeideWebServices2.3.x-Instal.laci%C3%B3"></a>Instal.lació</h3>
+
+<p>La instal.lació del servei requereix de la utilització de la llibreria  'canigo-services-webservices' i les dependències indicades a l'apartat  'Introducció-Versions i Dependències'.</p>
+
+<p>La instal- lació passa per <font color="black">modificar el pom.xml de l'aplicació per incloure les llibreries del Connector com a dependència.</font><br clear="all" /></p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;canigo.version&gt;2.3.20&lt;/canigo.version&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;canigo&lt;/groupId&gt;
+  &lt;artifactId&gt;canigo-services-webservices&lt;/artifactId&gt;
+  &lt;version&gt;${canigo.version}&lt;/version&gt;
+&lt;/dependency&gt;</pre>
+</div></div>
+<table cellpadding='5' width='85%' cellspacing='8px' class='noteMacro' border="0" align='center'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="./icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td><b class="strong">IMPORTANT</b><br />
+<p>En el cas de que es vulgui integrar aquest connector en una aplicació que disposi del connector de la PICA, és farà necessari afegir la següent exclusió a la dependència:</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;dependency&gt;
+  &lt;groupId&gt;canigo&lt;/groupId&gt;
+  &lt;artifactId&gt;canigo-services-webservices&lt;/artifactId&gt;
+  &lt;version&gt;${canigo.version}&lt;/version&gt;
+  &lt;exclusions&gt;
+    &lt;exclusion&gt;
+      &lt;groupId&gt;xmlbeans&lt;/groupId&gt;
+      &lt;artifactId&gt;xbean&lt;/artifactId&gt;
+    &lt;/exclusion&gt;
+&lt;/dependency&gt;</pre>
+</div></div></td></tr></table>
+
+<h3><a name="ServeideWebServices2.3.x-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p>La configuració del Servei d'Integració de Web Services implica els següents pasos:</p>
+<ol>
+	<li>Definir la implementació del Servei que s'usarà</li>
+	<li>Definir les interfícies pare d'exportació de serveis</li>
+	<li>Definir quins elements volem exportar com a WebServices i/o</li>
+	<li>Definir quins elements volem importar com a WebServices</li>
+</ol>
+
+
+<p>Definició del Servei
+<br clear="all" /> <img src="Servei de WebServices 2.3.x_attachments/image007.jpg" align="absmiddle" border="0" /><br clear="all" />
+<b><em>Fitxer de configuració: canigo-services-webservices.xml</em></b><br/>
+<em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>En aquest pas indicarem el bean del servei de Web Services de <b>Canigó</b> i la implementació que es farà servir. En l'actualitat s'ofereix la implementació<br/>
+'net.gencat.ctti.canigo.services.webservices.impl.WebServicesServiceImpl'.</p>
+
+<p>Podem definir les següents propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> exportedInterfaces </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Llista de serveis a exportar. Veure 'Definició dels Serveis a Exportar' </td>
+</tr>
+<tr>
+<td class='confluenceTd'> importedInterfaces </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Llista de serveis a importar. Veure 'Definició dels Serveis a Importar' </td>
+</tr>
+</tbody></table>
+<p>Exemple:</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean name=<span class="code-quote">"webServicesService"</span>
+     class=<span class="code-quote">"net.gencat.ctti.canigo.services.webservices.impl.WebServicesServiceImpl"</span>
+    ...
+&lt;/bean&gt;</pre>
+</div></div>
+<p>És a dir, si ens volem comunicar amb un Webservice ja existent farem ús de la propietat 'exportedInterfaces', mentre que si volem publicar un WebService usarem la propietat 'importedInterfaces'.<br/>
+&nbsp;</p>
+
+<p>Definició de les Interfícies Pare d'Exportació i Importació de  Serveis
+<br clear="all" /> <img src="Servei de WebServices 2.3.x_attachments/image008.jpg" align="absmiddle" border="0" /><br clear="all" />
+<b><em>Fitxer de configuració: canigo-services-webservices.xml</em></b><br/>
+<em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>Usar el següent codi:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-xml">&lt;bean abstract=<span class="code-quote">"true"</span> id=<span class="code-quote">"exportedInterfaceDefinition"</span>
+      class=<span class="code-quote">"net.gencat.ctti.canigo.services.webservices.impl.ExportedInterfaceImpl"</span>/&gt;
+
+&lt;bean abstract=<span class="code-quote">"true"</span> id=<span class="code-quote">"importedInterfaceDefinition"</span>
+      class=<span class="code-quote">"net.gencat.ctti.canigo.services.webservices.impl.ImportedInterfaceImpl"</span>/&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Amb aquesta secció de declaracions es pretén establir les classes que permeten fer la definició dels WebServices, i estalviar així haver de repetir la declaració de la classe sencera (els noms de package són llargs) per cada bean d'importació/exportació que declarem. L'atribut "abstract=true" implica que aquests beans no s'instancien, només serveixen per fer-ne redefinicions.
+<br clear="all" />
+<br clear="all" />
+NOTA: Només definirem un i/o l'altre segons ens comuniquem amb un webservice i/o publiquem un webservice<br/>
+Definició dels Serveis a Exportar
+<br clear="all" /> <img src="Servei de WebServices 2.3.x_attachments/image009.jpg" align="absmiddle" border="0" /><br clear="all" />
+<b><em>Fitxer de configuració: canigo-services-webservices.xml</em></b><br/>
+<em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em>
+<br clear="all" />
+Definir els serveis a exportar dins la propietat 'exportedInterfaces' del bean definició del servei. Aquesta propietat és una llista dels beans que exportarem. Per cada bean a exportar farem que el seu parent sigui la definició abstracta ('exportedInterfaceDefinition') i es definiran les següents propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> name </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Nom amb el que es publicarà al servlet el Web Service resultant (per generar la URL de publicació) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> localInterface </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> La interfície Java convencional que ha d'implementar el servei. És aquesta interfície la que Canigó s'encarrega de fer accessible externament, generant de forma automàtica el WSDL que descriu la  interfície. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> implementation </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Classe concreta que realitza el servei i implementa la interfície </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean name=<span class="code-quote">"webServicesService"</span> parent=<span class="code-quote">"WebServiceDefinition"</span>&gt;
+   &lt;property name=<span class="code-quote">"exportedInterfaces"</span>&gt;
+	&lt;list&gt;
+	   &lt;bean parent=<span class="code-quote">"exportedInterfaceDefinition"</span>&gt;
+             &lt;property name=<span class="code-quote">"name"</span> value=<span class="code-quote">"testService"</span>/&gt;
+	     &lt;property name=<span class="code-quote">"implementation"</span>
+                       value=<span class="code-quote">"net.gencat.ctti.samples.webservices.TestServiceImpl"</span>/&gt;
+	     &lt;property name=<span class="code-quote">"localInterface"</span>
+                       value=<span class="code-quote">"net.gencat.ctti.samples.webservices.TestService"</span>/&gt;
+ 	   &lt;/bean&gt;
+	&lt;/list&gt;
+   &lt;/property&gt;
+   ...
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Només especificant les tres propietats s'aconsegueix que un servei Java sigui accessible per Web Services.<br/>
+En aquest exemple, es podria obtenir el WDSL (<em>Web Services Description Language</em>) generat a una URL semblant a:<br/>
+<a href="http://localhost:8080/canigo-samples-webservices/testService?wsdl" title="Visit page outside Confluence">&nbsp;&nbsp;&nbsp; http://localhost:8080/canigo-samples-webservices/testService?wsdl</a>&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp; On testService es correspon al nom definit en el xml del servlet.&#95;
+<br clear="all" />
+<br clear="all" />
+Per últim, s'ha de crear un nou mapping per què el servlet principal gestioni les peticions als WebServices (la URL /ws/&#42; és arbitraria, pot ser qualsevol altre que no tingui conflictes amb altres serveis).<br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;nom_servlet&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/ws/*&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Definició dels Serveis a Importar
+<br clear="all" />  <img src="Servei de WebServices 2.3.x_attachments/image010.jpg" align="absmiddle" border="0" /><br clear="all" />
+<br clear="all" />  <b><em>Fitxer de configuració: canigo-services-webservices.xml</em></b><br/>
+<em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em>
+<br clear="all" />
+Definir els serveis a importar dins la propietat 'importedInterfaces' del  bean definició del servei. Per cada bean a importar farem que el seu parent sigui la definició abstracta ('importedInterfaceDefinition').<br/>
+Existeixen 2 possibilitats d'integració amb serveis externs:</p>
+<ul>
+	<li>Disposem de la URL de definició del servei remot i de una interfície Java correcta que equival al WDSL. El servei web és de tipus "document" i no "rpc"</li>
+</ul>
+
+
+<p>En aquest cas, definirem les següents propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> name </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Nom amb el que s'identificarà el Web Service importat, per tal de poder demanar-ne una instància al Servei de Web  Services. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> serviceURL </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Url remota on s'exposa el servei. <br clear="all" />
+<br clear="all" />
+Si l'adreça del servei és per exemple: <br clear="all" />
+<a href="http://localhost:8080/canigo-samples-webservices/testService" title="Visit page outside Confluence">http://localhost:8080/canigo-samples-webservices/testService</a> <br clear="all" />
+<br clear="all" />
+llavors el descriptor WSDL del web service s'ha de poder trobar a: <br clear="all" />
+<br clear="all" />
+<a href="http://localhost:8080/canigo-samples-webservices/testService" title="Visit page outside Confluence">http://localhost:8080/canigo-samples-webservices/testService</a> ?WSDL <br clear="all" />
+<br clear="all" />
+Això succeeix de forma automàtica amb els serveis exportats mijançant Canigó. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> localInterface </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Interfície Java convencional que permet accedir al servei extern </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean parent=<span class="code-quote">"importedInterfaceDefinition"</span>&gt;
+   &lt;property name=<span class="code-quote">"name"</span> value=<span class="code-quote">"GoogleSearch"</span> /&gt;
+   &lt;property name=<span class="code-quote">"serviceURL"</span>
+             value=<span class="code-quote">"http:<span class="code-comment">//localhost:8080/canigo-samples-webservices/testService"</span>/&gt;
+</span>   &lt;property name=<span class="code-quote">"localInterface"</span>
+             value=<span class="code-quote">"net.gencat.ctti.samples.webservices.TestService"</span>/&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ul>
+	<li>Volem generar de forma automàtica les classes de comunicació a partir d'un WDSL extern. Veure l'apartat 'Eines de Suport-Generació de Classes a partir de WDSL' per consultar el procediment de generació d'aquestes classes. Definirem les següents propietats:</li>
+</ul>
+
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> name </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Nom amb el que s'identificarà el Web Service importat, per tal de poder demanar-ne una instància al Servei de Web Services. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> serviceLocator </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Classe encarregada de localitzar el servei remot. En cas de fer ús de les indicacions de l'apartat 'Eines de Suport' aquesta classe correspon a la que conté el sufix 'locator' dins les classes generades. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> localInterface </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Interfície Java convencional que  permet accedir al servei extern </td>
+</tr>
+</tbody></table>
+
+<h2><a name="ServeideWebServices2.3.x-Utilitzaci%C3%B3delServei"></a>Utilització del Servei</h2>
+
+<p><b>Canigó</b> exposa una interfície d'utilització,  "net.gencat.ctti.canigo.webservices.WebServicesService", que amaga la implementació real utilitzada. D'aquesta forma diverses implementacions són fàcilment configurables en funció de les necessitats de l'aplicació. Aquesta interfície permet obtenir un webservice i treballar-hi posteriorment com si d'una classe normal es tractés.</p>
+
+<p>La interfície té el següent aspecte:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">package</span> net.gencat.ctti.canigo.services.webservices;
+
+/**
+* Interface which allows the user to retrieve a Web Service <span class="code-keyword">interface</span> from a given configuration
+*/
+<span class="code-keyword">public</span> <span class="code-keyword">interface</span> WebServicesService {
+    ...
+        <span class="code-keyword">public</span> <span class="code-object">Object</span> getWebService(<span class="code-object">String</span> serviceName);
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Aquesta interfície exposa un únic mètode 'getWebService' que permet obtenir una instància del Web Service definit amb el nom del paràmetre passat. Aquest nom correspon al definit a la propietat 'name' de la definició dels serveis importats o exportats (veure apartat 'Configuració').
+<br clear="all" />
+<br clear="all" />
+És responsabilitat de programador identificar correctament la interfície de servei tant a la configuració com a l'hora de fer ús del servei, fent el corresponent "cast". Una vegada realitzat el cast, podem treballar-hi com si d'un servei local es tractés.<br/>
+Addicionalment, s'ofereix una classe  'net.gencat.ctti.canigo.services.webservices.WebServicesServiceUtils' que proporciona el mètode 'getWebService(HttpServletRequest request, String  serviceName)'. Aquest mètode permet que des de les classes de presentació s'obtingui de forma directa una referència a una instància de webservice.</p>
+
+<h2><a name="ServeideWebServices2.3.x-EinesdeSuport"></a>Eines de Suport</h2>
+
+
+<h3><a name="ServeideWebServices2.3.x-Generaci%C3%B3deClassesapartirdeWDSL"></a>Generació de Classes a partir de WDSL</h3>
+
+<p>Per a generar les classes necessàries per importar un servei extern a partir d'un WDSL (veure apartat 'Configuració-Definició dels Serveis a Importar'), ho farem amb l'eina ANT, en un fitxer build.xml amb el següent contingut:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;project name=<span class="code-quote">"Generate client (Axis)"</span> <span class="code-keyword">default</span>=<span class="code-quote">"generate-client"</span>&gt;
+
+   &lt;property name=<span class="code-quote">"output.dir"</span> 	value=<span class="code-quote">"src"</span>/&gt;
+   &lt;property name=<span class="code-quote">"wsdl.file"</span> 	value=<span class="code-quote">"resources/HolaMon.wsdl"</span>/&gt;
+   &lt;property name=<span class="code-quote">"lib"</span> 	value=<span class="code-quote">"lib"</span>/&gt;
+
+   &lt;path id=<span class="code-quote">"axis.classpath"</span>&gt;
+     &lt;fileset dir=<span class="code-quote">"${lib}"</span>&gt;
+       &lt;include name=<span class="code-quote">"**/*.jar"</span>/&gt;
+     &lt;/fileset&gt;
+   &lt;/path&gt;
+
+   &lt;taskdef resource=<span class="code-quote">"axis-tasks.properties"</span> classpathref=<span class="code-quote">"axis.classpath"</span> /&gt;
+
+   &lt;target name=<span class="code-quote">"generate-client"</span>&gt;
+	&lt;axis-wsdl2java output=<span class="code-quote">"${output.dir}"</span> testcase=<span class="code-quote">"<span class="code-keyword">true</span>"</span>
+		verbose=<span class="code-quote">"<span class="code-keyword">true</span>"</span> url=<span class="code-quote">"${wsdl.file}"</span> &gt;
+	&lt;/axis-wsdl2java&gt;
+   &lt;/target&gt;
+
+&lt;/project&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+Les llibreries necessàries per a la correcta execució són les pròpies d'ANT juntament amb l'eina Axis-Ant:</p>
+<ul class="alternate" type="square">
+	<li>axis.jar</li>
+	<li>axis-ant.jar</li>
+	<li>commons-discovery.jar</li>
+	<li>commons-logging.jar</li>
+	<li>jaxrpc.jar</li>
+	<li>log4j-1.2.8.jar</li>
+	<li>saaj.jar</li>
+	<li>wsdl4j.jar</li>
+</ul>
+
+
+<p><br clear="all" />
+En executar aquest fitxer es realitzarà de forma automàtica el següent procés:
+<br clear="all" /></p>
+<ol>
+	<li>S'examina el directori pre-establert on es troben els fitxers &#42;.WSDL (en general, a src/main/wsdl). També es pot indicar la ubicació d'un WSDL remot mitjançant la seva URL.</li>
+	<li>Es generen les classes Java basades en Axis que equivalen als objectes remots descrits en el WSDL. Aquestes classes són generades al directori indicat sota la variable 'output.dir'. És responsabilitat del desenvolupador incloure les llibreries que requereixen les classes generades.</li>
+</ol>
+
+
+<h2><a name="ServeideWebServices2.3.x-Integraci%C3%B3ambAltresServeis"></a>Integració amb Altres Serveis</h2>
+
+
+<h3><a name="ServeideWebServices2.3.x-Definici%C3%B3delesExcepcionsInternacionalitzades"></a>Definició de les Excepcions Internacionalitzades</h3>
+
+<p>El servei defineix vàries excepcions amb diferents claus de missatges. Aquestes són:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">canigo.services.WebServices.lookup_failed=lookup failed <span class="code-keyword">for</span> {0}
+
+canigo.services.WebServices.bad_bean_configuration=bad  configuration <span class="code-keyword">for</span> {0}
+
+canigo.services.WebServices.remote_method_invocation_failed=remote  method {0} failed <span class="code-keyword">for</span> bean {1}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+Per tant, han d'existir en el fitxer de recursos.
+<br clear="all" />
+<br clear="all" /></p>
+<h2><a name="ServeideWebServices2.3.x-PreguntesFreq%C3%BCents"></a>Preguntes Freqüents</h2>
+
+<p><br clear="all" /></p>
+
+<h5><a name="ServeideWebServices2.3.x-java.lang.NoSuchMethodError"></a>java.lang.NoSuchMethodError</h5>
+
+<p><br clear="all" />
+<blockquote>
+</blockquote><br clear="all" />
+<br clear="all" />
+<br clear="all" />  <b><em><ins>Quan arranquem l'aplicació ens apareix al log el missatge:</ins></em></b> <b><em><ins>java.lang.NoSuchMethodError: javax.xml.namespace.QName.&lt;init&gt;(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String</ins></em></b><b><em><ins>)</ins></em></b>
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">[10/03/06 17:18:32:130 CET] 2f75d693 ContextLoader E org.springframework.web.context.ContextLoader
+TRAS0014I: The following exception was logged java.lang.NoSuchMethodError:javax.xml.namespace.
+QName: method &lt;init&gt;(Ljava/lang/<span class="code-object">String</span>;Ljava/lang/<span class="code-object">String</span>;Ljava/lang/<span class="code-object">String</span>;)V not found
+    at     at org.codehaus.xfire.aegis.type.DefaultTypeMappingRegistry.&lt;clinit&gt;
+    (DefaultTypeMappingRegistry.java:54).<span class="code-keyword">null</span>(Unknown Source)
+    at java.lang.<span class="code-object">Class</span>.forName0(Native Method)
+    at java.lang.<span class="code-object">Class</span>.forName(<span class="code-object">Class</span>.java(Compiled Code))
+    at org.springframework.util.ClassUtils.forName(ClassUtils.java:88)
+    at org.springframework.beans.factory.support.BeanDefinitionReaderUtils.
+    createBeanDefinition(BeanDefinitionReaderUtils.java:65)
+    at org.springframework.beans.factory.xml.DefaultXmlBeanDefinitionParser.
+    parseBeanDefinitionElement(DefaultXmlBeanDefinitionParser.java:369)
+...</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Si es fa exportació de WebServices mitjançant XFire, hem de tenir cura de quina és la versió del Servidor d'Aplicacions que es fa servir. Els Servidors d'Aplicacions tenen per defecte algunes llibreries ja incorporades que poden afectar a les aplicacions que vulguin utilitzar noves versions d'aquestes llibreries. La política per defecte dels Servidors d'Aplicacions sol ser que en cas de que l'aplicació importi una classe es carregui primer la disponible al Servidor d'Aplicacions. D'aquí que en el cas mostrat, la classe 'QName' és trobada al Servidor d'Aplicacions i no es té en compte la que es troba a la llibreria més nova de l'aplicació.
+<br clear="all" />
+<br clear="all" />
+Per a canviar aquest comportament, existeix la possibilitat de canviar la precedència de la càrrega de classes per aplicació, de forma que si una classe està en una llibreria del servidor i en una llibreria del módul de l'aplicació, sigui prioritària aquesta última enlloc de la primera.
+<br clear="all" />
+<br clear="all" />
+<b>Comprovacions prèvies</b>
+<br clear="all" />
+Abans de fer cap canvi de configuració ens hem d'assegurar que es troba en el fitxer de dependències la llibreria 'stax-api-1.0.jar' i que s'afegirà al war creat.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;dependency&gt;
+    &lt;groupId&gt;stax&lt;/groupId&gt;
+    &lt;artifactId&gt;stax-api&lt;/artifactId&gt;
+    &lt;version&gt;1.0&lt;/version&gt;
+    &lt;properties&gt;
+        &lt;war.bundle&gt;<span class="code-keyword">true</span>&lt;/war.bundle&gt;
+    &lt;/properties&gt;
+&lt;/dependency&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Aquesta llibreria conté la versió de QName que necessita XFire.
+<br clear="all" />
+<br clear="all" />
+Adicionalment comprovar que hem definit les següents dependències:</p>
+<ul>
+	<li>canigo-services-logging-2.3.x</li>
+	<li>canigo-services-exceptions-2.3.x</li>
+	<li>canigo-services-webservices-2.3.x</li>
+	<li>xfire-all-1.2.6 (grup xfire)</li>
+	<li>stax-api-1.0 (grup stax)</li>
+	<li>wstx-asl-2.9.1 (grup woodstox)</li>
+	<li>yom-1.0-alpha-2 (grup yom)</li>
+	<li>jaxen-1.1-beta-8 (grup jaxen)</li>
+	<li>jdom-1.0 (jdom)</li>
+	<li>xbean-spring (xbean)</li>
+	<li>wsdl4j-1.5.2 (wsdl4j)</li>
+	<li>commons-beanutils-1.7</li>
+	<li>spring-1.2.5&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+<br clear="all" /></li>
+</ul>
+
+
+<p>Per totes elles assegurar-se de que s'incorporaran al war amb el tag '&lt;war.bundle&gt;true&lt;/war.bundle&gt;'.</p>
+
+<p><b>Websphere</b></p>
+
+<p>A Websphere, una vegada fet el desplegament de l'aplicació tornar a seleccionar 'Applications&gt;Enterprise Applications' i seleccionar l'aplicació. Des de la pestanya 'Configuration' realitzar els següents canvis:&nbsp;</p>
+<ul>
+	<li>Canviar el valor del camp 'Classloader Mode' a&nbsp; 'PARENT_LAST':</li>
+	<li>Canviar el valor del camp 'WAR Classloader Policy' a 'Application'</li>
+</ul>
+
+
+<p>Aplicar els canvis. En aquest moment iniciar l'aplicació i comprovar que no es dóna el missatge previ de conflicte.
+<br clear="all" />
+<br clear="all" />  <img src="Servei de WebServices 2.3.x_attachments/image011.gif" align="left" border="0" /><br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p><b>WebLogic</b>
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">En WebLogic podem fer el canvi directament
+al fitxer 'weblogic.xml' introduint el valor '<span class="code-keyword">true</span>' en el tag
+'prefer-web-inf-classes':
+
+&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"ISO-8859-1"</span>?&gt;
+
+&lt;!DOCTYPE weblogic-web-app
+PUBLIC <span class="code-quote">"-<span class="code-comment">//BEA Systems, Inc.//DTD Web Application 8.1//EN"</span>
+</span><span class="code-quote">"http:<span class="code-comment">//www.bea.com/servers/wls810/dtd/weblogic810-web-jar.dtd"</span>&gt;
+</span>
+&lt;weblogic-web-app&gt;
+&lt;container-descriptor&gt;
+    &lt;prefer-web-inf-classes&gt;<span class="code-keyword">true</span>&lt;/prefer-web-inf-classes&gt;
+&lt;/container-descriptor&gt;
+
+&lt;/weblogic-web-app&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h5><a name="ServeideWebServices2.3.x-javax.xml.stream.FactoryConfigurationErrorApareix"></a>javax.xml.stream.FactoryConfigurationErrorApareix</h5>
+
+<p><b><em><ins>l'Error 'javax.xml.stream.FactoryConfigurationError: Provider null could not be instantiated: java.lang.NullPointerException'</ins></em></b>
+<br clear="all" /></p>
+
+<p>Si aquest error es dona en una aplicació desplegada al Servidor d'Aplicacions, tenim 2 possibles solucions:
+<br clear="all" /></p>
+
+<p>a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Crear un fitxer per definir la factoria 'XMLInputFactory' (opció més recomanada)</p>
+
+<p>Crear un directori 'META-INF/services' (dins webapp si és una aplicació Web) i en aquest directori crear:</p>
+
+<p>&#45;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fitxer 'javax.xml.stream.XMLInputFactory' (sense extensió)</p>
+
+<p>El contingut d'aquest fitxer ha de ser 'com.ctc.wstx.stax.WstxInputFactory'.</p>
+
+<p>Aquest comportament només funcionarà si no existeix el fitxer 'jaxp.properties' en el subdirectori 'jre\lib' de Java (veure següent alternativa). Així doncs, cal assegurar-se de que aquest fitxer (explicat en l'altra alternativa) no existeixi.
+<br clear="all" /></p>
+
+<p>b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Editar un fitxer 'jaxp.properties' a la localització del subdirectori 'jre\lib' amb la següent informació:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">javax.xml.transform.TransformerFactory=org.apache.xalan.processor.TransformerFactoryImpl
+javax.xml.parsers.SAXParserFactory=org.apache.xerces.jaxp.SAXParserFactoryImpl
+javax.xml.parsers.DocumentBuilderFactory=org.apache.xerces.jaxp.DocumentBuilderFactoryImpl
+javax.xml.stream.XMLInputFactory=com.ctc.wstx.stax.WstxInputFactory</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+El subdirectori 'jre\lib' l'haurem de cercar en el directori del JRE que s'estigui fent servir. Així, per exemple en Websphere accedirem al directori 'AppServer\jre\lib' del directori d'instal.lació.
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h1><a name="ServeideWebServices2.3.x-Exemples"></a>Exemples</h1>
+
+
+<h2><a name="ServeideWebServices2.3.x-ExempledeTest"></a>Exemple de Test</h2>
+
+<p>Classe:  'net.gencat.ctti.canigo.services.webservices.test.WebServicesServiceTest'</p>
+
+<p>Per tractar-se d'un Test Unitari l'obtenció del servei es realitza de forma  directa amb 'ClassPathXMLApplicationContext'. Cal recordar que podrem definir en els nostres beans de l'aplicació el servei sense necessitar d'accedir-hi amb 'ClassPathXmlApplicationContext'. En aquest cas és necessari per tractar-se d'un test unitari.</p>
+
+<p>Exemple d'accés directe:</p>
+
+<p>Obtenim el context Spring de test, aixo no cal fer-ho explícitament<br/>
+en  una aplicació web
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">BeanFactory beanFactory = <span class="code-keyword">new</span>  ClassPathXmlApplicationContext(<span class="code-quote">"webServicesContext.xml"</span>);</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Obtenim el servei pròpiament dit
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">WebServicesService service = (WebServicesService)  beanFactory.
+getBean(WebServicesService.WEB_SERVICES_BEAN_FACTORY_KEY);</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Ara es pot fer servir l'interface WebServicesService per accedir<br/>
+a un  Web Serice remot ...
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">GoogleSearchPort google = (GoogleSearchPort) service.getWebService(<span class="code-quote">"GoogleSearch"</span>);
+google.doGoogleSearch(...);</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Exemple d'accés des d'un Action:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">GoogleSearchPort google = WebServicesServiceUtils.getWebService(request,<span class="code-quote">"GoogleSearch"</span>);
+google.doGoogleSearch(...);</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h2><a name="ServeideWebServices2.3.x-ExempledePublicaci%C3%B3d%27unServeideCodisPostals"></a>Exemple de Publicació d'un Servei de Codis Postals</h2>
+
+<p>En aquest exemple veurem com podem publicar un servei de forma senzilla mitjançant Canigó i XFire.</p>
+
+<p>Suposem que volem publicar un servei que permet obtenir les localitats associades a un codi postal. Com a exemple pràctic i bastant real farem servir un servei extern ja existent de GeoNames.
+<br clear="all" /></p>
+
+<h3><a name="ServeideWebServices2.3.x-Creaci%C3%B3delaInterf%C3%ADcie"></a>Creació de la Interfície</h3>
+
+<p>En primer lloc creem una interfície Java en la que definim quins mètodes oferirem.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">package</span> net.gencat.ctti.canigo.samples.geo;
+<span class="code-keyword">import</span> java.util.Collection;
+
+<span class="code-keyword">public</span> <span class="code-keyword">interface</span> GeoNamesService {
+
+    <span class="code-keyword">public</span> Collection getLocationsPostalCode(<span class="code-object">String</span> aPostalCode);
+
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+En aquest cas trobem un mètode que a partir d'un codi postal ens retornarà una col.lecció de poblacions coincidents amb el codi postal.
+<br clear="all" />
+<br clear="all" /></p>
+<h3><a name="ServeideWebServices2.3.x-Implementaci%C3%B3delaInterf%C3%ADcie"></a>Implementació de la Interfície</h3>
+
+<p>A continuació definim la implementació de la interfície:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> class GeoNamesServiceImpl <span class="code-keyword">implements</span> GeoNamesService {
+
+    <span class="code-keyword">public</span> GeoNamesServiceImpl() {
+        <span class="code-keyword">super</span>();
+        <span class="code-comment">// TODO Auto-generated constructor stub
+</span>    }
+
+    <span class="code-keyword">public</span> Collection getLocationsPostalCode(<span class="code-object">String</span> aPostalCode) {
+
+        URL url;
+        ArrayList list = <span class="code-keyword">new</span> ArrayList();
+
+        <span class="code-keyword">try</span> {
+            url = <span class="code-keyword">new</span> URL(<span class="code-quote">"http:<span class="code-comment">//ws.geonames.org/postalCodeSearch?postalcode="</span> +
+</span>                   aPostalCode + <span class="code-quote">"&amp;country=ES&amp;maxRows=10"</span>);
+            <span class="code-keyword">try</span> {
+                SAXReader reader = <span class="code-keyword">new</span> SAXReader();
+                Document document = reader.read(url);
+                <span class="code-comment">// XES: Access with XPath
+</span>                List listNodes = document.selectNodes( <span class="code-quote">"<span class="code-comment">//geonames/code/name"</span> );
+</span>
+                <span class="code-keyword">for</span> ( Iterator i = listNodes.iterator(); i.hasNext(); ) {
+                    DefaultElement element = (DefaultElement)i.next();
+                    <span class="code-object">String</span> text = element.getText();
+                    list.add(text);
+                    <span class="code-object">System</span>.out.println(text);
+                }
+            } <span class="code-keyword">catch</span> (Exception e) {
+                <span class="code-comment">// TODO Auto-generated <span class="code-keyword">catch</span> block
+</span>                e.printStackTrace();
+            }
+        } <span class="code-keyword">catch</span> (MalformedURLException e2) {
+            <span class="code-comment">// TODO Auto-generated <span class="code-keyword">catch</span> block
+</span>            e2.printStackTrace();
+        }
+        <span class="code-keyword">return</span> list;
+    }</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+En l'exemple mostrat s'obté la informació a partir d'un servei proporcionat per GeoNames i es parseja el resultat rebut per crear una col.lecció. No és propòsit d'aquest exemple mostrar com obtindrem en les nostres aplicacions la geocodificació dels codis postals, però hem cregut convenient oferir un exemple molt real. Per tant hauria estat suficient amb deixar al lector una implementació de la interfície que fes un càlcul simple.
+<br clear="all" />
+<br clear="all" />
+Una vegada tenim implementada la classe podem publicar-la fàcilment com un WebService:
+<br clear="all" /></p>
+<h3><a name="ServeideWebServices2.3.x-Publicaci%C3%B3delServei"></a>Publicació del Servei</h3>
+
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean <span class="code-keyword">abstract</span>=<span class="code-quote">"<span class="code-keyword">true</span>"</span> id=<span class="code-quote">"exportedInterfaceDefinition"</span>
+      class=<span class="code-quote">"net.gencat.ctti.canigo.services.webservices.impl.ExportedInterfaceImpl"</span>/&gt;
+
+&lt;bean name=<span class="code-quote">"webServicesService"</span>
+      class=<span class="code-quote">"net.gencat.ctti.canigo.services.webservices.impl.WebServicesServiceImpl"</span>&gt;
+
+   &lt;property name=<span class="code-quote">"exportedInterfaces"</span>&gt;
+      &lt;list&gt;
+         &lt;bean parent=<span class="code-quote">"exportedInterfaceDefinition"</span>&gt;
+           &lt;property name=<span class="code-quote">"name"</span> value=<span class="code-quote">"geoService"</span>/&gt;
+           &lt;property name=<span class="code-quote">"implementation"</span>
+                     value=<span class="code-quote">"net.gencat.ctti.canigo.samples.geo.GeoNamesServiceImpl"</span>/&gt;
+           &lt;property name=<span class="code-quote">"localInterface"</span>
+                     value=<span class="code-quote">"net.gencat.ctti.canigo.samples.geo.GeoNamesService"</span>/&gt;
+         &lt;/bean&gt;
+      &lt;/list&gt;
+   &lt;/property&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+La publicació del servei és tan senzilla com el codi a dalt mostrat, on dins la propietat 'exportedInterfaces' del bean 'webServicesService' s'ha definit una exportació amb la següent informació:
+<br clear="all" />
+<br clear="all" /></p>
+<ul>
+	<li>name: Nom del servei publicat. Corresponent a cóm es publicarà el servei dins el WSDL</li>
+	<li>implementation: Nom de la classe implementació</li>
+	<li>localInterface: Nom de la interfície
+<br clear="all" />
+<br clear="all" />  <b>Tipus de Dades</b>
+<br clear="all" />
+En la utilització dels WebServices cal tenir en compte que hi ha tipus de dades que no poden ser enviats i rebuts si no s'especifica de forma adicional cóm el Servidor pot tractar les peticions.<br/>
+Si definim una col.lecció per exemple (com en aquest cas exemple), haurem d'especificar quin tipus de dades contindrà internament per saber com passar les dades de retorn. Per a aconseguir-ho només cal que definim un fitxer amb el nom de la interfície i a continuació l'extensió 'aegis.xml' i ubicar-lo en el mateix lloc que la interfície.
+<br clear="all" />
+<br clear="all" />
+En l'exemple, definim el següent contingut:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span> ?&gt;
+&lt;mappings&gt;
+    &lt;mapping&gt;
+        &lt;method name=<span class="code-quote">"getLocationsPostalCode"</span>&gt;
+            &lt;<span class="code-keyword">return</span>-type componentType=<span class="code-quote">"java.lang.<span class="code-object">String</span>"</span>/&gt;
+        &lt;/method&gt;
+    &lt;/mapping&gt;
+&lt;/mappings&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Això vol dir que la col.lecció de retorn del mètode 'getLocationsPostalCode' conté elements de tipus String.<br/>
+Per a informació d'altres mapejos consultar la url 'http://xfire.codehaus.org/Aegis+Binding'.
+<br clear="all" />
+<br clear="all" />
+<h3><a name="ServeideWebServices2.3.x-DesplegamentdelServeiiProvad%27Acc%C3%A9salWSDL"></a>Desplegament del Servei i Prova d'Accés al WSDL</h3></li>
+</ul>
+
+
+<p>A continuació, podem crear un war i desplegar-lo en un servidor d'aplicacions.<br/>
+Una vegada desplegat podem accedir al seu wsdl amb la següent url:</p>
+
+<p><a href="http://localhost:9080/" title="Visit page outside Confluence">http://localhost:9080/</a>&lt;nom context app&gt;/geoService?wsdl
+<br clear="all" /></p>
+
+<p>El nom 'geoService' correspon al valor de l'atribut 'name' que hem especificat prèviament al fitxer de configuració.
+<br clear="all" />
+<br clear="all" />  <img src="Servei de WebServices 2.3.x_attachments/image013.gif" align="absmiddle" border="0" /><br clear="all" />
+<br clear="all" />
+Cóm es pot veure el WSDL s'ha generat de forma automàtica.
+<br clear="all" /></p>
+
+<h3><a name="ServeideWebServices2.3.x-Acc%C3%A9sdesd%27unClient"></a>Accés des d'un Client</h3>
+
+<p>Si volem accedir al servei publicat podem fer ús de la importació seguint els següents pasos:
+<br clear="all" /></p>
+
+<p>1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Definició en el fitxer de configuració de la importació
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean <span class="code-keyword">abstract</span>=<span class="code-quote">"<span class="code-keyword">true</span>"</span> id=<span class="code-quote">"importedInterfaceDefinition"</span>
+      class=<span class="code-quote">"net.gencat.ctti.canigo.services.webservices.impl.ImportedInterfaceImpl"</span>/&gt;
+
+&lt;bean name=<span class="code-quote">"webServicesService"</span>
+      class=<span class="code-quote">"net.gencat.ctti.canigo.services.webservices.impl.WebServicesServiceImpl"</span>&gt;
+   &lt;property name=<span class="code-quote">"importedInterfaces"</span>&gt;
+      &lt;list&gt;
+          &lt;bean parent=<span class="code-quote">"importedInterfaceDefinition"</span>&gt;
+                &lt;property name=<span class="code-quote">"name"</span> value=<span class="code-quote">"geoNamesService"</span> /&gt;
+                &lt;property name=<span class="code-quote">"serviceURL"</span>
+                          value=<span class="code-quote">"http:<span class="code-comment">//localhost:9080/canigo-samples-geo/geoService"</span>/&gt;
+</span>                &lt;property name=<span class="code-quote">"localInterface"</span>
+                          value=<span class="code-quote">"net.gencat.ctti.canigo.samples.geo.GeoNamesService"</span>/&gt;
+         &lt;/bean&gt;
+     &lt;/list&gt;
+   &lt;/property&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+On dins la propietat 'importedInterfaces' s'ha definit una importació amb la següent informació:
+<br clear="all" />
+<br clear="all" /></p>
+<ul>
+	<li>name: Nom que ens permetrà a partir del mètode 'getService' del bean 'webServicesService' obtenir una referència a la interfície (definida a la propietat 'localInterface' com si d'una classe local es tractés.</li>
+</ul>
+
+
+<ul>
+	<li>localInterface: Nom de la interfície serviceUrl: Url del servei corresponent a la url publicada prèviament. Exemple: <a href="http://localhost:9080/" title="Visit page outside Confluence">http://localhost:9080/</a>&lt;nom context app&gt;/geoService.
+<br clear="all" /></li>
+</ul>
+
+
+<p>2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Accés des d'una classe</p>
+
+<p>Una vegada definit això l'accés seria tan simple com l'exemple mostrat a continuació:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">GeoNamesService geoService = (GeoNamesService)webServicesService.getWebService(<span class="code-quote">"geoNamesService"</span>);
+Collection locations = geoService.getLocationsPostalCode(<span class="code-quote">"08031"</span>);</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+S'ha obtingut des del bean 'webServicesService' la interfície 'GeoNamesService' a partir del nom que havíem definit a la propietat 'name' en el pas 1). A partir d'aquest moment es pot fer ús de la interfície com si d'una classe local es tractés.
+<br clear="all" />
+<br clear="all" />
+Encara millor, podem definir el servei sense que es sabés que fem ús del web service definint una injecció de tipus factoria:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"geoNamesService"</span> factory-bean=<span class="code-quote">"webServicesService"</span>
+      factory-method=<span class="code-quote">"getWebService"</span>&gt;
+   &lt;constructor-arg&gt;&lt;value&gt;geoNamesService&lt;/value&gt;&lt;/constructor-arg&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+En aquest cas estem especificant que el bean amb id 'geoNamesService' s'obtindrà a partir de la crida "getWebService('geoNamesService')".
+<br clear="all" />
+<br clear="all" /></p>
+<h3><a name="ServeideWebServices2.3.x-Exempled%27%C3%BAsdeAjaxambelServeiPublicat"></a>Exemple d'ús de Ajax amb el Servei Publicat</h3>
+
+<p>NOTA: Tot i no ser objectiu del present document es mostra en aquest apartat com podem utilitzar el servei 'geoNamesService' (que permet comunicar-se amb el WebService) per presentar les poblacions a l'usuari segons el codi postal introduit usant Ajax:
+<br clear="all" /></p>
+
+<p>En primer lloc, publicarem el servei definit en el pas anterior (&lt;bean id="geoNamesService" factory-bean="webServicesService" ...) introduint al fitxer 'src/main/resources/dwr/dwr.xml' que volem des del client Web accedir a aquest servei:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;create creator=<span class="code-quote">"spring"</span> javascript=<span class="code-quote">"geoNamesService"</span>&gt;
+    &lt;param name=<span class="code-quote">"beanName"</span> value=<span class="code-quote">"geoNamesService"</span>/&gt;
+&lt;/create&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+En el camp 'javascript' s'indica com a valor el nom del fitxer javascript que es generarà de forma automàtica i que serà usat des del client. Així, en la pàgina JSP hem d'afegir una referència tal i com es mostra a continuació:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;script src=<span class="code-quote">"&lt;c:url value="</span>/AppJava/dwr/<span class="code-keyword">interface</span>/geoNamesService.js<span class="code-quote">"/&gt;"</span>&gt;
+&lt;/script&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Una vegada definida aquesta referència, usarem la llibreria 'prototype' per definir una classe que controlarà l'event de canvi de valor en el camp d'introducció del codi postal:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;script&gt;
+<span class="code-keyword">var</span> locations;
+
+  function closeSuggestBox() {
+    $('suggestBoxElement').innerHTML = '';
+    $('suggestBoxElement').style.visibility = 'hidden';
+  }
+
+  <span class="code-comment">// remove highlight on mouse out event
+</span>  function suggestBoxMouseOut(obj) {
+    document.getElementById('pcId'+ obj).className = 'suggestions';
+  }
+
+  <span class="code-comment">// the user has selected a place name from the suggest box
+</span>  function suggestBoxMouseDown(obj) {
+    closeSuggestBox();
+    <span class="code-keyword">var</span> placeInput = $('city');
+    placeInput.value = locations[obj];
+  }
+<span class="code-keyword">var</span> PostalCodeWatcher = <span class="code-object">Class</span>.create();
+
+PostalCodeWatcher.prototype = {
+
+       initialize: function(field) {
+            <span class="code-keyword">this</span>.field = $(field);
+            <span class="code-keyword">this</span>.field.onchange = <span class="code-keyword">this</span>.getLocationsPostalCode.bindAsEventListener(<span class="code-keyword">this</span>);
+               },
+
+           getLocationsPostalCode: function(evt){
+               <span class="code-keyword">if</span> ($F(<span class="code-keyword">this</span>.field)) {
+               geoNamesService.getLocationsPostalCode(
+                        $F(<span class="code-keyword">this</span>.field),{
+                        callback:function(dataFromServer) {updateLocations(dataFromServer);
+                        },
+                           timeout:5000
+                       }
+                   );
+               }
+           }
+    };
+
+    <span class="code-keyword">var</span> watcher = <span class="code-keyword">new</span> PostalCodeWatcher('zip');
+
+  <span class="code-comment">// function to highlight places on mouse over event
+</span>
+  function suggestBoxMouseOver(obj) {
+    document.getElementById('pcId'+ obj).className = 'suggestionMouseOver';
+  }
+
+  function updateLocations(dataFromServer) {
+         $('suggestBoxElement').style.visibility = 'visible';
+         $('suggestBoxElement').innerHTML = '&lt;small&gt;&lt;i&gt;loading ...&lt;/i&gt;&lt;/small&gt;';
+
+         locations = dataFromServer;
+         <span class="code-comment">//alert(DWRUtil.toDescriptiveString(dataFromServer,1));
+</span>         <span class="code-keyword">if</span> (locations.length &gt; 1) {
+                $('suggestBoxElement').style.visibility = 'visible';
+             <span class="code-keyword">var</span> suggestBoxHTML  = '';
+             <span class="code-comment">// iterate over places and build suggest box content
+</span>             <span class="code-keyword">for</span> (i=0;i&lt; locations.length;i++) {
+               suggestBoxHTML += <span class="code-quote">"&lt;div class='suggestions' id=pcId"</span> + i + "
+               onmousedown='suggestBoxMouseDown(<span class="code-quote">" + i + "</span>)'
+               onmouseover='suggestBoxMouseOver(<span class="code-quote">" +  i +"</span>)'
+               onmouseout='suggestBoxMouseOut(<span class="code-quote">" + i +"</span>)'&gt; " + locations[i] +'&lt;/div&gt;';
+             }
+                $('suggestBoxElement').innerHTML = suggestBoxHTML;
+         } <span class="code-keyword">else</span> {
+             <span class="code-keyword">if</span> (dataFromServer.length == 1) {
+               $(<span class="code-quote">"city"</span>).value=locations[0];
+             }
+           closeSuggestBox();
+         }
+  }
+
+&lt;/script&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+És important anotar (consultar la llibreria prototype per a més referència) els següents punts:
+<br clear="all" />
+<br clear="all" /></p>
+<ul>
+	<li>Definició d'una classe on s'especificarà el comportament</li>
+</ul>
+
+
+<ul>
+	<li>?El mètode initialize defineix els valors de la instància de la classe.</li>
+</ul>
+
+
+<ul>
+	<li>En el valor del camp 'onchange' utilitzem la funció 'bindAsEventListener' per lligar la funció 'getLocationsPostalCode de la classe' com a listener de l'event (en el moment que canvii el valor del component)
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">this</span>.field.onchange = <span class="code-keyword">this</span>.getLocationsPostalCode.bindAsEventListener(<span class="code-keyword">this</span>);</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+	<li>? El mètode 'getLocationsPostalCode' defineix el tractament de l'event&nbsp; i és on es farà la crida a la funció del servidor mitjançant Ajax.</li>
+</ul>
+
+
+<ul>
+	<li>? Crida a la instància publicada amb DWR (segons s'havia definit al fitxer dwr.xml com 'javascript="geoNamesService"') a un mètode concret passant com a paràmetre el valor del camp
+<br clear="all" /></li>
+</ul>
+
+
+<p>NOTA: La funció $F() de prototype permet obtenir el valor de qualsevol tipus de input (enlloc d'haver d'usar diferents funcions segons el tipus de component).
+<br clear="all" /></p>
+<ul>
+	<li>' De forma adicional als paràmetres de la funció cridada podem incorporar més paràmetres. El primer paràmetre 'callback' ens permet especificar quina funció serà cridada quan la crida a la funció finalitzi. El segon paràmetre permet especificar quin timeout de la crida volem utilitzar. Dins el callback s'especifica la crida a la funció 'updateLocations(dataFromServer)' on el paràmetre 'dataFromServer' seran&nbsp; les dades de retorn de la funció.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-comment">// function to highlight places on mouse over event
+</span>
+  function suggestBoxMouseOver(obj) {
+    document.getElementById('pcId'+ obj).className = 'suggestionMouseOver';
+  }
+
+  function updateLocations(dataFromServer) {
+         $('suggestBoxElement').style.visibility = 'visible';
+         $('suggestBoxElement').innerHTML = '&lt;small&gt;&lt;i&gt;loading ...&lt;/i&gt;&lt;/small&gt;';
+
+         locations = dataFromServer;
+         <span class="code-comment">//alert(DWRUtil.toDescriptiveString(dataFromServer,1));
+</span>         <span class="code-keyword">if</span> (locations.length &gt; 1) {
+                $('suggestBoxElement').style.visibility = 'visible';
+             <span class="code-keyword">var</span> suggestBoxHTML  = '';
+             <span class="code-comment">// iterate over places and build suggest box content
+</span>             <span class="code-keyword">for</span> (i=0;i&lt; locations.length;i++) {
+               suggestBoxHTML += <span class="code-quote">"&lt;div class='suggestions' id=pcId"</span> + i + "
+               onmousedown='suggestBoxMouseDown(<span class="code-quote">" + i + "</span>)'
+               onmouseover='suggestBoxMouseOver(<span class="code-quote">" +  i +"</span>)'
+               onmouseout='suggestBoxMouseOut(<span class="code-quote">" + i +"</span>)'&gt; " + locations[i] +'&lt;/div&gt;';
+             }
+                $('suggestBoxElement').innerHTML = suggestBoxHTML;
+         } <span class="code-keyword">else</span> {
+             <span class="code-keyword">if</span> (dataFromServer.length == 1) {
+               $(<span class="code-quote">"city"</span>).value=locations[0];
+             }
+           closeSuggestBox();
+         }
+  }
+
+&lt;/script&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<p>Degut a que la funció ens retorna una col.lecció de poblacions es tracten els casos d'un valor retornat &#45;es copiarà directament al component destí&#45; o de més d'un valor &#45;es mostraran vàries capes per simular una selecció a l'usuari.</p>
+
+<p>Per últim, podem definir l'estil d'aquestes seleccions:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;style&gt;
+
+  #suggestBoxElement {border: 1px solid #8FABFF; visibility:hidden; text-align: left;
+  white-space: nowrap; background-color: #eeeeee;}
+
+  .suggestions { font-size: 14;background-color: #eeeeee;  }
+
+  .suggestionMouseOver { font-size: 14;background: #3333ff; color: white;  }
+
+&lt;/style&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Exemple de resultat mostrat en introduir un codi postal de múltiples poblacions:
+<br clear="all" />
+<br clear="all" />  <img src="Servei de WebServices 2.3.x_attachments/image014.gif" align="absmiddle" border="0" /><br/>
+&nbsp;<br/>
+En seleccionar un valor aquest és copiat al component.
+<br clear="all" />
+<br clear="all" />  <img src="Servei de WebServices 2.3.x_attachments/image015.gif" align="absmiddle" border="0" /><br clear="all" /></p>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de WebServices 2.3.x_attachments/image007.jpg">image007.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de WebServices 2.3.x_attachments/image009.jpg">image009.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de WebServices 2.3.x_attachments/image004.jpg">image004.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de WebServices 2.3.x_attachments/image014.gif">image014.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de WebServices 2.3.x_attachments/image005.jpg">image005.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de WebServices 2.3.x_attachments/image003.jpg">image003.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de WebServices 2.3.x_attachments/image006.jpg">image006.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de WebServices 2.3.x_attachments/image002.jpg">image002.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de WebServices 2.3.x_attachments/image011.gif">image011.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de WebServices 2.3.x_attachments/image008.jpg">image008.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de WebServices 2.3.x_attachments/image015.gif">image015.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de WebServices 2.3.x_attachments/image001.jpg">image001.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de WebServices 2.3.x_attachments/image013.gif">image013.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de WebServices 2.3.x_attachments/image010.jpg">image010.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de WebServices 2.3.x_attachments/image012.gif">image012.gif</a> (image/gif)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

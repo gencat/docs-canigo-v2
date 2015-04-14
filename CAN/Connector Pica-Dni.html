@@ -1,0 +1,355 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Connector Pica-Dni</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Connector Pica-Dni
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Jan 23, 2013 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="ConnectorPica-Dni-CONNECTORPICADNI"></a>CONNECTOR PICA-DNI</h1>
+
+<p><br clear="all" />
+<br clear="all" />
+<div>
+<ul><a href='#ConnectorPica-Dni-CONNECTORPICADNI'>
+    <li>CONNECTOR PICA-DNI</li></a><a href='#ConnectorPica-Dni-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#ConnectorPica-Dni-Prop%C3%B2sit'>
+    <li>Propòsit</li></a><a href='#ConnectorPica-Dni-ContextiEscenarisd%27%C3%BAs'>
+    <li>Context i Escenaris d'ús</li></a><a href='#ConnectorPica-Dni-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i Dependències</li></a><a href='#ConnectorPica-Dni-Aquivadirigit'>
+    <li>A qui va dirigit</li></a><a href='#ConnectorPica-Dni-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents i Fonts de Referència</li></a>
+</ul><a href='#ConnectorPica-Dni-Descripci%C3%B3Detallada'>
+    <li>Descripció Detallada</li></a>
+<ul><a href='#ConnectorPica-Dni-ArquitecturaiComponents'>
+    <li>Arquitectura i Components</li></a>
+<ul><a href='#ConnectorPica-Dni-Interf%C3%ADciesiComponentsGen%C3%A8rics'>
+    <li>Interfícies i Components Genèrics</li></a><a href='#ConnectorPica-Dni-Requeriments'>
+    <li>Requeriments</li></a>
+</ul><a href='#ConnectorPica-Dni-Instal.laci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal.lació i Configuració</li></a>
+<ul><a href='#ConnectorPica-Dni-Instal.laci%C3%B3'>
+    <li>Instal.lació</li></a><a href='#ConnectorPica-Dni-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#ConnectorPica-Dni-Utilitzaci%C3%B3delConnector'>
+    <li>Utilització del Connector</li></a>
+<ul><a href='#ConnectorPica-Dni-Exempled%27utilitzaci%C3%B3ConsultadeDNI'>
+    <li>Exemple d'utilització Consulta de DNI</li></a><a href='#ConnectorPica-Dni-Exempled%27utilitzaci%C3%B3Verificaci%C3%B3DNI'>
+    <li>Exemple d'utilització Verificació DNI</li></a>
+</ul>
+</ul>
+</ul></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h1><a name="ConnectorPica-Dni-Introducci%C3%B3"></a>Introducció</h1>
+
+<p>L'objectiu d'aquest connector, és el de proporcionar un punt d'accés utilitzant la plataforma PICA cap servei de verificació i consulta de DNI de la DGP.</p>
+
+<h2><a name="ConnectorPica-Dni-Prop%C3%B2sit"></a>Propòsit</h2>
+
+<p><font color="black">El propòsit del connector és proporcionar una interfície funcional reduida al connector de la Pica que</font> <font color="black"><b>simplifica</b></font> <font color="black">l'utilització&nbsp;del servei de consulta i verificació de DNI's ofert per la generalitat.</font></p>
+
+<h2><a name="ConnectorPica-Dni-ContextiEscenarisd%27%C3%BAs"></a>Context i Escenaris d'ús</h2>
+
+<p><font color="black">El connector PICA-DNI es troba dins els connectors de serveis funcionals de la Generalitat.</font></p>
+
+<h2><a name="ConnectorPica-Dni-VersionsiDepend%C3%A8ncies"></a>Versions i Dependències</h2>
+
+<p><font color="black">En el present apartat es mostren quines són les versions i dependències necessàries per fer ús del Connector.</font></p>
+
+<p><font color="black">Les dependències descrites a la següent url són requerides per tal de fer funcionar el servei:</font><br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_14/canigo-connectors-root/canigo-connectors-pica-dni/dependencies.html" title="Visit page outside Confluence">Dependències del Connector DNI</a></p>
+
+<h2><a name="ConnectorPica-Dni-Aquivadirigit"></a>A qui va dirigit</h2>
+
+<p><font color="black">Aquest document va dirigit als següents perfils:</font></p>
+<ol>
+	<li><font color="black">Programador. Per conèixer l'ús del connector.</font></li>
+	<li><font color="black">Arquitecte. Per conèixer quins són els components i la configuració del connector.</font></li>
+</ol>
+
+
+<h2><a name="ConnectorPica-Dni-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents i Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<td class='confluenceTd'> <font color="red">[1]</font> </td>
+<td class='confluenceTd'> <font color="red">Guia d'ús de l'API del Connector PICA-DNI.</font> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> <font color="red">[2]</font> </td>
+<td class='confluenceTd'> <font color="red">Documentació funcional i tècnica del Connector PICA-DNI.</font> </td>
+</tr>
+</tbody></table>
+
+<h1><a name="ConnectorPica-Dni-Descripci%C3%B3Detallada"></a>Descripció Detallada</h1>
+
+<p>Aquest connector permet realitzar les següents funcionalitats referents a les següent operacions amb un DNI:</p>
+
+<p><b>Funcionalitats de Consulta</b></p>
+<ul class="alternate" type="square">
+	<li><b>Consulta Bàsica:</b> Funcionalitat que permet la consulta de les dades d'un DNI subministrant un conjunt mínim de dades.</li>
+	<li><b>Consulta Estesa:</b> Funcionalitat que permet la consulta de les dades d'un DNI donant la possibilitat d'escollir d'entre un conjunt més ampli de dades d'entrada.</li>
+</ul>
+
+
+<p><b>Funcionalitats de Verificació</b></p>
+<ul class="alternate" type="square">
+	<li><b>Verificació Bàsica:</b> Funcionalitat que permet la verificació de les dades d'un DNI subministrant un conjunt mínim de dades.</li>
+	<li><b>Verificació Estesa:</b> Funcionalitat que permet la verificació de les dades d'un DNI donant la possibilitat d'escollir d'entre un conjunt més ampli de dades d'entrada.</li>
+</ul>
+
+
+<h2><a name="ConnectorPica-Dni-ArquitecturaiComponents"></a>Arquitectura i Components</h2>
+
+
+<h3><a name="ConnectorPica-Dni-Interf%C3%ADciesiComponentsGen%C3%A8rics"></a>Interfícies i Components Genèrics</h3>
+
+<p><font color="black">Es pot trobar tota la documentació JavaDoc i el codi font referent aquests components a les següents url's:</font></p>
+
+<p><font color="red"><ins>JavaDoc:</ins></font><font color="red">&nbsp;</font><a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_14/canigo-connectors-root/canigo-connectors-pica-dni/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_14/canigo-connectors-root/canigo-connectors-pica-dni/apidocs/index.html</a><br/>
+<font color="red"><ins>Codi Font:</ins></font><font color="red">&nbsp;</font><font color="red">&nbsp;</font><a href="http://canigo.ctti.gencat.net/repository/maven2/canigo/connectors/canigo-connectors-pica-dni/1.0.0/" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/repository/maven2/canigo/connectors/canigo-connectors-pica-dni/1.0.0/</a></p>
+
+<h3><a name="ConnectorPica-Dni-Requeriments"></a>Requeriments</h3>
+
+<p><font color="black">El connector</font> DNI és compatible amb les versions 1.5 o superior de Java. Per versions inferiors no es garantit el seu correcte funcionament.</p>
+
+<p>Per tal de que el connector DNI funcioni correctament sobre l'aplicació que l'utilitzi, es s'ha de tenir configurat el servei connector genèric de la PICA 1.0.</p>
+
+<h2><a name="ConnectorPica-Dni-Instal.laci%C3%B3iConfiguraci%C3%B3"></a>Instal.lació i Configuració</h2>
+
+
+<h3><a name="ConnectorPica-Dni-Instal.laci%C3%B3"></a>Instal.lació</h3>
+
+<p><font color="black">La instal.lació del connector requereix de la utilització de la llibreria 'canigo-connectors-pica-dni' i les dependències indicades a l'apartat '</font>Introducció-Versions i Dependències<font color="black">'.</font></p>
+
+<p><font color="black">Per poder disposar del Connector PICA-DNI en una aplicació Canigó s'ha de modificar el pom.xml de l'aplicació per incloure la llibreria del Connector com a dependència.</font><br clear="all" /></p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;dependency&gt;
+        &lt;groupId&gt;canigo.connectors&lt;/groupId&gt;
+        &lt;artifactId&gt;canigo-connectors-pica-dni&lt;/artifactId&gt;
+        &lt;version&gt;1.0.0&lt;/version&gt;
+&lt;/dependency&gt;</pre>
+</div></div>
+
+<p>També és necessari afegir una exclusió sobre la dependència de la PICA;</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;dependency&gt;
+        &lt;groupId&gt;canigo.connectors&lt;/groupId&gt;
+	&lt;artifactId&gt;canigo-connectors-pica&lt;/artifactId&gt;
+	&lt;version&gt;1.0&lt;/version&gt;
+	&lt;exclusions&gt;
+	        &lt;exclusion&gt;
+		    &lt;groupId&gt;xmlbeans&lt;/groupId&gt;
+	            &lt;artifactId&gt;xbean&lt;/artifactId&gt;
+	        &lt;/exclusion&gt;
+	&lt;/exclusions&gt;
+&lt;/dependency&gt;</pre>
+</div></div>
+
+<h3><a name="ConnectorPica-Dni-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p><br clear="all" /></p>
+
+<p>Per poder configurar el connector DNI és necessari tenir configurat el connector genèric a la PICA.</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"requeridor"</span> class=<span class="code-quote">"cat.gencat.pica.peticio.core.beans.Requeridor"</span> singleton=<span class="code-quote">"<span class="code-keyword">true</span>"</span>&gt;
+&lt;property name=<span class="code-quote">"fitxerSignatura"</span> value=<span class="code-quote">"signatura.properties"</span>&gt; &lt;/property&gt;
+	&lt;property name=<span class="code-quote">"idSolicitante"</span> value=<span class="code-quote">"1DPGO049"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"idTransmision"</span> value=<span class="code-quote">"213421"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"nombreSolicitante"</span> value=<span class="code-quote">"CTTI"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"password"</span> value=<span class="code-quote">"password"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"user"</span> value=<span class="code-quote">"usuari"</span>&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;bean name=<span class="code-quote">"ProducteModalitatBase"</span> <span class="code-keyword">abstract</span>=<span class="code-quote">"<span class="code-keyword">true</span>"</span> class=<span class="code-quote">"cat.gencat.pica.peticio.core.beans.ProducteModalitat"</span>&gt;
+	&lt;property name=<span class="code-quote">"passwordType"</span> value=<span class="code-quote">"PasswordText"</span>&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;bean id=<span class="code-quote">"picaService"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.connectors.pica.impl.PicaServiceWrapper"</span> singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
+	&lt;property name=<span class="code-quote">"axisDefinition"</span> value=<span class="code-quote">"classpath:axis2client/"</span>&gt;&lt;/property&gt;
+
+	&lt;property name=<span class="code-quote">"loggingService"</span> ref=<span class="code-quote">"loggingService"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"requeridor"</span> ref=<span class="code-quote">"requeridor"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"modalitats"</span>&gt;
+		&lt;map&gt;
+			...
+		&lt;/map&gt;
+	&lt;/property&gt;
+&lt;/bean&gt;</pre>
+</div></div>
+<p><br clear="all" />
+Per a configurar el connector PICA-DNI, només cal afegir aquest bean informant la url de la pica que es vol utilitzar per a consumir els serveis NT.</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"dniService"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.connectors.pica.dni.impl.DniConnectorImpl"</span> singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
+	&lt;property name=<span class="code-quote">"picaService"</span> ref=<span class="code-quote">"picaService"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"nifEmisor"</span> value=<span class="code-quote">"nifEmisor"</span> /&gt;
+	&lt;property name=<span class="code-quote">"nomEmisor"</span> value=<span class="code-quote">"nomEmisor"</span> /&gt;
+	&lt;property name=<span class="code-quote">"loggingService"</span> ref=<span class="code-quote">"loggingService"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"finalitat"</span> value=<span class="code-quote">"PROVES"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"urlPica"</span> value=<span class="code-quote">"http:<span class="code-comment">//preproduccio.pica.gencat.intranet/pica_cataleg/AppJava/services/"</span> /&gt;
+</span>	&lt;property name=<span class="code-quote">"funcionari"</span> ref=<span class="code-quote">"funcionari"</span> /&gt;
+&lt;/bean&gt;
+
+&lt;bean id=<span class="code-quote">"funcionari"</span> class=<span class="code-quote">"cat.gencat.pica.peticio.core.beans.Funcionari"</span>&gt;
+	&lt;property name=<span class="code-quote">"nifFuncionario"</span> value=<span class="code-quote">"nifFuncionari"</span>/&gt;
+	&lt;property name=<span class="code-quote">"nombreFuncionario"</span> value=<span class="code-quote">"nombreFuncionari"</span>/&gt;
+	&lt;property name=<span class="code-quote">"emailFuncionario"</span> value=<span class="code-quote">"emailFuncionario"</span>/&gt;
+&lt;/bean&gt;</pre>
+</div></div>
+
+<p>NOTA: Es molt important que l'ordre de les propietats del bean "dniService" sigui l'especificat anteriorment.</p>
+
+<h2><a name="ConnectorPica-Dni-Utilitzaci%C3%B3delConnector"></a>Utilització del Connector</h2>
+
+<p><br clear="all" /></p>
+
+<h3><a name="ConnectorPica-Dni-Exempled%27utilitzaci%C3%B3ConsultadeDNI"></a>Exemple d'utilització Consulta de DNI</h3>
+
+<p>Referenciar al servei DNI des de l'acció que es vulgui utilitzar (action-servlet-aaa.xml):</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;property name=<span class="code-quote">"dniConnector"</span> ref=<span class="code-quote">"dniService"</span>&gt;&lt;/property&gt;</pre>
+</div></div>
+<p>En l'acció, s'hauran de crear els getters i setters corresponents per al connector de DNI:</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">private</span> DniConnectorImpl dniConnector;
+<span class="code-keyword">public</span> DniConnectorImpl getDniConnector() {
+	<span class="code-keyword">return</span> dniConnector;
+}
+
+<span class="code-keyword">public</span> void setDniConnector(DniConnectorImpl dniConnector) {
+	<span class="code-keyword">this</span>.dniConnector = dniConnector;
+}</pre>
+</div></div>
+<p>Per realitzar la consulta d'un DNI es pot fer amb la següent crida:</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">DadesConsultaDni resposta = dniConnector.dniConsultaBasica(numero_document, tipus_document);</pre>
+</div></div>
+
+<p>on, <b>numero_document</b> correspon al valor del número del document utilitzat i <b>tipus_document</b> correspon al tipus de document que es vol subministrar (Constants.DNI, Constants.NIE, Constants.NIF)</p>
+
+<p>En cas que es vulgui sobreescriure les dades del funcionari especificats en el fitxer de configuració de spring, és possible fer-ho abans de fer la crida al servei:</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">Funcionari funcionari = <span class="code-keyword">new</span> Funcionari();
+funcionari.setNombreFuncionario(<span class="code-quote">"Nom Cognoms Funcionari"</span>);
+funcionari.setNifFuncionario(<span class="code-quote">"NIF"</span>);
+funcionari.setEmailFuncionario(<span class="code-quote">"mail"</span>);
+			
+dniConnector.setFuncionari(funcionari);</pre>
+</div></div>
+
+
+
+<p>Per consultar l'estat de la resposta;</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">EstatResultat estat = resposta.getEstat();</pre>
+</div></div>
+
+<ul class="alternate" type="square">
+	<li>En cas de que les dades no corresponguin amb un DNI, típicament es retornaran aquestes dades:
+<div class="code"><div class="codeContent">
+<pre class="code-java">Assert.assertEquals(<span class="code-quote">"TITULAR NO IDENTIFICADO"</span>, estat.getDescripcio());
+Assert.assertEquals(<span class="code-quote">"0233"</span>, estat.getCodiEstat());</pre>
+</div></div></li>
+</ul>
+
+
+<ul class="alternate" type="square">
+	<li>En cas de que les dades si corresponguin a un DNI, típicament es retornaran les següents dades:
+<div class="code"><div class="codeContent">
+<pre class="code-java">Assert.assertEquals(<span class="code-quote">"TRAMITADA"</span>, estat.getDescripcio());
+Assert.assertEquals(<span class="code-quote">"0003"</span>, estat.getCodiEstat());</pre>
+</div></div></li>
+</ul>
+
+
+<p>Les dades associades a la consulta d'un DNI es poden recuperar amb:</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">resposta.getTitular();</pre>
+</div></div>
+
+<p>Per consultar la totalitat de possibles codis de retorn consultar el document de la PICA <b>Guia d'us del servei de DNI v.1.2.pdf</b> disponible via petició a requeridors.otpica.ctti@gencat.cat</p>
+
+<h3><a name="ConnectorPica-Dni-Exempled%27utilitzaci%C3%B3Verificaci%C3%B3DNI"></a>Exemple d'utilització Verificació DNI</h3>
+
+<p>Referenciar al servei DNI des de l'acció que es vulgui utilitzar (action-servlet-aaa.xml):</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;property name=<span class="code-quote">"dniConnector"</span> ref=<span class="code-quote">"dniService"</span>&gt;&lt;/property&gt;</pre>
+</div></div>
+<p>En l'acció, s'hauran de crear els getters i setters corresponents per al connector de DNI:</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">private</span> DniConnectorImpl dniConnector;
+<span class="code-keyword">public</span> DniConnectorImpl getDniConnector() {
+	<span class="code-keyword">return</span> dniConnector;
+}
+
+<span class="code-keyword">public</span> void setDniConnector(DniConnectorImpl dniConnector) {
+	<span class="code-keyword">this</span>.dniConnector = dniConnector;
+}</pre>
+</div></div>
+<p>Per realitzar la verificació d'un DNI es pot fer amb la següent crida:</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">EstatResultat resposta = dniConnector.dniVerificacioBasica(numero_document, tipus_document, nom, cognom1, cognom2, sexe);</pre>
+</div></div>
+
+<p>on, <b>numero_document</b> correspon al valor del número del document utilitzat;<br/>
+    <b>tipus_document</b> correspon al tipus de document que es vol subministrar (Constants.DNI, Constants.NIE, Constants.NIF);<br/>
+	<b>nom</b> nom del titular del DNI;<br/>
+	<b>cognom1</b> primer cognom del titular del DNI;<br/>
+	<b>cognom2</b> segon cognom del titular del DNI;<br/>
+	<b>sexe</b> sexe del titular del DNI (Constants.MASCULI o Constants.FEMENI)</p>
+
+<ul class="alternate" type="square">
+	<li>En cas de que les dades no corresponguin amb un DNI, típicament es retornaran aquestes dades:
+<div class="code"><div class="codeContent">
+<pre class="code-java">Assert.assertEquals(<span class="code-quote">"TITULAR NO IDENTIFICADO"</span>, resposta.getDescripcio());
+Assert.assertEquals(<span class="code-quote">"0233"</span>, resposta.getCodiEstat());</pre>
+</div></div></li>
+</ul>
+
+
+<ul class="alternate" type="square">
+	<li>En cas de que les dades si corresponguin a un DNI, típicament es retornaran les següents dades:
+<div class="code"><div class="codeContent">
+<pre class="code-java">Assert.assertEquals(<span class="code-quote">"TRAMITADA"</span>, estat.getDescripcio());
+Assert.assertEquals(<span class="code-quote">"0003"</span>, estat.getCodiEstat());</pre>
+</div></div></li>
+</ul>
+
+
+<p>Per consultar la totalitat de possibles codis de retorn consultar el document de la PICA <b>Guia d'us del servei de DNI v.1.2.pdf</b> disponible via petició a requeridors.otpica.ctti@gencat.cat</p>
+
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

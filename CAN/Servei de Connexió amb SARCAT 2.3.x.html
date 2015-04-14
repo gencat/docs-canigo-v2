@@ -1,0 +1,332 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Servei de Connexió amb SARCAT 2.3.x</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Servei de Connexió amb SARCAT 2.3.x
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on May 13, 2011 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="ServeideConnexi%C3%B3ambSARCAT2.3.x-Connexi%C3%B3ambSarcat"></a>Connexió amb Sarcat</h1>
+
+
+<h1><a name="ServeideConnexi%C3%B3ambSARCAT2.3.x-%C3%8Dndex"></a>Índex</h1>
+
+<p><br clear="all" />
+<div>
+<ul><a href='#ServeideConnexi%C3%B3ambSARCAT2.3.x-Connexi%C3%B3ambSarcat'>
+    <li>Connexió amb Sarcat</li></a><a href='#ServeideConnexi%C3%B3ambSARCAT2.3.x-%C3%8Dndex'>
+    <li>Índex</li></a>
+<ul><a href='#ServeideConnexi%C3%B3ambSARCAT2.3.x-Prop%C3%B2sit'>
+    <li>Propòsit</li></a><a href='#ServeideConnexi%C3%B3ambSARCAT2.3.x-Funcionalitatsdelconnector'>
+    <li>Funcionalitats del connector</li></a><a href='#ServeideConnexi%C3%B3ambSARCAT2.3.x-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i Dependències</li></a><a href='#ServeideConnexi%C3%B3ambSARCAT2.3.x-Instal.laci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal.lació i Configuració</li></a>
+<ul><a href='#ServeideConnexi%C3%B3ambSARCAT2.3.x-Instal.laci%C3%B3'>
+    <li>Instal.lació</li></a><a href='#ServeideConnexi%C3%B3ambSARCAT2.3.x-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+<ul><a href='#ServeideConnexi%C3%B3ambSARCAT2.3.x-Configuraci%C3%B3delconnectordelaPICA'>
+    <li>Configuració del connector de la PICA</li></a><a href='#ServeideConnexi%C3%B3ambSARCAT2.3.x-Definici%C3%B3delserveideSarcat'>
+    <li>Definició del servei de Sarcat</li></a>
+</ul>
+</ul><a href='#ServeideConnexi%C3%B3ambSARCAT2.3.x-Utilitzaci%C3%B3delServei'>
+    <li>Utilització del Servei</li></a>
+</ul><a href='#ServeideConnexi%C3%B3ambSARCAT2.3.x-Exemples'>
+    <li>Exemples</li></a>
+</ul></div><br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h2><a name="ServeideConnexi%C3%B3ambSARCAT2.3.x-Prop%C3%B2sit"></a>Propòsit</h2>
+
+<p>El servei permet l'accés comú al registre corporatiu emés per DG d'Atenció Ciutadana.<br/>
+El connector de Sarcat de Canigó exposa totes les operacións publicades pel producte SARCAT de la PICA.<br/>
+Aquest mòdul permet consumir els diferents serveis que ofereix la plataforma de Sarcat mitjançant la PICA. El mòdul permet consumir els serveis oferts pels WebService amb peticions síncrones.</p>
+
+<h2><a name="ServeideConnexi%C3%B3ambSARCAT2.3.x-Funcionalitatsdelconnector"></a>Funcionalitats del connector</h2>
+
+<p>El connector proporciona accés a les següents operacions de Sarcat:</p>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> Operació Sarcat <br clear="all" /> </th>
+<th class='confluenceTh'> Descripció Funcional <br clear="all" /> </th>
+<th class='confluenceTh'> Modalitat PICA <br clear="all" /> </th>
+<th class='confluenceTh'> Operació PICA <br clear="all" /> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> consultaAssentaments </td>
+<td class='confluenceTd'> Permet obtenir una relació d'assentaments, amb les dades bàsiques, que compleixin uns criteris de filtratge específics. </td>
+<td class='confluenceTd'> SARCAT_AL_CONSULTA </td>
+<td class='confluenceTd'> OP_CONSULTA_ASSENTAMENTS </td>
+</tr>
+<tr>
+<td class='confluenceTd'> cercaAssentaments </td>
+<td class='confluenceTd'> Permet obtenir totes les dades d'un assentament concret. </td>
+<td class='confluenceTd'> SARCAT_AL_CONSULTA </td>
+<td class='confluenceTd'> OP_CERCA_ASSENTAMENTS </td>
+</tr>
+<tr>
+<td class='confluenceTd'> recollirAssentamentsSafataEntrada </td>
+<td class='confluenceTd'> Permet recollir assentaments de la safata d'entrada per incorporar-los a d'altres sistemes. </td>
+<td class='confluenceTd'> SARCAT_AL_CONSULTA </td>
+<td class='confluenceTd'> OP_RECOLLIR_ENTRADA </td>
+</tr>
+<tr>
+<td class='confluenceTd'> recollirAssentamentsSafataSortida </td>
+<td class='confluenceTd'> Permet recollir assentaments de la safata de sortida per incorporar-los a d'altres sistemes. </td>
+<td class='confluenceTd'> SARCAT_AL_CONSULTA </td>
+<td class='confluenceTd'> OP_RECOLLIR_SORTIDA </td>
+</tr>
+<tr>
+<td class='confluenceTd'> esPresortida </td>
+<td class='confluenceTd'> Conèixer si un assentament concret és una pre-sortida o una sortida. </td>
+<td class='confluenceTd'> SARCAT_AL_CONSULTA </td>
+<td class='confluenceTd'> OP_ES_PRESORTIDA </td>
+</tr>
+<tr>
+<td class='confluenceTd'> insertarAssentamentEntrada </td>
+<td class='confluenceTd'> Es registra l'assentament d'entrada i retorna el número d'assentament assignat i la data de registre. </td>
+<td class='confluenceTd'> SARCAT_AL_ALTA </td>
+<td class='confluenceTd'> OP_INSERTAR_ASSENTAMENTS_ENTRADA </td>
+</tr>
+<tr>
+<td class='confluenceTd'> insertarAssentamentSortida </td>
+<td class='confluenceTd'> Es registra l'assentament de sortida i retorna el número d'assentament assignat i la data de registre. </td>
+<td class='confluenceTd'> SARCAT_AL_ALTA </td>
+<td class='confluenceTd'> OP_INSERTAR_ASSENTAMENTS_SORTIDA </td>
+</tr>
+<tr>
+<td class='confluenceTd'> insertarAssentamentSafata </td>
+<td class='confluenceTd'> Donada la informació d'assentaments d'entrada, els grava i retorna el número de registre de cadascun. Addicionalment comprova la validesa de la destinació externa respecte l'unitat de registre associada a l'assentament. </td>
+<td class='confluenceTd'> SARCAT_AL_ALTA </td>
+<td class='confluenceTd'> OP_INSERTAR_ASSENTAMENTS_SAFATA </td>
+</tr>
+<tr>
+<td class='confluenceTd'> insertarAssentamentPresortida </td>
+<td class='confluenceTd'> Donada la informació X d'assentaments de presortida, els grava i retorna el número de registre de cadascun. </td>
+<td class='confluenceTd'> SARCAT_AL_ALTA </td>
+<td class='confluenceTd'> OP_INSERTAR_ASSENTAMENTS_PRESORTIDA </td>
+</tr>
+<tr>
+<td class='confluenceTd'> numExp </td>
+<td class='confluenceTd'> Permet modificar el número d'expedient prèviament assignat a un assentament d'entrada o sortida realitzat. </td>
+<td class='confluenceTd'> SARCAT_AL_MODIFICACIO </td>
+<td class='confluenceTd'> OP_CANVI_NUM_EXPEDIENT </td>
+</tr>
+<tr>
+<td class='confluenceTd'> getNumsRegistre </td>
+<td class='confluenceTd'> Permet obtenir un conjunt de números d'assentaments que són reservats per s@rcat de manera exclusiva pel Backoffice que fa la sol- licitud. </td>
+<td class='confluenceTd'> SARCAT_AL_RESERVA </td>
+<td class='confluenceTd'> OP_GET_NUM_REGISTRE </td>
+</tr>
+<tr>
+<td class='confluenceTd'> cercaAssentamentsHist </td>
+<td class='confluenceTd'> Permet obtenir totes les dades d'un assentament que ha passat pel repositori d'històrics d'assentaments de S@rcat. </td>
+<td class='confluenceTd'> SARCAT_AP_HISTORIC </td>
+<td class='confluenceTd'> OP_CERCA_ASSENTAMENT_HISTORIC </td>
+</tr>
+<tr>
+<td class='confluenceTd'> baixaAssentament </td>
+<td class='confluenceTd'> Permet donar de baixa assentaments d'entrada, sortida o presortida prèviament realitzats. </td>
+<td class='confluenceTd'> SARCAT_AL_BAIXA </td>
+<td class='confluenceTd'> OP_BAIXA_ASSENTAMENTS </td>
+</tr>
+<tr>
+<td class='confluenceTd'> llistarTaulesMestres </td>
+<td class='confluenceTd'> A partir d'una data concreta, s'obtenen totes les actualitzacions realitzades en les taules mestres de S@rcat a partir d'aquesta data. </td>
+<td class='confluenceTd'> SARCAT_AL_LLISTA_REG </td>
+<td class='confluenceTd'> OP_LLISTA_REG </td>
+</tr>
+<tr>
+<td class='confluenceTd'> llistarTaulaMestra </td>
+<td class='confluenceTd'> Recuperació de codis o valors possibles per a un determinat concepte o taula mestra. </td>
+<td class='confluenceTd'> SARCAT_AP_LLISTA </td>
+<td class='confluenceTd'> OP_LLISTA_TAULA_MESTRA <br clear="all" /> </td>
+</tr>
+</tbody></table>
+
+<h2><a name="ServeideConnexi%C3%B3ambSARCAT2.3.x-VersionsiDepend%C3%A8ncies"></a>Versions i Dependències</h2>
+
+<p>Les dependències descrites a la següent url són requerides per tal de compilar i fer funcionar el projecte:<br/>
+Dependències: <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_13/canigo-connectors-root/canigo-connectors-sarcat-pica/dependencies.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_13/canigo-connectors-root/canigo-connectors-sarcat-pica/dependencies.html</a><br/>
+Site: <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_13/canigo-connectors-root/canigo-connectors-sarcat-pica/project-info.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_13/canigo-connectors-root/canigo-connectors-sarcat-pica/project-info.html</a><br/>
+Javadoc: <a href="http://canigo.ctti.gencat.cat/repository/maven2/canigo/connectors/canigo-connectors-sarcat-pica/1.0/" title="Visit page outside Confluence">http://canigo.ctti.gencat.cat/repository/maven2/canigo/connectors/canigo-connectors-sarcat-pica/1.0/</a></p>
+
+<p>S'ha deprecat la versió anterior del connector a S@RCAT, podeu trobar la documentació <a href="Connector amb Sarcat 2.1.html" title="Connector amb Sarcat 2.1">aquí</a>.</p>
+
+<h2><a name="ServeideConnexi%C3%B3ambSARCAT2.3.x-Instal.laci%C3%B3iConfiguraci%C3%B3"></a>Instal.lació i Configuració</h2>
+
+
+<h3><a name="ServeideConnexi%C3%B3ambSARCAT2.3.x-Instal.laci%C3%B3"></a>Instal.lació</h3>
+
+<p>La instal.lació del servei requereix de la utilització de la llibreria 'canigo-services-sarcat-pica' i les dependències indicades a l'apartat 'Introducció - Versions i Dependències'.</p>
+
+<h3><a name="ServeideConnexi%C3%B3ambSARCAT2.3.x-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p>La configuració del Servei de Sarcat implica:</p>
+<ul>
+	<li>Configurar el connector de la PICA.</li>
+</ul>
+
+
+<ul>
+	<li>Definir el servei de Sarcat</li>
+</ul>
+
+
+<h4><a name="ServeideConnexi%C3%B3ambSARCAT2.3.x-Configuraci%C3%B3delconnectordelaPICA"></a>Configuració del connector de la PICA</h4>
+
+<p>S'han de crear els beans Requeridor i PicaServiceWrapper en el contexte de Spring <b>src/main/resources/spring/canigo-connectors.xml</b> com s'indica a continuació.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;!-- CONNECTOR A LA PICA --&gt;
+    &lt;!-- Aquest connector és necessari per a utilitzar el servei de sarcat--&gt;
+    &lt;bean id=<span class="code-quote">"requeridor"</span> class=<span class="code-quote">"cat.gencat.pica.peticio.core.beans.Requeridor"</span> singleton=<span class="code-quote">"<span class="code-keyword">true</span>"</span>&gt;
+        &lt;property name=<span class="code-quote">"password"</span> value=<span class="code-quote">"${pica.password}"</span>&gt;&lt;/property&gt;
+        &lt;property name=<span class="code-quote">"user"</span> value=<span class="code-quote">"${pica.user}"</span>&gt;&lt;/property&gt;
+    &lt;/bean&gt;
+   
+    &lt;bean id=<span class="code-quote">"picaService"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.connectors.pica.impl.PicaServiceWrapper"</span> singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
+        &lt;property name=<span class="code-quote">"axisDefinition"</span> value=<span class="code-quote">"classpath:axis2client/"</span>&gt;&lt;/property&gt;
+        &lt;property name=<span class="code-quote">"loggingService"</span> ref=<span class="code-quote">"loggingService"</span>&gt;&lt;/property&gt;
+        &lt;property name=<span class="code-quote">"requeridor"</span> ref=<span class="code-quote">"requeridor"</span>&gt;&lt;/property&gt;
+        &lt;property name=<span class="code-quote">"modalitats"</span>&gt;
+            &lt;map&gt;
+            &lt;/map&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+Les propietats de connexió de la pica necessaries es defineixen a l'arxiu de propietats <b>src/main/resources/connectors/pica.properties</b> .
+<br clear="all" />
+&#124;&#124; Propietat
+<br clear="all" />
+&#124;&#124; Requerit &#124;&#124; Descripció &#124;&#124;</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<td class='confluenceTd'> pica.user </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Usuari del connector amb la PICA <br clear="all" /> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> pica.password </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Password del connector amb la PICA <br clear="all" /> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> pica.urlPica </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> EndPoint del Servei Web de la PICA <br clear="all" />
+per defecte: <a href="http://preproduccio.pica.gencat.intranet/pica_cataleg/AppJava/services/" title="Visit page outside Confluence">http://preproduccio.pica.gencat.intranet/pica_cataleg/AppJava/services/</a> <br clear="all" /> </td>
+</tr>
+</tbody></table>
+
+<h4><a name="ServeideConnexi%C3%B3ambSARCAT2.3.x-Definici%C3%B3delserveideSarcat"></a>Definició del servei de Sarcat</h4>
+
+<p>S'ha de crear els bean SarcatConnectorImpl en el contexte de Spring <b>src/main/resources/spring/canigo-services-sarcat-pica.xml</b> com s'indica a continuació.
+<br clear="all" />
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"sarcatService"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.connectors.sarcat.pica.impl.SarcatConnectorImpl"</span> singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
+   &lt;constructor-arg ref=<span class="code-quote">"loggingService"</span> /&gt;
+   &lt;property name=<span class="code-quote">"picaService"</span> ref=<span class="code-quote">"picaService"</span> /&gt;
+   &lt;property name=<span class="code-quote">"urlPica"</span> value=<span class="code-quote">"${pica.urlPica}"</span> /&gt;
+   &lt;property name=<span class="code-quote">"finalitat"</span> value=<span class="code-quote">"${sarcat.finalitat}"</span> /&gt;
+   &lt;property name=<span class="code-quote">"usuari"</span> value=<span class="code-quote">"${sarcat.usuari}"</span> /&gt;
+   &lt;property name=<span class="code-quote">"password"</span> value=<span class="code-quote">"${sarcat.password}"</span> /&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+Totes les propietats necessaries per a la connexió amb sarcat es defineixen a l'arxiu de propietats <b>src/main/resources/sarcat/sarcat.properties</b> ; són les que s'indiquen a continuació.
+<br clear="all" />
+<br clear="all" />
+&#124;&#124; Propietat
+<br clear="all" />
+&#124;&#124; Requerit &#124;&#124; Descripció &#124;&#124;</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<td class='confluenceTd'> sarcat.usuari </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Usuari del connector de Sarcat <br clear="all" /> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> sarcat.password </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Password del connector de Sarcat <br clear="all" /> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> sarcat.finalitat </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Finalitat de la connexió amb la Sarcat <br clear="all" /> </td>
+</tr>
+</tbody></table>
+
+<h2><a name="ServeideConnexi%C3%B3ambSARCAT2.3.x-Utilitzaci%C3%B3delServei"></a>Utilització del Servei</h2>
+
+<p>La instanciació, la preparació i la petició del servei es fa de manera transparent, de tal manera que el servei s'activa en el moment en que el bean "<em>SarcatConnectorImpl</em>" es instanciat.</p>
+
+<p>Per tant, la utilització del servei es realitza en la seva totalitat mitjançant la correcta parametrització de els objectes que constitueixen els missatges de les operacions de sarcat tant d'entrada com de sortida.</p>
+
+<h1><a name="ServeideConnexi%C3%B3ambSARCAT2.3.x-Exemples"></a>Exemples</h1>
+
+<p>Com exemple d'utilització del servei de connexió amb Sarcat s'inclou un exemple en el que es realitza una cerca de tots els registres d'entrada de documentació creats en una data definidia:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">import</span> net.gencat.scsp.esquemes.peticion.consulta.SarcatAlConsultaRequestDocument;
+<span class="code-keyword">import</span> net.gencat.scsp.esquemes.peticion.consulta.SarcatAlConsultaRequestDocument.SarcatAlConsultaRequest;
+<span class="code-keyword">import</span> net.gencat.scsp.esquemes.peticion.consulta.SarcatAlConsultaResponseDocument;
+<span class="code-keyword">import</span> net.gencat.scsp.esquemes.peticion.historic.SarcatApHistoricRequestDocument;
+
+...
+
+<span class="code-keyword">public</span> Assentament[] cercaAssentaments(<span class="code-object">String</span> data) <span class="code-keyword">throws</span> SarcatException {
+    SarcatConnectorImpl sarcatConnector = (SarcatConnectorImpl) applicationContext.getBean(SarcatConnectorImpl.BEAN_NAME, SarcatConnectorImpl.class);
+
+    SarcatAlConsultaRequestDocument document = SarcatAlConsultaRequestDocument.Factory.newInstance();
+    SarcatAlConsultaRequest request = document.addNewSarcatAlConsultaRequest();
+
+    AssentamentCerca cerca = request.addNewAssentamentCerca();
+    ParametresCerca params =  cerca.addNewParametresCerca();
+    params.setDataInici(data);
+    params.setDataFinal(data);
+    cerca.setParametresCerca(params);
+    cerca.setUrUsuari(<span class="code-quote">"0001"</span>);
+    cerca.setOrdreCerca(OrdreCerca.DATA_ALTA);
+    cerca.setTipus(TipusAssentament.ENTRADA);
+    cerca.setDescendent(<span class="code-keyword">true</span>);
+
+    SarcatAlConsultaResponseDocument resposta = sarcatConnector.cercaAssentaments(document);
+
+    <span class="code-keyword">return</span> resposta.getSarcatAlConsultaResponse().getAssentamentArray();
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

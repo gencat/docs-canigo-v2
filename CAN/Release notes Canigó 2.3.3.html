@@ -1,0 +1,161 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Release notes Canigó 2.3.3</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Release notes Canigó 2.3.3
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Feb 06, 2009 by <font color="#0050B2">otc</font>.
+				    </div>
+
+				    <h2><a name="ReleasenotesCanig%C3%B32.3.3-Releasenotesdelaversi%C3%B32.3.3deCanig%C3%B3"></a>Release notes de la versió 2.3.3 de Canigó</h2>
+
+
+<h3><a name="ReleasenotesCanig%C3%B32.3.3-%28%29BugsfixatsaCanig%C3%B32.3.3%3A"></a><img class="emoticon" src="./icons/emoticons/add.gif" height="16" width="16" align="absmiddle" alt="" border="0"/> Bugs fixats a Canigó 2.3.3:</h3>
+
+<h5><a name="ReleasenotesCanig%C3%B32.3.3-Consultes"></a>Consultes</h5>
+
+<ul>
+	<li>Consulta <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-812" title="Visit page outside Confluence"><b>CAN-812</b></a>: Servei de traces.
+<br clear="all" />
+<b>Context</b>: Servei de traces, no es formateja correctament la data.
+<br clear="all" />
+<b>Solució</b>: Formatejar la data (timestamp) per tal de recuperar només el dia (igual que el camp hour). 
+<br clear="all" />
+<b>Fitxers afectats</b>: &#8211;<br/>
+<b>Serveis afectats</b>: canigo-services-logging-2.2.jar
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Consulta <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-815" title="Visit page outside Confluence"><b>CAN-815</b></a>: Pèrdua sessió en entorns clusters
+<br clear="all" />
+<b>Context</b>: Problemes de desconnexions en els servidors corporatius de la Generalitat de preproducció i producció quan s'activen els dos nodes amb cluster.
+<br clear="all" />
+<b>Solució</b>: Es corregeixen alguns objectes guardats a la session que no eren serialitzables.
+<br clear="all" />
+<b>Fitxers estàtics afectats</b>: &#8211;<br/>
+<b>Serveis afectats</b>: canigo-services-security-2.2.jar
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<h5><a name="ReleasenotesCanig%C3%B32.3.3-Incid%C3%A8ncies"></a>Incidències</h5>
+
+<ul>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-758" title="Visit page outside Confluence"><b>CAN-758</b></a>: Error al validar amb PSIS un document PDF signat.
+<br clear="all" />
+<b>Context</b>: En cridar al conector per validar una signatura amb PSIS, dona un error.  
+<br clear="all" />
+<b>Solució</b>: S'afegeig la possibilitat de configurar explícitament un proxy HTTP i deshabilitar la característica TRANSPORT_CHUNKED.
+<br clear="all" />
+<b>Fitxers estàtics afectats</b>: &#8211;<br/>
+<b>Serveis afectats</b>: canigo-connectors-catcert-2.3.1.jar
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-779" title="Visit page outside Confluence"><b>CAN-779</b></a>: Problemes amb log4j i Weblogic.
+<br clear="all" />
+<b>Context</b>: Problemes amb el servei de traces quan es te un fitxer "log4j.xml" depenent de l'entorn amb una variable d'entorn i Weblogic.
+<br clear="all" />
+<b>Solució</b>: S'arregla el problema de la càrrega de log4j.xml quan l'aplicació s'empaqueta com un EAR.
+<br clear="all" />
+<b>Fitxers estàtics afectats</b>: &#8211;<br/>
+<b>Serveis afectats</b>: canigo-services-logging-2.3.2.jar
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-818" title="Visit page outside Confluence"><b>CAN-818</b></a>: El servei de llistats no informa correctament els errors que genera.
+<br clear="all" />
+<b>Context</b>: Al intentar exportar un fitxer a Excel o PDF dona una excepció sense informar el motiu del error i per tant no es pot tractar.
+<br clear="all" />
+<b>Solució</b>: Propagació de l'excepció llençada al servei web.
+<br clear="all" />
+<b>Fitxers estàtics afectats</b>: &#8211;<br/>
+<b>Serveis afectats</b>: canigo-services-web-2.3.2.jar
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-757" title="Visit page outside Confluence"><b>CAN-757</b></a>: Problema amb autenticació per LDAP.
+<br clear="all" />
+<b>Context</b>: Error que es produeix al intentar autenticar-se per LDAP a una capa interna del framework.
+<br clear="all" />
+<b>Solució</b>: Arreglat un bug com a conseqüència de la integració amb GICART.
+<br clear="all" />
+<b>Fitxers estàtics afectats</b>: &#8211;<br/>
+<b>Serveis afectats</b>: canigo-services-security-2.3.2.jar
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-718" title="Visit page outside Confluence"><b>CAN-718</b></a> i <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-719" title="Visit page outside Confluence"><b>CAN-719</b></a>
+<br clear="all" />
+<b>Context</b>: Creació nou métode al connector documentum optimitzant la búsqueda per directori.
+<br clear="all" />
+<b>Solució</b>: Optimització de la cerca per directoris proposada per la consultoría de Documentum.
+<br clear="all" />
+<b>Fitxers estàtics afectats</b>: &#8211;<br/>
+<b>Serveis afectats</b>: canigo-connectors-documentum-2.3.1.jar
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-703" title="Visit page outside Confluence"><b>CAN-703</b></a>: Problemes al autenticar vía SACE.
+<br clear="all" />
+<b>Context</b>: Quan el SACE retorna un codi desconegut, el missatge multiidioma no existeix i per tant, dona una excepció. També passa quan SACE retorna un codi = 0 (auntenticació correcta).
+<br clear="all" />
+<b>Solució</b>: Captura d'excepcions Throwable a l'obtenir missatge multiidioma intexistent, produit quan SACE retorna un codi desconegut, ó 0.
+<br clear="all" />
+<b>Fitxers estàtics afectats</b>: &#8211;<br/>
+<b>Serveis afectats</b>: canigo-services-security-2.3.2.jar
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-698" title="Visit page outside Confluence"><b>CAN-698</b></a>: Duplicitat bean viewResolver (prototip-servlet.xml i canigo-services-ole.xml).
+<br clear="all" />
+<b>Context</b>: S'ha detectat que el bean viewResolver està duplicat als fitxers prototip-servlet.xml i canigo-services-ole, en consecuencia no funcionen les exportacions a PDF i Excel.
+<br clear="all" />
+<b>Solució</b>: Modificats els ids dels beans viewResolver d'aquests dos fitxers, per tal d'evitar la duplicitat.
+<br clear="all" />
+<b>Fitxers estàtics afectats</b>: prototip-servlet.xml i canigo-services-ole.xml<br/>
+<b>Serveis afectats</b>: &#8211;
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-711" title="Visit page outside Confluence"><b>CAN-711</b></a>: Errors javascript entorn canigó 2.3.2.
+<br clear="all" />
+<b>Context</b>: Error JavaScript de la llibería jQuery al carregar qualsevol pàgina de l'aplicació.
+<br clear="all" />
+<b>Solució</b>: S'ha fet una correcció a /canigo-env/src/main/webapp/scripts/ajax/jquery-1.2.6.min.js.
+<br clear="all" />
+<b>Fitxers estàtics afectats</b>: jquery-1.2.6.min.js<br/>
+<b>Serveis afectats</b>: &#8211;
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-694" title="Visit page outside Confluence"><b>CAN-694</b></a> i <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-713" title="Visit page outside Confluence"><b>CAN-713</b></a>
+<br clear="all" />
+<b>Context</b>: Problemes amb una versió antiga de tinyMCE.
+<br clear="all" />
+<b>Solució</b>: Actualització de la llibreria tinyMCE (3.2.0.1).
+<br clear="all" />
+<b>Fitxers estàtics afectats</b>: Llibreria tinyMCE<br/>
+<b>Serveis afectats</b>: &#8211;
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

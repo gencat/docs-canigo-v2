@@ -1,0 +1,464 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Connector amb Sarcat 2.1</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Connector amb Sarcat 2.1
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Dec 04, 2014 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="ConnectorambSarcat2.1-CONNECTORAMBS@RCAT2.1"></a>CONNECTOR AMB S@RCAT 2.1</h1>
+
+<p><br clear="all" /></p>
+<div>
+<ul><a href='#ConnectorambSarcat2.1-CONNECTORAMBS@RCAT2.1'>
+    <li>CONNECTOR AMB S@RCAT 2.1</li></a><a href='#ConnectorambSarcat2.1-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#ConnectorambSarcat2.1-Prop%C3%B3sit'>
+    <li>Propósit</li></a><a href='#ConnectorambSarcat2.1-ContextiEscenarisd%27%C3%9As'>
+    <li>Context i  Escenaris d'Ús</li></a><a href='#ConnectorambSarcat2.1-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i  Dependències</li></a><a href='#ConnectorambSarcat2.1-Aquivadirigit'>
+    <li>A qui va  dirigit</li></a><a href='#ConnectorambSarcat2.1-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents  i Fonts de Referència</li></a><a href='#ConnectorambSarcat2.1-Glossari'>
+    <li>Glossari</li></a>
+</ul><a href='#ConnectorambSarcat2.1-Descripci%C3%B3Detallada'>
+    <li>Descripció  Detallada</li></a>
+<ul><a href='#ConnectorambSarcat2.1-ArquitecturaiComponents'>
+    <li>Arquitectura i  Components</li></a>
+<ul><a href='#ConnectorambSarcat2.1-Interf%C3%ADciesiComponentsGen%C3%A9rics'>
+    <li>Interfícies  i Components Genérics</li></a>
+</ul><a href='#ConnectorambSarcat2.1-Instal%5Claci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal&#45; lació  i Configuració</li></a>
+<ul><a href='#ConnectorambSarcat2.1-Instal%5Claci%C3%B3'>
+    <li>Instal&#45; lació</li></a><a href='#ConnectorambSarcat2.1-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#ConnectorambSarcat2.1-Utilitzaci%C3%B3delServei'>
+    <li>Utilització del  Servei</li></a><a href='#ConnectorambSarcat2.1-Integraci%C3%B3ambAltresServeis'>
+    <li>Integració  amb Altres Serveis</li></a>
+<ul><a href='#ConnectorambSarcat2.1-Integraci%C3%B3ambelServeideInternacionalitzaci%C3%B3'>
+    <li>Integració  amb el Servei de Internacionalització</li></a>
+</ul>
+</ul><a href='#ConnectorambSarcat2.1-Versi%C3%B3Optimitzada'>
+    <li>Versió Optimitzada</li></a>
+</ul></div>
+<table cellpadding='5' width='85%' cellspacing='8px' class='infoMacro' border="0" align='center'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="./icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td><b class="strong">Versió Optimitzada</b><br />
+<p>Disponible una nova versió optimitzada del connector. Trobareu més informació al següent <a href="http://canigo.ctti.gencat.net/confluence/display/CAN/Connector+amb+Sarcat+2.1#ConnectorambSarcat2.1-Versi%C3%B3Optimitzada" title="Visit page outside Confluence">apartat</a>.</p></td></tr></table>
+<p><br clear="all" />
+<br clear="all" /></p>
+
+<h1><a name="ConnectorambSarcat2.1-Introducci%C3%B3"></a>Introducció</h1>
+
+
+<h2><a name="ConnectorambSarcat2.1-Prop%C3%B3sit"></a>Propósit</h2>
+
+<p>El connector S@rcat ens permet connectar amb el Sistema de registre  corporatiu S@rcat<br/>
+per realitzar l'enregistrament, consulta d'assentaments o  descàrrega de taules mestres .</p>
+
+<p>Les funcions bàsiques que ha d'assolir aquest connector amb S@RCAT :</p>
+<ul>
+	<li>Execucio de funcionalitats on-line encapsulant crides a serveis webservices  existents a <a href="mailto:S@RCAT" title="Send mail to S@RCAT">S@RCAT</a>.</li>
+	<li>Utilització del connector de <a href="mailto:S@RCAT" title="Send mail to S@RCAT">S@RCAT</a> per  l'enviament de documents a registrar mitjançant FTP o SFTP.</li>
+</ul>
+
+
+<h2><a name="ConnectorambSarcat2.1-ContextiEscenarisd%27%C3%9As"></a>Context i  Escenaris d'Ús</h2>
+
+<p>El connector sarcat es troba dins els connectors de serveis funcional.</p>
+
+<h2><a name="ConnectorambSarcat2.1-VersionsiDepend%C3%A8ncies"></a>Versions i  Dependències</h2>
+
+<p>Les dependències descrites a la següent url son requerides per tal de fer funcionar el servei:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-connectors-root/canigo-connectors-sarcat/dependencies.html" title="Visit page outside Confluence">Dependències Connector amb S@rcat</a></p>
+
+<h2><a name="ConnectorambSarcat2.1-Aquivadirigit"></a>A qui va  dirigit</h2>
+
+<p>Aquest document va dirigit als següents perfils:</p>
+<ol>
+	<li>Programador. Per conéixer l'ús del connector.</li>
+	<li>Arquitecte. Per conéixer quins són els components i la configuració del  connector.</li>
+</ol>
+
+
+<h2><a name="ConnectorambSarcat2.1-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents  i Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> [1] </th>
+<th class='confluenceTh'> Anàlisi Funcional - Connector  Serveis Funcionals - 16-Nov.doc </th>
+<th class='confluenceTh'> Document d'anàlisi dels connectors  de serveis funcionals. </th>
+</tr>
+<tr>
+<td class='confluenceTd'> [2] </td>
+<td class='confluenceTd'> DT_CC-s@rcat_v06.doc </td>
+<td class='confluenceTd'> Sistema de registre corporatiu </td>
+</tr>
+</tbody></table>
+
+<h2><a name="ConnectorambSarcat2.1-Glossari"></a>Glossari</h2>
+
+
+<h1><a name="ConnectorambSarcat2.1-Descripci%C3%B3Detallada"></a>Descripció  Detallada</h1>
+
+
+<h2><a name="ConnectorambSarcat2.1-ArquitecturaiComponents"></a>Arquitectura i  Components</h2>
+
+
+<h3><a name="ConnectorambSarcat2.1-Interf%C3%ADciesiComponentsGen%C3%A9rics"></a>Interfícies  i Components Genérics</h3>
+
+<p>Es pot trobar tota la documentació JavaDoc y el codi font referent aquests components a les següents urls:</p>
+
+<p><ins>JavaDoc:</ins> <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-connectors-root/canigo-connectors-sarcat/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-connectors-root/canigo-connectors-sarcat/apidocs/index.html</a><br/>
+<ins>Codi Font:</ins>&nbsp; <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-connectors-root/canigo-connectors-sarcat/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-connectors-root/canigo-connectors-sarcat/xref/index.html</a></p>
+
+<h2><a name="ConnectorambSarcat2.1-Instal%5Claci%C3%B3iConfiguraci%C3%B3"></a>Instal&#45; lació  i Configuració</h2>
+
+
+<h3><a name="ConnectorambSarcat2.1-Instal%5Claci%C3%B3"></a>Instal&#45; lació</h3>
+
+<p>La instal&#45; lació del connector requereix de la utilització de la llibreria  'canigo-connectors-sarcat' i les dependències indicades a l'apartat  'Introducció-Versions i Dependències'.</p>
+
+<p>La instal&#45; lació es realitzarà seguint el procediment habitual per  components/serveis Canigó.</p>
+
+<p>És necesari tenir accés a la intranet de la Generalitat per poder fer proves  i/o utilitzar-lo.</p>
+
+<h3><a name="ConnectorambSarcat2.1-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p><br clear="all" /></p>
+
+<p>Per a la utilització del connector de SarCat cal un fitxer de configuració on es configuri el servei de WebServices (webServicesContext.xml):
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;
+&lt;!DOCTYPE beans PUBLIC <span class="code-quote">"-<span class="code-comment">//SPRING//DTD BEAN//EN"</span> <span class="code-quote">"http://www.springframework.org/dtd/spring-beans.dtd"</span>&gt;
+</span>
+&lt;beans&gt;
+
+&lt;bean <span class="code-keyword">abstract</span>=<span class="code-quote">"<span class="code-keyword">true</span>"</span> id=<span class="code-quote">"ImportedInterfaceDefinition"</span>
+	  class=<span class="code-quote">"net.gencat.ctti.canigo.services.webservices.impl.ImportedInterfaceImpl"</span>/&gt;
+
+&lt;bean id=<span class="code-quote">"loggingConfigurator"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.services.logging.log4j.xml.HostDOMConfigurator"</span>
+	  init-method=<span class="code-quote">"init"</span>&gt;
+    &lt;property name=<span class="code-quote">"configFileName"</span>&gt;&lt;value&gt;classpath:log4j.xml&lt;/value&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;bean name=<span class="code-quote">"WebServicesService"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.services.webservices.impl.WebServicesServiceImpl"</span>&gt;
+        &lt;property name=<span class="code-quote">"importedInterfaces"</span>&gt;
+            &lt;list&gt;
+                &lt;bean parent=<span class="code-quote">"ImportedInterfaceDefinition"</span>&gt;
+                    &lt;property name=<span class="code-quote">"name"</span> value=<span class="code-quote">"sarcatWebService"</span> /&gt;
+                    &lt;property name=<span class="code-quote">"serviceLocator"</span>    value=<span class="code-quote">"org.openuri.www.ConnectorWSLocator"</span>/&gt;
+                    &lt;property name=<span class="code-quote">"serviceLocatorImpl"</span> ref=<span class="code-quote">"sarcatBeanConfiguration"</span>/&gt; 
+                    &lt;property name=<span class="code-quote">"localInterface"</span> value=<span class="code-quote">"org.openuri.www.ConnectorWSSoap"</span>/&gt;
+                &lt;/bean&gt;
+            &lt;/list&gt;
+        &lt;/property&gt;
+        &lt;property name=<span class="code-quote">"logService"</span>&gt;
+            &lt;bean id=<span class="code-quote">"loggingService"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.services.logging.log4j.Log4JServiceImpl"</span>
+		      init-method=<span class="code-quote">"init"</span>&gt;
+                &lt;property name=<span class="code-quote">"configurator"</span>&gt;&lt;ref local=<span class="code-quote">"loggingConfigurator"</span>/&gt;&lt;/property&gt;
+            &lt;/bean&gt;
+        &lt;/property&gt;
+&lt;/bean&gt;
+&lt;bean name=<span class="code-quote">"sarcatBeanConfiguration"</span> class=<span class="code-quote">"org.openuri.www.ConnectorWSLocator"</span>&gt; 
+&lt;property name=<span class="code-quote">"connectorWSSoapAddress"</span> value=<span class="code-quote">"${WS_Sarcat_URL_Locator}"</span>/&gt; 
+&lt;/bean&gt; 
+&lt;/beans&gt;</pre>
+</div></div><br clear="all" /> A partir de la versió 2.3.3 del connector, l'adreça dels WebServices de Sarcat es configura en l'arxiu <b>ValidateWSLocator.properties</b> :
+<br clear="all" /></p>
+<div class="preformatted"><div class="preformattedContent">
+<pre>WS_Sarcat_URL_Locator=http://preproduccio.sarcat.intranet.gencat.cat/ConnectorWebservice/AppJava/ConnectorWS
+</pre>
+</div></div>
+<p><br clear="all" /></p>
+<table cellpadding='5' width='85%' cellspacing='8px' class='noteMacro' border="0" align='center'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="./icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td><b class="strong">Atenció</b><br />
+<p><del>L'arxiu de propietats ValidateWSLocator.properties s'ha de trobar desplegat a l'arrel del directori classes, és a dir, a l'arrel de la carpeta resources de la nostra aplicació.</del><br/>
+<del>Si no es troba en aquesta ubicació no es tindrà en compte la configuració.</del><br/>
+<b>Actualització</b><br/>
+A partir de la versió 2.3.5 el fitxer pot estar en una carpeta dintre del directori de recursos, recomanem: <em>&lt;PROJECT_ROOT&gt;/src/main/resources/connectors/ValidateWSLocator.properties</em>.<br/>
+Per carregar aquest fitxer cal modificar l'XML del servei de configuració <em>canigo-services-configuration.xml</em> i afegir aquesta entrada:</p>
+<div class="preformatted"><div class="preformattedContent">
+<pre>&lt;value&gt;classpath:connectors/ValidateWSLocator.properties&lt;/value&gt;
+</pre>
+</div></div></td></tr></table>
+<p><br clear="all" />
+Per tal d'evitar configuracions errònies, a partir de la versió 2.3.4 el valor per defecte d'aquesta configuració és una adreça clarament erronea ( _<a href="http://adreca.sarcat.no.configurada_" title="Visit page outside Confluence">http://adreca.sarcat.no.configurada_</a> ), de forma que es faci evident que no s'ha configurat correctament.</p>
+
+<p><br clear="all" />
+Com es pot veure a la definició del bean WebServicesService s'importa el web service de SarCat. Es podrà accedir al web service a partir del servei i realitzar les accions que es desitgin a SarCat.
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>Respecte a la configuració del projecte, el fitxer de configuració Maven2 (<em>pom.xml</em>) haurà d'incloure les dependències de SarCat:<br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;dependency&gt;
+    &lt;groupId&gt;canigo.connectors&lt;/groupId&gt;
+    &lt;artifactId&gt;canigo-connectors-sarcat&lt;/artifactId&gt;
+    &lt;version&gt;2.2&lt;/version&gt;
+&lt;/dependency&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h2><a name="ConnectorambSarcat2.1-Utilitzaci%C3%B3delServei"></a>Utilització del  Servei</h2>
+
+<p>La utilització del Connector es basa principalment en la configuració. L'ús  directe des dels clients es permet mitjançant les interfícies definides.</p>
+
+<p>Hi ha dues possibilitats d'us on-line i mitjançant transmissions de fitxers  per FTP. Els noms d'aquest fitxers han de complir un determinat format per  formar el nom (veure document <a href="mailto:DT_CC-s@rcat_v06.doc" title="Send mail to \_DT_CC-s@rcat_v06.doc">&#95;DT_CC-s@rcat_v06.doc</a>_ apartat  7.3.4 Des de la conexió FTP pàg. 72) :</p>
+<ol>
+	<li>La nomenclatura del fitxer FTP que haurà de rebre el <b>s@rcat</b> ha de ser  la  següent:<br/>
+<em>[urUsuari-rangInici-rangFi-tipusAssentament-accio-tipusfitxer-yyyymmddhhmmss]</em><br/>
+<ins>on urUsuari ha de ser</ins>&#95;: &#95;codi d'unitat registre que ha estat assignat  des de l'administrador del sistema. &#95;&#95;<br/>
+<ins>on rangInici ha de ser</ins>: en cas  d'acció "R", el primer número obtingut a la petició de reserva de  numeració.<br/>
+en cas d'acció "A", el nombre d'assentaments que conté el  fitxer<br/>
+<ins>on rangFi ha de ser</ins>: en cas d'acció "R", darrer número obtingut  a la petició de reserva de numeració.<br/>
+en cas d'acció "A", el nombre  d'assentaments que conté el fitxer<br/>
+<ins>on tipusAssentament pot ser</ins> : E  (assentaments d'entrada)<br/>
+S (assentaments de sortida)<br/>
+P (assentaments de  presortida)<br/>
+<ins>on acció pot ser</ins> : R (assentaments reservats)<br/>
+D  (diligència d'assentaments)<br/>
+A (nous assentaments)<br/>
+<ins>on tipusfitxer pot  ser</ins>: XML (contingut XML)<br/>
+PLA (fitxer ASCII)<br/>
+<ins>on</ins> <em>yyyymmddhhmmss</em> <ins>ha de ser</ins>: la data de creació del  fitxer<br/>
+Exemple de fitxers de  peticions:<br/>
+<em>00001-100-200-S-R-PLA-20040302141236</em>. En aquest cas, la  inserció es realitza sobre la unitat de registre 00001. El fitxer està en format  pla (especificat en el punt 7.5) i es processa per la data d'avui. Al ser un  fitxer de tipus R, els números de registre assignats a cada assentament es  validaran contra una taula interna de "reserves" del <b>s@rcat</b>.<br/>
+<em>00001-100-200-S-D-PLA-20040302141236</em>. En aquest cas,  la diligència es realitza sobre la unitat de registre 00001. El fitxer està en  format pla (especificat en el punt 7.5) i es processa per la data d'avui. Al ser  un fitxer de tipus D, els números de registre assignats a cada assentament es  validen contra la taula d'assentaments del <b>s@rcat</b>.</li>
+</ol>
+
+
+<p>Per utilitzar el servei instanciarem un objecte ConnectorWSSoap mitjançant el  servei canigo web services, cridant després a qualsevol dels seus mètodes. Exemple d'utilització:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> void test()
+{
+logDebug(<span class="code-quote">"TestSarcat.test inicio"</span>);
+BeanFactory beanFactory = <span class="code-keyword">new</span> ClassPathXmlApplicationContext(<span class="code-quote">"webServicesContext.xml"</span>);
+WebServicesService service = (WebServicesService) beanFactory.getBean(WebServicesService.
+WEB_SERVICES_BEAN_FACTORY_KEY);
+
+ConnectorWSSoap sarcat = (ConnectorWSSoap) service.getWebService(<span class="code-quote">"sarcatWebService"</span>);
+
+LoginInfo login = <span class="code-keyword">new</span> LoginInfo();
+login.setUser(user);
+login.setPassword(password);
+
+LoginRetorn ret = <span class="code-keyword">null</span>;
+<span class="code-object">String</span> token = <span class="code-keyword">null</span>;
+
+<span class="code-keyword">try</span> {
+ret = sarcat.login(login);
+assertNotNull(ret);
+
+token = ret.getToken();
+assertNotNull(token);
+
+AltaAssentamentEntradaSortida assentament = <span class="code-keyword">new</span> AltaAssentamentEntradaSortida();
+assentament.setToken(token);
+assentament.setUrUsuari(<span class="code-quote">"00001"</span>);
+assentament.setEmail(<span class="code-quote">"name@atosorigin.com"</span>);
+
+AssentamentEntradaInfo entrada = <span class="code-keyword">new</span> AssentamentEntradaInfo();
+entrada.setAnyPK(2006);
+entrada.setCodiURPK(<span class="code-quote">"00001"</span>);
+entrada.setAssumpte(<span class="code-quote">"Test2"</span>);
+entrada.setDataPresentacio(<span class="code-quote">"21/01/2006"</span>);
+entrada.setDataDocument(<span class="code-quote">"20/01/2006"</span>);
+<span class="code-comment">//entrada.setDataAlta(<span class="code-quote">"20/01/2006 18:35:01"</span>);
+</span>entrada.setDescripcio(<span class="code-quote">"descripcio2"</span>);
+entrada.setNom(<span class="code-quote">"Victor"</span>);
+entrada.setCognom1(<span class="code-quote">"Fdez"</span>);
+entrada.setCognom2(<span class="code-quote">"Castanyo"</span>);
+<span class="code-comment">// Barcelona : 080193
+</span>entrada.setIdPoblacioProc(<span class="code-quote">"080193"</span>);
+<span class="code-comment">// Via presentació 8 : Telemática
+</span>entrada.setIdViaPresentacio(8);
+<span class="code-comment">// Tipus Tramesa 1 : Persona Física
+</span>entrada.setIdTipusTramesa(1);
+<span class="code-comment">// Dest Interna 2340 : Direcció General de Cooperació Cultural
+</span>entrada.setIdCentreDestInterna(2340);
+<span class="code-comment">// Support Físic 3 : Electronic
+</span>entrada.setIdSuportFisic(3);
+<span class="code-comment">// Tipus Document 13 : Sol.licitud
+</span>entrada.setIdDocument(13);
+entrada.setNumExpedient(<span class="code-quote">"23400"</span>);
+<span class="code-comment">//entrada.setNumPK(2);
+</span>entrada.setLda(0);
+entrada.setUrgent(0);
+<span class="code-comment">// Parametres buits!! a -1
+</span>entrada.setAnySort(-1L);
+entrada.setIdAnnex(-1L);
+entrada.setIdCategoria(-1L);
+entrada.setIdCentreDestExterna(-1L);
+entrada.setIdCentreProcedencia(-1L);
+entrada.setIdMotiuDiligencia(-1L);
+entrada.setIdPlantilla(-1L);
+entrada.setIdSubdivEspecifica(-1L);
+entrada.setIdSubdivUniforme(-1L);
+entrada.setIdVolum(-1L);
+entrada.setNumEmergencia(-1L);
+entrada.setNumPK(-1L);
+entrada.setNumSort(-1L); AssentamentEntradaInfo[] array = <span class="code-keyword">new</span> AssentamentEntradaInfo[1];
+array[0] = entrada;
+assentament.setAssentamentEntrada(array);
+
+AssentamentsRetorn retAss = sarcat.insertarAssentamentEntrada(assentament);
+
+logDebug(<span class="code-quote">"AssentamentsRetorn : "</span> + retAss.getAssentamentRetorn()[0]);
+logDebug(<span class="code-quote">"AssentamentsRetorn error: "</span> + retAss.getAssentamentRetorn()[0].getDataAlta());
+logDebug(<span class="code-quote">"AssentamentsRetornerror: "</span> + retAss.getAssentamentRetorn()[0].getErrorAssentament().
+getDescripcio());
+logDebug(<span class="code-quote">"AssentamentsRetorn error: "</span> + retAss.getAssentamentRetorn()[0].getErrorAssentament().
+getDescripcioExtesa());
+
+} <span class="code-keyword">catch</span> (RemoteException e) {
+logError(<span class="code-quote">"Error en TestSarcat.test2 "</span> + e.getMessage());
+e.printStackTrace();
+}
+
+<span class="code-keyword">finally</span>
+{
+<span class="code-keyword">try</span> {
+sarcat.logout(token);
+} <span class="code-keyword">catch</span> (RemoteException e) {
+<span class="code-comment">// TODO Auto-generated <span class="code-keyword">catch</span> block
+</span>e.printStackTrace();
+}
+}
+
+logDebug(<span class="code-quote">"TestSarcat.test2 fin"</span>);
+}
+
+Exemple d'utilització amb batch (FTP)
+
+<span class="code-keyword">public</span> void testFTP1()
+{
+logDebug(<span class="code-quote">"TestSarcat.testFTP1 inicio"</span>);
+
+FtpClientIF ftpClient=<span class="code-keyword">null</span>;
+
+<span class="code-keyword">try</span> {
+PlanificatTaulaMestraCerca tmc = createTaulaMestraCerca();
+
+<span class="code-comment">//org.apache.commons.net.ftp.FTPClient ftpClient=<span class="code-keyword">new</span> org.apache.commons.net.ftp.FTPClient();
+</span><span class="code-comment">//ftpClient.connect(realIP);
+</span><span class="code-comment">//<span class="code-object">boolean</span> isConnected=ftpClient.login(userFTP,passwordFTP);
+</span>
+ftpClient=getFtpService();
+<span class="code-object">boolean</span> isConnected=ftpClient.login(userFTP, passwordFTP, realIP);
+<span class="code-comment">//<span class="code-object">boolean</span> isConnected=ftpClient.connectAndLogin(testIP, <span class="code-quote">"pepe"</span>, <span class="code-quote">"pepe"</span>);
+</span>logDebug(<span class="code-quote">"User: "</span>+ userFTP + <span class="code-quote">" Is Connected? = "</span>+ isConnected);
+assertTrue(isConnected);
+
+<span class="code-keyword">if</span> (isConnected)
+{
+FTPMarshalImp ftpM= <span class="code-keyword">new</span> FTPMarshalImp(ftpClient);
+assertTrue(ftpM.ftpUpload(tmc, <span class="code-quote">"00001-100-200-S-D-XML-20060209141236"</span>));
+
+PlanificatTaulaMestraCerca tmcDownloaded=(PlanificatTaulaMestraCerca)ftpM.ftpDownload
+(<span class="code-quote">"net.gencat.sarcat.planificat.taulamestracerca"</span>, <span class="code-quote">"PlanificatTaulaMestraCerca.xml"</span>);
+
+<span class="code-keyword">if</span> (tmcDownloaded!=<span class="code-keyword">null</span>)
+logDebug(<span class="code-quote">"tmcDownloaded.getToken="</span>+tmcDownloaded.getToken());
+<span class="code-keyword">else</span>
+logDebug(<span class="code-quote">"tmcDownloaded=<span class="code-keyword">null</span>"</span>);
+
+assertNotNull(tmcDownloaded);
+}
+
+}
+<span class="code-keyword">catch</span> (Exception e) {
+logError(<span class="code-quote">"Error en TestSarcat.testFTP1 "</span> + e.getMessage());
+e.printStackTrace();
+}
+
+<span class="code-keyword">finally</span>
+{
+ftpClient.disconnect();
+}
+
+logDebug(<span class="code-quote">"TestSarcat.testFTP1 fin"</span>);
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+A partir de la versió 2.3.5 es poden fer transferències per SFTP (Secure FTP). Per fer-ho servir s'ha de construïr l'objecte del tipus net.gencat.sarcat.ftp.Impl.FTPMarshalImp amb el Servei de SFTP com a paràmetre.<br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java">SftpService sftpService = getSftpService();
+FTPMarshalImp ftpM = <span class="code-keyword">new</span> FTPMarshalImp(sftpService);</pre>
+</div></div><br clear="all" />
+Per veure les possibles configuracions i més informació del servei de SFTP consulteu la següent adreça: <a href="Servei de SFTP 2.3.x.html" title="Servei de SFTP 2.3.x">Servei de SFTP 2.3.x</a><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Pel correcte funcionament de les crides al connector de SarCat es OBLIGATORI que els camps numèrics dels quals no es desitja informar el seu valor es faci amb el valor &#45;1 (Ex. entrada.setIdCentreProcedencia(-1L), entrada.setLda(-1), ...).
+<br clear="all" /></p>
+<h2><a name="ConnectorambSarcat2.1-Integraci%C3%B3ambAltresServeis"></a>Integració  amb Altres Serveis</h2>
+
+
+<h3><a name="ConnectorambSarcat2.1-Integraci%C3%B3ambelServeideInternacionalitzaci%C3%B3"></a>Integració  amb el Servei de Internacionalització</h3>
+
+<p>En els fitxers de configuració es defineixen claus que permeten especificar  quins missatges retornar en cas errors. Per a poder traduir aquestes claus és  necessari especificar que el connector usarà el Servei d'Internacionalització  (veure Configuració).</p>
+
+<h1><a name="ConnectorambSarcat2.1-Versi%C3%B3Optimitzada"></a>Versió Optimitzada</h1>
+
+<p>S'ha portat a terme una optimització del connector de SARCAT per tal de reduïr el seu número de classes i com a conseqüència el seu tamany.<br/>
+Per tal de fer-ho s'han modificat una sèrie de classes, concretament s'han traslladat totes les classes del paquet runtime de la pròpia funcionalitat a un paquet comú accessible per aquestes.</p>
+
+<p>Aquest canvi no hauria d'afectar a cap projecte ja que les classes modificades són utilitzades internament pel propi connector.<br/>
+Per realitzar el canvi només s'ha de descarregar la nova versió i sobreescriure l'anterior al repositori local de maven.</p>
+
+<p>Podeu trobar la nova versió per descarregar-la al següent <a href="http://canigo.ctti.gencat.net/confluence/download/attachments/1020/canigo-connectors-sarcat-2.X.jar?version=1" title="canigo-connectors-sarcat-2.X.jar attached to Connector amb Sarcat 2.1">enllaç</a></p>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb Sarcat 2.1_attachments/image004.gif">image004.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb Sarcat 2.1_attachments/image005.gif">image005.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb Sarcat 2.1_attachments/image002.gif">image002.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb Sarcat 2.1_attachments/image003.gif">image003.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb Sarcat 2.1_attachments/image001.gif">image001.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb Sarcat 2.1_attachments/image006.gif">image006.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb Sarcat 2.1_attachments/canigo-connectors-sarcat-2.X.jar">canigo-connectors-sarcat-2.X.jar</a> (application/java-archive)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

@@ -1,0 +1,216 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Connector amb Catcert 2.1</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Connector amb Catcert 2.1
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Mar 03, 2008 by <font color="#0050B2">manel.batlles</font>.
+				    </div>
+
+				    <h1><a name="ConnectorambCatcert2.1-CONNECTORAMBCATCERT2.1"></a>CONNECTOR AMB CATCERT 2.1</h1>
+
+<div>
+<ul><a href='#ConnectorambCatcert2.1-CONNECTORAMBCATCERT2.1'>
+    <li>CONNECTOR AMB CATCERT 2.1</li></a><a href='#ConnectorambCatcert2.1-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#ConnectorambCatcert2.1-Prop%C3%B3sit'>
+    <li>Propósit</li></a><a href='#ConnectorambCatcert2.1-ContextiEscenarisd%27%C3%9As'>
+    <li>Context i  Escenaris d'Ús</li></a><a href='#ConnectorambCatcert2.1-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i  Dependències</li></a><a href='#ConnectorambCatcert2.1-Aquivadirigit'>
+    <li>A qui va  dirigit</li></a><a href='#ConnectorambCatcert2.1-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents  i Fonts de Referència</li></a><a href='#ConnectorambCatcert2.1-Glossari'>
+    <li>Glossari</li></a>
+</ul><a href='#ConnectorambCatcert2.1-Descripci%C3%B3Detallada'>
+    <li>Descripció  Detallada</li></a>
+<ul><a href='#ConnectorambCatcert2.1-ArquitecturaiComponents'>
+    <li>Arquitectura i  Components</li></a>
+<ul><a href='#ConnectorambCatcert2.1-Interf%C3%ADciesiComponentsGen%C3%A9rics'>
+    <li>Interfícies  i Components Genérics</li></a>
+</ul><a href='#ConnectorambCatcert2.1-Instal%5Claci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal&#45; lació  i Configuració</li></a>
+<ul><a href='#ConnectorambCatcert2.1-Instal%5Claci%C3%B3'>
+    <li>Instal&#45; lació</li></a><a href='#ConnectorambCatcert2.1-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#ConnectorambCatcert2.1-Utilitzaci%C3%B3delServei'>
+    <li>Utilització del  Servei</li></a><a href='#ConnectorambCatcert2.1-Integraci%C3%B3ambAltresServeis'>
+    <li>Integració  amb Altres Serveis</li></a>
+<ul><a href='#ConnectorambCatcert2.1-Integraci%C3%B3ambelServeideInternacionalitzaci%C3%B3'>
+    <li>Integració  amb el Servei de Internacionalització</li></a>
+</ul>
+</ul>
+</ul></div>
+
+<h1><a name="ConnectorambCatcert2.1-Introducci%C3%B3"></a>Introducció</h1>
+
+<h2><a name="ConnectorambCatcert2.1-Prop%C3%B3sit"></a>Propósit</h2>
+
+<p>El propósit del connector és proporcionar una interfície java per accedir a  Catcert.</p>
+
+<p>Disposa de dos mètodes de validació, el primer, validate, espera rebre un  string amb el XML per processar la petició. El segon, validateDetStr, és un  mètode de conveniència d'un entorn anterior que només permet la validació de  documents amb signatura Dettached, i que espera rebre dos strings (una per al  document en base 64 i l'altre per a la seva signatura).</p>
+
+<p>Ambdós mètodes retornen un XML (comentat en el punt 4.1.2) que conté el  resultat de la petició, els camps del certificat que s'hagin demanat cas que  aquest sigui correcte i una signatura del validador.</p>
+
+<h2><a name="ConnectorambCatcert2.1-ContextiEscenarisd%27%C3%9As"></a>Context i  Escenaris d'Ús</h2>
+
+<p>El connector catcert es troba dins els connectors de serveis funcional.</p>
+
+<h2><a name="ConnectorambCatcert2.1-VersionsiDepend%C3%A8ncies"></a>Versions i  Dependències</h2>
+
+<p>En el present apartat es mostren quines són les versions i dependències  necessàries per fer ús del Servei.</p>
+
+<p>Les dependències descrites a la següent url son requerides per tal de fer funcionar el servei:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-connectors-root/canigo-connectors-catcert/dependencies.html" title="Visit page outside Confluence">Dependències Connector amb Catcert</a></p>
+
+<h2><a name="ConnectorambCatcert2.1-Aquivadirigit"></a>A qui va  dirigit</h2>
+
+<p>Aquest document va dirigit als següents perfils:</p>
+<ol>
+	<li>Programador. Per conéixer l'ús del connector.</li>
+	<li>Arquitecte. Per conéixer quins són els components i la configuració del  connector.</li>
+</ol>
+
+
+<h2><a name="ConnectorambCatcert2.1-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents  i Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> [1] </th>
+<th class='confluenceTh'> Anàlisi Funcional - Connector  Serveis Funcionals - 16-Nov.doc </th>
+<th class='confluenceTh'> Document d'anàlisi dels connectors  de serveis funcionals. </th>
+</tr>
+<tr>
+<td class='confluenceTd'> [2] </td>
+<td class='confluenceTd'> acces_serveis_validacio.pdf </td>
+<td class='confluenceTd'> Frontal Serveis Web PKI - Accés als  serveis de validació. <br clear="all" /> </td>
+</tr>
+</tbody></table>
+
+<h2><a name="ConnectorambCatcert2.1-Glossari"></a>Glossari</h2>
+
+<h1><a name="ConnectorambCatcert2.1-Descripci%C3%B3Detallada"></a>Descripció  Detallada</h1>
+
+<h2><a name="ConnectorambCatcert2.1-ArquitecturaiComponents"></a>Arquitectura i  Components</h2>
+
+<h3><a name="ConnectorambCatcert2.1-Interf%C3%ADciesiComponentsGen%C3%A9rics"></a>Interfícies  i Components Genérics</h3>
+
+<p>Es pot trobar tota la documentació JavaDoc y el codi font referent aquests components a les següents urls:</p>
+
+<p><ins>JavaDoc:</ins> <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-connectors-root/canigo-connectors-catcert/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-connectors-root/canigo-connectors-catcert/apidocs/index.html</a><br/>
+<ins>Codi Font:</ins>&nbsp; <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-connectors-root/canigo-connectors-catcert/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-connectors-root/canigo-connectors-catcert/xref/index.html</a></p>
+
+<h2><a name="ConnectorambCatcert2.1-Instal%5Claci%C3%B3iConfiguraci%C3%B3"></a>Instal&#45; lació  i Configuració</h2>
+
+<h3><a name="ConnectorambCatcert2.1-Instal%5Claci%C3%B3"></a>Instal&#45; lació</h3>
+
+<p>La instal&#45; lació del connector requereix de la utilització de la llibreria  'canigo-connectors-catcert' i les dependències indicades a l'apartat  'Introducció-Versions i Dependències'.</p>
+
+<p>La instal&#45; lació es realitzarà seguint el procediment habitual per  components/serveis canigo.</p>
+
+<p>És necesari tenir accés a la intranet de la Generalitat per poder fer proves  i/o utilitzar-lo.</p>
+
+<h3><a name="ConnectorambCatcert2.1-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p>Serà necessari el fitxer de configuració de la pròpia aplicació que utilitza  el connector catcert on inclourem la utilització dels web services:<br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"baseWebServiceLocator"</span> <span class="code-keyword">abstract</span>=<span class="code-quote">"<span class="code-keyword">true</span>"</span>
+class=<span class="code-quote">"net.gencat.ctti.canigo.services.webservices.jaxrpc.JaxRpcLocator"</span>&gt;
+&lt;property name=<span class="code-quote">"portName"</span> value=<span class="code-quote">"getPort"</span> /&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" /></p>
+
+<p>L'arxiu de configuració Maven2 del projecte (<em>pom.xml</em>) ha d'incloure la dependència amb el connector:</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;dependency&gt;
+    &lt;groupId&gt;canigo.connectors&lt;/groupId&gt;
+    &lt;artifactId&gt;canigo-connectors-catcert&lt;/artifactId&gt;
+    &lt;version&gt;2.2&lt;/version&gt;
+&lt;/dependency&gt;</pre>
+</div></div>
+
+<h2><a name="ConnectorambCatcert2.1-Utilitzaci%C3%B3delServei"></a>Utilització del  Servei</h2>
+
+<p>La utilització del Connector es basa principalment en la configuració. L'ús  directe des dels clients es permet mitjançant les interfícies definides.</p>
+
+<p>Per utilitzar el servei instanciarem un objecte ValidateWSPortType mitjançant  el servei canigo web services. Cridant després a qualsevol dels mètodes que  ValidateWSPortType presenta.</p>
+
+<p>Exemple d'utilització:<br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> void testCATCERT()
+{
+logDebug(<span class="code-quote">"Test.testCATCERT inicio"</span>);
+BeanFactory beanFactory = <span class="code-keyword">new</span> ClassPathXmlApplicationContext(<span class="code-quote">"webServicesContext.xml"</span>);
+WebServicesService service =
+(WebServicesService) beanFactory.getBean(WebServicesService.WEB_SERVICES_BEAN_FACTORY_KEY);
+
+ValidateWSPortType catcert = (ValidateWSPortType) service.getWebService(<span class="code-quote">"catcertWebService"</span>);
+assertNotNull(catcert);
+
+<span class="code-object">String</span> respuesta = <span class="code-keyword">null</span>;
+
+<span class="code-keyword">try</span>
+{
+<span class="code-object">String</span> xmlData = getXmlCertificationPKCS7SignatureInputData(certificate);
+log.debug(xmlData);
+log.debug(catcert.ping());
+respuesta = catcert.validate(xmlData);
+
+} <span class="code-keyword">catch</span> (RemoteException e) {
+logError(<span class="code-quote">"Error en TestCatcert.testCanigoWebServicesGoogle "</span>+ e.getMessage());
+
+}
+logDebug(respuesta);
+logDebug(<span class="code-quote">"Test.testCATCERT fin"</span>);
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h2><a name="ConnectorambCatcert2.1-Integraci%C3%B3ambAltresServeis"></a>Integració  amb Altres Serveis</h2>
+
+
+<h3><a name="ConnectorambCatcert2.1-Integraci%C3%B3ambelServeideInternacionalitzaci%C3%B3"></a>Integració  amb el Servei de Internacionalització</h3>
+
+<p>En els fitxers de configuració es defineixen claus que permeten especificar  quins missatges retornar en cas errors. Per a poder traduir aquestes claus és  necessari especificar que el connector usarà el Servei d'Internacionalització  (veure Configuració).</p>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb Catcert 2.1_attachments/image001.gif">image001.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb Catcert 2.1_attachments/image002.gif">image002.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb Catcert 2.1_attachments/image003.gif">image003.gif</a> (image/gif)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

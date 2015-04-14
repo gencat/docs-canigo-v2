@@ -1,0 +1,225 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Reducció de fitxers amb Spring 2.0</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Reducció de fitxers amb Spring 2.0
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Sep 13, 2007 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h2><a name="Reducci%C3%B3defitxersambSpring2.0-Reducci%C3%B3defitxersdeconfiguraci%C3%B3"></a>Reducció de fitxers de configuració</h2>
+
+<p>La reducció de fitxers de configuració al framework Canigó s'ha realitzat incorporant dues tecnologies diferenciades que ofereixen la reducció de fitxers a diferents apartats de la configuració del framework. Una tecnologia és la que ofereix Spring 2.0 que permet reduïr els fitxers necessaris per a aconseguir els mateixos efectes que s'aconseguien en les versions &lt; 2.0. Una altra tecnologia és la que ofereix <a href="Sitemesh.html" title="Sitemesh">SiteMesh</a>, un framework per gestionar el disseny de les aplicacions web. Tot seguit es concreten les possibilitats i l'ús de la tecnologia spring.</p>
+
+<h3><a name="Reducci%C3%B3defitxersambSpring2.0-Spring2.0"></a>Spring 2.0</h3>
+
+<p>Spring 2.0 té una nova capacitat anomenada "extensible XML configuration" a partir de la qual es dóna suport al desenvolupament d'elements fets a mida. Aquests elements fets a mida ofereixen un nou nivell d'abstracció per generar definicions de beans de Spring. El mecanisme d'extensió de XML també proveeix de noves etiquetes per simplificar les tàsques més habituals.</p>
+
+<h4><a name="Reducci%C3%B3defitxersambSpring2.0-Novesetiquetesperaferlestasquesm%C3%A9shabituals"></a>Noves etiquetes per a fer les tasques més habituals</h4>
+
+<p>Per a poder utilitzar les noves etiquetes és necessari utilitzar els XML Schema en comptes dels DTD, i importar el namespace desitjat. Tanmateix aquestes etiquetes es poden mesclar amb les definicions tradicionals de beans.</p>
+
+<p><b>Exemple de codi que s'ha d'incloure per a usar el namespace</b> <b><em>tx</em></b></p>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;
+&lt;beans xmlns=<span class="code-quote">"http:<span class="code-comment">//www.springframework.org/schema/beans"</span>
+</span>xmlns:xsi=<span class="code-quote">"http:<span class="code-comment">//www.w3.org/2001/XMLSchema-instance"</span>
+</span>xmlns:tx=<span class="code-quote">"http:<span class="code-comment">//www.springframework.org/schema/tx"</span>
+</span>xsi:schemaLocation="http:<span class="code-comment">//www.springframework.org/schema/beans
+</span>http:<span class="code-comment">//www.springframework.org/schema/beans/spring-beans-2.0.xsd
+</span>http:<span class="code-comment">//www.springframework.org/schema/tx
+</span>http:<span class="code-comment">//www.springframework.org/schema/tx/spring-tx-2.0.xsd"&gt;</span></pre>
+</div></div><br clear="all" />
+Les etiquetes que ofereix Spring 2.0 són:<br/>
+Transaction management ("<em>tx</em>"), AOP ("<em>aop</em>"), Java EE ("<em>jee</em>"), Dynamic languages ("<em>lang</em>") i Utils ("<em>util</em>"). Per a més informació cal consultar la <a href="http://www.springframework.org/documentation" title="Visit page outside Confluence">documentació de Spring </a>.<br/>
+Així doncs a tall d'exemple aquí es comparen dues tasques en les seves maneres de fer amb Spring 2.0 i amb Spring &lt; 2.0.<br/>
+&nbsp;<b>Definició del datasource amb spring &lt; 2.0</b><br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"dataSource"</span> class=<span class="code-quote">"org.springframework.jndi.JndiObjectFactoryBean"</span>&gt;
+     &lt;property name=<span class="code-quote">"jndiName"</span> value=<span class="code-quote">"jdbc/jpetsore"</span> /&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />  <b>Definició del datasource amb spring 2.0</b><br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;jee:jndi-lookup id=<span class="code-quote">"dataSource"</span> jndi-name=<span class="code-quote">"jdbc/jpetstore"</span>/&gt;</pre>
+</div></div><br clear="all" />  <b>Definició del caràcter transaccional pels beans amb spring &lt; 2.0</b></p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean class=<span class="code-quote">"org.springframework...DefaultAdvisorAutoProxyCreator"</span>/&gt;
+  &lt;bean class=<span class="code-quote">"org.springframework...TransactionAttributeSourceAdvisor"</span>&gt;
+     &lt;property name=<span class="code-quote">"transactionInterceptor ref="</span>transactionInterceptor"/&gt;
+  &lt;/bean&gt;
+
+  &lt;bean id=<span class="code-quote">"transactionInterceptor"</span> class=<span class="code-quote">"org.springframework...TransactionInterceptor"</span>&gt;
+     &lt;property name=<span class="code-quote">"transactionManager"</span> ref=<span class="code-quote">"transactionManager"</span>/&gt;
+     &lt;property name=<span class="code-quote">"transactionAttributeSource"</span>&gt;
+         &lt;bean class=<span class="code-quote">"org.springframework...AnnotationsTransactionAttributeSource"</span>&gt;
+ 	 &lt;/bean&gt;
+     &lt;/property&gt;
+ &lt;/bean&gt;</pre>
+</div></div>
+<p><b>Definició del caràcter transaccional pels beans amb spring 2.0</b></p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;tx:annotation-driven /&gt;</pre>
+</div></div>
+
+<h5><a name="Reducci%C3%B3defitxersambSpring2.0-Implementaci%C3%B3d%27unaextensi%C3%B3XML"></a>Implementació d'una extensió XML</h5>
+
+<p>La implementació de namespaces és relativament fàcil. És un procés compost de tres passos. En l'exemple que s'ha posat, el 2n pas està descomposat en dos passos per simplificar la feina.</p>
+
+<p>1. Definir un schema XML. No ha de complir cap restricció especial. El fitxer schema es pot posar allà on es cregui més convenient, sempre i quan després es configuri correctament la seva localització.</p>
+
+<p><b>Exemple de schema</b></p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;
+&lt;xsd:schema xmlns=<span class="code-quote">"http:<span class="code-comment">//www.springframework.org/schema/myns"</span>
+</span>    xmlns:xsd=<span class="code-quote">"http:<span class="code-comment">//www.w3.org/2001/XMLSchema"</span>
+</span>    xmlns:beans=<span class="code-quote">"http:<span class="code-comment">//www.springframework.org/schema/beans"</span>
+</span>    targetNamespace=<span class="code-quote">"http:<span class="code-comment">//www.mycompany.com/schema/myns"</span>
+</span>    elementFormDefault=<span class="code-quote">"qualified"</span>
+    attributeFormDefault=<span class="code-quote">"unqualified"</span>&gt;
+   &lt;xsd:<span class="code-keyword">import</span> namespace=<span class="code-quote">"http:<span class="code-comment">//www.springframework.org/schema/beans"</span>/&gt;
+</span>   &lt;xsd:element name=<span class="code-quote">"dateformat"</span>&gt;
+      &lt;xsd:complexType&gt;
+         &lt;xsd:complexContent&gt;
+            &lt;xsd:extension base=<span class="code-quote">"beans:identifiedType"</span>&gt;
+               &lt;xsd:attribute name=<span class="code-quote">"lenient"</span> type=<span class="code-quote">"xsd:<span class="code-object">boolean</span>"</span>/&gt;
+               &lt;xsd:attribute name=<span class="code-quote">"pattern"</span> type=<span class="code-quote">"xsd:string"</span> use=<span class="code-quote">"required"</span>/&gt;
+            &lt;/xsd:extension&gt;
+         &lt;/xsd:complexContent&gt;
+      &lt;/xsd:complexType&gt;
+   &lt;/xsd:element&gt;
+&lt;/xsd:schema&gt;</pre>
+</div></div>
+<p>2. Generar una classe que implementi la interfície NamespaceHandler. Aquesta classe ha de generar objectes BeanDefinition amb els elements i atributs del schema definit al punt 1.</p>
+
+<p>La interfície NamespaceHandler agafa els elements W3C DOM i en genera metadades BeanDefinition processant-los. Spring ja s'encarrega de fer el parseig del XML. Els mètodes de la implementació de la interfídie NamespaceHandler només han de recòrrer l'abre resultant del parseig.</p>
+
+<p><b>Interfície NamespaceHandler</b></p>
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> <span class="code-keyword">interface</span> NamespaceHandler {
+     void init();
+     BeanDefinition parse(Element element, ParserContext parserContext);
+
+      BeanDefinitionHolder decorate(Node source, BeanDefinitionHolder definition, ParserContext parserContext);
+  }</pre>
+</div></div>
+<p>El mètode parse() és el més important, té la funcionalitat d'afegir objectes BeanDefinition al context de treball.<br/>
+El mètode decorate() permet modificar els objectes BeanDefinition existents.<br/>
+Un exemple il?lustratiu de la "decoració" és el següent:</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"scopedList"</span> class=<span class="code-quote">"java.util.ArrayList"</span> scope=<span class="code-quote">"request"</span>&gt;
+    &lt;aop:scoped-proxy/&gt;
+&lt;/bean&gt;</pre>
+</div></div>
+<p>L'etiqueta &lt;aop:scoped-proxy&gt; modifica l'element regular &lt;bean&gt; que el conté; proporcionant accés a l'objecte BeanDefinition, aquest el pot modificar.</p>
+
+<p>Per implementar la interfície NamespaceHandler el que farem serà crear una classe que extengui de la classe NamespaceHandlerSupport, la qual ens facilita el procés introduïnt el concepte de "delegar" (mitjançant el registre de totes les instàncies de la classe BeanDefinitionParser que ens calguin) i després implementar la classe BeanDefinitionParser necessaria.</p>
+
+<p><b>Exemple de classe que hereda de NamespaceHandlerSupport</b></p>
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">package</span> net.gencat.ctti.canigo.samples.prototip.spring.xmlExtension;
+<span class="code-keyword">import</span> org.springframework.beans.factory.xml.NamespaceHandlerSupport;
+
+<span class="code-keyword">public</span> class MyNamespaceHandler <span class="code-keyword">extends</span> NamespaceHandlerSupport {
+
+    <span class="code-keyword">public</span> void init() {
+        registerBeanDefinitionParser(<span class="code-quote">"dateformat"</span>, <span class="code-keyword">new</span> SimpleDateFormatBeanDefinitionParser());
+    }
+}</pre>
+</div></div>
+<p><b>Exemple d'implementació de BeanDefinitionParser</b></p>
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">package</span> net.gencat.ctti.canigo.samples.prototip.spring.xmlExtension;
+
+<span class="code-keyword">import</span> org.springframework.beans.factory.support.BeanDefinitionBuilder;
+<span class="code-keyword">import</span> org.springframework.beans.factory.xml.AbstractSingleBeanDefinitionParser;
+<span class="code-keyword">import</span> org.springframework.util.StringUtils;
+<span class="code-keyword">import</span> org.w3c.dom.Element;
+
+<span class="code-keyword">import</span> java.text.SimpleDateFormat;
+
+<span class="code-keyword">public</span> class SimpleDateFormatBeanDefinitionParser <span class="code-keyword">extends</span> AbstractSingleBeanDefinitionParser {
+
+   <span class="code-keyword">protected</span> <span class="code-object">Class</span> getBeanClass(Element element) {
+      <span class="code-keyword">return</span> SimpleDateFormat.class;
+   }
+
+   <span class="code-keyword">protected</span> void doParse(Element element, BeanDefinitionBuilder bean) {
+      <span class="code-comment">// <span class="code-keyword">this</span> will never be <span class="code-keyword">null</span> since the schema explicitly requires that a value be supplied
+</span>      <span class="code-object">String</span> pattern = element.getAttribute(<span class="code-quote">"pattern"</span>);
+      bean.addConstructorArg(pattern);
+
+      <span class="code-comment">// <span class="code-keyword">this</span> however is an optional property
+</span>      <span class="code-object">String</span> lenient = element.getAttribute(<span class="code-quote">"lenient"</span>);
+      <span class="code-keyword">if</span> (StringUtils.hasText(lenient)) {
+         bean.addPropertyValue(<span class="code-quote">"lenient"</span>, <span class="code-object">Boolean</span>.valueOf(lenient));
+      }
+   }
+}</pre>
+</div></div>
+<p>3. Crear els fitxers de configuració spring.handlers per a afegir la implementació de la interfície NamespaceHandler a l'estructura de spring; i spring.schemas per a afegir els schemes a l'estructura de spring.</p>
+
+<p><b>Exemple de fitxer spring.handlers amb els namespaces estàndars</b></p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">http\:<span class="code-comment">//www.springframework.org/schema/util=org.springframework.beans.factory.xml.UtilNamespaceHandler
+</span> http\:<span class="code-comment">//www.springframework.org/schema/aop=org.springframework.aop.config.AopNamespaceHandler
+</span> http\:<span class="code-comment">//www.springframework.org/schema/lang=org.springframework.scripting.config.LangNamespaceHandler
+</span> http\:<span class="code-comment">//www.springframework.org/schema/tx=org.springframework.transaction.config.TxNamespaceHandler
+</span> http\:<span class="code-comment">//www.springframework.org/schema/jee=org.springframework.ejb.config.JeeNamespaceHandler
+</span> http\:<span class="code-comment">//www.springframework.org/schema/p=org.springframework.beans.factory.xml.SimplePropertyNamespaceHandler</span></pre>
+</div></div>
+<p>Els arxius de configuració de namespaces s'han d'instal?lar a la carpeta META-INF (en l'exemple s'ha instal?lat a una carpeta "resources/META-INF"). Spring ja s'encarrega de fusionar-los.</p>
+
+<p><b>Exemple de fitxer spring.handlers</b></p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">http\:<span class="code-comment">//www.mycompany.com/schema/myns=net.gencat.ctti.canigo.samples.prototip.spring.xmlExtension.MyNamespaceHandler</span></pre>
+</div></div>
+<p><b>Exemple de fitxer spring.schemas</b></p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">http\:<span class="code-comment">//www.mycompany.com/schema/myns/myns.xsd=spring/xmlExtension/myns.xsd</span></pre>
+</div></div>
+<p>Per utilitzar aquestes definicions es fa de la mateixa manera que amb els namespaces predefinits de spring:<br/>
+<b>Exemple d'utilització del namespace pròpi</b></p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;
+&lt;beans xmlns=<span class="code-quote">"http:<span class="code-comment">//www.springframework.org/schema/beans"</span>
+</span>      xmlns:xsi=<span class="code-quote">"http:<span class="code-comment">//www.w3.org/2001/XMLSchema-instance"</span>
+</span>      xmlns:myns=<span class="code-quote">"http:<span class="code-comment">//www.mycompany.com/schema/myns"</span>
+</span>      xsi:schemaLocation="http:<span class="code-comment">//www.springframework.org/schema/beans
+</span>http:<span class="code-comment">//www.springframework.org/schema/beans/spring-beans-2.0.xsd
+</span>http:<span class="code-comment">//www.mycompany.com/schema/myns
+</span>http:<span class="code-comment">//www.mycompany.com/schema/myns/myns.xsd"&gt;
+</span>
+   &lt;!-- as a top-level bean --&gt;
+   &lt;myns:dateformat id=<span class="code-quote">"defaultDateFormat"</span> pattern=<span class="code-quote">"yyyy-MM-dd HH:mm"</span> lenient=<span class="code-quote">"<span class="code-keyword">true</span>"</span>/&gt;
+&lt;/beans&gt;</pre>
+</div></div>
+<p>Finalment esmentar que per simplificar la generació de metadades BeanDefinition, Spring 2.0 introdueix una nova classe anomenada BeanDefinitionBuilder que ofereix un constructor amb una API que usa el patró creador.</p>
+
+<p>Per a exemples concrets i més informació consulteu la <a href="http://www.springframework.org/documentation" title="Visit page outside Confluence">documentació de spring</a> i i concretament <a href="http://static.springframework.org/spring/docs/2.0.x/reference/extensible-xml.html" title="Visit page outside Confluence">l'apèndix B</a></p>
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

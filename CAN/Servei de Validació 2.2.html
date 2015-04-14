@@ -1,0 +1,1297 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Servei de Validació 2.2</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Servei de Validació 2.2
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Sep 21, 2007 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="ServeideValidaci%C3%B32.2-SERVEIDEVALIDACI%C3%93"></a>SERVEI DE VALIDACIÓ</h1>
+
+<p><br clear="all" />
+<div>
+<ul><a href='#ServeideValidaci%C3%B32.2-SERVEIDEVALIDACI%C3%93'>
+    <li>SERVEI DE VALIDACIÓ</li></a><a href='#ServeideValidaci%C3%B32.2-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#ServeideValidaci%C3%B32.2-Prop%C3%B3sit'>
+    <li>Propósit</li></a><a href='#ServeideValidaci%C3%B32.2-ContextiEscenarisd%27%C3%9As'>
+    <li>Context i  Escenaris d'Ús</li></a><a href='#ServeideValidaci%C3%B32.2-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i  Dependències</li></a>
+<ul><a href='#ServeideValidaci%C3%B32.2-Versions%3A'>
+    <li>Versions:</li></a><a href='#ServeideValidaci%C3%B32.2-Depend%C3%A8ncies%3A'>
+    <li>Dependències:</li></a>
+</ul><a href='#ServeideValidaci%C3%B32.2-Aquivadirigit'>
+    <li>A qui va  dirigit</li></a><a href='#ServeideValidaci%C3%B32.2-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents  i Fonts de Referència</li></a><a href='#ServeideValidaci%C3%B32.2-Glossari'>
+    <li>Glossari</li></a>
+</ul><a href='#ServeideValidaci%C3%B32.2-Descripci%C3%B3Detallada'>
+    <li>Descripció  Detallada</li></a>
+<ul><a href='#ServeideValidaci%C3%B32.2-ArquitecturaiComponents'>
+    <li>Arquitectura i  Components</li></a><a href='#ServeideValidaci%C3%B32.2-Instal%5Claci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal&#45; lació  i Configuració</li></a>
+<ul><a href='#ServeideValidaci%C3%B32.2-Instal%5Claci%C3%B3'>
+    <li>Instal&#45; lació</li></a><a href='#ServeideValidaci%C3%B32.2-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#ServeideValidaci%C3%B32.2-Utilitzaci%C3%B3delServei'>
+    <li>Utilització del  Servei</li></a><a href='#ServeideValidaci%C3%B32.2-EinesdeSuport'>
+    <li>Eines de  Suport</li></a><a href='#ServeideValidaci%C3%B32.2-Integraci%C3%B3ambAltresServeis'>
+    <li>Integració  amb Altres Serveis</li></a>
+<ul><a href='#ServeideValidaci%C3%B32.2-Integraci%C3%B3ambelServeideInternacionalitzaci%C3%B3'>
+    <li>Integració  amb el Servei de Internacionalització</li></a><a href='#ServeideValidaci%C3%B32.2-Integraci%C3%B3ambelServeidePresentaci%C3%B3'>
+    <li>Integració  amb el Servei de Presentació</li></a>
+</ul>
+</ul>
+</ul></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h1><a name="ServeideValidaci%C3%B32.2-Introducci%C3%B3"></a>Introducció</h1>
+
+
+<h2><a name="ServeideValidaci%C3%B32.2-Prop%C3%B3sit"></a>Propósit</h2>
+
+<p>Quan realitzem una aplicació, existeixen sempre 2 tipus de validacions a  considerar:</p>
+<ul>
+	<li>Validació de dades</li>
+</ul>
+
+
+<p>Inclou el tractament de l'entrada correcta dels tipus de dades, en la que no  influeix l'estat de l'aplicació. Aquesta validació ha de tenir en compte, entre  altres:</p>
+<ol>
+	<li>Si un camp és obligatori</li>
+	<li>Si un camp és numèric, cadena, etc.</li>
+	<li>Si un camp té un número mínim o màxim de caràcters</li>
+	<li>Si un camp compleix una expressió regular (format de nif, codi postal,  etc.)</li>
+</ol>
+
+
+<ol>
+	<li>Validació funcional</li>
+</ol>
+
+
+<p>És aquella validació que depén de l'estat de l'aplicació, i de les dades de  negoci.</p>
+
+<p>Aquesta validació queda fora de l'àmbit d'aquest document, perquè el seu  tractament es realitzarà per mitjà del llançament i tractament d'excepcions de  negoci (veure 'Servei d'Excepcions')</p>
+
+<p>canigo, encara que en la seva capa de presentació es basa en l'actualitat en  l'ús de Struts, elimina l'ús dels ActionForm. Aquests només afegeixen  complexitat innecessària i en un model vista controlador real hauriem de poder  utilitzar el model de negoci des de les nostres pàgines. Per aquest motiu canigo  proporciona els mecanismes necessaris per a fer ús de classes de negoci en  presentació i elimina el cost de creació de formularis Struts.</p>
+
+<p>Així com en Struts la validació es realitza a nivell de presentació, en  realitat el que s'està fent és anticipar la validació dels nostres objectes de  negoci corresponents (un camp és requerit en presentació per què ho és en  negoci, etc.).</p>
+
+<p>Podem finalitzar aquest discurs posant èmfasi que el Servei de Validació és  un servei de propòsit general i no únicament de presentació. En tot cas, veurem  en l'apartat 'Integració amb altres Serveis' com podem realitzar la validació en  presentació comunicant-nos amb aquest servei.</p>
+
+<h2><a name="ServeideValidaci%C3%B32.2-ContextiEscenarisd%27%C3%9As"></a>Context i  Escenaris d'Ús</h2>
+
+<p>El Servei de Validació es troba dins dels serveis de Propósit General de  canigo.
+<br clear="all" />
+<br clear="all" /></p>
+
+<h2><a name="ServeideValidaci%C3%B32.2-VersionsiDepend%C3%A8ncies"></a>Versions i  Dependències</h2>
+
+
+<h3><a name="ServeideValidaci%C3%B32.2-Versions%3A"></a>Versions:</h3>
+
+<p>En la versió 1.1 s'ha afegit les validacions en el jsp.</p>
+
+<h3><a name="ServeideValidaci%C3%B32.2-Depend%C3%A8ncies%3A"></a>Dependències:</h3>
+
+<p>Les dependències descrites a la següent url son requerides per tal de compilar i fer funcionar el projecte:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-validation/dependencies.html" title="Visit page outside Confluence">Dependències Servei de Validació</a></p>
+
+<h2><a name="ServeideValidaci%C3%B32.2-Aquivadirigit"></a>A qui va  dirigit</h2>
+
+<p>Aquest document va dirigit als següents perfils:</p>
+<ol>
+	<li>Programador. Per conéixer l'ús del servei</li>
+	<li>Arquitecte. Per conéixer quins són els components i la configuració del  servei</li>
+</ol>
+
+
+<h2><a name="ServeideValidaci%C3%B32.2-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents  i Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> [1] </th>
+<th class='confluenceTh'> Manual Struts Validator </th>
+<th class='confluenceTh'> <a href="http://jakarta.apache.org/log4j/docs/manual.html" title="Visit page outside Confluence">http://struts.apache.org/struts-doc-1.2.4/userGuide/dev_validator.html</a> </th>
+</tr>
+</tbody></table>
+
+<h2><a name="ServeideValidaci%C3%B32.2-Glossari"></a>Glossari</h2>
+
+<p><b>Commons Validator</b></p>
+
+<p>Commons Validator és un estàndar de <em>facto</em> d'API de validació</p>
+
+<h1><a name="ServeideValidaci%C3%B32.2-Descripci%C3%B3Detallada"></a>Descripció  Detallada</h1>
+
+
+<h2><a name="ServeideValidaci%C3%B32.2-ArquitecturaiComponents"></a>Arquitectura i  Components</h2>
+
+<p>canigo oferix la possibilitat d'utilitzar diferents implementacions de  validació mitjançant la definició d'interfícies. En l'actualitat s'ofereix una  implementació basada en l'ús de Spring Commons Validator.</p>
+
+<p>Els components podem classificar-los en:</p>
+<ol>
+	<li>Interfícies i Components Genérics. Interfícies del servei i components d'ús  general amb independència de la implementació escollida.</li>
+	<li>Implementació de les interfícies basada en Spring Commons Validator</li>
+	<li>Implementació de les interfícies basada en Comunicació Web per  Ajax
+<br clear="all" /></li>
+</ol>
+
+
+<p>Es pot trobar tota la documentació JavaDoc y el codi font referent aquests components a les següents urls:</p>
+
+<p><ins>JavaDoc:</ins> <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-validation/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-validation/apidocs/index.html</a><br/>
+<ins>Codi Font:</ins>&nbsp; <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-validation/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-validation/xref/index.html</a></p>
+
+<h2><a name="ServeideValidaci%C3%B32.2-Instal%5Claci%C3%B3iConfiguraci%C3%B3"></a>Instal&#45; lació  i Configuració</h2>
+
+
+<h3><a name="ServeideValidaci%C3%B32.2-Instal%5Claci%C3%B3"></a>Instal&#45; lació</h3>
+
+<p>La instal&#45; lació del servei requereix de la utilització de la llibreria  'canigo-services-validation' i les dependències indicades a l'apartat  'Introducció-Versions i Dependències'.</p>
+
+<h3><a name="ServeideValidaci%C3%B32.2-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p>La configuració del Servei de Validació implica 3 pasos:</p>
+<ol>
+	<li>Definir la factoria del servei</li>
+	<li>Definir quina implementació del servei s'usarà</li>
+	<li>Definir el fitxer de les regles de validació</li>
+	<li>Definir el fitxer de validacions a realitzar</li>
+</ol>
+
+
+<p>Definició de la Factoria</p>
+
+<p><img src="Servei de Validació 2.2_attachments/ServeiValidacio_image006.jpg" align="absmiddle" border="0" /></p>
+
+<p><em>Fitxer de configuració:  canigo-services-validation.xml</em><br/>
+<em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>La factoria permet definir la configuració de la validació. En l'actualitat  s'ofereix una implementació, basada en Commons i Spring:</p>
+<ol>
+	<li>org.springmodules.commons.validator.DefaultValidatorFactory</li>
+</ol>
+
+
+<p>Per aquesta classe definirem les següents propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atributs</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> list </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Llista de fitxers de validació. El  contingut d'aquests fitxers s'especificarà posterioment en el punt 3) Definir el  fitxer de validacions a realitzar </td>
+</tr>
+</tbody></table>
+<p>En l'atribut 'list' podem especificar 2 tipus de fitxers:</p>
+<ol>
+	<li>Fitxer de regles de validació</li>
+</ol>
+
+
+<p>Aquest fitxer defineix les validacions disponibles per qualsevol formulari i  la classe que resol la validació. En el cas de canigo, s'ofereix un fitxer bàsic  'validator-rules.xml' que conté les validacions més comuns.</p>
+<ol>
+	<li>Fitxer de validacions</li>
+</ol>
+
+
+<p>Aquest fitxer permet definir per cada formulari o objecte quines validacions  s'han de realitzar per cada camp o atribut.</p>
+
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean name=<span class="code-quote">"validatorFactory"</span>  class=<span class="code-quote">"org.springmodules.commons.validator.DefaultValidatorFactory"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"validationConfigLocations"</span>&gt;
+
+&lt;list&gt;
+
+&lt;value&gt;/WEB-INF/classes/validation/validator-rules.xml&lt;/value&gt;
+
+&lt;value&gt;/WEB-INF/classes/validation/validation.xml&lt;/value&gt;
+
+&lt;/list&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Definició del Servei</p>
+
+<p><img src="Servei de Validació 2.2_attachments/ServeiValidacio_image007.jpg" align="absmiddle" border="0" /></p>
+
+<p><em>Fitxer de configuració:  canigo-services-validation.xml</em><br/>
+<em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>El bean 'validationService' és la interfície del servei que s'usarà des dels  clients. En l'actualitat s'ofereix una implementació basada en Commons i  Spring:</p>
+<ol>
+	<li>'net.gencat.ctti.canigo.services.validation.commons.CommonsValidationServiceImpl  '. Aquesta classe requereix de la incorporació dels paràmetres  següents:</li>
+</ol>
+
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atributs</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> validatorFactory </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Referència al bean definit com  'validatorFactory' </td>
+</tr>
+<tr>
+<td class='confluenceTd'> i18nService </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Referència al Servei  d'Internacionalització canigo </td>
+</tr>
+<tr>
+<td class='confluenceTd'> loggingService </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Referència al Servei de Logging  canigo </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"validator"</span> class=<span class="code-quote">"org.springmodules.commons.validator.DefaultBeanValidator"</span>&gt;
+&lt;property name=<span class="code-quote">"validatorFactory"</span>&gt;&lt;ref bean=<span class="code-quote">"validatorFactory"</span>/&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;bean id=<span class="code-quote">"validationService"</span> class="net.gencat.ctti.canigo.services.validation.commons.
+CommonsValidationServiceImpl"&gt;
+
+&lt;property name=<span class="code-quote">"validatorFactory"</span>&gt;
+&lt;ref bean=<span class="code-quote">"validatorFactory"</span> /&gt;
+&lt;/property&gt;
+
+&lt;property name=<span class="code-quote">"i18nService"</span>&gt;
+&lt;ref bean=<span class="code-quote">"i18nService"</span> /&gt;
+&lt;/property&gt;
+
+&lt;property name=<span class="code-quote">"loggingService"</span>&gt;
+&lt;ref bean=<span class="code-quote">"loggingService"</span> /&gt;
+&lt;/property&gt;
+
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Definició de les Regles de Validació Disponibles<br/>
+<img src="Servei de Validació 2.2_attachments/ServeiValidacio_image008.jpg" align="absmiddle" border="0" />
+<br clear="all" /> <br clear="all" />
+<br clear="all" /></p>
+
+<p><em>Fitxer sde configuració: validator-rules.xml</em><br/>
+<em>Ubicació  proposada: &lt;PROJECT_ROOT&gt;/src/main/resources/validation</em></p>
+
+<p>Aquest fitxer defineix les validacions que es poden realitzar.</p>
+
+<p>En el fitxer 'validator-rules.xml' es defineixen els tipus de validacions que  podem realitzar des de canigo. Aquestes regles de validació es basen en Spring i  tenen la següent estructura:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;validator name=<span class="code-quote">"required"</span>
+classname=<span class="code-quote">"org.springmodules.commons.validator.FieldChecks"</span>
+method=<span class="code-quote">"validateRequired"</span>
+methodParams="java.lang.<span class="code-object">Object</span>,
+org.apache.commons.validator.ValidatorAction,
+org.apache.commons.validator.Field,
+org.springframework.validation.Errors"
+msg=<span class="code-quote">"errors.required"</span>&gt;
+
+&lt;javascript&gt;&lt;![CDATA[
+function validateRequired(form) \{
+<span class="code-keyword">var</span> isValid = <span class="code-keyword">true</span>;
+<span class="code-keyword">var</span> focusField = <span class="code-keyword">null</span>;
+...
+
+]]&gt;
+&lt;/javascript&gt;
+
+&lt;/validator&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Cada validador defineix quina és la classe que realitza la validació (en el  cas mostrat 'FieldChecks') i el mètode que es cridarà per validar el camp en el  camp 'method'. Dins el tag '&lt;javascript&gt;' s'incorpora el codi que es  generarà en el client per validar mitjançant Javascript (en el cas que la  validació s'efectui des del client).
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> Els validadors actualment disponibles són:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Validador</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> required </td>
+<td class='confluenceTd'> Validació de camps requerits </td>
+</tr>
+<tr>
+<td class='confluenceTd'> requiredif </td>
+<td class='confluenceTd'> Validació de camp requerit si es  dóna una altra condició </td>
+</tr>
+<tr>
+<td class='confluenceTd'> minlength </td>
+<td class='confluenceTd'> Validació de longitud mínima de  caràcters </td>
+</tr>
+<tr>
+<td class='confluenceTd'> maxlength </td>
+<td class='confluenceTd'> Validació de longitud màxima de  caràcters </td>
+</tr>
+<tr>
+<td class='confluenceTd'> mask </td>
+<td class='confluenceTd'> Validació de format segons expressió  regular </td>
+</tr>
+<tr>
+<td class='confluenceTd'> byte </td>
+<td class='confluenceTd'> Validació de que el camp pot ser  convertit a Byte (entre &#45;27 i 27-1) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> short </td>
+<td class='confluenceTd'> Validació de que el camp pot ser  convertit a Short (entre &#45;215 i 215-1) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> integer </td>
+<td class='confluenceTd'> Validació de que el camp pot ser  convertit a Integer (entre &#45;231 i 231-1) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> long </td>
+<td class='confluenceTd'> Validació de que el camp pot ser  convertit a Long (entre &#45;263 i 263-1) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> float </td>
+<td class='confluenceTd'> Validació de que el camp pot ser  convertit a Float (entre 2-149 i (2-2-23)&#45; 2127) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> double </td>
+<td class='confluenceTd'> Validació de que el camp pot ser  convertit a Double (entre 2-1074 i (2-2-52)&#45; 21023) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> date </td>
+<td class='confluenceTd'> Validació de que el camp és una data  correcta </td>
+</tr>
+<tr>
+<td class='confluenceTd'> intRange </td>
+<td class='confluenceTd'> Validació que un camp enter es troba  dins un rang de valors </td>
+</tr>
+<tr>
+<td class='confluenceTd'> floatRange </td>
+<td class='confluenceTd'> Validació que un camp float es troba  dins un rang de valors </td>
+</tr>
+<tr>
+<td class='confluenceTd'> doubleRange </td>
+<td class='confluenceTd'> Validació que un camp double es  troba dins un rang de valors </td>
+</tr>
+<tr>
+<td class='confluenceTd'> email </td>
+<td class='confluenceTd'> Validació que un camp té format de  correu electrónic </td>
+</tr>
+</tbody></table>
+<p>En el cas de voler definir un nou validador consultar la documentació de la  classe 'FieldChecks'.</p>
+
+<p>Definició dels Fitxers de Validació</p>
+
+<p><em>Fitxers de configuració: validationXXX.xml</em><br/>
+<em>Ubicació  proposada: &lt;PROJECT_ROOT&gt;/src/main/resources/validation</em></p>
+
+<p>Per a millor referència de l'ús dels validadors podem consultar <a href="http://struts.apache.org/struts-doc-1.2.4/userGuide/dev_validator.html" title="Visit page outside Confluence">http://struts.apache.org/struts-doc-1.2.4/userGuide/dev_validator.html</a>. Tot i que la  validació no es basa en 'Struts Validator' es segueix la mateixa política, pel  que aquells que hi estiguin familiaritzats al seu ús podran ràpidament  adaptar-se a l'ús de la validació.</p>
+
+<p>En els fitxers de validació definirem quines validacions volem realitzar per  als nostres objectes o formularis. Definirem 2 seccions diferenciades:</p>
+<ol>
+	<li>Constants</li>
+</ol>
+
+
+<p>Secció en la que es defineixen expressions regulars comunes que seran  utilitzades des de diverses definicions de validació. Per exemple, la màscara  corresponent a la comprovació del NIF podríem definir-la com una constant i ser  referenciada en tots els camps a validar amb NIF.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;global&gt;
+
+&lt;constant&gt;
+
+&lt;constant-name&gt;any&lt;/constant-name&gt;
+
+&lt;constant-value&gt;^([0-9][0-9][0-9][0-9])$&lt;/constant-value&gt;
+
+&lt;/constant&gt;
+
+&lt;/global&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Definició dels formularis a validar</li>
+</ol>
+
+
+<p>Encara que hem explicat que la validació serà a nivell d'objectes i/o  formularis, Commons Validator utilitza el concepte form per a referir-se a ells.  Per a cada camp especificarem quines validacions realitzar.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;formset&gt;
+
+&lt;form  name=<span class="code-quote">"net.gencat.ctti.canigo.samples.jpetstore.persistence.Account"</span>&gt;
+
+&lt;field  property=<span class="code-quote">"firstname"</span> depends=<span class="code-quote">"required,mask"</span>&gt;
+
+&lt;arg0  key=<span class="code-quote">"nameForm.firstname.displayname"</span>/&gt;
+
+&lt;msg name=<span class="code-quote">"mask"</span>  key=<span class="code-quote">"nameForm.errors.firstname.mask"</span>/&gt;
+
+&lt;<span class="code-keyword">var</span>&gt;&lt;<span class="code-keyword">var</span>-name&gt;mask&lt;/<span class="code-keyword">var</span>-name&gt;&lt;<span class="code-keyword">var</span>-value&gt;^[a-zA-Z]*$&lt;/<span class="code-keyword">var</span>-value&gt;&lt;/<span class="code-keyword">var</span>&gt;
+
+&lt;/field&gt;
+
+&lt;field property=<span class="code-quote">"lastname"</span> depends=<span class="code-quote">"required"</span>&gt;
+
+&lt;arg0  key=<span class="code-quote">"nameForm.lastname.displayname"</span>/&gt;
+
+&lt;/field&gt;
+
+&lt;/form&gt;
+
+&lt;/formset&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+L'esquema d'aquest fitxer és el mostrat a dalt. Cada objecte o formulari a  validar serà definit en una secció '&lt;form&gt;' i cada camp del formulari en  una subsecció '&lt;field&gt;'
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> A l'atribut 'name' de la secció '&lt;form&gt;' definim el nom del validador.</p>
+
+<p>Per a cada camp especificarem:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atributs</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> property </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Indicar com a valor el nom de  l'atribut de la classe que volem validar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> depends </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Llista de validacions a realitzar  separades per coma. El nom de validacions correspon al nom definit en el fitxer  de regles de validació (validation-rules.xml). </td>
+</tr>
+</tbody></table>
+<p>Depenent del tipus de validacions definides incorporarem més propietats. A  continuació detallarem per a cada tipus de validació els possibles atributs  addicionals.</p>
+
+<p>Abans de començar a definir les validacions és important que entenguem que  existeix una diferència entre validar formularis Web i validar objectes de  negoci. La diferència entre el model Web i el model de classes és que en el  model Web basat en HttpServletRequest tots els paràmetres rebuts són de tipus  'String', mentre que en les nostres classes de negoci fem servir altres tipus.<br/>
+Per exemple, si definim un objecte Account amb un camp 'birthDate' de tipus 'Date', no té cap sentit  validar si 'birthDate' és una data correcta, doncs el tipus de dades ja ens  lliga a que sigui una data correcta. En cas però de que fos un 'String' sí que  hauríem de validar que és una data correcta. Per tant, hem de tenir en compte  que no definirem cap validació de tipus data si el tipus de dada no és un  String. Posteriorment, consultar 'Integració amb el Servei de Presentació' per  conéixer com es podria popular un atribut de tipus 'Date' a partir d'un  paràmetre Web de forma que es tornés un missatge d'error de format a  l'usuari.
+<br clear="all" />
+<br clear="all" /></p>
+<ul>
+	<li>Definir camps requeris</li>
+</ul>
+
+
+<p><em>Aplicable a qualsevol tipus de valor</em></p>
+<ol>
+	<li>Definir el valor 'required' en l'atribut 'depends'.</li>
+	<li>Per defecte, el missatge que es mostrarà s'ha definit en la propietat 'msg'  del tipus de validador (errors.required).
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;validator name=<span class="code-quote">"required"</span>
+
+...
+
+msg=<span class="code-quote">"errors.required"</span>
+
+/&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">errors.required= El camp \{0\} és obligatori</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ol>
+
+
+<p>Pel fet que el missatge internacionalitzat requereix d'un paràmetre (indicat  en {0}), podem passar-li el contingut a substituir per mitjà de la propietat  'arg0'
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;arg0 key=<span class="code-quote">"nameForm.firstname.displayname"</span>/&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;field property=<span class="code-quote">"firstname"</span> depends=<span class="code-quote">"required"</span>&gt;
+
+&lt;arg0  key=<span class="code-quote">"nameForm.firstname.displayname"</span>/&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ul>
+	<li>Definir camps requerits depenents d'altres camps</li>
+</ul>
+
+
+<p>&#95;Aplicable a qualsevol tipus de valor _</p>
+<ol>
+	<li>Definir el valor 'requiredIf' en l'atribut 'depends'.</li>
+	<li>Per defecte, el missatge que es mostrarà s'ha definit en la propietat 'msg'  del tipus de validador (errors.required).
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;validator name=<span class="code-quote">"required"</span>
+
+...
+
+msg=<span class="code-quote">"errors.required"</span>
+
+/&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">errors.required=El camp \{0\} és obligatori</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ol>
+
+
+<p>En la configuració de validation.xml definirem les variables  necessaries:<br/>
+&#45;  La variable 'field' indica el camp del qual depèn el camp a  validar.<br/>
+&#45;  La variable 'FieldTest' indica la condició que ha de complir el  camp indicat en 'field' perque la propietat que estem validant sigui requerida.  Els possibles valors són:<br/>
+NULL, NOTNULL i EQUALS.<br/>
+&#45;  Si la condició és  EQUALS, s'haurà de definir una tercera variable, 'FieldValue', que indica el  valor que ha de tenir el camp perque la propietat que estem validant sigui  requerida.</p>
+
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;field property=<span class="code-quote">"parFixImport"</span> depends=<span class="code-quote">"requiredif"</span>&gt;
+
+&lt;arg0  key=<span class="code-quote">"validationForms.parametritzacio.ImportFix"</span>/&gt;
+
+&lt;<span class="code-keyword">var</span>&gt;
+
+&lt;<span class="code-keyword">var</span>-name&gt;field[0]&lt;/<span class="code-keyword">var</span>-name&gt;
+
+&lt;<span class="code-keyword">var</span>-value&gt;partTipusRepartiment&lt;/<span class="code-keyword">var</span>-value&gt;
+
+&lt;/<span class="code-keyword">var</span>&gt;
+
+&lt;<span class="code-keyword">var</span>&gt;
+
+&lt;<span class="code-keyword">var</span>-name&gt;fieldTest[0]&lt;/<span class="code-keyword">var</span>-name&gt;
+
+&lt;<span class="code-keyword">var</span>-value&gt;EQUAL&lt;/<span class="code-keyword">var</span>-value&gt;
+
+&lt;/<span class="code-keyword">var</span>&gt;
+
+&lt;<span class="code-keyword">var</span>&gt;
+
+&lt;<span class="code-keyword">var</span>-name&gt;fieldValue[0]&lt;/<span class="code-keyword">var</span>-name&gt;
+
+&lt;<span class="code-keyword">var</span>-value&gt;1&lt;/<span class="code-keyword">var</span>-value&gt;
+
+&lt;/<span class="code-keyword">var</span>&gt;
+
+&lt;/field&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+En l'exemple anterior tenim una propietat del formulari, anomenada  'parFixImport', que depèn d'una altra propietat, 'partTipusRepartiment'. En  aquest cas, si el camp partTipusRepartiment és igual a '1', 'parFixImport' serà  requerit.
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ul>
+	<li>&#35; Definir camps amb Expressió Regular</li>
+</ul>
+
+
+<p><em>Aplicable a: Valors de tipus 'String'</em></p>
+<ol>
+	<li>Definir el valor 'mask' en l'atribut 'depends'</li>
+	<li>Definir la variable 'mask'.</li>
+</ol>
+
+
+<p>En el <em>tag</em> '&lt;var-name&gt;' especificar 'mask' i en  '&lt;var-value&gt;' la màscara a utilitzar.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;<span class="code-keyword">var</span>&gt;
+
+&lt;<span class="code-keyword">var</span>-name&gt;mask&lt;/<span class="code-keyword">var</span>-name&gt;
+
+&lt;<span class="code-keyword">var</span>-value&gt;^[a-zA-Z]*$&lt;/<span class="code-keyword">var</span>-value&gt;
+
+&lt;/<span class="code-keyword">var</span>&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Per defecte, el missatge que es mostrarà s'ha definit en la propietat 'msg'  del tipus de validador (errors.mask)
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;validator name=<span class="code-quote">"mask"</span>
+
+...
+
+msg=<span class="code-quote">"errors.mask"</span>
+
+/&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">errors.mask=El campo \{0\} no cumple la máscara \{1\}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ol>
+
+
+<p>el fet que el missatge internacionalitzat requerix de 2 paràmetres podem  especificar els valors per mitjà d'arguments del tipus 'arg0' i 'arg1'.</p>
+
+<p>Generalment, el missatge que no es compleix una màscara no és adequat per als  usuaris. Per exemple: El camp 'Nom' no compleix la màscara '^[a-zA&#45; Z]*$'  segurament deixa atònits els nostres usuaris. Per aquest motiu és millor definir  un missatge adequat al camp en qüestió per mitjà de la propietat 'msg':
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;msg name=<span class="code-quote">"mask"</span> key=<span class="code-quote">"nameForm.errors.firstname.mask"</span>/&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+En cas de tenir que passar valors al nostre missatge definirem els arguments  per mitjà de 'arg0',...'argN'.
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> Podem definir màscares globals en la secció constants:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;global&gt;
+
+&lt;constant&gt;
+
+&lt;constant-name&gt;any&lt;/constant-name&gt;
+
+&lt;constant-value&gt;^([0-9][0-9][0-9][0-9])$&lt;/constant-value&gt;
+
+&lt;/constant&gt;
+
+&lt;/global&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+i referenciar-les des de la variable '&lt;var-value&gt;' de la màscara per  mitjà de '${nombreConstante}'
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;<span class="code-keyword">var</span>&gt;
+
+&lt;<span class="code-keyword">var</span>-name&gt;mask&lt;/<span class="code-keyword">var</span>-name&gt;
+
+&lt;<span class="code-keyword">var</span>-value&gt;$\{any\}&lt;/<span class="code-keyword">var</span>-value&gt;
+
+&lt;/<span class="code-keyword">var</span>&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Definir camps de tipus Data
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> <em>Aplicable a: Valors de tipus 'String'</em></p>
+<ol>
+	<li>Definir el valor 'date' en l'atribut 'depends'</li>
+	<li>Definir la variable 'datePattern'. Com a valor definir el patró tal com  realitza la classe 'java.text.SimpleDateFormat '
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;field property=<span class="code-quote">"birthDate"</span> depends=<span class="code-quote">"date"</span>&gt;
+    &lt;<span class="code-keyword">var</span>&gt;
+        &lt;<span class="code-keyword">var</span>-name&gt;datePattern&lt;/<span class="code-keyword">var</span>-name&gt;
+        &lt;<span class="code-keyword">var</span>-value&gt;dd/MM/yyyy&lt;/<span class="code-keyword">var</span>-value&gt;
+    &lt;/<span class="code-keyword">var</span>&gt;
+&lt;/field&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ol>
+
+
+<p>La validació de tipus data es realitza així en cas que s'hagi definit  l'atribut com a String. Si l'atribut és de tipus 'Date' no té sentit realitzar  la validació sobre aquest tipus de dades, doncs aquest ja és un tipus vàlid. En  cas que el camp sigui de tipus 'java.util.Date' <b>no</b> s'ha de definir la  validació al fitxer. Veure 'Integració amb el Servei de Presentació' per veure  cóm realitzar la validació si l'objecte no és de tipus String.</p>
+
+<p>NOTA: En cas d'utilitzar diferents formats de data (idiomes amb formats  diferenciats) usar formsets. Veure 'Integració amb altres Serveis&#45; Integració  amb el Servei d'Internacionalització'.</p>
+<ul>
+	<li>&#35; Definir camps de tipus Numéric</li>
+</ul>
+
+
+<p><em>Aplicable a valors de tipus 'String'</em></p>
+
+<p>Per comprovar si un valor entrat es podrà transformar en un valor numèric  tenim vàries possibilitats segons el tipus de dades de destí al que anirà el  valor entrat.</p>
+<ol>
+	<li>Definir en l'atribut 'depends' un dels següents valors segons el tipus de  camp destí:</li>
+</ol>
+
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> byte </th>
+<th class='confluenceTh'> Validació de que el camp pot ser  convertit a Byte (entre &#45;27 i 27-1) </th>
+</tr>
+<tr>
+<td class='confluenceTd'> short </td>
+<td class='confluenceTd'> Validació de que el camp pot ser  convertit a Short (entre &#45;215 i 215-1) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> integer </td>
+<td class='confluenceTd'> Validació de que el camp pot ser  convertit a Integer (entre &#45;231 i 231-1) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> long </td>
+<td class='confluenceTd'> Validació de que el camp pot ser  convertit a Long (entre &#45;263 i 263-1) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> float </td>
+<td class='confluenceTd'> Validació de que el camp pot ser  convertit a Float (entre 2-149 i (2-2-23)&#45; 2127) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> double </td>
+<td class='confluenceTd'> Validació de que el camp pot ser  convertit a Double (entre 2-1074 i (2-2-52)&#45; 21023) </td>
+</tr>
+</tbody></table>
+<ol>
+	<li>Definir a l'argument 0 la clau del camp del formulari o atribut
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;arg0 key=<span class="code-quote">"order.prodno"</span>/&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ol>
+
+
+<ul>
+	<li>Definir Longituds Mínimes i Màximes dels Camps</li>
+</ul>
+
+
+<p><em>Aplicable a valors de tipus 'String'</em></p>
+<ol>
+	<li>Definir el valor 'maxlength' i/o 'minlength' en l'atribut 'depends'</li>
+	<li>Definir a la variable 'maxlength' i/o 'minlength' els valors de longitud  permesos
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;<span class="code-keyword">var</span>&gt;&lt;<span class="code-keyword">var</span>-name&gt;maxlength&lt;/<span class="code-keyword">var</span>-name&gt;&lt;<span class="code-keyword">var</span>-value&gt;20&lt;/<span class="code-keyword">var</span>-value&gt;&lt;/<span class="code-keyword">var</span>&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Per defecte, el missatge que es mostrarà s'ha definit en la propietat 'msg'  del tipus de validador
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">errors.minlength= El camp \{0\} no pot tenir menys de \{1\}  caracters.</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ol>
+
+
+<p>el fet que el missatge internacionalitzat requerix de 2 paràmetres podem  especificar els valors per mitjà d'arguments del tipus 'arg0' i 'arg1'. Segons  el missatge mostrat l'argument '0' correspondrà a la clau del camp, mentre que  l'argument '1' seria el nombre de caràcters permesos (maxlength, minlength). Per  especificar que volem fer servir com a argument 1 el valor de variable utilitzat  podem fer servir la sintaxi ${var: nomVariable} i especificar el parámetre  'resource=false' per indicar al validador que per aquesta clau el valor no s'ha  d'obtenir del fitxer de recursos multiidioma, i per tant no s'ha de traduir.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;arg0 key=<span class="code-quote">"form.accountForm.name"</span>/&gt;
+
+&lt;arg1 name=<span class="code-quote">"minlength"</span>  key=<span class="code-quote">"$\{<span class="code-keyword">var</span>:minlength\}"</span> resource=<span class="code-quote">"<span class="code-keyword">false</span>"</span>/&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h2><a name="ServeideValidaci%C3%B32.2-Utilitzaci%C3%B3delServei"></a>Utilització del  Servei</h2>
+
+<p>La utilització del Servei es basa principalment en la configuració. L'ús  directe des dels clients es permet mitjançant les interfícies definides.</p>
+
+<p>canigo ofereix ja la integració des de 2 punts diferenciats:</p>
+<ol>
+	<li>Des del servidor, segons el 'pojoClass' configurat a l'acció (veure document  'Serveis de Presentació' i 'Servei de Tags' per a més referència)</li>
+	<li>Des del client mitjançant la generació automàtica de Javascript de validació  (veure el document 'Servei de Tags' per a més referència)</li>
+</ol>
+
+
+<p>En l'apartat 'Integració amb Altres Serveis' es dóna detall de cóm usar el  Servei des de la capa de presentació, tot i que és necessària una lectura prèvia  dels documents 'Serveis de Presentació' i 'Servei de Tags'.</p>
+
+<h2><a name="ServeideValidaci%C3%B32.2-EinesdeSuport"></a>Eines de  Suport</h2>
+
+<p>L'expressió regular de les màscares definida a les validacions de tipus  'mask' es basa en PERL5. Si volem comprovar que s'ha definit correctament una  expressió regular podem realitzar proves des de la pàgina  'http://jakarta.apache.org/oro/demo.html'.<br/>
+<div align="center"><img src="Servei de Validació 2.2_attachments/ServeiValidacio_image010.jpg" border="0" /></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h2><a name="ServeideValidaci%C3%B32.2-Integraci%C3%B3ambAltresServeis"></a>Integració  amb Altres Serveis</h2>
+
+
+<h3><a name="ServeideValidaci%C3%B32.2-Integraci%C3%B3ambelServeideInternacionalitzaci%C3%B3"></a>Integració  amb el Servei de Internacionalització</h3>
+
+<p>En els fitxers de configuració es defineixen claus que permeten especificar  quins missatges retornar en cas de validació errònia. Per a poder traduir  aquestes claus és necessari especificar el Servei de Validació que usarà el  Servei d'Internacionalització (veure Configuració).</p>
+
+<p>En determinats casos podem requerir de diferents tipus validació segons&nbsp; l'idioma seleccionat (dates, formats de moneda, etc.). En aquest cas, crearem&nbsp; diversos formsets..</p>
+
+<p>Si fins ara haviem definit el nostre conjunt de validacions dins del <em>tag</em> '&lt;formset'&gt;, podrem agrupar diferents conjunts de validacions  segons l'idioma per mitjà del format següent:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;formset language=<span class="code-quote">"xx"</span>&gt;
+
+&lt;/formset&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+on 'xx' representa la codificació ISO del llenguatge segons l'estàndard  especificat en:
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> <a href="http://ftp.ics.uci.edu/pub/ietf/http/related/iso639.txt" title="Visit page outside Confluence">http://ftp.ics.uci.edu/pub/ietf/http/related/iso639.txt</a></p>
+
+<p>De forma opcional podem especificar el país dins del llenguatge, la sintaxi  seria:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;formset language=<span class="code-quote">"xx"</span> country=<span class="code-quote">"yy"</span>&gt;
+
+&lt;/formset&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+on 'yy' representa la codificació ISO del país segons l'estàndard  especificat en:
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> <a href="http://userpage.chemie.fu-berlin.de/diverse/doc/ISO_3166.html" title="Visit page outside Confluence">http://userpage.chemie.fu-berlin.de/diverse/doc/ISO_3166.html</a></p>
+
+<h3><a name="ServeideValidaci%C3%B32.2-Integraci%C3%B3ambelServeidePresentaci%C3%B3"></a>Integració  amb el Servei de Presentació</h3>
+
+<p>El Servei de Presentació defineix la possibilitat de 2 tipus de validació:  des de Client o Servidor. El tipus de validació que es farà servir es defineix  al tag de formulari (consultar 'Servei de Tags - Tag Form).</p>
+
+<p>La diferència entre els 2 mecanismes és que en el cas de Client la validació  es fa des del navegador del Client (mitjançant javascript) i en el cas de  Servidor es fa servir Ajax per comunicar des del navegador amb el servidor i  presentar els missatges sense haver de recarregar de nou la pàgina.</p>
+
+<p>En cas que la validació es faci per mitjà de Javascript incrustat a la  pàgina, no cal realitzar cap procés adicional. El tag formulari s'encarrega de  generar el codi de validació Javascript basat en el validador configurat.</p>
+
+<p>Si fem servir la validació des de Servidor amb Ajax, canigo proporciona una  classe de validació des de Web que permet validar paràmetres de tipus Map. En  aquest servei de validació, adicionalment es realitza el binding entre els  paràmetres rebuts i l'objecte de destí.</p>
+
+<p>Per configurar aquesta validació realitzarem els següents pasos:</p>
+<ol>
+	<li>Definir el servei de validació web</li>
+</ol>
+
+
+<p>_ Fitxers de configuració: canigo-services-web.xml&#95;<br/>
+_ Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring&#95;</p>
+
+<p>Cal que es referenciin els serveis d'internacionalització i logging, així com  la factoria de validació ja definida pel Servei de Validació.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"webValidationService"</span> class="net.gencat.ctti.canigo.services.web.validation.
+commons.CommonsWebValidationServiceImpl"&gt;
+
+	&lt;property name=<span class="code-quote">"webDataBinderFactory"</span>&gt;
+		&lt;ref bean=<span class="code-quote">"webDataBinderFactory"</span> /&gt;
+	&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"validatorFactory"</span>&gt;
+		&lt;ref bean=<span class="code-quote">"validatorFactory"</span> /&gt;
+	&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"i18nService"</span>&gt;
+		&lt;ref bean=<span class="code-quote">"i18nService"</span> /&gt;
+	&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"loggingService"</span>&gt;
+		&lt;ref bean=<span class="code-quote">"loggingService"</span> /&gt;
+	&lt;/property&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Definir el 'webDataBinderFactory'. Aquesta factoria  ('net.gencat.ctti.canigo.services.web.spring.bind.WebDataBinderFactory') serà  usada pel servei per passar dels paràmetres rebuts als atributs destí.</li>
+</ol>
+
+
+<p>_ Fitxers de configuració: canigo-services-web.xml&#95;<br/>
+_ Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring&#95;
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;!- Use init method to initialize in 'init-method' -&gt;
+&lt;bean id=<span class="code-quote">"webDataBinderFactory"</span> class="net.gencat.ctti.canigo.services.web.spring.
+bind.WebDataBinderFactory"&gt;
+    &lt;property name=<span class="code-quote">"customEditors"</span>&gt;
+        &lt;ref bean=<span class="code-quote">"customEditors"</span>/&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+La propietat 'customEditors' permet definir cóm tractar cadascun dels tipus  rebuts.
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Per cada tipus de destí al que hem de copiar els paràmetres podem definir  editors especials que realitzen el pas. Per defecte existeixen ja varis editors  configurats per fer el pas entre tipus de tipus bàsic.</li>
+</ol>
+
+
+<p>_ Fitxer de configuració: property-editors.xml&#95;<br/>
+_ Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring&#95;</p>
+
+<p>En el cas de canigo s'ofereix un nou editor 'CustomDateEditor' que permet  configurar cóm ha de ser la transformació de un String a Date. Per això permet  configurar per cada llenguatge quin és el patró de data (basat en  'SimpleDateFormat') que ha de complir el paràmetre d'entrada per a poder fer la  transformació.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"customEditors"</span>  class=<span class="code-quote">"java.util.HashMap"</span>&gt;
+
+&lt;constructor-arg&gt;
+
+&lt;map&gt;
+
+&lt;entry  key=<span class="code-quote">"java.util.Date"</span>&gt;
+
+&lt;bean  class=<span class="code-quote">"net.gencat.ctti.canigo.services.i18n.spring.beans.propertyeditors.CustomDateEditor"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"i18nService"</span> ref=<span class="code-quote">"i18nService"</span>/&gt; &lt;property  name=<span class="code-quote">"localeDatePatternsMap"</span>&gt;
+
+&lt;map&gt;
+
+&lt;entry&gt;
+
+&lt;key&gt;&lt;value&gt;es&lt;/value&gt;&lt;/key&gt;
+
+&lt;value&gt;dd/MM/yyyy&lt;/value&gt;
+
+&lt;/entry&gt;
+
+&lt;entry&gt;
+
+&lt;key&gt;&lt;value&gt;en&lt;/value&gt;&lt;/key&gt;
+
+&lt;value&gt;MM/dd/yyyy&lt;/value&gt;
+
+&lt;/entry&gt;
+
+&lt;/map&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;
+
+&lt;/entry&gt;
+
+&lt;/map&gt;
+
+&lt;/constructor-arg&gt;
+
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+El missatge d'error associat que es mostrarà serà el que es defineixi al  fitxer de recursos amb clau:
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> 'typeMismatch.nomAtribut'</p>
+
+<p>Així, si volguessim mostrar l'error de validació de data per l'atribut  'birhDate', definiríem:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">typeMismatch.birthDate=El camp 'Data de naixement' no és una data  correcta</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Una vegada definit el servei, hem de fer-lo accessible des d'Ajax. canigo fa  ús de la llibreria DWR d'Ajax per a comunicar-se amb els objectes publicats en  Spring. Així doncs publicarem el nostre servei de validació com a objecte  Javascript en el fitxer 'resources/dwr/dwr.xml'.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;dwr&gt;
+&lt;allow&gt;
+..
+&lt;create creator=<span class="code-quote">"spring"</span> javascript=<span class="code-quote">"validationService"</span>&gt;
+	&lt;param name=<span class="code-quote">"beanName"</span> value=<span class="code-quote">"validationService"</span>/&gt;
+&lt;/create&gt;
+...
+&lt;/allow&gt;
+&lt;/dwr&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ol>
+
+
+<p>Una vegada realitzats els anteriors pasos, canigo proporciona al fitxer  'src/main/webapp/scripts/ajax/ajaxtags/canigo-ajaxtags-validation.js' el  mecanisme de comunicació amb el servei. En la generació de la pàgina s'afegeix  com a listener del submit del formulari i realitza la crida al servidor per a  comprovar les validacions. Si tot és correcte farà el submit, en cas contrari  presentarà els missatges d'error.</p>
+
+<p>Per a presentar els missatges d'error requereix que es defineixi en alguna  part de la pàgina:</p>
+<ol>
+	<li>Un 'div' amb id 'errorsZone' (que mostrarà o ocultarà segons hi hagin o no  errors).</li>
+	<li>Un '&lt;ul id="errors"&gt;&lt;/ul&gt;'. Dins aquest codi incorporarà de  forma dinàmica la llista d'errors. A més, canigo incorporarà per cada error un  link que en ser clickat ubicarà el focus al camp afectat per l'error.</li>
+	<li>Opcionalment es pot definir un '&lt;span id="errorCount"&gt;&lt;/span&gt;'  per a que incorpori de forma dinàmica el nombre d'errors trobats</li>
+</ol>
+
+
+<p>Un exemple de pàgina seria la següent:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;div class=<span class="code-quote">"error"</span> id=<span class="code-quote">"errorsZone"</span>
+style=<span class="code-quote">"margin-right: 10px; margin-bottom: 3px; margin-top: 3px;display:none"</span>&gt;
+&lt;img src=<span class="code-quote">"images/iconWarning.gif"</span>  class=<span class="code-quote">"icon"</span> alt=<span class="code-quote">"Warning"</span> /&gt;
+
+Se han encontrado &lt;span id=<span class="code-quote">"errorCount"</span>&gt;&lt;/span&gt; errores en tu formulario.
+&lt;p&gt;Por favor corrige estos errores y vuelve a enviar el formulario:&lt;/p&gt;
+&lt;ul id=<span class="code-quote">"errorList"</span>&gt;&lt;/ul&gt;
+&lt;/div&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+NOTA: Podem substituir amb el tag 'fmt:message' de JSTL el missatge 'Se han  encontrado...'
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> Si definim els següents estils per mostrar els resultats:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">div.error, div.message {
+background: #ffc;
+border: 1px solid #000;
+color: #000000;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 1em;
+font-weight: normal;
+margin: 10px auto;
+padding: 3px;
+text-align: left;
+vertical-align: bottom;
+margin-right: 200px;
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+El resultat obtingut seria  el següent:
+<br clear="all" />
+<br clear="all" />  <div align="center"><img src="Servei de Validació 2.2_attachments/ServeiValidacio_image011.jpg" border="0" /></div><br clear="all" /></p>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Validació 2.2_attachments/ServeiValidacio_image011.jpg">ServeiValidacio_image011.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Validació 2.2_attachments/ServeiValidacio_image002.jpg">ServeiValidacio_image002.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Validació 2.2_attachments/ServeiValidacio_image007.jpg">ServeiValidacio_image007.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Validació 2.2_attachments/ServeiValidacio_image004.jpg">ServeiValidacio_image004.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Validació 2.2_attachments/ServeiValidacio_image006.jpg">ServeiValidacio_image006.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Validació 2.2_attachments/ServeiValidacio_image003.jpg">ServeiValidacio_image003.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Validació 2.2_attachments/ServeiValidacio_image009.jpg">ServeiValidacio_image009.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Validació 2.2_attachments/ServeiValidacio_image008.jpg">ServeiValidacio_image008.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Validació 2.2_attachments/ServeiValidacio_image005.jpg">ServeiValidacio_image005.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Validació 2.2_attachments/ServeiValidacio_image001.jpg">ServeiValidacio_image001.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Validació 2.2_attachments/ServeiValidacio_image010.jpg">ServeiValidacio_image010.jpg</a> (image/jpeg)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

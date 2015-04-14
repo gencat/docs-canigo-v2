@@ -1,0 +1,111 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Release notes Canigó 2.3.9</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Release notes Canigó 2.3.9
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on May 26, 2010 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h2><a name="ReleasenotesCanig%C3%B32.3.9-Releasenotesdelaversi%C3%B32.3.9deCanig%C3%B3"></a>Release notes de la versió 2.3.9 de Canigó</h2>
+
+<h3><a name="ReleasenotesCanig%C3%B32.3.9-%28%29BugsfixatsaCanig%C3%B32.3.9%3A"></a><img class="emoticon" src="./icons/emoticons/add.gif" height="16" width="16" align="absmiddle" alt="" border="0"/> Bugs fixats a Canigó 2.3.9:</h3>
+
+<h5><a name="ReleasenotesCanig%C3%B32.3.9-Canvis"></a>Canvis</h5>
+<p><br clear="all" /></p>
+<ul>
+	<li>Canvi <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1055" title="Visit page outside Confluence"><b>CAN-1055</b></a>: <font color="#333333">Módul xml.</font><br clear="all" />
+<b>Context</b>: Serialització d'objectes utilitzant Xfire només permet invocar-los en els nodes d'un xml.<br/>
+<b>Servei afectat</b>: Canigo-services-xml<br/>
+<b>Solució</b>: Fer que els objectes d'una classe puguin ser serialitzats com a paràmetres d'un tag xml a més a més de com a nodes.
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Canvi <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1068" title="Visit page outside Confluence"><b>CAN-1068</b></a>: <font color="#333333">El.laboració de directrius de desenvolupament d'aplicacions J2ee sobre diferents navegadors</font><br clear="all" />
+<b>Context</b>: El.laboració de directrius de desenvolupament d'aplicacions J2ee sobre diferents navegadors<br/>
+<b>Connector afectat</b>: N/A<br/>
+<b>Servei afectat</b>: N/A<br/>
+<b>Solució</b>: (per redactar)
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Canvi <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1075" title="Visit page outside Confluence"><b>CAN-1075</b></a>: <font color="#333333">La configuració de HTTPS</font><br clear="all" />
+<b>Context</b>: Degut al treball en diferents entorns era possible que en un es necessités informar un proxy i en altre no. Al indicar la variables "httpsMode" en "no" o "exclusiu" s'obligava a informar la resta de variables del filtre a "" o null. Aquest comportament no sempre és possible que l'aplicació ho implementi.<br/>
+<b>Servei afectat</b>: Canigo-services-web<br/>
+<b>Solució</b>: Modificació del servei web de Canigó per que no s'hagin d'informar variables de configuració a 0 o "".
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Canvi <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1084" title="Visit page outside Confluence"><b>CAN-1084</b></a>: <font color="#333333">Upgrade minor de llibreries</font><br clear="all" />
+<b>Context</b>: Degut a la detecció d'un memory leak es proposa actualitzar les següents llibreries a les versions indicades:
+<br clear="all" />
+javassist-3.7.1.GA<br/>
+slf4j-api-1.5.11<br/>
+slf4j-jdk14-1.5.11
+<br clear="all" />
+<b>Connector afectat</b>: Canigo-services-persistance<br/>
+<b>Solució</b>: (per redactar)
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Canvi <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1086" title="Visit page outside Confluence"><b>CAN-1086</b></a>: <font color="#333333">Incrustar imatges (inline) en l'enviament de mail</font><br clear="all" />
+<b>Context</b>: Es precisa que el servei de correu del Framework proporcioni algun mètode per enviar adjunts inline en un mail.<br/>
+<b>Connector afectat</b>: Canigó-services-mailing<br/>
+<b>Solució</b>: Modificació del servei per oferir un mètode que pugui enviar tants arxius adjunts en mode inline com es vulgui.
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Canvi <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1098" title="Visit page outside Confluence"><b>CAN-1098</b></a>: <font color="#333333">Certificació Framework Canigó amb Tomcat 6</font><br clear="all" />
+<b>Context</b>: Certificació de que aplicacions desenvolupades amb Canigó són compatibles amb el servidor d'aplicacions Tomcat 6.x.<br/>
+<b>Connector afectat</b>: N/A<br/>
+<b>Servei afectat</b>: N/A<br/>
+<b>Solució</b>: Redacció d'un Howto de com integrar una aplicació Canigó en Tomcat 6.x.
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Canvi <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1101" title="Visit page outside Confluence"><b>CAN-1101</b></a>: <font color="#333333">Nou connector eNotum per a notificacions telemàtiques</font><br clear="all" />
+<b>Context</b>: Desenvolupar un nou connector funcional que permeti utilitzar el servei de notificacions telemàtiques a través de la PICA.<br/>
+<b>Connector afectat</b>: Canigo-connectors-enotum<br/>
+<b>Solució</b>: Desenvolupament del connector.
+<br clear="all" />
+<h5><a name="ReleasenotesCanig%C3%B32.3.9-Incid%C3%A8ncies"></a>Incidències</h5>
+<p><br clear="all" /></p></li>
+	<li>Incidència <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1065" title="Visit page outside Confluence"><b>CAN-1065</b></a>: <font color="#333333">Error en pestanyes</font><br clear="all" />
+<b>Context</b>: En treballar amb pestanyes dintre d'una jsp, el contingut d'aquestes no es carrega correctament.<br/>
+<b>Servei afectat</b>: Canigo-services-web<br/>
+<b>Solució</b>: Resolució d'un bug detectat al servei de Canigó relacionat amb la visualització de les pestanyes.
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1069" title="Visit page outside Confluence"><b>CAN-1069</b></a>: <font color="#333333">Dubte validacions</font><br clear="all" />
+<b>Context</b>: En una jsp amb tres formularis, el servei de validació dona problemes al detectar que dintre de cada form hi ha un paràmetre amb el mateix nom.<br/>
+<b>Component estàtic afectat</b>: canigo-ajaxtags-validation.js<br/>
+<b>Solució</b>: Modificació del component estàtic implicat per que només es puguin aplicar les validacions sobre el primer form de la jsp.
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1093" title="Visit page outside Confluence"><b>CAN-1093</b></a>: <font color="#333333">Select dependents</font><br clear="all" />
+<b>Context</b>: En utilitzar dos selects depenents on, el primer d'ells ha d'aparèixer desactivat, aquest apareix inicialment desactivat  però després de torna a activar.<br/>
+<b>Component estàtic afectat</b>: canigo-ajaxtags-select.js<br/>
+<b>Solució</b>: Modificació del component estàtic indicat per impedir que un select depenent s'activi de forma no controlada.
+<br clear="all" /></li>
+</ul>
+
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

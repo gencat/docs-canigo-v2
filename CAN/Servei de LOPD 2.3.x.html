@@ -1,0 +1,507 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Servei de LOPD 2.3.x</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Servei de LOPD 2.3.x
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Jul 27, 2011 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="ServeideLOPD2.3.x-SERVEIDELOPD"></a>SERVEI DE LOPD</h1>
+<p><br clear="all" />
+<br clear="all" />
+<div>
+<ul><a href='#ServeideLOPD2.3.x-SERVEIDELOPD'>
+    <li>SERVEI DE LOPD</li></a><a href='#ServeideLOPD2.3.x-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#ServeideLOPD2.3.x-Prop%C3%B2sit'>
+    <li>Propòsit</li></a><a href='#ServeideLOPD2.3.x-ContextiEscenarisd%27%C3%9As'>
+    <li>Context i Escenaris d'Ús</li></a><a href='#ServeideLOPD2.3.x-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i Dependències</li></a><a href='#ServeideLOPD2.3.x-Aquivadirigit'>
+    <li>A qui va dirigit</li></a><a href='#ServeideLOPD2.3.x-Glossari'>
+    <li>Glossari</li></a>
+</ul><a href='#ServeideLOPD2.3.x-Descripci%C3%B3Detallada'>
+    <li>Descripció Detallada</li></a>
+<ul><a href='#ServeideLOPD2.3.x-ArquitecturaiComponents'>
+    <li>Arquitectura i Components</li></a>
+<ul><a href='#ServeideLOPD2.3.x-Introducci%C3%B3'>
+    <li>Introducció</li></a><a href='#ServeideLOPD2.3.x-ComponentsdelServei'>
+    <li>Components del Servei</li></a>
+<ul><a href='#ServeideLOPD2.3.x-Definici%C3%B3delnivelldelesdades'>
+    <li>Definició del nivell de les dades</li></a><a href='#ServeideLOPD2.3.x-Mecanismesdeseguretat'>
+    <li>Mecanismes de seguretat</li></a>
+<ul><a href='#ServeideLOPD2.3.x-Handlerderegistred%27acc%C3%A9s'>
+    <li>Handler de registre d'accés</li></a><a href='#ServeideLOPD2.3.x-Handlersdexifrat%2Fdesxifrat'>
+    <li>Handlers de xifrat/desxifrat</li></a>
+</ul>
+</ul>
+</ul><a href='#ServeideLOPD2.3.x-Instal.laci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal.lació i Configuració</li></a>
+<ul><a href='#ServeideLOPD2.3.x-Instal.laci%C3%B3'>
+    <li>Instal.lació</li></a><a href='#ServeideLOPD2.3.x-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+<ul><a href='#ServeideLOPD2.3.x-Gesti%C3%B3Excepcions'>
+    <li>Gestió Excepcions</li></a>
+</ul>
+</ul><a href='#ServeideLOPD2.3.x-Utilitzaci%C3%B3delServei'>
+    <li>Utilització del  Servei</li></a><a href='#ServeideLOPD2.3.x-ApendixA.defaultcanigoservices.xml'>
+    <li>Apendix A. default-canigo-services.xml</li></a><a href='#ServeideLOPD2.3.x-ApendixB.AESKeyGen'>
+    <li>Apendix B. AESKeyGen</li></a>
+</ul>
+</ul></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h1><a name="ServeideLOPD2.3.x-Introducci%C3%B3"></a>Introducció</h1>
+
+
+<h2><a name="ServeideLOPD2.3.x-Prop%C3%B2sit"></a>Propòsit</h2>
+
+<p>El servei de LOPD de Canigó permet assignar un determinat nivell de protecció a les dades de l'aplicació que l'utilitzi.</p>
+
+<h2><a name="ServeideLOPD2.3.x-ContextiEscenarisd%27%C3%9As"></a>Context i Escenaris d'Ús</h2>
+
+<p>El servei de LOPD es troba dins dels serveis generals de Canigó.<br/>
+El seu ús és necessari en cas de voler protegir dades sensibles de l'aplicació o d'enregistrar el seu accés.</p>
+
+<h2><a name="ServeideLOPD2.3.x-VersionsiDepend%C3%A8ncies"></a>Versions i Dependències</h2>
+
+<p>Les dependències descrites a la següent url són requerides per tal de compilar i fer funcionar el projecte:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_15/canigo-services-lopd/dependencies.html" title="Visit page outside Confluence">Dependències Servei de LOPD</a></p>
+
+<h2><a name="ServeideLOPD2.3.x-Aquivadirigit"></a>A qui va dirigit</h2>
+
+<p>Aquest document va dirigit als següents perfils:</p>
+<ol>
+	<li>Programador. Per conèixer l'ús del servei.</li>
+	<li>Arquitecte. Per conèixer quins són els components i la configuració del servei.</li>
+</ol>
+
+
+
+<h2><a name="ServeideLOPD2.3.x-Glossari"></a>Glossari</h2>
+
+<p><b>LOPD</b>: Llei Orgànica de Protecció de Dades</p>
+
+<h1><a name="ServeideLOPD2.3.x-Descripci%C3%B3Detallada"></a>Descripció Detallada</h1>
+
+
+<h2><a name="ServeideLOPD2.3.x-ArquitecturaiComponents"></a>Arquitectura i Components</h2>
+
+<h3><a name="ServeideLOPD2.3.x-Introducci%C3%B3"></a>Introducció</h3>
+
+<p>El servei LOPD ofereix suport a les aplicacions basades en Canigó per facilitar el compliment de la LOPD. En aquest sentit, el servei disposa de dos vessants diferenciades per a complir amb aquest objectiu. Aquestes són per una banda la configuració de les dades que són sensibles dins el model i a quin nivell ho són, i per altra banda dels mecanismes a aplicar en cadascun d'aquests nivells dins l'execució de l'aplicació.</p>
+
+<h3><a name="ServeideLOPD2.3.x-ComponentsdelServei"></a>Components del Servei</h3>
+
+<p>Com ja s'ha comentat anteriorment, el servei es pot dividir en dos parts: </p>
+<ul class="alternate" type="square">
+	<li>Definició del nivell de les dades.</li>
+	<li>Configuració dels mecanismes de seguretat de la LOPD.</li>
+</ul>
+
+
+<p>S'ha volgut dotar al servei de la màxima flexibilitat possible, fent-lo altament configurable i adaptable a nous requisits que pugessin sorgir en futurs canvis de la llei.</p>
+
+<h4><a name="ServeideLOPD2.3.x-Definici%C3%B3delnivelldelesdades"></a>Definició del nivell de les dades</h4>
+
+<p>Les classes principals d'aquest component són:</p>
+
+<ul class="alternate" type="square">
+	<li>LOPDAttributeSourceImpl: classes que compleix la interfície LOPDAttributeSource i que conté un mètode getLevel el qual rep com a paràmetres una classe i un nom d'atribut de la mateixa i retorna el nivell de protecció de LOPD del mateix.</li>
+</ul>
+
+
+<table class='confluenceTable'><tbody>
+<tr>
+<td class='confluenceTd'> Propietat </td>
+<td class='confluenceTd'> Obligatori </td>
+<td class='confluenceTd'> Descripció </td>
+<td class='confluenceTd'> Valor per defecte </td>
+</tr>
+<tr>
+<td class='confluenceTd'>  LOPDAttributes </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Properties que conté per un atribut d'una classe a quin nivell pertany. Es poden fer servir comodins. Per exemple: <div class="code"><div class="codeContent">
+<pre class="code-java">&lt;props&gt;
+	&lt;prop key=<span class="code-quote">"net.gencat.ctti.canigo.samples.prototip.model.Category.*"</span>&gt;HIGH_LEVEL&lt;/prop&gt;
+	&lt;prop key=<span class="code-quote">"net.gencat.ctti.canigo.samples.prototip.model.Category.descn"</span>&gt;MED_LEVEL&lt;/prop&gt;
+&lt;/props&gt;</pre>
+</div></div> <br/>
+En aquest cas s'està indicant que tots els atributs de la classes Category són de nivell alt. Cas d'haver-hi dos regles que es compleixin per un atribut, sempre s'aplicarà la regla més restrictiva. Així doncs, el nivell de l'atribut descn de la classe Category seria mig per l'exemple anterior.</td>
+<td class='confluenceTd'>&nbsp;</td>
+</tr>
+<tr>
+<td class='confluenceTd'> Levels </td>
+<td class='confluenceTd'> No</td>
+<td class='confluenceTd'> Es tracta d'un hashmap calculat a partir del properties anterior i que es fa servir per fer les cerques dels nivells de les dades sensibles </td>
+<td class='confluenceTd'> null</td>
+</tr>
+</tbody></table>
+
+<ul class="alternate" type="square">
+	<li>Level. Classe de suport que ens indica els tres nivells d'aplicació de la LOPD.</li>
+</ul>
+
+
+<h4><a name="ServeideLOPD2.3.x-Mecanismesdeseguretat"></a>Mecanismes de seguretat</h4>
+
+<p>Com el seu nom indica, la LOPD afecta a les dades del model de les aplicacions. És en accedir a les dades doncs, on s'ha d'establir un punt d'intervenció per a revisar quins mecanismes de seguretat s'ha d'aplicar.</p>
+
+<p>És altament recomanable aïllar de forma clara aquells objectes del model que contindran dades sensibles pel que s'haurà de separar l'accés a aquesta informació en objectes de negoci, BO, a banda dels que treballen amb dades no sensibles de l'aplicació.</p>
+
+<p>Per aquest tipus de BO que tracten dades sensibles es crearà un proxy específic. Aquest serà el mateix que per la gestió de la transaccionalitat que es defineix al servei de persistència, però tindrà uns interceptor que permetran actuar abans i després de llegir o canviar una dada del model.</p>
+
+<p>L'interceptor previ a l'accés al model actuarà en el moment de fer una inserció o una actualització de les dades. En aquest moment, s'examinarà si algun dels objectes que es reben per paràmetre conté alguna dada sensible. Per fer-ho, S'interrogarà cadascun d'ells contra l'objecte LOPDAttributeSource definit anteriorment. Cas que algun dels atributs tingui definit un nivell LOPD, s'aplicarà els mecanismes associats a aquest nivell.</p>
+
+<p>L'interceptor posterior a l'accés al model en canvi, actuarà en el moment de recuperar dades del model. Quan el mètode retorna les dades, s'examinarà els objectes retornats i es procedirà de la mateixa forma que a l'nterceptor previ.<br/>
+A continuació es mostra el diagrama de classes d'aquest component:<br/>
+Les classes principals d'aquest component són:</p>
+
+<ul class="alternate" type="square">
+	<li>LOPDInterceptorImpl: classe que implementa la interfície LOPDInterceptor. Aquesta classe te de dos subclasses el Pre i el Post interceptor que actuen abans i després d'accedir a les dades.</li>
+</ul>
+
+
+<table class='confluenceTable'><tbody>
+<tr>
+<td class='confluenceTd'> Propietat </td>
+<td class='confluenceTd'> Obligatori </td>
+<td class='confluenceTd'> Descripció </td>
+<td class='confluenceTd'> Valor per defecte </td>
+</tr>
+<tr>
+<td class='confluenceTd'> LOPDAttributeSource </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Configuració de les dades que són sensibles i a quin nivell ho són </td>
+<td class='confluenceTd'>&nbsp;</td>
+</tr>
+<tr>
+<td class='confluenceTd'> lowLevelHandlers </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Llista de handlers a aplicar quan la dada és de nivell bàsic </td>
+<td class='confluenceTd'> null </td>
+</tr>
+<tr>
+<td class='confluenceTd'> midLevelHandlers </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Llista de handlers a aplicar quan la dada és de nivell mig </td>
+<td class='confluenceTd'> null </td>
+</tr>
+<tr>
+<td class='confluenceTd'> highLevelHandlers </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Llista de handlers a aplicar quan la dada és de nivell alt </td>
+<td class='confluenceTd'> null </td>
+</tr>
+<tr>
+<td class='confluenceTd'> enabled </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Si els llistats de handlers de tots els nivells són nulls, es posa a false pero no aplicar l'interceptor. </td>
+<td class='confluenceTd'> true </td>
+</tr>
+</tbody></table>
+
+<ul class="alternate" type="square">
+	<li>LOPDAttributeSource: classe que ja s'ha explicat anteriorment i que conté les dades que són sensibles i a quin nivell de la LOPD.</li>
+	<li>LOPDHandler: Classe que conté un mètode anomenat handle que és l'encarregat d'aplicar el mecanisme de seguretat que toqui pel nivell on està configurat. A continuació es veuran els tres handlers que proporciona el servei: registre d'accés a la dada, xifratge i desxifratge de dades.</li>
+</ul>
+
+
+<h5><a name="ServeideLOPD2.3.x-Handlerderegistred%27acc%C3%A9s"></a>Handler de registre d'accés</h5>
+
+<p>Aquest handler aplica el mecanisme de seguretat de registrar els accessos a les dades sensibles. La implementació proposada fa servir el servei de seguretat per recollir les dades de l'usuari que està accedint a la dada i el servei de traces per registrar la traça amb la informació de la dada accedida, data i hora, usuari que ho ha fet i tipus d'accés.</p>
+
+<p>L'única classe específica del component és el LoggingHandler que te el servei de seguretat i el de traces, o logging. Al mètode handle és on realitza l'escriptura de la traça de registre d'accés.</p>
+
+<h5><a name="ServeideLOPD2.3.x-Handlersdexifrat%2Fdesxifrat"></a>Handlers de xifrat/desxifrat</h5>
+
+<p>Es tracta de dos handlers que permeten aplicar el mecanisme de seguretat que xifra les dades al suport on s'emmagatzemen. Un dels handler encripta la dada abans de passar-la al model i l'altre la desencripta per poder ser mostrada a l'aplicació. D'aquesta manera s'aconsegueix que l'aplicació treballi amb la dada en format de texte plà, però es desi a la base de dades encriptada.</p>
+
+<p>Les principals classes del component són:</p>
+<ul class="alternate" type="square">
+	<li><b>DecryptDataHandler</b>: handler que al mètode handle crida al element cipher per a que desencripti la dada. Un cop desencriptada la dada, modifca l'objecte amb el nou valor.</li>
+	<li><b>EncryptDataHandler</b>: handler que al mètode handle crida al element cipher per a que encripti la dada. Un cop encriptada la dada, modifca l'objecte amb el nou valor.</li>
+	<li><b>Cipher</b>: interfície que ofereix un mètode per encriptar un String i un altre per desencriptar-lo.</li>
+	<li><b>BouncyCastleAESCipherImpl</b>: implementació de la interfície Cipher que es basa en l'algorisme AES i el proveïdor BouncyCastle. És necessari passar-li per configuració una key de tipus AES amb la que realitza les operacions de xifratge.</li>
+</ul>
+
+
+<p>Es pot trobar tota la documentació JavaDoc i el codi font referent aquests components a les següents urls:</p>
+
+<p><ins>JavaDoc:</ins> <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_15/canigo-services-lopd/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_15/canigo-services-lopd/apidocs/index.html</a><br/>
+<ins>Codi Font:</ins>&nbsp; <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_15/canigo-services-lopd/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_15/canigo-services-lopd/xref/index.html</a></p>
+
+<h2><a name="ServeideLOPD2.3.x-Instal.laci%C3%B3iConfiguraci%C3%B3"></a>Instal.lació i Configuració</h2>
+
+<h3><a name="ServeideLOPD2.3.x-Instal.laci%C3%B3"></a>Instal.lació</h3>
+
+<p>La instal.lació del servei requereix de la utilització de la llibreria  'canigo-services-lopd' i les dependències indicades a l'apartat 'Introducció - Versions i Dependències'.</p>
+
+<p>S'ha d'introduïr la següent dependència en el pom.xml de l'aplicació:</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;dependency&gt;
+	&lt;groupId&gt;canigo&lt;/groupId&gt;
+	&lt;artifactId&gt;canigo-services-lopd&lt;/artifactId&gt;
+	&lt;version&gt;${canigo.version}&lt;/version&gt;
+&lt;/dependency&gt;</pre>
+</div></div>
+
+<table cellpadding='5' width='85%' cellspacing='8px' class='noteMacro' border="0" align='center'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="./icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td><b class="strong">Important</b><br />
+<p>Aquest servei només està disponible a partir de la versió 2.3.15 del framework.</p></td></tr></table>
+
+<h3><a name="ServeideLOPD2.3.x-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p>El servei ja te una configuració per defecte. L'únic que ha de configurar l'usuari són les dades del model que apliquen a la LOPD i en quin nivell.</p>
+
+<p>Aquesta configuració es pot fer en un fitxer anomenat canigo-services-lopd.xml on tindrem una configuració com la següent:</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;
+&lt;beans xmlns=<span class="code-quote">"http:<span class="code-comment">//www.springframework.org/schema/beans"</span>
+</span>	xmlns:xsi=<span class="code-quote">"http:<span class="code-comment">//www.w3.org/2001/XMLSchema-instance"</span>
+</span>	xsi:schemaLocation=<span class="code-quote">"http:<span class="code-comment">//www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;
+</span>
+ 	&lt;<span class="code-keyword">import</span> resource=<span class="code-quote">"classpath:/spring/<span class="code-keyword">default</span>-canigo-services-lopd.xml"</span> /&gt;
+	
+ 	&lt;bean id=<span class="code-quote">"LOPDAttributesSource"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.services.lopd.definition.impl.LOPDAttributeSourceImpl"</span>&gt;
+ 		&lt;property name=<span class="code-quote">"LOPDAttributes"</span>&gt;
+ 			&lt;props&gt;
+ 				&lt;prop key=<span class="code-quote">"net.gencat.ctti.canigo.samples.prototip.model.Category.*"</span>&gt;HIGH_LEVEL&lt;/prop&gt;
+ 				&lt;prop key=<span class="code-quote">"net.gencat.ctti.canigo.samples.prototip.model.Category.descn"</span>&gt;MED_LEVEL&lt;/prop&gt;
+ 			&lt;/props&gt;
+ 		&lt;/property&gt;
+ 	&lt;/bean&gt;
+	
+&lt;/beans&gt;</pre>
+</div></div>
+
+<p>Com es pot veure només s'ha configurat les dades que apliquen a la LOPD. En el cas de l'exemple tots els atributs de la classe Category són de nivell alt, menys el descn que és de nivell mig. Podeu consultar el contingut del fitxer de configuració per defecte del servei, default-canigo-services-lopd.xml a l'apèndix A.</p>
+
+<p>A més d'aquest fitxer XML, s'ha d'afegir al servei de configuració un nou fitxer de properties que contindrà la clau simètrica que es fa servir per l'encriptació de dades. Aquest fitxer es pot anomenar lopd.properties i pot estar dins un directori anomenat lopd. El contingut del mateix ha de ser semblant a aquest:</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">lopd.secretkey=000102030405060708090a0b0c0d0e0f</pre>
+</div></div>
+
+<p>On només hi ha una propietat que és la clau que es farà servir per encriptar i desencriptar dades.</p>
+
+<p><b>NOTA: És molt important no perdre aquest clau en cada entorn ja que les dades encriptades a la BD no podrien ser desencriptades cas de perdre's la mateixa.</b></p>
+
+<p>Per tal de facilitar la creació d'aquestes claus, el servei facilita un generador de claus AES. Consulteu l'apèndix B per veure'n l'ús.</p>
+
+<h4><a name="ServeideLOPD2.3.x-Gesti%C3%B3Excepcions"></a>Gestió Excepcions</h4>
+
+<p>El servei conté una excepció pròpia per la gestió dels possibles errors que puguin esdevindre durant la configuració o l'execució del mateix.<br/>
+Aquesta excepció és la classe anomenada net.gencat.ctti.canigo.services.lopd.exception.LOPDException. <br/>
+Es recomana gestionar aquesta excepció amb el servei d'excepcions de Canigó.<br/>
+Els missatges d'error propis d'aquest tipus d'excepció són:</p>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<td class='confluenceTd'> Codi </td>
+<td class='confluenceTd'> Missatge </td>
+</tr>
+<tr>
+<td class='confluenceTd'> net.gencat.ctti.canigo.services.lopd.exception.invalidKey </td>
+<td class='confluenceTd'> Invalid 128 AES key provided {0} </td>
+</tr>
+<tr>
+<td class='confluenceTd'> net.gencat.ctti.canigo.services.lopd.exception.illegalblocksize </td>
+<td class='confluenceTd'> the length of data provided to a block cipher is incorrect, i.e., does not match the block size of the cipher {0} </td>
+</tr>
+<tr>
+<td class='confluenceTd'> net.gencat.ctti.canigo.services.lopd.exception.badpadding </td>
+<td class='confluenceTd'> a particular padding mechanism is expected for the input data but the data is not padded properly {0} </td>
+</tr>
+<tr>
+<td class='confluenceTd'> net.gencat.ctti.canigo.services.lopd.exception.illegalaccess </td>
+<td class='confluenceTd'> the currently executing method does not have access to the definition of the specified class({0}), field({1}, method or constructor </td>
+</tr>
+<tr>
+<td class='confluenceTd'> net.gencat.ctti.canigo.services.lopd.exception.invocationtarget </td>
+<td class='confluenceTd'> exception thrown by an invoked method or constructor </td>
+</tr>
+<tr>
+<td class='confluenceTd'> net.gencat.ctti.canigo.services.lopd.exception.nosuchmethod </td>
+<td class='confluenceTd'> getter method cannot be found </td>
+</tr>
+<tr>
+<td class='confluenceTd'> net.gencat.ctti.canigo.services.lopd.exception.illegalargument </td>
+<td class='confluenceTd'> getter method has been passed an illegal or inappropriate argument </td>
+</tr>
+</tbody></table>
+
+<p>S'haurà de configurar aquests missatges amb el servei de internacionalització de Canigó perquè es mostrin amb el literal en l'idioma de l'aplicació.</p>
+
+<h2><a name="ServeideLOPD2.3.x-Utilitzaci%C3%B3delServei"></a>Utilització del  Servei</h2>
+
+<p>Tot seguit anem a presentar un exemple d'ús del servei de LOPD en una aplicació Canigó. Suposem que tenim un BO anomenat GestioDadesPacientBO que s'encarrega d'accedir i manipular les dades d'un pacient. <br/>
+Suposem també que hi ha una taula anomenada PACIENT que conté les dades del pacient, i una classe que la mapeja a objecte anomenada Pacient. Afegim també una taula anomenada MALALTIES i la corresponent classe Malalties que te com a clau forana l'identificador del malalt.<br/>
+El primer que s'ha de fer és determinar quines dades són sensibles i a quin nivell. Podem determinar que les dades del pacient seran de nivell bàsic, i les de les seves malalties de nivell alt.<br/>
+Després es procedeix a configurar el servei. Per fer-ho s'ha de crear el fitxer canigo-services-lopd.xml amb el contingut:</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;
+&lt;beans xmlns=<span class="code-quote">"http:<span class="code-comment">//www.springframework.org/schema/beans"</span>
+</span>	xmlns:xsi=<span class="code-quote">"http:<span class="code-comment">//www.w3.org/2001/XMLSchema-instance"</span>
+</span>	xsi:schemaLocation=<span class="code-quote">"http:<span class="code-comment">//www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;
+</span>
+ 	&lt;<span class="code-keyword">import</span> resource=<span class="code-quote">"classpath:/spring/<span class="code-keyword">default</span>-canigo-services-lopd.xml"</span> /&gt;
+	
+ 	&lt;bean id=<span class="code-quote">"LOPDAttributesSource"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.services.lopd.definition.impl.LOPDAttributeSourceImpl"</span>&gt;
+ 		&lt;property name=<span class="code-quote">"LOPDAttributes"</span>&gt;
+ 			&lt;props&gt;
+ 				&lt;prop key=<span class="code-quote">"net.gencat.ctti.canigo.samples.prototip.model.Malalties.*"</span>&gt;HIGH_LEVEL&lt;/prop&gt;
+ 				&lt;prop key=<span class="code-quote">"net.gencat.ctti.canigo.samples.prototip.model.Pacient.*"</span>&gt;LOW_LEVEL&lt;/prop&gt;
+ 			&lt;/props&gt;
+ 		&lt;/property&gt;
+ 	&lt;/bean&gt;
+	
+&lt;/beans&gt;</pre>
+</div></div>
+
+<p>Un cop configurat el servei, es creen el proxy y el BO corresponents per la classe GestioDadesPacientBO:</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"GestioDadesPacientBOTarget"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.samples.prototip.model.bo.impl.GestioDadesPacientBOImpl"</span>&gt;
+ 		&lt;property name=<span class="code-quote">"dao"</span> ref=<span class="code-quote">"universalHibernateDAO"</span>/&gt;
+ 	&lt;/bean&gt;	
+	
+ 	&lt;bean id=<span class="code-quote">"GestioDadesPacientBO"</span> parent=<span class="code-quote">"baseLOPDProxy"</span>&gt;
+ 			&lt;property name=<span class="code-quote">"target"</span>&gt;&lt;ref bean=<span class="code-quote">"categoryBOTarget"</span>/&gt;&lt;/property&gt;
+ 	&lt;/bean&gt;
+    
+    &lt;bean id=<span class="code-quote">"baseLOPDProxy"</span>
+		class=<span class="code-quote">"org.springframework.transaction.interceptor.TransactionProxyFactoryBean"</span>&gt;
+ 		&lt;property name=<span class="code-quote">"transactionManager"</span>&gt;
+ 			&lt;ref local=<span class="code-quote">"transactionManager"</span> /&gt;
+ 		&lt;/property&gt;
+ 		&lt;property name=<span class="code-quote">"target"</span>&gt;
+ 			&lt;bean class=<span class="code-quote">"java.lang.<span class="code-object">Object</span>"</span> /&gt;
+ 		&lt;/property&gt;
+ 		&lt;property name=<span class="code-quote">"preInterceptors"</span>&gt;
+ 			&lt;list&gt;
+ 				&lt;ref bean=<span class="code-quote">"preLOPDInterceptor"</span>/&gt;
+ 			&lt;/list&gt;
+ 		&lt;/property&gt;
+ 		&lt;property name=<span class="code-quote">"postInterceptors"</span>&gt;
+ 			&lt;list&gt;
+ 				&lt;ref bean=<span class="code-quote">"postLOPDInterceptor"</span>/&gt;
+ 			&lt;/list&gt;
+ 		&lt;/property&gt;
+ 		&lt;property name=<span class="code-quote">"transactionAttributes"</span>&gt;
+ 			&lt;props&gt;
+ 				&lt;prop key=<span class="code-quote">"get*"</span>&gt;PROPAGATION_REQUIRED,readOnly&lt;/prop&gt;
+ 				&lt;prop key=<span class="code-quote">"find*"</span>&gt;PROPAGATION_REQUIRED,readOnly&lt;/prop&gt;
+ 				&lt;prop key=<span class="code-quote">"load*"</span>&gt;PROPAGATION_REQUIRED,readOnly&lt;/prop&gt;
+ 				&lt;prop key=<span class="code-quote">"store*"</span>&gt;PROPAGATION_REQUIRED&lt;/prop&gt;
+ 				&lt;prop key=<span class="code-quote">"save*"</span>&gt;PROPAGATION_REQUIRED&lt;/prop&gt;
+ 				&lt;prop key=<span class="code-quote">"delete*"</span>&gt;PROPAGATION_REQUIRED&lt;/prop&gt;
+ 			&lt;/props&gt;
+ 		&lt;/property&gt;
+	&lt;/bean&gt;</pre>
+</div></div>
+
+<p>Com es pot apreciar, la principal diferencia en el baseLOPDProxy és el fer d'afegir un preInterceptor i un postInterceptor. Aquests corresponen als que porta el servei configurats per defecte que són, pel cas del nivell alt, el de registre d'accés i els d'encriptació i desencriptació de dades.<br/>
+Un cop fet tot això, quan s'accedeixi a alguna funció del BO GestioDadesPacientBO que tingui com a paràmetre o com a dada de retorn alguna instància de la classe Malalties, es guardarà el registre de l'accés al log de l'aplicació. A més, si es tracta d'una funció que insereix o actualitza una dada l'encriptarà, i si es tracta de recuperar una dada de la mateixa la desencriptarà.</p>
+
+<h2><a name="ServeideLOPD2.3.x-ApendixA.defaultcanigoservices.xml"></a>Apendix A. default-canigo-services.xml</h2>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;
+&lt;beans xmlns=<span class="code-quote">"http:<span class="code-comment">//www.springframework.org/schema/beans"</span>
+</span>xmlns:xsi=<span class="code-quote">"http:<span class="code-comment">//www.w3.org/2001/XMLSchema-instance"</span>
+</span>xsi:schemaLocation=<span class="code-quote">"http:<span class="code-comment">//www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;
+</span>
+&lt;bean id=<span class="code-quote">"LOPDCipher"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.services.lopd.crypto.impl.BouncyCastleAESCipherImpl"</span>&gt;
+&lt;property name=<span class="code-quote">"key"</span> value=<span class="code-quote">"${lopd.secretkey}"</span>/&gt;
+&lt;/bean&gt;
+
+&lt;bean id=<span class="code-quote">"EncryptLOPDHandler"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.services.lopd.handler.impl.EncryptDataHandler"</span>&gt;
+&lt;property name=<span class="code-quote">"loggingService"</span> ref=<span class="code-quote">"loggingService"</span>/&gt;
+&lt;property name=<span class="code-quote">"cipher"</span> ref=<span class="code-quote">"LOPDCipher"</span>/&gt;
+&lt;/bean&gt;
+&lt;bean id=<span class="code-quote">"DecryptLOPDHandler"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.services.lopd.handler.impl.DecryptDataHandler"</span>&gt;
+&lt;property name=<span class="code-quote">"loggingService"</span> ref=<span class="code-quote">"loggingService"</span>/&gt;
+&lt;property name=<span class="code-quote">"cipher"</span> ref=<span class="code-quote">"LOPDCipher"</span>/&gt;
+&lt;/bean&gt;
+&lt;bean id=<span class="code-quote">"LogLOPDHandler"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.services.lopd.handler.impl.LoggingHandler"</span>&gt;
+&lt;property name=<span class="code-quote">"loggingService"</span> ref=<span class="code-quote">"loggingService"</span>/&gt;
+&lt;/bean&gt;
+
+&lt;bean id=<span class="code-quote">"LOPDInterceptor"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.services.lopd.interceptor.impl.LOPDInterceptorImpl"</span> <span class="code-keyword">abstract</span>=<span class="code-quote">"<span class="code-keyword">true</span>"</span>&gt;
+&lt;property name=<span class="code-quote">"LOPDAttributeSource"</span> ref=<span class="code-quote">"LOPDAttributesSource"</span>/&gt;
+&lt;/bean&gt;
+
+&lt;bean id=<span class="code-quote">"preLOPDInterceptor"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.services.lopd.interceptor.impl.PreLOPDInterceptorImpl"</span>&gt;
+&lt;property name=<span class="code-quote">"LOPDAttributeSource"</span> ref=<span class="code-quote">"LOPDAttributesSource"</span>/&gt;
+&lt;property name=<span class="code-quote">"highLevelHandlers"</span>&gt;
+&lt;list&gt;
+&lt;ref bean=<span class="code-quote">"EncryptLOPDHandler"</span> /&gt;
+&lt;/list&gt;
+&lt;/property&gt;
+&lt;/bean&gt;
+&lt;bean id=<span class="code-quote">"postLOPDInterceptor"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.services.lopd.interceptor.impl.PostLOPDInterceptorImpl"</span>&gt;
+&lt;property name=<span class="code-quote">"LOPDAttributeSource"</span> ref=<span class="code-quote">"LOPDAttributesSource"</span>/&gt;
+&lt;property name=<span class="code-quote">"highLevelHandlers"</span>&gt;
+&lt;list&gt;
+&lt;ref bean=<span class="code-quote">"LogLOPDHandler"</span> /&gt;
+&lt;ref bean=<span class="code-quote">"DecryptLOPDHandler"</span> /&gt;
+&lt;/list&gt;
+&lt;/property&gt;
+&lt;/bean&gt;
+&lt;/beans&gt;</pre>
+</div></div>
+
+<h2><a name="ServeideLOPD2.3.x-ApendixB.AESKeyGen"></a>Apendix B. AESKeyGen</h2>
+
+<p>Amb el servei, s'adjunta una classe executable Java que permet la generació de claus AES, que són les que fa servir el mateix pel xifratge de dades. <br/>
+Un exemple d'utilització d'aquesta classe seria:</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">C:\&gt;java -cp canigo-services-lopd-2.3.15.jar;bcprov-jdk15-140.jar  net.gencat.ctti.canigo.services.lopd.tools.AESKeyGen
+Generating AES key....
+Generated key is:
+80a83554649f6554601fd23159d7f104
+done</pre>
+</div></div>
+
+<p>De la pantalla anterior es despren la necessitat de comptar amb els jars del servei de lopd i de bouncycastle per poder generar la clau AES. Després només cal copiar aquesta clau al fitxer de propietats lopd.properties.</p>
+
+
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

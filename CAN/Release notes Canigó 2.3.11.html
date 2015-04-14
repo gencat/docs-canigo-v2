@@ -1,0 +1,119 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Release notes Canigó 2.3.11</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Release notes Canigó 2.3.11
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Jan 24, 2011 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h2><a name="ReleasenotesCanig%C3%B32.3.11-Releasenotesdelaversi%C3%B32.3.11deCanig%C3%B3"></a>Release notes de la versió 2.3.11 de Canigó</h2>
+
+<h3><a name="ReleasenotesCanig%C3%B32.3.11-%28%29PeticionsincorporadesaCanig%C3%B32.3.11%3A"></a><img class="emoticon" src="./icons/emoticons/add.gif" height="16" width="16" align="absmiddle" alt="" border="0"/> Peticions incorporades a Canigó 2.3.11:</h3>
+
+<h5><a name="ReleasenotesCanig%C3%B32.3.11-Canvis"></a>Canvis</h5>
+
+<ul>
+	<li>Canvi <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-384" title="Visit page outside Confluence"><b>CAN-384</b></a>: <font color="#333333">Enregistrar la font de l'autenticació a la sessió</font>
+<br clear="all" />
+<b>Context</b>: Enregistrar a la sessió web la font (provider) des d'on s'ha aconseguit fer l'autenticació. També mostrar-ho per log.<br/>
+<b>Servei afectat</b>: canigo-service-security<br/>
+<b>Solució</b>: Afegir un logger en la classe SequentialProviderManager per poder veure el provider pel que s'ha autenticat.
+<br clear="all" /></li>
+</ul>
+
+
+<ul>
+	<li>Canvi <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-526" title="Visit page outside Confluence"><b>CAN-526</b></a>: <font color="#333333">Configuració del tractament dels doble-submit en els formularis</font>
+<br clear="all" />
+<b>Context</b>: Configuració del tractament dels doble-submit en els formularis<br/>
+<b>Servei afectat</b>: canigo-service-web<br/>
+<b>Solució</b>: Modificació del tag &lt;fwk:form&gt; per afegir una opció extra "disabledSubmit" que activa(true) o desactiva(false) la protecció contra el doble submit en un formulari determinat.  </li>
+</ul>
+
+
+<ul>
+	<li>Canvi <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-620" title="Visit page outside Confluence"><b>CAN-620</b></a>: <font color="#333333">Correcció del JS d'autocomplete per tal de que funcioni els paràmetres forceSelection i emptyFunction</font>
+<br clear="all" />
+<b>Context</b>: Correcció del JS d'autocomplete per tal de que funcioni els paràmetres forceSelection i emptyFunction<br/>
+<b>Component afectat</b>: canigo-ajaxtags-validation.js<br/>
+<b>Solució</b>: Modificació del script segons les especificacions de la petició de canvi per fer funcionar correctament els dos paràmetres indicats.</li>
+</ul>
+
+
+<ul>
+	<li>Canvi <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-873" title="Visit page outside Confluence"><b>CAN-873</b></a>: <font color="#333333">Mostrar succesMessage juntament amb missatges d'errors de validació de forma opcional</font>
+<br clear="all" />
+<b>Context</b>: Mostrar succesMessage juntament amb missatges d'errors de validació de forma opcional<br/>
+<b>Component afectat</b>: canigo-ajaxtags-validation.js<br/>
+<b>Solució</b>: S'afegeix un paràmetre extra a cada jsp que volgui utilitzar aquesta funcionalitat "seeMsgWithError". El seu valor (true/false) indicarà si es vol mostrar el missatge d'error amb el missatge informatiu o només el d'error. </li>
+</ul>
+
+
+<ul>
+	<li>Canvi <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1147" title="Visit page outside Confluence"><b>CAN-1147</b></a>: <font color="#333333">Pujar versió de Struts per solucionar bug de seguretat</font>
+<br clear="all" />
+<b>Context</b>: Pujar versió de Struts per solucionar bug de seguretat<br/>
+<b>Llibreries afectades</b>: struts-1.2.9.jar<br/>
+<b>Solució</b>: Actualització de la llibreria struts-1.2.7.jar a la versió 1.2.9 on estan implementats tots el canvis que solucionen el bug de seguretat.</li>
+</ul>
+
+
+<ul>
+	<li>Canvi <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1196" title="Visit page outside Confluence"><b>CAN-1196</b></a>: <font color="#333333">exportar un report excel</font>
+<br clear="all" />
+<b>Context</b>: Exportar un report excel<br/>
+<b>Servei afectat</b>: canigo-service-reporting <br/>
+<b>Solució</b>: Modificació de la classe RenderJasperReportXLSView.java per tal d'afegir la possibilitat d'exportar arxius Excel(xls) com Array de Bytes.</li>
+</ul>
+
+
+<h5><a name="ReleasenotesCanig%C3%B32.3.11-Incid%C3%A8ncies"></a>Incidències</h5>
+
+<ul>
+	<li>Incidència <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1150" title="Visit page outside Confluence"><b>CAN-1150</b></a>: <font color="#333333">Tooltip del textFieldTag no es mostra</font>
+<br clear="all" />
+<b>Context</b>: El tooltip d'un &lt;fwk:text&gt; no es mostra correctament en IE6.<br/>
+<b>Servei afectat</b>: canigo-service-web<br/>
+<b>Solució</b>: Modificació del tooltip per que sigui compatible amb tots els navegadors.
+<br clear="all" /></li>
+	<li>Incidència <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1154" title="Visit page outside Confluence"><b>CAN-1154</b></a>: <font color="#333333">Correccions calendari ofert per CANIGO</font>
+<br clear="all" />
+<b>Context</b>: El calendari no mostra correctament alguns literals en català.<br/>
+<b>Component estàtic afectat</b>: calendar-ca.js<br/>
+<b>Solució</b>: Modificació del component del calendari encarregat de la renderització dels literals en català.
+<br clear="all" /></li>
+	<li>Incidència <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1180" title="Visit page outside Confluence"><b>CAN-1180</b></a>: <font color="#333333">Textarea amb format a pestanyes</font>
+<br clear="all" />
+<b>Context</b>: En crear un Textarea amb pestanyes, en el moment de la càrrega inicial, es visualitzen totes les pestanyes buides.<br/>
+<b>Servei afectat</b>: canigo-service-web<br/>
+<b>Solució</b>: Eliminació d'una sentencia condicional que feia que no es carregués correctament els textArea's provocant l'efecte de pestanyes buides.
+<br clear="all" /></li>
+</ul>
+
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

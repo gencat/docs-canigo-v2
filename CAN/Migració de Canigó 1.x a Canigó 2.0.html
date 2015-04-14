@@ -1,0 +1,145 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Migració de Canigó 1.x a Canigó 2.0</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Migració de Canigó 1.x a Canigó 2.0
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Jun 11, 2007 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <table cellpadding='5' width='85%' cellspacing='8px' class='infoMacro' border="0" align='center'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="./icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td><b class="strong">Important: Canvis importants a Canigó 2.0.</b><br />
+<p>Si us plau, abans de continuar llegeixi atentament els canvis importants que incorpora Canigó 2.0 respecte a versions 1.x: <a href="Canvis importants a Canigó 2.0.html" title="Canvis importants a Canigó 2.0">Canvis importants a Canigó 2.0</a></p></td></tr></table>
+<p><br clear="all" /></p>
+
+<h2><a name="Migraci%C3%B3deCanig%C3%B31.xaCanig%C3%B32.0-Context"></a>Context</h2>
+
+<p><b>Com a conseqüència del refactor que s'ha dut a terme en el codi font del Framework Canigó l'ús dels serveis de Canigó 2.0 en els seus projectes implicarà un mínim d'actualitzacions en el codi font del seu projecte per tal que aquest funcioni correctament amb la versió 2.0 de Canigó.</b></p>
+
+<h2><a name="Migraci%C3%B3deCanig%C3%B31.xaCanig%C3%B32.0-PasosaseguirpermigrardeCanig%C3%B31.xaCanig%C3%B32.0"></a>Pasos a seguir per migrar de Canigó 1.x a Canigó 2.0</h2>
+
+<p>A continuació es mostra tot un seguit dels pasos que s'han de seguir per migrar de les versions 1.x de Canigó a la versió 2.0 de<br/>
+Canigó:</p>
+
+<h5><a name="Migraci%C3%B3deCanig%C3%B31.xaCanig%C3%B32.0-project.xml"></a>project.xml</h5>
+
+<ul>
+	<li>Actualitzar tota referència als serveis de Canigó 1.x (<b>openFrame</b>) al fitxer <b>project.xml</b> pels serveis corresponents a Canigó 2.0 (<b>canigo</b>):</li>
+</ul>
+
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> Fitxers de configuració indicats a les versions 1.x (openFrame) </th>
+<th class='confluenceTh'> Fitxers de configuració indicats a les versions 1.x (openFrame) </th>
+</tr>
+<tr>
+<td class='confluenceTd'> &lt;dependency&gt; <br clear="all" />
+&nbsp;&nbsp;&nbsp; &lt;groupId&gt;<b>openFrame</b>&lt;/groupId&gt; <br clear="all" />
+&nbsp;&nbsp;&nbsp; &lt;artifactId&gt;<b>openframe</b>&#45;services-*&lt;/artifactId&gt; <br clear="all" />
+&nbsp;&nbsp;&nbsp; &lt;version&gt;$ {version.<b>openframe</b>.*}&lt;/version&gt; <br clear="all" />
+&nbsp;&nbsp;&nbsp; &lt;properties&gt; <br clear="all" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;war.bundle&gt;true&lt;/war.bundle&gt; <br clear="all" />
+&nbsp;&nbsp;&nbsp; &lt;/properties&gt; <br clear="all" />
+&lt;/dependency&gt; </td>
+<td class='confluenceTd'> &lt;dependency&gt; <br clear="all" />
+&nbsp;&nbsp;&nbsp; &lt;groupId&gt;<b>canigo</b>&lt;/groupId&gt; <br clear="all" />
+&nbsp;&nbsp;&nbsp; &lt;artifactId&gt;<b>canigo</b>&#45;services-*&lt;/artifactId&gt; <br clear="all" />
+&nbsp;&nbsp;&nbsp; &lt;version&gt;$ {version.<b>canigo</b>.*}&lt;/version&gt; <br clear="all" />
+&nbsp;&nbsp;&nbsp; &lt;properties&gt; <br clear="all" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;war.bundle&gt;true&lt;/war.bundle&gt; <br clear="all" />
+&nbsp;&nbsp;&nbsp; &lt;/properties&gt; <br clear="all" />
+&lt;/dependency&gt; </td>
+</tr>
+</tbody></table>
+<ul>
+	<li>Actualitzar el fitxer project.properties per a canviar la versió a Canigó 2.0: "version.canigo=2.0" i revisar que totes les versions de les llibreries utilitzades estan ben definides al fitxer project.properties. Pots trobar <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/dependencies.html" title="Visit page outside Confluence">aqui</a> l'informe de dependències</li>
+</ul>
+
+
+<h5><a name="Migraci%C3%B3deCanig%C3%B31.xaCanig%C3%B32.0-Codifont%28.java%29irecursos%28.xml%29"></a>Codi font (<b>.java) i recursos (</b>.xml)</h5>
+
+<ul>
+	<li>Actualitzar tota referència als serveis de Canigó 1.x (<b>openFrame</b>) als fitxers <b>&#42;.java</b> i <b>&#42;.xml</b> pels serveis corresponents a Canigó 2.0 (<b>canigo</b>):</li>
+</ul>
+
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> Paquets importats a les versions 1.x (openFrame) </th>
+<th class='confluenceTh'> Paquets a importar a la versió 2.0 (canigo) </th>
+</tr>
+<tr>
+<td class='confluenceTd'> net.opentrends.openframe.services.&#42; </td>
+<td class='confluenceTd'> net.gencat.ctti.canigo.services.&#42; </td>
+</tr>
+</tbody></table>
+
+<h5><a name="Migraci%C3%B3deCanig%C3%B31.xaCanig%C3%B32.0-Fitxer.classpath"></a>Fitxer .classpath</h5>
+
+<ul>
+	<li>Actualitzar tota referència als serveis de Canigó 1.x (<b>openFrame</b>) al fitxer <b>.classpath</b> per tal que s'agafin els jars corresponents a la versió 2.0 de Canigó:</li>
+</ul>
+
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> Llibreria importada a les versions 1.x (openFrame) </th>
+<th class='confluenceTh'> Llibreria a importar a la versió 2.0 (canigo) </th>
+</tr>
+<tr>
+<td class='confluenceTd'> &lt;classpathentry kind="var" path="MAVEN_REPO/<b>openFrame</b>/jars/<b>openFrame</b>&#45;services-*.jar"/&gt; </td>
+<td class='confluenceTd'> &lt;classpathentry kind="var" path="MAVEN_REPO/<b>canigo</b>/jars/<b>canigo</b>&#45;services-*.jar"/&gt; </td>
+</tr>
+</tbody></table>
+<p>Es pot fer servir el goal de refresc del classpath d'eclipse que està definit a maven.xml</p>
+
+<h5><a name="Migraci%C3%B3deCanig%C3%B31.xaCanig%C3%B32.0-Migraci%C3%B3deMaven1.0.2aMaven2.0."></a>Migració de Maven 1.0.2 a Maven 2.0.</h5>
+
+<ul>
+	<li>Els projectes que ja van començar amb Maven 1.0.2 <b>no necessiten</b> migrar a Maven 2.0. Només caldrà fer els canvis al project.xml i project.properties ja comentats.</li>
+	<li>Si vols passar a Maven 2.0 cal saber que tots els serveis de Canigó 2.0 s'han construït fent servir l'eina Maven 2.0, a diferència dels serveis de Canigó 1.x que es construien fent servir Maven 1.0.2. A Maven 2.0 cal generar un fitxer <b>pom.xml</b> que inclogui com construir el projecte, on estàn ubicats els repositoris, així com les dependències del projecte. <a href="Migració Maven 1 a Maven 2.html" title="Migració Maven 1 a Maven 2">Aquí</a> pots trobar els passos a seguir per a la migració a Maven 2.0 d'un projecte Maven 1.0</li>
+</ul>
+
+
+<h2><a name="Migraci%C3%B3deCanig%C3%B31.xaCanig%C3%B32.0-Projectesnousfentservir%2Cdesdelcomen%C3%A7ament%2CCanig%C3%B32.0"></a>Projectes nous fent servir, des del començament, Canigó 2.0</h2>
+
+<p>&nbsp;Per tots aquells projectes nous que facin servir Canigó 2.0 cal que tinguin present que els cal:</p>
+<ul>
+	<li>Maven 2.0
+	<ul>
+		<li>Tots els serveis de Canigó 2.0 s'han construït fent servir l'eina Maven 2.0, a diferència dels serveis de Canigó 1.x que es construien fent servir Maven 1.0.2. A Maven 2.0 cal generar un fitxer <b>pom.xml</b> que inclogui com construir el projecte, on estàn ubicats els repositoris, així com les dependències del projecte. Si vols iniciar el projecte a partir d'un ja existent però amb Maven 1 segueix les <a href="Migració Maven 1 a Maven 2.html" title="Migració Maven 1 a Maven 2">instruccions</a> de migració. Si el comences de nou pots anar a la documentació de <a href="http://maven.apache.org/" title="Visit page outside Confluence">Maven</a> per a veure como iniciar</li>
+	</ul>
+	</li>
+</ul>
+
+
+<ul>
+	<li>Spring 2.0</li>
+</ul>
+
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

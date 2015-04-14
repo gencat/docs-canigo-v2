@@ -1,0 +1,467 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Servei de rewriting</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Servei de rewriting
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Sep 12, 2007 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="Serveiderewriting-SERVEIDEREWRITING"></a>SERVEI DE REWRITING</h1>
+
+<p><br clear="all" />
+<br clear="all" />
+<div>
+<ul><a href='#Serveiderewriting-SERVEIDEREWRITING'>
+    <li>SERVEI DE REWRITING</li></a><a href='#Serveiderewriting-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#Serveiderewriting-Prop%C3%B2sit'>
+    <li>Propòsit</li></a><a href='#Serveiderewriting-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i  Dependències</li></a><a href='#Serveiderewriting-Aquivadirigit'>
+    <li>A qui va  dirigit</li></a>
+</ul><a href='#Serveiderewriting-Descripci%C3%B3Detallada'>
+    <li>Descripció  Detallada</li></a>
+<ul><a href='#Serveiderewriting-Instal%5Claci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal&#45; lació  i Configuració</li></a>
+<ul><a href='#Serveiderewriting-Instal%5Claci%C3%B3'>
+    <li>Instal&#45; lació</li></a><a href='#Serveiderewriting-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#Serveiderewriting-Utilitzaci%C3%B3delServei'>
+    <li>Utilització del  Servei</li></a>
+<ul><a href='#Serveiderewriting-Instal%5Clariconfigurarelservei'>
+    <li>Instal&#45; lar  i configurar el servei</li></a><a href='#Serveiderewriting-Definirlanostrap%C3%A0ginaJSP'>
+    <li>Definir la  nostra pàgina JSP</li></a>
+</ul><a href='#Serveiderewriting-Integraci%C3%B3ambAltresServeis'>
+    <li>Integració  amb Altres Serveis</li></a>
+<ul><a href='#Serveiderewriting-Integraci%C3%B3ambelServeideSeguretat'>
+    <li>Integració  amb el Servei de Seguretat</li></a>
+</ul><a href='#Serveiderewriting-PreguntesFreq%C3%BCents'>
+    <li>Preguntes  Freqüents</li></a>
+<ul><a href='#Serveiderewriting-L%27aplicaci%C3%B3retornaunjava.lang.IllegalStateException'>
+    <li>L'aplicació  retorna un java.lang.IllegalStateException</li></a>
+</ul>
+</ul>
+</ul></div><br clear="all" /> <br clear="all" />
+<br clear="all" /></p>
+
+<h1><a name="Serveiderewriting-Introducci%C3%B3"></a>Introducció</h1>
+
+
+<h2><a name="Serveiderewriting-Prop%C3%B2sit"></a>Propòsit</h2>
+
+<p>Aquest servei permet afegir de manera automàtica un prefix a les nostres URLs  per tal de diferenciar entre peticions de recursos estàtics i peticions de  recursos dinàmics, tal i com recomana el document Gestió de la Qualitat a  l'apartat de convencions per a les <ins>Urls</ins>.</p>
+
+<p>De la mateixa manera, aquest servei permet modificar les urls d'entrada a  l'aplicació per tal de redirigir-les a un nou recurs.</p>
+
+<p>Aquest servei està pensat per a ser utilitzat en un entorn en el qual es  disposi d'un Servidor Web encarregat de servir les peticions de recursos  estàtics (imatges, planes html,...) i d'un Servidor d'Aplicacions encarregat de  servir les peticions de recursos dinàmics.</p>
+
+<p>Igualment, i encara que el seu ús no és necessari, aquest servei també es pot  fer servir en un entorn de desenvolupament en el qual no es disposi d'aquesta  configuració. D'aquesta manera no cal diferenciar entre entorn de  desenvolupament i entorn d'integració.</p>
+
+<h2><a name="Serveiderewriting-VersionsiDepend%C3%A8ncies"></a>Versions i  Dependències</h2>
+
+<p>Les dependències descrites a la següent url son requerides per tal de fer funcionar el servei:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-web/dependencies.html" title="Visit page outside Confluence">Dependències Servei de Rewriting</a></p>
+
+<h2><a name="Serveiderewriting-Aquivadirigit"></a>A qui va  dirigit</h2>
+
+<p>Aquest document va dirigit als següents perfils:</p>
+<ol>
+	<li>Programador. Per conèixer l'ús del servei</li>
+	<li>Arquitecte. Per conèixer quins són els components i la configuració del  servei</li>
+</ol>
+
+
+<h1><a name="Serveiderewriting-Descripci%C3%B3Detallada"></a>Descripció  Detallada</h1>
+
+
+<h2><a name="Serveiderewriting-Instal%5Claci%C3%B3iConfiguraci%C3%B3"></a>Instal&#45; lació  i Configuració</h2>
+
+
+<h3><a name="Serveiderewriting-Instal%5Claci%C3%B3"></a>Instal&#45; lació</h3>
+
+<p>La instal&#45; lació d'aquest servei només requereix la configuració d'un nou  filtre web a la nostra aplicació, i la utilització de les dependències indicades  a l'apartat 'Introducció-Versions i Dependències'.</p>
+
+<h3><a name="Serveiderewriting-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p>La configuració del Servei implica els següents pasos:</p>
+<ol>
+	<li>Configuració d'un filtre de l'aplicació Web.</li>
+	<li>Definir la configuració del fitxer de propietats del servei.</li>
+	<li>Configurar el servei de tags del framework.</li>
+	<li>Configurar el servei de seguretat.</li>
+</ol>
+
+
+<p>Si el nostre projecte canigo l'hem creat a partir del prototip de projecte  del framework, tota aquesta configuració ja la tindrem feta, i l'únic que caldrà  fer serà activar el filtre (en cas de que estigui comentat).</p>
+
+<p>Definició de la implementació del filtre</p>
+
+<p><em>Fitxer de configuració: web.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/webapp/WEB-INF/web.xml</em></p>
+
+<p>Per tal de fer servir el filtre s'ha d'afegir el següent codi al fitxer <em>web.xml</em><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;!-- Filter <span class="code-keyword">for</span> rewriting URL --&gt;
+&lt;filter&gt;
+       &lt;filter-name&gt;UrlRewriteFilter&lt;/filter-name&gt;
+&lt;filter-class&gt;net.gencat.ctti.canigo.services.web.filter.urlrewrite.UrlRewriteFilter&lt;/filter-class&gt;?
+   &lt;init-param&gt;
+           &lt;param-name&gt;logLevel&lt;/param-name&gt;
+           &lt;param-value&gt;LOG4J&lt;/param-value&gt;
+   &lt;/init-param&gt;
+&lt;/filter&gt;
+
+....
+
+&lt;!-- Uncomment <span class="code-keyword">this</span> filter mapping <span class="code-keyword">if</span> Rewriting filter  has not been configured --&gt;
+&lt;filter-mapping&gt; ?
+  &lt;filter-name&gt;UrlRewriteFilter&lt;/filter-name&gt;
+  &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>Quan es generen javascripts dinàmicament si emprem el servei URLRewritting  aquests es generen sota /dwr, per això cal indicar el paràmetre interface sota  el servlet de DWR per tal que aquests javascripts es generin sota l'AppJava, de  manera que el servidor d'aplicacions els agafi correctament:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;!-- DWR SERVLET --&gt;
+
+&lt;servlet&gt;
+
+&lt;servlet-name&gt;dwr-invoker&lt;/servlet-name&gt;
+
+&lt;display-name&gt;DWR  Servlet&lt;/display-name&gt;
+
+&lt;servlet-class&gt;uk.ltd.getahead.dwr.DWRServlet&lt;/servlet-class&gt;
+
+&lt;init-param&gt;
+
+&lt;param-name&gt;debug&lt;/param-name&gt;
+
+&lt;param-value&gt;<span class="code-keyword">true</span>&lt;/param-value&gt;
+
+&lt;/init-param&gt;
+
+&lt;init-param&gt;
+
+&lt;param-name&gt;config&lt;/param-name&gt;
+
+&lt;param-value&gt;/WEB-INF/classes/dwr/dwr.xml&lt;/param-value&gt;
+
+&lt;/init-param&gt;
+
+&lt;init-param&gt;
+
+&lt;param-name&gt;<span class="code-keyword">interface</span>&lt;/param-name&gt;
+
+&lt;param-value&gt;
+
+net.gencat.ctti.canigo.services.web.dwr.impl.UrlRewriteInterfaceProcessor
+
+&lt;/param-value&gt;
+
+&lt;/init-param&gt;
+
+&lt;/servlet&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" /></p>
+
+<p>Per a més informació es pot consultar la pàgina<br/>
+<a href="http://tuckey.org/urlrewrite/manual/2.6/" title="Visit page outside Confluence">http://tuckey.org/urlrewrite/manual/2.6/#filterparams</a></p>
+
+<p>És important fer servir la el filtre URLRewriteFilter del servei web del  framework i no directament el proporcionat per la llibreria urlrewrite.jar.</p>
+
+<p>La raó és que el filtre del servei web està modificat per tal de que el  filtre pugui ser integrat dintre d'una aplicació en la qual també es trobin  altres filtres que puguin modificar la url d'entrada, com pot ser el filtre de  seguretat d'Acegi.</p>
+
+<p>A l'apartat de preguntes freqüents, al final del document, podem trobar quin  és el resultat de fer servir directament el filtre de la llibreria urlrewrite en  una aplicació que també té configurat el filtre de seguretat d'Acegi.</p>
+
+<p>A En una aplicació en la qual tenim configurats més d'un filtre, l'ordre en  el qual s'apliquen depèn de l'ordre en el qual tinguem definits el  &lt;filter-mapping&gt; al fitxer <em>web.xml</em>.<br/>
+Per tant, per tal de  deixar que el filtre de seguretat sigui sempre el primer en aplicar-se, hem de  definir el filter-mapping per al nostre filtre al darrer lloc.</p>
+
+<p>Definició de la configuració del Fitxer de Propietats del Servei</p>
+
+<p><em>Fitxer de configuració: urlrewrite.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/webapp/WEB-INF/urlrewrite.xml</em></p>
+
+<p>La configuració d'aquest servei es fa mitjançant un fitxer xml, el qual s'ha  de dir urlrewrite.xml i ha d'estar al directori WEB-INF de la nostra  aplicació.</p>
+
+<p>Podem trobar més informació sobre aquest fitxer a la pàgina següent:<br/>
+<a href="http://tuckey.org/urlrewrite/manual/2.6/" title="Visit page outside Confluence">http://tuckey.org/urlrewrite/manual/2.6/#configuration</a></p>
+
+<p>Com a model de configuració d'una aplicació canigo que vulgui assolir els  requeriments marcats pel document Gestió de la Qualitat, al seu apartat  Convencions per a les Urls, es proposa el següent fitxer:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"utf-8"</span>?&gt;
+&lt;!DOCTYPE urlrewrite PUBLIC <span class="code-quote">"-<span class="code-comment">//tuckey.org//DTD UrlRewrite 2.6//EN"</span>
+</span>        <span class="code-quote">"http:<span class="code-comment">//tuckey.org/res/dtds/urlrewrite2.6.dtd"</span>&gt;
+</span>
+&lt;!--
+
+    Configuration file <span class="code-keyword">for</span> UrlRewriteFilter
+    http:<span class="code-comment">//tuckey.org/urlrewrite/
+</span>
+--&gt;
+&lt;urlrewrite&gt;
+
+    &lt;rule&gt;
+        &lt;note&gt;
+            The rule means that request to .*/AppJava/.* (i.e. all request with AppJava prefix)
+            that not matches pattern .*/AppJava/dwr.*, will be redirected to a <span class="code-keyword">new</span> resource with
+            the same request without AppJava prefix.
+        &lt;/note&gt;
+        &lt;condition type=<span class="code-quote">"request-url"</span> <span class="code-keyword">operator</span>=<span class="code-quote">"equal"</span>&gt;.*/AppJava/.*&lt;/condition&gt;
+        &lt;condition type=<span class="code-quote">"request-url"</span> <span class="code-keyword">operator</span>=<span class="code-quote">"notequal"</span>&gt;.*/AppJava/dwr.*&lt;/condition&gt;
+        &lt;from&gt;^(.*)/AppJava/(.*)$&lt;/from&gt;
+        &lt;to last=<span class="code-quote">"<span class="code-keyword">true</span>"</span>&gt;$1/$2&lt;/to&gt;
+    &lt;/rule&gt;
+
+    &lt;outbound-rule&gt;
+        &lt;note&gt;
+        La outbound-rule especifica que quan s'invoca a response.encodeURL (o c:url si
+        s'està fent servir JSTL) la url
+           /*/AppJava/*.<span class="code-keyword">do</span>*
+        serà reescrita a
+           /*/AppJava/*.<span class="code-keyword">do</span>*.
+        És a dir, es queda igual. Aquesta regla està pensada per a no modificar aquelles
+        URLs de recursos dinàmics que ja tenen fixat el prefix AppJava.
+
+        Per exemple, si la petició d'entrada és
+            /canigo-formacio/AppJava/home.<span class="code-keyword">do</span>?reqCode=search
+        la url reescrita serà la mateixa
+            /canigo-formacio/AppJava/home.<span class="code-keyword">do</span>?reqCode=search
+
+        D'altra banda, el fet de que l'atribut last estigui fixat a <span class="code-keyword">true</span> fa que si aquesta
+        regla s'aplica, ja no es miri la resta de reglas definides. Per tant, és important
+        que aquesta sigui la primera regla a validar.
+        &lt;/note&gt;
+        &lt;from&gt;^(.*)/AppJava/(.*)\.<span class="code-keyword">do</span>(\Q?\E*.*)$&lt;/from&gt;
+     &lt;to last=<span class="code-quote">"<span class="code-keyword">true</span>"</span>&gt;$1/AppJava/$2.<span class="code-keyword">do</span>$3&lt;/to&gt;
+    &lt;/outbound-rule&gt;
+
+    &lt;outbound-rule&gt;
+        &lt;note&gt;
+        La outbound-rule especifica que quan s'invoca a response.encodeURL (o c:url si
+        s'està fent servir JSTL) la url
+           /*/*.<span class="code-keyword">do</span>*
+        serà reescrita a
+           /*/AppJava/*.<span class="code-keyword">do</span>*.
+        És a dir, s'afegeix el prefix AppJava.
+
+        Per exemple, si la petició d'entrada és
+           /canigo-formacio/admin/home.<span class="code-keyword">do</span>?reqCode=search
+        la url reescrita serà
+           /canigo-formacio/AppJava/admin/home.<span class="code-keyword">do</span>?reqCode=search
+        &lt;/note&gt;
+        &lt;from&gt;^/([^/]*)/(.*)\.<span class="code-keyword">do</span>(\Q?\E*.*)$&lt;/from&gt;
+     &lt;to last=<span class="code-quote">"<span class="code-keyword">true</span>"</span>&gt;/$1/AppJava/$2.<span class="code-keyword">do</span>$3&lt;/to&gt;
+    &lt;/outbound-rule&gt;
+
+    &lt;outbound-rule&gt;
+       &lt;note&gt;
+    La outbound-rule especifica que quan s'invoca a response.encodeURL (o c:url si
+       s'està fent servir JSTL) la url
+             /*/AppJava/dwr/*
+       serà deixada igual. Aquesta regla està pensada per a no modificar aquelles URLs
+       de recursos gestionats pel servlet de DWR que ja tenen fixat el prefix AppJava.
+
+       Per exemple, si la petició d'entrada és
+             /canigo-formacio/AppJava/dwr/<span class="code-keyword">interface</span>/cuentas.js
+       la url reescrita serà la mateixa
+             /canigo-formacio/AppJava/dwr/<span class="code-keyword">interface</span>/cuentas.js
+
+       D'altra banda, el fet de que l'atribut last estigui fixat a <span class="code-keyword">true</span> fa que si aquesta
+       regla s'aplica, ja no es miri la resta de reglas definides. Per tant, és important
+       que aquesta sigui la primera regla a validar en el cas de peticions de recursos de
+       DWR.
+       &lt;/note&gt;
+        &lt;from&gt;^(.*)/AppJava/dwr/(.*)$&lt;/from&gt;
+        &lt;to last=<span class="code-quote">"<span class="code-keyword">true</span>"</span>&gt;$1/AppJava/dwr/$2&lt;/to&gt;
+    &lt;/outbound-rule&gt;
+
+    &lt;outbound-rule&gt;
+      &lt;note&gt;
+    La outbound-rule especifica que quan s'invoca a response.encodeURL (o c:url si
+       s'està fent servir JSTL) la url
+           /*/dwr/*
+       serà reescrita a
+           /*/AppJava/dwr/*.
+
+       Per exemple, si la petició d'entrada és
+           /canigo-formacio/dwr/<span class="code-keyword">interface</span>/cuentas.js
+       la url reescrita serà
+           /canigo-formacio/AppJava/dwr/<span class="code-keyword">interface</span>/cuentas.js
+        &lt;/note&gt;
+        &lt;from&gt;^(.*)/dwr/(.*)$&lt;/from&gt;
+        &lt;to last=<span class="code-quote">"<span class="code-keyword">true</span>"</span>&gt;$1/AppJava/dwr/$2&lt;/to&gt;
+    &lt;/outbound-rule&gt;
+
+    &lt;outbound-rule&gt;
+        &lt;note&gt;
+    La outbound-rule especifica que quan s'invoca a response.encodeURL (o c:url si
+       s'està fent servir JSTL) la url
+             /*/j_acegi_security_check
+       serà reescrita a
+          /*/AppJava/j_acegi_security_check.
+        &lt;/note&gt;
+        &lt;from&gt;^(.*)/j_acegi_security_check$&lt;/from&gt;
+        &lt;to last=<span class="code-quote">"<span class="code-keyword">true</span>"</span>&gt;$1/AppJava/j_acegi_security_check&lt;/to&gt;
+    &lt;/outbound-rule&gt;
+&lt;/urlrewrite&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>En aquest fitxer podem veure que tenim definides 1 regla per a les peticions  d'entrada i 4 per a les peticions de sortida.</p>
+
+<p>L'objectiu de les regles de sortida és afegir el prefix AppJava a totes  aquelles urls que estiguin associades a recursos dinàmics (peticions que s'han  de resoldre al servidor d'aplicacions).</p>
+
+<p>En aquest cas, s'han identificat com a peticions de recursos dinàmics totes  aquelles que segueixen el següent patró:</p>
+<ul>
+	<li>&#42;.do: peticions associades al controlador de Struts.</li>
+	<li>&#42;/AppJava/dwr/&#42; : peticions associades al servlet DWR (el prefix <em>AppJava/dwr</em> amb el qual s'identifiquen aquestes crides es configura al  fitxer <em>web.xml</em>).</li>
+	<li>&#42;/j_acegi_security_check: aquesta petició esta associada a l'acció que  s'executa quan estem avaluant el formulari d'autentificació d'un  usuari.</li>
+</ul>
+
+
+<p>D'altra banda, si l'estructura de directoris de la nostra aplicació al  servidor d'aplicacions no contempla l'ús de cap prefix, serà necessari que tota  petició que arribi al servidor, abans de que arribi al DispatcherServlet, sigui  modificada per tal de treure-li el prefix. Aquesta és la finalitat de la regla  definida per a les peticions d'entrada.</p>
+
+<p>Configurar el servei de tags del framework</p>
+
+<p><em>Fitxer de configuració: canigo-services-web.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring/canigo-services-web.xml</em></p>
+
+<p>En aquest fitxer hem d'activar l'atribut useUrlRewrite del bean  ConfigurationTag:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"configurationTag"</span> class="net.gencat.ctti.canigo.services.web.struts.taglib.configuration.
+ConfigurationTag"&gt;
+        &lt;property name=<span class="code-quote">"styleId"</span> value=<span class="code-quote">"defaultConfiguration"</span>/&gt;
+        &lt;property name=<span class="code-quote">"i18nService"</span> ref=<span class="code-quote">"i18nService"</span>/&gt;
+        &lt;property name=<span class="code-quote">"appendContextPath"</span> value=<span class="code-quote">"<span class="code-keyword">true</span>"</span>/&gt;
+        &lt;property name=<span class="code-quote">"contextSubpath"</span> value=<span class="code-quote">"AppJava"</span>/&gt;
+            &lt;property name=<span class="code-quote">"useUrlRewrite"</span> value=<span class="code-quote">"<span class="code-keyword">true</span>"</span>/&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" /></p>
+
+<p>D'aquesta manera li estem indicant al component del framework que genera les  urls de manera dinàmica si ha de fer servir el servei de rewrite o no.</p>
+
+<p>Configurar el servei de seguretat</p>
+
+<p><em>Fitxer de configuració: canigo-services-security.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring/canigo-services-security.xml</em></p>
+
+<p>En aquest fitxer, hem d'assegurar-nos de que tinguem les següents propietats  al bean d'autentificació:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;property name=<span class="code-quote">"filterProcessesUrl"</span> value=<span class="code-quote">"/AppJava/j_acegi_security_check"</span>/&gt;
+&lt;property name=<span class="code-quote">"loginFormUrlValue"</span> value=<span class="code-quote">"/AppJava/pagelogin.<span class="code-keyword">do</span>"</span> /&gt;
+&lt;property name=<span class="code-quote">"authenticationFailureUrlValue"</span> value=<span class="code-quote">"/AppJava/pagelogin.<span class="code-keyword">do</span>"</span> /&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" /></p>
+
+<p>La raó per la qual s'ha de ficar el prefix <em>AppJava</em> a les dos  darreres propietats és perquè el servei de seguretat el que fa és redirigir tota  petició que s'hagi d'autentificar cap a l'acció indicada al paràmetre <em>loginFormUrlValue</em>. Per tant, si volem que aquesta petició sigui  gestionada pel servidor d'aplicacions, haurà de tenir el prefix <em>AppJava</em>. Per la mateixa raó, en cas d'error en el procés  d'autentificació, l'acció associada al paràmetre <em>authenticationFailureUrlValue</em> també ha de tenir el prefix.</p>
+
+<p>I la raó per la qual s'ha de ficar el prefix <em>AppJava</em> a la primera  propietat és perquè aquest paràmetre és el que permet identificar al servei de  seguretat quina és l'acció associada al formulari d'autentificació.</p>
+
+<h2><a name="Serveiderewriting-Utilitzaci%C3%B3delServei"></a>Utilització del  Servei</h2>
+
+<p>La utilització del servei comporta 2 passos:</p>
+<ol>
+	<li>Instal&#45; lar i configurar el servei.</li>
+	<li>Definir la nostra pàgina JSP.</li>
+</ol>
+
+
+<h3><a name="Serveiderewriting-Instal%5Clariconfigurarelservei"></a>Instal&#45; lar  i configurar el servei</h3>
+
+<p>Només s'han de seguir els passos definits en el punt anterior.</p>
+
+<h3><a name="Serveiderewriting-Definirlanostrap%C3%A0ginaJSP"></a>Definir la  nostra pàgina JSP</h3>
+
+<p>A les nostres JSP la única condició que hem de verificar per tal de que el  servei funcioni és la que ja es comenta al propi document de <em>Gestió de la  Qualitat</em>: : usar el tag &lt;c:url&gt; de JSTL per indicar la url de  referència..</p>
+
+<p>Tal i com es comenta al document, aquest tag afegeix de forma automàtica el  context actual, fa rewriting URL per la gestió de sessions i s'encarrega de fer  el encoding de tots els paràmetres i valors.<br/>
+S'ha d'evitar l'ús de  &lt;%=request.getContextPath()%&gt; i usar aquest tag.<br/>
+A continuació es  mostren uns exemples de construcció de urls amb aquest tag.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;link rel=<span class="code-quote">"stylesheet"</span> href='&lt;c:url value=<span class="code-quote">"/css/calendars/dynarch/calendar-system.css"</span>/&gt;'
+type=<span class="code-quote">"text/css"</span>/&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;form action='&lt;c:url value=<span class="code-quote">"/j_acegi_security_check"</span>/&gt;' method=<span class="code-quote">"post"</span>&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" /></p>
+
+<p>El primer exemple correspon a una url que fa referència a un recurs estàtic.  La segona petició fa referència a un recurs dinàmic.</p>
+
+<p>Si ens fixem, en el moment de desenvolupar no cal fer aquesta distinció. Serà  les regles definides al fitxer <em>urlrewriting.xml</em> les que s'encarregaran  de fer la distinció.</p>
+
+<p><b>Observació:</b><br/>
+A les urls o accions definides amb els tags del  framework no cal fer servir el tag &lt;c:url&gt;, ja que internament aquests  tags fan servir la crida a <em>response.encodeUrl(),</em> que és la crida que fa  servir el tag &lt;c:url&gt;.</p>
+
+<p>Per exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;fwk:form action=<span class="code-quote">"editAccount.<span class="code-keyword">do</span>"</span> styleId=<span class="code-quote">"actionForm"</span> reqCode=<span class="code-quote">"edit"</span> &gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" /></p>
+
+<h2><a name="Serveiderewriting-Integraci%C3%B3ambAltresServeis"></a>Integració  amb Altres Serveis</h2>
+
+
+<h3><a name="Serveiderewriting-Integraci%C3%B3ambelServeideSeguretat"></a>Integració  amb el Servei de Seguretat</h3>
+
+<p>Com ja s'ha comentat anteriorment, el servei de seguretat també fa servir un  filtre que pot arribar a fer un rewriting de la url d'entrada.</p>
+
+<p>Degut a que una petició d'entrada només pot ser redirigida cap a un nou  recurs una sola vegada, en el cas de que el servei de seguretat faci un redirect  cap a un nou recurs, el filtre de l'UrlRewrite no hauria de fer res.</p>
+
+<p>Per a aconseguir aquest objectiu s'ha de garantir que el filter-maping del  filtre de UrlRewrite estigui definit dintre del fitxer <em>web.xml</em> a  posteriori del filter-mapping del servei de seguretat, com ja s'ha comentat en  l'apartat de '<em>Instal&#45; lació i Configuració</em>'.</p>
+
+<h2><a name="Serveiderewriting-PreguntesFreq%C3%BCents"></a>Preguntes  Freqüents</h2>
+
+
+<h3><a name="Serveiderewriting-L%27aplicaci%C3%B3retornaunjava.lang.IllegalStateException"></a>L'aplicació  retorna un java.lang.IllegalStateException</h3>
+
+<p>Aquesta excepció es produeix quan sobre una request s'intenta fer un forward  o un redirect i la petició ja ha sigut redirigida cap a un nou recurs en un pas  anterior (es pot mirar l'atribut commit de la response associada a la request:  si val false significa que encara no ha sigut redirigida i si val true és que  si).</p>
+
+<p>Hem d'assegurar-nos de dues coses:</p>
+<ol>
+	<li>Que el filter-mapping per al filtre UrlRewrite està després del  filter-mapping del filtre de seguretat.</li>
+	<li>Que estem fent servir el filtre d'UrlRewrite del servei web i no el de la  llibreria urlrewrite.</li>
+</ol>
+
+
+<p>En aquest darrer cas, la única diferència entre els dos filtres radica en  aquest fet: el filtre del servei web no fa res amb la request, i la envia cap al  següent filtre de la cadena, si aquesta verifica que l'atribut commit de la  response val true.</p>
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

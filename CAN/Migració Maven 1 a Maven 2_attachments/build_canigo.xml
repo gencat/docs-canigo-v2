@@ -1,0 +1,36 @@
+<project name="Tasques Canigo" basedir="." default="canigo:deploy.j2ee.ctti.static">
+	<property name="module" value="nom_del_modul"/>
+	<property name="module.dir" value="${basedir}\.deployables\${canigo.war.wtp.module}"/>
+
+	<target name="canigo:deploy.j2ee.ctti.static">
+    <jar destfile="${basedir}/target/ear/weblogic/${module}-static.zip"> 
+			<fileset dir="${module.dir}">
+        <include name="css/**/*.*"/>
+        <include name="images/**/*.*"/>
+        <include name="scripts/**/*.*"/>            
+        <include name="config/**/*.*"/>              
+        <include name="**/*.html"/>                  
+        <include name="**/*.htm"/>                   
+        <exclude name="**/jsp_servlet/*.class"/>
+        <exclude name="**/*.war"/>
+			</fileset>
+		</jar>
+	</target>
+	
+		<target name="canigo:deploy.j2ee.ctti.dynamic">
+    <jar destfile="${basedir}/target/ear/weblogic/${module}.war"> 
+			<fileset dir="${module.dir}">
+        <include name="WEB-INF/**/*.*"/>
+        <include name="**/*.jsp"/>
+        <exclude name="css/**/*.*"/>
+        <exclude name="images/**/*.*"/>
+        <exclude name="scripts/**/*.*"/>           
+        <exclude name="config/**/*.*"/>             
+        <exclude name="**/*.html"/>                 
+        <exclude name="**/*.htm"/>                  
+        <exclude name="**/jsp_servlet/*.class"/>
+        <exclude name="**/*.war"/>
+			</fileset>
+		</jar>
+	</target>
+</project>

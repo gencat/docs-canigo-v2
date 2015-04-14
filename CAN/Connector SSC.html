@@ -1,0 +1,288 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Connector SSC</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Connector SSC
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Feb 28, 2012 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="ConnectorSSC-CONNECTORSSC"></a>CONNECTOR SSC</h1>
+
+<p><br clear="all" />
+<br clear="all" />
+<div>
+<ul><a href='#ConnectorSSC-CONNECTORSSC'>
+    <li>CONNECTOR SSC</li></a><a href='#ConnectorSSC-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#ConnectorSSC-Prop%C3%B2sit'>
+    <li>Propòsit</li></a><a href='#ConnectorSSC-ContextiEscenarisd%27%C3%BAs'>
+    <li>Context i Escenaris d'ús</li></a><a href='#ConnectorSSC-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i Dependències</li></a><a href='#ConnectorSSC-Aquivadirigit'>
+    <li>A qui va dirigit</li></a><a href='#ConnectorSSC-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents i Fonts de Referència</li></a>
+</ul><a href='#ConnectorSSC-Descripci%C3%B3Detallada'>
+    <li>Descripció Detallada</li></a>
+<ul><a href='#ConnectorSSC-AltaServei'>
+    <li>Alta Servei</li></a><a href='#ConnectorSSC-ArquitecturaiComponents'>
+    <li>Arquitectura i Components</li></a>
+<ul><a href='#ConnectorSSC-Interf%C3%ADciesiComponentsGen%C3%A8rics'>
+    <li>Interfícies i Components Genèrics</li></a><a href='#ConnectorSSC-Requeriments'>
+    <li>Requeriments</li></a>
+</ul><a href='#ConnectorSSC-Instal.laci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal.lació i Configuració</li></a>
+<ul><a href='#ConnectorSSC-Instal.laci%C3%B3'>
+    <li>Instal.lació</li></a><a href='#ConnectorSSC-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#ConnectorSSC-Utilitzaci%C3%B3delConnector'>
+    <li>Utilització del Connector</li></a>
+<ul><a href='#ConnectorSSC-Exempled%27utilitzaci%C3%B3d%27unServeiSincron'>
+    <li>Exemple d'utilització d'un Servei Sincron</li></a>
+</ul>
+</ul>
+</ul></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h1><a name="ConnectorSSC-Introducci%C3%B3"></a>Introducció</h1>
+
+<p>L'objectiu d'aquest connector és el de proporcionar accés al Sistema de Signatura Centralitzada de Catcert (SSC).</p>
+
+<h2><a name="ConnectorSSC-Prop%C3%B2sit"></a>Propòsit</h2>
+
+<p>El propòsit del connector és proporcionar una interfície que utilitzi l'API SmartWrapper per poder donar accés als diferents tipus de signatura que ofereix l'SSC.</p>
+
+<h2><a name="ConnectorSSC-ContextiEscenarisd%27%C3%BAs"></a>Context i Escenaris d'ús</h2>
+
+<p>El connector SSC es troba dins els connectors de serveis funcionals de la Generalitat.</p>
+
+<h2><a name="ConnectorSSC-VersionsiDepend%C3%A8ncies"></a>Versions i Dependències</h2>
+
+<p><font color="black">En el present apartat es mostren quines són les versions i dependències necessàries per fer ús del Connector.</font></p>
+
+<p><font color="black">Les dependències descrites a la següent url són requerides per tal de fer funcionar el servei:</font><br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_17/canigo-connectors-root/canigo-connectors-ssc/dependencies.html" title="Visit page outside Confluence">Dependències del Connector SSC</a></p>
+
+<h2><a name="ConnectorSSC-Aquivadirigit"></a>A qui va dirigit</h2>
+
+<p><font color="black">Aquest document va dirigit als següents perfils:</font></p>
+<ol>
+	<li><font color="black">Programador. Per conèixer l'ús del connector.</font></li>
+	<li><font color="black">Arquitecte. Per conèixer quins són els components i la configuració del connector.</font></li>
+</ol>
+
+
+<h2><a name="ConnectorSSC-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents i Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<td class='confluenceTd'> <font color="red">[1]</font> </td>
+<td class='confluenceTd'> <font color="red">GuiaIntegracioSSC.v1.1.pdf</font> </td>
+</tr>
+</tbody></table>
+
+<h1><a name="ConnectorSSC-Descripci%C3%B3Detallada"></a>Descripció Detallada</h1>
+
+<p>Aquest connector permet utilitzar els diferents serveis de signatura del SSC a través d'una API que el mateix connector ofereix. El nucli principal del SSC és el sistema TrustedX que ofereix l'API SmartWrapper per poder trevallar amb ell. És amb aquesta API amb la cual esta constituit aquest connector. Els principals serveis que ofereix el connector són els següents:</p>
+
+<ul class="alternate" type="square">
+	<li><b>Accés a la plataforma amb certificat:</b> Totes les aplicacions que desitgin utilitzar l'SSC hauran de disposar d'un certificat amb el qual s'autenticaran per utilitzar la plataforma. Aquest certificat s'haurà de demanar a CatCert.</li>
+	<li><b>Us de magatzem de certificats:</b> Una de les principals funcionalitats del SSC és la signatura desatesa. Això s'aconsegueix configurant en el connector un magatzem de certificats que l'SSC utilitzarà pels diferents processos de signatura.</li>
+	<li><b>Tipus de signatura:</b> L'SSC ofereix els següents tipus de signatura.</li>
+	<li><b>CMS:</b> Attached / Detached</li>
+	<li><b>CAdES-BES:</b> Attached / Detached</li>
+	<li><b>CAdES-T:</b> Attached / Detached</li>
+	<li><b>XMLDSig:</b> enveloping/enveloped/detached</li>
+	<li><b>XAdES-BES:</b> enveloping/enveloped/detached</li>
+	<li><b>XAdES-T:</b> enveloping/enveloped/detached</li>
+</ul>
+
+
+<h2><a name="ConnectorSSC-AltaServei"></a>Alta Servei</h2>
+
+<p>Per poder utilitzar l'SSC en PRO s'ha d'estar donat d'alta en el servei. Per poder fer-ho s'han de seguir els següents passos:</p>
+
+<p>1.- Enviar un mail a  implantacio@aoc.cat sol- licitant l'alta al servei. Aquí s'espera que l'usuari informi del tipus de signatures que vol generar i se l'informarà del tipus de certificats que ha de sol- licitar.<br/>
+2.- Els certificats a sol- litar s'hauran de fer a través de EACAT.<br/>
+3.- Finalment, el client haurà d'omplir un document d'alta al SSC, on haurà d'especificar el certificat amb el que s'autenticarà, així com els certificats de signatura allotjats en TrustedX que utilitzarà per signar.<br/>
+4.- Una vegada validat el document d'alta, se li donarà accés al SSC en PRO.</p>
+
+<p>De cara a utilitzar el servei en PRE, els certificats i documentació necessaria es poden demanar obrint una petició a suport@aoc.cat.</p>
+
+
+<h2><a name="ConnectorSSC-ArquitecturaiComponents"></a>Arquitectura i Components</h2>
+
+
+<h3><a name="ConnectorSSC-Interf%C3%ADciesiComponentsGen%C3%A8rics"></a>Interfícies i Components Genèrics</h3>
+
+<p><font color="black">Es pot trobar tota la documentació JavaDoc i el codi font referent aquests components a les següents url's:</font></p>
+
+<p><font color="red"><ins>JavaDoc:</ins></font><font color="red">&nbsp;</font><a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_17/canigo-connectors-root/canigo-connectors-ssc/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_17/canigo-connectors-root/canigo-connectors-ssc/apidocs/index.html</a><br/>
+<font color="red"><ins>Codi Font:</ins></font><font color="red">&nbsp;</font><font color="red">&nbsp;</font>[ <a href="http://canigo.ctti.gencat.net/repository/maven2/canigo/connectors/canigo-connectors-ssc/1.0.0/" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/repository/maven2/canigo/connectors/canigo-connectors-ssc/1.0.0/</a>]</p>
+
+<h3><a name="ConnectorSSC-Requeriments"></a>Requeriments</h3>
+
+<p><font color="black">El connector</font> SSC és compatible amb les versions 1.5 o superior de Java. Per versions inferiors no es garantit el seu correcte funcionament.</p>
+
+<p>Donat que l'SSC s'ha desenvolupat per substituir altres sistemes de signatura anteriors s'ha desenvolupat per que sigui compatible amb components de Canigo 2.3.5 en endevant. Tot i això, s'ha de tindre en compte que conté una sèrie de dependències que podrien arribar a donar conflicte en una aplicació ja desenvolupada. Per aquest motiu es recomana consultar les seves <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_17/canigo-connectors-root/canigo-connectors-ssc/dependencies.html" title="Visit page outside Confluence">dependències</a>.</p>
+
+<h2><a name="ConnectorSSC-Instal.laci%C3%B3iConfiguraci%C3%B3"></a>Instal.lació i Configuració</h2>
+
+
+<h3><a name="ConnectorSSC-Instal.laci%C3%B3"></a>Instal.lació</h3>
+
+<p><font color="black">La instal.lació del connector requereix de la utilització de la llibreria 'canigo-connectors-ssc' i les dependències indicades a l'apartat '</font>Introducció-Versions i Dependències<font color="black">'.</font></p>
+
+<p>Per afegir aquesta dependència s'ha de modificar el pom.xml de l'aplicació per incloure la llibreria del Connector.</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;dependency&gt;
+      &lt;groupId&gt;canigo.connectors&lt;/groupId&gt;
+      &lt;artifactId&gt;canigo-connectors-ssc&lt;/artifactId&gt;
+      &lt;version&gt;1.0.0&lt;/version&gt;
+&lt;/dependency&gt;</pre>
+</div></div>
+
+<p>El resultat dels processos de signatura moltes vegades són arrays de bytes que es troben codificats en Base64 amb classes d'Axis. Això fa que per la recuperació d'arxius s'hagi d'incorporar una llibreria més en el proyecte:</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;dependency&gt;
+	&lt;groupId&gt;axis&lt;/groupId&gt;
+	&lt;artifactId&gt;axis&lt;/artifactId&gt;
+	&lt;version&gt;1.2.1&lt;/version&gt;
+&lt;/dependency&gt;</pre>
+</div></div>
+
+<h3><a name="ConnectorSSC-Configuraci%C3%B3"></a>Configuració</h3>
+<p><br clear="all" />
+1.- Per poder configurar el connector SSC és necessari declarar el següent bean d'Spring.</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"sscConnector"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.connectors.canigo_connectors_ssc.impl.SscConnectorImpl"</span>&gt;
+	&lt;property name=<span class="code-quote">"loggingService"</span> ref=<span class="code-quote">"loggingService"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"host"</span> value=<span class="code-quote">"${sscService.host}"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"distinguishedname"</span> value =<span class="code-quote">"${sscService.distinguishedname}"</span>&gt;&lt;/property&gt;
+&lt;/bean&gt;</pre>
+</div></div>
+
+<p>on les variables <b>host</b> i <b>distinguishedname</b> són recuperades de l'arxiu <b>client.properties</b> que s'ha de declarar en el servei de configuració del Framework, en el canigo-services-configuration.xml.</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;beans&gt;
+	&lt;bean id=<span class="code-quote">"configurationService"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.services.configuration.springframework.beans.factory.config.HostPropertyPlaceholderConfigurer"</span>&gt;
+		&lt;property name=<span class="code-quote">"basePropertyFiles"</span>&gt;
+			&lt;list&gt;
+				...
+				&lt;value&gt;classpath:client.properties&lt;/value&gt;
+				...
+			&lt;/list&gt;
+		&lt;/property&gt;
+		&lt;property name=<span class="code-quote">"logService"</span> ref=<span class="code-quote">"loggingService"</span>&gt;&lt;/property&gt;
+	&lt;/bean&gt;	
+&lt;/beans&gt;</pre>
+</div></div>
+
+
+<p>2.- Configuiració dels arxius de properties.</p>
+
+<p>Existeixen dos arxius de properties per poder confiurar l'SSC. El client.properties i el smartwrapper.properties.</p>
+
+<p>El primer conté només dos paràmetres,</p>
+
+<ul class="alternate" type="square">
+	<li>host: Url del servidor on es troba l'SSC.</li>
+	<li>PRE: <a href="https://ssc.preproduccio.catcert.cat:8443/trustedx-gw/SoapGateway" title="Visit page outside Confluence">https://ssc.preproduccio.catcert.cat:8443/trustedx-gw/SoapGateway</a></li>
+	<li>PRO: <a href="https://ssc.catcert.cat:8443/trustedx-gw/SoapGatewayU1T" title="Visit page outside Confluence">https://ssc.catcert.cat:8443/trustedx-gw/SoapGatewayU1T</a></li>
+</ul>
+
+
+<ul class="alternate" type="square">
+	<li>distinguishedname: Nom del certificat amb el que l'aplicació s'autentica per consumir els serveis del SSC.</li>
+</ul>
+
+
+
+<p>El segón conté la configuració de l'API SmartWrapper de TrustedX i esta documentat en el document GuiaIntegracioSSC.v1.1.pdf. </p>
+
+<p>La ubicació d'amdos arxius es recomana que sigui en el directori src/main/resoruces de l'aplicació que utilitzi el connector.</p>
+
+<p>NOTA: Les dades de proves del connector relacionades amb certificats de proves s'han de demanar a CatCert</p>
+
+
+<h2><a name="ConnectorSSC-Utilitzaci%C3%B3delConnector"></a>Utilització del Connector</h2>
+
+<p><br clear="all" /></p>
+
+<h3><a name="ConnectorSSC-Exempled%27utilitzaci%C3%B3d%27unServeiSincron"></a>Exemple d'utilització d'un Servei Sincron</h3>
+
+<p>1.- Referenciar al servei SSC des de l'acció que es vulgui utilitzar (action-servlet-aaa.xml):</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;property name=<span class="code-quote">"sscService"</span> ref=<span class="code-quote">"sscConnector"</span>&gt;&lt;/property&gt;</pre>
+</div></div>
+
+<p>2.- En l'acció, s'haurà de instanciar el servei i crear els getters i setters corresponents,</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">private</span> SscConnector sscService;
+
+<span class="code-keyword">public</span> SscConnector getSscService() {
+	<span class="code-keyword">return</span> sscService;
+}
+
+<span class="code-keyword">public</span> void setSscService(SscConnector sscService) {
+	<span class="code-keyword">this</span>.sscService = sscService;
+}</pre>
+</div></div>
+
+<p>En aquest cas d'exemple es farà una signatura CAdES-BES en format Attached d'un arxiu de text de proves.</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">try</span> {
+		<span class="code-keyword">final</span> <span class="code-object">String</span> path_in = <span class="code-quote">"path_arxiu_entrada"</span>;
+		<span class="code-keyword">final</span> <span class="code-object">String</span> path_out = <span class="code-quote">"path_arxiu_sortida"</span>;
+		<span class="code-keyword">final</span> <span class="code-object">String</span> filename = <span class="code-quote">"HelloWorld.txt"</span>;
+				
+		<span class="code-object">String</span> data = Util.readBinaryFileB64(path_in + filename);
+    		
+		<span class="code-object">String</span> resposta = sscService.signCadesBes(data, Constants.ATTACHED);
+    		
+		<span class="code-object">String</span> destFilename = path_out + filename.substring(0, filename.lastIndexOf(<span class="code-quote">"."</span>))
+			+ <span class="code-quote">"_Signature_CAdES_BES_Attached.p7b"</span>;
+		Util.writeBinaryFileB64(destFilename, resposta);
+	} <span class="code-keyword">catch</span> (SCException e) {
+		<span class="code-comment">//ERROR
+</span>	}</pre>
+</div></div>
+
+<p>Per més informació sobre els diferents mètodes que ofereix el connector SSC es pot consultar l'API.</p>
+
+
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

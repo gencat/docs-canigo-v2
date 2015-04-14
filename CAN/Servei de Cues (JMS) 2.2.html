@@ -1,0 +1,528 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Servei de Cues (JMS) 2.2</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Servei de Cues (JMS) 2.2
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Sep 25, 2007 by <font color="#0050B2">carmen.rubio</font>.
+				    </div>
+
+				    <h1><a name="ServeideCues%28JMS%292.2-SERVEIDECUES%28JMS%29"></a>SERVEI DE CUES (JMS)</h1>
+
+<p><br clear="all" />
+<br clear="all" />
+<div>
+<ul><a href='#ServeideCues%28JMS%292.2-SERVEIDECUES%28JMS%29'>
+    <li>SERVEI DE CUES (JMS)</li></a><a href='#ServeideCues%28JMS%292.2-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#ServeideCues%28JMS%292.2-Prop%C3%B3sit'>
+    <li>Propósit</li></a><a href='#ServeideCues%28JMS%292.2-ContextiEscenarisd%27%C3%9As'>
+    <li>Context i Escenaris  d'Ús</li></a><a href='#ServeideCues%28JMS%292.2-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i  Dependències</li></a><a href='#ServeideCues%28JMS%292.2-Aquivadirigit'>
+    <li>A qui va  dirigit</li></a><a href='#ServeideCues%28JMS%292.2-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents i  Fonts de Referència</li></a>
+</ul><a href='#ServeideCues%28JMS%292.2-Descripci%C3%B3Detallada'>
+    <li>Descripció  Detallada</li></a>
+<ul><a href='#ServeideCues%28JMS%292.2-ArquitecturaiComponents'>
+    <li>Arquitectura i  Components</li></a><a href='#ServeideCues%28JMS%292.2-Instal%5Claci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal&#45; lació  i Configuració</li></a>
+<ul><a href='#ServeideCues%28JMS%292.2-Instal%5Claci%C3%B3'>
+    <li>Instal&#45; lació</li></a><a href='#ServeideCues%28JMS%292.2-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#ServeideCues%28JMS%292.2-Utilitzaci%C3%B3delServei'>
+    <li>Utilització del  Servei</li></a><a href='#ServeideCues%28JMS%292.2-EinesdeSuport'>
+    <li>Eines de  Suport</li></a>
+<ul><a href='#ServeideCues%28JMS%292.2-OpenJMS'>
+    <li>OpenJMS</li></a>
+</ul><a href='#ServeideCues%28JMS%292.2-Integraci%C3%B3ambAltresServeis'>
+    <li>Integració amb  Altres Serveis</li></a>
+<ul><a href='#ServeideCues%28JMS%292.2-Integraci%C3%B3ambelServeiMultiidiomaiExcepcions'>
+    <li>Integració  amb el Servei Multiidioma i Excepcions</li></a>
+</ul>
+</ul><a href='#ServeideCues%28JMS%292.2-Exemples'>
+    <li>Exemples</li></a>
+<ul><a href='#ServeideCues%28JMS%292.2-Exempled%27EnviamentaunaDestinaci%C3%B3'>
+    <li>Exemple  d'Enviament a una Destinació</li></a>
+<ul><a href='#ServeideCues%28JMS%292.2-ExempledeProvaUnit%C3%A0ria'>
+    <li>Exemple de Prova  Unitària</li></a><a href='#ServeideCues%28JMS%292.2-Exempledesd%27unaclasseAction'>
+    <li>Exemple des d'una  classe Action</li></a>
+</ul>
+</ul>
+</ul></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+&nbsp;
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h1><a name="ServeideCues%28JMS%292.2-Introducci%C3%B3"></a>Introducció</h1>
+
+
+<h2><a name="ServeideCues%28JMS%292.2-Prop%C3%B3sit"></a>Propósit</h2>
+
+<p>Aquest servei permet configurar i usar de forma senzilla la infraestructura  de missatgeria estándard JMS (Java Messaging Service) de J2EE . Aquest estàndar  defineix dues modalitats:</p>
+<ol>
+	<li>Producció de missatges</li>
+	<li>Consum de missatges, que pot ser asíncron.</li>
+</ol>
+
+
+<p>El consum de missatges assíncrons a l'estàndar J2EE es realitza mitjançant  "Message-Driven Beans". canigo no s'incorpora cap mecanisme específic pel consum  de missatges assíncrons, i la seva disponibilitat dependrà de la plataforma  (especificament del Servidor d'aplicacions).</p>
+
+<p>Així doncs, l'enfoc del servei és el de simplificar la publicació de  missatges i la definició i configuració de destinataris.</p>
+
+<h2><a name="ServeideCues%28JMS%292.2-ContextiEscenarisd%27%C3%9As"></a>Context i Escenaris  d'Ús</h2>
+
+<p>El Servei d'Integració de Cues JMS es troba ubicat dins els serveis  continguts a la capa de Dades/Integració de canigo.
+<br clear="all" /></p>
+
+<h2><a name="ServeideCues%28JMS%292.2-VersionsiDepend%C3%A8ncies"></a>Versions i  Dependències</h2>
+
+<p>Les dependències descrites a la següent url son requerides per tal de compilar i fer funcionar el projecte:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-jms/dependencies.html" title="Visit page outside Confluence">Dependències Servei de Cues</a></p>
+
+<h2><a name="ServeideCues%28JMS%292.2-Aquivadirigit"></a>A qui va  dirigit</h2>
+
+<p>Aquest document va dirigit als següents perfils:</p>
+<ol>
+	<li>Programador. Per conéixer l'ús del servei</li>
+	<li>Arquitecte. Per conéixer quins són els components i la configuració del  servei</li>
+	<li>Administrador. Per conéixer cóm configurar el servei en cadascun dels  entorns en cas de necessitat</li>
+</ol>
+
+
+<h2><a name="ServeideCues%28JMS%292.2-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents i  Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> [1] </th>
+<th class='confluenceTh'> Spring JMS </th>
+<th class='confluenceTh'> <a href="http://static.springframework.org/spring/docs/1.2.x/reference/jms.html" title="Visit page outside Confluence">http://static.springframework.org/spring/docs/1.2.x/reference/jms.html</a> </th>
+</tr>
+</tbody></table>
+
+<h1><a name="ServeideCues%28JMS%292.2-Descripci%C3%B3Detallada"></a>Descripció  Detallada</h1>
+
+
+<h2><a name="ServeideCues%28JMS%292.2-ArquitecturaiComponents"></a>Arquitectura i  Components</h2>
+
+<p>Els components podem classificar-los en:</p>
+<ol>
+	<li>Interfícies i Components Genérics. Interfícies del servei i components d'ús  general amb independència de la implementació escollida.</li>
+	<li>Implementació basada en Spring<br/>
+Es pot trobar tota la documentació JavaDoc y el codi font referent aquests components a les següents urls:</li>
+</ol>
+
+
+<p><ins>JavaDoc:</ins>&nbsp;&nbsp;<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-jms/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-jms/xref/index.html</a><br/>
+<ins>Codi Font:</ins>&nbsp; <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-jms/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-jms/apidocs/index.html</a></p>
+
+<h2><a name="ServeideCues%28JMS%292.2-Instal%5Claci%C3%B3iConfiguraci%C3%B3"></a>Instal&#45; lació  i Configuració</h2>
+
+
+<h3><a name="ServeideCues%28JMS%292.2-Instal%5Claci%C3%B3"></a>Instal&#45; lació</h3>
+
+<p>La instal&#45; lació del servei requereix de la utilització de la llibreria  'canigo-services-jms' i les dependències indicades a l'apartat  'Introducció-Versions i Dependències'.</p>
+
+<h3><a name="ServeideCues%28JMS%292.2-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p>La configuració del servei implica els següents pasos:</p>
+<ol>
+	<li>Definir la implementació del Servei que s'usarà</li>
+	<li>Definir la localització del fitxer de propietats del Servei</li>
+	<li>Definir les propietats del Servei</li>
+</ol>
+
+
+<p>Definició del Servei<br/>
+<img src="Servei de Cues (JMS) 2.2_attachments/image006.gif" align="absmiddle" border="0" /><br/>
+<em>Fitxer de configuració: canigo-services-jms.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>En aquest apartat configurarem el bean de Servei de Cues, és a dir, la  implementació que es farà servir en l'atribut 'class'. En l'actualitat s'ofereix  la classe ' net.gencat.ctti.canigo.services.jms.impl.JmsServiceImpl'
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean  id=<span class="code-quote">"JmsService"</span>
+
+class=<span class="code-quote">"net.gencat.ctti.canigo.services.jms.impl.JmsServiceImpl"</span>&gt;
+
+...
+
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Podem definir les següents propietats:
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> || <b>Propietat</b> || <b>Requerit</b> || <b>Descripció</b> ||</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<td class='confluenceTd'> logService </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Referència al Servei de Traces </td>
+</tr>
+<tr>
+<td class='confluenceTd'> namingProviderUrl </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> La URL del servei JNDI (protocol TCP  o RMI, generalment), que permetrà localitzar el servei JMS remot </td>
+</tr>
+<tr>
+<td class='confluenceTd'> namingContextFactory </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> La implementació de la factoriia  JNDI que permet localitzar el servei. Exemple: Per OpenJMS s'ha d'especificar  "org.exolab.jms.jndi.InitialContextFactory" </td>
+</tr>
+<tr>
+<td class='confluenceTd'> connectionFactoryName </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Nom JNDI amb el que es troba  registrada la factoria de connexions JMS </td>
+</tr>
+<tr>
+<td class='confluenceTd'> defaultDestinationName </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Nom del destí (cua o tópic) en el  servidor JMS remot </td>
+</tr>
+<tr>
+<td class='confluenceTd'> namingPrincipal </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Usuari </td>
+</tr>
+<tr>
+<td class='confluenceTd'> namingCredentials </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Password </td>
+</tr>
+</tbody></table>
+<p>Per les propietats es recomana que siguin definides de forma externa a un  fitxer de propietats i referenciades aquí amb el format ${nom} (veure 'Definir  les propietats del Servei').</p>
+
+<p>En cas de que volguessim fer ús de diferents destins de publicació es farà ús  de la propietat 'configurationMap', on la clau correspondrà al nom de la  configuració (accessible després amb el mètode 'getJmsOperations(nom)') i podrem  especificar les propietats indicades a dalt pel valor. Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean  id=<span class="code-quote">"JmsService"</span>
+
+class=<span class="code-quote">"net.gencat.ctti.canigo.services.jms.impl.JmsServiceImpl"</span>&gt;
+
+...
+
+&lt;property  name=<span class="code-quote">"configurationMap"</span>&gt;
+
+&lt;map&gt;
+
+&lt;entry  key=<span class="code-quote">"otherConfig"</span>&gt;
+
+&lt;bean  parent=<span class="code-quote">"baseJmsConfigurator"</span>&gt;
+
+&lt;property name=<span class="code-quote">"defaultDestinationName"</span>  value=<span class="code-quote">"topic2"</span>/&gt;
+
+&lt;property name=<span class="code-quote">"namingContextFactory"</span>  value=<span class="code-quote">"org.exolab.jms.jndi.InitialContextFactory"</span>/&gt;
+
+&lt;property  name=<span class="code-quote">"namingProviderUrl"</span> value=<span class="code-quote">"rmi:<span class="code-comment">//localhost:1099"</span>/&gt;
+</span>
+&lt;property  name=<span class="code-quote">"namingPrincipal"</span> value=<span class="code-quote">"admin"</span>/&gt;
+
+&lt;property  name=<span class="code-quote">"namingCredentials"</span> value=<span class="code-quote">"openjms"</span>/&gt;
+
+&lt;property  name=<span class="code-quote">"connectionFactoryName"</span>  value=<span class="code-quote">"ConnectionFactory"</span>/&gt;
+
+&lt;/bean&gt;
+
+&lt;/entry&gt;
+
+&lt;/map&gt;
+
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Definició de la Localització del Fitxer de Propietats del Servei<br/>
+<img src="Servei de Cues (JMS) 2.2_attachments/image007.gif" align="absmiddle" border="0" />
+<br clear="all" /> <br clear="all" />
+<em>Fitxer de configuració: canigo-services-configuration.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>Seguint el propósit general del Servei de Configuració definirem a la  propietat 'basePropertyFiles' una nova localització pel fitxer de propietats del  servei.</p>
+
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"configurationService"</span>  class="net.gencat.ctti.canigo.services.configuration.
+springframework.beans.factory.config.HostPropertyPlaceholderConfigurer"&gt;
+	&lt;property  name=<span class="code-quote">"basePropertyFiles"</span>&gt;
+		&lt;list&gt;
+		...
+			&lt;value&gt;classpath:jms/jms.properties&lt;/value&gt;
+		&lt;/list&gt;
+	&lt;/property&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+A l'exemple, s'ha definit la ubicació del fitxer a  'classpath:jms/jms.properties' (veure següent pas).
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> Definició de les Propietats del Servei</p>
+
+<p><em>Fitxer de configuració: jms.properties</em></p>
+
+<p><em>Ubicació proposada: &lt;PROJECT_ROOT&gt;/src/main/resources/jms</em></p>
+
+<p>En aquest fitxer definirem les propietats que permet el servei (veure  'Definició del Servei')<br/>
+Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">jmsService.namingProviderUrl=rmi:<span class="code-comment">//localhost:1099
+</span>
+jmsService.namingContextFactory=org.exolab.jms.jndi.InitialContextFactory
+
+jmsService.connectionFactoryName=ConnectionFactory
+
+jmsService.defaultDestinationName=topic1
+
+jmsService.namingPrincipal=admin
+
+jmsService.namingCredentials=openjms</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+En aquest cas, la referència en la definició del servei seria (només es  mostra la referència a la primera propietat definida):
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;property name=<span class="code-quote">"namingProviderUrl"</span>  value=<span class="code-quote">"$\{jmsService.namingProviderUrl\}"</span>/&gt;
+
+...</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h2><a name="ServeideCues%28JMS%292.2-Utilitzaci%C3%B3delServei"></a>Utilització del  Servei</h2>
+
+<p>S'han de seguir els següents pasos:</p>
+<ul>
+	<li>Obtenir el destí JMS</li>
+</ul>
+
+
+<p>El mètode "getDefaultJmsOperations" permet obtenir el destí JMS per defecte  que es configura junt amb el servei, mentre que "getJmsOperations" permet  obtenir una configuració diferent, identificada per un nom.</p>
+<ul>
+	<li>Una vegada tenim la interfície 'JmsServiceOperations' podem realitzar les  operacions que s'especifiquen a la seva interfície.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> <span class="code-keyword">interface</span> JmsServiceOperations {
+
+    void convertAndSend(<span class="code-object">Object</span> message) <span class="code-keyword">throws</span> JmsServiceException;
+    void convertAndSend(Destination destination, <span class="code-object">Object</span> message)
+            <span class="code-keyword">throws</span> JmsServiceException;
+    void convertAndSend(<span class="code-object">String</span> destinationName, <span class="code-object">Object</span> message)
+            <span class="code-keyword">throws</span> JmsServiceException;
+    Message receive() <span class="code-keyword">throws</span> JmsServiceException;
+    Message receive(Destination destination) <span class="code-keyword">throws</span> JmsServiceException;
+    Message receive(<span class="code-object">String</span> destinationName) <span class="code-keyword">throws</span>    JmsServiceException;
+    Message receiveSelected(<span class="code-object">String</span> messageSelector) <span class="code-keyword">throws</span> JmsServiceException;
+    Message receiveSelected(Destination destination, <span class="code-object">String</span> messageSelector)
+            <span class="code-keyword">throws</span> JmsServiceException;
+    Message receiveSelected(<span class="code-object">String</span> destinationName, <span class="code-object">String</span> messageSelector)
+            <span class="code-keyword">throws</span> JmsServiceException;
+    <span class="code-object">Object</span> receiveAndConvert() <span class="code-keyword">throws</span> JmsServiceException;
+    <span class="code-object">Object</span> receiveAndConvert(Destination destination)
+            <span class="code-keyword">throws</span> JmsServiceException;
+    <span class="code-object">Object</span> receiveAndConvert(<span class="code-object">String</span> destinationName) <span class="code-keyword">throws</span> JmsServiceException;
+    <span class="code-object">Object</span> receiveSelectedAndConvert(<span class="code-object">String</span> messageSelector)
+            <span class="code-keyword">throws</span> JmsServiceException;
+    <span class="code-object">Object</span> receiveSelectedAndConvert(Destination destination,
+            <span class="code-object">String</span> messageSelector) <span class="code-keyword">throws</span> JmsServiceException;
+    <span class="code-object">Object</span> receiveSelectedAndConvert(<span class="code-object">String</span> destinationName,
+            <span class="code-object">String</span> messageSelector) <span class="code-keyword">throws</span> JmsServiceException;
+
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<p>Per conéixer com usar de cadascuna de les operacions es requereix un  coneixement previ de JMS.</p>
+
+<h2><a name="ServeideCues%28JMS%292.2-EinesdeSuport"></a>Eines de  Suport</h2>
+
+
+<h3><a name="ServeideCues%28JMS%292.2-OpenJMS"></a>OpenJMS</h3>
+
+<p>En cas de no disposar d'un Servidor de Cues per a realitzar les proves, es  pot fer ús de OpenJMS. Accedir a <a href="http://openjms.sourceforge.net/" title="Visit page outside Confluence">http://openjms.sourceforge.net/</a> per a més  referència.</p>
+
+<h2><a name="ServeideCues%28JMS%292.2-Integraci%C3%B3ambAltresServeis"></a>Integració amb  Altres Serveis</h2>
+
+
+<h3><a name="ServeideCues%28JMS%292.2-Integraci%C3%B3ambelServeiMultiidiomaiExcepcions"></a>Integració  amb el Servei Multiidioma i Excepcions</h3>
+
+<p>El servei llença vàries excepcions amb codis per tal que el missatge pugui  ser internacionalitzat. En el següent exemple es mostren els codis que s'han de  definir:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">canigo.services.jms.jndi_lookup_failed=Jndi lookup failed <span class="code-keyword">for</span> \{0\}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h1><a name="ServeideCues%28JMS%292.2-Exemples"></a>Exemples</h1>
+
+
+<h2><a name="ServeideCues%28JMS%292.2-Exempled%27EnviamentaunaDestinaci%C3%B3"></a>Exemple  d'Enviament a una Destinació</h2>
+
+
+<h3><a name="ServeideCues%28JMS%292.2-ExempledeProvaUnit%C3%A0ria"></a>Exemple de Prova  Unitària</h3>
+
+<p>//Obtenim el context Spring de test, aixo no cal fer-ho explícitament<br/>
+//en  una aplicació web
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">BeanFactory beanFactory = <span class="code-keyword">new</span>  ClassPathXmlApplicationContext(<span class="code-quote">"applicationContext.xml"</span>);</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+//Obtenim el servei pròpiament dit
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">JmsServiceImpl JmsService = (JmsServiceImpl)beanFactory.getBean(<span class="code-quote">"JmsService"</span>);
+JmsServiceOperations operations = (JmsServiceOperations)</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+//ara es pot fer servir l'interface JmsServiceOperations ...
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">operations.convertAndSend(<span class="code-quote">"A <span class="code-object">String</span> message to the <span class="code-keyword">default</span> destination"</span>)</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h3><a name="ServeideCues%28JMS%292.2-Exempledesd%27unaclasseAction"></a>Exemple des d'una  classe Action</h3>
+
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">JmsServiceUtils.getOperations(request).convertAndSend(<span class="code-quote">"testMessage"</span>);</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+En aquest cas s'ha fet ús del mètode estàtic "getOperations" de la classe  auxiliar<br/>
+"net.gencat.ctti.canigo.services.jms.JmsServiceUtils"<br/>
+Aquest  mètode permet utilitzar el servei sense haver de localitzar-lo expressament.
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Cues (JMS) 2.2_attachments/image002.gif">image002.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Cues (JMS) 2.2_attachments/image003.gif">image003.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Cues (JMS) 2.2_attachments/image004.gif">image004.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Cues (JMS) 2.2_attachments/image005.gif">image005.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Cues (JMS) 2.2_attachments/image006.gif">image006.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Cues (JMS) 2.2_attachments/image007.gif">image007.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Cues (JMS) 2.2_attachments/image001.jpg">image001.jpg</a> (image/jpeg)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

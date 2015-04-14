@@ -1,0 +1,124 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Release notes Canigó 2.3.7</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Release notes Canigó 2.3.7
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Feb 01, 2010 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h2><a name="ReleasenotesCanig%C3%B32.3.7-Releasenotesdelaversi%C3%B32.3.7deCanig%C3%B3"></a>Release notes de la versió 2.3.7 de Canigó</h2>
+
+
+<h3><a name="ReleasenotesCanig%C3%B32.3.7-%28%29BugsfixatsaCanig%C3%B32.3.7%3A"></a><img class="emoticon" src="./icons/emoticons/add.gif" height="16" width="16" align="absmiddle" alt="" border="0"/> Bugs fixats a Canigó 2.3.7:</h3>
+
+
+<h5><a name="ReleasenotesCanig%C3%B32.3.7-Consultes"></a>Consultes</h5>
+
+<ul>
+	<li>Consulta <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-979" title="Visit page outside Confluence"><b>CAN-979</b></a>: Tamany de les llibreries Javascript Importades.
+<br clear="all" />
+<b>Context</b>: Un determinat conjunt de llibreries javascript de la part estàtica del Framework Canigó es carregen sempre, es cridin o no quan s'invocava el Tag &lt;fwk:textArea&gt;. Això provocava que determinades sessions fossin molt pesants amb la conseqüent pèrdua de rendiment<font color="black">.</font><br clear="all" />
+<b>Servei afectat</b>: canigo-services-web
+<br clear="all" />
+<b>Solució</b>: <font color="black">S'ha afegit lògica extra al tag &lt;fwk:textArea&gt; de forma que no cridi de forma indiscriminada a les llibreries que li donen format. Aquestes només es cridaran si es demana de forma explícita per part del Tag</font>.
+<br clear="all" /></li>
+</ul>
+
+
+<h5><a name="ReleasenotesCanig%C3%B32.3.7-Incid%C3%A8ncies"></a>Incidències</h5>
+
+<ul>
+	<li>Incidència <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-999" title="Visit page outside Confluence"><b>CAN-999</b></a>: Nom de cacheRegin hardcoded
+<br clear="all" />
+<b>Context</b>: Les versions 2.3.x. del Framework Canigó no permet renombrar la cache L2 de Hibernate.
+<br clear="all" />
+<b>Solució</b>: Modificació de la classe Hibernate30AdapterV2 per permetre el renombrament de la cache L2.
+<br clear="all" />
+<b>Classe afectada</b>: net.gencat.ctti.canigo.services.web.list.Hibernate30AdapterV2
+<br clear="all" />
+<b>Servei afectat</b>: canigo-services-web&nbsp;</li>
+</ul>
+
+
+<h5><a name="ReleasenotesCanig%C3%B32.3.7-PeticionsdeCanvi"></a>Peticions de Canvi</h5>
+
+<ul>
+	<li>Petició de Canvi <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-989" title="Visit page outside Confluence"><b>CAN-989</b></a>: Inorporar al Framework Canigó un connector específic a l'Antivirus Central (servei 9.41. Antivirus Central).
+<br clear="all" />
+<b>Context</b>: El menú de la pàgina que es carrega és incorrecte.
+<br clear="all" />
+<b>Solució</b>: Desenvolupament e integració d'un connector sobre el Framework Canigó que pugui oferir un marc d'ús del Servei d'Antivirus Central del CTTI.<br/>
+<b>Connectors afectats</b>: canigo-connector-antivirus
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Petició de Canvi <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-994" title="Visit page outside Confluence"><b>CAN-994</b></a>: Compressió de la part estàtica del Framework.
+<br clear="all" />
+<b>Context</b>: En la versió 2.3.6 i anteriors, la part estàtica del Framwrok Canigó té un pes important. Aquest fet pot arribar a afectar als recursos que necessita cada sessió.
+<br clear="all" />
+<b>Solució</b>: Aplicació d'un conjunt d'eines de compressió sobre la part estàtica del Framework Canigó. En la versió 2.3.7 s'oferirà, de forma separada, el contingut estàtic sense compressió i el comprimit.<br/>
+<b>Arxius afectats</b>: Tota la part estàtica del Framework Canigó
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Petició de Canvi <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-996" title="Visit page outside Confluence"><b>CAN-996</b></a>: SFTP suportat l'enviament de claus privades (ppk).
+<br clear="all" />
+<b>Context</b>: Es necessita poder identificar-se amb fitxers de claus privades.
+<br clear="all" />
+<b>Solució</b>: S'ha creat un nou paràmetre per a poder indicar el fitxer de claus privades que es vol utilitzar.<br/>
+<b>Servei afectat</b>: canigo-services-sftp
+<br clear="all" /></li>
+	<li>Petició de Canvi <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-992" title="Visit page outside Confluence"><b>CAN-992</b></a>: Treure la llibreria Javascript JQuery ja que no s'està utilitzant .
+<br clear="all" />
+<b>Context</b>: En la versió 2.3.6 del Framework s'està incloent, en la part estàtica, la llibreria JQuery 1.2.6 que no es utilitzada per cap component del Framework. Actualment la llibreria Prototype 1.3.1 ja ofereix unes prestacions similars a JQuery.
+<br clear="all" />
+<b>Solució</b>: Extracció del contingut estàtic del Framework de la llibreria JQuery 1.2.6.
+<br clear="all" />
+<b>Arxius afectats</b>: JQuery-1.2.6 (Eliminada).
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Petició de Canvi <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-985" title="Visit page outside Confluence"><b>CAN-985</b></a>: Canvi en el connector GICAR per que obtingui la capçalera HTTP_GICAR_ID.
+<br clear="all" />
+<b>Context</b>: En les versions 2.3.x del Framework el mecanisme d'autenticació mitjançant capçaleres GICAR no funcionava correctament pel cas que es volgués autenticar usuaris no registrats al DC.
+<br clear="all" />
+<b>Solució</b>: Correcció del mecanisme d'autenticació GICARsobre el Framework Canigó per usuaris que no estiguin registrats al DC.
+<br clear="all" />
+<b>Servei afectat</b>: canigo-services-security
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Petició de Canvi <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-999" title="Visit page outside Confluence"><b>CAN-999</b></a>: Treure la llibreria Javascript JQuery ja que no s'està utilitzant .
+<br clear="all" />
+<b>Context</b>: En la versió 2.3.6 del Framework s'està incloent, en la part estàtica, la llibreria JQuery 1.2.6 que no es utilitzada per cap component del Framework. Actualment la llibreria Prototype 1.3.1 ja ofereix unes prestacions similars a JQuery.
+<br clear="all" />
+<b>Solució</b>: Extracció del contingut estàtic del Framework de la llibreria JQuery 1.2.6.
+<br clear="all" />
+<b>Arxius afectats</b>: JQuery-1.2.6 (Eliminada)
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

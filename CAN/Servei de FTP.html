@@ -1,0 +1,723 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Servei de FTP</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Servei de FTP
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Sep 12, 2007 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="ServeideFTP-SERVEIDEFTP"></a>SERVEI DE FTP</h1>
+
+<p><br clear="all" />
+<br clear="all" />
+<div>
+<ul><a href='#ServeideFTP-SERVEIDEFTP'>
+    <li>SERVEI DE FTP</li></a><a href='#ServeideFTP-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#ServeideFTP-Prop%C3%B2sit'>
+    <li>Propòsit</li></a><a href='#ServeideFTP-ContextiEscenarisd%27%C3%9As'>
+    <li>Context i Escenaris  d'Ús</li></a><a href='#ServeideFTP-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i  Dependències</li></a><a href='#ServeideFTP-Aquivadirigit'>
+    <li>A qui va  dirigit</li></a><a href='#ServeideFTP-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents i  Fonts de Referència</li></a><a href='#ServeideFTP-Glossari'>
+    <li>Glossari</li></a>
+</ul><a href='#ServeideFTP-Descripci%C3%B3Detallada'>
+    <li>Descripció  Detallada</li></a>
+<ul><a href='#ServeideFTP-ArquitecturaiComponents'>
+    <li>Arquitectura i  Components</li></a><a href='#ServeideFTP-Instal%5Claci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal&#45; lació  i Configuració</li></a>
+<ul><a href='#ServeideFTP-Instal%5Claci%C3%B3'>
+    <li>Instal&#45; lació</li></a><a href='#ServeideFTP-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#ServeideFTP-Utilitzaci%C3%B3delServei'>
+    <li>Utilització del  Servei</li></a>
+<ul><a href='#ServeideFTP-Realitzarconnexi%C3%B3'>
+    <li>Realitzar  connexió</li></a><a href='#ServeideFTP-Realitzardesconnexi%C3%B3delservidorFTP'>
+    <li>Realitzar  desconnexió del servidor FTP</li></a><a href='#ServeideFTP-Realitzardownloadd%27unfitxer'>
+    <li>Realitzar download  d'un fitxer</li></a><a href='#ServeideFTP-Realitzaruploadd%27unfitxer'>
+    <li>Realitzar upload d'un  fitxer</li></a><a href='#ServeideFTP-Obtenirlallistadenomsdelsfitxersdelservidorremot'>
+    <li>Obtenir  la llista de noms dels fitxers del servidor remot</li></a><a href='#ServeideFTP-ExecutarunacomandaFTP'>
+    <li>Executar  una comanda FTP</li></a>
+</ul>
+</ul><a href='#ServeideFTP-Exemples'>
+    <li>Exemples</li></a>
+<ul><a href='#ServeideFTP-TestsUnitaris'>
+    <li>Tests Unitaris</li></a>
+</ul>
+</ul></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h1><a name="ServeideFTP-Introducci%C3%B3"></a>Introducció</h1>
+
+
+<h2><a name="ServeideFTP-Prop%C3%B2sit"></a>Propòsit</h2>
+
+<p>El servei de FTP de canigo permet enviar i rebre: arxius, directoris sencers  o Streams, entre el servidor on s'executa l'aplicació a altres servidors.</p>
+
+<p>El servei està basat en Jakarta Commons Net, es tracta d'un projecte <em>open  source</em> englobat dins del projecte Jakarta que proporciona les  funcionalitats clàssiques associades al protocol FTP, però com a característica  destacada la possibilitat de transferir els fitxers o els streams en paral&#45; lel.</p>
+
+<h2><a name="ServeideFTP-ContextiEscenarisd%27%C3%9As"></a>Context i Escenaris  d'Ús</h2>
+
+<p>El servei de FTP es troba dins dels serveis d'integració de canigo.</p>
+
+<p>El seu ús és necessari en cas de voler intercanviar fitxers entre servidors  utilitzant el protocol FTP.</p>
+
+<h2><a name="ServeideFTP-VersionsiDepend%C3%A8ncies"></a>Versions i  Dependències</h2>
+
+<p>Les dependències descrites a la següent url son requerides per tal de compilar i fer funcionar el projecte:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-ftp/dependencies.html" title="Visit page outside Confluence">Dependències Servei de FTP</a></p>
+
+<h2><a name="ServeideFTP-Aquivadirigit"></a>A qui va  dirigit</h2>
+
+<p>Aquest document va dirigit als següents perfils:</p>
+<ol>
+	<li>Programador. Per conèixer l'ús del servei.</li>
+	<li>Arquitecte. Per conèixer quins són els components i la configuració del  servei.</li>
+	<li>Administrador. Per conèixer com configurar el servei en cadascun dels  entorns en cas de necessitat.</li>
+</ol>
+
+
+<h2><a name="ServeideFTP-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents i  Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> [1] </th>
+<th class='confluenceTh'> Jakarta Commons Net </th>
+<th class='confluenceTh'> <a href="http://jasperreports.sourceforge.net/" title="Visit page outside Confluence">http://jakarta.apache.org/commons/index.html</a> </th>
+</tr>
+</tbody></table>
+
+<h2><a name="ServeideFTP-Glossari"></a>Glossari</h2>
+
+<p><b>FTP</b><br/>
+<em>File Transfer Protocol</em> (Protocol de Transferència  d'Arxius), es tracta d'un protocol de transferència de fitxers entre  computadors.</p>
+
+<p><b>Stream</b><br/>
+La traducció de l'anglès significa: corrent, fluxe, fluir...  S'asocia el terme a un fluxe de dades sense suport físic (fitxer).</p>
+
+<p><b>Download</b><br/>
+Rebre arxius des d'un servidor.</p>
+
+<p><b>Upload</b><br/>
+Enviar arxius a un servidor.</p>
+
+<p><b>Socket</b><br/>
+Port del servidor habilitat per realitzar la transferència  de fitxers/streams mitjançant el protocol FTP.</p>
+
+<h1><a name="ServeideFTP-Descripci%C3%B3Detallada"></a>Descripció  Detallada</h1>
+
+
+<h2><a name="ServeideFTP-ArquitecturaiComponents"></a>Arquitectura i  Components</h2>
+
+<p><b>canigo</b> ofereix una arquitectura d'ús del protocol FTP totalment  deslligada de qualsevol implementació.</p>
+
+<p>Els components podem classificar-los en:</p>
+<ol>
+	<li>Interfícies i Components Genèrics. Interfícies del servei i components d'ús  general amb independència de la implementació escollida.</li>
+	<li>Implementació de les interfícies basada en Jakarta Commons Net.<br/>
+Es pot trobar tota la documentació JavaDoc y el codi font referent aquests components a les següents urls:</li>
+</ol>
+
+
+<p><ins>JavaDoc:</ins> <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-ftp/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-ftp/apidocs/index.html</a><br/>
+<ins>Codi Font:</ins>&nbsp; <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-ftp/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-ftp/xref/index.html </a></p>
+
+<h2><a name="ServeideFTP-Instal%5Claci%C3%B3iConfiguraci%C3%B3"></a>Instal&#45; lació  i Configuració</h2>
+
+
+<h3><a name="ServeideFTP-Instal%5Claci%C3%B3"></a>Instal&#45; lació</h3>
+
+<p>La instal&#45; lació del servei requereix de la utilització de la llibreria  'canigo-services-ftp' i les dependències indicades a l'apartat 'Introducció -  Versions i Dependències'.</p>
+
+<p>Per la instal&#45; lació del component Jakarta Commons Net, no es requereix res a  part del JAR indicat en la dependència "Jakarta Commons Net".</p>
+
+<h3><a name="ServeideFTP-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p>La configuració del Servei de FTP implica:</p>
+<ol>
+	<li>Definir el servei.</li>
+</ol>
+
+
+<p>Definició del Servei</p>
+
+<p><img src="Servei de FTP_attachments/image004.jpg" align="left" border="0" /><br clear="all" />
+<br clear="all" /></p>
+
+<p>La definició del servei requereix configurar un bean amb un identificador (es  recomana usar 'ftpService' ) i els següents atributs:</p>
+
+<p>Atributs:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> class </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Implementació concreta del servei a  utilitzar. <br clear="all" />
+<br clear="all" />
+Opcions: <br clear="all" />
+&#35;  net.gencat.ctti.canigo.services.ftp.impl.FtpClient <br clear="all" /> </td>
+</tr>
+</tbody></table>
+<p>També es poden configurar les següents propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> logService </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Referència a la definició del servei  de traces. </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+&lt;!- FTP service -&gt;
+&lt;bean id=<span class="code-quote">"ftpService"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.services.ftp.impl.FtpClient"</span>&gt;
+&lt;property name=<span class="code-quote">"logService"</span>&gt;
+&lt;ref local=<span class="code-quote">"loggingService"</span>/&gt;
+&lt;/property&gt;
+&lt;/bean&gt;
+
+...
+&lt;bean id=<span class="code-quote">"loggingService"</span> class="net.gencat.ctti.canigo.services.logging.log4j.
+Log4JServiceImpl<span class="code-quote">" init-method="</span>init"&gt;
+...
+&lt;/bean&gt;
+...</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h2><a name="ServeideFTP-Utilitzaci%C3%B3delServei"></a>Utilització del  Servei</h2>
+
+
+<h3><a name="ServeideFTP-Realitzarconnexi%C3%B3"></a>Realitzar  connexió</h3>
+
+<p>Tal i com s'ha comentat a l'apartat 'Arquitectura i Components' les classes  principals per realitzar transferències de fitxers/streams es troben al package  'net.gencat.ctti.canigo.services.ftp'.</p>
+
+<p>Per realitzar una connexió seguirem un patró com el mostrat en el següent  exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">if</span> (<span class="code-keyword">this</span>.ftpClient != <span class="code-keyword">null</span> ) {
+    ftpClient.login(userName, password, host);
+}</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>Realitzarem doncs els següents passos:</p>
+<ol>
+	<li>En primer lloc comprovarem que s'ha realitzat correctament la injecció a la  nostra classe del servei de FTP.</li>
+	<li>Seguidament cridem al mètode login() per realitzar la connexió i  l'autentificació al servidor remot mitjançant el protocol FTP.</li>
+</ol>
+
+
+<p>Es crida el mètode login() que amb els següents paràmetres:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>ordre</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Tipus</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> 1 </td>
+<td class='confluenceTd'> Si </td>
+<td class='confluenceTd'> String </td>
+<td class='confluenceTd'> Nom de l'usuari de connexió  mitjançant el protocol FTP. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 2 </td>
+<td class='confluenceTd'> Si </td>
+<td class='confluenceTd'> String </td>
+<td class='confluenceTd'> Contrasenya de l'usuari de connexió  mitjançant el protocol FTP. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 3 </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> String </td>
+<td class='confluenceTd'> Nom del servidor remot (o IP) on es  vol obrir una connexió mitjançant el protocol FTP. </td>
+</tr>
+</tbody></table>
+<p>El mètode retorna un valor booleà (TRUE/FALSE) indicant si la connexió s'ha  realitzat correctament.</p>
+
+<h3><a name="ServeideFTP-Realitzardesconnexi%C3%B3delservidorFTP"></a>Realitzar  desconnexió del servidor FTP</h3>
+
+<p>Per realitzar la desconnexió del servidor FTP seguirem un patró com el  mostrat en el següent exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">if</span> (<span class="code-keyword">this</span>.ftpClient != <span class="code-keyword">null</span> ) {
+    <span class="code-keyword">if</span> (ftpClient.isConnected()) {
+        ftpClient.disconnect();
+    }
+}</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>Realitzarem doncs els següents passos:</p>
+<ol>
+	<li>En primer lloc comprovarem que s'ha realitzat correctament la injecció a la  nostra classe del servei de FTP.</li>
+	<li>Realitzar la desconnexió del servidor FTP cridant al mètode  disconnect().</li>
+</ol>
+
+
+<h3><a name="ServeideFTP-Realitzardownloadd%27unfitxer"></a>Realitzar download  d'un fitxer</h3>
+
+<p>Per realitzar un download d'un fitxer seguirem un patró com el mostrat en el  següent exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">if</span> (<span class="code-keyword">this</span>.ftpClient != <span class="code-keyword">null</span> ) {
+    ftpClient.login(userName, password, host);
+    <span class="code-keyword">if</span> (ftpClient.isConnected()) {
+        InputStream stream = ftpClient.retrieveFileStream(serverFile);
+        ftpClient.disconnect();
+    }
+}</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>Realitzarem doncs els següents passos:</p>
+<ol>
+	<li>En primer lloc comprovarem que s'ha realitzat correctament la injecció a la  nostra classe del servei de FTP.</li>
+	<li>Seguidament cridem al mètode login() per realitzar la connexió i  l'autentificació al servidor remot mitjançant el protocol FTP.</li>
+	<li>En cas de que la connexió al servidor remot s'hagi realitzat correctament es  crida al mètode retrieveFileStream() per realitzar el download del fitxer del  servidor remot.</li>
+	<li>Realitzar la desconnexió del servidor FTP.</li>
+</ol>
+
+
+<p>Es crida el mètode retrieveFileStream() que amb els següents paràmetres:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>ordre</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Tipus</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> 1 </td>
+<td class='confluenceTd'> Si </td>
+<td class='confluenceTd'> String </td>
+<td class='confluenceTd'> Nom del fitxer del servidor remot  que es vol realitzar el download. </td>
+</tr>
+</tbody></table>
+<p>I retorna:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>ordre</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Tipus</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> 1 </td>
+<td class='confluenceTd'> Si </td>
+<td class='confluenceTd'> InpuStream </td>
+<td class='confluenceTd'> Variable InputStream amb les dades  del fitxer remot </td>
+</tr>
+</tbody></table>
+
+<h3><a name="ServeideFTP-Realitzaruploadd%27unfitxer"></a>Realitzar upload d'un  fitxer</h3>
+
+<p>Per realitzar un upload d'un fitxer seguirem un patró com el mostrat en el  següent exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">if</span> (<span class="code-keyword">this</span>.ftpClient != <span class="code-keyword">null</span> ) {
+    ftpClient.login(userName, password, host);
+    <span class="code-keyword">if</span> (ftpClient.isConnected()) {
+        ftpClient.storeFile(serverFileUploaded, input);
+        ftpClient.disconnect();
+    }
+}</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>Realitzarem doncs els següents passos:</p>
+<ol>
+	<li>En primer lloc comprovarem que s'ha realitzat correctament la injecció a la  nostra classe del servei de FTP.</li>
+	<li>Seguidament cridem al mètode login() per realitzar la connexió i  l'autentificació al servidor remot mitjançant el protocol FTP.</li>
+	<li>En cas de que la connexió al servidor remot s'hagi realitzat correctament es  crida al mètode storeFile() per realitzar el upload del fitxer del servidor  local al servidor remot.</li>
+	<li>Realitzar la desconnexió del servidor FTP.</li>
+</ol>
+
+
+<p>Es crida el mètode storeFile() que amb els següents paràmetres:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>ordre</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Tipus</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> 1 </td>
+<td class='confluenceTd'> Si </td>
+<td class='confluenceTd'> String </td>
+<td class='confluenceTd'> Nom del fitxer del servidor remot on  es vol deixar el fitxer. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 2 </td>
+<td class='confluenceTd'> Si </td>
+<td class='confluenceTd'> InputStream </td>
+<td class='confluenceTd'> Variable amb les dades a pujar al  servidor FTP </td>
+</tr>
+</tbody></table>
+
+<h3><a name="ServeideFTP-Obtenirlallistadenomsdelsfitxersdelservidorremot"></a>Obtenir  la llista de noms dels fitxers del servidor remot</h3>
+
+<p>Per obtenir la llista de fitxers en una carpeta d'un servidor remot seguirem  un patró com el mostrat en el següent exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">if</span> (<span class="code-keyword">this</span>.ftpClient != <span class="code-keyword">null</span> ) {
+    ftpClient.login(userName, password, host);
+    <span class="code-keyword">if</span> (ftpClient.isConnected()) {
+        <span class="code-object">String</span>[] listFileNames = ftpClient.listNames(serverFolder)
+    }
+}</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>Realitzarem doncs els següents passos:</p>
+<ol>
+	<li>En primer lloc comprovarem que s'ha realitzat correctament la injecció a la  nostra classe del servei de FTP.</li>
+	<li>Seguidament cridem al mètode login() per realitzar la connexió i  l'autentificació al servidor remot mitjançant el protocol FTP.</li>
+	<li>En cas de que la connexió al servidor remot s'hagi realitzat correctament es  crida al mètode listNames() per obtenir una llista de fitxers en una carpeta  d'un servidor remot.</li>
+</ol>
+
+
+<p>Es crida el mètode listNames() que amb els següents paràmetres:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>ordre</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Tipus</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> 1 </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> String </td>
+<td class='confluenceTd'> Nom de la carpeta del servidor remot  d'on es vol obtenir la llista de fitxers. </td>
+</tr>
+</tbody></table>
+<p>El mètode retorna un array de Strings amb els noms dels fitxers de la carpeta  del servidor remot.</p>
+
+<h3><a name="ServeideFTP-ExecutarunacomandaFTP"></a>Executar  una comanda FTP</h3>
+
+<p>Per executar una comanda FTP seguirem un patró com el mostrat en el següent  exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">if</span> (<span class="code-keyword">this</span>.ftpClient != <span class="code-keyword">null</span> ) {
+    ftpClient.login(userName, password, host);
+    <span class="code-keyword">if</span> (ftpClient.isConnected()) {
+        <span class="code-object">String</span> line = ftpClient.sendCommand(command);
+    }
+}</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>Realitzarem doncs els següents passos:</p>
+<ol>
+	<li>En primer lloc comprovarem que s'ha realitzat correctament la injecció a la  nostra classe del servei de FTP.</li>
+	<li>Seguidament cridem al mètode login() per realitzar la connexió i  l'autentificació al servidor remot mitjançant el protocol FTP.</li>
+	<li>En cas de que la connexió al servidor remot s'hagi realitzat correctament es  crida al mètode sendCommand() per executar una comanda FTP en el servidor  remot..</li>
+</ol>
+
+
+<p>Es crida el mètode sendCommand() que amb els següents paràmetres:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>ordre</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Tipus</b> </th>
+<th class='confluenceTh'> &#42;<b>Descripció</b>&#42; </th>
+</tr>
+<tr>
+<td class='confluenceTd'> 1 </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> String </td>
+<td class='confluenceTd'> Comanda FTP a executar. </td>
+</tr>
+</tbody></table>
+<p>El mètode retorna un String el resultat de l'execució de la comanda FTP en el  servidor remot.</p>
+
+<h1><a name="ServeideFTP-Exemples"></a>Exemples</h1>
+
+
+<h2><a name="ServeideFTP-TestsUnitaris"></a>Tests Unitaris</h2>
+
+<p>Un exemple d'utilització del servei de FTP són els tests unitaris, a on  s'obté el bean del servei a partir del fitxer de definició  (applicationContext.xml) i s'envia un log amb les sortides especificades.</p>
+
+<p>S'ha de tenir en compte que s'ha de disposar d'accés a un servidor remot  mitjançant el protocol FTP per poder realitzar els tests.</p>
+
+<p>package net.gencat.ctti.canigo.services.ftp.test;</p>
+
+<p>...</p>
+
+<p>La utilització del servei es independent de la configuració del mateix. Així,  un possible fitxer de configuració del servei seria:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;
+&lt;!DOCTYPE beans PUBLIC <span class="code-quote">"-<span class="code-comment">//SPRING//DTD BEAN//EN"</span> <span class="code-quote">"http://www.springframework.org/dtd/spring-beans.dtd"</span>&gt;
+</span>&lt;beans&gt;
+    &lt;!-- FTP service  --&gt;
+    &lt;bean id=<span class="code-quote">"ftpService"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.services.ftp.impl.FtpClient"</span>&gt;
+        &lt;property name=<span class="code-quote">"logService"</span>&gt;
+            &lt;ref bean=<span class="code-quote">"loggingService"</span> /&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt;
+
+
+    &lt;!-- LOGGING service  --&gt;
+    &lt;bean id=<span class="code-quote">"loggingService"</span> class="net.gencat.ctti.canigo.services.logging.log4j.
+    Log4JServiceImpl<span class="code-quote">" init-method="</span>init"&gt;
+        &lt;property name=<span class="code-quote">"configurator"</span>&gt;
+            &lt;ref local=<span class="code-quote">"loggingConfigurator"</span>/&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt;
+
+    &lt;!-- configurator bean --&gt;
+    &lt;bean id=<span class="code-quote">"loggingConfigurator"</span> class="net.gencat.ctti.canigo.services.logging.log4j.xml.
+    HostDOMConfigurator"&gt;
+        &lt;property name=<span class="code-quote">"configFileName"</span>&gt;
+            &lt;value&gt;classpath:log4j-test.xml&lt;/value&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt;
+
+&lt;/beans&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+
+    <span class="code-keyword">public</span> void testConnectAndLogin() <span class="code-keyword">throws</span> Exception {
+        FtpClientIF ftpClient = getFtpService();
+
+        assertTrue(ftpClient.login(userName, password, host));
+
+        <span class="code-keyword">if</span> (ftpClient.isConnected()) {
+            ftpClient.disconnect();
+        }
+
+        <span class="code-keyword">if</span> (getLogService() != <span class="code-keyword">null</span>) {
+            getLogService().getLog(<span class="code-keyword">this</span>.getClass().getName()).debug("End
+            testConnectAndLogin()");
+        }
+    }
+
+
+    <span class="code-keyword">public</span> void testConnectFailed() <span class="code-keyword">throws</span> Exception {
+        password    = <span class="code-quote">"incorrectPasword"</span>;
+
+        FtpClientIF ftpClient = getFtpService();
+
+        assertFalse(ftpClient.login(userName, password, host));
+
+        <span class="code-keyword">if</span> (ftpClient.isConnected()) {
+            ftpClient.disconnect();
+        }
+
+        <span class="code-keyword">if</span> (getLogService() != <span class="code-keyword">null</span>) {
+            getLogService().getLog(<span class="code-keyword">this</span>.getClass().getName()).debug("End
+            testConnectFailed()");
+        }
+    }
+
+
+    <span class="code-keyword">public</span> void testSendRawCommand() <span class="code-keyword">throws</span> Exception {
+        FtpClientIF ftpClient = getFtpService();
+        ftpClient.login(userName, password, host);
+
+        <span class="code-object">int</span> returnCodeOk     = 257;
+        <span class="code-object">int</span> returnCode         = ftpClient.sendCommand(<span class="code-quote">"PWD"</span>);
+
+        <span class="code-keyword">if</span> (ftpClient.isConnected()) {
+            ftpClient.disconnect();
+        }
+
+        assertEquals(returnCodeOk, returnCode);
+        <span class="code-keyword">if</span> (getLogService() != <span class="code-keyword">null</span>) {
+            getLogService().getLog(<span class="code-keyword">this</span>.getClass().getName()).debug("End
+            testSendRawCommand()");
+        }
+    }
+
+
+    <span class="code-keyword">public</span> void testListFileNames() <span class="code-keyword">throws</span> Exception {
+        FtpClientIF ftpClient = getFtpService();
+        ftpClient.login(userName, password, host);
+
+        <span class="code-object">String</span>[] listFileNames = ftpClient.listNames(serverFolder);
+
+        <span class="code-keyword">if</span> (ftpClient.isConnected()) {
+            ftpClient.disconnect();
+        }
+
+        assertTrue(0&lt;listFileNames.length);
+        <span class="code-keyword">if</span> (getLogService() != <span class="code-keyword">null</span>) {
+            getLogService().getLog(<span class="code-keyword">this</span>.getClass().getName()).debug("End
+            testListFileNames()");
+        }
+    }
+
+
+    <span class="code-keyword">public</span> void testUploadFile() <span class="code-keyword">throws</span> Exception {
+        FtpClientIF ftpClient = getFtpService();
+        ftpClient.login(userName, password, host);
+
+        InputStream input;
+        input = <span class="code-keyword">new</span> FileInputStream(localFolder+localFile);
+
+        <span class="code-object">String</span> serverFileUploaded = localFile;
+        ftpClient.storeFile(serverFileUploaded, input);
+
+        input.close();
+
+        <span class="code-comment">// validate file at server
+</span>        <span class="code-object">boolean</span> existsAtServer = <span class="code-keyword">false</span>;
+        <span class="code-object">String</span>[] listFileNames = ftpClient.listNames(serverFolder);
+
+        <span class="code-keyword">if</span> (listFileNames != <span class="code-keyword">null</span>) {
+            <span class="code-keyword">for</span> (<span class="code-object">int</span> i=0; i&lt;listFileNames.length; i++) {
+                <span class="code-object">String</span> fileName = (<span class="code-object">String</span>)listFileNames[i];
+                <span class="code-keyword">if</span> (localFile.equals(fileName)) {
+                    existsAtServer = <span class="code-keyword">true</span>;
+                    <span class="code-keyword">break</span>;
+                }
+            }
+        }
+
+        <span class="code-keyword">if</span> (ftpClient.isConnected()) {
+            ftpClient.disconnect();
+        }
+
+        assertTrue(existsAtServer);
+
+        <span class="code-keyword">if</span> (getLogService() != <span class="code-keyword">null</span>) {
+            getLogService().getLog(<span class="code-keyword">this</span>.getClass().getName()).debug("End
+            testUploadFile()");
+        }
+    }
+
+
+    <span class="code-keyword">public</span> void testDownloadFile() <span class="code-keyword">throws</span> Exception {
+        FtpClientIF ftpClient = getFtpService();
+        ftpClient.login(userName, password, host);
+
+        InputStream inputStream = ftpClient.retrieveFileStream(serverFile);
+        <span class="code-object">byte</span>[] buf = <span class="code-keyword">new</span> <span class="code-object">byte</span>[4096];
+        FileOutputStream fileDownload = <span class="code-keyword">new</span> FileOutputStream(localFolder+serverFile);
+        <span class="code-keyword">for</span> (<span class="code-object">int</span> len=-1;(len=inputStream.read(buf))!=-1;) {
+            fileDownload.write(buf,0,len);
+        }
+        fileDownload.flush();
+
+
+        <span class="code-keyword">if</span> (ftpClient.isConnected()) {
+            ftpClient.disconnect();
+        }
+
+        File file = <span class="code-keyword">new</span> File(localFolder+serverFile);
+        assertTrue(file.exists());
+        <span class="code-keyword">if</span> (getLogService() != <span class="code-keyword">null</span>) {
+            getLogService().getLog(<span class="code-keyword">this</span>.getClass().getName()).debug("End
+            testDownloadFile()");
+        }
+    }
+
+
+    <span class="code-keyword">private</span> FtpClientIF getFtpService() {
+        BeanFactory beanFactory = <span class="code-keyword">new</span> ClassPathXmlApplicationContext(<span class="code-quote">"applicationContext.xml"</span>);
+        FtpClientIF ftpClient = (FtpClientIF)beanFactory.getBean(<span class="code-quote">"ftpService"</span>);
+        logService = ftpClient.getLogService();
+
+        assertNotNull(ftpClient);
+        <span class="code-keyword">return</span> ftpClient;
+    }
+...</pre>
+</div></div><br clear="all" /></p>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de FTP_attachments/image004.jpg">image004.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de FTP_attachments/image002.jpg">image002.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de FTP_attachments/image003.jpg">image003.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de FTP_attachments/image001.jpg">image001.jpg</a> (image/jpeg)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

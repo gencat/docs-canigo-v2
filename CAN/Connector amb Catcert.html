@@ -1,0 +1,488 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Connector amb Catcert</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Connector amb Catcert
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Feb 15, 2010 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="ConnectorambCatcert-CONNECTORAMBCATCERT"></a>CONNECTOR AMB CATCERT</h1>
+
+<p><br clear="all" />
+<div>
+<ul><a href='#ConnectorambCatcert-CONNECTORAMBCATCERT'>
+    <li>CONNECTOR AMB CATCERT</li></a><a href='#ConnectorambCatcert-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#ConnectorambCatcert-Prop%C3%B3sit'>
+    <li>Propósit</li></a><a href='#ConnectorambCatcert-ContextiEscenarisd%27%C3%9As'>
+    <li>Context i Escenaris d'Ús</li></a><a href='#ConnectorambCatcert-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i  Dependències</li></a><a href='#ConnectorambCatcert-Aquivadirigit'>
+    <li>A qui va  dirigit</li></a><a href='#ConnectorambCatcert-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents  i Fonts de Referència</li></a><a href='#ConnectorambCatcert-Glossari'>
+    <li>Glossari</li></a>
+</ul><a href='#ConnectorambCatcert-Descripci%C3%B3Detallada'>
+    <li>Descripció  Detallada</li></a>
+<ul><a href='#ConnectorambCatcert-ArquitecturaiComponents'>
+    <li>Arquitectura i  Components</li></a>
+<ul><a href='#ConnectorambCatcert-Interf%C3%ADciesiComponentsGen%C3%A9rics'>
+    <li>Interfícies  i Components Genérics</li></a>
+</ul><a href='#ConnectorambCatcert-Instal.laci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal.lació  i Configuració</li></a>
+<ul><a href='#ConnectorambCatcert-Instal.laci%C3%B3'>
+    <li>Instal.lació</li></a><a href='#ConnectorambCatcert-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#ConnectorambCatcert-Utilitzaci%C3%B3delServei'>
+    <li>Utilització del Servei</li></a>
+<ul><a href='#ConnectorambCatcert-FuncionsCatcert'>
+    <li>Funcions Catcert</li></a><a href='#ConnectorambCatcert-FuncionsPSIS'>
+    <li>Funcions PSIS</li></a>
+</ul><a href='#ConnectorambCatcert-Integraci%C3%B3ambAltresServeis'>
+    <li>Integració  amb Altres Serveis</li></a>
+<ul><a href='#ConnectorambCatcert-Integraci%C3%B3ambelServeideInternacionalitzaci%C3%B3'>
+    <li>Integració  amb el Servei de Internacionalització</li></a>
+</ul>
+</ul>
+</ul></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h1><a name="ConnectorambCatcert-Introducci%C3%B3"></a>Introducció</h1>
+
+
+<h2><a name="ConnectorambCatcert-Prop%C3%B3sit"></a>Propósit</h2>
+
+<p>El propósit del connector és proporcionar una interfície java per accedir a Catcert i PSIS.</p>
+
+<p>El connector original amb Catcert disposa de dos mètodes de validació, el primer, validate, espera rebre un string amb el XML per processar la petició. El segon, validateDetStr, és un  mètode de conveniència d'un entorn anterior que només permet la validació de  documents amb signatura Dettached, i que espera rebre dos strings (una per al  document en base 64 i l'altre per a la seva signatura).</p>
+
+<p>Ambdós mètodes retornen un XML (comentat en el punt 4.1.2) que conté el  resultat de la petició, els camps del certificat que s'hagin demanat cas que  aquest sigui correcte i una signatura del validador.</p>
+
+<p>Les noves funcionalitats d'accés a PSIS consisteixen en dues funcions que s'executen en el mateix connector i que permeten d'extraure el Hash i la Signatura d'un arxiu PDF</p>
+
+<p>i dues funcions de validació, que accedeixen als serveis de PSIS:</p>
+<ol>
+	<li>del hash i signatura obtinguts amb les funcions anteriors</li>
+	<li>d'un PDF signat</li>
+</ol>
+
+
+<h2><a name="ConnectorambCatcert-ContextiEscenarisd%27%C3%9As"></a>Context i Escenaris d'Ús</h2>
+
+<p>El connector Catcert es troba dins els connectors de serveis funcional.</p>
+
+<h2><a name="ConnectorambCatcert-VersionsiDepend%C3%A8ncies"></a>Versions i  Dependències</h2>
+
+<p>En el present apartat es mostren quines són les versions i dependències necessàries per fer ús del Servei.</p>
+
+<p>Les dependències descrites a la següent url son requerides per tal de fer funcionar el servei:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-connectors-root/canigo-connectors-catcert/dependencies.html" title="Visit page outside Confluence">Dependències Connector amb Catcert</a></p>
+
+<h2><a name="ConnectorambCatcert-Aquivadirigit"></a>A qui va  dirigit</h2>
+
+<p>Aquest document va dirigit als següents perfils:</p>
+<ol>
+	<li>Programador. Per conéixer l'ús del connector.</li>
+	<li>Arquitecte. Per conéixer quins són els components i la configuració del  connector.</li>
+</ol>
+
+
+<h2><a name="ConnectorambCatcert-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents  i Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> [1] </th>
+<th class='confluenceTh'> Anàlisi Funcional - Connector  Serveis Funcionals - 16-Nov.doc </th>
+<th class='confluenceTh'> Document d'anàlisi dels connectors  de serveis funcionals. </th>
+</tr>
+<tr>
+<td class='confluenceTd'> [2] </td>
+<td class='confluenceTd'> acces_serveis_validacio.pdf </td>
+<td class='confluenceTd'> Frontal Serveis Web PKI - Accés als  serveis de validació. </td>
+</tr>
+</tbody></table>
+
+<h2><a name="ConnectorambCatcert-Glossari"></a>Glossari</h2>
+
+
+<h1><a name="ConnectorambCatcert-Descripci%C3%B3Detallada"></a>Descripció  Detallada</h1>
+
+
+<h2><a name="ConnectorambCatcert-ArquitecturaiComponents"></a>Arquitectura i  Components</h2>
+
+
+<h3><a name="ConnectorambCatcert-Interf%C3%ADciesiComponentsGen%C3%A9rics"></a>Interfícies  i Components Genérics</h3>
+
+<p>Es pot trobar tota la documentació JavaDoc y el codi font referent aquests components a les següents urls:</p>
+
+<p><ins>JavaDoc:</ins> <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-connectors-root/canigo-connectors-catcert/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-connectors-root/canigo-connectors-catcert/apidocs/index.html</a><br/>
+<ins>Codi Font:</ins>&nbsp; <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-connectors-root/canigo-connectors-catcert/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-connectors-root/canigo-connectors-catcert/xref/index.html</a></p>
+
+<h2><a name="ConnectorambCatcert-Instal.laci%C3%B3iConfiguraci%C3%B3"></a>Instal.lació  i Configuració</h2>
+
+
+<h3><a name="ConnectorambCatcert-Instal.laci%C3%B3"></a>Instal.lació</h3>
+
+<p>La instal.lació del connector requereix de la utilització de la llibreria  'canigo-connectors-catcert' i les dependències indicades a l'apartat 'Introducció-Versions i Dependències'.</p>
+
+<p>La instal.lació es realitzarà seguint el procediment habitual per  components/serveis canigo.</p>
+
+<p>És necesari tenir accés a la intranet de la Generalitat per poder fer proves  i/o utilitzar-lo.</p>
+
+<h3><a name="ConnectorambCatcert-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p>L'arxiu de configuració Maven2 del projecte (<em>pom.xml</em>) ha d'incloure la dependència amb el connector:<br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;dependency&gt;
+    &lt;groupId&gt;canigo.connectors&lt;/groupId&gt;
+    &lt;artifactId&gt;canigo-connectors-catcert&lt;/artifactId&gt;
+    &lt;version&gt;${pom.version}&lt;/version&gt;
+&lt;/dependency&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+La configuració de l'accés als webservices de PSIS es fà mitjançant l'arxiu de propietats ValidateWSLocator.properties que conté les URLs dels dos webservices:<br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java"># URL PSIS test
+#WS_URL_Locator=http:<span class="code-comment">//psisbeta.catcert.net/psis/catcert-test/dss
+</span>#WS_URL_Locator_PDF=http:<span class="code-comment">//psisbeta.catcert.net/psis/catcert-test/dsspdf
+</span>#URL PSIS Producció
+WS_URL_Locator=http:<span class="code-comment">//psis.catcert.net/psis/catcert/dss
+</span>WS_URL_Locator_PDF=http:<span class="code-comment">//psis.catcert.net/psis/catcert/dsspdf  
+</span>TRANSPORT_CHUNKED=<span class="code-keyword">false</span></pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Serà necessari el fitxer de configuració de la pròpia aplicació que utilitza el connector catcert on inclourem la utilització dels web services:<br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java"> &lt;bean name=<span class="code-quote">"psisBeanConfiguration"</span> class=<span class="code-quote">"net.catcert.www.ValidateWS_wsdl.ValidateWSLocatorPSIS"</span>&gt;
+		&lt;property name=<span class="code-quote">"validateWSPortAddress"</span> value=<span class="code-quote">"${WS_URL_Locator}"</span>/&gt;
+		&lt;property name=<span class="code-quote">"validatePDFWSPortAddress"</span> value=<span class="code-quote">"${WS_URL_Locator_PDF}"</span>/&gt;
+		&lt;property name=<span class="code-quote">"configTransferChunked"</span> value=<span class="code-quote">"${TRANSPORT_CHUNKED}"</span>/&gt;
+		&lt;property name=<span class="code-quote">"logService"</span> ref=<span class="code-quote">"loggingService"</span>/&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+En el fitxer de configuració dels webservices canigo-services-webservices.xml s'importarà la configuracfió del bean del connector catcert i psis:<br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java"> &lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;
+&lt;beans xsi:schemaLocation=<span class="code-quote">"http:<span class="code-comment">//www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"</span> 
+</span>xmlns=<span class="code-quote">"http:<span class="code-comment">//www.springframework.org/schema/beans"</span> xmlns:xsi=<span class="code-quote">"http://www.w3.org/2001/XMLSchema-instance"</span>&gt;
+</span>  &lt;bean <span class="code-keyword">abstract</span>=<span class="code-quote">"<span class="code-keyword">true</span>"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.services.webservices.impl.ImportedInterfaceImpl"</span> id=<span class="code-quote">"ImportedInterfaceDefinition"</span>/&gt;
+  &lt;bean <span class="code-keyword">abstract</span>=<span class="code-quote">"<span class="code-keyword">true</span>"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.services.webservices.impl.ExportedInterfaceImpl"</span> id=<span class="code-quote">"ExportedInterfaceDefinition"</span>/&gt;
+
+  &lt;bean name=<span class="code-quote">"WebServicesService"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.services.webservices.impl.WebServicesServiceImpl"</span>&gt;
+	  	&lt;property name=<span class="code-quote">"exportedInterfaces"</span>&gt;
+	      &lt;list&gt;
+	      	    ...
+	      &lt;/list&gt;
+	    &lt;/property&gt;
+		&lt;property name=<span class="code-quote">"importedInterfaces"</span>&gt;
+			&lt;list&gt;
+                                &lt;bean parent=<span class="code-quote">"ImportedInterfaceDefinition"</span>&gt;
+					&lt;property name=<span class="code-quote">"name"</span> value=<span class="code-quote">"catcertWebService"</span> /&gt;
+					&lt;property name=<span class="code-quote">"serviceLocator"</span>	value=<span class="code-quote">"net.catcert.www.ValidateWS_wsdl.ValidateWSLocator"</span>/&gt;
+					&lt;property name=<span class="code-quote">"localInterface"</span> value=<span class="code-quote">"net.catcert.www.ValidateWS_wsdl.ValidateWSPortType"</span>/&gt;
+				&lt;/bean&gt;
+				&lt;bean parent=<span class="code-quote">"ImportedInterfaceDefinition"</span>&gt;
+					&lt;property name=<span class="code-quote">"name"</span> value=<span class="code-quote">"psisWebService"</span> /&gt;
+					&lt;property name=<span class="code-quote">"serviceLocatorImpl"</span>	ref=<span class="code-quote">"psisBeanConfiguration"</span>/&gt;
+					&lt;property name=<span class="code-quote">"serviceLocator"</span> value=<span class="code-quote">"net.catcert.www.ValidateWS_wsdl.ValidateWSLocatorPSIS"</span>/&gt;
+					&lt;property name=<span class="code-quote">"localInterface"</span>  value=<span class="code-quote">"net.catcert.www.ValidateWS_wsdl.ValidateWSPortTypePSIS"</span>/&gt;
+				&lt;/bean&gt;
+			&lt;/list&gt;
+		&lt;/property&gt;
+	&lt;/bean&gt;
+&lt;/beans&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<table cellpadding='5' width='85%' cellspacing='8px' class='noteMacro' border="0" align='center'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="./icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td><b class="strong">Atenció</b><br />
+<p><del>L'arxiu de propietats ValidateWSLocator.properties s'ha de trobar desplegat a l'arrel del directori classes, és a dir, a l'arrel de la carpeta resources de la nostra aplicació.</del><br/>
+<del>Si no es troba en aquesta ubicació no es tindrà en compte la configuració.</del><br/>
+<b>Actualització</b><br/>
+A partir de la versió 2.3.5 el fitxer pot estar en una carpeta dintre del directori de recursos, recomanem: <em>&lt;PROJECT_ROOT&gt;/src/main/resources/connectors/ValidateWSLocator.properties</em>.<br/>
+Per carregar aquest fitxer cal modificar l'XML del servei de configuració <em>canigo-services-configuration.xml</em> i afegir aquesta entrada:
+<br clear="all" />
+<div class="preformatted"><div class="preformattedContent">
+<pre>&lt;value&gt;classpath:connectors/ValidateWSLocator.properties&lt;/value&gt;
+</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p></td></tr></table>
+<p><br clear="all" /></p>
+
+<p><br clear="all" /></p>
+
+<p><br clear="all" /></p>
+
+<h2><a name="ConnectorambCatcert-Utilitzaci%C3%B3delServei"></a>Utilització del Servei</h2>
+
+
+<h3><a name="ConnectorambCatcert-FuncionsCatcert"></a>Funcions Catcert</h3>
+
+<p>La utilització del Connector es basa principalment en la configuració. L'ús directe des dels clients es permet mitjançant les interfícies definides.</p>
+
+<p>Per utilitzar el servei Catcert instanciarem un objecte ValidateWSPortType mitjançant el servei canigo web services. Cridant després a qualsevol dels mètodes que ValidateWSPortType presenta.</p>
+
+<p>Exemple d'utilització:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> void testCATCERT() {
+    logDebug(<span class="code-quote">"Test.testCATCERT inicio"</span>);
+    BeanFactory beanFactory = <span class="code-keyword">new</span> ClassPathXmlApplicationContext(<span class="code-quote">"webServicesContext.xml"</span>);
+    WebServicesService service =
+    (WebServicesService) beanFactory.getBean(WebServicesService.WEB_SERVICES_BEAN_FACTORY_KEY);
+
+    ValidateWSPortType catcert = (ValidateWSPortType) service.getWebService(<span class="code-quote">"catcertWebService"</span>);
+    assertNotNull(catcert);
+
+    <span class="code-object">String</span> respuesta = <span class="code-keyword">null</span>;
+
+    <span class="code-keyword">try</span> {
+        <span class="code-object">String</span> xmlData = getXmlCertificationPKCS7SignatureInputData(certificate);
+        log.debug(xmlData);
+        log.debug(catcert.ping());
+        respuesta = catcert.validate(xmlData);
+    } <span class="code-keyword">catch</span> (RemoteException e) {
+        logError(<span class="code-quote">"Error en TestCatcert.testCanigoWebServicesGoogle "</span>+ e.getMessage());
+    }
+    logDebug(respuesta);
+    logDebug(<span class="code-quote">"Test.testCATCERT fin"</span>);
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h3><a name="ConnectorambCatcert-FuncionsPSIS"></a>Funcions PSIS</h3>
+
+<p>Les funcions internes al connector per extraure el Hash i la Signatura d'un arxiu PDF estan disponibles com a mètodes estàtics en la classe net.gencat.ctti.canigo.util.Utils i son
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> <span class="code-keyword">static</span> List extractSignatureFromPDF(InputStream stream) <span class="code-keyword">throws</span> Exception;
+<span class="code-keyword">public</span> <span class="code-keyword">static</span> List extractSignatureFromPDF(<span class="code-object">byte</span>[] pdfData) <span class="code-keyword">throws</span> Exception;
+<span class="code-keyword">public</span> <span class="code-keyword">static</span> List extractHashFromPDF(InputStream stream) <span class="code-keyword">throws</span> Exception;
+<span class="code-keyword">public</span> <span class="code-keyword">static</span> List extractHashFromPDF(<span class="code-object">byte</span>[] pdfData) <span class="code-keyword">throws</span> Exception;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Aquestes funcions retornen List de byte[] amb els Hash o les Signatures dels documents PDF que es passen com InputStream o com byte[]. En l'exemple de validació de signatura i hash es pot veure l'us d'aquestes funcions.<br/>
+S'injecta per spring el servei de WebServices en l'action-servlet on es vol utilitzar el servei.<br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean name=<span class="code-quote">"/connectorsPsis"</span> class=<span class="code-quote">"net.gencat.....PSISAction"</span>&gt;
+		&lt;property name=<span class="code-quote">"logService"</span> ref=<span class="code-quote">"loggingService"</span>&gt;&lt;/property&gt;
+		&lt;property name=<span class="code-quote">"pojoClass"</span> value=<span class="code-quote">"net.gencat.....PSISPojo"</span>&gt;&lt;/property&gt;
+		&lt;!-- Connectors --&gt;
+		&lt;property name=<span class="code-quote">"wss"</span> ref=<span class="code-quote">"WebServicesService"</span>&gt;&lt;/property&gt;
+		...
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+A l'acció s'haurà de definir els getters i setters del Servei de Webservices.<br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">private</span> WebServicesService wss;<span class="code-keyword">public</span> WebServicesService getWss() {
+	<span class="code-keyword">return</span> wss;
+}
+<span class="code-keyword">public</span> void setWss(WebServicesService wss) {
+	<span class="code-keyword">this</span>.wss = wss;
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Per utilitzar el servei PSIS instanciarem un objecte ValidateWSPortTypePSIS mitjançant el servei canigo web services. Cridant després a qualsevol dels mètodes que ValidateWSPortTypePSIS presenta.<br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java">ValidateWSPortTypePSIS psis = (ValidateWSPortTypePSIS) wss.getWebService(<span class="code-quote">"psisWebService"</span>);</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Exemples d'utilització:<br/>
+Funció ping, per verificar l'accés al servei PSIS:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> void testPing() <span class="code-keyword">throws</span> Exception {
+    logDebug(<span class="code-quote">"TestPsis.testPing inicio"</span>);
+    <span class="code-keyword">try</span> {
+        log.debug(psis.ping());
+    } <span class="code-keyword">catch</span> (RemoteException e) {
+        logError(<span class="code-quote">"Error en TestPsis.testPing "</span> + e.getMessage());
+        e.printStackTrace();
+    }
+    logDebug(<span class="code-quote">"TestPsis.testPing fin"</span>);
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Realització d'una petició genèrica. Requereix com a paràmetre d'entrada un VerifyRequestDocument i retorna un VerifyResponseDocument.<br/>
+En la documentació de PSIS (Guia bàsica pels integradors de PSIS) es descriuen les peticions possibles i es donen exemples de com construir-les.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> void testValidateRequestDocument() <span class="code-keyword">throws</span> Exception {
+    logDebug(<span class="code-quote">"TestPsis.testValidateRequestDocument inici"</span>);
+
+    <span class="code-object">String</span> fileName = <span class="code-quote">"/test/resources/CAdESBES_detached.pdf"</span>;
+    File file = <span class="code-keyword">new</span> File(fileName);
+    <span class="code-object">int</span> length = (<span class="code-object">int</span>) file.length();
+    FileInputStream fis = <span class="code-keyword">new</span> FileInputStream(file);
+    <span class="code-object">byte</span>[] pdfData = <span class="code-keyword">new</span> <span class="code-object">byte</span>[length];
+    fis.read(pdfData);
+
+    List lFirmas = Utils.extractSignatureFromPDF(pdfData);
+    List lHash = Utils.extractHashFromPDF(pdfData);
+
+    <span class="code-object">byte</span>[] firma = (<span class="code-object">byte</span>[])lFirmas.get(0);
+    <span class="code-object">byte</span>[] hash = (<span class="code-object">byte</span>[])lHash.get(0);
+
+    VerifyRequestDocument requestDocument = Utils.getValidateHashRequestDocument(firma, hash);
+    VerifyResponseDocument responseDocument = psis.validateRequestDocument(requestDocument);
+
+    logDebug(<span class="code-quote">"TestPsis.testValidateRequestDocument - Rebuda resposta PSIS"</span>);
+    <span class="code-object">String</span> r1 = responseDocument.getVerifyResponse().getResult().getResultMajor();
+    <span class="code-object">String</span> r2 = responseDocument.getVerifyResponse().getResult().getResultMinor();
+    logDebug(<span class="code-quote">"TestPsis.testValidateRequestDocument - Result: "</span> + r1 + <span class="code-quote">" - "</span> + r2);
+
+    logDebug(<span class="code-quote">"TestPsis.testValidateRequestDocument fi"</span>);
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Realització d'una petició genèrica sobre un PDF. Requereix com a paràmetre d'entrada un VerifyRequestDocument i retorna un VerifyResponseDocument.<br/>
+En la documentació de PSIS (Guia bàsica pels integradors de PSIS) es descriuen les peticions possibles i es donen exemples de com construir-les.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> void testValidateRequestDocumentPDF() <span class="code-keyword">throws</span> Exception {
+    logDebug(<span class="code-quote">"TestPsis.testValidateRequestDocumentPDF inici"</span>);
+
+    <span class="code-object">String</span> fileName = <span class="code-quote">"D:/CANIGO/CAdESBES_detached.pdf"</span>;
+    File file = <span class="code-keyword">new</span> File(fileName);
+    <span class="code-object">int</span> length = (<span class="code-object">int</span>) file.length();
+    FileInputStream fis = <span class="code-keyword">new</span> FileInputStream(file);
+    <span class="code-object">byte</span>[] pdfData = <span class="code-keyword">new</span> <span class="code-object">byte</span>[length];
+    fis.read(pdfData);
+
+    VerifyRequestDocument requestDocument = Utils.getValidateRequestDocument(pdfData);
+    VerifyResponseDocument responseDocument = psis.validateRequestDocumentPDF(requestDocument);
+
+    <span class="code-object">String</span> r1 = responseDocument.getVerifyResponse().getResult().getResultMajor();
+    <span class="code-object">String</span> r2 = responseDocument.getVerifyResponse().getResult().getResultMinor();
+
+    logDebug(<span class="code-quote">"TestPsis.validateRequestDocumentPDF - Result: "</span> + r1 + <span class="code-quote">" - "</span> + r2);
+    logDebug(<span class="code-quote">"TestPsis.testValidateRequestDocumentPDF fi"</span>);
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Càlcul del hash, extracció de la signatura i validació del hash i signatura:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> void testValidateSignatureHash() <span class="code-keyword">throws</span> Exception {
+    logDebug(<span class="code-quote">"TestPsis.testValidateSignatureHash inici"</span>);
+    <span class="code-object">String</span> fileName = <span class="code-quote">"D:/CANIGO/CAdESBES_detached.pdf"</span>;
+    File file = <span class="code-keyword">new</span> File(fileName);
+    <span class="code-object">int</span> length = (<span class="code-object">int</span>) file.length();
+    FileInputStream fis = <span class="code-keyword">new</span> FileInputStream(file);
+    <span class="code-object">byte</span>[] pdfData = <span class="code-keyword">new</span> <span class="code-object">byte</span>[length];
+    fis.read(pdfData);
+
+    List lFirmas = Utils.extractSignatureFromPDF(pdfData);
+    List lHash = Utils.extractHashFromPDF(pdfData);
+    <span class="code-object">byte</span>[] firma = (<span class="code-object">byte</span>[])lFirmas.get(0);
+    <span class="code-object">byte</span>[] hash = (<span class="code-object">byte</span>[])lHash.get(0);
+
+    <span class="code-object">String</span> resultado = psis.validateSignatureHash(firma, hash);
+
+    log.debug(<span class="code-quote">"Resultado= "</span> + resultado);
+    logDebug(<span class="code-quote">"TestPsis.testValidateSignatureHash fin"</span>);
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Validació d'un arxiu PDF:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> void testValidatePDF() <span class="code-keyword">throws</span> Exception {
+    logDebug(<span class="code-quote">"TestPsis.testValidatePDF inici"</span>);
+    log.debug(psis.validatePDF(<span class="code-quote">"D:/CANIGO/CAdESBES_detached.pdf"</span>));
+    logDebug(<span class="code-quote">"TestPsis.testValidatePDF fin"</span>);
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Validació d'un pdf amb una signatura externa:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> void testValidateDetStr() <span class="code-keyword">throws</span> Exception {
+    logDebug(<span class="code-quote">"TestPsis.testValidateDetStr inici"</span>);
+    log.debug(psis.validateDetStrPSIS(<span class="code-quote">"cadesDetached-PDF.pdf"</span>,<span class="code-quote">"signatureDetached.p7s"</span>));
+    logDebug(<span class="code-quote">"TestPsis.testValidateDetStr fin"</span>);
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h2><a name="ConnectorambCatcert-Integraci%C3%B3ambAltresServeis"></a>Integració  amb Altres Serveis</h2>
+
+
+<h3><a name="ConnectorambCatcert-Integraci%C3%B3ambelServeideInternacionalitzaci%C3%B3"></a>Integració  amb el Servei de Internacionalització</h3>
+
+<p>En els fitxers de configuració es defineixen claus que permeten especificar  quins missatges retornar en cas errors. Per a poder traduir aquestes claus és necessari especificar que el connector usarà el Servei d'Internacionalització  (veure Configuració).</p>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb Catcert_attachments/image001.gif">image001.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb Catcert_attachments/image002.gif">image002.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb Catcert_attachments/image003.gif">image003.gif</a> (image/gif)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

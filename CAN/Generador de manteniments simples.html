@@ -1,0 +1,591 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Generador de manteniments simples</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Generador de manteniments simples
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on May 15, 2007 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="Generadordemantenimentssimples-GENERADORDECODIFONT%28MANTENIMENTSSIMPLES%29PERPROJECTESBASATSENELFRAMEWORKCANIG%C3%93."></a><b>GENERADOR DE CODI FONT (MANTENIMENTS SIMPLES) PER PROJECTES BASATS EN EL  FRAMEWORK CANIGÓ.</b></h1>
+
+<p><b>ÍNDEX.</b></p>
+
+<p>1. Context<br/>
+2. Introducció al generador de codi.<br/>
+3. Premises: estructura  de directoris.<br/>
+4. Codi font generat.<br/>
+5. Vistes generades.<br/>
+6. Workflow:  flux d'execució entre les diferents vistes generades d'un manteniment.<br/>
+7.  Configuració del generador de codi.<br/>
+8. Limitacions del generador de  manteniments simples.<br/>
+9. Evolució del generador de manteniments simples.</p>
+
+<p>Annex<br/>
+A1. Integració manual del codi generat pel generador.<br/>
+A2. Disseny  del generador de manteniments simples.</p>
+
+<h3><a name="Generadordemantenimentssimples-"></a></h3>
+
+
+<h1><a name="Generadordemantenimentssimples-1.CONTEXT."></a><b>1. CONTEXT.</b></h1>
+
+<p>Des del CTTI, i com a evolutiu del Framework Canigó, es planteja la  necessitat de disposar de noves eines que ajudin a la productivitat dels  diferents projectes desenvolupats fent servir el Framework Canigó.<br/>
+D'entre  aquestes eines, el present document, considerarà el "Generador de codi per  manteniments simples". El generador de manteniments simples permet generar els  casos d'ús: consultes, altes, baixes i modificacions associats a les dades d'una  taula concreta d'una base de dades.</p>
+
+<p>El present document s'estructura en els següents apartats o capítols:</p>
+<ul>
+	<li>
+	<ul>
+		<li><b>Introducció al generador de codi.</b><br/>
+Inclou una breu explicació de què és  el generador de codi, què es pretèn amb el seu ús i les motivacions que han  portat al seu desenvolupament.</li>
+	</ul>
+	</li>
+</ul>
+
+
+<ul>
+	<li>
+	<ul>
+		<li><b>Premises: estructura de directoris.</b><br/>
+Per defecte, el generador de codi  per manteniments simples entèn que l'estructura de directoris en què està  estructurat un projecte concret és una determinada i concreta, i que aquesta es  basa en l'estructuració de directoris del Petstore. En aquest apartat s'explica  quina és l'estructura de directoris que presuposa el generador de manteniments  simples.</li>
+	</ul>
+	</li>
+</ul>
+
+
+<ul>
+	<li>
+	<ul>
+		<li><b>Codi font generat.</b><br/>
+En aquest apartat es fa una breu explicació de tots i  cadascun dels fitxers generats i/o modificats pel generador de manteniments  simples.</li>
+	</ul>
+	</li>
+</ul>
+
+
+<ul>
+	<li>
+	<ul>
+		<li><b>Vistes generades.</b><br/>
+En aquest apartat s'expliquen breument les vistes que  genera el generador de manteniments simples.</li>
+	</ul>
+	</li>
+</ul>
+
+
+<ul>
+	<li>
+	<ul>
+		<li><b>Exemple de vistes generades pel generador.</b><br/>
+En aquest apartat es veurà un  cas concret d'un manteniment generat pel generador de manteniments simples. Es  veuràn les pantalles creades així com les dades que es  presenten.</li>
+	</ul>
+	</li>
+</ul>
+
+
+<ul>
+	<li>
+	<ul>
+		<li><b>Workflow: flux d'execució entre les diferents vistes generades d'un  manteniment.</b><br/>
+En aquest apartat es mostra un esquema del workflow que s'ha  seguit pel manteniment simple generat.</li>
+	</ul>
+	</li>
+</ul>
+
+
+<ul>
+	<li>
+	<ul>
+		<li><b>Configuració del generador de codi.</b><br/>
+El generador de codi per  manteniments simples es basa en una configuració inicial que permet conèixer,  per exemple, les dades de la BBDD a la que s'ha de connectar per poder obtenir  les metadades de la taula a partir de la qual es genera el manteniment simple,  el nom del projecte, el directori de treball, ... totes aquestes propietats es  descriuen en aquest apartat.</li>
+	</ul>
+	</li>
+</ul>
+
+
+<ul>
+	<li>
+	<ul>
+		<li><b>Limitacions del generador de manteniments simples.</b><br/>
+En aquest apartat es  presenta un seguint de limitacions del generador de manteniments  simples.</li>
+	</ul>
+	</li>
+</ul>
+
+
+<ul>
+	<li>
+	<ul>
+		<li><b>Evolució del generador de manteniments simples.</b><br/>
+En aquest apartat es  mostra les següents funcionalitats o desenvolupaments que caldria realitzar  sobre el generador de manteniments simples per tal de reduïr les seves  limitacions.</li>
+	</ul>
+	</li>
+</ul>
+
+
+<ul>
+	<li>
+	<ul>
+		<li><b>Annex.</b><br/>
+L'annex contempla dos apartats, el primer d'ells fa una breu  explicació de com generar manteniments simples tenint en compte que l'estructura  de directoris del projecte no es correspon amb l'estructura de directoris  definida en l'apartat <b>3. Premises: estructura de directoris</b>. El segon  d'ells fa una breu explicació del disseny del generador de manteniments  simples.
+<br clear="all" /></li>
+	</ul>
+	</li>
+</ul>
+
+
+<h3><a name="Generadordemantenimentssimples-%26nbsp%3B"></a>&nbsp;</h3>
+
+
+<h1><a name="Generadordemantenimentssimples-2.INTRODUCCI%C3%93ALGENERADORDECODI."></a>2. INTRODUCCIÓ AL GENERADOR DE CODI.</h1>
+
+<p>Cal tenint present que la gran majoria d'aplicatius finals que es  desenvolupen inclouen tasques de desenvolupament de manteniments simples.  Aquests desenvolupaments no comporten un alt nivell de complexitat, tot i això,  cal planificar-los, desenvolupar-los, definir tests funcionals i unitaris, ... que  introdueixen un cost addicional tant en recursos com en temps en tot  projecte.</p>
+
+<p>És per aquest motiu que s'han considerat les següents finalitats en el  disseny i desenvolupament del generador de codi:</p>
+<ul>
+	<li>Generar codi lliure d'errors ja testejat.</li>
+	<li>Generar codi homogeni i clarament entendible: tots els manteniments simples  generats a partir del generador de codi seguiràn un mateix patró base.</li>
+	<li>Generar codi forçosament estructurat en directoris per facilitar la  localització dels diferents arxius del manteniment simple al desenvolupador.  D'aquesta manera s'evita que els desenvolupadors introdueixin errors per  desconeixement de quin arxiu han d'actualitzar.</li>
+	<li>Reduïr al màxim el temps de generació de manteniments simples.</li>
+	<li>Reduïr al màxim la propagació d'errors provocats per  copy&amp;paste.</li>
+</ul>
+
+
+<p>Tot i això, cal tenir present que l'objectiu principal del Generador de Codi  és <b>l'ajuda</b> als desenvolupadors d'aplicatius en la generació de  manteniments simples.</p>
+
+<p>El <b>Generador de codi</b> és una eina que permet la generació automàtica  d'una sèrie de fitxers amb codi font que es poden integrar, també  automàticament, en un entorn de treball, disposant així dels casos d'ús  consultes, altes, baixes i modificacions associats a les dades d'una taula d'una  BBDD interrelacional determinada.</p>
+
+<p>Un manteniment simple (o CRUD) considera les següents accions a realitzar  sobre les dades d'una taula determinada:</p>
+<ul>
+	<li>[<b>C</b>]reate: alta de nous registres.</li>
+	<li>[<b>R</b>]ead: consultar ò llistar els registres ja existents.</li>
+	<li>[<b>U</b>]pdate: modificar les dades d'un registre existent.</li>
+	<li>[<b>D</b>]elete: esborrar un registre existent.</li>
+</ul>
+
+
+<h3><a name="Generadordemantenimentssimples-"></a></h3>
+
+
+<h1><a name="Generadordemantenimentssimples-3.PREMISES%3AESTRUCTURADEDIRECTORIS."></a>3. PREMISES: ESTRUCTURA DE DIRECTORIS.</h1>
+
+<p>L'estructura de directoris de l'entorn de treball en què es basa el Generador  de codi és la següent:</p>
+
+<p>Estructura de directoris sota /src/main/java/<em>nomPaquet</em></p>
+
+<p><img src="Generador de manteniments simples_attachments/image001.gif" align="absmiddle" border="0" /></p>
+
+<p>Estructura de directoris sota /src/main/resources</p>
+
+<p><img src="Generador de manteniments simples_attachments/image002.gif" align="absmiddle" border="0" /><br/>
+Estructura de directoris  sota /src/main/webapp</p>
+
+<p><img src="Generador de manteniments simples_attachments/image003.gif" align="absmiddle" border="0" /></p>
+
+<p>Si us plau, si el seu entorn de treball no considera aquesta estructura de  directoris llegeixi amb atenció l'apartat: <b>A1. INTEGRACIÓ MANUAL DEL CODI  GENERAT PEL GENERADOR.</b>
+<br clear="all" /></p>
+
+<h3><a name="Generadordemantenimentssimples-"></a></h3>
+
+
+<h1><a name="Generadordemantenimentssimples-4.CODIFONTGENERAT."></a>4. CODI FONT GENERAT.</h1>
+
+<p>A continuació es detallen un per un els fitxers que el generador de codi crea  i ubica en el directori que pertoca d'un entorn de treball.</p>
+
+<h4><a name="Generadordemantenimentssimples-DIRECTORI%2Fsrc%2Fmain%2Fjava%2F%7B%7DnomPaquet"></a><b>DIRECTORI /src/main/java/</b><em>nomPaquet</em></h4>
+
+<p>Aquest directori conté els fitxers de negoci, POJOs i l'Action d'struts que  gestiona la interacció de l'usuari final amb l'aplicatiu, concretament amb el  manteniment que es genera.</p>
+
+<p><b>FITXERS GENERATS.</b></p>
+<ul>
+	<li><b><em>nomPaquet</em></b>.model/<b><em>nomTaula</em></b>.javaPOJO.</li>
+	<li>&nbsp;<b><em>nomPaquet</em></b>.model.base/Base<em>nomTaula</em><b>.java</b>Superclasse  de la classe d'objectes anterior (<em>nomTaula</em>.java).
+<br clear="all" /></li>
+	<li><b><em>nomPaquet</em></b>.model.bo/<b><em>nomTaula</em></b><b>BO.java</b>Interfície  que defineix els métodes d'accés al model de dades (emmagatzematge d'objectes,  actualització de les dades d'un objecte ja existent, creació d'objectes nous,  esborrat d'objectes existents, ...).
+<br clear="all" /></li>
+	<li><b><em>nomPaquet</em></b>.model.bo.impl/<b><em>nomTaula</em></b><b>BOImpl.java</b>Implementació  de la interfície anterior (_nomTaula_BO.java)
+<br clear="all" /></li>
+	<li><b><em>n</em></b><b><em>omPaquet</em></b>.struts.action/<b><em>nomTaula</em></b><b>Action.java</b>Controlador  d'struts que gestiona la interacció de l'usuari final de l'aplicatiu pel que fa  al manteniment simple que s'ha generat.<br/>
+<b>FITXERS ACTUALITZATS.</b></li>
+</ul>
+
+
+<p>Pel que fa a aquest directori (/src/main/java/<em>nomPaquet</em>) no és  necessari l'actualització de cap fitxer.
+<br clear="all" /></p>
+
+<h4><a name="Generadordemantenimentssimples-DIRECTORI%2Fsrc%2Fmain%2Fresources%5C"></a>DIRECTORI /src/main/resources&#42;</h4>
+
+<p>Aquest directori conté els fitxers de recursos de l'aplicatiu:</p>
+<ul>
+	<li>fitxers de configuració de hibernate (hibernate.cfg.xml,  hibernate.websphere.cfg.xml)</li>
+	<li>fitxers d'externalització d'idiomes (applicationResources_xx_YY.properties,  ...)</li>
+	<li>fitxers d'injecció de propietats de spring (action-servlet-*.xml, ...)</li>
+	<li>fitxers de definició de workflow i pantalles: struts  (struts-config.xml)</li>
+	<li>fitxers d'estructuració de pantalles: tiles (tiles-definitions.xml)</li>
+	<li>fitxers de validacions (validation.xml).</li>
+</ul>
+
+
+<p><b>FITXERS GENERATS.</b></p>
+<ul>
+	<li>hibernate.mappings_/nomTaula{_}<b>.hbm.xml</b>Fitxer de  configuració de hibernate que conté el mapeig entre les diferents columnes de la  taula, de la que es genera el manteniment, i els atributs del POJO.</li>
+	<li>i18n/<b><em>nomTaula</em></b>/applicationResources_xx_YY.propertiesEs  generen 3 fitxers d'externalització d'idiomes: ca_ES, es_ES i en_GB. Aquests  fitxers faciliten que tot l'idioma de l'aplicatiu final quedi recollit en ells i  no en els fitxers de la capa de presentació (jsps).</li>
+	<li>spring/action-servlet&#45;<em>nomTaula.xml</em>Fitxer d'injecció de propietats  pel manteniment.</li>
+	<li>struts/<b><em>nomTaula</em></b>/struts-config.xmlFitxer de configuració  d'struts on es defineixen les diferents accions que podem tenir associades al  manteniment simple.</li>
+	<li>tiles/<b><em>nomTaula</em></b>/tiles-definitions.xmlFitxer de definició de  les diferents vistes del manteniment simple així com l'estructuració de totes i  cadascuna d'elles.</li>
+	<li>validation/<b><em>nomTaula</em></b>/validation.xmlFitxer que conté les  validacions que s'han de dur a terme per les altes i modificacions de les dades  associades a la taula del manteniment. Les validacions que s'han desenvolupat  són: dades requerides (obligatòries) i validacions de tipus de dades.
+<br clear="all" /></li>
+</ul>
+
+
+<p><b>FITXERS ACTUALITZATS.</b></p>
+<ul>
+	<li>hibernate/config/hibernate.cfg.xmlS'afegeix el mapeig al fitxer de  configuració de hibernate associat al nou manteniment.</li>
+	<li>hibernate/config/hibernate.websphere.cfg.xmlS'afegeix el mapeig al fitxer  de configuració de hibernate associat al nou manteniment.</li>
+	<li>i18n/applicationResources_xx_YY.propertiesS'afegeixen les descripcions  necessàries per les noves opcions de menú del manteniment simple.</li>
+	<li>spring/action-servlet.xmlS'afegeix el import del recurs de l'action servlet  del manteniment simple.</li>
+	<li>spring/canigo-web-lists-options.xmlS'afegeix  la consulta de les dades de la taula per si mai es té una altra taula que hi  faci referència (claus foranas). De manera que en el manteniment simple de la  taula referenciant es tingui la possibilitat de disposar d'un llistat  desplegable amb els valors de la taula a la que es fa referència.</li>
+	<li>spring/canigo-web-lists.xmlS'afegeix la consulta de les dades de la taula a  partir de la qual es genera el manteniment simple. Aquesta consulta ens servirà  per llistar les dades de la taula.</li>
+	<li>struts/struts-config.xmlS'afegeix  la referència als fitxers d'externalització d'idioma, de tiles i de validacions  corresponents al nou manteniment simple.
+<br clear="all" /></li>
+</ul>
+
+
+<h4><a name="Generadordemantenimentssimples-DIRECTORI%2Fsrc%2Fmain%2Fwebapp"></a><b>DIRECTORI /src/main/webapp</b></h4>
+
+<ul>
+	<li>Aquest directori conté els fitxers que defineixen les diferents vistes del  manteniment simple.</li>
+</ul>
+
+
+<p><b>FITXERS GENERATS.</b></p>
+<ul>
+	<li>WEB-INF/jsp/<b><em>nomTaula/nomTaula</em></b>.jspjsp que defineix la  vista d'edició de les dades d'un objecte referent a una fila de la taula del  manteniment que es genera.</li>
+	<li>WEB-INF/jsp/<b><em>nomTaula/nomTaula</em></b><b>Create.jsp</b>jsp que defineix la  vista de creació d'un nou objecte associat a la taula del manteniment que es  genera.</li>
+	<li>WEB-INF/jsp/<b><em>nomTaula/nomTaula</em></b><b>List.jsp</b>jsp que defineix la vista del llistat de les dades de la taula del manteniment que es genera.</li>
+	<li>WEB-INF/jsp_/<b>nomTaula</b><b><em>/</em></b><b>nomTaula{_}</b><b>ListMenu.jsp</b>jsp que indica l'operació que s'està duent a terme.</li>
+	<li>WEB-INF/jsp/<b><em>nomTaula</em></b><b>/</b><b><em>nomTaula</em></b><b>Menu.jsp</b>jsp que indica l'operació que s'està duent a terme.</li>
+</ul>
+
+
+<p><b>FITXERS ACTUALITZATS.</b></p>
+<ul>
+	<li>WEB-INF/jsp/includes/<b><em>fitxerMenu</em></b>.jspS'afegeix el menú  corresponent al nou manteniment simple.
+<br clear="all" /></li>
+</ul>
+
+
+<h3><a name="Generadordemantenimentssimples-"></a></h3>
+
+
+<h1><a name="Generadordemantenimentssimples-5.VISTESGENERADES."></a>5. VISTES GENERADES.</h1>
+
+<p>El Generador de codi genera una nova carpeta de menú al fitxer <b>menu-config.xml</b>. Aquesta nova carpeta pasarà a ser la primera carpeta del  menú (serà feina del desenvolupador ubicar-la en l'ordre que consideri més  convenient). Aquesta nova carpeta, en desplegar-se, contindrà dues opcions de  menú:</p>
+<ul>
+	<li><b>Consulta / llistat</b>: que proporcionarà un llistat de tots els registres existents en la taula de la que es parteix per generar el codi font. Addicionalment, per cada fila de la taula es disposarà de dues opcions més per aquell registre:</li>
+	<li><b>Modificació</b>: possibilitarà la modificació de les dades del registre.</li>
+	<li><b>Esborrat</b>: possibilitarà l'esborrat del registre.</li>
+</ul>
+
+
+<ul>
+	<li><b>Alta</b>: que possibilitarà l'alta de noves dades associadas a la taula de la que s'ha generat codi.</li>
+</ul>
+
+
+<h3><a name="Generadordemantenimentssimples-"></a></h3>
+
+
+<h1><a name="Generadordemantenimentssimples-6.WORKFLOW%3AFLUXD%27EXECUCI%C3%93ENTRELESDIFERENTSVISTESGENERADESD%27UNMANTENIMENT."></a>6. WORKFLOW: FLUX D'EXECUCIÓ ENTRE LES DIFERENTS VISTES GENERADES D'UN  MANTENIMENT.</h1>
+
+<p>A continuació es detalla gràficament el workflow que segueix qualsevol  manteniment simple generat a partir del generador de manteniments simples:</p>
+
+<p><img src="Generador de manteniments simples_attachments/image005.gif" align="absmiddle" border="0" /><br clear="all" /></p>
+
+<h1><a name="Generadordemantenimentssimples-7.CONFIGURACI%C3%93DELGENERADORDECODI."></a>7. CONFIGURACIÓ DEL GENERADOR DE CODI.</h1>
+
+<p>El generador de codi permet la definició d'un conjunt de propietats inicials  a partir de les quals es generarà el codi necessari pel manteniment de les dades  d'una taula. La configuració inicial inclou les següents propietats (que estàn  definides al fitxer: <b>generator.properties</b>):</p>
+
+<p>A continuació es mostra un exemple de fitxer <b>generator.properties</b>:</p>
+
+<p>&#35;En les dades de connexió amb el SGBD si database.sgbd=M (s'estableix  connexió amb MySQL), si és database.sgbd=O (s'estableix connexió amb  Oracle).<br clear="all" />
+<div class="preformatted"><div class="preformattedContent">
+<pre>database.host=bna-s007.es.int.atosorigin.com
+database.port=1521
+database.username=canigo
+database.password=canigo
+database.schema=canigo
+database.service=Legolas
+database.sgbd=O
+
+directories.workingDirectory=C:/CanigoGeneratorTest
+project.projectName=canigo-samples-jPetstore
+project.rootDir=net/gencat/ctti/canigo/samples/jpetstore
+project.rootPackage=net.gencat.ctti.canigo.samples.jpetstore
+project.extendLayout=site.altLayoutPetStore
+project.menuJSP=/src/main/webapp/WEB-INF/jsp/includes/left.jsp
+
+#Si no s'informa crudModule es crearà un mòdul amb el nom de la taula de la que es genera el manteniment
+# simple. Si s'informa crudModule es crearà un mòdul en el que s'afegirà tot el codi generat pel manteniment simple.
+i18n.menuDir=/src/main/resources/i18n
+database.convertTable=PERMIS_APLICACIO
+project.crudModule=permis_aplicacio
+project.attributeFK=id_aplicacio
+project.sequenceName=SEQ_PERMIS_APLICACIO
+</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+A continuació, es descriuen una per una totes les propietats que ens permeten  configurar el generador de codi per tal de generar manteniments simples.
+<br clear="all" />
+<br clear="all" /></p>
+
+<p><b>PROPIETATS DE CONNEXIÓ AMB LA BD.</b></p>
+<ul>
+	<li>
+	<ul>
+		<li>database.hostPermet indicar el host on està ubicat el servidor de la base de dades.</li>
+		<li>database.portPermet indicar el port del servidor de la base de dades.</li>
+		<li>database.usernamePermet indicar el nom d'usuari amb el que ens connectarem a la base de  dades.</li>
+		<li>database.passwordPermet indicar el password per autenticar-nos a la base de dades.</li>
+		<li>database.schemaEsquema de la base de dades a la que ens connectarem.</li>
+		<li>database.serviceServei del SGBD.</li>
+		<li>database.sgbdEns permet indicar el tipus d'SGBD en el que es troba la taula de la que es  generarà el manteniment simple (O: Oracle, M: MySQL).
+<br clear="all" /></li>
+	</ul>
+	</li>
+</ul>
+
+
+<p><b>PROPIETATS DE L'ESTRUCTURA DE DIRECTORIS.</b></p>
+<ul>
+	<li>
+	<ul>
+		<li>directories.workingDirectoriDirectori de treball en què es troba el projecte en el que s'integrarà el  manteniment simple generat. Si l'estructura de directoris del projecte no  coincideix amb l'estructura de directoris definida en l'apartat PREMISES:  ESTRUCTURA DE DIRECTORIS, cal que llegeixi atentament l'annex que es troba al  final del present document.</li>
+		<li>project.projectNamePermet indicar el nom del projecte en que s'integrarà el manteniment  simple.</li>
+		<li>project.rootDirPermet indicar sota quin directori s'hauràn d'ubicar els fitxers "java".</li>
+		<li>project.rootPackagePermet indicar el nom del package sota el qual es troben la resta de  projectes "java" del projecte.</li>
+		<li>project.extendLayoutPermet indicar el fitxer layout base, aquest layout base es tindrà en compte  per a generació de les diferents vistes del manteniment simple.</li>
+		<li>project.menuJSPPermet indicar la ubicació del fitxer (jsp) que inclou les diferents opcions  de menú de l'aplicatiu.</li>
+		<li>i18n.menuDirPermet indicar la ubicació dels diferents fitxers d'externalització d'idioma  de l'aplicatiu.
+<br clear="all" /></li>
+	</ul>
+	</li>
+</ul>
+
+
+<p><b>PROPIETATS DE LA TAULA A CONVERTIR.</b></p>
+<ul>
+	<li>
+	<ul>
+		<li>database.convertTablePermet indicar el nom de la taula de la que es vol generar el manteniment  simple.</li>
+		<li>project.crudModulePermet indicar el nom del directori sota el que s'emmagatzemaràn els fitxers  generats pel manteniment simple. Aquesta propietat ens permet localitzar  ràpidament els fitxers generats pel manteniment simple.</li>
+		<li>project.attributeFKEns permet indicar de quina columna de la taula actual s'han d'agafar les  dades per mostrar llistats desplegables.</li>
+		<li>project.sequenceNameEns permet indicar el nom de la seqüència de la BD associada a la taula del  manteniment. Si la taula no té seqüència associada al fitxer de configuració  d'hibernate s'indicarà que el identificador és de tipus <b>assigned</b> (i es  demanarà, aquest valor, en l'alta de dades), en canvi si la taula associada té  seqüència i aquesta s'indica amb aquesta propietat al fitxer de configuració  d'hibernate s'indicarà que el identificador és de tipus <b>sequence</b> (i no es  demanarà, aquest valor, en l'alta de dades).
+<br clear="all" /></li>
+	</ul>
+	</li>
+</ul>
+
+
+<h3><a name="Generadordemantenimentssimples-"></a></h3>
+
+
+<h1><a name="Generadordemantenimentssimples-8.LIMITACIONSDELGENERADORDEMANTENIMENTSSIMPLES."></a>8. LIMITACIONS DEL GENERADOR DE MANTENIMENTS SIMPLES.</h1>
+
+<p>El generador de manteniments simples permet ser una ajuda als desenvolupadors  de projectes basats en el framework Canigó, per això, té una sèrie de  limitacions que s'expliciten tot seguit.</p>
+<ul>
+	<li>El generador de manteniments simples NO genera manteniments simples per  taules que no tenen definida una clau primària. S'entèn que un bon disseny de  base de dades passa perquè totes les taules de la mateixa tinguin definida una  clau primària, si no és així, el comportament del generador de manteniments  simples informa d'aquest cas i aborta la generació del codi.</li>
+</ul>
+
+
+<ul>
+	<li>El generador de manteniments simples NO integra les diferents opcions de  menú que es generen en el nou manteniment dintre d'una altra opció de menú. Serà  l'usuari del generador qui haurà d'introduïr aquestes noves opcions de menú en  l'ubicació de menú que consideri més adient.</li>
+</ul>
+
+
+<ul>
+	<li>El generador de manteniments simples NO indica una descripció idònia i  definitiva dels noms d'atributs, opcions de menú del manteniment simple. Això  és, si la taula que es converteix es diu F_FACTURES i té un atribut que es diu  DESC_PRODUCTE. El manteniment simple generarà una nova carpeta de menú amb el  nom "F_factures Menú", amb dues subopcions: "F_factures" (llistat) i "F_factures  Alta" (alta de noves factures). Així mateix, en totes les pantalles del  manteniment simple en les que aparegui l'atribut DESC_PRODUCTE, aquest  apareixerà com "desc_producte" i nom com "Descripció del producte", que seria  més apropiat. Serà, doncs, tasca del desenvolupador del projecte actualitzar  convenientment els literals indicats en els fitxers d'externalització  d'idioma.</li>
+</ul>
+
+
+<ul>
+	<li>El generador de manteniments simples NO genera recursivament manteniments  simples. Això és, si es genera el manteniment simple associat a una taula que  conté una clau forana (que fa referència a altra taula), no es generarà el  manteniment simple de la taula que es referencia. Això sí, si s'està integrant  directament codi generat en un entorn de desenvolupament, el desenvolupador del  projecte podrà observar que els fitxers .java generats donen errors de  compilació, doncs no es disposa de la classe objectes referenciada. Això es  solventa fàcilment generant el manteniment simple de la taula  referenciada.</li>
+</ul>
+
+
+<ul>
+	<li>El generador de manteniments no té en compte que la clau primària d'una  taula pugui ser, alhora, clau forana d'una altra taula (<b>clau primària d'una  taula que no té seqüència</b>). En aquests casos la clau primària apareixerà com  una casella de text en comptes d'aparèixer com un llistat desplegable amb els  valors als quals s'ha de fer referència. Això implica que el desenvolupador de  l'aplicatiu haurà de fer les actualitzacions necessàries per tal de carregar una  llista de valors en comptes de permetre que l'usuari final de l'aplicatiu pugui  indicar valors incorrectes (que provocarien errors d'execució de clau forana  violada). Per això, cal que el desenvolupador actualitzi:</li>
+	<li>action-servlet&#45;<b><em>nomTaula</em></b>.xmlCal que indiqui que el identificador no serà un textFieldTag sinò un  selectFieldTag.&#42; canigo-web-lists-options.xmlCal que afegeixi la consulta per carregar els valors a afegir al select  (llista desplegable).</li>
+	<li>&nbsp;<em>nomTaula</em><b>.jsp</b>Cal que actualitzi el  camp del identificador perquè en comptes de ser un fwk:text sigui un  fwk:select.</li>
+	<li>&nbsp;<em>nomTaula</em><b>Create.jsp</b>Cal que actualitzi el  camp del identificador perquè en comptes de ser un fwk:text sigui un  fwk:select.
+<br clear="all" /></li>
+</ul>
+
+
+<h3><a name="Generadordemantenimentssimples-"></a></h3>
+
+<p>9. EVOLUCIÓ DEL GENERADOR DE MANTENIMENTS SIMPLES.</p>
+
+<p>A continuació es llisten un conjunt de millores a introduïr en el generador  de manteniments simples:</p>
+<ul>
+	<li>Permetre la integració del generador de manteniments simples sota una opció  de menú determinada.</li>
+</ul>
+
+
+<ul>
+	<li>Permetre que el generador de manteniments simples pugui tenir en compte que  una clau primària pot ser, alhora, clau forana, mostrant així, una llista  desplegable amb els valors refenciables, en comptes d'una casella de text on  introduïr els valors als que es fan referència.</li>
+</ul>
+
+
+<ul>
+	<li>Generar el codi necessari per carregar les llistes de valors per quan una  clau primària d'una taula sigui, alhora, clau forana d'una altra  taula.</li>
+</ul>
+
+
+<h3><a name="Generadordemantenimentssimples-"></a></h3>
+
+
+<h1><a name="Generadordemantenimentssimples-ANNEX"></a>ANNEX</h1>
+
+
+<h4><a name="Generadordemantenimentssimples-A1.INTEGRACI%C3%93MANUALDELCODIGENERATPELGENERADOR."></a><b>A1. INTEGRACIÓ MANUAL DEL CODI GENERAT PEL GENERADOR.</b></h4>
+
+<p>Quan el projecte en el que s'està treballant no segueix l'estructura de  directoris definida a l'apartat PREMISES: ESTRUCTURA DE DIRECTORIS, cap la  possibilitat de generar tot el codi en un directori buït i després anar copiant  els fitxers i/o dades allà on toqui. D'aquesta manera, si es genera un  manteniment sobre una carpeta buïda, caldrà tenir present que:</p>
+
+<p><b>FITXERS DE NEGOCI.</b></p>
+<ul>
+	<li>Cal copiar el fitxer <em>nomTaula</em><b>.java</b> (POJO) al directori on es  trobin els POJOs del projecte.</li>
+	<li>Cal copiar el fitxer <b>Base</b><em>nomTaula</em><b>.java</b> al directori  on es trobin els fitxers Base*.java. Aquest fitxer, tanmateix, es pot obviar i  es poden definir els seus mètodes dintre del POJO generat.</li>
+	<li>Cal copiar el fitxer <em>nomTaula</em><b>BO.java</b> al directori on es  trobin els fitxers &#42;BO.java.</li>
+	<li>Cal copiar el fitxer <em>nomTaula</em><b>BOImpl.java</b> al directori on es  trobin els fitxers &#42;BOImpl.java.</li>
+	<li>Cal copiar el fitxer <em>nomTaula</em><b>Action.java</b> al directori on es  trobin els fitxers &#42;Action.java.</li>
+</ul>
+
+
+<p><b>FITXERS DE RECURSOS.</b></p>
+<ul>
+	<li>Cal afegir la línia que inclou el fitxer de configuració de hibernate  associat al manteniment en el fitxer <b>hibernate.cfg.xml:&#42;</b><br/>
+<div class="preformatted"><div class="preformattedContent">
+<pre>&lt;mapping resource="hibernate/mappings/nomTaula.hbm.xml"  /&gt;
+</pre>
+</div></div><br clear="all" /></li>
+</ul>
+
+
+<p><b>Observació</b>: pot ser necessària una actualització del path en què  es troba el fitxer.&#42; Cal copiar el fitxer de configuració d'hibernate associat al manteniment  (<em>nomTaula</em><b>.hbm.xml</b>) en el directori on es trobin tots els fitxers  de hibernate (<b>.hbm.xml).</b> Cal copiar tots els fitxers d'externalització d'idioma al directori del  projecte on es trobin aquests fitxers (<b>.properties).*Observació:</b> cal  tenir present la ubicació d'aquests fitxers per tal d'actualitzar convenientment  el fitxer canigo-services-i18n.xml.&#42; Cal copiar el fitxer <b>action-servlet&#45;</b><em>nomTaula</em><b>.xml</b> al  directori del projecte on es trobin els fitxers action-servlet-*.xml.</p>
+<ul>
+	<li>Cal afegir la línia que inclou el fitxer de l'<b>action-servlet</b> associat  al manteniment en el fitxer action-servlet.xlm*:&#42;<br/>
+<div class="preformatted"><div class="preformattedContent">
+<pre>&lt;import resource="action-servlet-nomTaula.xml" /&gt;
+</pre>
+</div></div><br clear="all" /> <br clear="all" />
+Cal afegir les següents línies al fitxer menu-config.xml, sota el tag <b>&lt;Menu&gt;</b> incloent-lo sota la carpeta de menú que es consideri més adient:<br clear="all" />
+<div class="preformatted"><div class="preformattedContent">
+<pre>&lt;Menu name="nomTaula"  title="menu.nomTaula"&gt;
+
+&lt;Item name="nomTaula"  title="menu.item.nomTaula"  location="nomTaula.do?reqCode=search" /&gt;
+
+&lt;Item  name="nomTaula" title="menu.item.nomTaula"  location="nomTaula.do?reqCode=saveNew" /&gt;
+
+&lt;/Menu&gt;
+</pre>
+</div></div><br clear="all" /></li>
+</ul>
+
+
+<p>Cal copiar el fitxer de configuració d'struts (<b>struts-config.xml</b>) a  la carpeta corresponent a on es trobin els fitxers d'struts (cal considerar que  si tots els fitxers de configuració d'struts es troben sota una mateixa carpeta  caldrà fer un renombrament del fitxer).<br/>
+<b>Observació</b>: pot ser necessària  una actualització del fitxer petstore-servlet.xml, indicant el nou path del  fitxer struts-config.xml
+<br clear="all" />
+<br clear="all" /></p>
+<ul>
+	<li>Cal copiar el fitxer de tiles (<b>tiles-definitions.xml</b>) a la carpeta  corresponent a on es trobin els fitxers de definició de tiles (cal considerar  que si tots els fitxers de configuració de tiles es troben sota una mateixa  carpeta caldrà fer un renombrament del fitxer).<br/>
+<b>Observació</b>: pot ser  necessària una actualització dels fitxers que fan referència a aquest fitxer  struts-config.xml, corresponent al manteniment, indicant el nou path del fitxer  tiles-definitions.xml</li>
+	<li>Cal copiar el fitxer de validacions (<b>validation.xml</b>) a la carpeta  corresponent a on es trobin els fitxers de validacions (cal considerar que si  tots els fitxers de configuració de tiles es troben sota una mateixa carpeta  caldrà fer un renombrament del fitxer).<br/>
+<b>Observació</b>: pot ser necessària  una actualització dels fitxers que fan referència a aquest fitxer  (canigo-services-validation.xml) indicant el nou path del fitxer  validation.xml</li>
+</ul>
+
+
+<p><b>FITXERS DE LA CAPA DE PRESENTACIÓ (JSPs).</b></p>
+<ul>
+	<li>Cal incloure l'opció de menú del manteniment dintre de la jsp en la que es  troba el menú.</li>
+	<li>Cal copiar totes les jsp's generades pel generador de manteniments simples a  la carpeta en què es trobin totes les jsp's del projecte o bé sota una carpeta  concreta, associada a aquest manteniment.<br/>
+Observació: pot ser necessària una  actualització dels fitxers de definició dels tiles  (tiles-definitions.xml).</li>
+</ul>
+
+
+<h4><a name="Generadordemantenimentssimples-A2.DISSENYDELGENERADORDEMANTENIMENTSSIMPLES."></a><b>A2. DISSENY DEL GENERADOR DE MANTENIMENTS SIMPLES.</b></h4>
+
+<p>El generador de codi per manteniments simples té una estructura prou senzilla  que es basa en invocar métodes d'altres classes java a partir d'una classe  concreta (CodeGenerator). D'aquesta manera els diferents métodes que s'acaben  invocant generen i/o actualitzen els fitxers que permeten disposar d'un  manteniment simple.</p>
+
+<p><img src="Generador de manteniments simples_attachments/image004.gif" align="absmiddle" border="0" /></p>
+
+<p>Així mateix, hi ha un conjunt de classes d'objectes que permeten  l'emmagatzematge de informació de les metadades de la taula a convertir de la BD  pel seu posterior tractament:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>CLASSE D'OBJECTES</b> </th>
+<th class='confluenceTh'> <b>DADES QUE EMMGATZEMA</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> IdInfo.java </td>
+<td class='confluenceTd'> Dades relacionades amb la clau  primària de la taula: nom de la columna que emmagatzema la clau primària, tipus  de dada, nom a associar a l'atribut pel mapeig amb el fitxer de configuració  d'hibernate, tipus de dada a hibernate, ... </td>
+</tr>
+<tr>
+<td class='confluenceTd'> PropertyInfo.java </td>
+<td class='confluenceTd'> Dades relacionades amb altres  columnes de la taula que no són ni clau primària ni clau forana. Aquesta classe  emmagatzema dades com ara: nom de la columna, no de l'atribut associat a la  columna, tipus de dada a la BD, tipus de dada a hava, tipus de dada a hibernate,  si es tracta o no d'un atribut que pugui prendre valors nulls, llargària de  l'atribut, ... </td>
+</tr>
+<tr>
+<td class='confluenceTd'> ManyToOneInfo.java </td>
+<td class='confluenceTd'> Dades relacionades amb claus foranes  de la taula. Emmagatzema dades com ara: nom de la columna, nom de la classe a la  que fa referència, si pot prendre valors nulls o no, nom del identificador de la  taula referenciada, nom de la consulta (llista) que carrega els valors de la  taula referenciada,... </td>
+</tr>
+</tbody></table>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Generador de manteniments simples_attachments/image003.gif">image003.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Generador de manteniments simples_attachments/image004.gif">image004.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Generador de manteniments simples_attachments/image002.gif">image002.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Generador de manteniments simples_attachments/image005.gif">image005.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Generador de manteniments simples_attachments/image001.gif">image001.gif</a> (image/gif)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

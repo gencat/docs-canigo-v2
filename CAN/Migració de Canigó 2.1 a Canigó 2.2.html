@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Migració de Canigó 2.1 a Canigó 2.2</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Migració de Canigó 2.1 a Canigó 2.2
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Feb 01, 2010 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h2><a name="Migraci%C3%B3deCanig%C3%B32.1aCanig%C3%B32.2-Migraci%C3%B3deCanig%C3%B32.1aCanig%C3%B32.2"></a>Migració de Canigó 2.1 a Canigó 2.2</h2>
+
+<table cellpadding='5' width='85%' cellspacing='8px' class='infoMacro' border="0" align='center'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="./icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td><b class="strong">Important: Canvis en les propietats del bean httpsConfigBean.</b><br />
+<p>Entre la versió Canigó 2.1 i la versió 2.2 cal tenir en compte que el bean httpsConfigBean té diferents propietats a les que es definien en versions anteriors.</p>
+
+<p>En versions 1.x i Canigó 2.0, 2.1 es feien servir les següents propietats:</p>
+<ul>
+	<li>https</li>
+	<li>port</li>
+</ul>
+
+
+<p>En la versió Canigó 2.2 per tal de poder disposar en l'aplicació d'una part pública (accessible via http) i d'una part privada (accessible via https) es consideren les següents propietats:</p>
+<ul>
+	<li><b>httpsPortIn</b></li>
+	<li><b>httpsPortOut</b></li>
+	<li><b>httpPortIn</b></li>
+	<li><b>httpPortOut</b></li>
+	<li><b>httpsURLs</b></li>
+</ul>
+
+
+<p>Per més informació pel que fa aquest canvi es poden consultar els següents enllaços:</p>
+<ul>
+	<li><a href="http://canigo.ctti.gencat.net/confluence/display/CAN/Servei+de+Seguretat+2.2#ServeideSeguretat2.2-Configuraci%C3%B3d%27HTTPiHTTPS" title="Visit page outside Confluence">Documentació d'http i https al document de servei de seguretat</a></li>
+	<li><a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-61" title="Visit page outside Confluence">Petició de canvi CAN-61</a></li>
+</ul>
+
+
+<p>Un cop efectuat aquests canvis en el bean httpsConfigBean, entre les versions Canigó 2.1 i Canigó 2.2 hi ha <b>compatibilitat total</b>.</p></td></tr></table>
+<p><br clear="all" /></p>
+<table cellpadding='5' width='85%' cellspacing='8px' class='infoMacro' border="0" align='center'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="./icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td><b class="strong">Important: Canvi en la versió de la llibreria d'ACEGI.</b><br />
+<p>En les versions 2.0 i 2.1 es feia servir la versió 0.8.3 d'ACEGI, per la versió 2.2 s'ha passat a la versió 0.9.0 d'ACEGI.</p></td></tr></table>
+<p><br clear="all" /></p>
+
+<h3><a name="Migraci%C3%B3deCanig%C3%B32.1aCanig%C3%B32.2-Canvisenlaconfiguraci%C3%B3"></a>Canvis en la configuració</h3>
+
+<p>Al migrar una aplicació de Canigó 2.1 a Canigó 2.2 cal tenir en compte els canvis que es realitzen ens els arxius de configuració, els quals estan inclosos a l'aplicació plantilla. Per a fer la migració d'aquests arxius hi ha dues opcions:</p>
+<ol>
+	<li>Afegir els canvis manualment, mantenint d'aquesta manera la configuració pròpia de l'aplicació</li>
+	<li>Reemplaçar aquests arxius amb els de la plantilla i, si és el cas, modificar-los amb els canvis propis</li>
+</ol>
+
+
+<p>Hi ha canvis en els següents arxius de configuració inclosos en l'aplicació plantilla:</p>
+<ul>
+	<li>spring/<b>canigo-services-https.xml</b> : nova configuració HTTP i HTTPS</li>
+</ul>
+
+
+<p>A continuació es mostren aquests canvis:</p>
+
+<h4><a name="Migraci%C3%B3deCanig%C3%B32.1aCanig%C3%B32.2-canigoserviceshttps.xml"></a>canigo-services-https.xml</h4>
+
+<p>Com hem esmentat anteriorment, s'ha modificat el servei HTTP per tal de poder disposar en l'aplicació d'una part pública (accessible via http) i d'una part privada (accessible via https). Per a dur a terme el canvi en la vostra aplicació, s'han de canviar les propietats del bean '<tt>httpsConfigBean</tt>':<br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"httpsConfigBean"</span>
+      class=<span class="code-quote">"net.gencat.ctti.canigo.services.security.acegi.https.HttpsConfigBean"</span>&gt;
+    &lt;property  name=<span class="code-quote">"httpsPortIn"</span>   value =<span class="code-quote">"8444"</span>/&gt;
+    &lt;property  name=<span class="code-quote">"httpsPortOut"</span>  value =<span class="code-quote">"443"</span>/&gt;
+    &lt;property  name=<span class="code-quote">"httpPortIn"</span>    value =<span class="code-quote">"8080"</span>/&gt;
+    &lt;property  name=<span class="code-quote">"httpPortOut"</span>   value =<span class="code-quote">"80"</span>/&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" /></p>
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

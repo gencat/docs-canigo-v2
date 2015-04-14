@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Detall dels tags - row</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Detall dels tags - row
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Nov 13, 2007 by <font color="#0050B2">manel.batlles</font>.
+				    </div>
+
+				    <h1><a name="Detalldelstags-row-Detalldelstagsrow"></a>Detall dels tags - row</h1>
+
+<p>Defineix una fila. Tots els tags que contingui es distribuiran horitzontalment, un al costat de l'altre.</p>
+
+<p>Estén el tag layout:row ( <a href="http://struts.improve-technologies.com/doc/tags/layout.html#row" title="Visit page outside Confluence">http://struts.improve-technologies.com/doc/tags/layout.html#row</a> ) de Struts-Layout</p>
+
+<p>La documentació auto-generada del tag és a <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_2/tlddoc/fwk/row.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_2/tlddoc/fwk/row.html</a></p>
+
+<hr />
+<div>
+<ul><a href='#Detalldelstags-row-Detalldelstagsrow'>
+    <li>Detall dels tags - row</li></a>
+<ul><a href='#Detalldelstags-row-Atributsheredats'>
+    <li>Atributs heredats</li></a><a href='#Detalldelstags-row-Atributsespec%C3%ADficsdeCanig%C3%B3'>
+    <li>Atributs específics de Canigó</li></a><a href='#Detalldelstags-row-Exemple'>
+    <li>Exemple</li></a>
+<ul><a href='#Detalldelstags-row-P%C3%A0ginaJSP'>
+    <li>Pàgina JSP</li></a><a href='#Detalldelstags-row-Arxiusd%27internacionalitzaci%C3%B3'>
+    <li>Arxius d'internacionalització</li></a>
+</ul>
+</ul>
+</ul></div>
+<hr />
+
+<h2><a name="Detalldelstags-row-Atributsheredats"></a>Atributs heredats</h2>
+
+<p>Els atributs heredats de <b>layout:row</b> son: space.</p>
+
+<h2><a name="Detalldelstags-row-Atributsespec%C3%ADficsdeCanig%C3%B3"></a>Atributs específics de Canigó</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> Atribut </th>
+<th class='confluenceTh'> Funció </th>
+</tr>
+<tr>
+<td class='confluenceTd'> styleClass </td>
+<td class='confluenceTd'>&nbsp;</td>
+</tr>
+<tr>
+<td class='confluenceTd'> width </td>
+<td class='confluenceTd'> amplada total de la fila, en pixels </td>
+</tr>
+</tbody></table>
+
+<h2><a name="Detalldelstags-row-Exemple"></a>Exemple</h2>
+
+<p>A continuació es presenta un fragment de pàgina que utilitza el tag <b>fwk:row</b></p>
+
+<p>L'exemple crea dues files que contenen tres camps de texte en cada una.</p>
+
+<p><img src="Detall dels tags - row_attachments/fwk_row.jpg" align="absmiddle" border="0" /></p>
+
+<p>Cal observar que els elements dels diferents rows no estàn alineats entre sí. Per aconseguir-ho caldrà utilitzar un grid.</p>
+
+<h3><a name="Detalldelstags-row-P%C3%A0ginaJSP"></a>Pàgina JSP</h3>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;%@ include file=<span class="code-quote">"/WEB-INF/jsp/includes/fwkTagLibs.jsp"</span> %&gt;
+
+&lt;fwk:form action=<span class="code-quote">"provesTagsLayout.<span class="code-keyword">do</span>"</span>
+          styleId=<span class="code-quote">"myActionForm"</span>
+          key=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.form"</span>
+          reqCode=<span class="code-quote">"show"</span>
+          method=<span class="code-quote">"post"</span>
+          layout=<span class="code-quote">"<span class="code-keyword">true</span>"</span>&gt;
+    &lt;fwk:row&gt;
+        &lt;fwk:text key=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.camp1"</span>
+                  styleId=<span class="code-quote">"camp1"</span>
+                  mode=<span class="code-quote">"E,E,E"</span>
+                  layout=<span class="code-quote">"<span class="code-keyword">true</span>"</span>
+                  maxlength=<span class="code-quote">"10"</span>
+                  size=<span class="code-quote">"10"</span>
+                  property=<span class="code-quote">"camp1"</span>/&gt;
+        &lt;fwk:text key=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.camp2"</span>
+                  styleId=<span class="code-quote">"camp1"</span>
+                  mode=<span class="code-quote">"E,E,E"</span>
+                  layout=<span class="code-quote">"<span class="code-keyword">true</span>"</span>
+                  maxlength=<span class="code-quote">"15"</span>
+                  size=<span class="code-quote">"15"</span>
+                  property=<span class="code-quote">"camp1"</span>/&gt;
+        &lt;fwk:text key=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.camp3"</span>
+                  styleId=<span class="code-quote">"camp1"</span>
+                  mode=<span class="code-quote">"E,E,E"</span>
+                  layout=<span class="code-quote">"<span class="code-keyword">true</span>"</span>
+                  maxlength=<span class="code-quote">"8"</span>
+                  size=<span class="code-quote">"8"</span>
+                  property=<span class="code-quote">"camp1"</span>/&gt;
+    &lt;/fwk:row&gt;
+    &lt;fwk:row&gt;
+        &lt;fwk:text key=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.camp4"</span>
+                  styleId=<span class="code-quote">"camp1"</span>
+                  mode=<span class="code-quote">"E,E,E"</span>
+                  layout=<span class="code-quote">"<span class="code-keyword">true</span>"</span>
+                  maxlength=<span class="code-quote">"15"</span>
+                  size=<span class="code-quote">"15"</span>
+                  property=<span class="code-quote">"camp1"</span>/&gt;
+
+        &lt;fwk:text key=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.camp5"</span>
+                  styleId=<span class="code-quote">"camp1"</span>
+                  mode=<span class="code-quote">"E,E,E"</span>
+                  layout=<span class="code-quote">"<span class="code-keyword">true</span>"</span>
+                  maxlength=<span class="code-quote">"10"</span>
+                  size=<span class="code-quote">"10"</span>
+                  property=<span class="code-quote">"camp1"</span>/&gt;
+        &lt;fwk:text key=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.camp6"</span>
+                  styleId=<span class="code-quote">"camp1"</span>
+                  mode=<span class="code-quote">"E,E,E"</span>
+                  layout=<span class="code-quote">"<span class="code-keyword">true</span>"</span>
+                  maxlength=<span class="code-quote">"12"</span>
+                  size=<span class="code-quote">"12"</span>
+                  property=<span class="code-quote">"camp1"</span>/&gt;
+    &lt;/fwk:row&gt;
+&lt;/fwk:form&gt;</pre>
+</div></div>
+
+<h3><a name="Detalldelstags-row-Arxiusd%27internacionalitzaci%C3%B3"></a>Arxius d'internacionalització</h3>
+
+<p>Els elements de layout no son visibles i, per tant, no tenen textes asssociats.</p>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Detall dels tags - row_attachments/fwk_row.jpg">fwk_row.jpg</a> (image/jpeg)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

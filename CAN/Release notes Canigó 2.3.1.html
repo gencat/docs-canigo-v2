@@ -1,0 +1,297 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Release notes Canigó 2.3.1</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Release notes Canigó 2.3.1
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Jul 31, 2008 by <font color="#0050B2">otc</font>.
+				    </div>
+
+				    <h2><a name="ReleasenotesCanig%C3%B32.3.1-Releasenotesdelaversi%C3%B32.3.1deCanig%C3%B3"></a>Release notes de la versió 2.3.1 de Canigó</h2>
+
+
+<h3><a name="ReleasenotesCanig%C3%B32.3.1-%28%29BugsfixatsaCanig%C3%B32.3.1%3A"></a><img class="emoticon" src="./icons/emoticons/add.gif" height="16" width="16" align="absmiddle" alt="" border="0"/> Bugs fixats a Canigó 2.3.1:</h3>
+
+<ul>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-549" title="Visit page outside Confluence"><b>CAN-549</b></a>: searchPanel (keypress).
+<br clear="all" />
+<b>Context</b>: En el searchPanel la tecla "intro" treu un error amb un alert de "html" que posa "null" dues vegades.
+<br clear="all" />
+<b>Solució</b>: Modificació de la llibrería canigo-ajaxtags-searchPanel.js amb la correcció. 
+<br clear="all" />
+<b>Fitxers afectats</b>: canigo-ajaxtags-searchPanel.js
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<ul>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-550" title="Visit page outside Confluence"><b>CAN-550</b></a>: Autocomplete (minimumCharacters).
+<br clear="all" />
+<b>Context</b>: L'autocomplete no te un comportament correcte pero per altra banda si fa la cerca correctament. 
+<br clear="all" />
+<b>Solució</b>: Variacions importants en el fitxer 'canigo-ajaxtags-autocomplete.js'.
+<br clear="all" />
+<b>Fitxers afectats</b>: canigo-ajaxtags-autocomplete.js
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<ul>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-557" title="Visit page outside Confluence"><b>CAN-557</b></a>: El tag &lt;fwk:vlhcheckbox&gt; no es pot utilitzar amb el tag &lt;fwk:vlhrow&gt;.
+<br clear="all" />
+<b>Context</b>: El tag &lt;fwk:vlhcheckbox&gt; no es pot utilitzar amb el tag &lt;fwk:vlhrow&gt;. 
+<br clear="all" />
+<b>Solució</b>: Modificacions al servei web.
+<br clear="all" />
+<b>Fitxers afectats</b>: canigo-services-web-2.3.1.jar
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<ul>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-562" title="Visit page outside Confluence"><b>CAN-562</b></a>: Combos dependents (perdua de conexio amb la bd).
+<br clear="all" />
+<b>Context</b>: Quan es fan més de 8 o 10 clicks al combo que fa que canvi la llista resultat de l'altre combo, tenim que l'aplicacio perd la conexio amb la bd. 
+<br clear="all" />
+<b>Solució</b>: Afegir filtres d'Hibernate al web.xml de la vostra aplicació.
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<ul>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-564" title="Visit page outside Confluence"><b>CAN-564</b></a>: FormTagHelper importa dues vegades json.js.
+<br clear="all" />
+<b>Context</b>: El helper del tag form del framework (FormTagHelper.java) importa 2 vegades json.js.
+<br clear="all" />
+<b>Solució</b>: Modificacions al servei web.
+<br clear="all" />
+<b>Fitxers afectats</b>: canigo-services-web-2.3.1.jar
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<ul>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-573" title="Visit page outside Confluence"><b>CAN-573</b></a>: Problema amb la tasca ctti:refresh-webapp del plugin de maven de canigo.
+<br clear="all" />
+<b>Context</b>: Un cop s'ha importat la plantilla de Canigó i un Clean seguit d'un Build Project, al fer un mvn ctti:refresh_webapp sempre apareix un error.
+<br clear="all" />
+<b>Solució</b>: Nova versió del plugin de maven de canigo. Aquest plugin es pot <a href="Instal.lació de plugin Maven 2 de Canigó.html" title="Instal.lació de plugin Maven 2 de Canigó">descarregar</a> del Portal de Canigó i en aquesta pàgina s'explica també el procediment d'instal.lació i us.
+<br clear="all" />
+<b>Fitxers afectats</b>: maven-ctti-plugin-src-2.3.1-SNAPSHOT.zip
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<ul>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-576" title="Visit page outside Confluence"><b>CAN-576</b></a>: Problemes amb el &lt;fwk:swapTag /&gt;.
+<br clear="all" />
+<b>Context</b>: Quan no es selecciona cap dada en un combo creat amb el tag &lt;fwk:swapTag /&gt; i es prem el botó de passar una dada d'un combo a un altre apareix un valor per defecte al segon combo.
+<br clear="all" />
+<b>Solució</b>: Modificació en la llibreria selectbox.js.
+<br clear="all" />
+<b>Fitxers afectats</b>: selectbox.js
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<ul>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-577" title="Visit page outside Confluence"><b>CAN-577</b></a>: Els errors provocats pel binding amb els customEditors són ignorats.
+<br clear="all" />
+<b>Context</b>: El customEditors no fa una validació d'un camp de tipus Date.
+<br clear="all" />
+<b>Solució</b>: Modificacions al servei web.
+<br clear="all" />
+<b>Fitxers afectats</b>: canigo-services-web-2.3.1.jar
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<ul>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-580" title="Visit page outside Confluence"><b>CAN-580</b></a>: Errores durante las validaciónes en cliente del Canigó 2.3.
+<br clear="all" />
+<b>Context</b>: Al afegir validacions del tipus client a un formulari no carrega correctament la plana web.
+<br clear="all" />
+<b>Solució</b>: Modificacions al servei web.
+<br clear="all" />
+<b>Fitxers afectats</b>: canigo-services-web-2.3.1.jar
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<ul>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-582" title="Visit page outside Confluence"><b>CAN-582</b></a>: Error en validaciones.
+<br clear="all" />
+<b>Context</b>: Quan s'efectúa una validació en una jsp, es capturen els errors de validació però els mostra en una nova pàgina.
+<br clear="all" />
+<b>Solució</b>: Modificacions al servei web.
+<br clear="all" />
+<b>Fitxers afectats</b>: canigo-services-web-2.3.1.jar
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<ul>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-583" title="Visit page outside Confluence"><b>CAN-583</b></a>: Caràcters HTML es camps no editableso llistats ValueList.
+<br clear="all" />
+<b>Context</b>: En un camp fwk:textarea o fwk:text es pot introduir maliciosament codi html de manera que quan aquest camp es no editable  o es mostra en un llistat value-list, s'interpreta el codi inserit.
+<br clear="all" />
+<b>Solució</b>: Modificacions al servei web.
+<br clear="all" />
+<b>Fitxers afectats</b>: canigo-services-web-2.3.1.jar
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<ul>
+	<li>Consulta <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-591" title="Visit page outside Confluence"><b>CAN-591</b></a>: Es poden posar dos tabPanel a la mateixa JSP?.
+<br clear="all" />
+<b>Context</b>: Es volen inserir dos tabPanel a la mateixa JSP sense que hi hagi conflictes entre ells.
+<br clear="all" />
+<b>Solució</b>: Modificacions al servei web.
+<br clear="all" />
+<b>Fitxers afectats</b>: canigo-services-web-2.3.1.jar
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<ul>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-595" title="Visit page outside Confluence"><b>CAN-595</b></a>: Null pointer exception al intentar generar un PDF amb el servei de reporting del Canigó 2.2.
+<br clear="all" />
+<b>Context</b>: Al generar documents PDF's amb el servei de reporting del framework es genera un null pointer en temps d'execució.
+<br clear="all" />
+<b>Solució</b>: Modificacions al servei web.
+<br clear="all" />
+<b>Fitxers afectats</b>: canigo-services-web-2.3.1.jar
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<ul>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-600" title="Visit page outside Confluence"><b>CAN-600</b></a>: Creació d'excepció TagsServiceException amb codi de error erroni.
+<br clear="all" />
+<b>Context</b>: Quan es crea la excepció de TagsServiceException en els RequestProcessors corresponent, el missatge d'error hauria de ser un codi d'error conegut per tal de poder traduir-ho fàcilment.
+<br clear="all" />
+<b>Solució</b>: Modificacions al servei web.
+<br clear="all" />
+<b>Fitxers afectats</b>: canigo-services-web-2.3.1.jar
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<ul>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-605" title="Visit page outside Confluence"><b>CAN-605</b></a>: CustomDateEditor de canigó no valida bé les dates.
+<br clear="all" />
+<b>Context</b>: Validacions de dates incorrectes passen la validació amb èxit.
+<br clear="all" />
+<b>Solució</b>: Modificacions al servei de multiidioma.
+<br clear="all" />
+<b>Fitxers afectats</b>: canigo-services-i18n-2.3.1.jar
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<ul>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-640" title="Visit page outside Confluence"><b>CAN-640</b></a>: Error javascript en Firefox del component Calendar.
+<br clear="all" />
+<b>Context</b>: Error en prèmer sobre el component Calendar per seleccionar una data.
+<br clear="all" />
+<b>Solució</b>: Modificacions a la llibreria calendar.js.
+<br clear="all" />
+<b>Fitxers afectats</b>: calendar.js
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<ul>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-642" title="Visit page outside Confluence"><b>CAN-642</b></a>: Errors en validacions en Canigo 2.3 quan el formulari conté un tag d'upload de fitxer.
+<br clear="all" />
+<b>Context</b>: Quan tenim un formulari amb un tag d'upload de fitxer es produeix un NullPointerException, les validacions obligatòries de submit no funcionen.
+<br clear="all" />
+<b>Solució</b>: Modificacions al servei web.
+<br clear="all" />
+<b>Fitxers afectats</b>: canigo-services-web-2.3.1.jar
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<ul>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-645" title="Visit page outside Confluence"><b>CAN-645</b></a>: CommonsLoggingLog no te implementat audit ni permet accedir al Log per generar-los.
+<br clear="all" />
+<b>Context</b>: La classe CommonsLoggingLog no té implementat el mètode audit de manera que es imposible utilitzar-los. Tampoc es poden realitzar Levels propis perque desde el Log no es pot accedir al Logger i no es pot invocar el mètode log d'aquest especificant-li el nivell que s'acaba de crear.
+<br clear="all" />
+<b>Solució</b>: Modificacions al servei de logging.
+<br clear="all" />
+<b>Fitxers afectats</b>: canigo-services-logging-2.3.1.jar
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<ul>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-647" title="Visit page outside Confluence"><b>CAN-647</b></a>: Els components textArea amb les validacions de servidor activades perd el valor informat.
+<br clear="all" />
+<b>Context</b>: Amb el tag textArea, quan s'activa la validació 'SERVER', es perd el valor de la propietat i sempre està buit.
+<br clear="all" />
+<b>Solució</b>: Modificacions a la llibreria canigo-ajaxtags-validation.js.
+<br clear="all" />
+<b>Fitxers afectats</b>: canigo-ajaxtags-validation.js
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<ul>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-648" title="Visit page outside Confluence"><b>CAN-648</b></a>: LevelMatchFilter no reconeix AuditLevel.
+<br clear="all" />
+<b>Context</b>: Per tal de que l'AuditLevel reconeixi el seu propi nivell amb filtres cal implementar el mètode public static Level toLevel(String sArg, Level defaultValue).
+<br clear="all" />
+<b>Solució</b>: Modificacions al servei de logging.
+<br clear="all" />
+<b>Fitxers afectats</b>: canigo-services-logging-2.3.1.jar
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

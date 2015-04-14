@@ -1,0 +1,584 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Connector amb GECAT</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Connector amb GECAT
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Dec 02, 2008 by <font color="#0050B2">otc</font>.
+				    </div>
+
+				    <h1><a name="ConnectorambGECAT-CONNECTORAMBGECAT"></a>CONNECTOR AMB GECAT</h1>
+
+<p><br clear="all" />
+<br clear="all" />
+<div>
+<ul><a href='#ConnectorambGECAT-CONNECTORAMBGECAT'>
+    <li>CONNECTOR AMB GECAT</li></a><a href='#ConnectorambGECAT-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#ConnectorambGECAT-Prop%C3%B2sit'>
+    <li>Propòsit</li></a><a href='#ConnectorambGECAT-ContextiEscenarisd%27%C3%9As'>
+    <li>Context i Escenaris d'Ús</li></a><a href='#ConnectorambGECAT-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i Dependències</li></a><a href='#ConnectorambGECAT-Aquivadirigit'>
+    <li>A qui va dirigit</li></a><a href='#ConnectorambGECAT-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents i Fonts de Referència</li></a>
+</ul><a href='#ConnectorambGECAT-Descripci%C3%B3Detallada'>
+    <li>Descripció Detallada</li></a>
+<ul><a href='#ConnectorambGECAT-ArquitecturaiComponents'>
+    <li>Arquitectura i Components</li></a>
+<ul><a href='#ConnectorambGECAT-Interf%C3%ADciesiComponentsGen%C3%A9rics'>
+    <li>Interfícies i Components Genérics</li></a><a href='#ConnectorambGECAT-Versionsdisponibles'>
+    <li>Versions disponibles</li></a><a href='#ConnectorambGECAT-Instal.laci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal.lació i Configuració</li></a>
+</ul><a href='#ConnectorambGECAT-Utilitzaci%C3%B3delServei'>
+    <li>Utilització del Servei</li></a><a href='#ConnectorambGECAT-Integraci%C3%B3ambAltresServeis'>
+    <li>Integració amb Altres Serveis</li></a>
+<ul><a href='#ConnectorambGECAT-Integraci%C3%B3ambelServeideInternacionalitzaci%C3%B3'>
+    <li>Integració amb el Servei de Internacionalització</li></a>
+</ul>
+</ul><a href='#ConnectorambGECAT-Exemples'>
+    <li>Exemples</li></a>
+<ul><a href='#ConnectorambGECAT-CridesaGecatsensel%C3%ADniesrepetides'>
+    <li>Crides a Gecat sense línies repetides</li></a><a href='#ConnectorambGECAT-CridesaGecatambl%C3%ADniesrepetides'>
+    <li>Crides a Gecat amb línies repetides</li></a>
+</ul><a href='#ConnectorambGECAT-Usuarisdeprova'>
+    <li>Usuaris de prova</li></a><a href='#ConnectorambGECAT-Versi%C3%B3Optimitzada'>
+    <li>Versió Optimitzada</li></a>
+</ul></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<table cellpadding='5' width='85%' cellspacing='8px' class='infoMacro' border="0" align='center'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="./icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td><b class="strong">Versió Optimitzada</b><br />
+<p>Disponible una nova versió optimitzada del connector. Trobareu més informació al següent <a href="http://canigo.ctti.gencat.net/confluence/display/CAN/Connector+amb+GECAT+2.3#ConnectorambGECAT2.3-Versi%C3%B3Optimitzada" title="Visit page outside Confluence">apartat</a>.</p></td></tr></table>
+<p><br clear="all" /></p>
+
+<p><br clear="all" /></p>
+
+<p><br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h1><a name="ConnectorambGECAT-Introducci%C3%B3"></a>Introducció</h1>
+
+
+<h2><a name="ConnectorambGECAT-Prop%C3%B2sit"></a>Propòsit</h2>
+
+<p>L'objectiu del present document és descriure la metodologia a seguir en la utilització del connector al sistema SAP del Gecat des de qualsevol aplicació Java del Framework J2EE.</p>
+
+<p>L'abast d'aquest connector es basa en la utilització de les funcions d'alta de factures, consultes i reserves online del SAP de Gecat, així com totes les funcions batch.</p>
+
+<h2><a name="ConnectorambGECAT-ContextiEscenarisd%27%C3%9As"></a>Context i Escenaris d'Ús</h2>
+
+<p>Aquest connector podrà ser utilitzat des de qualsevol aplicació del Framework J2EE.<br/>
+El connector permet l'accés al SAP mitjançant objectes de consulta. El connector transforma aquests objectes en una cadena de caràcters vàlida per al SAP. La cadena de retorn és transformada novament en un objecte que conté els registres de retorn.</p>
+
+<h2><a name="ConnectorambGECAT-VersionsiDepend%C3%A8ncies"></a>Versions i Dependències</h2>
+
+<p>Les dependències descrites a la següent url són requerides per tal de fer funcionar el servei:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-connectors-root/index.html" title="Visit page outside Confluence">Dependències Connector amb GECAT</a></p>
+
+<h2><a name="ConnectorambGECAT-Aquivadirigit"></a>A qui va dirigit</h2>
+
+<p>Aquest document va dirigit als següents perfils:</p>
+<ol>
+	<li>Programador. Per conéixer l'ús del connector.</li>
+	<li>Arquitecte. Per conéixer quins són els components i la configuració del connector.</li>
+</ol>
+
+
+<h2><a name="ConnectorambGECAT-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents i Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> [1] </th>
+<th class='confluenceTh'> Anàlisi Funcional - Connector  Serveis Funcionals - 16-Nov.doc </th>
+<th class='confluenceTh'> Document d'anàlisi dels connectors  de serveis funcionals. </th>
+</tr>
+<tr>
+<td class='confluenceTd'> [2] </td>
+<td class='confluenceTd'> Consultes a SAP_Annex.doc </td>
+<td class='confluenceTd'>&nbsp;</td>
+</tr>
+<tr>
+<td class='confluenceTd'> [3] </td>
+<td class='confluenceTd'> XCOM_GECAT.doc </td>
+<td class='confluenceTd'>&nbsp;</td>
+</tr>
+<tr>
+<td class='confluenceTd'> [4] </td>
+<td class='confluenceTd'> XCOM_SAP_to_REMOTS.doc </td>
+<td class='confluenceTd'>&nbsp;</td>
+</tr>
+<tr>
+<td class='confluenceTd'> [5] </td>
+<td class='confluenceTd'> XCOM-HOST.doc </td>
+<td class='confluenceTd'>&nbsp;</td>
+</tr>
+<tr>
+<td class='confluenceTd'> [6] </td>
+<td class='confluenceTd'> Crides Java a GECAT.pdf </td>
+<td class='confluenceTd'>&nbsp;</td>
+</tr>
+</tbody></table>
+
+<h1><a name="ConnectorambGECAT-Descripci%C3%B3Detallada"></a>Descripció Detallada</h1>
+
+
+<h2><a name="ConnectorambGECAT-ArquitecturaiComponents"></a>Arquitectura i Components</h2>
+
+
+<h3><a name="ConnectorambGECAT-Interf%C3%ADciesiComponentsGen%C3%A9rics"></a>Interfícies i Components Genérics</h3>
+
+<p>Es pot trobar tota la documentació JavaDoc i el codi font referent aquests components a les següents urls:</p>
+
+<p><ins>JavaDoc:</ins> <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-connectors-root/canigo-connectors-gecat/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-connectors-root/canigo-connectors-gecat/apidocs/index.html</a><br/>
+<ins>Codi Font:</ins>&nbsp; <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-connectors-root/canigo-connectors-gecat/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-connectors-root/canigo-connectors-gecat/xref/index.html</a></p>
+
+<h3><a name="ConnectorambGECAT-Versionsdisponibles"></a>Versions disponibles</h3>
+
+<p>Actualment existeixen dos versions del connector GECAT, el connector GECAT tal i com el coneixem fins ara i el nou connector GECAT09 que inclou una sèrie de canvis per adaptar-se a les especificacions funcionals de GECAT (codi PEP - codi PIP)&nbsp; que afecta a certes funcionalitats a partir del 2009. (Per més informació sobre les especificacions funcionals de GECAT poseu-vos en contacte amb els responsables d'aquest servei).</p>
+
+<p>Els projectes que no es vegin afectats per aquests canvis no estan obligats a actualitzar-se a la darrera versió ja que aquestes són independents entre elles i es portarà un manteniment de les dos.</p>
+
+<p>A partir d'ara en aquest document es farà referència al connector GECAT09 però és totalment compatible amb el connector GECAT.</p>
+
+<h3><a name="ConnectorambGECAT-Instal.laci%C3%B3iConfiguraci%C3%B3"></a>Instal.lació i Configuració</h3>
+
+<p>Per poder utilitzar el connector haurem de configurar el projecte perque inclogui 2<br/>
+llibreries dll i diferents jars:</p>
+
+<p>Les llibreries són <b>sapjcorfc.dll</b> i <b>librfc32.dll</b> i s'han de copiar al directori system32.<br/>
+Per fer les operacions sobre el sistema SAP del  Gecat és necessària la utilització del jar <b>sapjco-2.1.6</b>, que és el connector propi del SAP per fer les crides a les seves funcions BAPI  (RFC).<br/>
+Les classes que utilitzarem per fer els objectes d'operacions estan en el jar del connector Gecat09 <b>canigo-connectors-gecat09-2.3.2.jar</b><br/>
+Les classes que utilitzarem per fer les operacions han estat generades amb una eina Open  Source anomenada <b>JAXB</b> (Java API for Xml Binding), que genera classes java a partir d'un esquema de xml (XMLSchema). Aquesta eina ens permet no solament generar automàticament classes java sinó també fer validacions per comprovar que les dades que contenen els objectes són vàlides. Per això també haurem d'incloure els jars que necessita JAXB:</p>
+
+<p>&#45; <b>jaxb-api-1.0.1.jar</b><br/>
+&#45; <b>jaxb-libs-1.0.1.jar</b><br/>
+&#45; <b>jaxb-impl-1.0.1.jar</b><br/>
+&#45; <b>jax-qname-1.1.jar</b><br/>
+&#45; <b>namespace-1.0.1.jar</b><br/>
+&#45; <b>relaxngDatatype-1.0.1.jar</b><br/>
+&#45; <b>xsdlib-1.1.2.jar</b></p>
+
+<p>Aquests jars els inclourem mitjançant les dependencies del projecte definides en l'arxiu pom.xml, tal com acabem d'explicar. Concretament, l'entrada amb la dependència serà tal com
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;dependency&gt;
+    &lt;groupId&gt;canigo.connectors&lt;/groupId&gt;
+    &lt;artifactId&gt;canigo-connectors-gecat09&lt;/artifactId&gt;
+    &lt;version&gt;2.3.2&lt;/version&gt;
+&lt;/dependency&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Ara executarem el goal de Maven 'ctti:generate-classpath' per regenerar la configuració del classpath del  projecte en funció del fitxer de project.xml. Aquest goal està definit dins de maven.xml:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;goal name=<span class="code-quote">"ctti:generate-classpath"</span>
+
+description=<span class="code-quote">"Shortcut in Eclipse  <span class="code-keyword">for</span> the goal eclipse:generate-classpath"</span>&gt;
+
+&lt;attainGoal  name=<span class="code-quote">"eclipse:generate-classpath"</span>/&gt;
+
+&lt;/goal&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h2><a name="ConnectorambGECAT-Utilitzaci%C3%B3delServei"></a>Utilització del Servei</h2>
+
+<p>La utilització del Connector es basa principalment en la configuració. L'ús  directe des dels clients es permet mitjançant les interfícies definides.</p>
+
+<p>El connector del Gecat ofereix tres operacions: alta de factures online, consultes i reserves. Cada operació té una classe que conté tota la informació de l'operació (o crida) i un altra amb la informació que retorna SAP per aquesta operació. Cada classe conté un altra classe per cada línia que tingui l'operació.<br/>
+Si per exemple tenim l'operació consultaFactura, que conté una sola línia, daddadesConsulta, haurem de crear un objecte de la classe DadesConsultaFacturaType i un altre de DadesConsultaType. Aquesta última l'omplirem amb totes les dades que facin falta mitjançant els seus mètodes setters (setSocietat, setCodiCreditor, etc..). Un cop omplert del tot aquest objecte (que representa una sola línia), l'assignarem a l'altre (que és el que representa tota la consulta) mitjançant també un mètode setter:  dadesConsultaFactura.setDadesConsulta(dadesConsulta). Si tingués més línies, hauríem de fer el mateix per a totes.<br/>
+En el cas en que una mateixa línia pugui aparèixer més d'una vegada la forma de fer les operacions canvia, ja que el conjunt de totes les línies del mateix tipus aniran dins d'una llista.<br/>
+Un cop hem creat l'objecte de crida amb totes les dades necessàries, utilitzarem un  objecte de la classe GecatConnector per obtenir l'objecte de retorn amb les dades retornades pel SAP.</p>
+
+<p>L'objecte gecatConnector es pot crear per injecció amb spring, amb la següent definició del bean dins d'un arxiu xml de configuració:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;beans&gt;
+
+
+
+      &lt;bean id=<span class="code-quote">"gecatConnector"</span>  class=<span class="code-quote">"net.gencat.gecat.connector.GecatConnector"</span>&gt;
+
+          &lt;property  name=<span class="code-quote">"sapService"</span>&gt;
+
+                  &lt;ref  bean=<span class="code-quote">"sapService"</span>/&gt;
+
+            &lt;/property&gt;
+
+             &lt;property name=<span class="code-quote">"logService"</span>&gt;
+
+                  &lt;ref  bean=<span class="code-quote">"loggingService"</span>/&gt;
+
+            &lt;/property&gt;
+
+       &lt;/bean&gt;
+
+
+
+&lt;/beans&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Podem veure que el bean gecatConnector conté dos objectes: sapService i loggingService. Aquests beans també han d'estar definits en algún altre fitxer de configuració (podria ser el mateix) d'spring:
+<br clear="all" />  <b>&#45; sapService:</b>
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;beans&gt;
+
+&lt;!-- SAP service --&gt;
+&lt;beans&gt;
+
+&lt;bean id=<span class="code-quote">"sapService"</span> class=<span class="code-quote">"net.ctti.canigo.services.sap.impl.JCOSapService"</span>&gt;
+&lt;property name=<span class="code-quote">"sapConfigurator"</span>&gt;
+&lt;ref local=<span class="code-quote">"sapConfigurator"</span>/&gt;
+&lt;/property&gt;
+&lt;property name=<span class="code-quote">"logService"</span> ref=<span class="code-quote">"loggingService"</span>/&gt;
+&lt;/bean&gt;
+
+&lt;bean id=<span class="code-quote">"sapConfigurator"</span> class=<span class="code-quote">"net.ctti.canigo.services.sap.impl.JCOSapConfigurator"</span>&gt;
+&lt;property name=<span class="code-quote">"client"</span> value=<span class="code-quote">"client_value"</span> /&gt;
+&lt;property name=<span class="code-quote">"user"</span> value=<span class="code-quote">"user_name"</span> /&gt;
+&lt;property name=<span class="code-quote">"passwd"</span> value=<span class="code-quote">"pwd"</span> /&gt;
+&lt;property name=<span class="code-quote">"lang"</span> value=<span class="code-quote">"lang"</span> /&gt;
+&lt;property name=<span class="code-quote">"ashost"</span> value=<span class="code-quote">"host_name"</span> /&gt;
+&lt;property name=<span class="code-quote">"sysnr"</span> value=<span class="code-quote">"sysnr_value"</span> /&gt;
+&lt;property name=<span class="code-quote">"repository"</span> value=<span class="code-quote">"repository_name"</span> /&gt;
+&lt;property name=<span class="code-quote">"connectionPool"</span> value=<span class="code-quote">"<span class="code-keyword">true</span>"</span> /&gt;
+&lt;property name=<span class="code-quote">"connectionPoolName"</span> value=<span class="code-quote">"connection_pool_name"</span> /&gt;
+&lt;/bean&gt;
+
+&lt;/beans&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />  <b>&#45; loggingService:</b>
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;beans&gt;
+&lt;bean id=<span class="code-quote">"loggingConfigurator"</span>
+class=<span class="code-quote">"net.ctti.canigo.services.logging.log4j.xml.HostDOMConfigurator"</span>&gt;
+&lt;property name=<span class="code-quote">"configFileName"</span> value=<span class="code-quote">"classpath:log4j/log4j.xml"</span>&gt;
+&lt;/property&gt;
+&lt;/bean&gt;
+&lt;bean id=<span class="code-quote">"loggingService"</span>
+class=<span class="code-quote">"net.ctti.canigo.services.logging.log4j.Log4JServiceImpl"</span>
+init-method=<span class="code-quote">"init"</span>&gt;
+&lt;property name=<span class="code-quote">"configurator"</span>&gt;
+&lt;ref local=<span class="code-quote">"loggingConfigurator"</span> /&gt;
+&lt;/property&gt;
+&lt;/bean&gt;
+&lt;/beans&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+En el cas de no utilitzar spring, haurem de crear aquests beans manualment i  assignar-los al gecatConnector mitjançant els respectius mètodes <em>setters.</em><br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h2><a name="ConnectorambGECAT-Integraci%C3%B3ambAltresServeis"></a>Integració amb Altres Serveis</h2>
+
+
+<h3><a name="ConnectorambGECAT-Integraci%C3%B3ambelServeideInternacionalitzaci%C3%B3"></a>Integració amb el Servei de Internacionalització</h3>
+
+<p>En els fitxers de configuració es defineixen claus que permeten especificar quins missatges retornar en cas errors. Per a poder traduir aquestes claus és necessari especificar que el connector usarà el Servei d'Internacionalització  (veure Configuració).</p>
+
+<h1><a name="ConnectorambGECAT-Exemples"></a>Exemples</h1>
+
+
+<h2><a name="ConnectorambGECAT-CridesaGecatsensel%C3%ADniesrepetides"></a>Crides a Gecat sense línies repetides</h2>
+
+<p>1. Retorn sense línies repetides</p>
+
+<p>Per mostrar aquest tipus de crida agafarem com exemple la consulta de partida  pressupostària.<br/>
+Primerament crearem tots els objectes que necessitarem per fer el procediment:</p>
+
+<p>net.gencat.gecat.consultes.ConsultaPartidaPressupostaria.ObjectFactory  objectFactory = new  net.gencat.gecat.consultes.ConsultaPartidaPressupostaria.ObjectFactory();</p>
+
+<p>La classe ObjectFactory és, com el seu nom indica, una classe per crear objectes d'altres classes. Aquestes classes són les que ofereix JAXB per crear objectes amb una certa estructura predefinida. Crearem un objecte de la classe ObjectFactory per crear els objectes que serviran per fer la crida (objectFactory).</p>
+
+<p>Seguidament crearem un objecte que representarà la crida completa. Aquest objecte contindrà un objecte per a cada línia que tingui la crida. Aquests objectes són els que s'han de completar amb la informació de la crida.</p>
+
+<p>DadesConsultaPartidaPressupostariaType dadesConsultaPartidaPressupostaria =  objectFactory.createDadesConsultaPartidaPressupostariaType();</p>
+
+<p>DadesConsultaType dadesConsulta =  objectFactory.createDadesConsultaType();</p>
+
+<p>dadesConsulta.setCentreGestor("1006");</p>
+
+<p>dadesConsulta.setEntitatCP("1000");</p>
+
+<p>dadesConsulta.setExercici("2002");</p>
+
+<p>dadesConsulta.setPosicioPressupostaria("D/220100100/4551");</p>
+
+<p>dadesConsulta.setVinculacio("S");</p>
+
+<p>dadesConsultaPartidaPressupostaria.setDadesConsulta(dadesConsulta);</p>
+
+<p>Amb aquest objecte ja podem fer la crida al SAP mitjançant el mètode <em>consultaPartidaPressupostaria</em> de la classe <b>GecatConnector</b>.  Aquesta funció requereix de l'objecte de consulta.</p>
+
+<p>DadesConsultaPartidaPressupostariaRetornType dadesConsultaRetorn =  gecatConnector.consultaPartidaPressupostaria(dadesConsultaPartidaPressupostaria);</p>
+
+<p>En aquest punt ja tenim l'objecte de retorn llest per a ser utilitzat per l'aplicació.</p>
+
+<p>System.out.println("getDenominacio():" +  dadesConsultaRetorn.getDadesRetorn().getDenominacio());</p>
+
+<p>2. Retorn amb línies repetides<br/>
+Per mostrar aquest tipus de crida agafarem  com exemple la consulta de creditor.<br/>
+Primerament crearem tots els objectes que necessitarem per fer el procediment:</p>
+
+<p>net.gencat.gecat.consultes.ConsultaCreditor.ObjectFactory objectFactory = new  net.gencat.gecat.consultes.ConsultaCreditor.ObjectFactory();</p>
+
+<p>La classe ObjectFactory és, com el seu nom indica, una classe per crear objectes d'altres classes. Aquestes classes són les que ofereix JAXB per crear objectes amb una certa estructura predefinida. Crearem un objecte de la classe ObjectFactory per crear els objectes que serviran per fer la crida (objectFactory).</p>
+
+<p>Seguidament crearem un objecte que representarà la crida completa. Aquest objecte contindrà un objecte per a cada línia que tingui la crida.</p>
+
+<p>DadesConsultaCreditorType dadesConsultaCreditor =  objectFactory.createDadesConsultaCreditorType();</p>
+
+<p>DadesConsultaType dadesConsulta =  objectFactory.createDadesConsultaType();</p>
+
+<p>dadesConsulta.setNIFoCodiCreditor("A53062927");</p>
+
+<p>dadesConsulta.setRegistreInicial("001");</p>
+
+<p>dadesConsulta.setSocietat("1000");</p>
+
+<p>dadesConsultaCreditor.setDadesConsulta(dadesConsulta);</p>
+
+<p>Haurem de passar al connector l'objecte de consulta mitjançant el mètode <em>consultaCreditor</em> de l'objecte <b>gecatConnector</b>:</p>
+
+<p>DadesConsultaCreditorRetornType dadesConsultaRetorn =  gecatConnector.consultaCreditor(dadesConsultaCreditor);</p>
+
+<p>Ara ja tenim l'objecte de retorn llest per a ser utilitzat:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">List finalList = dadesConsultaRetorn.getDadesRetorn().getDadaRetorn();
+<span class="code-object">System</span>.out.println(<span class="code-quote">"dadaRetorn.getAdreca:"</span> + ((DadaRetornType)finalList.get(0)).getAdreca());</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h2><a name="ConnectorambGECAT-CridesaGecatambl%C3%ADniesrepetides"></a>Crides a Gecat amb línies repetides</h2>
+
+<p>Per mostrar aquest altre tipus de crida prendrem com exemple l'alta de factures habilitats.<br/>
+Crearem tots els objectes que necessitarem per fer el procediment:</p>
+
+<p>net.gencat.gecat.factures.Factures.ObjectFactory objectFactory = new  net.gencat.gecat.factures.Factures.ObjectFactory();</p>
+
+<p>La classe ObjectFactory és, com el seu nom indica, una classe per crear objectes d'altres classes. Aquestes classes són les que ofereix JAXB per crear objectes amb una certa estructura predefinida. Crearem un objecte de la classe ObjectFactory per crear els objectes que serviran per fer la crida (objectFactory).</p>
+
+<p>Seguidament crearem un objecte que representarà la crida completa. Aquest objecte contindrà un objecte per a cada línia (o conjunt de línies) que tingui la crida.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">DaDadesAltaFacturesHabilitatsOnlineType dadesAltaFacturaHabilitats = objectFactory.
+createDadesAltaFacturesHabilitatsOnlineType();
+
+DadesGeneralsFacturaType dadesGeneralsFactura = objectFactory.createDadesGeneralsFacturaType();
+
+dadesGeneralsFactura.setDataCompt(<span class="code-quote">"24051980"</span>);
+dadesGeneralsFactura.setDataDocument(<span class="code-quote">"01"</span>);
+.
+.
+.
+dadesGeneralsFactura.setTransaccio(<span class="code-quote">"ZD21"</span>);
+
+dadesAltaFacturaHabilitats.setDadesGeneralsFactura(dadesGeneralsFactura);</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Si la línia pot estar repetida, com en el cas de <em>retencions habilitat  subhabilitat</em>, haurem de crear una llista d'objectes que representen una línia:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">RetencionsHabilitatSubhabilitatType retencionsHS = objectFactory.
+createRetencionsHabilitatSubhabilitatType();
+
+List retencionsHSList = retencionsHS.getRetencioHabilitatSubhabilitat();
+
+RetencioHabilitatSubhabilitatType retencioHS = objectFactory.
+createRetencionsHabilitatSubhabilitatTypeRetencioHabilitatSubhabilitatType();
+
+retencioHS.setImportBase(<span class="code-quote">"1500"</span>);
+retencioHS.setImportRetencio(<span class="code-quote">"25000"</span>);
+retencioHS.setIndicadorRetencio(<span class="code-quote">"01"</span>);
+retencioHS.setTipusRegistre(<span class="code-quote">"3"</span>);
+retencioHS.setOrder(<span class="code-keyword">new</span> BigInteger(<span class="code-quote">"0"</span>));
+
+retencionsHSList.add(retencioHS);
+
+retencioHS = (RetencioHabilitatSubhabilitatType)retencioHS.getClass().newInstance();
+
+retencioHS.setImportBase(<span class="code-quote">"1600"</span>);
+retencioHS.setImportRetencio(<span class="code-quote">"26000"</span>);
+retencioHS.setIndicadorRetencio(<span class="code-quote">"01"</span>);
+retencioHS.setTipusRegistre(<span class="code-quote">"3"</span>);
+retencioHS.setOrder(<span class="code-keyword">new</span> BigInteger(<span class="code-quote">"1"</span>));
+
+retencionsHSList.add(retencioHS);
+
+dadesAltaFacturaHabilitats.setRetencionsHabilitatSubhabilitat(retencionsHS);</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Fixem-nos que és important donar un ordre a les línies contingudes en la llista:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">retencioHS.setOrder(0);</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Amb aquest objecte ja podem fer la crida al SAP, mitjançant el mètode <em>altaFacturesHabilitats</em> de l'objecte  *<b>gecatConnector</b>&#42;:<br/>
+DadesConsultaCreditorRetornType dadesConsultaRetorn  = gecatConnector.consultaCreditor(dadesConsultaCreditor);
+<br clear="all" />
+Ara ja disposem de l'objecte de retorn per a ser utilitzat:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">List finalList = dadesAltaFacturaRetorn.getDadesRetorn().getDadaRetorn();
+
+<span class="code-object">System</span>.out.println(<span class="code-quote">"dadaRetorn.getClasseDocument():"</span> +
+((DadaRetornType)finalList.get(0)).getClasseDocument());</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h1><a name="ConnectorambGECAT-Usuarisdeprova"></a>Usuaris de prova</h1>
+
+<p>S'han habilitat dos usuaris per a fer proves amb el connector de Gecat. Aquests usuaris es poden fer servir en les proves de desenvolupament, però mai per a producció.</p>
+
+<p><b>ZBTCCANIGO</b> per a les interfases <b>"batch"</b>.</p>
+
+<p><b>ZINTCANIGO</b> per a les interfases <b>"on-line"</b>.</p>
+
+<h1><a name="ConnectorambGECAT-Versi%C3%B3Optimitzada"></a>Versió Optimitzada</h1>
+
+<p>S'ha portat a terme una optimització del connector de GECAT per tal de reduïr el seu número de classes i com a conseqüència el seu tamany.<br/>
+Per tal de fer-ho s'han modificat una sèrie de classes, concretament s'han traslladat totes les classes del paquet runtime de la pròpia funcionalitat a un paquet comú accessible per aquestes.</p>
+
+<p>Aquest canvi no hauria d'afectar a cap projecte ja que les classes modificades són utilitzades internament pel propi connector.<br/>
+Per realitzar el canvi només s'ha de descarregar la nova versió i sobreescriure l'anterior al repositori local de maven.</p>
+
+<p>Podeu trobar la nova versió per descarregar-la al següent <a href="http://canigo.ctti.gencat.net/confluence/download/attachments/1016/canigo-connectors-gecat-2.X.jar" title="Visit page outside Confluence">enllaç</a></p>
+
+<p><b>Nota:</b> El connector GECAT09 ja inclou aquesta optimització</p>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb GECAT_attachments/image005.gif">image005.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb GECAT_attachments/image003.gif">image003.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb GECAT_attachments/image004.gif">image004.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb GECAT_attachments/image001.gif">image001.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb GECAT_attachments/image002.gif">image002.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb GECAT_attachments/image006.gif">image006.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb GECAT_attachments/image007.gif">image007.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Connector amb GECAT_attachments/canigo-connectors-gecat-2.X.jar">canigo-connectors-gecat-2.X.jar</a> (application/java-archive)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

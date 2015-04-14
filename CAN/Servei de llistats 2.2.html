@@ -1,0 +1,1113 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Servei de llistats 2.2</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Servei de llistats 2.2
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Nov 26, 2007 by <font color="#0050B2">albert.sancho</font>.
+				    </div>
+
+				    <h1><a name="Serveidellistats2.2-SERVEIDELLISTATS"></a>SERVEI DE LLISTATS</h1>
+
+<p><br clear="all" />
+<br clear="all" />
+<div>
+<ul><a href='#Serveidellistats2.2-SERVEIDELLISTATS'>
+    <li>SERVEI DE LLISTATS</li></a><a href='#Serveidellistats2.2-%26nbsp%3BIntroducci%C3%B3'>
+    <li>&nbsp;Introducció</li></a>
+<ul><a href='#Serveidellistats2.2-Prop%C3%B2sit'>
+    <li>Propòsit</li></a><a href='#Serveidellistats2.2-ContextiEscenarisd%27%C3%9As'>
+    <li>Context i  Escenaris d'Ús</li></a><a href='#Serveidellistats2.2-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i  Dependències</li></a>
+<ul><a href='#Serveidellistats2.2-Depend%C3%A8nciesB%C3%A0siques'>
+    <li>Dependències  Bàsiques</li></a>
+</ul><a href='#Serveidellistats2.2-Aquivadirigit'>
+    <li>A qui va  dirigit</li></a><a href='#Serveidellistats2.2-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents i  Fonts de Referència</li></a><a href='#Serveidellistats2.2-Glossari'>
+    <li>Glossari</li></a>
+</ul><a href='#Serveidellistats2.2-Descripci%C3%B3Detallada'>
+    <li>Descripció  Detallada</li></a>
+<ul><a href='#Serveidellistats2.2-ArquitecturaiComponents'>
+    <li>Arquitectura i  Components</li></a>
+<ul><a href='#Serveidellistats2.2-Llibreriadetags'>
+    <li>Llibreria de  tags</li></a>
+</ul><a href='#Serveidellistats2.2-Instal%5Claci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal&#45; lació  i Configuració</li></a>
+<ul><a href='#Serveidellistats2.2-Instal%5Claci%C3%B3'>
+    <li>Instal&#45; lació</li></a><a href='#Serveidellistats2.2-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#Serveidellistats2.2-Utilitzaci%C3%B3delservei'>
+    <li>Utilització del  servei</li></a><a href='#Serveidellistats2.2-Einesdesuport'>
+    <li>Eines de  suport</li></a><a href='#Serveidellistats2.2-Integraci%C3%B3ambaltresserveis'>
+    <li>Integració  amb altres serveis</li></a>
+<ul><a href='#Serveidellistats2.2-Serveimultiidioma'>
+    <li>Servei  multi idioma</li></a><a href='#Serveidellistats2.2-Serveidepersist%C3%A8ncia'>
+    <li>Servei de  persistència</li></a>
+</ul><a href='#Serveidellistats2.2-PreguntesFreq%C3%BC%C3%A8nts'>
+    <li>Preguntes  Freqüènts</li></a>
+</ul><a href='#Serveidellistats2.2-Exemples'>
+    <li>Exemples</li></a>
+</ul></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h1><a name="Serveidellistats2.2-%26nbsp%3BIntroducci%C3%B3"></a>&nbsp;Introducció</h1>
+
+
+<h2><a name="Serveidellistats2.2-Prop%C3%B2sit"></a>Propòsit</h2>
+
+<p>El servei de llistats permet la presentació de llistats HTML en el que es  permet a l'usuari:</p>
+<ol>
+	<li>Ordenar per columna de manera ascendent o descendent.</li>
+	<li>Paginació dels resultats i navegació per pàgines mitjançant "avanç" i  "retrocés" (primera, última, següent, anterior), i per accés directe a un número  de pàgina.</li>
+	<li>Presentar un número determinat de resultats per pàgina.</li>
+	<li>Acotar el número màxim de resultats a mostrar.</li>
+</ol>
+
+
+<p>A més, proporciona ajut a l'usuari, presentant:</p>
+<ol>
+	<li>Rollover de la fila al passar el ratolí per sobre.</li>
+	<li>Desactivació dels botons de navegació depenent de la pàgina en la que  s'estigui ubicat.</li>
+	<li>Indicació de la columna per la que s'està ordenant mitjançant icones,  mostrant si és ascendent o descendent.</li>
+	<li>Look &amp; feel configurable.</li>
+</ol>
+
+
+<h2><a name="Serveidellistats2.2-ContextiEscenarisd%27%C3%9As"></a>Context i  Escenaris d'Ús</h2>
+
+<p>El servei de llistats es troba dins dels serveis de Propòsit General de  canigo.</p>
+
+<h2><a name="Serveidellistats2.2-VersionsiDepend%C3%A8ncies"></a>Versions i  Dependències</h2>
+
+<p>En el present apartat es mostren quines són les versions i dependències  necessàries per fer ús del Servei.</p>
+
+<h3><a name="Serveidellistats2.2-Depend%C3%A8nciesB%C3%A0siques"></a>Dependències  Bàsiques</h3>
+
+<p>Les dependències descrites a la següent url son requerides per tal de fer funcionar el servei:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-web/dependencies.html" title="Visit page outside Confluence">Dependències Servei de Llistats</a></p>
+
+<h2><a name="Serveidellistats2.2-Aquivadirigit"></a>A qui va  dirigit</h2>
+
+<p>Aquest document va dirigit als següents perfils:</p>
+<ol>
+	<li>Programador. Per conéixer l'ús del servei</li>
+	<li>Arquitecte. Per conéixer quins són els components i la configuració del  servei</li>
+	<li>Administrador. Per conéixer cóm configurar el servei en cadascun dels  entorns en cas de necessitat</li>
+</ol>
+
+
+<h2><a name="Serveidellistats2.2-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents i  Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> [1] </th>
+<th class='confluenceTh'> Value List </th>
+<th class='confluenceTh'> <a href="http://valuelist.sourceforge.net/overview.html" title="Visit page outside Confluence">http://valuelist.sourceforge.net/overview.html</a> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> [2] </td>
+<td class='confluenceTd'> Hibernate </td>
+<td class='confluenceTd'> <a href="http://www.hibernate.org" title="Visit page outside Confluence">http://www.hibernate.org</a> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> [3] </td>
+<td class='confluenceTd'> Jakarta POI </td>
+<td class='confluenceTd'> <a href="http://jakarta.apache.org/poi/" title="Visit page outside Confluence">http://jakarta.apache.org/poi/</a> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> [4] </td>
+<td class='confluenceTd'> iText </td>
+<td class='confluenceTd'> <a href="http://www.lowagie.com/iText/" title="Visit page outside Confluence">http://www.lowagie.com/iText/</a> </td>
+</tr>
+</tbody></table>
+
+<h2><a name="Serveidellistats2.2-Glossari"></a>Glossari</h2>
+
+<p><b>Log4J</b><br/>
+Un dels framework de traces més extés. Es basa en l'ús de  Appenders, Categories i Layouts. Veure l'annex per a més informació.</p>
+
+<p><b>Value List</b><br/>
+Llibrería de tags que ens permet la definició, execució  i presentació de queries contra una base de dades</p>
+
+<p><b>Jakarta POI</b><br/>
+Llibreria que ens permet la generació de documents en  format (principalment) Microsoft Word i Microsoft Excel</p>
+
+<p><b>iText</b><br/>
+Llibreria que ens permet la generació de fitxers PDF 'al  vol', és a dir, sense cap plantilla predefinida sinó mitjançant la  programació</p>
+
+<p><b>Hibernate</b><br/>
+Llibreria de persistència de gran rendiment, que permet  desenvolupar les classes persistents amb un idioma orientat a objectes.</p>
+
+<h1><a name="Serveidellistats2.2-Descripci%C3%B3Detallada"></a>Descripció  Detallada</h1>
+
+
+<h2><a name="Serveidellistats2.2-ArquitecturaiComponents"></a>Arquitectura i  Components</h2>
+
+<p>Existeixen tres tipus de components. Podem classificar-los en:</p>
+<ol>
+	<li>Interfícies i components genèrics.</li>
+	<li>Implementació de les interfícies.</li>
+	<li>Llibrería de tags per a la presentació de resultats.
+<br clear="all" /></li>
+</ol>
+
+
+<p>Es pot trobar tota la documentació JavaDoc y el codi font referent aquests components a les següents urls:</p>
+
+<p><ins>JavaDoc:</ins> <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-web/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-web/apidocs/index.html</a><br/>
+<ins>Codi Font:</ins>&nbsp; <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-web/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-web/xref/index.html</a></p>
+
+<h3><a name="Serveidellistats2.2-Llibreriadetags"></a>Llibreria de  tags</h3>
+
+<p>Els tags que s'utilitzen són els propis de la llibreria Value List.</p>
+
+<p><b>&lt;vlh:root/&gt;</b><br/>
+Aquest tag és obligatori com a element pare per  la resta de tags</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> <b>value</b> </td>
+<td class='confluenceTd'> Nom de la variable on es troben les  dades (típicament "list"). </td>
+</tr>
+<tr>
+<td class='confluenceTd'> <b>url</b> </td>
+<td class='confluenceTd'> L'URL base per realitzar els posts a  un action. Tots els links generats a la taula de resultats es muntaran a partir  d'aquest atribut. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> <b>includeParameters (opcional)</b> </td>
+<td class='confluenceTd'> Atribut en el que inclourem sempre  el "reqCode" i la resta de paràmetres pels que ha pogut haver estat filtrat en  el <em>Value List</em>. Els paràmetres es separen mitjançant el caràcter pipe  "&#124;". </td>
+</tr>
+<tr>
+<td class='confluenceTd'> <b>configName</b> </td>
+<td class='confluenceTd'> Nom del bean de configuració  (típicament vlConfig). </td>
+</tr>
+</tbody></table>
+<p><b>&lt;vlh:retreive/&gt;</b><br/>
+Aquest tag és opcional ja que la informació  ve implícita segons l'Action executat. S'utilitza si per una vista en concret es  vol utilitzar un altre Value List del definit per defecte.</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> <b>name</b> </td>
+<td class='confluenceTd'> Nom de del adaptador que retorna les  dades. </td>
+</tr>
+</tbody></table>
+<p><b>&lt;vlh: Pagging/&gt;</b><br/>
+Tag que genera el panell per controlar la  paginació dels resultats i navegació per pàgines mitjançant "avanç" i "retrocés"  (primera, última, següent, anterior), i per accés directe a un número de  pàgina.</p>
+
+<p><em>Important</em><br/>
+Aquest tag requereix per a que funcioni correctament,  que en el fitxer referenciat com a "messageResource" s'especifiquin les següents  "keys":
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">paging.text.totalRow={0} Total
+paging.text.pageFromTotal= &lt;b&gt;{0}&lt;/b&gt; of {1} page(s)
+paging.first(off)=&lt;img src=<span class="code-quote">"images/first(off).gif"</span>&gt;
+paging.first(on)=&lt;img src=<span class="code-quote">"images/first(on).gif"</span>&gt;
+paging.previous(off)=&lt;img src=<span class="code-quote">"images/previous(off).gif"</span>&gt;
+paging.previous(on)=&lt;img src=<span class="code-quote">"images/previous(on).gif"</span>&gt;
+paging.forward(off)=&lt;img src=<span class="code-quote">"images/forward(off).gif"</span>&gt;
+paging.forward(on)=&lt;img src=<span class="code-quote">"images/forward(on).gif"</span>&gt;
+paging.last(off)=&lt;img src=<span class="code-quote">"images/last(off).gif"</span>&gt;
+paging.last(on)=&lt;img src=<span class="code-quote">"images/last(on).gif"</span>&gt;
+paging.delim=
+paging.focus(on)=&lt;img src=<span class="code-quote">"images/focus(on).gif"</span>&gt;
+paging.focus(off)=&lt;img src=<span class="code-quote">"images/focus(off).gif"</span>&gt;
+paging.focus(disabled)=&lt;img src=<span class="code-quote">"images/focus(disabled).gif"</span>&gt;
+paging.focus(error)=&lt;img src=<span class="code-quote">"images/focus(error).gif"</span>&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />  <b>&lt;vlh:row/&gt;</b><br/>
+La funció d'aquest tag és la d'iteració dels  resultats.
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+&#124;&#124; <b>Atribut</b> &#124;&#124; <b>Descripció</b> &#124;&#124;
+<br clear="all" /></p>
+<table class='confluenceTable'><tbody>
+<tr>
+<td class='confluenceTd'> <b>bean</b> </td>
+<td class='confluenceTd'> Nom de la clau del PageContext on es  troben les dades (típicament "job"). </td>
+</tr>
+<tr>
+<td class='confluenceTd'> <b>display (opcional)</b> </td>
+<td class='confluenceTd'> Nom de del adaptador que retorna les  dades (en el cas de que s'utilitzi l'adaptador per defecte de l'action tindrà el  valor "&lt;%=(String)request.getAttribute("subReqCode")%&gt;"). </td>
+</tr>
+</tbody></table>
+<p><b>&lt;vlh:attribute/&gt;</b><br/>
+Aquest tag afegeix al tag pare atributs  HTML.</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> <b>name</b> </td>
+<td class='confluenceTd'> Nom de l'atribut HTML </td>
+</tr>
+<tr>
+<td class='confluenceTd'> <b>value</b> </td>
+<td class='confluenceTd'> Valor de l'atribut HTML </td>
+</tr>
+</tbody></table>
+<p><b>&lt;vlh:column/&gt;</b><br/>
+Aquest tag renderitza una columna per cada  registre iterat.</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> <b>property</b> </td>
+<td class='confluenceTd'> Nom de la propietat a mostrar. Les  associacions amb altres taules es poden definir de manera implícita de la  manera: "property="productid.id"" </td>
+</tr>
+<tr>
+<td class='confluenceTd'> <b>sortable (opcional)</b> </td>
+<td class='confluenceTd'> Defineix si el resultat està ordenat  per aquest camp i amb quin ordre ("asc": ascendent, "desc": descendent). En el  cas de no incloure aquest atribut no es podra ordenar els resultats per aquesta  columna. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> <b>titleKey</b> </td>
+<td class='confluenceTd'> Nom de la columna definit en el  "message resources". </td>
+</tr>
+</tbody></table>
+<p><b>&lt;vlh:controls/&gt;</b><br/>
+Aquest tag renderitza una columna per  incloure controls sobre cada registre (eliminar, modificar, etc.)</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> <b>titlekey</b> </td>
+<td class='confluenceTd'> Nom de la columna definit en el  "message resources". </td>
+</tr>
+</tbody></table>
+<p><b>&lt;vlh:action/&gt;</b><br/>
+Aquest tag defineix una URL per realitzar  addicionals post per diferents actions segons el que es vulgui realitzar.</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> <b>url (opcional)</b> </td>
+<td class='confluenceTd'> Si no s'inclou s'utilitza l'URL del  tag "root". </td>
+</tr>
+</tbody></table>
+<p><em>Nota</em><br/>
+És pot definir una URL que retorni la vista del resultat  en format PDF.<br/>
+Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;vlh:action  url=<span class="code-quote">"categories.<span class="code-keyword">do</span>?"</span>&gt;
+
+&lt;vlh:addParam name=<span class="code-quote">"reqCode"</span>  value=<span class="code-quote">"searchExportPDF"</span> temp=<span class="code-quote">"<span class="code-keyword">false</span>"</span>/&gt;
+
+&lt;bean:message  key=<span class="code-quote">"valueListInfo.toPDF"</span>/&gt;
+
+&lt;/vlh:action&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />  <b>&lt;vlh:addParam/&gt;</b><br/>
+Aquest tag afegeix paràmetres al tag pare  (típicament "root" o "action").
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+&#124;&#124; <b>Atribut</b> &#124;&#124; <b>Descripció</b> &#124;&#124;
+<br clear="all" /></p>
+<table class='confluenceTable'><tbody>
+<tr>
+<td class='confluenceTd'> <b>name</b> </td>
+<td class='confluenceTd'> Nom del paràmetre a afegir a l'URL. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> <b>property (opcional)</b> </td>
+<td class='confluenceTd'> Valor dinàmic obtingut d'una  propietat del registre. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> value (optional) </td>
+<td class='confluenceTd'> Valor estàtic pel paràmetre. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> <b>temp (true/false)</b> </td>
+<td class='confluenceTd'> Afegeix el prefix  "ACTION_TEMP_PARAM" al nom del paràmetre. </td>
+</tr>
+</tbody></table>
+
+<h2><a name="Serveidellistats2.2-Instal%5Claci%C3%B3iConfiguraci%C3%B3"></a>Instal&#45; lació  i Configuració</h2>
+
+
+<h3><a name="Serveidellistats2.2-Instal%5Claci%C3%B3"></a>Instal&#45; lació</h3>
+
+<p>La instal&#45; lació del servei requereix de la utilització de la llibreria  'canigo-services-web-lists' i les dependències indicades a l'apartat  'Introducció-Versions i Dependències'.</p>
+
+<h3><a name="Serveidellistats2.2-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p>La configuració del servei implica:</p>
+<ol>
+	<li>Definir el servei i injectar-li les seves dependències</li>
+	<li>Enllaç d'una acció amb el seu "Value List"</li>
+</ol>
+
+
+<p>Definició del servei i de les seves dependències</p>
+
+<p><img src="Servei de llistats 2.2_attachments/image005.gif" align="absmiddle" border="0" /></p>
+
+<p><em>Fitxer de configuració: canigo-services-web-lists.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>La definició del servei requereix configurar un bean "pare" amb un  identificador i els següents atributs:</p>
+
+<p>Atributs:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> class </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Implementació concreta del servei a  utilitzar <br clear="all" />
+<br clear="all" />
+Opcions: <br clear="all" />
+&#35;  net.gencat.ctti.canigo.services.web.lists.impl.SimpleValueListActionHelper. <br clear="all" /> </td>
+</tr>
+</tbody></table>
+<p>També es necessari configurar les següents propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> valueListHelper </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Classe d'ajuda per a les búsquedes </td>
+</tr>
+<tr>
+<td class='confluenceTd'> maxExportRows </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Número màxim de files a exportar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> logService </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Referència al servei de traces </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+
+&lt;bean  name=<span class="code-quote">"valueListActionHelper"</span>
+
+class=<span class="code-quote">"net.gencat.ctti.canigo.services.web.lists.impl.SimpleValueListActionHelper"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"valueListHelper"</span>&gt;
+
+&lt;ref bean=<span class="code-quote">"valueListHelper"</span>  /&gt;
+
+&lt;/property&gt;
+
+&lt;property name=<span class="code-quote">"maxExportRows"</span>  value=<span class="code-quote">"2"</span>&gt;&lt;/property&gt;
+
+&lt;property name=<span class="code-quote">"logService"</span>  ref=<span class="code-quote">"loggingService"</span>/&gt;
+
+&lt;/bean&gt;
+
+...</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />  <em>Fitxer de configuració: canigo-services-web-lists.xml</em><br/>
+<img src="Servei de llistats 2.2_attachments/image010.gif" align="absmiddle" border="0" /><br/>
+&#95;Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring&#95;
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+La definició del servei requereix configurar un bean "simplificador" per a  executar les búsquedes:
+<br clear="all" /></p>
+
+<p>Atributs:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> class </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Classe d'ajuda a utilitzar <br clear="all" />
+<br clear="all" />
+Opcions: <br clear="all" />
+&#35;  net.mlw.vlh.web.mvc.ValueListHandlerHelper <br clear="all" /> </td>
+</tr>
+</tbody></table>
+<p>També es necessari configurar les següents propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> valueListHandler </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Delegat de les búsquedes </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+
+&lt;bean  id=<span class="code-quote">"valueListHelper"</span>
+
+class=<span class="code-quote">"net.mlw.vlh.web.mvc.ValueListHandlerHelper"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"valueListHandler"</span>&gt;
+
+&lt;ref bean=<span class="code-quote">"valueListHandler"</span>  /&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;
+
+...</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />  <img src="Servei de llistats 2.2_attachments/image007.gif" align="absmiddle" border="0" /><br clear="all" />
+&#95;Fitxer de configuració: canigo-services-web-lists.xml&#95;
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />  <em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em><br clear="all" /></p>
+
+<p>La definició del servei requereix configurar un bean "delegat" per a  localitzar les búsquedes:</p>
+
+<p>Atributs:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> class </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Classe delegada a utilitzar <br clear="all" />
+<br clear="all" />
+Opcions: <br clear="all" />
+&#35;  net.mlw.vlh.DefaultValueListHandlerImpl <br clear="all" /> </td>
+</tr>
+</tbody></table>
+<p>També es necessari configurar les següents propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> config.adapters </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Mapa que conté els identificadors de  cada una de les búsquedes a utilitzar i els beans que es cridaran per a fer les  búsquedes. </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+
+&lt;bean  name=<span class="code-quote">"valueListHandler"</span>
+
+class=<span class="code-quote">"net.mlw.vlh.DefaultValueListHandlerImpl"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"config.adapters"</span>&gt;
+
+&lt;map&gt;
+
+&lt;entry  key=<span class="code-quote">"productList"</span>&gt;
+
+&lt;bean  parent=<span class="code-quote">"baseHibernateAdapter"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"hql"</span>&gt;
+
+&lt;value&gt;
+
+FROM
+
+net.gencat.ctti.canigo.samples.jpetstore.model.Product
+
+AS  vo WHERE 1=1
+
+/~name: AND vo.name LIKE \{name\} ~/
+
+/~category: AND  vo.category.id LIKE \{category\} ~/
+
+/sortColumn: ORDER BY vo.[sortColumn]  [sortDirection]/
+
+&lt;/value&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;
+
+&lt;/entry&gt;
+
+&lt;/map&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;
+
+...</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />  <img src="Servei de llistats 2.2_attachments/image008.gif" align="absmiddle" border="0" /><br clear="all" />
+&#95;Fitxer de configuració: canigo-services-web-lists.xml&#95;
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />  <em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em><br clear="all" /></p>
+
+<p>La definició del servei requereix configurar un bean "delegat" per a executar  les búsquedes:</p>
+
+<p>Atributs:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> class </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Classe delegada a utilitzar <br clear="all" />
+<br clear="all" />
+Opcions: <br clear="all" />
+&#35;  net.mlw.vlh.adapter.hibernate3.Hibernate30Adapter <br clear="all" /> </td>
+</tr>
+</tbody></table>
+<p>També es necessari configurar les següents propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> sessionFactory </td>
+<td class='confluenceTd'> Si </td>
+<td class='confluenceTd'> Referència a la factoria de sessions  d'Hibernate </td>
+</tr>
+<tr>
+<td class='confluenceTd'> defaultNumberPerPage </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Número de resultats per defecte de  les pàgines. Si no s'especifica aquesta propietat, el valor serà de 500<br clear="all" /> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> defaultSortColumn </td>
+<td class='confluenceTd'> Si </td>
+<td class='confluenceTd'> Columna d'ordenació per defecte </td>
+</tr>
+<tr>
+<td class='confluenceTd'> defaultSortDirection </td>
+<td class='confluenceTd'> Si </td>
+<td class='confluenceTd'> Direcció d'ordenació per defecte </td>
+</tr>
+<tr>
+<td class='confluenceTd'> removeEmptyString </td>
+<td class='confluenceTd'> Si </td>
+<td class='confluenceTd'> Elimina els valors buits dels  filtres de la búsqueda </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+
+&lt;bean  name=<span class="code-quote">"baseHibernateAdapter"</span>
+
+class=<span class="code-quote">"net.mlw.vlh.adapter.hibernate3.Hibernate30Adapter"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"sessionFactory"</span> ref=<span class="code-quote">"sessionFactory"</span>/&gt;
+
+&lt;property  name=<span class="code-quote">"defaultNumberPerPage"</span> value=<span class="code-quote">"5"</span>/&gt;
+
+&lt;property  name=<span class="code-quote">"defaultSortColumn"</span> value=<span class="code-quote">"id"</span>/&gt;
+
+&lt;property  name=<span class="code-quote">"defaultSortDirection"</span> value=<span class="code-quote">"asc"</span>/&gt;
+
+&lt;property  name=<span class="code-quote">"removeEmptyStrings"</span> value=<span class="code-quote">"<span class="code-keyword">true</span>"</span>/&gt;
+
+&lt;/bean&gt;
+
+...</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />  <img src="Servei de llistats 2.2_attachments/image009.gif" align="absmiddle" border="0" /><br clear="all" />
+<br clear="all" />
+&#95;Fitxer de configuració: canigo-services-web-lists.xml&#95;
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />  <em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em><br clear="all" /></p>
+
+<p>La definició del servei requereix configurar un bean "configurador" per a la  presentació de resultats:</p>
+
+<p>Atributs:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> class </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Classe configuradora a utilitzar <br clear="all" />
+<br clear="all" />
+Opcions: <br clear="all" />
+&#35;  net.mlw.vlh.web.ValueListConfigBean <br clear="all" /> </td>
+</tr>
+</tbody></table>
+<p>També es necessari configurar les següents propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> messageSource </td>
+<td class='confluenceTd'> Si </td>
+<td class='confluenceTd'> Referència al servei multi idioma </td>
+</tr>
+<tr>
+<td class='confluenceTd'> displayProviders </td>
+<td class='confluenceTd'> Si </td>
+<td class='confluenceTd'> Proveïdors dels diferents tipus de  llistats. Opcions: <br clear="all" />
+&#35;  net.gencat.ctti.canigo.services.web.vlh.tag.support.PdfDisplayProvider <br clear="all" />
+&#35;  net.gencat.ctti.canigo.services.web.vlh.tag.support.ExcelDisplayProvider <br clear="all" /> </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+
+&lt;bean name=<span class="code-quote">"vlConfig"</span>  class=<span class="code-quote">"net.mlw.vlh.web.ValueListConfigBean"</span>
+
+singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"messageSource"</span> ref=<span class="code-quote">"messageSource"</span>/&gt;
+
+&lt;property  name=<span class="code-quote">"displayProviders"</span>&gt;
+
+&lt;map&gt;
+
+&lt;entry  key=<span class="code-quote">"ExportPDF"</span>&gt;
+
+&lt;bean  class=<span class="code-quote">"net.gencat.ctti.canigo.services.web.vlh.tag.support.PdfDisplayProvider"</span>  singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
+
+&lt;property name=<span class="code-quote">"logService"</span>  ref=<span class="code-quote">"loggingService"</span>/&gt;
+
+&lt;property name=<span class="code-quote">"i18nService"</span>  ref=<span class="code-quote">"i18nService"</span>/&gt;
+
+&lt;property  name=<span class="code-quote">"skipColumns"</span>&gt;
+
+&lt;list&gt;
+
+&lt;value&gt;jsp.categories.categoryList.actions&lt;/value&gt;
+
+&lt;value&gt;jsp.products.productList.actions&lt;/value&gt;
+
+&lt;/list&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;
+
+&lt;/entry&gt;
+
+&lt;/map&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;
+
+...</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Enllaç d'una acció amb el seu "Value List"<br/>
+<img src="Servei de llistats 2.2_attachments/image006.gif" align="absmiddle" border="0" /><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p><em>Fitxer de configuració: action-servlet-XXX.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>Cada acció que implementi una búsqueda necessita la definició d'un bean que  hereti del bean "pare" del servei i que tingui els següents atributs:</p>
+
+<p>Atributs:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> listName </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Nom de la consulta que es llençarà </td>
+</tr>
+<tr>
+<td class='confluenceTd'> tableId </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Identificador únic de la taula que  es consulta, per a guardar en sessió els filtres de les búsquedes </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+
+&lt;property name=<span class="code-quote">"valueListActionHelper"</span>&gt;
+
+&lt;bean  parent=<span class="code-quote">"valueListActionHelper"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"listName"</span>&gt;
+
+&lt;value&gt;categoriesList&lt;/value&gt;
+
+&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"tableId"</span>  value=<span class="code-quote">"CATEGORY"</span>/&gt;
+
+&lt;/bean&gt;
+
+&lt;/property&gt;
+
+...</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h2><a name="Serveidellistats2.2-Utilitzaci%C3%B3delservei"></a>Utilització del  servei</h2>
+
+<p>Per a poder utilitzar el servei, s'han de seguir els següents passos:</p>
+<ul>
+	<li>Implementar la interfície 'UsesValueList':
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> class CategoryAction <span class="code-keyword">extends</span> DispatchActionSupport <span class="code-keyword">implements</span> UsesValueList {
+    ...
+}</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Definir un attribut d'instància que implementi  'ValueListActionHelper'
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">private</span> ValueListActionHelper valueListActionHelper;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Definir els 'setters' i 'getters' corresponents
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> ValueListActionHelper getValueListActionHelper() {
+    <span class="code-keyword">return</span> valueListActionHelper;
+}
+<span class="code-keyword">public</span> void setValueListActionHelper(ValueListActionHelper valueListActionHelper) {
+    <span class="code-keyword">this</span>.valueListActionHelper = valueListActionHelper;
+}</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Implementar els mètodes de búsqueda corresponents
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> ActionForward search(ActionMapping mapping, ActionForm form,
+javax.servlet.http.HttpServletRequest request,javax.servlet.http.HttpServletResponse response)
+    <span class="code-keyword">throws</span> Exception {
+        valueListActionHelper.search(mapping, form, request, response);
+        <span class="code-keyword">return</span> mapping.findForward(<span class="code-quote">"list"</span>);
+    }</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Crear els JSP's amb els tags necessaris per a presentar els  resultats</li>
+</ul>
+
+
+<h2><a name="Serveidellistats2.2-Einesdesuport"></a>Eines de  suport</h2>
+
+
+<h2><a name="Serveidellistats2.2-Integraci%C3%B3ambaltresserveis"></a>Integració  amb altres serveis</h2>
+
+
+<h3><a name="Serveidellistats2.2-Serveimultiidioma"></a>Servei  multi idioma</h3>
+
+<p>El servei de llistats s'integra amb el servei de multi idioma a partir de la  propietat "messageSource" del bean "configurador" (típicament "vlConfig"). És  necessari per això definir la configuració que s'utilitzarà (atribut  "configName") en cadascun dels JSP de presentació de resultats</p>
+
+<h3><a name="Serveidellistats2.2-Serveidepersist%C3%A8ncia"></a>Servei de  persistència</h3>
+
+<p>El servei de llistats s'integra amb el servei de persistència a partir de la  propietat "sessionFactory" del bean "delegat" (típicament  "baseHibernateAdapter") d'executar les queries.</p>
+
+<h2><a name="Serveidellistats2.2-PreguntesFreq%C3%BC%C3%A8nts"></a>Preguntes  Freqüènts</h2>
+
+<p><b>Per què el servei de llistats no em mostra els títols de les  columnes?</b><br/>
+Per a mostrar els "titleKey" corresponents en el servei de  llistats és necessari configurar al bean "configurador" (típicament vlConfig) la  referència al servei multi idioma (propietat "messageSource") i afegir als JSP  el atribut "configName" al tag &lt;vlh:root/&gt;</p>
+
+<h1><a name="Serveidellistats2.2-Exemples"></a>Exemples</h1>
+
+<p>Com exemple d'utilització del servei de llistats s'inclou el resultat d'un  llistat i el codi font de la vista i la seva <em>Action</em>.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> class CategoryAction <span class="code-keyword">extends</span> DispatchActionSupport <span class="code-keyword">implements</span>
+        UsesValueList {
+    <span class="code-keyword">private</span> ValueListActionHelper valueListActionHelper;
+
+...
+
+    <span class="code-keyword">public</span> ValueListActionHelper getValueListActionHelper() {
+        <span class="code-keyword">return</span> valueListActionHelper;
+    }
+
+    <span class="code-keyword">public</span> void setValueListActionHelper(ValueListActionHelper valueListActionHelper) {
+        <span class="code-keyword">this</span>.valueListActionHelper = valueListActionHelper;
+    }
+...
+}</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />  <em>Codi 1 Exemple d'utilització del  servei associat a una 'Action'</em><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;%@ include file=<span class="code-quote">"layouts/fwkTagLibs.jsp"</span>%&gt;
+
+&lt;fwk:html&gt;
+
+&lt;!-- Search criteria --&gt;
+&lt;table cellpadding=<span class="code-quote">"0"</span> cellspacing=<span class="code-quote">"0"</span> border=<span class="code-quote">"0"</span>&gt;
+  &lt;tr&gt;
+    &lt;td width=<span class="code-quote">"100%"</span> align=<span class="code-quote">"center"</span>&gt;
+      &lt;fwk:form action=<span class="code-quote">"/categories.<span class="code-keyword">do</span>"</span> reqCode=<span class="code-quote">"search"</span> style=<span class="code-quote">"height: 50px; width:100%;"</span> &gt;
+        &lt;fwk:text property=<span class="code-quote">"id"</span> key=<span class="code-quote">"category.id"</span> mode=<span class="code-quote">"E,E,E"</span> size=<span class="code-quote">"4"</span> maxlength=<span class="code-quote">"4"</span>
+        styleClass=<span class="code-quote">"LABEL"</span> /&gt;
+        &lt;fwk:text property=<span class="code-quote">"descn"</span> key=<span class="code-quote">"category.descn"</span> mode=<span class="code-quote">"E,E,E"</span> size=<span class="code-quote">"40"</span> maxlength=<span class="code-quote">"40"</span>
+        styleClass=<span class="code-quote">"LABEL"</span> /&gt;
+        &lt;layout:image styleClass=<span class="code-quote">"submit(reqCode:'search',message:'submit.button.search')"</span>
+        src=<span class="code-quote">"images/ast.gif"</span>/&gt;
+      &lt;/fwk:form&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;!-- Result list --&gt;
+&lt;logic:present name=<span class="code-quote">"list"</span> scope=<span class="code-quote">"request"</span>&gt;
+  &lt;vlh:root value=<span class="code-quote">"list"</span> url=<span class="code-quote">"categories.<span class="code-keyword">do</span>?"</span> includeParameters=<span class="code-quote">"reqCode|id|descn"</span>
+  configName=<span class="code-quote">"vlConfig"</span>&gt;
+    &lt;table width=<span class="code-quote">"450"</span>&gt;
+    &lt;!-- pagination section --&gt;
+      &lt;tr&gt;
+          &lt;td align=<span class="code-quote">"left"</span> nowrap=<span class="code-quote">"<span class="code-keyword">true</span>"</span>&gt;
+           &lt;c:out     value=<span class="code-quote">"${list.valueListInfo.totalNumberOfEntries}"</span>/&gt;
+           &lt;bean:message key=<span class="code-quote">"valueListInfo.totalNumberOfEntries"</span>/&gt;
+        (&lt;c:out value=<span class="code-quote">"${list.valueListInfo.pagingPage}"</span> /&gt;
+           &lt;bean:message key=<span class="code-quote">"valueListInfo.totalNumberOfEntries.of"</span>/&gt;
+           &lt;c:out value=<span class="code-quote">"${list.valueListInfo.totalNumberOfPages}"</span>/&gt;)
+         &lt;/td&gt;
+          &lt;td align=<span class="code-quote">"right"</span>&gt;
+           &lt;vlh:paging/&gt;
+         &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;!-- end of Pagination --&gt;
+
+        &lt;tr&gt;
+        &lt;td colspan=<span class="code-quote">"2"</span>&gt;
+          &lt;table width=<span class="code-quote">"450"</span> class=<span class="code-quote">"classicLook"</span> cellspacing=<span class="code-quote">"0"</span>
+                 cellpadding=<span class="code-quote">"0"</span>&gt;
+            &lt;vlh:row bean=<span class="code-quote">"job"</span>
+              display=<span class="code-quote">"&lt;%=(<span class="code-object">String</span>)request.getAttribute("</span>subReqCode<span class="code-quote">")%&gt;"</span>&gt;
+              &lt;vlh:attribute name=<span class="code-quote">"onmouseover"</span>&gt;
+            <span class="code-keyword">this</span>.className='selected';
+              &lt;/vlh:attribute&gt;
+              &lt;vlh:attribute name=<span class="code-quote">"onmouseout"</span>&gt;
+            <span class="code-keyword">this</span>.className='zebra0';
+              &lt;/vlh:attribute&gt;
+              &lt;vlh:column titleKey=<span class="code-quote">"category.id"</span> property=<span class="code-quote">"id"</span>
+                sortable=<span class="code-quote">"desc"</span> /&gt;
+              &lt;vlh:column titleKey=<span class="code-quote">"category.name"</span> property=<span class="code-quote">"name"</span>
+                sortable=<span class="code-quote">"desc"</span> /&gt;
+              &lt;vlh:controls titleKey=<span class="code-quote">"category.control"</span>&gt;
+                &lt;vlh:action url=<span class="code-quote">"products.<span class="code-keyword">do</span>?"</span>&gt;
+            &lt;vlh:addParam name=<span class="code-quote">"reqCode"</span> value=<span class="code-quote">"search"</span>
+                    temp=<span class="code-quote">"<span class="code-keyword">false</span>"</span> /&gt;
+                   &lt;bean:message key=<span class="code-quote">"products.edit"</span>/&gt;
+                  &lt;vlh:addParam name=<span class="code-quote">"category"</span> property=<span class="code-quote">"id"</span>
+                    temp=<span class="code-quote">"<span class="code-keyword">false</span>"</span> /&gt;
+                &lt;/vlh:action&gt;
+                &lt;vlh:action url=<span class="code-quote">"categories.<span class="code-keyword">do</span>?"</span>&gt;
+                  &lt;vlh:addParam name=<span class="code-quote">"reqCode"</span> value=<span class="code-quote">"edit"</span>
+                    temp=<span class="code-quote">"<span class="code-keyword">false</span>"</span>/&gt;
+                   &lt;bean:message key=<span class="code-quote">"category.edit"</span>/&gt;
+                  &lt;vlh:addParam name=<span class="code-quote">"id"</span> property=<span class="code-quote">"id"</span> temp=<span class="code-quote">"<span class="code-keyword">false</span>"</span> /&gt;
+                &lt;/vlh:action&gt;
+              &lt;/vlh:controls&gt;
+            &lt;/vlh:row&gt;
+          &lt;/table&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+
+    &lt;vlh:action url=<span class="code-quote">"categories.<span class="code-keyword">do</span>?"</span>&gt;
+      &lt;vlh:addParam name=<span class="code-quote">"reqCode"</span> value=<span class="code-quote">"searchExportPDF"</span> temp=<span class="code-quote">"<span class="code-keyword">false</span>"</span>/&gt;
+      &lt;bean:message key=<span class="code-quote">"valueListInfo.toPDF"</span>/&gt;
+    &lt;/vlh:action&gt;
+  &lt;/vlh:root&gt;
+&lt;/logic:present&gt;
+
+&lt;/fwk:html&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />  <em>Codi 2 Exemple d'utilització del servei des d'una  vista JSP</em><em>Nota</em><br/>
+És important d'adonar-se'n com s'ha accedit a diferents  propietats de la llistat (com el nombre de files, etc) a la "Pagination  section".<br/>
+Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;c:out  value=<span class="code-quote">"$\{list.valueListInfo.totalNumberOfEntries\}"</span>/&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de llistats 2.2_attachments/image009.gif">image009.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de llistats 2.2_attachments/image010.gif">image010.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de llistats 2.2_attachments/image001.jpg">image001.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de llistats 2.2_attachments/image002.gif">image002.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de llistats 2.2_attachments/image003.gif">image003.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de llistats 2.2_attachments/image004.gif">image004.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de llistats 2.2_attachments/image006.gif">image006.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de llistats 2.2_attachments/image005.gif">image005.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de llistats 2.2_attachments/image007.gif">image007.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de llistats 2.2_attachments/image008.gif">image008.gif</a> (image/gif)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

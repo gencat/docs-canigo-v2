@@ -1,0 +1,324 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Detall dels tags - textArea</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Detall dels tags - textArea
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Nov 02, 2010 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="Detalldelstags-textArea-DetalldelstagstextArea"></a>Detall dels tags - textArea</h1>
+
+<p>Defineix un camp d'entrada de texte, de varies linies.</p>
+
+<p>Hi ha dos modus se funcionament:</p>
+<ol>
+	<li>entrada de texte sense format: presenta només el camp d'entrada de texte.</li>
+	<li>entrada de texte amb format: presenta, a més del camp de texte, una barra de botons amb les diferentes opcions per donar-li format (negreta, cursiva, creació de llistes, etc.). Internament el texte es guarda en format HTML.</li>
+</ol>
+
+
+<p>Estén el tag layout:textarea ( <a href="http://struts.application-servers.com/doc/tags/field.html#textarea" title="Visit page outside Confluence">http://struts.application-servers.com/doc/tags/field.html#textarea</a> ) de Struts-Layout.</p>
+
+<p>La documentació auto-generada del tag és a <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_2/tlddoc/fwk/textarea.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_2/tlddoc/fwk/textarea.html</a></p>
+
+<hr />
+<div>
+<ul><a href='#Detalldelstags-textArea-DetalldelstagstextArea'>
+    <li>Detall dels tags - textArea</li></a>
+<ul><a href='#Detalldelstags-textArea-Atributsheredats'>
+    <li>Atributs heredats</li></a><a href='#Detalldelstags-textArea-Atributsespec%C3%ADficsdeCanig%C3%B3'>
+    <li>Atributs específics de Canigó</li></a><a href='#Detalldelstags-textArea-Exemple1'>
+    <li>Exemple 1</li></a>
+<ul><a href='#Detalldelstags-textArea-P%C3%A0ginaJSP'>
+    <li>Pàgina JSP</li></a><a href='#Detalldelstags-textArea-Arxiusd%27internacionalitzaci%C3%B3'>
+    <li>Arxius d'internacionalització</li></a>
+</ul><a href='#Detalldelstags-textArea-Exemple2'>
+    <li>Exemple 2</li></a>
+<ul><a href='#Detalldelstags-textArea-P%C3%A0ginaJSP'>
+    <li>Pàgina JSP</li></a><a href='#Detalldelstags-textArea-Configuraci%C3%B3Spring'>
+    <li>Configuració Spring</li></a><a href='#Detalldelstags-textArea-Arxiusd%27internacionalitzaci%C3%B3'>
+    <li>Arxius d'internacionalització</li></a>
+</ul><a href='#Detalldelstags-textArea-Bugs'>
+    <li>Bugs</li></a>
+</ul>
+</ul></div>
+
+<hr />
+<h2><a name="Detalldelstags-textArea-Atributsheredats"></a>Atributs heredats</h2>
+
+<p>Els atributs heredats de <b>layout:textarea</b> son: accesskey, arg0, arg1, arg2, arg3, arg4, bundle, cols, disabled, hint, isRequired, key, layout, layoutId, maxlength, mode, name, onblur, onchange, onclick, ondblclick, onfocus, onkeydown, onkeypress, onkeyup, onmousedown, onmousemove, onmouseout, onmouseover, onmouseup, policy, property, readonly, rows, size, styleClass, tabindex, tooltip, value.</p>
+
+<h2><a name="Detalldelstags-textArea-Atributsespec%C3%ADficsdeCanig%C3%B3"></a>Atributs específics de Canigó</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> Atribut </th>
+<th class='confluenceTh'> Funció </th>
+</tr>
+<tr>
+<td class='confluenceTd'> decoratorProperties </td>
+<td class='confluenceTd'> Si està definit, activa el modus de texte amb format </td>
+</tr>
+<tr>
+<td class='confluenceTd'> services </td>
+<td class='confluenceTd'>&nbsp;</td>
+</tr>
+<tr>
+<td class='confluenceTd'> styleId </td>
+<td class='confluenceTd'> identificador del tag, per lligar-lo amb la configuració injectada amb Spring </td>
+</tr>
+<tr>
+<td class='confluenceTd'> tooltipKey </td>
+<td class='confluenceTd'> Clau del literal del missatge a mostrar dins el tooltip </td>
+</tr>
+<tr>
+<td class='confluenceTd'> tooltipOptions </td>
+<td class='confluenceTd'> Opcions aplicades segons la implementació (en el cas actual sota DOM Tooltip) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> tooltipTitleKey </td>
+<td class='confluenceTd'> Clau del literal a mostrar si volem mostrar un títol com a capçalera del tooltip </td>
+</tr>
+</tbody></table>
+<p>Per utilitar el tag en modus de texte amb format cal injectar-li l'atribut <b>decoratorProperties</b>. Per fer-ho, cal definir el bean corresponent en la configuració de Spring</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean parent=<span class="code-quote">"textAreaFieldTag"</span>&gt;
+    &lt;property name=<span class="code-quote">"styleId"</span> value=<span class="code-quote">"camp6"</span>/&gt;
+    &lt;property name=<span class="code-quote">"layout"</span> value=<span class="code-quote">"<span class="code-keyword">true</span>"</span>/&gt;
+    &lt;property name=<span class="code-quote">"decoratorProperties"</span>&gt;
+        &lt;map&gt;
+            &lt;entry&gt;
+                &lt;key&gt;&lt;value&gt;theme&lt;/value&gt;&lt;/key&gt;
+                &lt;value&gt;simple&lt;/value&gt;
+            &lt;/entry&gt;
+            &lt;entry&gt;
+                &lt;key&gt;&lt;value&gt;mode&lt;/value&gt;&lt;/key&gt;
+                &lt;value&gt;exact&lt;/value&gt;
+            &lt;/entry&gt;
+        &lt;/map&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;</pre>
+</div></div>
+
+<p>Per defecte, el component a cadascun dels atributs del decoratorProperties envolta el value amb "". Hi ha atributs del tinyMCE que requereixen estar sense cometes. A partir de la versió 2.3.12 del Framework, es pot indicar que no posi cometes afegint un * davant del valor del value.</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;entry&gt; 
+&lt;key&gt;&lt;value&gt;theme_advanced_more_colors&lt;/value&gt;&lt;/key&gt; 
+&lt;value&gt;*<span class="code-keyword">false</span>&lt;/value&gt; 
+&lt;/entry&gt;</pre>
+</div></div>
+
+
+<p>La entrada theme controla la quantitat d'opcions que es presenten en la barra de botons i pot tenir dos valors:</p>
+<ul>
+	<li>simple</li>
+	<li>advanced</li>
+</ul>
+
+
+<p>Per utilitzar els Tooltips cal incloure un conjunt d'arxius JavaScript i CSS:</p>
+<ul>
+	<li>el full d'estil tooltips.css</li>
+	<li>els arxius de scripts domLib.js i domTT.js</li>
+</ul>
+
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;LINK REL=StyleSheet
+      HREF=<span class="code-quote">"css/tooltips/tooltips.css"</span>
+      TYPE=<span class="code-quote">"text/css"</span>
+      MEDIA=screen&gt;
+
+&lt;script type=<span class="code-quote">"text/javascript"</span>
+        src=<span class="code-quote">"&lt;c:url value="</span>/scripts/tooltips/dom_tooltip/domLib.js<span class="code-quote">"/&gt;"</span>&gt;
+&lt;/script&gt;
+&lt;script type=<span class="code-quote">"text/javascript"</span>
+        src=<span class="code-quote">"&lt;c:url value="</span>/scripts/tooltips/dom_tooltip/domTT.js<span class="code-quote">"/&gt;"</span>&gt;
+&lt;/script&gt;</pre>
+</div></div>
+
+<h2><a name="Detalldelstags-textArea-Exemple1"></a>Exemple 1</h2>
+
+<p>A continuació es presenta un fragment de pàgina que utilitza el tag <b>fwk:textarea</b> en modus simple, sense format.</p>
+
+<p><img src="Detall dels tags - textArea_attachments/fwk_textarea.jpg" align="absmiddle" border="0" /></p>
+
+<h3><a name="Detalldelstags-textArea-P%C3%A0ginaJSP"></a>Pàgina JSP</h3>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;%@ include file=<span class="code-quote">"/WEB-INF/jsp/includes/fwkTagLibs.jsp"</span> %&gt;
+
+&lt;script type=<span class="code-quote">"text/javascript"</span>
+        src=<span class="code-quote">"&lt;c:url value="</span>/scripts/tooltips/dom_tooltip/domLib.js<span class="code-quote">"/&gt;"</span>&gt;
+&lt;/script&gt;
+&lt;script type=<span class="code-quote">"text/javascript"</span>
+        src=<span class="code-quote">"&lt;c:url value="</span>/scripts/tooltips/dom_tooltip/domTT.js<span class="code-quote">"/&gt;"</span>&gt;
+&lt;/script&gt;
+
+&lt;link rel=<span class="code-quote">"Stylesheet"</span>
+      href=<span class="code-quote">"css/tooltips/tooltips.css"</span>
+      type=<span class="code-quote">"text/css"</span>
+      media=<span class="code-quote">"screen"</span>&gt;
+
+&lt;fwk:form action=<span class="code-quote">"provesTagsSimple.<span class="code-keyword">do</span>"</span>
+          styleId=<span class="code-quote">"myActionForm"</span>
+          reqCode=<span class="code-quote">"show"</span>
+          method=<span class="code-quote">"post"</span>
+          layout=<span class="code-quote">"<span class="code-keyword">true</span>"</span>&gt;
+    (...)
+    &lt;fwk:textarea styleId=<span class="code-quote">"camp6"</span>
+                  key=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.camp6"</span>
+		  mode=<span class="code-quote">"E,E,E"</span>
+		  layout=<span class="code-quote">"<span class="code-keyword">true</span>"</span>
+		  rows=<span class="code-quote">"5"</span>
+		  cols=<span class="code-quote">"30"</span>
+                  tooltipTitleKey=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.camp6.tipTitle"</span>
+                  tooltipKey=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.camp6.tip"</span>
+                  property=<span class="code-quote">"camp6"</span> /&gt;
+    (...)
+&lt;/fwk:form&gt;</pre>
+</div></div>
+
+<h3><a name="Detalldelstags-textArea-Arxiusd%27internacionalitzaci%C3%B3"></a>Arxius d'internacionalització</h3>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">jsp.provesTags.ProvesTagsSimple.camp6=Sisè camp
+jsp.provesTags.ProvesTagsSimple.camp6.tipTitle=Ajuda
+jsp.provesTags.ProvesTagsSimple.camp6.tip=Ajuda del sisè camp, que és un Textarea</pre>
+</div></div>
+
+<h2><a name="Detalldelstags-textArea-Exemple2"></a>Exemple 2</h2>
+
+<p>A continuació es presenta un fragment de pàgina que utilitza el tag <b>fwk:textarea</b> quan es selecciona la edició "rica", amb format, que genera HTML</p>
+
+<p><img src="Detall dels tags - textArea_attachments/fwk_textarea2.jpg" align="absmiddle" border="0" /></p>
+
+<h3><a name="Detalldelstags-textArea-P%C3%A0ginaJSP"></a>Pàgina JSP</h3>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;%@ include file=<span class="code-quote">"/WEB-INF/jsp/includes/fwkTagLibs.jsp"</span> %&gt;
+
+&lt;script type=<span class="code-quote">"text/javascript"</span>
+        src=<span class="code-quote">"&lt;c:url value="</span>/scripts/tooltips/dom_tooltip/domLib.js<span class="code-quote">"/&gt;"</span>&gt;
+&lt;/script&gt;
+&lt;script type=<span class="code-quote">"text/javascript"</span>
+        src=<span class="code-quote">"&lt;c:url value="</span>/scripts/tooltips/dom_tooltip/domTT.js<span class="code-quote">"/&gt;"</span>&gt;
+&lt;/script&gt;
+
+&lt;link rel=<span class="code-quote">"Stylesheet"</span>
+      href=<span class="code-quote">"css/tooltips/tooltips.css"</span>
+      type=<span class="code-quote">"text/css"</span>
+      media=<span class="code-quote">"screen"</span>&gt;
+
+&lt;fwk:form action=<span class="code-quote">"provesTagsSimple.<span class="code-keyword">do</span>"</span>
+          styleId=<span class="code-quote">"myActionForm"</span>
+          reqCode=<span class="code-quote">"show"</span>
+          method=<span class="code-quote">"post"</span>
+          layout=<span class="code-quote">"<span class="code-keyword">true</span>"</span>&gt;
+
+    &lt;fwk:textarea styleId=<span class="code-quote">"camp6"</span>
+                  key=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.camp6"</span>
+                  mode=<span class="code-quote">"E,E,E"</span>
+                  layout=<span class="code-quote">"<span class="code-keyword">true</span>"</span>
+                  rows=<span class="code-quote">"5"</span>
+                  cols=<span class="code-quote">"30"</span>
+                  tooltipTitleKey=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.camp6.tipTitle"</span>
+                  tooltipKey=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.camp6.tip"</span>
+                  property=<span class="code-quote">"camp6"</span> /&gt;
+
+&lt;/fwk:form&gt;</pre>
+</div></div>
+
+<h3><a name="Detalldelstags-textArea-Configuraci%C3%B3Spring"></a>Configuració Spring</h3>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;beans&gt;
+  &lt;bean name=<span class="code-quote">"/provesTagsSimple"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.provesTags.struts.action.ProvesTagsSimpleAction"</span>&gt;
+    &lt;property name=<span class="code-quote">"tagsConfiguration"</span>&gt;
+      &lt;map&gt;
+        &lt;entry key=<span class="code-quote">"*"</span>&gt;
+          &lt;list&gt;
+            &lt;bean parent=<span class="code-quote">"textAreaFieldTag"</span>&gt;
+              &lt;property name=<span class="code-quote">"styleId"</span> value=<span class="code-quote">"camp6"</span>/&gt;
+              &lt;property name=<span class="code-quote">"layout"</span> value=<span class="code-quote">"<span class="code-keyword">true</span>"</span>/&gt;
+              &lt;property name=<span class="code-quote">"decoratorProperties"</span>&gt;
+                &lt;map&gt;
+                  &lt;entry&gt;
+                    &lt;key&gt;&lt;value&gt;theme&lt;/value&gt;&lt;/key&gt;
+                    &lt;value&gt;simple&lt;/value&gt;
+                  &lt;/entry&gt;
+                  &lt;entry&gt;
+                    &lt;key&gt;&lt;value&gt;mode&lt;/value&gt;&lt;/key&gt;
+                    &lt;value&gt;exact&lt;/value&gt;
+                  &lt;/entry&gt;
+                &lt;/map&gt;
+              &lt;/property&gt;
+            &lt;/bean&gt;
+          &lt;/list&gt;
+        &lt;/entry&gt;
+      &lt;/map&gt;
+    &lt;/property&gt;
+  &lt;/bean&gt;
+&lt;/beans&gt;</pre>
+</div></div>
+
+<h3><a name="Detalldelstags-textArea-Arxiusd%27internacionalitzaci%C3%B3"></a>Arxius d'internacionalització</h3>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">jsp.provesTags.ProvesTagsSimple.camp6=Sisè camp
+jsp.provesTags.ProvesTagsSimple.camp6.tipTitle=Ajuda
+jsp.provesTags.ProvesTagsSimple.camp6.tip=Ajuda del sisè camp, que és un Textarea</pre>
+</div></div>
+
+<h2><a name="Detalldelstags-textArea-Bugs"></a>Bugs</h2>
+
+<ul>
+	<li>L'utilització dels atributs tooltipKey i tooltipTitleKey no inclouen automàticament els arxius javascript necessàris i cal fer-ho explícitament.</li>
+	<li>Si es posa l'atribut decoratorProperties (decoratorProperties="theme:advanced,mode:exact") en el tag en la pàgina JSP, falla completament la generació de la pàgina. Per utilitzar decoratorProperties cal injectar-lo amb Spring.</li>
+	<li>Si una pàgina conté el tag fwk:configuration i el fwk:textArea en modus html, el textArea es presenta duplicat.</li>
+</ul>
+
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Detall dels tags - textArea_attachments/fwk_text.jpg">fwk_text.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Detall dels tags - textArea_attachments/fwk_textarea.jpg">fwk_textarea.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Detall dels tags - textArea_attachments/fwk_textarea2.jpg">fwk_textarea2.jpg</a> (image/jpeg)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

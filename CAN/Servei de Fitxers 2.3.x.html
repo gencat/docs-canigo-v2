@@ -1,0 +1,410 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Servei de Fitxers 2.3.x</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Servei de Fitxers 2.3.x
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Jul 31, 2008 by <font color="#0050B2">otc</font>.
+				    </div>
+
+				    <h1><a name="ServeideFitxers2.3.x-SERVEIDEFITXERS"></a>SERVEI DE FITXERS</h1>
+
+<p><br clear="all" />
+<br clear="all" />
+<div>
+<ul><a href='#ServeideFitxers2.3.x-SERVEIDEFITXERS'>
+    <li>SERVEI DE FITXERS</li></a><a href='#ServeideFitxers2.3.x-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#ServeideFitxers2.3.x-Prop%C3%B2sit'>
+    <li>Propòsit</li></a><a href='#ServeideFitxers2.3.x-ContextiEscenarisd%27%C3%9As'>
+    <li>Context i Escenaris d'Ús</li></a><a href='#ServeideFitxers2.3.x-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i Dependències</li></a><a href='#ServeideFitxers2.3.x-Aquivadirigit'>
+    <li>A qui va dirigit</li></a><a href='#ServeideFitxers2.3.x-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents i  Fonts de Referència</li></a><a href='#ServeideFitxers2.3.x-Glossari'>
+    <li>Glossari</li></a>
+</ul><a href='#ServeideFitxers2.3.x-Descripci%C3%B3Detallada'>
+    <li>Descripció Detallada</li></a>
+<ul><a href='#ServeideFitxers2.3.x-ArquitecturaiComponents'>
+    <li>Arquitectura i Components</li></a><a href='#ServeideFitxers2.3.x-Instal.laci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal.lació i Configuració</li></a>
+<ul><a href='#ServeideFitxers2.3.x-Instal.laci%C3%B3'>
+    <li>Instal.lació</li></a><a href='#ServeideFitxers2.3.x-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#ServeideFitxers2.3.x-Utilitzaci%C3%B3delServei'>
+    <li>Utilització del  Servei</li></a>
+</ul><a href='#ServeideFitxers2.3.x-Exemples'>
+    <li>Exemples</li></a>
+<ul><a href='#ServeideFitxers2.3.x-Exemplesd%27OperacionsdeMantenimentdeDirectorisiFitxers'>
+    <li>Exemples  d'Operacions de Manteniment de Directoris i Fitxers</li></a>
+<ul><a href='#ServeideFitxers2.3.x-Crearunanovacarpeta'>
+    <li>Crear una  nova carpeta</li></a><a href='#ServeideFitxers2.3.x-Eliminarunacarpeta'>
+    <li>Eliminar  una carpeta</li></a><a href='#ServeideFitxers2.3.x-Crearunfitxer'>
+    <li>Crear un  fitxer</li></a><a href='#ServeideFitxers2.3.x-Eliminarunfitxer'>
+    <li>Eliminar un  fitxer</li></a><a href='#ServeideFitxers2.3.x-Copiarunacarpeta'>
+    <li>Copiar una  carpeta</li></a><a href='#ServeideFitxers2.3.x-Copiarunfitxer'>
+    <li>Copiar un  fitxer</li></a><a href='#ServeideFitxers2.3.x-Llegirunfitxer'>
+    <li>Llegir un  fitxer</li></a>
+</ul><a href='#ServeideFitxers2.3.x-Exempled%27Obtenci%C3%B3d%27Informaci%C3%B3delsFitxers'>
+    <li>Exemple  d'Obtenció d'Informació dels Fitxers</li></a><a href='#ServeideFitxers2.3.x-ExempledeLecturadelContingutd%27unRecurs'>
+    <li>Exemple de Lectura del Contingut d'un Recurs</li></a>
+</ul>
+</ul></div><br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h1><a name="ServeideFitxers2.3.x-Introducci%C3%B3"></a>Introducció</h1>
+
+
+<h2><a name="ServeideFitxers2.3.x-Prop%C3%B2sit"></a>Propòsit</h2>
+
+<p>El Servei de Fitxers té com a objectiu principal oferir la possibilitat de gestió i accés a fitxers. Les seves característiques es troben diferenciades en:</p>
+<ol>
+	<li>Creació, esborrat i còpia de fitxers</li>
+	<li>Obtenció d'informació dels fitxers (path, nom, extensió, etc.)</li>
+	<li>Manipulació i obtenció del contingut dels fitxers mitjançant l'ús de streams o fluxos d'entrada/sortida</li>
+</ol>
+
+
+<h2><a name="ServeideFitxers2.3.x-ContextiEscenarisd%27%C3%9As"></a>Context i Escenaris d'Ús</h2>
+
+<p>El Servei de Fitxers es troba dins dels serveis d'integració de Canigó.
+<br clear="all" />
+<br clear="all" /></p>
+
+<h2><a name="ServeideFitxers2.3.x-VersionsiDepend%C3%A8ncies"></a>Versions i Dependències</h2>
+
+<p>Les dependències descrites a la següent url són requerides per tal de compilar i fer funcionar el projecte:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-file/dependencies.html" title="Visit page outside Confluence">Dependències Servei de Fitxers</a></p>
+
+<h2><a name="ServeideFitxers2.3.x-Aquivadirigit"></a>A qui va dirigit</h2>
+
+<p>Aquest document va dirigit als següents perfils:</p>
+<ol>
+	<li>Programador. Per conéixer l'ús del servei</li>
+	<li>Arquitecte. Per conéixer quins són els components i la configuració del servei</li>
+	<li>Administrador. Per conéixer com configurar el servei en cadascun dels entorns en cas de necessitat</li>
+</ol>
+
+
+<h2><a name="ServeideFitxers2.3.x-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents i  Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> [1] </th>
+<th class='confluenceTh'> Commons-io </th>
+<th class='confluenceTh'> <a href="http://jakarta.apache.org/commons/io/" title="Visit page outside Confluence">http://jakarta.apache.org/commons/io/</a> </th>
+</tr>
+</tbody></table>
+
+<h2><a name="ServeideFitxers2.3.x-Glossari"></a>Glossari</h2>
+
+<p><b>Commons IO</b></p>
+
+<p>Llibreria de Jakarta en Java que permet la interacció amb fitxers</p>
+
+<h1><a name="ServeideFitxers2.3.x-Descripci%C3%B3Detallada"></a>Descripció Detallada</h1>
+
+
+<h2><a name="ServeideFitxers2.3.x-ArquitecturaiComponents"></a>Arquitectura i Components</h2>
+
+<p><b>Canigó</b> ofereix una arquitectura de gestió de fitxers deslligada de la implementació.</p>
+
+<p>Actualment, i a causa del seu grau de facilitat canigo es basa en la  llibreria del projecte Jakarta Commons IO. No obstant s'han encapsulat els  mètodes "static" de la classes utilitàries amb interfícies per a garantir  l'estabilitat de l'API a llarg termini.</p>
+
+<p><b>Els components podem classificar-los en:</b></p>
+
+<ol>
+	<li>Interfícies i Components Genérics. Interfícies del servei i components d'ús  general amb independència de la implementació escollida.</li>
+	<li>Implementació de les interfícies basada en Commons IO<br/>
+Es pot trobar tota la documentació JavaDoc i el codi font referent aquests components a les següents urls:</li>
+</ol>
+
+
+<p><ins>JavaDoc:</ins> <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-file/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-file/apidocs/index.html</a><br/>
+<ins>Codi Font:</ins>&nbsp; <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-file/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-file/xref/index.html</a></p>
+
+<h2><a name="ServeideFitxers2.3.x-Instal.laci%C3%B3iConfiguraci%C3%B3"></a>Instal.lació i Configuració</h2>
+
+
+<h3><a name="ServeideFitxers2.3.x-Instal.laci%C3%B3"></a>Instal.lació</h3>
+
+<p>La instal.lació del servei requereix de la utilització de la llibreria  'canigo-services-file' i les dependències indicades a l'apartat 'Introducció-Versions i Dependències'.</p>
+
+<h3><a name="ServeideFitxers2.3.x-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p><em>Fitxer de configuració: canigo-services-exceptions.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>La configuració del Servei de Fitxers és força senzilla, doncs només cal  definir els beans que farem servir com a implementacions. En l'actualitat  implica la definició dels següents beans:</p>
+<ol>
+	<li>fileSystemService. Indicar la implementació escollida en el camp class i  indicar les propietats:
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> lazy-init </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Indicar 'true' </td>
+</tr>
+<tr>
+<td class='confluenceTd'> singleton </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Indicar 'true', doncs els mètodes  són estàtics i no es poden crear instàncies. Per defecte és 'true' </td>
+</tr>
+</tbody></table></li>
+	<li>fileNamingService. Indicar la implementació escollida en el camp class i  indicar les mateixes propietats que 'fileSystemService'</li>
+	<li>ioService. Indicar la implementació escollida en el camp class i indicar les  mateixes propietats que 'fileSystemService'</li>
+</ol>
+
+
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;beans&gt;
+
+&lt;bean  id=<span class="code-quote">"fileSystemService"</span>
+
+class=<span class="code-quote">"net.gencat.ctti.canigo.services.file.impl.commons.FileSystemServiceCommonsImpl"</span>
+
+lazy-init=<span class="code-quote">"<span class="code-keyword">true</span>"</span>
+
+singleton=<span class="code-quote">"<span class="code-keyword">true</span>"</span>/&gt;
+
+&lt;bean  id=<span class="code-quote">"fileNamingService"</span>
+
+class=<span class="code-quote">"net.gencat.ctti.canigo.services.file.impl.commons.FileNamingServiceCommonsImpl"</span>
+
+lazy-init=<span class="code-quote">"<span class="code-keyword">true</span>"</span>
+
+singleton=<span class="code-quote">"<span class="code-keyword">true</span>"</span>/&gt;
+
+&lt;bean  id=<span class="code-quote">"ioService"</span>
+
+class=<span class="code-quote">"net.gencat.ctti.canigo.services.file.impl.commons.IOServiceCommonsImpl"</span>
+
+lazy-init=<span class="code-quote">"<span class="code-keyword">true</span>"</span>
+
+singleton=<span class="code-quote">"<span class="code-keyword">true</span>"</span>/&gt;
+
+&lt;/beans&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h2><a name="ServeideFitxers2.3.x-Utilitzaci%C3%B3delServei"></a>Utilització del  Servei</h2>
+
+<p>La utilització del Servei es basa en l´ús de les interfícies definides a  l'apartat 'Arquitectura i Components'. Consultar l'apartat 'Exemples' per veure  alguns exemples de tractament de fitxers amb la API proporcionada.</p>
+
+<h1><a name="ServeideFitxers2.3.x-Exemples"></a>Exemples</h1>
+
+
+<h2><a name="ServeideFitxers2.3.x-Exemplesd%27OperacionsdeMantenimentdeDirectorisiFitxers"></a>Exemples  d'Operacions de Manteniment de Directoris i Fitxers</h2>
+
+
+<h3><a name="ServeideFitxers2.3.x-Crearunanovacarpeta"></a>Crear una  nova carpeta</h3>
+
+<p><br clear="all" />
+<br clear="all" />  <div align="center"><img src="Servei de Fitxers 2.3.x_attachments/image004.jpg" border="0" /></div><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">File newFolder = <span class="code-keyword">new</span>  File(<span class="code-quote">"D:/WEBAPP/New Folder"</span>);
+
+fileSystemService.forceMkdir(newFolder);</pre>
+</div></div><br clear="all" />
+<br clear="all" /></p>
+<h3><a name="ServeideFitxers2.3.x-Eliminarunacarpeta"></a>Eliminar  una carpeta</h3>
+
+<p><br clear="all" />  <div align="center"><img src="Servei de Fitxers 2.3.x_attachments/image005.jpg" border="0" /></div><br clear="all" />
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">fileSystemService.deleteDirectory(newFolder);</pre>
+</div></div><br clear="all" />
+<br clear="all" /></p>
+<h3><a name="ServeideFitxers2.3.x-Crearunfitxer"></a>Crear un  fitxer</h3>
+
+<p><br clear="all" />  <div align="center"><img src="Servei de Fitxers 2.3.x_attachments/image006.jpg" border="0" /></div><br clear="all" />
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">Aquest comandament usa  el constructor de java.io.File.
+
+ File newFile = <span class="code-keyword">new</span> File(<span class="code-quote">"D:/WEBAPP/New Folder/New Text Document.txt"</span>);</pre>
+</div></div><br clear="all" />
+<br clear="all" /></p>
+<h3><a name="ServeideFitxers2.3.x-Eliminarunfitxer"></a>Eliminar un  fitxer</h3>
+
+<p><br clear="all" />  <div align="center"><img src="Servei de Fitxers 2.3.x_attachments/image007.jpg" border="0" /></div><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">File file = <span class="code-keyword">new</span>  File(<span class="code-quote">"D:/WEBAPP/New Folder/New Text  Document.txt"</span>);
+
+fileSystemService.forceDelete(file);</pre>
+</div></div><br clear="all" />
+<br clear="all" /></p>
+<h3><a name="ServeideFitxers2.3.x-Copiarunacarpeta"></a>Copiar una  carpeta</h3>
+
+<p><br clear="all" />  <div align="center"><img src="Servei de Fitxers 2.3.x_attachments/image008.jpg" border="0" /></div><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">File folder = <span class="code-keyword">new</span>  File(<span class="code-quote">"D:/WEBAPP/New Folder"</span>);
+
+fileSystemService.copyDirectory(folder, <span class="code-keyword">new</span>  File(<span class="code-quote">"D:/WEBAPP/Destination"</span>));</pre>
+</div></div><br clear="all" />
+<br clear="all" /></p>
+<h3><a name="ServeideFitxers2.3.x-Copiarunfitxer"></a>Copiar un  fitxer</h3>
+
+<p><br clear="all" />  <div align="center"><img src="Servei de Fitxers 2.3.x_attachments/image009.jpg" border="0" /></div><br clear="all" />
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">File sourceFile = <span class="code-keyword">new</span>  File(<span class="code-quote">"D:/WEBAPP/New Folder/New Text  Document.txt"</span>);
+
+fileSystemService.copyFileToDirectory(sourceFile, <span class="code-keyword">new</span>  File(<span class="code-quote">"D:/WEBAPP/Dest"</span>));</pre>
+</div></div><br clear="all" />
+<br clear="all" /></p>
+<h3><a name="ServeideFitxers2.3.x-Llegirunfitxer"></a>Llegir un  fitxer</h3>
+
+<ol>
+	<li><b>Cap a un String</b>
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">File srcFile = <span class="code-keyword">new</span> File(<span class="code-quote">"D:/WEBAPP/New Folder/New Text  Document.txt"</span>);
+
+<span class="code-object">String</span> destinationString =  fileSystemService.readFileToString(srcFile);</pre>
+</div></div><br clear="all" />
+<br clear="all" /></li>
+	<li><b>Cap a una llista de cadenes</b>
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">File srcFile = <span class="code-keyword">new</span> File(<span class="code-quote">"D:/WEBAPP/New Folder/New Text  Document.txt"</span>);
+
+List destinationList = fileSystemService.readLines(srcFile,  <span class="code-quote">"ISO-8859-1"</span>);
+
+Iterator iter = destinationList.iterator();
+
+<span class="code-keyword">while</span>  (iter.hasNext()) {
+
+<span class="code-object">String</span> line = (<span class="code-object">String</span>) iter.next();
+
+<span class="code-comment">//  <span class="code-object">Process</span>...
+</span>
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" /></li>
+</ol>
+
+
+<h2><a name="ServeideFitxers2.3.x-Exempled%27Obtenci%C3%B3d%27Informaci%C3%B3delsFitxers"></a>Exemple  d'Obtenció d'Informació dels Fitxers</h2>
+
+<p>En aquest exemple es pot observar cóm podem obtenir informació d'un  fitxer.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">File file = <span class="code-keyword">new</span> File(<span class="code-quote">"D:/WEBAPP/New Folder/New Text Document.txt"</span>);
+<span class="code-object">String</span> prefix = fileNamingService.getPrefix(file.getPath());
+<span class="code-comment">// =&gt; D:/
+</span>
+<span class="code-object">String</span> path= fileNamingService.getPath(file.getPath());
+<span class="code-comment">// =&gt; WEBAPP/New Folder/
+</span>
+<span class="code-object">String</span> baseName = fileNamingService.getBaseName(file.getPath());
+<span class="code-comment">// =&gt; New Text Document
+</span>
+<span class="code-object">String</span> extension = fileNamingService.getExtension(file.getPath());
+<span class="code-comment">// =&gt; txt</span></pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h2><a name="ServeideFitxers2.3.x-ExempledeLecturadelContingutd%27unRecurs"></a>Exemple de Lectura del Contingut d'un Recurs</h2>
+
+<p><ins>IOService</ins> conté mètodes utilitaris per a llegir, escriure i llegir amb  fluxos de tipus InputStream, OutputStream, Reader i Writer.</p>
+
+<p>Per exemple, podríem llegir els bytes des d'una URL, i imprimir-los en la  pantalla. Amb les classes de Java clàssiques del package java.io, el codi seria  el següent:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">InputStream in = <span class="code-keyword">new</span> URL( <span class="code-quote">"http:<span class="code-comment">//jakarta.apache.org"</span> ).openStream();
+</span><span class="code-keyword">try</span> {
+    InputStreamReader inR = <span class="code-keyword">new</span> InputStreamReader( in );
+    BufferedReader buf = <span class="code-keyword">new</span> BufferedReader( inR );
+    <span class="code-object">String</span> line;
+    <span class="code-keyword">while</span> ( ( line = buf.readLine() ) != <span class="code-keyword">null</span> ) {
+        <span class="code-object">System</span>.out.println( line );
+    }
+}
+<span class="code-keyword">finally</span>{
+    in.close();
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+Mentre que amb l'ús del servei IOService, el codi serà:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">InputStream in = <span class="code-keyword">new</span> URL( <span class="code-quote">"http:<span class="code-comment">//jakarta.apache.org"</span> ).openStream();
+</span><span class="code-keyword">try</span> {
+    <span class="code-object">System</span>.out.println( ioService.toString( in ) );
+}
+<span class="code-keyword">finally</span> {
+    IOUtils.closeQuietly(in);
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+Cóm veiem, hem guanyat en senzillesa.
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Fitxers 2.3.x_attachments/image005.jpg">image005.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Fitxers 2.3.x_attachments/image007.jpg">image007.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Fitxers 2.3.x_attachments/image004.jpg">image004.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Fitxers 2.3.x_attachments/image009.jpg">image009.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Fitxers 2.3.x_attachments/image008.jpg">image008.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Fitxers 2.3.x_attachments/image001.jpg">image001.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Fitxers 2.3.x_attachments/image006.jpg">image006.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Fitxers 2.3.x_attachments/image003.jpg">image003.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Fitxers 2.3.x_attachments/image002.jpg">image002.jpg</a> (image/jpeg)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

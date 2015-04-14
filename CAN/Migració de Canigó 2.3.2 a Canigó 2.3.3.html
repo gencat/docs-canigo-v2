@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Migració de Canigó 2.3.2 a Canigó 2.3.3</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Migració de Canigó 2.3.2 a Canigó 2.3.3
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Feb 06, 2009 by <font color="#0050B2">otc</font>.
+				    </div>
+
+				    <h2><a name="Migraci%C3%B3deCanig%C3%B32.3.2aCanig%C3%B32.3.3-Migraci%C3%B3deCanig%C3%B32.3.2aCanig%C3%B32.3.3"></a>Migració de Canigó 2.3.2 a Canigó 2.3.3</h2>
+
+<p><br clear="all" /></p>
+<table cellpadding='5' width='85%' cellspacing='8px' class='infoMacro' border="0" align='center'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="./icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td><b class="strong">Important: Canvis en la versió dels serveis de Canigó.</b><br />
+<p>Per a migrar una aplicació a la nova release de Canigó 2.3.3, és tan senzill com modificar el <tt><b>pom.xml</b></tt> de la nostra aplicació i canviarem les versions dels serveis de Canigó de la 2.3.2 a la 2.3.3 (dins l'opció de menú <a href="Versionat.html" title="Versionat">Versionat</a> en trobareu un exemple).</p>
+
+<p><b>Nota:</b> Si esteu migrant directament de la versió 2.2 a la 2.3.3 consulteu l'apartat "<a href="Migració de Canigó 2.2 a Canigó 2.3.html" title="Migració de Canigó 2.2 a Canigó 2.3">Migració de Canigó 2.2 a Canigó 2.3</a>". Simplement s'ha de substituir allà on indiqui 2.3 per 2.3.3.</p>
+
+<p>Respecte a la documentació, aquesta no s'ha vist afectada respecte a la versió major del framework; per tant, s'ha de consultar la Documentació 2.3.x.</p></td></tr></table>
+
+<table cellpadding='5' width='85%' cellspacing='8px' class='infoMacro' border="0" align='center'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="./icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td><b class="strong">Important: Canvis en la part estàtica de Canigó.</b><br />
+<p>Pel que fa a la <b>part estàtica</b> de l'aplicació (css, js, imatges, etc.), aquests són els fitxers que han patit modificacions i que s'han d'actualitzar "manualment" en els vostres projectes:</p>
+<ul>
+	<li>aplicació plantilla:
+	<ul>
+		<li>spring/prototip-servlet.xml</li>
+		<li>spring/canigo-services-ole.xml</li>
+	</ul>
+	</li>
+</ul>
+
+
+<ul>
+	<li>scripts/ajax/jquery-1.2.6.min.js</li>
+	<li>Actualització de la llibreria TinyMCE (versió 3.2.0.1)</li>
+</ul>
+</td></tr></table>
+
+<table cellpadding='5' width='85%' cellspacing='8px' class='infoMacro' border="0" align='center'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="./icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td><b class="strong">Important: Nova excepció de negoci de Canigó.</b><br />
+<p>S'ha creat una nova excepció de negoci de Canigó: RollbackBusinessException, afectant al servei canigo-services-exceptions. </p>
+
+<p>Extensió de BusinessException que podeu extendre a nivell aplicació per assenyalar excepcions de negoci que provoquen rollback.</p>
+
+<p>Podeu configurar un proxy transaccional com ara:</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"testBO"</span> parent=<span class="code-quote">"baseDaoProxy"</span>&gt;
+   &lt;property name=<span class="code-quote">"target"</span>&gt;
+	&lt;bean class=<span class="code-quote">"formacio.business.TestBOImpl"</span>&gt;
+		&lt;property name=<span class="code-quote">"hibernateDAO"</span> ref=<span class="code-quote">"universalHibernateDAOProxy"</span>&gt;&lt;/property&gt;
+		&lt;property name=<span class="code-quote">"loggingService"</span> ref=<span class="code-quote">"loggingService"</span>&gt;&lt;/property&gt;
+	&lt;/bean&gt;
+   &lt;/property&gt;
+   &lt;property name=<span class="code-quote">"transactionAttributes"</span>&gt;
+	&lt;props&gt;
+  	   &lt;prop key=<span class="code-quote">"testTransactionalMethod"</span>&gt;
+              PROPAGATION_REQUIRED,-net.gencat.ctti.canigo.services.exceptions.RollbackBusinessException
+           &lt;/prop&gt;
+ 	   &lt;prop key=<span class="code-quote">"*"</span>&gt;PROPAGATION_REQUIRED,readOnly&lt;/prop&gt;
+	&lt;/props&gt;
+   &lt;/property&gt;
+&lt;/bean&gt;</pre>
+</div></div>
+
+<p>On l'expressió "-net.gencat.ctti.canigo.services.exceptions.RollbackBusinessException" indica si el mètode (o mètodes) indicats per la màscara (el valor de "key") farà un Rollback davant d'una excepció que extengui  RollbackBusinessException. Per defecte, les excepcions checked, com ara les BusinesException, no provoquen rollback (veure el capítol de transaccionalitat al manual de Spring)</p>
+</td></tr></table>
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

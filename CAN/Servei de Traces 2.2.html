@@ -1,0 +1,1936 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Servei de Traces 2.2</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Servei de Traces 2.2
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Sep 21, 2007 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="ServeideTraces2.2-SERVEIDETRACES"></a>SERVEI DE TRACES</h1>
+
+<p><br clear="all" />
+<div>
+<ul><a href='#ServeideTraces2.2-SERVEIDETRACES'>
+    <li>SERVEI DE TRACES</li></a><a href='#ServeideTraces2.2-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#ServeideTraces2.2-Prop%C3%B3sit'>
+    <li>Propósit</li></a><a href='#ServeideTraces2.2-ContextiEscenarisd%27%C3%9As'>
+    <li>Context i Escenaris  d'Ús</li></a><a href='#ServeideTraces2.2-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i  Dependències</li></a><a href='#ServeideTraces2.2-Aquivadirigit'>
+    <li>A qui va dirigit</li></a><a href='#ServeideTraces2.2-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents i  Fonts de Referència</li></a><a href='#ServeideTraces2.2-Glossari'>
+    <li>Glossari</li></a>
+</ul><a href='#ServeideTraces2.2-Descripci%C3%B3Detallada'>
+    <li>Descripció  Detallada</li></a>
+<ul><a href='#ServeideTraces2.2-ArquitecturaiComponents'>
+    <li>Arquitectura i  Components</li></a><a href='#ServeideTraces2.2-Instal%5Claci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal&#45; lació i  Configuració</li></a>
+<ul><a href='#ServeideTraces2.2-Instal%5Claci%C3%B3'>
+    <li>Instal&#45; lació</li></a><a href='#ServeideTraces2.2-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#ServeideTraces2.2-Utilitzaci%C3%B3delServei'>
+    <li>Utilització del  Servei</li></a>
+<ul><a href='#ServeideTraces2.2-GenerarMissatges'>
+    <li>Generar Missatges</li></a><a href='#ServeideTraces2.2-Evitarc%C3%A0lculsinnecess%C3%A0ris'>
+    <li>Evitar  càlculs innecessàris</li></a><a href='#ServeideTraces2.2-Generarmissatgesestructurats'>
+    <li>Generar missatges  estructurats</li></a><a href='#ServeideTraces2.2-GenerarInformaci%C3%B3Contextual'>
+    <li>Generar  Informació Contextual</li></a><a href='#ServeideTraces2.2-Generarnousnivellsdetraces'>
+    <li>Generar nous nivells  de traces</li></a>
+</ul><a href='#ServeideTraces2.2-EinesdeSuport'>
+    <li>Eines de Suport</li></a>
+<ul><a href='#ServeideTraces2.2-ServidordeprovesSNMP'>
+    <li>Servidor de proves  SNMP</li></a>
+<ul><a href='#ServeideTraces2.2-Visualitzaci%C3%B3deLogs'>
+    <li>Visualització de  Logs</li></a>
+<ul><a href='#ServeideTraces2.2-Visualitzaci%C3%B3ambchainsaw%3A'>
+    <li>Visualització amb chainsaw:</li></a><a href='#ServeideTraces2.2-Visualitzaci%C3%B3ambValueList%3A'>
+    <li>Visualització amb ValueList:</li></a><a href='#ServeideTraces2.2-Altresvisualitzacions%3A'>
+    <li>Altres visualitzacions:</li></a>
+</ul>
+</ul>
+</ul><a href='#ServeideTraces2.2-Integraci%C3%B3ambAltresServeis'>
+    <li>Integració amb  Altres Serveis</li></a><a href='#ServeideTraces2.2-PreguntesFreq%C3%BC%C3%A8nts'>
+    <li>Preguntes  Freqüènts</li></a>
+</ul><a href='#ServeideTraces2.2-Exemples'>
+    <li>Exemples</li></a>
+<ul><a href='#ServeideTraces2.2-TestsUnitaris'>
+    <li>Tests Unitaris</li></a>
+</ul><a href='#ServeideTraces2.2-Annexos'>
+    <li>Annexos</li></a>
+<ul><a href='#ServeideTraces2.2-Introducci%C3%B3aLog4J'>
+    <li>Introducció a Log4J</li></a>
+</ul>
+</ul></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h1><a name="ServeideTraces2.2-Introducci%C3%B3"></a>Introducció</h1>
+
+
+<h2><a name="ServeideTraces2.2-Prop%C3%B3sit"></a>Propósit</h2>
+
+<p>El Servei de Traces té com a missió poder detectar i localitzar amb més  facilitat errors de l'aplicació, entrada de dades incorrectes segons la lògica  del sistema, i inclús realitzar un seguiment de qui ha fet una determinada  operació per a portar a terme una <b>auditoria.</b></p>
+
+<p>Per a que això pugui ser portat a terme, el servei ofereix la possibilitat  de:</p>
+<ol>
+	<li>Definir nivells de traces (d'informació, fatals, errors, etc.)</li>
+	<li>Definir en quines sortides es generarà la traça: consola, fitxers, base de  dades, correu electrónic, etc.</li>
+	<li>Canviar en qualsevol moment quin és el mínim nivell de traces que volem  mostrar, sense haver d'afectar a les classes que generen les traces</li>
+	<li>Definir el format de sortida de les nostres traces: incorporar l'hora, el  número de línia del codi on s'ha produit i la seva classe, etc.</li>
+	<li>Incorporar informació de context a la traça: usuari, ip del client,  etc.</li>
+</ol>
+
+
+<h2><a name="ServeideTraces2.2-ContextiEscenarisd%27%C3%9As"></a>Context i Escenaris  d'Ús</h2>
+
+<p>El Servei de Traces es troba dins dels serveis de Propósit General de  canigo.</p>
+
+<p>El seu ús és necessari en cas de voler generar traces de la nostra aplicació.  Tammateix, molts dels serveis proporcionats per canigo fan servir aquest servei  per a generar les seves traces.
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h2><a name="ServeideTraces2.2-VersionsiDepend%C3%A8ncies"></a>Versions i  Dependències</h2>
+
+<p>Les dependències descrites a la següent url son requerides per tal de compilar i fer funcionar el projecte:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-logging/dependencies.html" title="Visit page outside Confluence">Dependències Servei de Traces</a></p>
+
+<h2><a name="ServeideTraces2.2-Aquivadirigit"></a>A qui va dirigit</h2>
+
+<p>Aquest document va dirigit als següents perfils:</p>
+<ol>
+	<li>Programador. Per conéixer l'ús del servei</li>
+	<li>Arquitecte. Per conéixer quins són els components i la configuració del  servei</li>
+	<li>Administrador. Per conéixer cóm configurar el servei en cadascun dels  entorns en cas de necessitat</li>
+</ol>
+
+
+<h2><a name="ServeideTraces2.2-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents i  Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> [1] </th>
+<th class='confluenceTh'> Log4J Manual </th>
+<th class='confluenceTh'> <a href="http://jakarta.apache.org/log4j/docs/manual.html" title="Visit page outside Confluence">http://jakarta.apache.org/log4j/docs/manual.html</a> </th>
+</tr>
+</tbody></table>
+
+<h2><a name="ServeideTraces2.2-Glossari"></a>Glossari</h2>
+
+<p><b>Log4J</b></p>
+
+<p>Un dels framework de traces més extés. Es basa en l'ús de Appenders,  Categories i Layouts. Veure l'annex per a més informació.</p>
+
+<h1><a name="ServeideTraces2.2-Descripci%C3%B3Detallada"></a>Descripció  Detallada</h1>
+
+
+<h2><a name="ServeideTraces2.2-ArquitecturaiComponents"></a>Arquitectura i  Components</h2>
+
+<p><b>canigo</b> ofereix la possibilitat d'utilitzar diferents implementacions  de traces sense que afecti al servei de traces.</p>
+
+<p>Els components podem classificar-los en:</p>
+<ol>
+	<li>Interfícies i Components Genérics. Interfícies del servei i components d'ús  general amb independència de la implementació escollida.</li>
+	<li>Implementació de les interfícies basada en Log4J</li>
+	<li>Implementació de les interfícies basada en Commons Logging</li>
+</ol>
+
+
+<p>&nbsp;<br/>
+Es pot trobar tota la documentació JavaDoc y el codi font referent aquests components a les següents urls:</p>
+
+<p><ins>JavaDoc:</ins> <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-logging/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-traces/apidocs/index.html</a><br/>
+<ins>Codi Font:</ins>&nbsp; <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-logging/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-traces/xref/index.html</a></p>
+
+<h2><a name="ServeideTraces2.2-Instal%5Claci%C3%B3iConfiguraci%C3%B3"></a>Instal&#45; lació i  Configuració</h2>
+
+
+<h3><a name="ServeideTraces2.2-Instal%5Claci%C3%B3"></a>Instal&#45; lació</h3>
+
+<p>La instal&#45; lació del servei requereix de la utilització de la llibreria  'canigo-services-logging' i les dependències indicades a l'apartat  'Introducció-Versions i Dependències'.</p>
+
+<h3><a name="ServeideTraces2.2-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p>La configuració del Servei de Traces implica 3 pasos:</p>
+<ol>
+	<li>Definir el configurador del servei per especificar en quin fitxer es  defineixen les propietats del servei (sortides, nivells de traces, etc.)</li>
+	<li>Definir el servei i injectar-li el seu configurador</li>
+	<li>Definir les propietats del servei. En aquest pas es farà ús de la  configuració concreta de la implementació escollida (log4j,...)</li>
+</ol>
+
+
+<p>Definició del Configurador del Servei<br/>
+<img src="Servei de Traces 2.2_attachments/ServeiTraces_img011.jpg" align="absmiddle" border="0" /></p>
+
+<p>La definició del servei requereix definir un configurador amb un  identificador (es recomana usar 'loggingConfigurator' )</p>
+
+<p>Atributs:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atributs</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> class </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Implementació concreta del  configurador a utilitzar <br clear="all" />
+<br clear="all" />
+Opcions: <br clear="all" />
+&#35;  net.gencat.ctti.canigo.services.logging.log4j.xml.HostDOMConfigurator <br clear="all" /> </td>
+</tr>
+</tbody></table>
+<ol>
+	<li>HostDOMConfigurator</li>
+</ol>
+
+
+<p>Propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> configFileName </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Ruta al fitxer <br clear="all" />
+<br clear="all" />
+Es pot utilitzar classpath:rutaFitxer, per fer la cerca a partir del  classpath <br clear="all" />
+<br clear="all" />
+Exemple: classpath:log4j.xml </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;
+&lt;!DOCTYPE beans PUBLIC <span class="code-quote">"-<span class="code-comment">//SPRING//DTD BEAN//EN"</span> "http://www.springframework.
+</span>org/dtd/spring-beans.dtd"&gt;
+
+&lt;beans&gt;
+    &lt;bean id=<span class="code-quote">"loggingConfigurator"</span> class="net.gencat.ctti.canigo.services.
+    logging.log4j.xml.HostDOMConfigurator<span class="code-quote">" init-method="</span>init"&gt;
+        &lt;property name=<span class="code-quote">"configFileName"</span>&gt;
+            &lt;value&gt;classpath:log4j.xml&lt;/value&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt;
+...
+&lt;/beans&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Definició del Servei<br/>
+<img src="Servei de Traces 2.2_attachments/ServeiTraces_img012.jpg" align="absmiddle" border="0" />
+<br clear="all" />
+<br clear="all" /> La definició del servei requereix configurar un bean amb un identificador (es  recomana usar 'loggingService' ) i els següents atributs:</p>
+
+<p>Atributs:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> class </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Implementació concreta del servei a  utilitzar <br clear="all" />
+<br clear="all" />
+Opcions: <br clear="all" />
+&#35;  net.gencat.ctti.canigo.services.logging.log4j.Log4JServiceImpl. En aquest cas  s'ha d'utilitzar com a configurador la classe  'net.gencat.ctti.canigo.services.logging.log4j.xml.HostDOMConfigurator' <br clear="all" /> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> init-method </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Usar 'init'. Mitjançant aquesta  definició provoquem que es cridi al mètode 'init' una vegada construída la  instància </td>
+</tr>
+</tbody></table>
+<p>També es poden configurar les següents propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> configurator </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Referència al configurador definit  prèviament </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+&lt;bean id=<span class="code-quote">"loggingService"</span> class="net.gencat.ctti.canigo.services.
+logging.log4j.Log4JServiceImpl<span class="code-quote">" init-method="</span>init"&gt;
+    &lt;!- propietat que referència al configurador -&gt;
+    &lt;property name=<span class="code-quote">"configurator"</span>&gt;
+        &lt;ref local=<span class="code-quote">"loggingConfigurator"</span>/&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+&lt;!- bean del configurador -&gt;
+&lt;bean id=<span class="code-quote">"loggingConfigurator"</span> class="net.gencat.ctti.canigo.services.
+logging.log4j.xml.HostDOMConfigurator"&gt;
+...
+&lt;/bean&gt;
+...</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Cal destacar que en l'exemple el configurador fa ús d'un localitzador de  fitxers depenent del host (<em>HostDOMConfigurator</em>). Això vol dir que si en  aquest configurador incloem una referència a un fitxer de propietats anomenat<br/>
+"log4j.xml", realment es buscarà un fitxer anomenat  "log4j.xml.nom_del_host".
+<br clear="all" />
+<br clear="all" /> Definició de les Propietats del Servei per Log4J</p>
+
+<p>Fitxer de configuració: <b>log4j.xml</b><br/>
+Característiques: S'ha d'ubicar  en un directori del classpath.</p>
+
+<p>En cas d'haver escollit com a implementació del servei de traces la classe '  net.gencat.ctti.canigo.services.logging.log4j.Log4JServiceImpl', la definició  del fitxer de propietats es basa en l'ús de Log4J.</p>
+
+<p>En aquest apartat es mostren les configuracions més comuns de Log4J  (mitjançant appenders) i algunes de més específiques que per la seva complexitat  són necessàries d'explicar. En alguns casos, es tracten d'implementacions  disponibles en la comunitat, en d'altres desenvolupats específicament per  canigo. Es recomana una lectura prèvia del manual de log4j per conéixer en  detall la configuració de log4j.</p>
+<ol>
+	<li>Appenders</li>
+</ol>
+
+
+<ol>
+	<li>Configuració de l'ús de Appender per Consola</li>
+</ol>
+
+
+<p>Classe: org.apache.log4j.ConsoleAppender</p>
+
+<p>S'afegeixen les traces traces al "System.out" o "System.err". Per a  infornmació detallada sobre les propietats de l'appender consultar el manual de  Log4J.</p>
+
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;appender name=<span class="code-quote">"console"</span>  class=<span class="code-quote">"org.apache.log4j.ConsoleAppender"</span>&gt;
+
+&lt;layout  class=<span class="code-quote">"org.apache.log4j.PatternLayout"</span>&gt;
+
+&lt;param name=<span class="code-quote">"ConversionPattern"</span>  value=<span class="code-quote">"canigo Message: %-5p [%t] %c -  %m%n"</span>/&gt;
+
+&lt;/layout&gt;
+
+&lt;/appender&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Configuració de l'ús de Appender per Fitxer Rotatiu</li>
+</ol>
+
+
+<p>Classe: org.apache.log4j.DailyRollingFileAppender</p>
+
+<p>Permet establir un tamany màxim de fitxer i cada vegada que el fitxer de log  supera aquest tamany es crea un fitxer de traces nou. Aquest procès es fa  diariament o segons la freqüència especificada. Per a informació detallada sobre  la forma d'especificar les diferents freqüències i propietats de l'appender  consultar el manual de Log4J.</p>
+
+<p>El format del fitxer (texte pla o XML) el defineix el <em>layout</em> associat a l'<em>appender</em> com veurem posteriorment.</p>
+<ol>
+	<li>Configuració de l'ús de Appender per Correu Electrònic</li>
+</ol>
+
+
+<p>Classe: org.apache.log4j.SMTPAppender</p>
+
+<p>Envia les traces per correu electrònic. Per a informació detallada sobre les  propietats de l'appender consultar el manual de Log4J.</p>
+<ol>
+	<li>Configuració de l'ús de Appender per SNMP</li>
+</ol>
+
+
+<p>Classe: org.apache.log4j.ext.SNMPTrapAppender</p>
+
+<p>Envia les traces com a missatges TRAP pel protocol de control de xarxa SNMP a  un administrador de xarxa. El manual de Log4J és molt suscint en definir el seu  ús.Degut a la seva complexitat es fa esmena en aquest apartat de cóm  utilitzar-lo.</p>
+
+<p>Es poden especificar els següents paràmetres:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Paràmetre</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> ImplementationClassName </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Implementació del protocol snmp.  Podem escollir entre dos valors en funció de la versió del protocol que volguem  fer servir: <em>org.apache.log4j.ext.WengsoftSNMPTrapSender</em> (v1,v2 ó v3) ó <em>org.apache.log4j.ext.JoeSNMPTrapSender</em> (v1 ó v2) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> ManagementHost </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Direcció IP del host a on està  l'administrador de xarxa a on s'enviaran els missatges SNMP </td>
+</tr>
+<tr>
+<td class='confluenceTd'> ManagementHostTrapListenPort </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Port a on està l'administrador de  xarxa a on s'enviaran els missatges SNMP </td>
+</tr>
+<tr>
+<td class='confluenceTd'> EnterpriseOID </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> paràmetre propi del protocol SNMP </td>
+</tr>
+<tr>
+<td class='confluenceTd'> LocalIPAddress </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> IP des d'on s'envien els missatges </td>
+</tr>
+<tr>
+<td class='confluenceTd'> LocalTrapSendPort </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Port des d'on s'envien els missatges </td>
+</tr>
+<tr>
+<td class='confluenceTd'> GenericTrapType </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Paràmetre propi del protocol SNMP </td>
+</tr>
+<tr>
+<td class='confluenceTd'> SpecificTrapType </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Paràmetre propi del protocol SNMP </td>
+</tr>
+<tr>
+<td class='confluenceTd'> CommunityString </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Paràmetre propi del protocol SNMP </td>
+</tr>
+<tr>
+<td class='confluenceTd'> Threshold </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Nivell més baix pel que es  geneneraran els missatges TRAP </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;appender name=<span class="code-quote">"snmp"</span> class=<span class="code-quote">"org.apache.log4j.ext.SNMPTrapAppender"</span>&gt;
+    &lt;param name=<span class="code-quote">"ImplementationClassName"</span> value="org.apache.
+    log4j.ext.WengsoftSNMPTrapSender"/&gt;
+    &lt;param name=<span class="code-quote">"ManagementHost"</span> value=<span class="code-quote">"127.0.0.1"</span>/&gt;
+    &lt;param name=<span class="code-quote">"ManagementHostTrapListenPort"</span> value=<span class="code-quote">"8001"</span>/&gt;
+    &lt;param name=<span class="code-quote">"EnterpriseOID"</span> value=<span class="code-quote">"1.3.6.1.4.1.24.0"</span>/&gt;
+    &lt;param name=<span class="code-quote">"LocalIPAddress"</span> value=<span class="code-quote">"127.0.0.1"</span>/&gt;
+    &lt;param name=<span class="code-quote">"LocalTrapSendPort"</span> value=<span class="code-quote">"161"</span>/&gt;
+    &lt;param name=<span class="code-quote">"GenericTrapType"</span> value=<span class="code-quote">"6"</span>/&gt;
+    &lt;param name=<span class="code-quote">"SpecificTrapType"</span> value=<span class="code-quote">"12345678"</span>/&gt;
+    &lt;param name=<span class="code-quote">"CommunityString"</span> value=<span class="code-quote">"<span class="code-keyword">public</span>"</span>/&gt;
+    &lt;param name=<span class="code-quote">"ForwardStackTraceWithTrap"</span> value=<span class="code-quote">"<span class="code-keyword">true</span>"</span>/&gt;
+    &lt;param name=<span class="code-quote">"Threshold"</span> value=<span class="code-quote">"DEBUG"</span>/&gt;
+    &lt;param name=<span class="code-quote">"ApplicationTrapOID"</span> value=<span class="code-quote">"1.3.6.1.4.1.24.12.10.22.64"</span>/&gt;
+    &lt;layout class=<span class="code-quote">"org.apache.log4j.ext.SnmpDelimitedConversionPatternLayout"</span>&gt;
+    &lt;param name=<span class="code-quote">"ValuePairDelim"</span> value=<span class="code-quote">"/"</span>/&gt;
+    &lt;param name=<span class="code-quote">"VarDelim"</span> value=<span class="code-quote">";"</span>/&gt;
+    &lt;param name=<span class="code-quote">"ConversionPattern"</span> value="%-5p;1.3.6.1.4.1.24.100.1/%t;1.
+    3.6.1.4.1.24.100.2/%c;1.3.6.1.4.1.24.100.3/%m;1.3.6.1.4.1.24.100.4" /&gt;
+&lt;/layout&gt;
+&lt;/appender&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Configuració de l'ús de Appender per Base de Dades</li>
+</ol>
+
+
+<p>Classe: org.apache.log4j.jdbcplus.JDBCAppender</p>
+
+<p>Instal&#45; lació: Per a poder fer ús d'aquest appender cal descarregar una  llibreria, disponible a la url  'http://www.dankomannhaupt.de/projects/index.html'</p>
+
+<p>Es poden definir els paràmetres:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Paràmetre</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> url </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Url de connexió a la base de dades </td>
+</tr>
+<tr>
+<td class='confluenceTd'> username </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Nom usuari connexió a la base de  dades </td>
+</tr>
+<tr>
+<td class='confluenceTd'> password </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Password connexió a la base de dades </td>
+</tr>
+<tr>
+<td class='confluenceTd'> connector </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Connector a la base de dades <br clear="all" />
+Els valors disponibles són: <br clear="all" />
+<br clear="all" />
+&#35;  org.apache.log4j.jdbcplus.examples.MySqlConnectionHandler <br clear="all" />
+&#35;  org.apache.log4j.jdbcplus.examples.OracleConnectionHandler <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+En cas de que no es disposi de connector per la base de  dades seleccionada es pot realitzar una implementació de la interfície  '<em>org.apache.log4j.jdbcplus.JDBCConnectionHandler'</em> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> sqlHandler </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Adaptador que proporciona la cadena  per fer la inserció d'un registre. <br clear="all" />
+<br clear="all" />
+Usar: '  org.apache.log4j.jdbcplus.examples.SqlHandler ' </td>
+</tr>
+<tr>
+<td class='confluenceTd'> sql </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Patró d'inserció dels valors en la  base de dades <br clear="all" />
+(Veure patrons a continuació) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> table </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Taula en la que s'emmagtzemaran les  traces </td>
+</tr>
+<tr>
+<td class='confluenceTd'> column </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Crear un paràmetre amb nom 'column'  per cada columna a inserir. Indicar com a valor: <br clear="all" />
+<br clear="all" />
+nom_de_columna~patró~valor <br clear="all" />
+<br clear="all" />
+On patró  correspon a un dels possibles patrons de la sql <br clear="all" /> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> buffer </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Nombre d'insercions a la base de  dades que es fan a la vegada <br clear="all" />
+<br clear="all" />
+Valor per defecte:1 </td>
+</tr>
+<tr>
+<td class='confluenceTd'> commit </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Especificar si es vol autocommit en  cada inserció. <br clear="all" />
+<br clear="all" />
+Valor per defecte:true </td>
+</tr>
+<tr>
+<td class='confluenceTd'> dbclass </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Driver utilitzat (específic de la  BD) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> quoteReplace </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Indicar 'true' si es volen  reemplazar les cometes simples (') per poder inserir a la base de dades </td>
+</tr>
+<tr>
+<td class='confluenceTd'> layoutPartsDelimiter </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Delimitador dels patrons de layout. <br clear="all" />
+És la cadena que utilitzarem per separar els diferents patrons  definits dins del tag ConversionPattern del tag Layout. <br clear="all" />
+Podrem  escollir el patró que volem usar en cada columna indicant  @LAYOUT:num_del_patro@ <br clear="all" />
+Ex: &lt;param name="ConversionPattern"  value="patro1#<del>&#35;patro2#</del>&#35;patro3"/&gt; <br clear="all" />
+On layoutPartsDelimiter="#-#" </td>
+</tr>
+</tbody></table>
+<p>Patrons del paràmetre sql:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Patró</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> (INC) </td>
+<td class='confluenceTd'> Comptador incremental per cada traça </td>
+</tr>
+<tr>
+<td class='confluenceTd'> (PRIO) </td>
+<td class='confluenceTd'> Prioritat de la traça (DEBUG,  INFO,...) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> (ID) </td>
+<td class='confluenceTd'> Classe que implementa JDBCIDHandler  i que proporciona el valor per aquesta columna. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> (IPRIO) </td>
+<td class='confluenceTd'> <b>Prioritat de la traça en format  numèric</b> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> (DYNAMIC) </td>
+<td class='confluenceTd'> Valor dinàmic que proporciona una  classe que implementa JDBCColumnHandler </td>
+</tr>
+<tr>
+<td class='confluenceTd'> (STATIC) </td>
+<td class='confluenceTd'> Valor estàtic </td>
+</tr>
+<tr>
+<td class='confluenceTd'> (CAT) </td>
+<td class='confluenceTd'> Nom de la categoria </td>
+</tr>
+<tr>
+<td class='confluenceTd'> (THREAD) </td>
+<td class='confluenceTd'> Nom del thread </td>
+</tr>
+<tr>
+<td class='confluenceTd'> (MSG) </td>
+<td class='confluenceTd'> Missatge de la traça sense format </td>
+</tr>
+<tr>
+<td class='confluenceTd'> (LAYOUT) </td>
+<td class='confluenceTd'> Missatge de la traça formatejat amb  el patró especificat en el param ConversionPattern. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> @LAYOUT:num_patró@ </td>
+<td class='confluenceTd'> Missatge de la traça formatejat amb  el patró especificat en el param ConversionPattern, en la posició indicada per  num_patró </td>
+</tr>
+<tr>
+<td class='confluenceTd'> (TIMESTAMP) </td>
+<td class='confluenceTd'> Moment en que es llença de la traça </td>
+</tr>
+<tr>
+<td class='confluenceTd'> (THROWABLE) </td>
+<td class='confluenceTd'> Error associat a la traça </td>
+</tr>
+<tr>
+<td class='confluenceTd'> (NDC) </td>
+<td class='confluenceTd'> Informació contextual de la traça <em>(nested diagnostic context)</em> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> @MDC:key@ </td>
+<td class='confluenceTd'> Informació contextual de la traça  sota una clau predeterminada <em>(mapped diagnostic context)</em> </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;appender name=<span class="code-quote">"JDBCPooled"</span> class=<span class="code-quote">"org.apache.log4j.jdbcplus.JDBCAppender"</span>&gt;
+    &lt;param name=<span class="code-quote">"url"</span> value=<span class="code-quote">"jdbc:mysql:<span class="code-comment">//localhost/test"</span> /&gt;
+</span>    &lt;param name=<span class="code-quote">"username"</span> value=<span class="code-quote">"eulo"</span> /&gt;
+    &lt;param name=<span class="code-quote">"password"</span> value=<span class="code-quote">"eulo"</span> /&gt;
+    &lt;param name=<span class="code-quote">"sql"</span> value="INSERT INTO TEST (prio, cat, thread,
+    msg, layout_msg, throwable, ndc, mdc, mdc2, info, addon, created_by)
+    VALUES (' (PRIO)', ' (CAT)', ' (THREAD)', ' (MSG)', '@LAYOUT:1@',
+    ' (THROWABLE)', ' (NDC)', '@MDC:MyMDC@', '@MDC:MyMDC2@', 'info timestamp:
+    (TIMESTAMP)', 'addon', 'me')"/&gt;
+    &lt;param name=<span class="code-quote">"buffer"</span> value=<span class="code-quote">"1"</span>/&gt;
+    &lt;param name=<span class="code-quote">"commit"</span> value=<span class="code-quote">"<span class="code-keyword">true</span>"</span>/&gt;
+    &lt;param name=<span class="code-quote">"dbclass"</span> value=<span class="code-quote">"com.mysql.jdbc.Driver"</span>/&gt;
+    &lt;param name=<span class="code-quote">"quoteReplace"</span> value=<span class="code-quote">"<span class="code-keyword">true</span>"</span>/&gt;
+    &lt;param name=<span class="code-quote">"throwableMaxChars"</span> value=<span class="code-quote">"3000"</span>/&gt;
+    &lt;param name=<span class="code-quote">"layoutPartsDelimiter"</span> value=<span class="code-quote">"#-#"</span>/&gt;
+    &lt;layout class=<span class="code-quote">"org.apache.log4j.PatternLayout"</span>&gt;
+    &lt;param name=<span class="code-quote">"ConversionPattern"</span> value="[%t] %m####%d\{dd.MM.yyyy\}
+    #-#%d\{HH:mm:ss\}"/&gt;
+&lt;/layout&gt;
+&lt;/appender&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+També podem indicar el nom de les columnes i el seu valor amb param  name="column" i posant a value:
+<br clear="all" />
+<br clear="all" /> nom_de_columna~patró~valor</p>
+
+<p>On patró correspon a un dels possibles patrons.<br/>
+D'aquesta manera no fa  falta el paràmetre sql.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;param name=<span class="code-quote">"table"</span> value=<span class="code-quote">"logtest"</span> /&gt;
+&lt;param name=<span class="code-quote">"column"</span> value="id~ID~org.apache.log4j.jdbcplus.
+examples.MyIDHandler" /&gt;
+&lt;param name=<span class="code-quote">"column"</span> value=<span class="code-quote">"prio~PRIO"</span> /&gt;
+&lt;param name=<span class="code-quote">"column"</span> value=<span class="code-quote">"cat~CAT"</span> /&gt;
+&lt;param name=<span class="code-quote">"column"</span> value=<span class="code-quote">"thread~THREAD"</span> /&gt;
+&lt;param name=<span class="code-quote">"column"</span> value=<span class="code-quote">"msg~MSG"</span> /&gt;
+&lt;param name=<span class="code-quote">"column"</span> value=<span class="code-quote">"layout_msg~LAYOUT"</span> /&gt;
+&lt;param name=<span class="code-quote">"column"</span> value="info~DYNAMIC~org.apache.log4j.jdbcplus.
+examples.MyColumnHandler" /&gt;
+&lt;param name=<span class="code-quote">"column"</span> value=<span class="code-quote">"mdc~MDC~MyMDC"</span> /&gt;
+&lt;param name=<span class="code-quote">"column"</span> value=<span class="code-quote">"created_on~TIMESTAMP"</span> /&gt;
+&lt;param name=<span class="code-quote">"column"</span> value=<span class="code-quote">"created_by~STATIC~me"</span> /&gt;
+&lt;param name=<span class="code-quote">"usePreparedStatements"</span> value=<span class="code-quote">"<span class="code-keyword">true</span>"</span>/&gt;
+
+&lt;param name=<span class="code-quote">"layoutPartsDelimiter"</span> value=<span class="code-quote">"#-#"</span>/&gt;
+&lt;!- layout with conversion pattern -&gt;
+&lt;layout class=<span class="code-quote">"org.apache.log4j.PatternLayout"</span>&gt;
+&lt;!- conversion pattern with 4 parts separated by ##, second part is empty --&gt;
+&lt;param name=<span class="code-quote">"ConversionPattern"</span> value="[%t] %m####%d\{dd.MM.yyyy\}#-#%
+d\{HH:mm:ss\}"/&gt;
+&lt;/layout&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Layouts</li>
+</ol>
+
+
+<ol>
+	<li>PatternLayout</li>
+</ol>
+
+
+<p>Classe: <a href="http://logging.apache.org/log4j/docs/api/org/apache/log4j/PatternLayout.html" title="Visit page outside Confluence">org.apache.log4j.PatternLayout</a><br/>
+<a href="http://logging.apache.org/log4j/docs/api/org/apache/log4j/PatternLayout.html" title="Visit page outside Confluence">http://logging.apache.org/log4j/docs/api/org/apache/log4j/PatternLayout.html</a><br/>
+[ Permet  especificar la sortida amb patrons de conversió. El seu ús és equivalent a la  funció printf del llenguatje C.  &#124;http://jakarta.apache.org/log4j/docs/api/org/apache/log4j/PatternLayout.html]Alguns  dels caràcters de conversió més interessants són (per a més referència consultar  la API de la classe):</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Caràcter</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> %c </td>
+<td class='confluenceTd'> Nom del "logger" </td>
+</tr>
+<tr>
+<td class='confluenceTd'> %C </td>
+<td class='confluenceTd'> Mostrar el nom qualificat de la  classe que ha llençat el missatge. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> %d </td>
+<td class='confluenceTd'> Mostrar la data en la que es va  produir el missatge. A continuació opcionalment pot aparèixer el patró de  conversió de data. Si no s'especifica s'utilitza per defecte <b>ISO 8601.</b> <br clear="all" />
+Exemple: %d{dd MMM yyyy HH:mm:ss,SSS}. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> %L </td>
+<td class='confluenceTd'> Número de línia a on es va llençar  el missatge (<b>no fer servir si es necessita un bon rendiment</b>). </td>
+</tr>
+<tr>
+<td class='confluenceTd'> %m </td>
+<td class='confluenceTd'> Missatge </td>
+</tr>
+<tr>
+<td class='confluenceTd'> %p </td>
+<td class='confluenceTd'> Prioritat/nivell del missatge  (WARN,...). </td>
+</tr>
+<tr>
+<td class='confluenceTd'> %X{clau} </td>
+<td class='confluenceTd'> Informació contextual "clau" </td>
+</tr>
+<tr>
+<td class='confluenceTd'> %n </td>
+<td class='confluenceTd'> Separador de línia (un \n). </td>
+</tr>
+</tbody></table>
+<p>El resultat de l'aplicació d'aquests patrons són missatges de texte pla  uniformement formatejats.</p>
+<ol>
+	<li>XMLLayout</li>
+</ol>
+
+
+<p>Classe: [  org.apache.log4j.XMLLayout&#124;http://logging.apache.org/log4j/docs/api/org/apache/log4j/xml/XMLLayout.html]<br/>
+<a href="http://logging.apache.org/log4j/docs/api/org/apache/log4j/PatternLayout.html" title="Visit page outside Confluence">http://logging.apache.org/log4j/docs/api/org/apache/log4j/PatternLayout.html</a><br/>
+La sortida  d'aquest "layout" consisteix en una sèrie de "log4j:event" nodes XML. Aquest  "layout" no deixa un fitxer XML ben format, sinó que està pensat per a ser  inclòs com a entitat externa a un altre fitxer per a formar un fitxer XML  correcte.<br/>
+Per exemple, si abc és el nom del fitxer a on van les traces, el  fitxer XML correcte seria:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=1.0"?&gt;
+
+&lt;!DOCTYPE log4j*:*eventSet **
+
+	&lt;!ENTITY* data SYSTEM  <span class="code-quote">"*file:<span class="code-comment">///abc"</span>&gt;]&gt;
+</span>
+&lt;log4j:eventSet version=<span class="code-quote">"1.2"</span>  xmlns:log4j=<span class="code-quote">"http:<span class="code-comment">//jakarta.apache.org/log4j/"</span>&gt;
+</span>
+&amp;data;
+
+&lt;/log4j:eventSet&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+L'atribut <em>version</em> de l'element <em>eventSet</em> indica la versió de  Log4J que es fa servir. 1.1 indica una versió de Log4J anterior a la 1.2 i un  valor per l'atribut 1.2 indica una versió 1.2 o posterior.<br/>
+Cal tenir en  compte que aquest "layout" no permet qualsevol estructura de XML que podem  pensar, sinó que segueix l'especificació de "log4j.dtd" que defineix quatre  atributs per cada node XML: <em>logger, timestamp, level i thread.</em><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;log4j:event logger="net.gencat.ctti.canigo.services.logging.snmp.
+test.TrapReceiver<span class="code-quote">" timestamp="</span>1127743279027<span class="code-quote">" level="</span>DEBUG<span class="code-quote">" thread="</span>main"&gt;
+&lt;log4j:message&gt;&lt;![CDATA[missatge...]]&gt;&lt;/log4j:message&gt;
+&lt;/log4j:event&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Qualsevol informació de tipus contextual (com ara l'userId) s'ha d'incloure  dins la informació contextual del log i automàticament s'inclourà en la  traça:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;log4j:event logger="net.gencat.ctti.canigo.services.logging.test.
+LoggingClient<span class="code-quote">" timestamp="</span>1127746730256<span class="code-quote">" level="</span>DEBUG<span class="code-quote">" thread="</span>main"&gt;
+&lt;log4j:message&gt;&lt;![CDATA[Log property file: log4j-test.xml.es-c7pym1j]]&gt;
+&lt;/log4j:message&gt;
+&lt;log4j:NDC&gt;&lt;![CDATA[userId: me]]&gt;&lt;/log4j:NDC&gt;
+&lt;/log4j:event&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>PatternXMLLayout</li>
+</ol>
+
+
+<p>Classe:  net.gencat.ctti.canigo.services.logging.log4j.xml.PatternXMLLayout<br/>
+<a href="http://logging.apache.org/log4j/docs/api/org/apache/log4j/PatternLayout.html" title="Visit page outside Confluence">http://logging.apache.org/log4j/docs/api/org/apache/log4j/PatternLayout.html</a><br/>
+La sortida  d'aquest "layout" és una combinació de PatternLayout i XMLLayout.<br/>
+A l'igual  que l'XMLLayout, aquest "layout" no deixa un fitxer XML ben format, si no que  també està pensat per a ser inclòs com a entitat externa a un altre fitxer per a  formar un fitxer XML correcte.<br/>
+El fitxer xml resultant tindrà una estructura  semblant a XMLLayout, amb la diferència que el atributs no seran els de  l'XMLLayout(<em>loggin, timestamp, level i thread</em>), sinó que els podrem  definir nosaltres mateixos, seguint els patrons de PatternLayout.</p>
+
+<p>Es permet definir els següents paràmetres:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Paràmetre</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> NameSpace </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Indica el namespace que l'xml  mostrarà en els tags (&lt;name_space:event&gt;). Si no es defineix, mostrarà  únicament el nom del tag (&lt;event&gt;) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> NodeName </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Indica el nom del node  principal(&lt;registre&gt;). Per defecte és "event" (&lt;event&gt;) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> AttrValuePairDelim </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Indica quin caràcter servei de  separador entre un atribut i el seu valor (usar '=' per defecte). </td>
+</tr>
+<tr>
+<td class='confluenceTd'> AttrVarDelim </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Indica quin caràcter serveix de  separador entre els diferents atributs </td>
+</tr>
+<tr>
+<td class='confluenceTd'> AttrConversionPattern </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Defineix els diferents atributs dels  events del log. El valor dels atributs pot seguir els mateixos patrons que en <em>PatternLayout.</em> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> NodesValuePairDelim </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Indica quin caràcter serveix de  separador entre els noms dels nodes i el seu valor </td>
+</tr>
+<tr>
+<td class='confluenceTd'> NodesVarDelim </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Indica &#95;_quin caràcter serveix de  separador entre els diferents nodes </td>
+</tr>
+<tr>
+<td class='confluenceTd'> NodesConversionPattern </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Defineix els diferents nodes dels  events del log. El valor dels nodes també pot seguir els mateixos patrons que en  PatternLayout. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> Throwable </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Indica que es mostraran les  excepcions llançades. A value definirem el nom del tag que inclourà l'excepció. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> ExceptionMaxLength </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Indica el nombre màxim de caràcters  que mostrarem de l'excepció. Per defecte són 256 caràcters. </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;appender name=<span class="code-quote">"file"</span> class=<span class="code-quote">"org.apache.log4j.RollingFileAppender"</span>&gt;
+&lt;param name=<span class="code-quote">"File"</span> value=<span class="code-quote">"D:/logs/logging4.log.xml"</span>/&gt;
+&lt;param name=<span class="code-quote">"Append"</span> value=<span class="code-quote">"<span class="code-keyword">true</span>"</span>/&gt;
+&lt;param name=<span class="code-quote">"MaxFileSize"</span> value=<span class="code-quote">"50KB"</span>/&gt;
+&lt;param name=<span class="code-quote">"maxBackupIndex"</span> value=<span class="code-quote">"3"</span>/&gt;
+&lt;layout class=<span class="code-quote">"net.gencat.ctti.canigo.services.logging.log4j.xml.PatternXMLLayout"</span>&gt;
+&lt;param name=<span class="code-quote">"NameSpace"</span> value=<span class="code-quote">"log4j"</span>/&gt;
+&lt;param name=<span class="code-quote">"NodeName"</span> value=<span class="code-quote">"registre"</span>/&gt;
+
+
+&lt;param name=<span class="code-quote">"AttrValuePairDelim"</span> value=<span class="code-quote">"="</span>/&gt;
+&lt;param name=<span class="code-quote">"AttrVarDelim"</span> value=<span class="code-quote">";"</span>/&gt;
+&lt;param name=<span class="code-quote">"AttrConversionPattern"</span> value=<span class="code-quote">"attr1=%-5p;attr2=%t;attr3=%c"</span> /&gt;
+
+
+&lt;param name=<span class="code-quote">"NodesValuePairDelim"</span> value=<span class="code-quote">"="</span>/&gt;
+&lt;param name=<span class="code-quote">"NodesVarDelim"</span> value=<span class="code-quote">";"</span>/&gt;
+&lt;param name=<span class="code-quote">"NodesConversionPattern"</span> value="data=%d\{yyyy MM dd HH:mm:ss\};
+errorType=0;aplicacio=%c;logger=%F;nivell=%p;classe=%c;metode=metode; pid=%t;
+missatge=%m;user_id=%X\{userId\};pagOrigen=%X\{pagOrigen\};" /&gt;
+
+
+&lt;param name=<span class="code-quote">"Throwable"</span> value=<span class="code-quote">"textException"</span>/&gt;
+&lt;param name=<span class="code-quote">"ExceptionMaxLength"</span> value=<span class="code-quote">"256"</span>/&gt;
+
+
+&lt;/layout&gt;
+&lt;/appender&gt;
+
+
+Un exemple de sortida amb aquesta configuració és:
+
+
+&lt;log4j:registre
+attr1=<span class="code-quote">"ERROR"</span>
+attr2=<span class="code-quote">"SNMP Server"</span>
+attr3=<span class="code-quote">"net.gencat.ctti.canigo.services.logging.snmp.test.TestListener"</span>&gt;
+
+
+&lt;log4j: Data&gt;2005 10 13 13:29:21&lt;/log4j: Data&gt;
+&lt;log4j:errorType&gt;0&lt;/log4j:errorType&gt;
+&lt;log4j:aplicacio&gt;net.gencat.ctti.canigo.services.logging.snmp.test.TestListener&lt;/log4j:aplicacio&gt;
+&lt;log4j:logger&gt;Log4JLog.java&lt;/log4j:logger&gt;
+&lt;log4j:nivell&gt;ERROR&lt;/log4j:nivell&gt;
+&lt;log4j:classe&gt;net.gencat.ctti.canigo.services.logging.snmp.test.TestListener&lt;/log4j:classe&gt;
+&lt;log4j:metode&gt;metode&lt;/log4j:metode&gt;
+&lt;log4j: Pid&gt;SNMP Server&lt;/log4j: Pid&gt;
+&lt;log4j:textException&gt;&lt;![CDATA[java.lang.Exception: Exception Message
+at net.gencat.ctti.canigo.services.logging.snmp.test.TestListener.snmpRequest(TestListener.java:38)
+at ca.wengsoft.snmp.Core.SnmpDispatcher.notifyEvent(SnmpDispatcher.java:164)
+at ca.wengsoft.snmp.Core....]]&gt;
+&lt;/log4j:textException&gt;
+
+
+&lt;/log4j:registre&gt;
+
+
+En cas que no s'hagués defint el paràmetre NameSpace obtindrem aquest altre format:
+
+
+&lt;registre
+attr1=<span class="code-quote">"ERROR"</span>
+attr2=<span class="code-quote">"SNMP Server"</span>
+attr3=<span class="code-quote">"net.gencat.ctti.canigo.services.logging.snmp.test.TestListener"</span>&gt;
+
+
+&lt;data&gt;2005 10 13 13:30:40&lt;/data&gt;
+&lt;errorType&gt;0&lt;/errorType&gt;
+&lt;aplicacio&gt;net.gencat.ctti.canigo.services.logging.snmp.test.TestListener&lt;/aplicacio&gt;
+&lt;logger&gt;Log4JLog.java&lt;/logger&gt;
+&lt;nivell&gt;ERROR&lt;/nivell&gt;
+&lt;classe&gt;net.gencat.ctti.canigo.services.logging.snmp.test.TestListener&lt;/classe&gt;
+&lt;metode&gt;metode&lt;/metode&gt;
+&lt;pid&gt;SNMP Server&lt;/pid&gt;
+&lt;textException&gt;&lt;![CDATA[java.lang.Exception: Exception Message
+at net.gencat.ctti.canigo.services.logging.snmp.test.TestListener.snmpRequest(TestListener.java:38)
+at ca.wengsoft.snmp.Core.SnmpDispatcher.notifyEvent(SnmpDispatcher.java:164)
+at ca.wengsoft.snmp.Core....]]&gt;
+&lt;/textException&gt;
+
+
+&lt;/registre&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />  <b>Incorporació de valors comuns a l'aplicació</b>
+<br clear="all" />
+<br clear="all" /> Utilitzant aquest layout podem crear logs amb valors provinents de variables  ja especificades en qualsevol punt de l'aplicació.</p>
+
+<p>Exemple: Imaginem que el filtre d'autentificació obté l'usuari i volem  mostrar l'usuari connectat a les nostres traces.</p>
+
+<p>Una possible opció és que la classe que generés la traça accedís prèviament a  l'obtenció de l'usuari connectat (a la sessió, cridant a la classe  d'autentificació, etc.) i afegís aquesta informació a la traça. Aquesta opció és  costosa i poc mantenible. Si volem mostrar a totes les traces de la nostra  aplicació l'usuari connectat haurem de realitzar aquest procediment. I si  després ens demanen que s'afegeixi altra informació contextual a totes les  traces de l'aplicació?</p>
+
+<p>Per evitar aquestes problemàtiques canigo proporciona la classe '  net.gencat.ctti.canigo.core.threadlocal.ThreadLocalProperties'.</p>
+
+<p>ThreadLocalProperties.put("userId","Usuari1");</p>
+
+<p>Una vegada introduit en qualsevol punt de l'aplicació aquest atribut, podem  configurar al layout que es mostri aquesta informació utilitzant el caràcter '$'  seguit del nom del atribut.</p>
+
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;param name=<span class="code-quote">"NodesConversionPattern"</span> value=<span class="code-quote">"data=%d\{yyyy MM dd  HH:mm:ss\};user_id=$userId;"</span> /&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Aquest paràmetre crearia un tag amb un node '<em>data'</em> obtingut amb el  patró de conversió indicat i un tag '<em>user_id'</em> amb el valor del  paràmetre <em>userId</em> obtingut de l'objecte 'ThreadLocalProperties':
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;log4j:registre&gt;
+
+&lt;log4j: Data&gt;2005 10 19 11:29:40&lt;/log4j:  Data&gt;
+
+&lt;log4j:user_id&gt;Usuari1&lt;/log4j:user_id&gt;
+
+&lt;/log4j:registre&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ul>
+	<li>Incorporació de missatges estructurats a la traça&#42;</li>
+</ul>
+
+
+<p>Per lo general els missatges de traces són cadenes. Si volem generar  informació adicional estructurada farem ús de l'objecte BaseLoggingObject per  afegir la informació (veure apartat 'Utilització - Generar logs amb paràmetres  adicionals a un missatge').</p>
+
+<p>Per mostrar els atributs de l'objecte BaseLoggingObject s'usarà la sintaxi  '<b>@</b>' seguida del nom del paràmetre.</p>
+
+<p>&lt;param name="NodesConversionPattern" value="idTramit=@idTramit;" /&gt;</p>
+
+<h2><a name="ServeideTraces2.2-Utilitzaci%C3%B3delServei"></a>Utilització del  Servei</h2>
+
+
+<h3><a name="ServeideTraces2.2-GenerarMissatges"></a>Generar Missatges</h3>
+
+<p>Tal i com s'ha comentat a l'apartat 'Arquitectura i Components' les classes  principals per a la generació de les traces es troben al package  'net.gencat.ctti.canigo.services.logging'.</p>
+
+<p>Per generar un missatge seguirem un patró com el mostrat en el següent  exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">if</span>(<span class="code-keyword">this</span>.loggingService!=<span class="code-keyword">null</span>){
+
+<span class="code-object">String</span> missatge = <span class="code-quote">"Missatge"</span>;
+
+Log log =  <span class="code-keyword">this</span>.loggingService.getLog(<span class="code-keyword">this</span>.getClass());
+
+log.info(missatge);
+
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Realitzarem doncs els següents pasos:
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>En primer lloc comprovarem que s'ha realitzat correctament la injecció a la  nostra classe del servei de logging</li>
+	<li>Construir el missatge que generarem a la sortida</li>
+</ol>
+
+
+<p>Aquest missatge és per lo general un String, però també es permet l'ús de la  classe 'BaseLoggingObject' per generar un missatge estructurat (veure apartat  'Generar missatges estructurats').</p>
+<ol>
+	<li>Obtenir la interfície 'Log' configurada pel servei de logging mitjançant la  crida 'loggingService.getLog(nomCategoria)'</li>
+</ol>
+
+
+<p>En el cas de fer ús de la implementació de log4j, el nom de la categoria ha  de correspondre al nom especificat en l'atribut 'name' del tag 'category' del  fitxer de propietats de log4j.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;category name=<span class="code-quote">"net.gencat.ctti"</span>&gt;
+
+&lt;appender-ref  ref=<span class="code-quote">"console"</span>/&gt;
+
+&lt;appender-ref ref=<span class="code-quote">"file"</span>/&gt;
+
+&lt;/category&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Per últim, farem ús dels mètodes que indiquen per quin nivell es genera la  traça:</li>
+</ol>
+
+
+<p>log.info(), log.debug(),....</p>
+
+<h3><a name="ServeideTraces2.2-Evitarc%C3%A0lculsinnecess%C3%A0ris"></a>Evitar  càlculs innecessàris</h3>
+
+<p>Una de les qüestions més importants del sistema de traces és el cost de  computació. Si en un moment donat es desactiven determinats nivells de traces,  tot i que aquesta traça no es generi a la sortida el missatge és avaluat (ja que  es troba com un paràmetre de la crida). Si l'avaluació del missatge comporta  càlculs estem afegint un cost innecessari.</p>
+
+<p>Per evitar afegir costos adicionals de cómput innecessari es recomana  prèviament comprovar que es troba activat el nivell pel qual generarem el  missatge. Així, per exemple, enlloc de:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">log.debug(<span class="code-quote">"...."</span>);</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Haurem sempre de realitzar:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">if</span> (log.isDebugEnabled())
+
+log.debug(<span class="code-quote">"...."</span>);</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h3><a name="ServeideTraces2.2-Generarmissatgesestructurats"></a>Generar missatges  estructurats</h3>
+
+<p>Per lo general les traces enviades són missatges purs (cadenes de tipus  String). En cas de que volguem generar informació estructurada del missatge es  pot fer ús de l'objecte  'net.gencat.ctti.canigo.services.logging.log4j.BaseLoggingObject' com si del  missatge es tractés.</p>
+
+<p>La utilització d'aquesta classe és especialment útil en l'ús del layout  'PatternXMLLayout', el qual ens permet generar tags específics per estructurar  la nostra informació.</p>
+
+<p>Per a utilitzar-ho passaram a cadascun dels mètodes de traça l'objecte creat  de la classe 'BaseLoggingObject'. Aquesta classe permet 2 constructors:</p>
+<ol>
+	<li>Constructor basat en un array de Objects</li>
+	<li>Constructor basat en una Hashtable</li>
+</ol>
+
+
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">log.debug(<span class="code-keyword">new</span> BaseLoggingObject(<span class="code-keyword">new</span>  <span class="code-object">Object</span>[]\{<span class="code-quote">"idTramit"</span>,<span class="code-quote">"34"</span>,<span class="code-quote">"missatge"</span>,<span class="code-quote">"missatge del log"</span>}));</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+O bé:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">Hashtable params = <span class="code-keyword">new</span>  Hashtable();
+params.put(<span class="code-quote">"idTramit"</span>,<span class="code-quote">"34"</span>);
+params.put(<span class="code-quote">"missatge"</span>,<span class="code-quote">"missatge  del log"</span>);
+log.debug(<span class="code-keyword">new</span> BaseLoggingObject(params));</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Veure la secció 'PatterXMLLayout - Configuració Incorporació de missatges  estructurats a la traça' per configurar que se'ns generi la informació  introduïda a l'objecte BaseLoggingObject.
+<br clear="all" />
+<br clear="all" /></p>
+<h3><a name="ServeideTraces2.2-GenerarInformaci%C3%B3Contextual"></a>Generar  Informació Contextual</h3>
+
+<p>Moltes vegades no és suficient amb la informació estàndard que es mostra a  les traces i és necessari complementar-la amb informació contextual cóm: usuari  que fa la petició, temps d'inici i final, etc. Per afegir aquesta informació, és  necessari inicialitzar-la en algun moment de la petició per què estigui  disponible durant tot el processat de la mateixa. Per tant, el patró de treball  a seguir és:</p>
+<ol>
+	<li>
+	<ol>
+		<li>Inicialització de l'informació adicional abans de processar la petició</li>
+		<li>Processat de la petició (utilització de l'informació adicional en el servei  de traces)</li>
+	</ol>
+	</li>
+	<li>Finalització de la petició</li>
+</ol>
+
+
+<p><b>canigo</b> suporta la inserció d'aquesta informació mitjançant el mètode  public void putInContext(String key, Object object) de la interfície  "net.gencat.ctti.canigo.services.logging.Log". Cal remarcar que el contexte  manegat és una solució basada en "contexte per fil" (<em>context per  thread</em>), per tant al finalitzar la petició el programador s'ha de preocupar  de buidar el contexte del "thread" amb el mètode public void removeContext()</p>
+
+<p>Una possible solució per seguir el patró de treball abans esmentat, és fer  servir els filtres de l'especificació de l'API Servlet. Així, podríem tenir un  filtre que ens insertès, per exemple, el nom d'usuari, tal i com es mostra a  continuació:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+<span class="code-keyword">public</span> class RequestLoggingFilter <span class="code-keyword">implements</span> Filter {
+...
+<span class="code-keyword">private</span> LoggingService loggingService = <span class="code-keyword">null</span>;
+<span class="code-keyword">public</span> void init(FilterConfig filterConfig) <span class="code-keyword">throws</span> ServletException {
+<span class="code-comment">// retrieves the loggingService
+</span>...
+}
+<span class="code-keyword">public</span> void doFilter(ServletRequest arg0, ServletResponse arg1, FilterChain chain)
+<span class="code-keyword">throws</span> IOException, ServletException \{*
+HttpServletRequest request = (HttpServletRequest) arg0;
+HttpServletResponse response = (HttpServletResponse) arg1;
+
+<span class="code-object">String</span> userLogin = (<span class="code-object">String</span>)request.getSession().getAttribute(<span class="code-quote">"userLogin"</span>);
+<span class="code-keyword">if</span> (userLogin!=<span class="code-keyword">null</span>) \{
+<span class="code-keyword">this</span>.loggingService.getLog(<span class="code-keyword">this</span>.getClass()).putInContext(<span class="code-quote">"userLoginId"</span>,userLoginId);
+}
+
+
+<span class="code-object">String</span> remoteHost = request.getRemoteHost();
+<span class="code-object">String</span> remoteAddr = request.getRemoteAddr();
+
+<span class="code-keyword">this</span>.loggingService.getLog(<span class="code-keyword">this</span>.getClass()).putInContext(<span class="code-quote">"remoteHost"</span>,remoteHost);
+<span class="code-keyword">this</span>.loggingService.getLog(<span class="code-keyword">this</span>.getClass()).putInContext(<span class="code-quote">"remoteAddr"</span>,remoteAddr);
+<span class="code-keyword">try</span> {
+chain.doFilter(arg0,arg1);
+}
+<span class="code-keyword">finally</span> {
+<span class="code-keyword">this</span>.loggingService.getLog(<span class="code-keyword">this</span>.getClass()).removeContext();
+}
+}
+...
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h3><a name="ServeideTraces2.2-Generarnousnivellsdetraces"></a>Generar nous nivells  de traces</h3>
+
+<p>El servei de traces afegeix varis nivells de traces (debug, info, warn,  error, fatal y audit). En cas de voler afegir un nou nivell es pot seguir el  següent procediment:</p>
+<ol>
+	<li>Extendre la interfície 'net.gencat.ctti.canigo.services.logging.Log' amb una  nova interfície</li>
+	<li>Definir a la nova interfície els mètodes de traces segons el nou  nivell</li>
+</ol>
+
+
+<p>Exemple :
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">package</span> net.gencat.ctti.canigo.services.logging*;*
+
+...
+
+<span class="code-keyword">public</span>  <span class="code-keyword">interface</span> Log {
+
+...
+
+<span class="code-keyword">public</span> void  audit(java.lang.<span class="code-object">Object</span> message);
+
+<span class="code-keyword">public</span> void audit(java.lang.<span class="code-object">Object</span>  message, java.lang.Throwable);
+
+<span class="code-keyword">public</span> <span class="code-object">boolean</span> isAuditEnabled();
+
+...
+
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Extendre la classe específica de cadascuna de les implementacions de la  interfície base 'Log' i incorporar el tractament del nou nivell.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">package</span> net.gencat.ctti.canigo.services.logging.log4j;
+...
+<span class="code-keyword">public</span>  class Log4JLog <span class="code-keyword">implements</span> Log {
+...
+<span class="code-keyword">public</span>  void audit*(<span class="code-object">Object</span> aMessage) {
+logger.log(AuditLevel.AUDIT,aMessage);
+
+}<span class="code-keyword">public</span> void audit*(<span class="code-object">Object</span> aMessage, Throwable aThrowable) {
+logger.log(AuditLevel.AUDIT,aMessage,  aThrowable);
+}
+
+<span class="code-keyword">public</span> <span class="code-object">boolean</span> isAuditEnabled() {
+<span class="code-keyword">return</span>  logger.isEnabledFor(AuditLevel.AUDIT);
+}
+
+...
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Crear el nou nivell
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">package</span> net.gencat.ctti.canigo.services.logging.log4j*;*
+
+...
+
+<span class="code-keyword">public</span>  class AuditLevel <span class="code-keyword">extends</span> Level {
+
+<span class="code-keyword">final</span> <span class="code-keyword">static</span> <span class="code-keyword">public</span>  <span class="code-object">int</span> AUDIT_INT = Level.INFO_INT + 1;
+
+<span class="code-keyword">final</span> <span class="code-keyword">static</span> <span class="code-keyword">public</span>  Level AUDIT = <span class="code-keyword">new</span> AuditLevel(AUDIT_INT, <span class="code-quote">"AUDIT"</span>, 8);
+
+<span class="code-keyword">public</span> AuditLevel*(<span class="code-object">int</span> arg0, <span class="code-object">String</span> arg1, <span class="code-object">int</span> arg2) {
+
+<span class="code-keyword">super</span>(arg0, arg1,  arg2);
+
+}
+
+<span class="code-keyword">public</span> <span class="code-keyword">static</span> Level toLevel(<span class="code-object">String</span> sArg) {
+
+<span class="code-keyword">return</span> (Level) toLevel(sArg, AuditLevel.AUDIT);
+
+}
+
+<span class="code-keyword">public</span> <span class="code-keyword">static</span> Level toLevel(<span class="code-object">int</span> val) {
+
+<span class="code-keyword">return</span> (Level)  toLevel(val, AuditLevel.AUDIT);
+
+}
+
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ol>
+
+
+<p>NOTA: En aquest exemple es mostra un exemple d'aplicació que ja es troba  incorporar a canigo</p>
+
+<p>Per últim, la referència al nou nivell des del fitxer de propietats es farà  mitjançat l'ús del tag '&lt;level&gt;' indicant com a value el nou nivell:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+
+&lt;category name=<span class="code-quote">"net.gencat.ctti.canigo.services.logging"</span>&gt;
+
+&lt;level value=<span class="code-quote">"audit"</span>  class=<span class="code-quote">"net.gencat.ctti.canigo.services.logging.log4j.AuditLevel"</span>/&gt;
+
+&lt;appender-ref  ref=<span class="code-quote">"file"</span>/&gt;
+
+&lt;/category&gt;
+
+...</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h2><a name="ServeideTraces2.2-EinesdeSuport"></a>Eines de Suport</h2>
+
+
+<h3><a name="ServeideTraces2.2-ServidordeprovesSNMP"></a>Servidor de proves  SNMP</h3>
+
+<p>En el cas de voler instal&#45; lar un servidor SNMP local per a realitzar proves  amb SNMP, canigo proporciona unes classes de test per a fer ús d'una  implementació opensource de servidor.<br/>
+Realitzar els següents pasos:</p>
+<ol>
+	<li>Descarregar el fitxer comprimit de l'última versió des de la  pàgina<br/>
+<a href="http://www.m2technologies.net/asp/snmpTrapAppender.asp" title="Visit page outside Confluence">http://www.m2technologies.net/asp/snmpTrapAppender.asp</a></li>
+	<li>Del fitxer descarregat incorporar a la llibreria del projecte el fitxer inclós 'snmpTrapAppender_X_X_X.jar' (on X_X_X correspon a la versió del fitxer)</li>
+	<li>Definir la classe listener que s'encarregarà d'analitzar els  missatges
+<br clear="all" /></li>
+</ol>
+
+
+<p>Classe:'net.gencat.ctti.canigo.services.logging.snmp.test.TestListener'</p>
+
+<p>Definir les següents propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> loggingService </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Incorporar una referència al servei  de traces </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"listener"</span>  class=<span class="code-quote">"net.gencat.ctti.canigo.services.logging.snmp.test.TestListener"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"loggingService"</span>&gt;&lt;ref local=<span class="code-quote">"loggingService"</span>/&gt;&lt;/property&gt;
+
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Definir un bean de seguretat.</li>
+</ol>
+
+
+<p>Classe: 'net.gencat.ctti.canigo.services.logging.snmp.test.Security'</p>
+
+<p>Definir les següents propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> loggingService </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Incorporar referència al servei de  traces </td>
+<td class='confluenceTd'> <br clear="all" /> </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"security"</span>  class=<span class="code-quote">"net.gencat.ctti.canigo.services.logging.snmp.test.Security"</span>&gt;
+&lt;property  name=<span class="code-quote">"loggingService"</span>&gt;&lt;ref local=<span class="code-quote">"loggingService"</span>/&gt;&lt;/property&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Per últim definir el servei que rebrà els missatges enviats per l'appender  configurat
+<br clear="all" />
+<br clear="all" /> Classe: 'net.gencat.ctti.canigo.services.logging.snmp.test.TrapReceiver'<br/>
+Indicar adicionalment:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> init-method </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Indicar 'init' per tal que  s'inicialitzi yb servidor amb un listener. </td>
+</tr>
+</tbody></table>
+<p>Com a propietats configurarem:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> loggingService </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Incorporar referència al servei de  traces </td>
+</tr>
+<tr>
+<td class='confluenceTd'> listener </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Referència al listener configurat al  pas 3 </td>
+</tr>
+<tr>
+<td class='confluenceTd'> security </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Referència a l'objecte security  configurat al pas 4 </td>
+</tr>
+<tr>
+<td class='confluenceTd'> defaultPort </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Indicar el port especificat al  paràmetre 'ManagementHostTrapListenPort' del appender (veure 'Configuració de  l'ús de Appender per SNMP </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"trapReceiver"</span>  class="net.gencat.ctti.canigo.services.logging.
+snmp.test.TrapReceiver<span class="code-quote">"  init-method="</span>init"&gt;
+	&lt;property name=<span class="code-quote">"loggingService"</span>&gt;&lt;ref  local=<span class="code-quote">"loggingService"</span>/&gt;&lt;/property&gt;
+	&lt;property  name=<span class="code-quote">"listener"</span>&gt;&lt;ref  local=<span class="code-quote">"listener"</span>/&gt;&lt;/property&gt;
+	&lt;property  name=<span class="code-quote">"security"</span>&gt;&lt;ref local=<span class="code-quote">"security"</span>/&gt;&lt;/property&gt; &lt;property  name=<span class="code-quote">"defaultPort"</span>&gt;
+		&lt;value&gt;8001&lt;/value&gt;
+	&lt;/property&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h4><a name="ServeideTraces2.2-Visualitzaci%C3%B3deLogs"></a>Visualització de  Logs</h4>
+
+
+<h5><a name="ServeideTraces2.2-Visualitzaci%C3%B3ambchainsaw%3A"></a>Visualització amb chainsaw:</h5>
+
+<p>Per visualitzar els logs provinents de la nostra aplicació podem utilitzar  una eina anomenada <b>chainsaw</b>, que trobem dins del paquet de <b>log4j</b> (<em>org.apache.log4j.chainsaw</em>). Aquesta eina ens permet visualitzar tant  els events generats per l'aplicació com els provinents d'un fitxer xml generat  per <em>XMLLayout</em>.</p>
+
+<p>Per visualitzar un fitxer xml només caldrà executar l'eina <b>chainsaw</b> i  obrir el fitxer. Aquest fitxer no ha d'ésser un fitxer xml ben format. Ha de  tenir l'estructura que presenta quan és generat per XMLLayout, és a dir, només  haurà de tenir els nodes dels events, sense la capçalera xml, ja que chainsaw ja  la introdueix abans de parsejar el fitxer.</p>
+
+<p>Així, aquest fitxer no podrà ser visualitzat pel chainsaw:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=1.0"?&gt;
+&lt;!DOCTYPE log4j:eventSet
+&lt;!ENTITY data SYSTEM <span class="code-quote">"file:<span class="code-comment">///abc"</span>&gt;
+</span>]&gt;
+&lt;log4j:eventSet version=<span class="code-quote">"1.2"</span> xmlns:log4j=<span class="code-quote">"http:<span class="code-comment">//jakarta.apache.org/log4j/"</span>&gt;
+</span>
+&lt;log4j:event logger=<span class="code-quote">"net.gencat.ctti.canigo.services.logging.test.LoggingClient"</span>
+timestamp=<span class="code-quote">"1127746730256"</span> level=<span class="code-quote">"DEBUG"</span> thread=<span class="code-quote">"main"</span>&gt;
+&lt;log4j:message&gt;&lt;![CDATA[Log property file: log4j-test.xml.es-c7pym1j]]&gt;&lt;/log4j:message&gt;
+&lt;log4j:NDC&gt;&lt;![CDATA[userId: me]]&gt;&lt;/log4j:NDC&gt;
+&lt;/log4j:event&gt;
+
+&lt;/log4j:eventSet&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Però sí podrà visualitzar fitxers amb aquest format:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;log4j:event logger=<span class="code-quote">"net.gencat.ctti.canigo.services.logging.test.LoggingClient"</span>
+timestamp=<span class="code-quote">"1127746730256"</span> level=<span class="code-quote">"DEBUG"</span> thread=<span class="code-quote">"main"</span>&gt;
+&lt;log4j:message&gt;&lt;![CDATA[Log property file: log4j-test.xml.es-c7pym1j]]&gt;&lt;/log4j:message&gt;
+&lt;log4j:NDC&gt;&lt;![CDATA[userId: me]]&gt;&lt;/log4j:NDC&gt;
+&lt;/log4j:event&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Per <ins>visualitzar</ins> els events provinents d'una aplicació haurem de  configurar l'arxiu <b>log4j.xml.nom_del_host</b> de la següent manera:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;appender name=<span class="code-quote">"chainsaw"</span>  class=<span class="code-quote">"org.apache.log4j.net.SocketAppender"</span>&gt;
+
+&lt;param name=<span class="code-quote">"remoteHost"</span>  value=<span class="code-quote">"localhost"</span>/&gt;
+
+&lt;param name=<span class="code-quote">"port"</span> value=<span class="code-quote">"4445"</span>/&gt;
+
+&lt;param  name=<span class="code-quote">"locationInfo"</span> value=<span class="code-quote">"<span class="code-keyword">true</span>"</span>/&gt;
+
+&lt;/appender&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Aquí creem un appender amb el nom <b>chainsaw</b> i amb els  següents<br/>
+paràmetres:
+<br clear="all" />
+<br clear="all" /> <b>remoteHost</b> = nom del host on executem el chainsaw<br/>
+<b>port</b> =  port per on establim la connexió<br/>
+<b>localinfo</b> = true</p>
+
+<p>Seguidament hem d'especificar quines classes enviaran els seus events cap a <b>chainsaw</b>, com fem amb els altres appenders:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;category name=<span class="code-quote">"net.gencat.ctti.canigo.services"</span>&gt;
+
+&lt;appender-ref  ref=<span class="code-quote">"chainsaw"</span>/&gt;
+
+&lt;appender-ref ref=<span class="code-quote">"console"</span>/&gt;
+
+&lt;appender-ref  ref=<span class="code-quote">"file"</span>/&gt;
+
+&lt;appender-ref ref=<span class="code-quote">"snmp"</span>/&gt;
+
+&lt;/category&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Un cop configurat el fitxer tots els events que produeixin aquestes classes  seran automàticament enviats cap al <b>chainsaw</b>.
+<br clear="all" />
+<br clear="all" /></p>
+<h5><a name="ServeideTraces2.2-Visualitzaci%C3%B3ambValueList%3A"></a>Visualització amb ValueList:</h5>
+
+<p>Una segona manera de veure les traces és a través d'una <em>ValueList</em> dins d'una pàgina <em>jsp</em>.</p>
+
+<p>Per a poder usar aquest mètode el primer que s'ha de fer és generar una nova entrada al fitxer <em>canigo-services-web-lists.xml</em>, concretament a dins del <em>&lt;map&gt;</em> de la propietat <em>&lt;config.adapters&gt;</em>.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;entry key=<span class="code-quote">"tracesList"</span>&gt;
+	&lt;bean name=<span class="code-quote">"tracesListAdapter"</span>
+		class="net.gencat.ctti.canigo.services.logging.log4j.xml.impl.
+		DailyRollingFileLogFinderAdapter"&gt;
+		&lt;property name=<span class="code-quote">"logBuilder"</span>&gt;
+			&lt;bean
+				class="net.gencat.ctti.canigo.services.logging.log4j.xml.impl.
+				DailyRollingFileLogBuilder"&gt;
+				&lt;property name=<span class="code-quote">"maxLogs"</span> value=<span class="code-quote">"${tracesList.maxLogs}"</span> /&gt;
+				&lt;property name=<span class="code-quote">"fileDatePattern"</span> value="${tracesList.
+				fileDatePattern}" /&gt;
+				&lt;property name=<span class="code-quote">"filterDatePattern"</span> value="${tracesList.
+				filterDatePattern}" /&gt;
+				&lt;property name=<span class="code-quote">"logItemDatePattern"</span> value="${tracesList.
+				logItemDatePattern}" /&gt;
+				&lt;property name=<span class="code-quote">"fileSystemService"</span> ref=<span class="code-quote">"fileSystemService"</span> /&gt;
+				&lt;property name=<span class="code-quote">"logService"</span> ref=<span class="code-quote">"loggingService"</span> /&gt;
+				&lt;property name=<span class="code-quote">"filtersConfig"</span>&gt;
+					&lt;map&gt;
+						&lt;entry key=<span class="code-quote">"userId"</span> value=<span class="code-quote">"EQUALS"</span> /&gt;
+						&lt;entry key=<span class="code-quote">"nivell"</span> value=<span class="code-quote">"EQUALS"</span> /&gt;
+						&lt;entry key=<span class="code-quote">"missatge"</span> value=<span class="code-quote">"LIKE"</span> /&gt;
+					&lt;/map&gt;
+				&lt;/property&gt;
+			&lt;/bean&gt;
+		&lt;/property&gt;
+		&lt;property name=<span class="code-quote">"logService"</span> ref=<span class="code-quote">"loggingService"</span> /&gt;
+		&lt;property name=<span class="code-quote">"defaultNumberPerPage"</span> value=<span class="code-quote">"${tracesList.defaultNumberPerPage}"</span> /&gt;
+	&lt;/bean&gt;
+&lt;/entry&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+I afegir la següent definició de bean al mateix fitxer:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean name=<span class="code-quote">"extendedValueListActionHelper"</span>
+        class=<span class="code-quote">"net.gencat.ctti.canigo.services.web.lists.impl.ExtendedValueListActionHelper"</span>&gt;
+        &lt;property name=<span class="code-quote">"valueListHelper"</span>&gt;
+            &lt;ref bean=<span class="code-quote">"valueListHelper"</span> /&gt;
+        &lt;/property&gt;
+        &lt;property name=<span class="code-quote">"maxExportRows"</span> value=<span class="code-quote">"10000"</span>&gt;&lt;/property&gt;
+        &lt;property name=<span class="code-quote">"logService"</span> ref=<span class="code-quote">"loggingService"</span> /&gt;
+ &lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Un cop ja es té la llista definida, el següent pas es generar una estructura amb una <em>acció</em>, unes pàgines <em>jsp</em> i els seus corresponents arxius de configuració i propietats (a la plantilla se'n pot veure un exemple). El més normal seria seguir una estructura de cerca, és a dir una pàntalla amb les condicions de cerca i posteriorment una pantalla amb la <em>ValueList</em> mostrant els resultats de la cerca.
+<br clear="all" />
+<br clear="all" /> Cal destacar que a l'<em>acció</em> que realitza la cerca hi ha d'haver el codi següent, que és el que permet fer la cerca correctament:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-comment">//Posem la localització del fitxer de traces XML
+</span>        traza.setRuta(confService.getProperty(<span class="code-quote">"ruta.fitxerLogXml"</span>));
+
+        <span class="code-comment">//Es fa la cerca i es carrega a la valueList
+</span>        <span class="code-keyword">this</span>.valueListActionHelper.search(mapping,form,request,response);</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+L'arxiu de configuració de l'<em>acció</em> tindrà una aparença com el que es mostra a continuació:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean lazy-init=<span class="code-quote">"<span class="code-keyword">true</span>"</span> name=<span class="code-quote">"/llistaTraces"</span>
+        class=<span class="code-quote">"net.gencat.ctti.canigo.samples.jpetstore.struts.action.TracesAction"</span>&gt;
+        &lt;property name=<span class="code-quote">"logService"</span> ref=<span class="code-quote">"loggingService"</span> /&gt;
+        &lt;property name=<span class="code-quote">"pojoClass"</span> value="net.gencat.ctti.canigo.services.logging.
+        log4j.xml.impl.TrazaCtti" /&gt;
+        &lt;property name=<span class="code-quote">"valueListActionHelper"</span>&gt;
+            &lt;bean parent=<span class="code-quote">"extendedValueListActionHelper"</span>&gt;
+                &lt;property name=<span class="code-quote">"exposedProperties"</span>&gt;
+                    &lt;list&gt;
+                        &lt;value&gt;ruta&lt;/value&gt;
+                    &lt;/list&gt;
+                &lt;/property&gt;
+                &lt;property name=<span class="code-quote">"listName"</span>&gt;&lt;value&gt;tracesList&lt;/value&gt;&lt;/property&gt;
+                &lt;property name=<span class="code-quote">"tableId"</span> value=<span class="code-quote">"LOGS"</span>/&gt;
+            &lt;/bean&gt;
+        &lt;/property&gt;
+        &lt;property name=<span class="code-quote">"levels"</span>&gt;
+            &lt;list&gt;
+                &lt;value&gt;DEBUG&lt;/value&gt;
+                &lt;value&gt;INFO&lt;/value&gt;
+                &lt;value&gt;WARN&lt;/value&gt;
+                &lt;value&gt;ERROR&lt;/value&gt;
+                &lt;value&gt;FATAL&lt;/value&gt;
+            &lt;/list&gt;
+        &lt;/property&gt;
+        &lt;property name=<span class="code-quote">"confService"</span> ref=<span class="code-quote">"configurationService"</span>/&gt; ...</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+En aquesta configuració es mostra com s'ha d'indicar el nom de la llista definida a l'arxiu <em>canigo-services-web-lists.xml</em>, el nom de l'atribut de la classe <em>TrazaCtti</em> que conté el nom del fitxer de traces, etc.
+<br clear="all" />
+<br clear="all" /> I amb aquestes indicacions i l'exemple de la <em>plantilla</em> ja n'hi hauria d'haver prou&nbsp; per fer una petita <em>acció</em> amb una <em>ValueList</em> de les traces XML.<br/>
+&nbsp;<br/>
+<img src="Servei de Traces 2.2_attachments/llistatTraces.jpg" align="center|border=1" border="0" />
+<br clear="all" /></p>
+
+<h5><a name="ServeideTraces2.2-Altresvisualitzacions%3A"></a>Altres visualitzacions:</h5>
+
+<p>Per <ins>visualitzar</ins> fitxers xml que no segueixin l'estructura dels que  genera <em>XMLLayout</em>, com els de <em>PatternLayout</em> o <em>PatternXMLLayout</em>, no podran ser <ins>visualitzats</ins> pel  *<b>chainsaw</b>&#42;. Haurem d'utilitzar editors de text o bé d'xml, pel cas dels  generats per _<em>PatternXMLLayout</em>&#95;.</p>
+
+<h2><a name="ServeideTraces2.2-Integraci%C3%B3ambAltresServeis"></a>Integració amb  Altres Serveis</h2>
+
+
+<h2><a name="ServeideTraces2.2-PreguntesFreq%C3%BC%C3%A8nts"></a>Preguntes  Freqüènts</h2>
+
+
+<h1><a name="ServeideTraces2.2-Exemples"></a>Exemples</h1>
+
+
+<h2><a name="ServeideTraces2.2-TestsUnitaris"></a>Tests Unitaris</h2>
+
+<p>Un exemple d'utilització del servei de traces són els tests unitaris, a on  s'obté el bean del servei a partir del fitxer de definició  (applicationContext.xml) i s'envia un log a les sortides especificades.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">package</span> net.gencat.ctti.canigo.services.mail.test;
+...
+<span class="code-keyword">public</span> class LoggingServiceTest <span class="code-keyword">extends</span> TestCase \{
+...
+<span class="code-keyword">public</span> void testLogging()\{
+/**
+* Obtenim les definicions dels beans
+*/
+ClassPathXmlApplicationContext appContext = <span class="code-keyword">new</span> ClassPathXmlApplicationContext(<span class="code-quote">"applicationContext.xml"</span>);
+/**
+* Obtenim el servei de logs
+*/
+BeanFactory factory = (BeanFactory) appContext;
+/**
+* Obtenim un client de test per llençar la traça
+*/
+LoggingService service=(LoggingService)factory.getBean(<span class="code-quote">"loggingService"</span>);
+FileSystemResource resource = <span class="code-keyword">new</span> FileSystemResource( client.getLoggingService().getConfigurator().
+getConfigFileName() );
+assertTrue(<span class="code-quote">"Log property file doesn't exist: "</span>+resource.getFilename(),resource.exists());
+<span class="code-keyword">if</span>(resource.exists())\{
+
+/**
+* Llencem la traça
+*/
+Log log = service.getLog(<span class="code-keyword">this</span>.getClass());
+<span class="code-keyword">if</span>(log.isDebugEnabled())
+log.debug(<span class="code-quote">"Log property file: "</span>+resource.getFilename());
+}
+}
+...
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+La utilització del servei es independent de la configuració del mateix. Així, un possible fitxer de configuració del servei seria:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">ge net.gencat.ctti.canigo.services.mail.test;
+
+...
+
+<span class="code-keyword">public</span> class LoggingServiceTest <span class="code-keyword">extends</span> TestCase \{
+...
+<span class="code-keyword">public</span> void testLogging()\{
+/**
+* Obtenim les definicions dels beans
+*/
+ClassPathXmlApplicationContext appContext = <span class="code-keyword">new</span> ClassPathXmlApplicationContext
+(<span class="code-quote">"applicationContext.xml"</span>);
+/**
+* Obtenim el servei de logs
+*/
+BeanFactory factory = (BeanFactory) appContext;
+/**
+* Obtenim un client de test per llençar la traça
+*/
+LoggingService service=(LoggingService)factory.getBean(<span class="code-quote">"loggingService"</span>);
+FileSystemResource resource = <span class="code-keyword">new</span> FileSystemResource( client.getLoggingService().
+getConfigurator().getConfigFileName() );
+assertTrue(<span class="code-quote">"Log property file doesn't exist: "</span>+resource.getFilename(),resource.exists());
+<span class="code-keyword">if</span>(resource.exists())\{
+
+/**
+* Llencem la traça
+*/
+Log log = service.getLog(<span class="code-keyword">this</span>.getClass());
+<span class="code-keyword">if</span>(log.isDebugEnabled())
+log.debug(<span class="code-quote">"Log property file: "</span>+resource.getFilename());
+}
+}
+...
+}
+
+La utilització del servei es independent de la configuració del mateix. Així, un possible
+fitxer de configuració del servei seria:
+
+&lt;?xml version=<span class="code-quote">"1.0"</span>?&gt;
+&lt;!DOCTYPE log4j:configuration PUBLIC <span class="code-quote">"-<span class="code-comment">//APACHE//DTD LOG4J//EN"</span> "http://logging.apache.org/log4j/
+</span>docs/api/org/apache/log4j/xml/log4j.dtd"&gt;
+
+&lt;log4j:configuration&gt;
+&lt;appender name=<span class="code-quote">"JDBCPooled"</span> class=<span class="code-quote">"org.apache.log4j.jdbcplus.JDBCAppender"</span>&gt;
+&lt;param name=<span class="code-quote">"connector"</span> value=<span class="code-quote">"org.apache.log4j.jdbcplus.examples.FirebirdPoolConnectionHandler"</span>/&gt;
+&lt;param name=<span class="code-quote">"sql"</span> value="INSERT INTO LOGTEST (id, prio, cat, thread, msg, layout_msg, throwable,
+ndc, mdc, mdc2, info, addon, the_date, the_time, the_timestamp, created_by) VALUES ( (INC), '
+(PRIO)', ' (CAT)', ' (THREAD)', ' (MSG)', '@LAYOUT:1@', ' (THROWABLE)', ' (NDC)', '@MDC:MyMDC@',
+'@MDC:MyMDC2@', 'info timestamp:  (TIMESTAMP)', 'addon', <span class="code-keyword">cast</span> ('@LAYOUT:3@' as date),
+<span class="code-keyword">cast</span> ('@LAYOUT:4@' as time), <span class="code-keyword">cast</span> ('@LAYOUT:3@ @LAYOUT:4@' as timestamp), 'me')"/&gt;
+&lt;param name=<span class="code-quote">"buffer"</span> value=<span class="code-quote">"1"</span>/&gt;
+&lt;param name=<span class="code-quote">"commit"</span> value=<span class="code-quote">"<span class="code-keyword">true</span>"</span>/&gt;
+&lt;param name=<span class="code-quote">"dbclass"</span> value=<span class="code-quote">"org.firebirdsql.jdbc.FBDriver"</span>/&gt;
+&lt;param name=<span class="code-quote">"quoteReplace"</span> value=<span class="code-quote">"<span class="code-keyword">true</span>"</span>/&gt;
+&lt;param name=<span class="code-quote">"throwableMaxChars"</span> value=<span class="code-quote">"3000"</span>/&gt;
+&lt;param name=<span class="code-quote">"layoutPartsDelimiter"</span> value=<span class="code-quote">"#-#"</span>/&gt;
+&lt;layout class=<span class="code-quote">"org.apache.log4j.PatternLayout"</span>&gt;
+&lt;param name=<span class="code-quote">"ConversionPattern"</span> value=<span class="code-quote">"[%t] %m####%d\{dd.MM.yyyy\}#-#%d\{HH:mm:ss\}"</span>/&gt;
+&lt;/layout&gt;
+&lt;/appender&gt;
+&lt;appender name=<span class="code-quote">"SYSTEMOUT"</span> class=<span class="code-quote">"org.apache.log4j.ConsoleAppender"</span>&gt;
+&lt;param name=<span class="code-quote">"target"</span> value=<span class="code-quote">"<span class="code-object">System</span>.out"</span>/&gt;
+&lt;layout class=<span class="code-quote">"org.apache.log4j.PatternLayout"</span>&gt;
+&lt;param name=<span class="code-quote">"ConversionPattern"</span> value=<span class="code-quote">" %d\{dd.MM.yyyy HH:mm:ss\} - %m\n"</span>/&gt;
+&lt;/layout&gt;
+&lt;/appender&gt;
+&lt;appender name=<span class="code-quote">"SNMP"</span> class=<span class="code-quote">"org.apache.log4j.ext.SNMPTrapAppender"</span>&gt;
+&lt;param name=<span class="code-quote">"ImplementationClassName"</span> value=<span class="code-quote">"org.apache.log4j.ext.WengsoftSNMPTrapSender"</span>/&gt;
+&lt;param name=<span class="code-quote">"ManagementHost"</span> value=<span class="code-quote">"127.0.0.1"</span>/&gt;
+&lt;param name=<span class="code-quote">"ManagementHostTrapListenPort"</span> value=<span class="code-quote">"8001"</span>/&gt;
+&lt;param name=<span class="code-quote">"EnterpriseOID"</span> value=<span class="code-quote">"1.3.6.1.4.1.24.0"</span>/&gt;
+&lt;param name=<span class="code-quote">"LocalIPAddress"</span> value=<span class="code-quote">"127.0.0.1"</span>/&gt;
+&lt;param name=<span class="code-quote">"LocalTrapSendPort"</span> value=<span class="code-quote">"161"</span>/&gt;
+&lt;param name=<span class="code-quote">"GenericTrapType"</span> value=<span class="code-quote">"6"</span>/&gt;
+&lt;param name=<span class="code-quote">"SpecificTrapType"</span> value=<span class="code-quote">"12345678"</span>/&gt;
+&lt;param name=<span class="code-quote">"CommunityString"</span> value=<span class="code-quote">"<span class="code-keyword">public</span>"</span>/&gt;
+&lt;param name=<span class="code-quote">"Threshold"</span> value=<span class="code-quote">"DEBUG"</span>/&gt;
+&lt;layout class=<span class="code-quote">"org.apache.log4j.ext.SnmpDelimitedConversionPatternLayout"</span>&gt;
+&lt;param name=<span class="code-quote">"ValuePairDelim"</span> value=<span class="code-quote">"/"</span>/&gt;
+&lt;param name=<span class="code-quote">"VarDelim"</span> value=<span class="code-quote">";"</span>/&gt;
+&lt;param name=<span class="code-quote">"ConversionPattern"</span> value="%-5p;1.3.6.1.4.1.24.100.1/%t;1.3.6.1.4.1.
+24.100.2/%c;1.3.6.1.4.1.24.100.3/%m;1.3.6.1.4.1.24.100.4" /&gt;
+&lt;/layout&gt;
+&lt;/appender&gt;
+&lt;appender name=<span class="code-quote">"MAIL"</span> class=<span class="code-quote">"org.apache.log4j.net.SMTPAppender"</span>&gt;
+&lt;param name=<span class="code-quote">"threshold"</span> value=<span class="code-quote">"ERROR"</span>/&gt;
+&lt;param name=<span class="code-quote">"SMTPHost"</span> value=<span class="code-quote">"smtp.ctti.net"</span>/&gt;
+&lt;param name=<span class="code-quote">"subject"</span> value=<span class="code-quote">"Error!"</span>/&gt;
+&lt;param name=<span class="code-quote">"to"</span> value=<span class="code-quote">"xavi.xicota@ctti.net,jordi.negrete@ctti.net"</span>/&gt;
+&lt;param name=<span class="code-quote">"from"</span> value=<span class="code-quote">"xavi.xicota@ctti.net"</span>/&gt;
+&lt;/appender&gt;
+&lt;appender name=<span class="code-quote">"FILE"</span> class=<span class="code-quote">"org.apache.log4j.DailyRollingFileAppender"</span>&gt;
+&lt;param name=<span class="code-quote">"File"</span> value=<span class="code-quote">"/<span class="code-keyword">var</span>/logs/daily_application.log"</span>/&gt;
+&lt;param name=<span class="code-quote">"DatePattern"</span> value=<span class="code-quote">"'.'yyyy-MM-dd"</span>/&gt;
+&lt;param name=<span class="code-quote">"Append"</span> value=<span class="code-quote">"<span class="code-keyword">true</span>"</span>/&gt;
+&lt;param name=<span class="code-quote">"MaxFileSize"</span> value=<span class="code-quote">"50KB"</span>/&gt;
+&lt;layout class=<span class="code-quote">"org.apache.log4j.PatternLayout"</span>&gt;
+&lt;param name=<span class="code-quote">"ConversionPattern"</span> value=<span class="code-quote">"canigo Message: %-5p [%t] %c - %m%n"</span>/&gt;
+&lt;/layout&gt;
+&lt;/appender&gt;
+&lt;root&gt;
+&lt;appender-ref ref=<span class="code-quote">"SYSTEMOUT"</span> /&gt;
+&lt;appender-ref ref=<span class="code-quote">"JDBCPooled"</span>/&gt;
+&lt;appender-ref ref=<span class="code-quote">"FILE"</span>/&gt;
+&lt;appender-ref ref=<span class="code-quote">"MAIL"</span>/&gt;
+&lt;/root&gt;
+&lt;/log4j:configuration&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h1><a name="ServeideTraces2.2-Annexos"></a>Annexos</h1>
+
+
+<h2><a name="ServeideTraces2.2-Introducci%C3%B3aLog4J"></a>Introducció a Log4J</h2>
+
+<p>En aquest annex s'ofereix una breu introducció a conceptes de Log4J que cal  entendre per utilitzar el Servei de Traces.</p>
+
+<p>A Log4J, existeixen varis elements clau:</p>
+<ol>
+	<li>Prioritats o nivells de les traces. Log4J defineix per defecte 5 nivells:  DEBUG, INFO, WARN, ERROR i FATAL. Entre ells existeix una jerarquia  (DEBUG&lt;INFO&lt;WARN&lt;ERROR&lt;FATAL), de forma que si en l'aplicació s'ha  configurat que només es mostrin traces de nivell WARN, també es mostrarien els  de nivell ERROR i FATAL.<br/>
+<div align="center"><img src="Servei de Traces 2.2_attachments/ServeiTraces_img014.jpg" border="0" /></div>
+<br clear="all" /></li>
+	<li>Categories. Les categories donen control al programador per a determinar  quins events requereixen ser capturats i quins no. Dins de l'aplicació es poden  definir diferents categories organitzades per jerarquia que en la majoria dels  casos es mapejen amb el nom qualificat de les classes java, a on cada classe  tindria la seva categoria. També poden crear-se categories per nom, de manera  que podria definir-se una categoria que fes traces de les conexions RMI de  l'aplicació, o de totes les operacions del usuari, etc.</li>
+</ol>
+
+
+<ol>
+	<li>Appenders. Els "appenders" especifiquen a on es desarà la traça definida per  a la categoria. Una categoria pot definir diferents sortides o "appenders" a la  vegada (consola, fitxer, correu electrònic, base de dades,etc.)</li>
+	<li>Layouts. Permeten especificar com es mostren els events. Per exemple podem  especificar que ens aparegui l'hora en la que s'ha produït l'event, qui ho ha  llençat, la línia en la que s'ha fet, etc.</li>
+</ol>
+
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Traces 2.2_attachments/ServeiTraces_img005.jpg">ServeiTraces_img005.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Traces 2.2_attachments/ServeiTraces_img014.jpg">ServeiTraces_img014.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Traces 2.2_attachments/ServeiTraces_img003.jpg">ServeiTraces_img003.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Traces 2.2_attachments/ServeiTraces_img013.jpg">ServeiTraces_img013.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Traces 2.2_attachments/ServeiTraces_img006.jpg">ServeiTraces_img006.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Traces 2.2_attachments/ServeiTraces_img015.jpg">ServeiTraces_img015.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Traces 2.2_attachments/ServeiTraces_img008.jpg">ServeiTraces_img008.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Traces 2.2_attachments/llistatTraces.jpg">llistatTraces.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Traces 2.2_attachments/ServeiTraces_img007.jpg">ServeiTraces_img007.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Traces 2.2_attachments/ServeiTraces_img001.jpg">ServeiTraces_img001.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Traces 2.2_attachments/ServeiTraces_img012.jpg">ServeiTraces_img012.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Traces 2.2_attachments/ServeiTraces_img009.jpg">ServeiTraces_img009.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Traces 2.2_attachments/ServeiTraces_img011.jpg">ServeiTraces_img011.jpg</a> (image/jpeg)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

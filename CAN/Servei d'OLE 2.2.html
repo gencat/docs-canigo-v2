@@ -1,0 +1,727 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Servei d'OLE 2.2</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Servei d'OLE 2.2
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Sep 21, 2007 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="Serveid%27OLE2.2-SERVEID%27OLE"></a>SERVEI D'OLE</h1>
+
+<p><br clear="all" />
+<br clear="all" />
+<div>
+<ul><a href='#Serveid%27OLE2.2-SERVEID%27OLE'>
+    <li>SERVEI D'OLE</li></a><a href='#Serveid%27OLE2.2-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#Serveid%27OLE2.2-Prop%C3%B2sit'>
+    <li>Propòsit</li></a><a href='#Serveid%27OLE2.2-ContextiEscenarisd%27%C3%9As'>
+    <li>Context i Escenaris  d'Ús</li></a><a href='#Serveid%27OLE2.2-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i  Dependències</li></a><a href='#Serveid%27OLE2.2-Aquivadirigit'>
+    <li>A qui va  dirigit</li></a><a href='#Serveid%27OLE2.2-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents i  Fonts de Referència</li></a><a href='#Serveid%27OLE2.2-Glossari'>
+    <li>Glossari</li></a>
+</ul><a href='#Serveid%27OLE2.2-Descripci%C3%B3Detallada'>
+    <li>Descripció  Detallada</li></a>
+<ul><a href='#Serveid%27OLE2.2-ArquitecturaiComponents'>
+    <li>Arquitectura i  Components</li></a><a href='#Serveid%27OLE2.2-Instal%5Claci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal&#45; lació  i Configuració</li></a>
+<ul><a href='#Serveid%27OLE2.2-Instal%5Claci%C3%B3'>
+    <li>Instal&#45; lació</li></a><a href='#Serveid%27OLE2.2-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#Serveid%27OLE2.2-Utilitzaci%C3%B3delServei'>
+    <li>Utilització del  Servei</li></a>
+<ul><a href='#Serveid%27OLE2.2-Generaci%C3%B3d%27undocumentambformatOLE'>
+    <li>Generació  d'un document amb format OLE</li></a>
+</ul>
+</ul><a href='#Serveid%27OLE2.2-Exemples'>
+    <li>Exemples</li></a>
+<ul><a href='#Serveid%27OLE2.2-GenerarundocumentExcelenformatOLE'>
+    <li>Generar un  document Excel en format OLE</li></a>
+<ul><a href='#Serveid%27OLE2.2-Definireldocumentamodelarenelservei%28views.xml%29'>
+    <li>Definir  el document a modelar en el servei (views.xml)</li></a><a href='#Serveid%27OLE2.2-Modelarlesdadesamostrar'>
+    <li>Modelar  les dades a mostrar</li></a><a href='#Serveid%27OLE2.2-Renderitzarlesdadesamostrar'>
+    <li>Renderitzar les dades  a mostrar</li></a><a href='#Serveid%27OLE2.2-Invocaci%C3%B3'>
+    <li>Invocació</li></a>
+</ul>
+</ul>
+</ul></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+&nbsp;
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h1><a name="Serveid%27OLE2.2-Introducci%C3%B3"></a>Introducció</h1>
+
+
+<h2><a name="Serveid%27OLE2.2-Prop%C3%B2sit"></a>Propòsit</h2>
+
+<p>El servei de manipulació de formats OLE (Excel i Word) de canigo permet  llegir, crear, modificar i mostrar documents de Microsoft amb formats basats en  OLE.</p>
+
+<h2><a name="Serveid%27OLE2.2-ContextiEscenarisd%27%C3%9As"></a>Context i Escenaris  d'Ús</h2>
+
+<p>El servei de manipulació de formats OLE es troba dins dels serveis de  presentació de canigo.</p>
+
+<p>El seu ús és necessari en cas de voler manipular/mostrar documents amb format  OLE.</p>
+
+<h2><a name="Serveid%27OLE2.2-VersionsiDepend%C3%A8ncies"></a>Versions i  Dependències</h2>
+
+<p>Les dependències descrites a la següent url son requerides per tal de compilar i fer funcionar el projecte:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-ole/dependencies.html" title="Visit page outside Confluence">Dependències Servei d'Ole</a></p>
+
+<h2><a name="Serveid%27OLE2.2-Aquivadirigit"></a>A qui va  dirigit</h2>
+
+<p>Aquest document va dirigit als següents perfils:</p>
+<ol>
+	<li>Programador. Per conèixer l'ús del servei.</li>
+	<li>Arquitecte. Per conèixer quins són els components i la configuració del  servei.</li>
+</ol>
+
+
+<h2><a name="Serveid%27OLE2.2-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents i  Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> [1] </th>
+<th class='confluenceTh'> POI </th>
+<th class='confluenceTh'> <a href="http://jasperreports.sourceforge.net/" title="Visit page outside Confluence">http://jakarta.apache.org/poi/</a> </th>
+</tr>
+</tbody></table>
+
+<h2><a name="Serveid%27OLE2.2-Glossari"></a>Glossari</h2>
+
+<p><b>OLE</b><br/>
+<em>Object Linking and Embedding</em>, es tracta d'un format de  documents propietari de Microsoft utilitzat en els productes Excel i Word des de  la versió 97 fins a la 2002.</p>
+
+<p><b>POI</b><br/>
+<em>Poor Obfuscation Implement</em>, es tracta d'un projecte <em>open source</em> de Jakarta que pretén facilitar la manipulació de documents  OLE des de Java.</p>
+
+<h1><a name="Serveid%27OLE2.2-Descripci%C3%B3Detallada"></a>Descripció  Detallada</h1>
+
+
+<h2><a name="Serveid%27OLE2.2-ArquitecturaiComponents"></a>Arquitectura i  Components</h2>
+
+<p><b>canigo</b> ofereix una arquitectura d'ús de manipulació de documents OLE  totalment deslligada de qualsevol implementació.</p>
+
+<p>Els components podem classificar-los en:</p>
+<ol>
+	<li>Interfícies i Components Genèrics. Interfícies del servei i components d'ús  general amb independència de la implementació escollida.</li>
+</ol>
+
+
+<ol>
+	<li>Implementació de les interfícies basada en POI.</li>
+</ol>
+
+
+<p><em>Nota</em><br/>
+Les versions de documents Microsoft que es basen en OLE  són des de l'Excel/Word 97 fins a l'Excel/Word 2002.</p>
+
+<p>Es pot trobar tota la documentació JavaDoc y el codi font referent aquests components a les següents urls:</p>
+
+<p><ins>JavaDoc:</ins> <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-ole/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-ole/apidocs/index.html</a><br/>
+<ins>Codi Font:</ins>&nbsp; <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-ole/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-ole/xref/index.html</a></p>
+
+<h2><a name="Serveid%27OLE2.2-Instal%5Claci%C3%B3iConfiguraci%C3%B3"></a>Instal&#45; lació  i Configuració</h2>
+
+
+<h3><a name="Serveid%27OLE2.2-Instal%5Claci%C3%B3"></a>Instal&#45; lació</h3>
+
+<p>La instal&#45; lació del servei requereix de la utilització de la llibreria  'canigo-services-ole' i les dependències indicades a l'apartat 'Introducció -  Versions i Dependències'.</p>
+
+<h3><a name="Serveid%27OLE2.2-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p>Per a configurar el servei de manipulació de formats OLE s'han d'actualitzar  els següents fitxers:</p>
+
+<p>La configuració implica els següents pasos:</p>
+<ol>
+	<li>Definició bàsica del servei. Cal modificar els següents fitxers</li>
+	<li>web.xml</li>
+	<li>canigo-services.xml</li>
+	<li>struts-config.xml</li>
+	<li>application-servlet.xml</li>
+</ol>
+
+
+<ol>
+	<li>Definir els constructors de documents OLE. Cal modificar el fitxer  'views.xml'</li>
+</ol>
+
+
+<p>Definició Bàsica del Servei</p>
+<ol>
+	<li>Definició del mapeig de peticions url de tipus '.doc' i '.xls'</li>
+</ol>
+
+
+<p><em>Fitxer de configuració: web.xml</em></p>
+
+<p><em>Ubicació: &lt;PROJECT_ROOT&gt;/src/main/webapp/WEB-INF</em></p>
+
+<p>_ &#95;En aquest punt es defineix que tota petició realitzada amb extensió '.doc'  o '.xls' les resoldrà el servlet principal.</p>
+
+<p>Definir el següent codi:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+
+&lt;servlet&gt;
+
+&lt;servlet-name&gt;application&lt;/servlet-name&gt;
+
+&lt;servlet-class&gt;
+
+org.springframework.web.servlet.DispatcherServlet
+
+&lt;/servlet-class&gt;
+
+&lt;load-on-startup&gt;2&lt;/load-on-startup&gt;
+
+&lt;/servlet&gt;
+
+...
+
+&lt;servlet-mapping&gt;
+
+&lt;servlet-name&gt;application&lt;/servlet-name&gt;
+
+&lt;url-pattern&gt;*.doc&lt;/url-pattern&gt;
+
+&lt;/servlet-mapping&gt;
+
+&lt;servlet-mapping&gt;
+
+&lt;servlet-name&gt;application&lt;/servlet-name&gt;
+
+&lt;url-pattern&gt;*.xls&lt;/url-pattern&gt;
+
+&lt;/servlet-mapping&gt;
+
+...</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Definició del resolver que defineix el fitxer de definició de  reports</li>
+</ol>
+
+
+<p><em>Fitxer de configuració: canigo-services-ole.xml</em></p>
+
+<p><em>Ubicació: &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>Definir el següent codi:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+&lt;!- OLE service -&gt;
+&lt;bean id=<span class="code-quote">"oleResolver"</span> class=<span class="code-quote">"org.springframework.web.servlet.view.XmlViewResolver"</span> &gt;
+&lt;property name=<span class="code-quote">"location"</span> value=<span class="code-quote">"classpath:spring/canigo-services-views.xml"</span> /&gt;
+&lt;/bean&gt;
+...</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ul>
+	<li>Definició dels forwards de Struts per usar el servei des d'una  Action</li>
+</ul>
+
+
+<p><em>Fitxer de configuració: struts-config.xml</em></p>
+
+<p><em>Ubicació: &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>Definir el següent codi:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+&lt;global-forwards&gt;
+...
+
+&lt;!- Forward a un objecte OLE -&gt;
+&lt;forward name=<span class="code-quote">"oleXLS"</span> path=<span class="code-quote">"/ole.xls"</span> redirect=<span class="code-quote">"<span class="code-keyword">true</span>"</span> /&gt;
+&lt;forward name=<span class="code-quote">"oleDOC"</span> path=<span class="code-quote">"/ole.doc"</span> redirect=<span class="code-quote">"<span class="code-keyword">true</span>"</span> /&gt;
+
+...
+&lt;/global-forwards&gt;
+...</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ul>
+	<li>Definició del resolver que defineix el fitxer de definició de  reports</li>
+</ul>
+
+
+<p><em>Fitxer de configuració: canigo-services-ole.xml</em></p>
+
+<p><em>Ubicació: &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>Definir el següent codi:</p>
+<ul>
+	<li>Definició del control&#45; lador de tractament dels reports</li>
+</ul>
+
+
+<p><em>Fitxer de configuració: action-servlet.xml</em></p>
+
+<p><em>Ubicació: &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>Definir el següent codi:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+
+&lt;bean  id=<span class="code-quote">"urlMapping"</span>
+
+class=<span class="code-quote">"org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"</span>&gt;
+
+...
+
+&lt;property  name=<span class="code-quote">"mappings"</span>&gt;
+
+&lt;props&gt;
+
+...
+
+&lt;prop  key=<span class="code-quote">"ole.xls"</span>&gt;oleController&lt;/prop&gt;
+
+&lt;prop  key=<span class="code-quote">"ole.doc"</span>&gt;oleController&lt;/prop&gt;
+
+&lt;/props&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;
+
+...&lt;bean  id=<span class="code-quote">"oleController"</span>class=<span class="code-quote">"net.gencat.ctti.canigo.services.ole.OleController"</span>  /&gt;...</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Definició dels constructors dels documents OLE
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> <em>Fitxer de configuració: canigo-services-views.xml</em></p>
+
+<p><em>Ubicació: &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>En aquest fitxer es defineixen els beans que renderitzen els documents amb  format OLE. Cadascuna de les classes de document que extenguin de  'WrapperWordView' o 'WrapperExcelView' (veure apartat 'Utilització del Servei')  seran definides en aquest apartat.</p>
+
+<p>Atributs:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atribut</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> class </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Es tracta de la classe que  renderitza de les dades a format OLE. Aquesta classe la definir-se s'haurà extés  de WrapperWordView o WrapperExcelView. </td>
+</tr>
+</tbody></table>
+<p>Per cada bean es poden configurar les següents propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> beanName </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Nom del tipus de classe contingut a  la llista del 'beanList' </td>
+</tr>
+<tr>
+<td class='confluenceTd'> beanList </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Nom de la llista que conté la  informació. Aquesta informació serà introduida des de l'Action </td>
+</tr>
+<tr>
+<td class='confluenceTd'> url </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Localització del fitxer que farà de  plantilla. En el cas d'Excels serà opcional. <br clear="all" />
+<br clear="all" />
+NOTA: en  el cas dels Words s'ha d'utilitzar SEMPRE un document ja creat (encara que sigui  en blanc). </td>
+</tr>
+</tbody></table>
+<p>Tant 'beanName' com 'beanList' són informacions d'ajuda a la vista per  accedir a les dades que li prepari el Action. En qualsevol cas, es poden passar  paràmetres entre el Action i la vista de qualsevol tipus sense definir aquestes  propietats.</p>
+
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"itemsWordView"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.samples.jpetstore.ole.views.ItemsWordView"</span>&gt;
+&lt;property name=<span class="code-quote">"beanName"</span> value=<span class="code-quote">"net.gencat.ctti.canigo.samples.jpetstore.model.Item"</span>/&gt;
+&lt;property name=<span class="code-quote">"beanList"</span> value=<span class="code-quote">"itemList"</span>/&gt;
+&lt;property name=<span class="code-quote">"url"</span> value=<span class="code-quote">"classpath:ole/template.doc"</span>/&gt;
+&lt;property name=<span class="code-quote">"logService"</span> ref=<span class="code-quote">"loggingService"</span>/&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h2><a name="Serveid%27OLE2.2-Utilitzaci%C3%B3delServei"></a>Utilització del  Servei</h2>
+
+
+<h3><a name="Serveid%27OLE2.2-Generaci%C3%B3d%27undocumentambformatOLE"></a>Generació  d'un document amb format OLE</h3>
+
+<p>A continuació es mostren els pasos necessaris per generar un document en  format OLE:</p>
+<ul>
+	<li>Crear el Action si no existeix i la funció que generarà la informació  necessària per la vista.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> ActionForward viewOleWord(ActionMapping mapping, ActionForm form,
+javax.servlet.http.HttpServletRequest request,
+javax.servlet.http.HttpServletResponse response) <span class="code-keyword">throws</span> Exception {
+    ...
+    List list = ((HibernateDAO)<span class="code-keyword">this</span>.dao).findAll();
+    <span class="code-keyword">if</span>(list!=<span class="code-keyword">null</span>){
+        Map model = <span class="code-keyword">new</span> HashMap();
+        Iterator it = list.iterator();
+        <span class="code-keyword">while</span>(it.hasNext()){
+            Item i = (Item)it.next();
+            Hibernate.initialize(i.getProductid().getCategory());
+        }
+        model.put(<span class="code-quote">"itemList"</span>,list);
+        request.getSession().setAttribute(OleController.OLE_CONTROLLER_MODEL,model);
+        request.getSession().setAttribute(OleController.OLE_CONTROLLER_VIEWID,<span class="code-quote">"itemsWordView"</span>);
+    }
+    <span class="code-keyword">return</span> mapping.findForward(<span class="code-quote">"oleController"</span>) ;
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<p>Una vegada obtinguda la informació a mostrar al document, haurem de realitzar  els següents pasos:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> 1 </th>
+<th class='confluenceTh'> Introduir en un mapa (Map) la  informació que voldrem mostrar. A l'exemple a dalt mostrat 'itemList' contindrà  la llista dels items </th>
+</tr>
+<tr>
+<td class='confluenceTd'> 2 </td>
+<td class='confluenceTd'> Ficar a l'atribut de sessió  'OleController.OLE_CONTROLLER_MODEL' el mapa creat amb la informació </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 3 </td>
+<td class='confluenceTd'> Introduir a l'atribut de sessió  'OleController.OLE_CONTROLLER_VIEWID' el nom de la vista que farà servir aquesta  informació. Aquest nom correspon al definit al fitxer de configuració  'canigo-services-views.xml' </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 4 <br clear="all" /> </td>
+<td class='confluenceTd'> Finalment fer un forward a  'oleController'. Aquest és el control&#45; lador que usarà la vista. Recordar que  aquest s'ha definit al fitxer de configuració: <br clear="all" />
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"urlMapping"</span>
+
+class=<span class="code-quote">"org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"</span>&gt;
+
+...
+
+&lt;property name=<span class="code-quote">"mappings"</span>&gt;
+
+&lt;props&gt;
+
+...
+
+&lt;prop  key=<span class="code-quote">"ole.xls"</span>&gt;oleController&lt;/prop&gt;
+
+&lt;prop  key=<span class="code-quote">"ole.doc"</span>&gt;oleController&lt;/prop&gt;
+
+&lt;/props&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;
+
+...
+
+
+
+&lt;bean id=<span class="code-quote">"oleController"</span>  class=<span class="code-quote">"net.gencat.ctti.canigo.services.ole.OleController"</span> /&gt;</pre>
+</div></div><br clear="all" />  <br clear="all" />  <br clear="all" />  <br clear="all" />  <br clear="all" />  <br clear="all" />
+<br clear="all" /> </td>
+</tr>
+</tbody></table>
+<ul>
+	<li>Crear la vista. Aquesta ha d'heretar de  'net.gencat.ctti.canigo.services.ole.impl.WrapperWordView' si es vol un document  Word o de 'net.gencat.ctti.canigo.services.ole.impl .WrapperExcelView' si volem  generar un document Excel</li>
+</ul>
+
+
+<p>La vista ha d'implementar el mètode 'wrappedBuildWordDocument' o  'wrappedBuildExcelDocument' segons es tracti d'una vista de Word o de Excel.</p>
+
+<p>En el paràmetre 'model' d'aquests mètodes, la vista pot accedir a les dades  preparades per l'Action. La vista usarà els mètodes proporcionats per l'API de  POI per generar el contingut.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">protected</span> void wrappedBuildWordDocument(
+Map model, WordDocument wordDocument, HttpServletRequest request, HttpServletResponse response)
+<span class="code-keyword">throws</span> OleServiceException{
+    List list = (List)model.get(<span class="code-keyword">this</span>.getBeanList());
+    <span class="code-keyword">if</span> (logService!=<span class="code-keyword">null</span>)
+        <span class="code-keyword">this</span>.logService.getLog(<span class="code-keyword">this</span>.getClass()).debug(<span class="code-quote">"Found list?"</span>+(list!=<span class="code-keyword">null</span>));
+    <span class="code-keyword">if</span>(list!=<span class="code-keyword">null</span>) {
+        Iterator it = list.iterator();
+        Range range = <span class="code-keyword">new</span> Range(0, wordDocument.characterLength(), wordDocument);
+        <span class="code-keyword">while</span>(it.hasNext()){
+            Item item = (Item)it.next();
+            CharacterProperties props = <span class="code-keyword">new</span> CharacterProperties();
+            props.setBold(<span class="code-keyword">true</span>);
+            range = range.insertAfter(<span class="code-quote">" Item ID="</span>item.getId()<span class="code-quote">"\r"</span>, props);
+            props.setBold(<span class="code-keyword">false</span>);
+            range = range.insertAfter(<span class="code-quote">" Name: "</span>,props);
+            props.setItalic(<span class="code-keyword">true</span>);
+            range = range.insertAfter(<span class="code-quote">" "</span>+item.getAttr1());
+            props.setItalic(<span class="code-keyword">false</span>);
+            range = range.insertAfter(<span class="code-quote">", Product: "</span>,props);
+            props.setItalic(<span class="code-keyword">true</span>);
+            range = range.insertAfter(<span class="code-quote">" "</span>+item.getProductid().getName(),props);
+            props.setItalic(<span class="code-keyword">false</span>);
+            range = range.insertAfter(<span class="code-quote">", Category: "</span>,props);
+            props.setItalic(<span class="code-keyword">true</span>);
+            range = range.insertAfter(<span class="code-quote">" "</span>item.getProductid().getCategory().
+            getName()<span class="code-quote">"\r"</span>,props);
+        }
+    }</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Definir la vista al fitxer de configuració (veure apartat  'Configuració')</li>
+</ol>
+
+
+<p>Per últim, cal recordar que la invocació funciona segons el mecanisme general  d'indicació del paràmetre 'reqCode'.</p>
+
+<h1><a name="Serveid%27OLE2.2-Exemples"></a>Exemples</h1>
+
+
+<h2><a name="Serveid%27OLE2.2-GenerarundocumentExcelenformatOLE"></a>Generar un  document Excel en format OLE</h2>
+
+<p>A continuació, com exemple, es mostren les passes a seguir per generar un  document Excel en format OLE.</p>
+
+<h3><a name="Serveid%27OLE2.2-Definireldocumentamodelarenelservei%28views.xml%29"></a>Definir  el document a modelar en el servei (views.xml)</h3>
+
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span> ?&gt;
+&lt;!DOCTYPE beans PUBLIC <span class="code-quote">"-<span class="code-comment">//SPRING//DTD BEAN//EN"</span>
+</span><span class="code-quote">"http:<span class="code-comment">//www.springframework.org/dtd/spring-beans.dtd"</span>&gt;
+</span>&lt;beans&gt;
+    ...
+    &lt;bean id=<span class="code-quote">"WidgetExcelExample"</span> class=<span class="code-quote">"net.gencat.ctti.samples.ole.WidgetListExcelView"</span> &gt;
+        &lt;property name=<span class="code-quote">"beanName"</span> value=<span class="code-quote">"WidgetExcelExampleBean"</span> /&gt;
+        &lt;property name=<span class="code-quote">"beanList"</span> value=<span class="code-quote">"WidgetExcelExampleList"</span> /&gt;
+    &lt;/bean&gt;
+    ...
+
+&lt;/beans&gt;
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h3><a name="Serveid%27OLE2.2-Modelarlesdadesamostrar"></a>Modelar  les dades a mostrar</h3>
+
+<p>En l'<em>Action</em> es modelaran les dades que, posteriorment, es  renderitzaran donant com a resultat el document en format OLE.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">/**
+* Using OLE (Excel)
+* @param request
+* @param response
+* @<span class="code-keyword">return</span> ActionForward
+*/
+<span class="code-keyword">public</span> ActionForward viewOleExcel(Category vo, StrutsContext context) {
+    <span class="code-comment">// Get data <span class="code-keyword">for</span> render Excel document
+</span>    Map model = getWidgetModel();
+
+    <span class="code-comment">// Save data in session
+</span>    context.getRequest().getSession().setAttribute(OleController.OLE_CONTROLLER_MODEL, model);
+
+    <span class="code-comment">// Set view name to render
+</span>    context.getRequest().getSession().setAttribute(OleController.
+    OLE_CONTROLLER_VIEWID, <span class="code-quote">"WidgetExcelExample"</span>);
+
+    <span class="code-comment">// Forward to OLE Controller
+</span>    <span class="code-keyword">return</span> context.getActionMapping().findForward(<span class="code-quote">"oleXLS"</span>);
+}
+<span class="code-keyword">private</span> Map getWidgetModel() {
+    Map model = <span class="code-keyword">new</span> HashMap();
+    Collection beanData = getWidgetData();
+    model.put(<span class="code-quote">"WidgetExcelExampleList"</span>, beanData);
+    <span class="code-keyword">return</span> model;
+}
+
+<span class="code-keyword">protected</span> List getWidgetData() {
+    List list = <span class="code-keyword">new</span> ArrayList();
+    <span class="code-keyword">for</span> (<span class="code-object">int</span> x = 0; x &lt; 10; x++) {
+        Widget bean = <span class="code-keyword">new</span> Widget();
+        bean.setId ( x ) ;
+        bean.setName(<span class="code-quote">"canigo"</span>);
+        bean.setSize(10*x);
+        list.add(bean);
+    }
+    <span class="code-keyword">return</span> list;
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h3><a name="Serveid%27OLE2.2-Renderitzarlesdadesamostrar"></a>Renderitzar les dades  a mostrar</h3>
+
+<p>S'ha de definir una classe que renderitzi les dades a mostrar en format OLE.  Aquesta classe ha d'extendre de <em>WrapperExcelView</em> i utilitza directament  l'API de POI (HSSF per Excel i HWPF per Word) per renderitzar el document.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">package</span> net.gencat.ctti.samples.ole;
+
+/** imports */
+
+/**
+* View to generate an Excel document of a list of Widgets
+*/
+<span class="code-keyword">public</span> class WidgetListExcelView <span class="code-keyword">extends</span> WrapperExcelView {
+    <span class="code-keyword">protected</span> <span class="code-keyword">static</span> <span class="code-keyword">final</span> <span class="code-object">short</span> WIDGET_NAME_COLUMN = 0;
+    <span class="code-keyword">protected</span> <span class="code-keyword">static</span> <span class="code-keyword">final</span> <span class="code-object">short</span> WIDGET_SIZE_COLUMN = 1;
+
+    <span class="code-keyword">protected</span> void wrappedBuildExcelDocument(Map model,
+    HSSFWorkbook workbook,HttpServletRequest request, HttpServletResponse response) {
+        <span class="code-comment">// CREATE THE SHEET
+</span>        HSSFSheet sheet = workbook.createSheet(<span class="code-quote">"Widget List"</span>);
+        sheet.setDefaultColumnWidth((<span class="code-object">short</span>) 12);
+
+        <span class="code-comment">// GETCELL: getCell(SHEET, ROW, COLUMN);
+</span>        <span class="code-object">short</span> currentRow = 0;
+
+        <span class="code-comment">// WRITE ROW FOR HEADER
+</span>        HSSFCell header0 = getCell( sheet,currentRow,WIDGET_NAME_COLUMN);
+        setText(header0, <span class="code-quote">"NAME"</span>);
+
+        HSSFCell header1 = getCell( sheet,currentRow,WIDGET_SIZE_COLUMN);
+        setText(header1, <span class="code-quote">"SIZE"</span>);
+
+        <span class="code-comment">// Get data from model with key <span class="code-quote">"beanList"</span>
+</span>        List widgetList = (List) model.get(*getBeanList()*);
+        Iterator widgetListIterator = widgetList.iterator();
+
+        <span class="code-keyword">while</span> (widgetListIterator.hasNext()) {
+            currentRow++;
+            Widget widget = (Widget) widgetListIterator.next();
+            HSSFRow row = sheet.createRow(currentRow);
+
+            row.createCell(WIDGET_NAME_COLUMN)
+            .setCellValue(widget.getName());
+
+            row.createCell(WIDGET_SIZE_COLUMN)
+            .setCellValue(widget.getSize());
+        }
+    }
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h3><a name="Serveid%27OLE2.2-Invocaci%C3%B3"></a>Invocació</h3>
+
+<p><img src="Servei d'OLE 2.2_attachments/image004.gif" align="absmiddle" border="0" /></p>
+
+<p>Per invocar la generació  del fitxer Excel es seguirà el procés general de passar com a reqCode el nom del  mètode de l'Action que volem executar, en aquest cas 'viewOleExcel'.</p>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei d'OLE 2.2_attachments/image001.jpg">image001.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei d'OLE 2.2_attachments/image002.gif">image002.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei d'OLE 2.2_attachments/image003.gif">image003.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei d'OLE 2.2_attachments/image004.gif">image004.gif</a> (image/gif)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

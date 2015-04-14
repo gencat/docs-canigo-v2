@@ -1,0 +1,291 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Detall dels tags - text</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Detall dels tags - text
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Dec 19, 2008 by <font color="#0050B2">otc</font>.
+				    </div>
+
+				    <h1><a name="Detalldelstags-text-Detalldelstagstext"></a>Detall dels tags - text</h1>
+
+<p>Defineix un camp d'entrada de texte, d'una linia.</p>
+
+<p>Estén el tag layout:text ( <a href="http://struts.application-servers.com/doc/tags/field.html#text" title="Visit page outside Confluence">http://struts.application-servers.com/doc/tags/field.html#text</a> ) de Struts-Layout.</p>
+
+<p>La documentació auto-generada del tag és a <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_2/tlddoc/fwk/text.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_2/tlddoc/fwk/text.html</a></p>
+
+<hr />
+<p><div>
+<ul><a href='#Detalldelstags-text-Detalldelstagstext'>
+    <li>Detall dels tags - text</li></a>
+<ul><a href='#Detalldelstags-text-Atributsheredats'>
+    <li>Atributs heredats</li></a><a href='#Detalldelstags-text-Atributsespec%C3%ADficsdeCanig%C3%B3'>
+    <li>Atributs específics de Canigó</li></a><a href='#Detalldelstags-text-Validacions'>
+    <li>Validacions</li></a><a href='#Detalldelstags-text-Exemple'>
+    <li>Exemple</li></a>
+<ul><a href='#Detalldelstags-text-P%C3%A0ginaJSP'>
+    <li>Pàgina JSP</li></a><a href='#Detalldelstags-text-Arxiusd%27internacionalitzaci%C3%B3'>
+    <li>Arxius d'internacionalització</li></a>
+</ul><a href='#Detalldelstags-text-Bugs'>
+    <li>Bugs</li></a>
+</ul>
+</ul></div><br clear="all" /></p>
+
+<hr />
+<h2><a name="Detalldelstags-text-Atributsheredats"></a>Atributs heredats</h2>
+
+<p>Els atributs heredats de <b>layout:text</b> son: accessKey, arg0, arg1, arg2, arg3, arg4, bundle, cols, disabled, editType, hint, isRequired, key, layout, layoutId, maxlength, mode, name, onblur, onchange, onclick, ondblclick, onfocus, onkeydown, onkeypress, onkeyup, onmousedown, onmousemove, onmouseout, onmouseover, onmouseup, policy, property, readonly, rows, size, style, styleClass, styleId, tabindex, textErrorStyleId, type, value.</p>
+
+<h2><a name="Detalldelstags-text-Atributsespec%C3%ADficsdeCanig%C3%B3"></a>Atributs específics de Canigó</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> Atribut </th>
+<th class='confluenceTh'> Funció </th>
+</tr>
+<tr>
+<td class='confluenceTd'> autoTab </td>
+<td class='confluenceTd'> ¿no funciona? </td>
+</tr>
+<tr>
+<td class='confluenceTd'> convertTo </td>
+<td class='confluenceTd'> Llista de conversions a aplicar quan es finalitza l'entrada en el camp ("uppercase", "lowercase" i "trim"). Si n'hi ha més d'una, es separen per un espai. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> dependentFields </td>
+<td class='confluenceTd'> Camps dependents </td>
+</tr>
+<tr>
+<td class='confluenceTd'> errorClass </td>
+<td class='confluenceTd'> Classe CSS que defineix l'estil del textField si es produeix un error </td>
+</tr>
+<tr>
+<td class='confluenceTd'> errorKey </td>
+<td class='confluenceTd'> Clau del texte d'error en els arxius i18n </td>
+</tr>
+<tr>
+<td class='confluenceTd'> iconStyleId </td>
+<td class='confluenceTd'> Identificador de la icona </td>
+</tr>
+<tr>
+<td class='confluenceTd'> indicator </td>
+<td class='confluenceTd'> Div a mostrar quan es fa petició AJAX </td>
+</tr>
+<tr>
+<td class='confluenceTd'> mask </td>
+<td class='confluenceTd'> Màscara que es vol aplicar al camp. Es un string composat pels caràcters "x" (lletra a-z A-Z), "#" (dígit 0-9), "*" (lletra a-z A-Z o dígit 0-9) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> maskType </td>
+<td class='confluenceTd'> Tipus de màscara que es vol aplicar: "text", "date", "number" </td>
+</tr>
+<tr>
+<td class='confluenceTd'> selectOnFocus </td>
+<td class='confluenceTd'> Selecciona automàticament tot el contingut del camp quan aquest reb el focus </td>
+</tr>
+<tr>
+<td class='confluenceTd'> services </td>
+<td class='confluenceTd'>&nbsp;</td>
+</tr>
+<tr>
+<td class='confluenceTd'> showCalendar </td>
+<td class='confluenceTd'> Mostrar calendari d'edició de data </td>
+</tr>
+<tr>
+<td class='confluenceTd'> sourceErrorTooltip </td>
+<td class='confluenceTd'> Pot ser ICON, TEXT </td>
+</tr>
+<tr>
+<td class='confluenceTd'> textErrorStyleId </td>
+<td class='confluenceTd'> Div amb el text d'error </td>
+</tr>
+<tr>
+<td class='confluenceTd'> tooltipKey </td>
+<td class='confluenceTd'> Clau del literal del missatge a mostrar dins el tooltip </td>
+</tr>
+<tr>
+<td class='confluenceTd'> tooltipOptions </td>
+<td class='confluenceTd'> Opcions aplicades segons la implementació (en el cas actual sota DOM Tooltip) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> tooltipTitleKey </td>
+<td class='confluenceTd'> Clau del literal a mostrar si volem mostrar un títol com a capçalera del tooltip </td>
+</tr>
+<tr>
+<td class='confluenceTd'> validationFieldMessageMode </td>
+<td class='confluenceTd'> Tipus de validació que volem mostrar quan salta la validació. Valors possibles: ICON, TOOLTIP, CHANGESTYLE, TEXTERROR </td>
+</tr>
+<tr>
+<td class='confluenceTd'> validationMessageFunction </td>
+<td class='confluenceTd'> Funció de presentació </td>
+</tr>
+<tr>
+<td class='confluenceTd'> validations </td>
+<td class='confluenceTd'> Validacions pel camp </td>
+</tr>
+</tbody></table>
+<p>Per utilitzar els Tooltips cal incloure un conjunt d'arxius JavaScript i CSS:</p>
+<ul>
+	<li>el full d'estil tooltips.css</li>
+	<li>els arxius de scripts domLib.js i domTT.js</li>
+</ul>
+
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java">&lt;LINK REL=StyleSheet
+      HREF=<span class="code-quote">"css/tooltips/tooltips.css"</span>
+      TYPE=<span class="code-quote">"text/css"</span>
+      MEDIA=screen&gt;
+
+&lt;script type=<span class="code-quote">"text/javascript"</span>
+        src=<span class="code-quote">"&lt;c:url value="</span>/scripts/tooltips/dom_tooltip/domLib.js<span class="code-quote">"/&gt;"</span>&gt;
+&lt;/script&gt;
+&lt;script type=<span class="code-quote">"text/javascript"</span>
+        src=<span class="code-quote">"&lt;c:url value="</span>/scripts/tooltips/dom_tooltip/domTT.js<span class="code-quote">"/&gt;"</span>&gt;
+&lt;/script&gt;</pre>
+</div></div><br clear="all" /></p>
+
+<h2><a name="Detalldelstags-text-Validacions"></a>Validacions</h2>
+
+<p>La validació dels camps d'un formulari es poden fer a nivell de cada camp definint-la al propi tag.</p>
+
+<p>El tag <b>fwk:text</b> soporta dos mètodes de validació, ONCHANGE i ONSUBMIT. La primera es farà en perdre el focus el camp havent canviat el seu valor, i la segona al enviar el formulari al servidor.</p>
+
+<p>Les validacions que es poden fer dintre d'aquests dos mètodes que acabem d'explicar són les mateixes que suporta la validació als formularis, per a més informació redirigim al document on es detallen: <a href="Validació dels Formularis.html" title="Validació dels Formularis">Validació dels Formularis</a></p>
+
+<p>A continuació exposarem un exemple:</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;fwk:label styleId=<span class="code-quote">"descnLabel"</span> id=<span class="code-quote">"id"</span> key=<span class="code-quote">"category.descn"</span>  styleClass=<span class="code-quote">"label"</span>/&gt;
+&lt;fwk:text styleId=<span class="code-quote">"descn"</span> property=<span class="code-quote">"descn"</span>  validationFieldMessageMode=<span class="code-quote">"ICON,TEXT,CHANGESTYLE"</span>
+	validations=<span class="code-quote">"ONCHANGE(date{datePattern:dd/MM/yyyy})"</span>
+	sourceErrorTooltip=<span class="code-quote">"TEXT"</span> iconStyleId=<span class="code-quote">"descnIconError"</span> textErrorStyleId=<span class="code-quote">"descnTextError"</span>
+	errorClass=<span class="code-quote">"errorNew"</span> errorKey=<span class="code-quote">"forms.categoryForm.field.descn"</span> styleClass=<span class="code-quote">"fieldText"</span>/&gt;
+			 
+&lt;fwk:iconError styleId=<span class="code-quote">"descnIconError"</span>  style=<span class="code-quote">"display:none"</span>&gt;
+	&lt;img src=<span class="code-quote">"&lt;c:url value="</span>/images/iconWarning.gif<span class="code-quote">"/&gt;"</span> id=<span class="code-quote">"imagen"</span> class=<span class="code-quote">"icon"</span> alt=<span class="code-quote">"Warning"</span> /&gt;	
+&lt;/fwk:iconError&gt;
+&lt;fwk:textError styleId=<span class="code-quote">"descnTextError"</span> styleClass=<span class="code-quote">"errorText"</span> /&gt;</pre>
+</div></div>
+
+<p>En aquest exemple es mostra un camp amb una validació del tipus ONCHANGE que comprova que una data sigui correcta.<br/>
+Per mostrar l'error fem servir una icona i un text informant del mateix, a més a més el camp canviarà d'estil. L'atribut que fa possible aquest comportament és el següent:</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">validationFieldMessageMode=<span class="code-quote">"ICON,TEXT,CHANGESTYLE"</span></pre>
+</div></div>
+<p>I els tags per mostrar els errors són <b><a href="Detall dels tags - iconError.html" title="Detall dels tags - iconError">fwk:iconError</a></b> i <b><a href="Detall dels tags - textError.html" title="Detall dels tags - textError">fwk:textError</a></b>.</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;fwk:iconError styleId=<span class="code-quote">"descnIconError"</span>  style=<span class="code-quote">"display:none"</span>&gt;
+	&lt;img src=<span class="code-quote">"&lt;c:url value="</span>/images/iconWarning.gif<span class="code-quote">"/&gt;"</span> id=<span class="code-quote">"imagen"</span> class=<span class="code-quote">"icon"</span> alt=<span class="code-quote">"Warning"</span> /&gt;	
+&lt;/fwk:iconError&gt;
+&lt;fwk:textError styleId=<span class="code-quote">"descnTextError"</span> styleClass=<span class="code-quote">"errorText"</span> /&gt;</pre>
+</div></div>
+
+<p><b>NOTA:</b> El nom de l'atribut al tag fwk:text, iconStyleId i textErrorStyleId han de coincidir amb l'atribut styleId d'aquests tags, a més a més de seguir el patró &lt;nomdelcamp&gt;TextError i &lt;nomdelcamp&gt;IconError.</p>
+
+<p>El text d'error es mostrarà al costat de la icona d'error i apareixerà al introduïr una data incorrecta i desapareixerà al escriure-la correctament.</p>
+
+<p>I obtenim com a resultat:<br/>
+<img src="Detall dels tags - text_attachments/fechaIncorrecta.jpg" align="absmiddle" border="0" /></p>
+
+<h2><a name="Detalldelstags-text-Exemple"></a>Exemple</h2>
+
+<p>A continuació es presenta un fragment de pàgina que utilitza el tag <b>fwk:text</b></p>
+
+<p><img src="Detall dels tags - text_attachments/fwk_text.jpg" align="absmiddle" border="0" /></p>
+
+<p>Pel camp es defineix una màscara d'entrada estil NIF: 8 dígits, un guió que s'introdueix automàticament i una lletra. També s'especifica que el camp s'autoconverteixi a majúscules.<br/>
+Pel camp de texte es crea automàticament una etiqueta i se li assòcia explícitament un tooltip amb títol. Els tres textes corresponents estan definits en els arxius d'internacionalització.</p>
+
+<h3><a name="Detalldelstags-text-P%C3%A0ginaJSP"></a>Pàgina JSP</h3>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java">&lt;LINK REL=StyleSheet
+      HREF=<span class="code-quote">"css/tooltips/tooltips.css"</span>
+      TYPE=<span class="code-quote">"text/css"</span>
+      MEDIA=screen&gt;
+
+&lt;script type=<span class="code-quote">"text/javascript"</span>
+        src=<span class="code-quote">"&lt;c:url value="</span>/scripts/tooltips/dom_tooltip/domLib.js<span class="code-quote">"/&gt;"</span>&gt;
+&lt;/script&gt;
+&lt;script type=<span class="code-quote">"text/javascript"</span>
+        src=<span class="code-quote">"&lt;c:url value="</span>/scripts/tooltips/dom_tooltip/domTT.js<span class="code-quote">"/&gt;"</span>&gt;
+&lt;/script&gt;
+
+&lt;fwk:configuration styleId=<span class="code-quote">"conf"</span>/&gt;
+
+&lt;fwk:form action=<span class="code-quote">"provesTagsSimple.<span class="code-keyword">do</span>"</span>
+          styleId=<span class="code-quote">"myActionForm"</span>
+          reqCode=<span class="code-quote">"show"</span>
+          method=<span class="code-quote">"post"</span>
+          layout=<span class="code-quote">"<span class="code-keyword">true</span>"</span>&gt;
+    (...)
+&lt;fwk:text key=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.camp1"</span>
+          styleId=<span class="code-quote">"camp1"</span>
+          mode=<span class="code-quote">"E,E,E"</span>
+          layout=<span class="code-quote">"<span class="code-keyword">true</span>"</span>
+          mask=<span class="code-quote">"########-x"</span>
+          maskType=<span class="code-quote">"text"</span>
+          convertTo=<span class="code-quote">"uppercase"</span>
+          tooltipTitleKey=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.camp1.tipTitle"</span>
+          tooltipKey=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.camp1.tip"</span>
+          property=<span class="code-quote">"camp1"</span>/&gt;
+    (...)</pre>
+</div></div><br clear="all" /></p>
+
+<h3><a name="Detalldelstags-text-Arxiusd%27internacionalitzaci%C3%B3"></a>Arxius d'internacionalització</h3>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java">jsp.provesTags.ProvesTagsSimple.camp1=Primer camp
+jsp.provesTags.ProvesTagsSimple.camp1.tipTitle=Ajuda
+jsp.provesTags.ProvesTagsSimple.camp1.tip=Ajuda del primer camp, que és un TEXT</pre>
+</div></div><br clear="all" /></p>
+
+<h2><a name="Detalldelstags-text-Bugs"></a>Bugs</h2>
+
+<ul>
+	<li>L'atribut autoTab no funciona.</li>
+	<li>L'entrada de dates amb un calendari no funciona.</li>
+	<li>L'utilització dels atributs tooltipKey i tooltipTitleKey no inclouen automàticament els arxius javascript necessàris i cal fer-ho explícitament.</li>
+</ul>
+
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Detall dels tags - text_attachments/fwk_text.jpg">fwk_text.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Detall dels tags - text_attachments/fechaIncorrecta.jpg">fechaIncorrecta.jpg</a> (image/jpeg)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

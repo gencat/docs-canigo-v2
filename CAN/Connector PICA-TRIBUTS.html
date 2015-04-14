@@ -1,0 +1,505 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Connector PICA-TRIBUTS</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Connector PICA-TRIBUTS
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Jan 11, 2012 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="ConnectorPICA-TRIBUTS-CONNECTORPICATRIBUTS"></a>CONNECTOR PICA-TRIBUTS</h1>
+
+<p><br clear="all" />
+<br clear="all" />
+<div>
+<ul><a href='#ConnectorPICA-TRIBUTS-CONNECTORPICATRIBUTS'>
+    <li>CONNECTOR PICA-TRIBUTS</li></a><a href='#ConnectorPICA-TRIBUTS-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#ConnectorPICA-TRIBUTS-Prop%C3%B2sit'>
+    <li>Propòsit</li></a><a href='#ConnectorPICA-TRIBUTS-ContextiEscenarisd%27%C3%BAs'>
+    <li>Context i Escenaris d'ús</li></a><a href='#ConnectorPICA-TRIBUTS-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i Dependències</li></a><a href='#ConnectorPICA-TRIBUTS-Aquivadirigit'>
+    <li>A qui va dirigit</li></a><a href='#ConnectorPICA-TRIBUTS-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents i Fonts de Referència</li></a>
+</ul><a href='#ConnectorPICA-TRIBUTS-Descripci%C3%B3Detallada'>
+    <li>Descripció Detallada</li></a>
+<ul><a href='#ConnectorPICA-TRIBUTS-Introducci%C3%B3'>
+    <li>Introducció</li></a><a href='#ConnectorPICA-TRIBUTS-Serveis'>
+    <li>Serveis</li></a>
+<ul><a href='#ConnectorPICA-TRIBUTS-ServeiAEAT%28Ag%C3%A8nciaEstataldel%27Administraci%C3%B3Tribut%C3%A0ria%29'>
+    <li>Servei AEAT (Agència Estatal de l'Administració Tributària)</li></a><a href='#ConnectorPICA-TRIBUTS-ServeiATC%28Ag%C3%A8nciaTribut%C3%A0riadeCatalunya%29'>
+    <li>Servei ATC (Agència Tributària de Catalunya)</li></a><a href='#ConnectorPICA-TRIBUTS-ServeiTGSS%28TresoreriaGeneraldelaSeguretatSocial%29'>
+    <li>Servei TGSS (Tresoreria General de la Seguretat Social)</li></a><a href='#ConnectorPICA-TRIBUTS-ServeiAEATATCTGSS'>
+    <li>Servei AEAT_ATC_TGSS</li></a>
+</ul><a href='#ConnectorPICA-TRIBUTS-ArquitecturaiComponents'>
+    <li>Arquitectura i Components</li></a>
+<ul><a href='#ConnectorPICA-TRIBUTS-Interf%C3%ADciesiComponentsGen%C3%A8rics'>
+    <li>Interfícies i Components Genèrics</li></a><a href='#ConnectorPICA-TRIBUTS-Requeriments'>
+    <li>Requeriments</li></a>
+</ul><a href='#ConnectorPICA-TRIBUTS-Instal.laci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal.lació i Configuració</li></a>
+<ul><a href='#ConnectorPICA-TRIBUTS-Instal.laci%C3%B3'>
+    <li>Instal.lació</li></a><a href='#ConnectorPICA-TRIBUTS-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#ConnectorPICA-TRIBUTS-Utilitzaci%C3%B3delConnector'>
+    <li>Utilització del Connector</li></a>
+<ul><a href='#ConnectorPICA-TRIBUTS-Exempled%27utilitzaci%C3%B3d%27unamodalitatdeServeideAEAT'>
+    <li>Exemple d'utilització d'una modalitat de Servei de AEAT</li></a><a href='#ConnectorPICA-TRIBUTS-Exempled%27utilitzaci%C3%B3delserveiATC'>
+    <li>Exemple d'utilització del servei ATC</li></a><a href='#ConnectorPICA-TRIBUTS-Exempled%27utilitzaci%C3%B3d%27unamodalitatdeServeiTGSS'>
+    <li>Exemple d'utilització d'una modalitat de Servei TGSS</li></a><a href='#ConnectorPICA-TRIBUTS-Exempled%27utilitzaci%C3%B3delserveiAEATATCTGSS'>
+    <li>Exemple d'utilització del servei AEAT_ATC_TGSS</li></a>
+</ul>
+</ul>
+</ul></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h1><a name="ConnectorPICA-TRIBUTS-Introducci%C3%B3"></a>Introducció</h1>
+
+<p>L'objectiu d'aquest connector ,es el de proporcionar accés als 3 grans serveis de consulta de dades fiscals que actualment ofereix la PICA. Aquests tres serveis són:</p>
+<ul class="alternate" type="square">
+	<li>AEAT: Agència Estatal de l'Administració Tributària</li>
+	<li>ATC: Agència Tributària de Catalunya</li>
+	<li>TGSS: Tresoreria General de la Seguretat Social</li>
+</ul>
+
+
+<p>a més també es troba integrat el servei AEAT_ATC_TGSS que sintetitza una petita suite de les modalitats de servei dels 3 productes anteriors.</p>
+
+<h2><a name="ConnectorPICA-TRIBUTS-Prop%C3%B2sit"></a>Propòsit</h2>
+
+<p><font color="black">El propòsit del connector és proporcionar una interfície funcional reduïda al connector de la Pica que</font> <font color="black"><b>simplifica</b></font> <font color="black">l'utilització&nbsp;del servei de consulta de dades fiscals ofert per la generalitat.</font></p>
+
+<h2><a name="ConnectorPICA-TRIBUTS-ContextiEscenarisd%27%C3%BAs"></a>Context i Escenaris d'ús</h2>
+
+<p><font color="black">El connector PICA-TRIBUTS es troba dins els connectors de serveis funcionals de la Generalitat.</font></p>
+
+<h2><a name="ConnectorPICA-TRIBUTS-VersionsiDepend%C3%A8ncies"></a>Versions i Dependències</h2>
+
+<p><font color="black">En el present apartat es mostren quines són les versions i dependències necessàries per fer ús del Connector.</font></p>
+
+<p><font color="black">Les dependències descrites a la següent url són requerides per tal de fer funcionar el servei:</font><br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_15/canigo-connectors-root/canigo-connectors-pica-tributs/dependencies.html" title="Visit page outside Confluence">Dependències del Connector TRIBUTS</a></p>
+
+<h2><a name="ConnectorPICA-TRIBUTS-Aquivadirigit"></a>A qui va dirigit</h2>
+
+<p><font color="black">Aquest document va dirigit als següents perfils:</font></p>
+<ol>
+	<li><font color="black">Programador. Per conèixer l'ús del connector.</font></li>
+	<li><font color="black">Arquitecte. Per conèixer quins són els components i la configuració del connector.</font></li>
+</ol>
+
+
+<h2><a name="ConnectorPICA-TRIBUTS-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents i Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<td class='confluenceTd'> <font color="red">[1]</font> </td>
+<td class='confluenceTd'> <font color="red">Guia d'ús de l'API del Connector PICA-TRIBUTS.</font> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> <font color="red">[2]</font> </td>
+<td class='confluenceTd'> <font color="red">Documentació funcional i tècnica del Connector PICA-TRIBUTS.</font> </td>
+</tr>
+</tbody></table>
+
+<h1><a name="ConnectorPICA-TRIBUTS-Descripci%C3%B3Detallada"></a>Descripció Detallada</h1>
+
+<h2><a name="ConnectorPICA-TRIBUTS-Introducci%C3%B3"></a>Introducció</h2>
+
+<p>Com ja s'ha comentat aquest connector sintetitza peticions als tres grans serveis oferts per la PICA relatius a la consulta de dades fiscals. </p>
+
+<h2><a name="ConnectorPICA-TRIBUTS-Serveis"></a>Serveis</h2>
+
+<h3><a name="ConnectorPICA-TRIBUTS-ServeiAEAT%28Ag%C3%A8nciaEstataldel%27Administraci%C3%B3Tribut%C3%A0ria%29"></a>Servei AEAT (Agència Estatal de l'Administració Tributària)</h3>
+
+<p>La seva finalitat és l'obtenció de dades tributàries de l'AEAT per consultar, per part dels gestors públics, les dades relatives als contribuents que ofereix l'Agència Estatal de l'Administració Tributària<br/>
+Per una descripció detallada del servei i de les seves modalitats es pot consultar el document "Guia d'us del servei AEAT_PICA v1.7.pdf" disponible en l'àrea privada de <a href="http://cttiprojectes.gencat.cat/web/otpica" title="Visit page outside Confluence">http://cttiprojectes.gencat.cat/web/otpica</a> en la secció "productes Oferts -&gt; Interoperabilitat -&gt; AEAT" </p>
+
+<p>Modalitats:	</p>
+<ul class="alternate" type="square">
+	<li>AEAT_PICA_C1: Està al corrent de pagament/ No està al corrent de pagament.</li>
+	<li>AEAT_PICA_C2: Les dades del certificat individual de renda.</li>
+	<li>AEAT_PICA_C3: Les dades identificatives del CIF o DNI/NIE corresponent.</li>
+	<li>AEAT_PICA_C4: Les dades del certificat de renda per a prestacions socials.</li>
+	<li>AEAT_PICA_C5: Les dades del certificat de renda d'agricultors.</li>
+	<li>AEAT_PICA_C6: Les dades del certificat de renda per a beques.</li>
+	<li>AEAT_PICA_C7: Les dades del certificat de renda per a beques anticipades.</li>
+	<li>AEAT_PICA_C8: Les dades del certificat de l'impost d'activitats econòmiques.</li>
+</ul>
+
+
+<p>Totes les modalitats anteriors són <font color="black">síncrones</font>.</p>
+
+<h3><a name="ConnectorPICA-TRIBUTS-ServeiATC%28Ag%C3%A8nciaTribut%C3%A0riadeCatalunya%29"></a>Servei ATC (Agència Tributària de Catalunya)</h3>
+
+<p>El servei d'obtenció del certificat de deutes amb la Generalitat de Catalunya té com a objectiu poder consultar per part dels gestors públics les dades que ofereix l'Agència Tributària de Catalunya respecte a deutes amb la Generalitat.<br/>
+Per una descripció detallada del servei i de les seves modalitats es pot consultar el document "Guia d'us del servei de l'ATCv1.4.3.pdf" disponible en l'àrea privada de <a href="http://cttiprojectes.gencat.cat/web/otpica" title="Visit page outside Confluence">http://cttiprojectes.gencat.cat/web/otpica</a> en la secció "productes Oferts -&gt; Interoperabilitat -&gt; ATC" </p>
+
+<p>Modalitats:</p>
+<ul class="alternate" type="square">
+	<li>ATC_INF_DEUTES_TMP: Modalitat de servei <font color="black">asíncrona</font> que retorna les dades d'un certificat de deutes amb la Generalitat de Catalunya.</li>
+</ul>
+
+
+<h3><a name="ConnectorPICA-TRIBUTS-ServeiTGSS%28TresoreriaGeneraldelaSeguretatSocial%29"></a>Servei TGSS (Tresoreria General de la Seguretat Social)</h3>
+
+<p>El servei d'obtenció de dades de la seguretat social de la TGSS té com a objectiu poder consultar, per part dels gestors públics, les dades que ofereix la Tresoreria General de la Seguretat Social.<br/>
+Per una descripció detallada del servei i de les seves modalitats es pot consultar el document "Guia d'us del servei de TGSS v1.6.pdf" disponible en l'àrea privada de <a href="http://cttiprojectes.gencat.cat/web/otpica" title="Visit page outside Confluence">http://cttiprojectes.gencat.cat/web/otpica</a> en la secció "productes Oferts -&gt; Interoperabilitat -&gt; TGSS" </p>
+
+<p>Modalitats:</p>
+<ul class="alternate" type="square">
+	<li>TGSS_AL_CORRENT_PAGAMENT: Especifica si una persona o una organització té algun deute amb la seguretat social en el moment de fer la consulta.</li>
+	<li>TGSS_INFORME_SITUACIO: Aquest informe especifica si una persona cotitzava a una data determinada, per tant és un possible sinònim de si la persona treballava o no.</li>
+	<li>TGSS_ACREDITACIO_AGRARIA_PROPI: Aquest informe especifica les situacions de les acreditacions de jornades agràries en un període de temps determinat pels valors del filtre.</li>
+</ul>
+
+
+<h3><a name="ConnectorPICA-TRIBUTS-ServeiAEATATCTGSS"></a>Servei AEAT_ATC_TGSS</h3>
+
+<p>L'objectiu del Servei de consulta de la situació de deute d'un contribuent respecte de AEAT, ATC i TGSS és l'agrupació dels productes AEAT (Agència Estatal de l'Administració Tributària), ATC(Agència Tributària de Catalunya) i TGSS (Tresoreria General de la Seguretat Social) en una sola consulta per a la obtenció de la situació de deute d'un contribuent a AEAT, ATC i TGSS. En concret, és l'agrupació de les modalitats següents: <br/>
+-AEAT: Certificat d'obligacions tributàries (AEAT_PICA_C1)<br/>
+-ATC: Informe de situació de deutes amb la Generalitat de Catalunya (ATC_INF_DEUTES_TMP)<br/>
+-TGSS: Informe de situació de deutes de la TGSS (TGSS_AL_CORRENT_PAGAMENT)</p>
+
+<p>Per una descripció detallada del servei i de les seves modalitats es pot consultar el document "Guia d'us del servei deutes del contribuent <em>AEAT-ATC-TGSS</em> v1.1.pdf" disponible en l'àrea privada de <a href="http://cttiprojectes.gencat.cat/web/otpica" title="Visit page outside Confluence">http://cttiprojectes.gencat.cat/web/otpica</a> en la secció "productes Oferts -&gt; Interoperabilitat -&gt; AEAT_ATC_TGSS" </p>
+
+<p>Modalitats:</p>
+<ul class="alternate" type="square">
+	<li>AEAT_ATC_TGSS_CONSULTA_DEUTES: Modalitats de servei <font color="black">asíncrona</font> que llença una petició de consulta sobre les modalitats anteriorment anomenades dels tres serveis de consulta de dades fiscals AEAT, ATC i TGSS.</li>
+</ul>
+
+
+<p>Totes les modalitats anteriors són <font color="black">síncrones</font>.</p>
+
+<h2><a name="ConnectorPICA-TRIBUTS-ArquitecturaiComponents"></a>Arquitectura i Components</h2>
+
+
+<h3><a name="ConnectorPICA-TRIBUTS-Interf%C3%ADciesiComponentsGen%C3%A8rics"></a>Interfícies i Components Genèrics</h3>
+
+<p><font color="black">Es pot trobar tota la documentació JavaDoc i el codi font referent aquests components a les següents url's:</font></p>
+
+<p><font color="red"><ins>JavaDoc:</ins></font><font color="red">&nbsp;</font><a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_15/canigo-connectors-root/canigo-connectors-pica-tributs/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_15/canigo-connectors-root/canigo-connectors-pica-tributs/apidocs/index.html</a><br/>
+<font color="red"><ins>Codi Font:</ins></font><font color="red">&nbsp;</font><font color="red">&nbsp;</font><a href="http://canigo.ctti.gencat.net/repository/maven2/canigo/connectors/canigo-connectors-pica-tributs/1.0.0/" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/repository/maven2/canigo/connectors/canigo-connectors-pica-tributs/1.0.0/</a></p>
+
+<h3><a name="ConnectorPICA-TRIBUTS-Requeriments"></a>Requeriments</h3>
+
+<p><font color="black">El connector</font> TRIBUTS és compatible amb les versions 1.5 o superior de Java. Per versions inferiors no és garantit el seu correcte funcionament.</p>
+
+<p>Per tal de que el connector TRIBUTS funcioni correctament sobre l'aplicació que l'utilitzi, es s'ha de tenir configurat el servei connector genèric de la PICA 1.0.</p>
+
+<h2><a name="ConnectorPICA-TRIBUTS-Instal.laci%C3%B3iConfiguraci%C3%B3"></a>Instal.lació i Configuració</h2>
+
+
+<h3><a name="ConnectorPICA-TRIBUTS-Instal.laci%C3%B3"></a>Instal.lació</h3>
+
+<p><font color="black">La instal.lació del connector requereix de la utilització de la llibreria 'canigo-connectors-pica-tributs' i les dependències indicades a l'apartat '</font>Introducció-Versions i Dependències<font color="black">'.</font></p>
+
+<p><font color="black">Per poder disposar del Connector PICA-TRIBUTS en una aplicació Canigó s'ha de modificar el pom.xml de l'aplicació per incloure la llibreria del Connector com a dependència.</font><br clear="all" /></p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;dependency&gt;
+        &lt;groupId&gt;canigo.connectors&lt;/groupId&gt;
+        &lt;artifactId&gt;canigo-connectors-pica-tributs&lt;/artifactId&gt;
+        &lt;version&gt;1.0.0&lt;/version&gt;
+&lt;/dependency&gt;</pre>
+</div></div>
+
+<p>També és necessari afegir una exclusió sobre la dependència de la PICA;</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;dependency&gt;
+    &lt;groupId&gt;canigo.connectors&lt;/groupId&gt;
+	&lt;artifactId&gt;canigo-connectors-pica&lt;/artifactId&gt;
+	&lt;version&gt;1.0&lt;/version&gt;
+	&lt;exclusions&gt;
+	        &lt;exclusion&gt;
+				&lt;groupId&gt;xmlbeans&lt;/groupId&gt;
+	            &lt;artifactId&gt;xbean&lt;/artifactId&gt;
+	        &lt;/exclusion&gt;
+	&lt;/exclusions&gt;
+&lt;/dependency&gt;</pre>
+</div></div>
+
+<h3><a name="ConnectorPICA-TRIBUTS-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p><br clear="all" /></p>
+
+<p>Per poder configurar el connector TRIBUTS és necessari tenir configurat el connector genèric a la PICA.</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"requeridor"</span> class=<span class="code-quote">"cat.gencat.pica.peticio.core.beans.Requeridor"</span> singleton=<span class="code-quote">"<span class="code-keyword">true</span>"</span>&gt;
+&lt;property name=<span class="code-quote">"fitxerSignatura"</span> value=<span class="code-quote">"signatura.properties"</span>&gt; &lt;/property&gt;
+	&lt;property name=<span class="code-quote">"idSolicitante"</span> value=<span class="code-quote">"1DPGO049"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"idTransmision"</span> value=<span class="code-quote">"213421"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"nombreSolicitante"</span> value=<span class="code-quote">"CTTI"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"password"</span> value=<span class="code-quote">"password"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"user"</span> value=<span class="code-quote">"usuari"</span>&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;bean name=<span class="code-quote">"ProducteModalitatBase"</span> <span class="code-keyword">abstract</span>=<span class="code-quote">"<span class="code-keyword">true</span>"</span> class=<span class="code-quote">"cat.gencat.pica.peticio.core.beans.ProducteModalitat"</span>&gt;
+	&lt;property name=<span class="code-quote">"passwordType"</span> value=<span class="code-quote">"PasswordText"</span>&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;bean id=<span class="code-quote">"picaService"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.connectors.pica.impl.PicaServiceWrapper"</span> singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
+	&lt;property name=<span class="code-quote">"axisDefinition"</span> value=<span class="code-quote">"classpath:axis2client/"</span>&gt;&lt;/property&gt;
+
+	&lt;property name=<span class="code-quote">"loggingService"</span> ref=<span class="code-quote">"loggingService"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"requeridor"</span> ref=<span class="code-quote">"requeridor"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"modalitats"</span>&gt;
+		&lt;map&gt;
+			...
+		&lt;/map&gt;
+	&lt;/property&gt;
+&lt;/bean&gt;</pre>
+</div></div>
+<p><br clear="all" />
+Com al final el connector PICA-TRIBUTS dona servei sobre quatre productes diferents es precisarà de la inicialització de quatre beans, un per cada servei. </p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"aeatService"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.connectors.pica.tributs.aeat.impl.AeatConnectorImpl"</span> singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
+		&lt;property name=<span class="code-quote">"picaService"</span> ref=<span class="code-quote">"picaService"</span>/&gt;
+		&lt;property name=<span class="code-quote">"nifEmisor"</span> value=<span class="code-quote">"[nifEmisor]"</span> /&gt;
+		&lt;property name=<span class="code-quote">"nomEmisor_PCI"</span> value=<span class="code-quote">"CONSORCI AOC"</span> /&gt;
+		&lt;property name=<span class="code-quote">"nomEmisor_CAT635"</span> value=<span class="code-quote">"CAT365"</span> /&gt;
+		&lt;property name=<span class="code-quote">"finalitat"</span> value=<span class="code-quote">"PROVES"</span>/&gt;
+		&lt;property name=<span class="code-quote">"urlPica"</span> value=<span class="code-quote">"http:<span class="code-comment">//preproduccio.pica.gencat.intranet/pica_cataleg/AppJava/services/"</span>/&gt;
+</span>	&lt;/bean&gt;
+	
+	&lt;bean id=<span class="code-quote">"atcService"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.connectors.pica.tributs.atc.impl.AtcConnectorImpl"</span> singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
+		&lt;property name=<span class="code-quote">"picaService"</span> ref=<span class="code-quote">"picaService"</span>/&gt;
+		&lt;property name=<span class="code-quote">"nifEmisor"</span> value=<span class="code-quote">"[nifEmisor]"</span> /&gt;
+		&lt;property name=<span class="code-quote">"nomEmisor"</span> value=<span class="code-quote">"CONSORCI AOC"</span> /&gt;
+		&lt;property name=<span class="code-quote">"finalitat"</span> value=<span class="code-quote">"PROVES"</span>/&gt;
+		&lt;property name=<span class="code-quote">"urlPica"</span> value=<span class="code-quote">"http:<span class="code-comment">//preproduccio.pica.gencat.intranet/pica_cataleg/AppJava/services/"</span>/&gt;
+</span>	&lt;/bean&gt;
+	
+	&lt;bean id=<span class="code-quote">"tgssService"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.connectors.pica.tributs.tgss.impl.TgssConnectorImpl"</span> singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
+		&lt;property name=<span class="code-quote">"picaService"</span> ref=<span class="code-quote">"picaService"</span>/&gt;
+		&lt;property name=<span class="code-quote">"nifEmisor"</span> value=<span class="code-quote">"[nifEmisor]"</span> /&gt;
+		&lt;property name=<span class="code-quote">"nomEmisor"</span> value=<span class="code-quote">"CONSORCI AOC"</span> /&gt;
+		&lt;property name=<span class="code-quote">"finalitat"</span> value=<span class="code-quote">"PROVES"</span>/&gt;
+		&lt;property name=<span class="code-quote">"urlPica"</span> value=<span class="code-quote">"http:<span class="code-comment">//preproduccio.pica.gencat.intranet/pica_cataleg/AppJava/services/"</span>/&gt;
+</span>	&lt;/bean&gt;
+	
+	&lt;bean id=<span class="code-quote">"aeatAtcTgssService"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.connectors.pica.tributs.aeat_atc_tgss.impl.AeatAtcTgssConnectorImpl"</span> singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
+		&lt;property name=<span class="code-quote">"picaService"</span> ref=<span class="code-quote">"picaService"</span>/&gt;
+		&lt;property name=<span class="code-quote">"nifEmisor"</span> value=<span class="code-quote">"[nifEmisor]"</span> /&gt;
+		&lt;property name=<span class="code-quote">"nomEmisor"</span> value=<span class="code-quote">"ODAE"</span> /&gt;
+		&lt;property name=<span class="code-quote">"finalitat"</span> value=<span class="code-quote">"PROVES"</span>/&gt;
+		&lt;property name=<span class="code-quote">"urlPica"</span> value=<span class="code-quote">"http:<span class="code-comment">//preproduccio.pica.gencat.intranet/pica_cataleg/AppJava/services/"</span>/&gt;
+</span>	&lt;/bean&gt;</pre>
+</div></div>
+
+<p>NOTA: Es molt important que l'ordre de les propietats del bean en tots quatre beans, sigui l'especificat anteriorment.</p>
+
+<h2><a name="ConnectorPICA-TRIBUTS-Utilitzaci%C3%B3delConnector"></a>Utilització del Connector</h2>
+<p><br clear="all" /></p>
+<h3><a name="ConnectorPICA-TRIBUTS-Exempled%27utilitzaci%C3%B3d%27unamodalitatdeServeideAEAT"></a>Exemple d'utilització d'una modalitat de Servei de AEAT</h3>
+
+<p>Referenciar al servei AEAT des de l'acció que es vulgui utilitzar (action-servlet-aaa.xml):</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;property name=<span class="code-quote">"aeatConnector"</span> ref=<span class="code-quote">"aeatService"</span>&gt;&lt;/property&gt;</pre>
+</div></div>
+<p>En l'acció, s'hauran de crear els getters i setters corresponents per al connector de AEAT:</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">private</span> AeatConnectorImpl aeatConnector;
+<span class="code-keyword">public</span> AeatConnectorImpl getAeatConnector() {
+	<span class="code-keyword">return</span> aeatConnector;
+}
+
+<span class="code-keyword">public</span> void setAeatConnector(AeatConnectorImpl aeatConnector) {
+	<span class="code-keyword">this</span>.aeatConnector = aeatConnector;
+}</pre>
+</div></div>
+
+<p>En aquest cas d'exemple es consumirà la modalitat de servei AEAT_PICA_C1 que es correspon amb la consulta de les Obligacions Tributàries.<br/>
+NOTA: Les dades de nom, cognom1 i 2, nom complet i el valor del document sobre l'exemple son inventades. </p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">DadesPeticioAEAT peticio = <span class="code-keyword">new</span> DadesPeticioAEAT();
+    peticio.setNom(<span class="code-quote">"Nom"</span>);
+    peticio.setCognom1(<span class="code-quote">"cognom1"</span>);
+    peticio.setCognom2(<span class="code-quote">"cognom2"</span>);
+    peticio.setNomComplet(<span class="code-quote">"Nom Cognom1 Cognom2"</span>);
+    peticio.setTipusDocument(<span class="code-quote">"NIF"</span>);
+    peticio.setDocument(<span class="code-quote">"12345678B"</span>);
+	
+   	C1PICAResponse resposta = aeatConnector.ObligacionsTributaries(peticio);</pre>
+</div></div>
+
+<p>Per més informació sobre les dades d'entrada i sortida d'aquesta modalitat es pot consultar el document "Guia d'us del servei AEAT_PICA v1.7.pdf"</p>
+
+<h3><a name="ConnectorPICA-TRIBUTS-Exempled%27utilitzaci%C3%B3delserveiATC"></a>Exemple d'utilització del servei ATC</h3>
+
+<p>Referenciar al servei ATC des de l'acció que es vulgui utilitzar (action-servlet-aaa.xml):</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;property name=<span class="code-quote">"atcConnector"</span> ref=<span class="code-quote">"atcService"</span>&gt;&lt;/property&gt;</pre>
+</div></div>
+
+<p>En l'acció, s'hauran de crear els getters i setters corresponents per al connector de ATC:</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">private</span> AtcConnectorImpl atcConnector;
+<span class="code-keyword">public</span> AtcConnectorImpl getAtcConnector() {
+	<span class="code-keyword">return</span> atcConnector;
+}
+
+<span class="code-keyword">public</span> void setAtcConnector(AtcConnectorImpl atcConnector) {
+	<span class="code-keyword">this</span>.atcConnector = atcConnector;
+}</pre>
+</div></div>
+
+<p>En aquest cas d'exemple es consumirà la modalitat de servei ATC_INF_DEUTES_TMP que retorna les dades d'un certificat de deutes amb la Generalitat de Catalunya.</p>
+
+<p>Donat que el servei ATC es consumeix de forma asíncrona la forma correcta per poder consumir-ho es realitza en 3 fases:<br/>
+1.- Fer petició al Servei<br/>
+2.- Testar l'estat de resolució de la petició<br/>
+3.- Recuperar les dades de la petició</p>
+
+<p>NOTA: Les dades de nom, cognom1 i 2, nom complet i el valor del document sobre l'exemple son inventades. </p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">DadesPeticioATC peticio = <span class="code-keyword">new</span> DadesPeticioATC();
+    	
+    peticio.setIdioma(<span class="code-quote">"Català"</span>);
+    peticio.setNom(<span class="code-quote">"Nom"</span>);
+    peticio.setCognom1(<span class="code-quote">"Cognom1"</span>);
+    peticio.setCognom2(<span class="code-quote">"Cognom2"</span>);
+	peticio.setNomComplet(<span class="code-quote">"Nom Cognom1 Cognom2"</span>);
+    peticio.setDocument(<span class="code-quote">"12341234D"</span>);
+    peticio.setTipusDocument(<span class="code-quote">"NIF"</span>);
+    DataResponse resposta = atcConnector.informeSituacioDeute(peticio); <span class="code-comment">//&lt;-- Petició al servei
+</span>    
+    EstatAsincron estatResposta = atcConnector.getEstatInformeSituacioDeute(resposta.getResponse()); <span class="code-comment">//&lt;-- Comprovació estat petició
+</span>    <span class="code-object">int</span> tempsEstimat = estatResposta.getTempsEstimatResposta();
+  
+	...
+    	
+    Informacio inf = atcConnector.getDadesInformeSituacioDeute(resposta.getServei()); <span class="code-comment">//&lt;-- Recuperació resposta a la petició</span></pre>
+</div></div>
+
+<p>Per més informació sobre les dades d'entrada i sortida d'aquesta modalitat es pot consultar el document "Guia d'us del servei de l'ATCv1.4.3.pdf"</p>
+
+<h3><a name="ConnectorPICA-TRIBUTS-Exempled%27utilitzaci%C3%B3d%27unamodalitatdeServeiTGSS"></a>Exemple d'utilització d'una modalitat de Servei TGSS</h3>
+
+<p>Referenciar al servei TGSS des de l'acció que es vulgui utilitzar (action-servlet-aaa.xml):</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;property name=<span class="code-quote">"tgssConnector"</span> ref=<span class="code-quote">"tgssService"</span>&gt;&lt;/property&gt;</pre>
+</div></div>
+
+<p>En l'acció, s'hauran de crear els getters i setters corresponents per al connector de TGSS:</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">private</span> TgssConnectorImpl tgssConnector;
+<span class="code-keyword">public</span> TgssConnectorImpl getTgssConnector() {
+	<span class="code-keyword">return</span> tgssConnector;
+}
+
+<span class="code-keyword">public</span> void setTgssConnector(TgssConnectorImpl tgssConnector) {
+	<span class="code-keyword">this</span>.tgssConnector = tgssConnector;
+}</pre>
+</div></div>
+
+<p>En aquest cas d'exemple es consumirà la modalitat de servei TGSS_AL_CORRENT_PAGAMENT que especifica si una persona o una organització té algun deute amb la seguretat social en el moment de fer la consulta.<br/>
+NOTA: Les dades de nom, cognom1 i 2, nom complet i el valor del document sobre l'exemple son inventades. </p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">DadesPeticioTGSS peticio = <span class="code-keyword">new</span> DadesPeticioTGSS();
+    peticio.setNom(<span class="code-quote">"Nom"</span>);
+    peticio.setCognom1(<span class="code-quote">"Cognom1"</span>);
+    peticio.setCognom2(<span class="code-quote">"Cognom2"</span>);
+    peticio.setNomComplet(<span class="code-keyword">null</span>);
+    peticio.setTipusDocumentacioInt(Constants.TGSS_NIF);
+    peticio.setDocument(<span class="code-quote">"12345678B"</span>);
+
+    RespostaAlCorrentDePagament resposta = tgssConnector.alCorrentPagament(peticio);</pre>
+</div></div>
+
+<p>Per més informació sobre les dades d'entrada i sortida d'aquesta modalitat es pot consultar el document "Guia d'us del servei de TGSS v1.6.pdf"</p>
+
+<h3><a name="ConnectorPICA-TRIBUTS-Exempled%27utilitzaci%C3%B3delserveiAEATATCTGSS"></a>Exemple d'utilització del servei AEAT_ATC_TGSS</h3>
+
+<p>Referenciar al servei AEAT_ATC_TGSS des de l'acció que es vulgui utilitzar (action-servlet-aaa.xml):</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;property name=<span class="code-quote">"aatConnector"</span> ref=<span class="code-quote">"aeatAtcTgssService"</span>&gt;&lt;/property&gt;</pre>
+</div></div>
+
+<p>En l'acció, s'hauran de crear els getters i setters corresponents per al connector de AEAT_ATC_TGSS:</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">private</span> AeatAtcTgssConnectorImpl aatConnector;
+<span class="code-keyword">public</span> AeatAtcTgssConnectorImpl getAtcConnector() {
+	<span class="code-keyword">return</span> aatConnector;
+}
+
+<span class="code-keyword">public</span> void setAeatAtcTgssConnector(AeatAtcTgssConnectorImpl aeatAtcTgssConnector) {
+	<span class="code-keyword">this</span>.aeatAtcTgssConnector = aeatAtcTgssConnector;
+}</pre>
+</div></div>
+
+<p>En aquest cas d'exemple es consumirà la modalitat de servei AEAT_ATC_TGSS_CONSULTA_DEUTES que retorna les dades conjuntes de les modalitats següents:<br/>
+-AEAT: Certificat d'obligacions tributàries (AEAT_PICA_C1)<br/>
+-ATC: Informe de situació de deutes amb la Generalitat de Catalunya (ATC_INF_DEUTES_TMP)<br/>
+-TGSS: Informe de situació de deutes de la TGSS (TGSS_AL_CORRENT_PAGAMENT)</p>
+
+<p>Donat que el servei AEAT_ATC_TGSS es consumeix de forma asíncrona la forma correcta per poder consumir-ho es realitza en 3 fases:<br/>
+1.- Fer petició al Servei<br/>
+2.- Testar l'estat de resolució de la petició<br/>
+3.- Recuperar les dades de la petició</p>
+
+<p>NOTA: Les dades de nom, cognom1 i 2, nom complet i el valor del document sobre l'exemple son inventades. </p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">DadesPeticioAEAT_ATC_TGSS peticio = <span class="code-keyword">new</span> DadesPeticioAEAT_ATC_TGSS();
+			
+	peticio.setIdioma(<span class="code-quote">"Català"</span>);
+	peticio.setTipusDocumentacio(Constants.AAT_NIF);
+	peticio.setDocument(<span class="code-quote">"12345678B"</span>);
+	peticio.setNom(<span class="code-quote">"Nom"</span>);
+	peticio.setNomComplet(<span class="code-quote">"Nom Cognom1 Cognom2"</span>);
+	peticio.setCognom1(<span class="code-quote">"Cognom1"</span>);
+	peticio.setCognom2(<span class="code-quote">"Cognom2"</span>);
+			
+	resposta = aeatAtcTgssConnector.consultaDeutes(peticio); <span class="code-comment">//&lt;-- Petició al servei
+</span>			
+	EstatAsincron estatResposta = aeatAtcTgssConnector.getEstatConsultaDeutes(resposta.getResponse()); <span class="code-comment">//&lt;-- Consulta de l'estat de la petició
+</span>	<span class="code-object">int</span> tempsEstimat = estatResposta.getTempsEstimatResposta();
+	
+	...
+
+	RespostaConsultaDeutes dadesResposta = aeatAtcTgssConnector.getDadesConsultaDeutes(resposta.getServei()); <span class="code-comment">//&lt;-- recuperació de les dades de la petició</span></pre>
+</div></div>
+
+<p>Per més informació sobre les dades d'entrada i sortida d'aquesta modalitat es pot consultar el document "Guia d'us del servei deutes del contribuent <em>AEAT-ATC-TGSS</em> v1.1.pdf"</p>
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

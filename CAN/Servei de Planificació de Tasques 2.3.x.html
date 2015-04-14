@@ -1,0 +1,678 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Servei de Planificació de Tasques 2.3.x</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Servei de Planificació de Tasques 2.3.x
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Jun 18, 2009 by <font color="#0050B2">manel.batlles</font>.
+				    </div>
+
+				    <h1><a name="ServeidePlanificaci%C3%B3deTasques2.3.x-SERVEIDEPLANIFICACI%C3%93DETASQUES"></a>SERVEI DE PLANIFICACIÓ DE TASQUES</h1>
+
+<p><br clear="all" />
+<div>
+<ul><a href='#ServeidePlanificaci%C3%B3deTasques2.3.x-SERVEIDEPLANIFICACI%C3%93DETASQUES'>
+    <li>SERVEI DE PLANIFICACIÓ DE TASQUES</li></a><a href='#ServeidePlanificaci%C3%B3deTasques2.3.x-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#ServeidePlanificaci%C3%B3deTasques2.3.x-Prop%C3%B3sit'>
+    <li>Propósit</li></a><a href='#ServeidePlanificaci%C3%B3deTasques2.3.x-ContextiEscenarisd%27%C3%9As'>
+    <li>Context i Escenaris d'Ús</li></a><a href='#ServeidePlanificaci%C3%B3deTasques2.3.x-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i Dependències</li></a><a href='#ServeidePlanificaci%C3%B3deTasques2.3.x-Aquivadirigit'>
+    <li>A qui va dirigit</li></a><a href='#ServeidePlanificaci%C3%B3deTasques2.3.x-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents i Fonts de Referència</li></a>
+</ul><a href='#ServeidePlanificaci%C3%B3deTasques2.3.x-Descripci%C3%B3Detallada'>
+    <li>Descripció Detallada</li></a>
+<ul><a href='#ServeidePlanificaci%C3%B3deTasques2.3.x-ArquitecturaiComponents'>
+    <li>Arquitectura i Components</li></a><a href='#ServeidePlanificaci%C3%B3deTasques2.3.x-Instal.laci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal.lació i Configuració</li></a>
+<ul><a href='#ServeidePlanificaci%C3%B3deTasques2.3.x-Instal.laci%C3%B3'>
+    <li>Instal.lació</li></a><a href='#ServeidePlanificaci%C3%B3deTasques2.3.x-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#ServeidePlanificaci%C3%B3deTasques2.3.x-Configuraci%C3%B3enCluster'>
+    <li>Configuració en Cluster</li></a><a href='#ServeidePlanificaci%C3%B3deTasques2.3.x-Utilitzaci%C3%B3delServei'>
+    <li>Utilització del Servei</li></a>
+</ul><a href='#ServeidePlanificaci%C3%B3deTasques2.3.x-Exemples'>
+    <li>Exemples</li></a><a href='#ServeidePlanificaci%C3%B3deTasques2.3.x-Utilitzaci%C3%B3delesversions2.3.xenunCluster'>
+    <li>Utilització de les versions 2.3.x en un Cluster</li></a>
+</ul></div><br clear="all" />
+<br clear="all" /></p>
+<h1><a name="ServeidePlanificaci%C3%B3deTasques2.3.x-Introducci%C3%B3"></a>Introducció</h1>
+
+
+<h2><a name="ServeidePlanificaci%C3%B3deTasques2.3.x-Prop%C3%B3sit"></a>Propósit</h2>
+
+<p>El Servei de Planificació de Tasques de canigo permet configurar l'execució de tasques de forma diferida en els moments en els que es determini:</p>
+<ul>
+	<li>en qualsevol moment del dia (precisió de milisegons)</li>
+	<li>en alguns dies de la setmana</li>
+	<li>en alguns dies del mes</li>
+	<li>en alguns dies de l'any</li>
+	<li>un número específic de repeticions</li>
+	<li>repetidament fins a una data/instant determinat</li>
+	<li>repetida e indefinidament</li>
+	<li>repetidament en un determinat interval de temps</li>
+</ul>
+
+
+<h2><a name="ServeidePlanificaci%C3%B3deTasques2.3.x-ContextiEscenarisd%27%C3%9As"></a>Context i Escenaris d'Ús</h2>
+
+<p>El Servei de Planificació de Tasques es troba dins la Capa de Dades/Integració en el context dels serveis proporcionats per canigo.</p>
+
+<h2><a name="ServeidePlanificaci%C3%B3deTasques2.3.x-VersionsiDepend%C3%A8ncies"></a>Versions i Dependències</h2>
+
+<p>Les dependències descrites a la següent url son requerides per tal de compilar i fer funcionar el projecte:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-scheduler/dependencies.html" title="Visit page outside Confluence">Dependències Servei de Planificació de Tasques</a></p>
+
+<h2><a name="ServeidePlanificaci%C3%B3deTasques2.3.x-Aquivadirigit"></a>A qui va dirigit</h2>
+
+<p>Aquest document va dirigit als següents perfils:</p>
+<ol>
+	<li>Programador. Per conéixer l'ús del servei</li>
+	<li>Arquitecte. Per conéixer quins són els components i la configuració del servei</li>
+	<li>Administrador. Per conéixer cóm configurar el servei en cadascun dels entorns en cas de necessitat</li>
+</ol>
+
+
+<h2><a name="ServeidePlanificaci%C3%B3deTasques2.3.x-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents i Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> [1] </th>
+<th class='confluenceTh'> Quartz </th>
+<th class='confluenceTh'> <a href="http://www.opensymphony.com/quartz" title="Visit page outside Confluence">http://www.opensymphony.com/quartz</a> </th>
+</tr>
+</tbody></table>
+<p><br clear="all" />
+<br clear="all" /></p>
+<div class="panel"><div class="panelContent">
+<p>&nbsp;<font color="#ff0000"><b>Atenció: s'ha afegit un apartat descrivint la solució a un problema que surgeix al configurar les versions 2.3.x el servei de planificació per funcionar en un Cluster.</b></font></p>
+</div></div>
+<p><br clear="all" /></p>
+
+<h1><a name="ServeidePlanificaci%C3%B3deTasques2.3.x-Descripci%C3%B3Detallada"></a>Descripció Detallada</h1>
+
+
+<h2><a name="ServeidePlanificaci%C3%B3deTasques2.3.x-ArquitecturaiComponents"></a>Arquitectura i Components</h2>
+
+<p>El Servei de Planificació de Tasques de canigo ofereix interfícies d'ús que s'abstreuen de la implementació escollida per millor mantenibilitat en futures versions i futures implementacions alternatives.</p>
+
+<p>En l'actualitat, canigo proporciona una implementació basada en Quartz (projecte open source desenvolupat per PartNET).</p>
+
+<p>Els components podem classificar-los en:</p>
+<ol>
+	<li>Interfícies i Components Genérics. Interfícies del servei i components d'ús general amb independència de la implementació escollida.</li>
+	<li>Implementació de les interfícies basada en Quartz<br/>
+Es pot trobar tota la documentació JavaDoc y el codi font referent aquests components a les següents urls:</li>
+</ol>
+
+
+<p><ins>JavaDoc:</ins> <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-scheduler/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-scheduler/apidocs/index.html</a><br/>
+<ins>Codi Font:</ins>&nbsp; <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-scheduler/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-scheduler/xref/index.html</a></p>
+
+<h2><a name="ServeidePlanificaci%C3%B3deTasques2.3.x-Instal.laci%C3%B3iConfiguraci%C3%B3"></a>Instal.lació i Configuració</h2>
+
+
+<h3><a name="ServeidePlanificaci%C3%B3deTasques2.3.x-Instal.laci%C3%B3"></a>Instal.lació</h3>
+
+<p>La instal.lació del servei requereix de la utilització de la llibreria 'canigo-services-scheduler' i les dependències indicades a l'apartat 'Introducció-Versions i Dependències'.</p>
+
+<h3><a name="ServeidePlanificaci%C3%B3deTasques2.3.x-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p><em>Fitxer de configuració: canigo-services-scheduler.xml</em></p>
+
+<p><em>Ubicació proposada: &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>La configuració del Servei de Planificació de tasques implica 3 pasos:</p>
+<ol>
+	<li>Definir les tasques que volem executar de forma diferida</li>
+	<li>Definir els triggers que defineixen en quin moment s'executaran les tasques</li>
+	<li>Definir la factoria per executar les tasques amb els triggers</li>
+</ol>
+
+
+<p>Definició de les tasques</p>
+
+<p>Per a definir una tasca cal definir 2 parts:</p>
+
+<p>1 Tasca</p>
+
+<p>La tasca és simplement la referència a la classe que conté el mètode que volem executar de forma diferida.</p>
+
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;!- TASKS DEFINITIONS -&gt;
+&lt;bean id=<span class="code-quote">"taskWriteLog"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.samples.jpetstore.scheduler.TaskWriteLog"</span>/&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+La classe tasca és un POJO que no ha d'implementar cap interfície en concret ni extendre cap classe.
+<br clear="all" />
+<br clear="all" />
+2 Detall de la tasca<br/>
+Per definir els detalls de la tasca per tal que pugui ser executada de forma diferida podem fer ús de 2 classes:</p>
+
+<p>1 'SpringQuartzMethodInvokingJobDetailFactoryBean'. Amb aquesta podrem fer referència al mètode concret a executar. Es permet definir les següents propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> targetObject </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Referència a la classe que conté el mètode a executar de forma diferida </td>
+</tr>
+<tr>
+<td class='confluenceTd'> targetMethod </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Referència al mètode de la classe que s'executarà </td>
+</tr>
+<tr>
+<td class='confluenceTd'> arguments </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Llista d'arguments a passar al mètode. Podem fer ús dins la llista de valors directes (amb &lt;value&gt;) o referències (amb &lt;ref bean&gt;). Aquesta llista ha de ser creada en el mateix ordre que la llista d'arguments definida al mètode. <br clear="all" />
+<br clear="all" />
+Exemple: <br clear="all" />
+<br clear="all" />
+&lt;property name="arguments"&gt; <br clear="all" />
+&lt;list&gt; <br clear="all" />
+&lt;value&gt;5&lt;/value&gt; <br clear="all" />
+&lt;ref bean="logService"/&gt; <br clear="all" />
+&lt;/list&gt; <br clear="all" />
+&lt;/property&gt; <br clear="all" /> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> concurrent </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Indicar si es poden executar de forma concurrent vàries instàncies de la tasca <br clear="all" />
+<br clear="all" />
+Recomanació: Usar 'false' <br clear="all" />
+<br clear="all" />
+Per defecte: true </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"taskWriteDetail"</span> class="net.gencat.ctti.canigo.services.scheduler.impl.quartz.
+SpringQuartzMethodInvokingJobDetailFactoryBean"&gt;
+  &lt;property name=<span class="code-quote">"targetObject"</span> ref=<span class="code-quote">"taskWriteLog"</span>/&gt;
+  &lt;property name=<span class="code-quote">"targetMethod"</span> value=<span class="code-quote">"writeLog"</span>/&gt;
+  &lt;property name=<span class="code-quote">"concurrent"</span> value=<span class="code-quote">"<span class="code-keyword">false</span>"</span>/&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+2 'SpringQuartzJobDetailBean'. En aquest cas la classe haurà d'extendre la classe 'SpringQuartzJobBean'.
+<br clear="all" />
+<br clear="all" />
+&#124;&#124; <b>Propietat</b> &#124;&#124; <b>Requerit</b> &#124;&#124; <b>Descripció</b> &#124;&#124;</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<td class='confluenceTd'> jobClass </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Referència a la classe que extén la classe 'SpringQuartzJobBean' </td>
+</tr>
+<tr>
+<td class='confluenceTd'> jobDataAsMap </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Map de dades que passarem a la tasca. Cadascun dels keys ha de tenir un 'set' corresponent a la classe </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean name=<span class="code-quote">"exampleJob"</span> class="net.gencat.ctti.canigo.services.scheduler.impl.quartz.
+SpringQuartzJobDetailBean"&gt;
+  &lt;property name=<span class="code-quote">"jobClass"</span> value=<span class="code-quote">"example.ExampleJob"</span>/&gt;
+  &lt;property name=<span class="code-quote">"jobDataAsMap"</span>&gt;
+    &lt;map&gt;
+      &lt;entry key=<span class="code-quote">"timeout"</span> value=<span class="code-quote">"5"</span>/&gt;
+    &lt;/map&gt;
+  &lt;/property&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+En aquest cas, la tasca seria definida així:
+<br clear="all" />
+<br clear="all" />
+package example;
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-comment">// <span class="code-keyword">import</span> section
+</span>...
+
+<span class="code-keyword">public</span> class ExampleJob <span class="code-keyword">extends</span> SpringQuartzJobBean {
+  <span class="code-keyword">private</span> <span class="code-object">int</span> timeout;
+
+  /**
+  * Setter called after the ExampleJob is instantiated
+  * with the value from the JobDetailBean (5)
+  */
+  <span class="code-keyword">public</span> void setTimeout(<span class="code-object">int</span> timeout) {
+    <span class="code-keyword">this</span>.timeout = timeout;
+  }
+
+  <span class="code-keyword">protected</span> void executeInternal(JobExecutionContext ctx) <span class="code-keyword">throws</span> SchedulerServiceException {
+    <span class="code-comment">// <span class="code-keyword">do</span> the actual work
+</span>  }
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Com veiem, la classe defineix el mètode 'executeInternal' on realitzarà el procediment de la tasca.
+<br clear="all" />
+<br clear="all" />
+Definició dels triggers<br/>
+Mitjançant els triggers configurarem en quin moment s'ha d'executar la tasca.<br/>
+canigo permet la utilització de 2 classes:</p>
+<ol>
+	<li>'SpringQuartzSimpleTriggerBean'</li>
+</ol>
+
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> jobDetail </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Referència a la tasca definida en el pas anterior </td>
+</tr>
+<tr>
+<td class='confluenceTd'> endTime </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Hora de finalització del trigger </td>
+</tr>
+<tr>
+<td class='confluenceTd'> startDelay </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Temps (en mil.lisegons) que ha de transcórrer abans d'executar-se el primer trigger </td>
+</tr>
+<tr>
+<td class='confluenceTd'> startTime </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Hora d'inicia de la tasca </td>
+</tr>
+<tr>
+<td class='confluenceTd'> repeatInterval </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Temps (en mil.lisegons) que ha de transcórrer abans d'executar-se el següent trigger </td>
+</tr>
+</tbody></table>
+<p>Exemple:</p>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java">&lt;!-- TRIGGERS DEFINITIONS --&gt;
+&lt;bean id=<span class="code-quote">"taskWriteTrigger"</span> class="net.gencat.ctti.canigo.services.scheduler.impl.quartz.
+SpringQuartzSimpleTriggerBean"&gt;
+  &lt;!-- see the example of method invoking job above --&gt;
+  &lt;property name=<span class="code-quote">"jobDetail"</span> ref=<span class="code-quote">"taskWriteDetail"</span>/&gt;
+  &lt;!-- 10 seconds --&gt;
+  &lt;property name=<span class="code-quote">"startDelay"</span> value=<span class="code-quote">"10000"</span>/&gt;
+  &lt;!-- repeat every 20 seconds --&gt;
+  &lt;property name=<span class="code-quote">"repeatInterval"</span> value=<span class="code-quote">"20000"</span>/&gt;
+  &lt;property name=<span class="code-quote">"concurrent"</span> value=<span class="code-quote">"<span class="code-keyword">false</span>"</span>/&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>'SpringQuartzCronTriggerBean'.</li>
+</ol>
+
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> jobDetail </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Referència a la tasca definida en el pas anterior </td>
+</tr>
+<tr>
+<td class='confluenceTd'> cronExpression </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Expressió de tipus cron de Unix. Per a més informació consultar <a href="http://wiki.opensymphony.com/display/QRTZ1/CronTriggers+Tutorial" title="Visit page outside Confluence">http://wiki.opensymphony.com/display/QRTZ1/CronTriggers+Tutorial</a> </td>
+</tr>
+</tbody></table>
+<p>Exemple:</p>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"taskWriteTrigger2"</span> class="net.gencat.ctti.canigo.services.scheduler.impl.quartz.
+SpringQuartzCronTriggerBean"&gt;
+  &lt;!-- see the example of method invoking job above --&gt;
+  &lt;property name=<span class="code-quote">"jobDetail"</span> ref=<span class="code-quote">"taskWriteDetail"</span>/&gt;
+  &lt;!-- run every morning at 6 AM --&gt;
+  &lt;property name=<span class="code-quote">"cronExpression"</span> value=<span class="code-quote">"0 0 6 * * ?"</span>/&gt;
+  &lt;property name=<span class="code-quote">"concurrent"</span> value=<span class="code-quote">"<span class="code-keyword">false</span>"</span>/&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Definició de la factoria dels triggers<br/>
+Per últim, definirem un bean de la classe ' net.gencat.ctti.canigo.services.scheduler.impl.quartz.SpringQuartzSchedulerFactoryBean' on definirem les propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> triggers </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Llista de referències als triggers anteriorment definits </td>
+</tr>
+</tbody></table>
+<p>Exemple:</p>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java">&lt;!-- SCHEDULER FACTORY BEAN DEFINITION --&gt;
+&lt;bean class=<span class="code-quote">"net.gencat.ctti.canigo.services.scheduler.impl.quartz.SpringQuartzSchedulerFactoryBean"</span>&gt;
+  &lt;property name=<span class="code-quote">"triggers"</span>&gt;
+    &lt;list&gt;
+      &lt;ref bean=<span class="code-quote">"taskWriteTrigger"</span>/&gt;
+      &lt;ref bean=<span class="code-quote">"taskWriteTrigger2"</span>/&gt;
+    &lt;/list&gt;
+  &lt;/property&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h2><a name="ServeidePlanificaci%C3%B3deTasques2.3.x-Configuraci%C3%B3enCluster"></a>Configuració en Cluster</h2>
+
+<p>Par a la utilització del Servei de Planificació de tasques en una aplicació desplegada en un Cluster de servidors d'aplicacions cal tenir en compte els requeriments de configuració de Quartz en aquest tipus d'entorns.</p>
+
+<p><a href="http://www.opensymphony.com/quartz/wikidocs/ConfigJDBCJobStoreClustering.html" title="Visit page outside Confluence">http://www.opensymphony.com/quartz/wikidocs/ConfigJDBCJobStoreClustering.html</a></p>
+
+<p>Concretament, hi ha algunes condicions d'us que son importants al configurar l'entorn:</p>
+<ul>
+	<li>Cal utilitzar un <em>JDBC-Jobstore</em>, es a dir, l'estat de les tasques s'ha de mantenir en taules de la base de dades</li>
+	<li>Les propietats de configuració de Quartz han de ser les mateixes en tots els nodes del cluster</li>
+	<li>L'identificador de cada instància de Quartz que participi del cluster ha de ser diferent. Això es pot aconseguir amb el valor <em>AUTO</em> en la propietat org.quartz.scheduler.instanceId=AUTO</li>
+	<li>En les propietats de configuració de Quartz cal afegir org.quartz.jobStore.isClustered=true</li>
+	<li>Els relotjes de les màquines que composen el cluster han d'estar sincronitzats amb un error menor d'1 segon</li>
+</ul>
+
+
+<h2><a name="ServeidePlanificaci%C3%B3deTasques2.3.x-Utilitzaci%C3%B3delServei"></a>Utilització del Servei</h2>
+
+<p>La instanciació, la preparació i la petició del servei es fa de manera transparent, de tal manera que el servei s'activa en el moment en que el "<em>Scheduler Factory Bean</em>" conté algun <em>Trigger</em> amb alguna tasca associada (tal i com he definit a la configuració).</p>
+
+<p>En el servei, es defineixen a la configuració les tasques (<em>Jobs)</em> i els disparadors (Triggers) que llençaran les tasques. Les tasques, en general no han d'extendre o implementar cap interfície, però sí serà necessari en cas de definir 'SpringQuartzJobDetailBean'.</p>
+
+<p>Per tant, la utilització del servei es realitzar pràcticament en la seva totalitat mitjançant la seva configuració.</p>
+
+<h1><a name="ServeidePlanificaci%C3%B3deTasques2.3.x-Exemples"></a>Exemples</h1>
+
+<p>Com exemple d'utilització del servei de Planificació de Tasques s'inclou un exemple en el que 2 Triggers invoquen un mètode d'una classe Java que genera un log (mitjançant el servei de traces):</p>
+
+<p>En el codi mostrat a baix, la tasca definida no implementa cap classe. Defineix únicament el mètode 'writeLog' on realitza la traça</p>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">package</span> net.gencat.ctti.tutorial.web.temp;
+
+<span class="code-keyword">import</span> org.apache.log4j.Logger;
+
+<span class="code-keyword">public</span> class TaskWriteLog {
+
+  <span class="code-keyword">public</span> TaskWriteLog() {
+  }
+
+  <span class="code-keyword">public</span> void writeLog(LoggingService logService) {
+    <span class="code-keyword">if</span> (logService!=<span class="code-keyword">null</span>) {
+      logService.getLog(<span class="code-keyword">this</span>.getClass()).debug(<span class="code-quote">"Doing log at:"</span> + <span class="code-object">System</span>.
+      currentTimeMillis());
+    }
+
+  }
+}</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Un exemple de la configuració de la seva execució diferida és la següent:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;
+&lt;!DOCTYPE beans PUBLIC <span class="code-quote">"-<span class="code-comment">//SPRING//DTD BEAN//EN"</span> "http://www.springframework.org/dtd/
+</span>spring-beans.dtd?"&gt;
+&lt;beans&gt;
+  &lt;!-- SCHEDULER FACTORY BEAN DEFINITION --&gt;
+  &lt;bean class="net.gencat.ctti.canigo.services.scheduler.impl.quartz.
+  SpringQuartzSchedulerFactoryBean"&gt;
+    &lt;property name=<span class="code-quote">"triggers"</span>&gt;
+      &lt;list&gt;
+        &lt;ref bean=<span class="code-quote">"taskWriteTrigger"</span>/&gt;
+      &lt;/list&gt;
+    &lt;/property&gt;
+  &lt;/bean&gt;
+
+  &lt;!-- TASKS DEFINITIONS --&gt;
+  &lt;bean id=<span class="code-quote">"taskWriteLog"</span> class=<span class="code-quote">"net.gencat.ctti.tutorial.web.temp.TaskWriteLog"</span>/&gt;
+  &lt;bean id=<span class="code-quote">"taskWriteDetail"</span> class="net.gencat.ctti.canigo.services.scheduler.impl.quartz.
+  SpringQuartzMethodInvokingJobDetailFactoryBean"&gt;
+    &lt;property name=<span class="code-quote">"targetObject"</span> ref=<span class="code-quote">"taskWriteLog"</span>/&gt;
+    &lt;property name=<span class="code-quote">"targetMethod"</span> value=<span class="code-quote">"writeLog"</span>/&gt;
+    &lt;property name=<span class="code-quote">"arguments"</span>&gt;
+      &lt;list&gt;
+        &lt;ref bean=<span class="code-quote">"logService"</span>/&gt;
+      &lt;/list&gt;
+    &lt;/property&gt;
+      &lt;property name=<span class="code-quote">"concurrent"</span> value=<span class="code-quote">"<span class="code-keyword">false</span>"</span>/&gt;
+  &lt;/bean&gt;
+
+  &lt;!-- TRIGGERS DEFINITIONS --&gt;
+  &lt;bean id=<span class="code-quote">"taskWriteTrigger"</span> class="net.gencat.ctti.canigo.services.scheduler.impl.quartz.
+  SpringQuartzSimpleTriggerBean"&gt;
+    &lt;!-- see the example of method invoking job above --&gt;
+    &lt;property name=<span class="code-quote">"jobDetail"</span> ref=<span class="code-quote">"taskWriteDetail"</span>/&gt;
+    &lt;!-- 10 seconds --&gt;
+    &lt;property name=<span class="code-quote">"startDelay"</span> value=<span class="code-quote">"10000"</span>/&gt;
+    &lt;!-- repeat every 20 seconds --&gt;
+    &lt;property name=<span class="code-quote">"repeatInterval"</span> value=<span class="code-quote">"20000"</span>/&gt;
+  &lt;/bean&gt;
+&lt;/beans&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<b><em>Nota</em></b><br/>
+En el cas que 2 <em>Triggers</em> utilitzin la mateixa tasca, es podria donar el cas de que abans de que el primer <em>Trigger</em> finalitzi, ja es comenci a executar el segon. Per evitar aquesta situació s'afegirà en la definició de la tasca la propietat _<em>concurrent</em>_ amb el valor "false"
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h1><a name="ServeidePlanificaci%C3%B3deTasques2.3.x-Utilitzaci%C3%B3delesversions2.3.xenunCluster"></a>Utilització de les versions 2.3.x en un Cluster</h1>
+
+<p>La configuració utilitzada en Canigó fins la versio 2.2 és</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;!--  Factory --&gt;
+&lt;bean class=<span class="code-quote">"net.gencat.ctti.canigo.proves.tasques.SpringQuartzSchedulerFactoryBeanSerializable"</span>&gt;
+    &lt;property name=<span class="code-quote">"configLocation"</span> value=<span class="code-quote">"classpath:/quartz.properties"</span>/&gt;
+    &lt;property name=<span class="code-quote">"triggers"</span>&gt;
+        &lt;list&gt;
+            &lt;ref bean=<span class="code-quote">"tasca1Trigger"</span>/&gt;
+        &lt;/list&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+&lt;!-- Triggers referenciats al Factory --&gt;
+&lt;bean id=<span class="code-quote">"tasca1Trigger"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.services.scheduler.impl.quartz.SpringQuartzSimpleTriggerBean"</span>&gt;
+    &lt;property name=<span class="code-quote">"jobDetail"</span> ref=<span class="code-quote">"job1Detail"</span>/&gt;
+    &lt;property name=<span class="code-quote">"startDelay"</span> value=<span class="code-quote">"10000"</span>/&gt;
+    &lt;property name=<span class="code-quote">"repeatInterval"</span> value=<span class="code-quote">"10000"</span>/&gt;
+&lt;/bean&gt;
+&lt;!-- Jobs referenciats als Triggers --&gt;
+&lt;bean id=<span class="code-quote">"job1Detail"</span>
+   class=<span class="code-quote">"net.gencat.ctti.canigo.services.scheduler.impl.quartz.SpringQuartzMethodInvokingJobDetailFactoryBean"</span>&gt;
+    &lt;property name=<span class="code-quote">"targetObject"</span> ref=<span class="code-quote">"tasca1"</span>/&gt;
+    &lt;property name=<span class="code-quote">"targetMethod"</span> value=<span class="code-quote">"metode1"</span>/&gt;
+    &lt;property name=<span class="code-quote">"concurrent"</span> value=<span class="code-quote">"<span class="code-keyword">false</span>"</span>/&gt;
+&lt;/bean&gt;
+&lt;!-- Implementació de la tasca en l'aplicació --&gt;
+&lt;bean id=<span class="code-quote">"tasca1"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.proves.tasques.Tasca1"</span>/&gt;</pre>
+</div></div>
+
+<p>on la classe SpringQuartzSchedulerFactoryBeanSerializable és una extensió de la SpringQuartzSchedulerFactoryBean de canigó que implementi Serializable.</p>
+
+<p>Amb aquesta configuració, per desplegar l'aplicació  en un cluster cal que quartz guardi la seva configuració en una base de dades compartida entre tots els nodes, utilitzant un JDBCJobStore. La configuració corresponent a quartz.properties és</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">org.quartz.jobStore.class=org.quartz.impl.jdbcjobstore.JobStoreTX
+org.quartz.jobStore.driverDelegateClass=org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+org.quartz.jobStore.dataSource=FormacioDS
+org.quartz.dataSource.FormacioDS.jndiURL=java:comp/env/formacioDS
+org.quartz.jobStore.tablePrefix=QRTZ\_
+org.quartz.jobStore.useProperties=<span class="code-keyword">false</span>
+org.quartz.jobStore.misfireThreshold=60000
+org.quartz.jobStore.isClustered=<span class="code-keyword">true</span>
+org.quartz.jobStore.clusterCheckinInterval=15000
+org.quartz.jobStore.maxMisfiresToHandleAtATime=20
+org.quartz.jobStore.dontSetAutoCommitFalse=<span class="code-keyword">false</span>
+org.quartz.jobStore.selectWithLockSQL=SELECT * FROM {0}LOCKS WHERE LOCK_NAME = ? FOR UPDATE
+org.quartz.jobStore.txIsolationLevelSerializable=<span class="code-keyword">false</span>
+org.quartz.scheduler.instanceId=AUTO</pre>
+</div></div>
+
+<p>Aquesta configuració no funciona amb les versions 2.3.x de Canigó, en les que s'ha pujat la versió de Quartz a la 1.6.0, produint-se l'error</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">canigo Message: 11 jun 2009 11:33:28,552 WARN [QuartzScheduler_Worker-1] org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean$MethodInvokingJob - Invocation of method '<span class="code-keyword">null</span>' on target class [<span class="code-keyword">null</span>] failed
+net.gencat.ctti.canigo.services.scheduler.exception.SchedulerServiceException: java.lang.IllegalStateException: prepare() must be called prior to invoke() on MethodInvoker
+at net.gencat.ctti.canigo.services.scheduler.impl.quartz.SpringQuartzMethodInvokingJobDetailFactoryBean.invoke(SpringQuartzMethodInvokingJobDetailFactoryBean.java:103)
+at org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean$MethodInvokingJob.executeInternal(MethodInvokingJobDetailFactoryBean.java:272)
+at org.springframework.scheduling.quartz.QuartzJobBean.execute(QuartzJobBean.java:86)
+at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:529)
+Caused by: java.lang.IllegalStateException: prepare() must be called prior to invoke() on MethodInvoker
+at org.springframework.util.MethodInvoker.getPreparedMethod(MethodInvoker.java:254)
+at org.springframework.util.MethodInvoker.invoke(MethodInvoker.java:279)
+at net.gencat.ctti.canigo.services.scheduler.impl.quartz.SpringQuartzMethodInvokingJobDetailFactoryBean.invoke(SpringQuartzMethodInvokingJobDetailFactoryBean.java:97)
+... 4 more</pre>
+</div></div>
+
+<p>El workaround proposat per aquest problema consisteix en canviar la definició del Job, per tal d'utilitzar un JobDetailBean en comptes d'un SpringQuartzMethodInvokingJobDetailFactoryBean</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;\!-\-  Factory \--&gt;
+&lt;bean class=<span class="code-quote">"net.gencat.ctti.canigo.proves.tasques.SpringQuartzSchedulerFactoryBeanSerializable"</span>&gt;
+&lt;property name=<span class="code-quote">"configLocation"</span> value=<span class="code-quote">"classpath:/quartz.properties"</span>/&gt;
+&lt;property name=<span class="code-quote">"triggers"</span>&gt;
+&lt;list&gt;
+&lt;ref bean=<span class="code-quote">"tasca1Trigger"</span>/&gt;
+&lt;/list&gt;
+&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;\!-\- Triggers referenciats al Factory \--&gt;
+
+&lt;bean id=<span class="code-quote">"tasca1Trigger"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.services.scheduler.impl.quartz.SpringQuartzSimpleTriggerBean"</span>&gt;
+&lt;property name=<span class="code-quote">"jobDetail"</span> ref=<span class="code-quote">"job2Detail"</span>/&gt;
+&lt;property name=<span class="code-quote">"startDelay"</span> value=<span class="code-quote">"10000"</span>/&gt;
+&lt;property name=<span class="code-quote">"repeatInterval"</span> value=<span class="code-quote">"10000"</span>/&gt;
+&lt;/bean&gt;
+
+&lt;\!-\- Jobs referenciats als Triggers \--&gt;
+
+&lt;bean name=<span class="code-quote">"job2Detail"</span> class=<span class="code-quote">"org.springframework.scheduling.quartz.JobDetailBean"</span>&gt;
+&lt;property name=<span class="code-quote">"jobClass"</span> value=<span class="code-quote">"net.gencat.ctti.canigo.proves.tasques.Tasca2"</span> /&gt;
+&lt;/bean&gt;</pre>
+</div></div>
+
+<p>La configuració del JobStore a quartz.properties és la mateixa i la implementació de la tasca ha d'estendre QuartzJobBean i implementar Serializable.</p>
+
+<p>Un problema amb la utilització de Jobs basats en JobDetailBean és que no tenen accés fàcil al contexte de Spring. En principi es podria utilitzar la propietat applicationContextJobDataKey del JobDetailBean per indicar a Spring que injecti l'ApplicationContext a la tasca, però si es defineix un atribut ApplicationContext en la tasca es provoca un error de Quartz quan intenta serialitzar-la a la base de dades.</p>
+
+<p>Una solució genèrica per tenir accés al contexte de Spring des d'una classe arbitraria consisteix en crear un bean que implementi ApplicationContextAware i que guardi l'applicationContext</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> class AppCtxHelper <span class="code-keyword">implements</span> ApplicationContextAware {
+<span class="code-keyword">private</span> <span class="code-keyword">static</span> ApplicationContext applicationContext;
+
+<span class="code-keyword">public</span> void setApplicationContext(ApplicationContext applicationContext) <span class="code-keyword">throws</span> BeansException
+{         <span class="code-keyword">this</span>.applicationContext = applicationContext;     }
+<span class="code-keyword">public</span> <span class="code-keyword">static</span> ApplicationContext getApplicationContext()
+{         <span class="code-keyword">return</span> applicationContext;     }
+}</pre>
+</div></div>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean name=<span class="code-quote">"appCtxHelper"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.proves.tasques.AppCtxHelper"</span> singleton=<span class="code-quote">"<span class="code-keyword">true</span>"</span>/&gt;</pre>
+</div></div>
+
+<p>llavors, aquesta classe es pot utilitzar per accedir als diferents beans de l'aplicació, per exemple al servei de traces:</p>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> class Tasca2 <span class="code-keyword">extends</span> QuartzJobBean <span class="code-keyword">implements</span> Serializable {
+    <span class="code-keyword">private</span> <span class="code-keyword">static</span> <span class="code-keyword">final</span> <span class="code-object">long</span> serialVersionUID = -8171187967310135369L;
+    
+    <span class="code-keyword">protected</span> void executeInternal(JobExecutionContext context) <span class="code-keyword">throws</span> JobExecutionException {
+        getLogger().info(<span class="code-quote">"Hola"</span>);
+    }
+
+    <span class="code-keyword">private</span> Log getLogger() {
+        LoggingService logService = (LoggingService) AppCtxHelper.getApplicationContext().getBean(<span class="code-quote">"loggingService"</span>);
+        Log logger = logService.getLog(<span class="code-keyword">this</span>.getClass());
+        <span class="code-keyword">return</span> logger;
+    }
+}</pre>
+</div></div>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Planificació de Tasques 2.3.x_attachments/image003.gif">image003.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Planificació de Tasques 2.3.x_attachments/image002.gif">image002.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Planificació de Tasques 2.3.x_attachments/image005.gif">image005.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Planificació de Tasques 2.3.x_attachments/image004.gif">image004.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Planificació de Tasques 2.3.x_attachments/image001.jpg">image001.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Planificació de Tasques 2.3.x_attachments/image006.gif">image006.gif</a> (image/gif)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

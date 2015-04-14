@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Release notes Canigó 2.3.10</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Release notes Canigó 2.3.10
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Jan 24, 2011 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h2><a name="ReleasenotesCanig%C3%B32.3.10-Releasenotesdelaversi%C3%B32.3.10deCanig%C3%B3"></a>Release notes de la versió 2.3.10 de Canigó</h2>
+
+
+<h3><a name="ReleasenotesCanig%C3%B32.3.10-%28%29PeticionsincorporadesaCanig%C3%B32.3.10%3A"></a><img class="emoticon" src="./icons/emoticons/add.gif" height="16" width="16" align="absmiddle" alt="" border="0"/> Peticions incorporades a Canigó 2.3.10:</h3>
+
+
+<h5><a name="ReleasenotesCanig%C3%B32.3.10-Canvis"></a>Canvis</h5>
+<p><br clear="all" />
+<br clear="all" /></p>
+<ul>
+	<li>Canvi <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1064" title="Visit page outside Confluence"><b>CAN-1064</b></a>: <font color="#333333">Introducció de serveis/API's en Canigó</font><br clear="all" />
+<b>Context</b>: Integració dels següents components de les API's de google en format de tags Canigó: <b>Google Maps</b>, <b>Traductor de Google</b>, <b>Cercador de Google</b>, <b>Generació de gràfics</b><br/>
+<b>Servei afectat</b>: canigo-service-web<br/>
+<b>Solució</b>: API's integrades en el servei de presentació de Canigó.
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Canvi <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-991" title="Visit page outside Confluence"><b>CAN-991</b></a>: <font color="#333333">Certificació Weblogic 11G</font><br clear="all" />
+<b>Context</b>: Certificació de la versió 2.3.10 de Canigó per ser utilitzada amb servidors d'aplicacions Weblogic 11G<br/>
+<b>Connector afectat</b>: N/A<br/>
+<b>Servei afectat</b>: N/A<br/>
+<b>Solució</b>: Certificació pasada.
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Canvi <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1115" title="Visit page outside Confluence"><b>CAN-1115</b></a>: <font color="#333333">Modificació del Servei SFTP per incloure un flag de pujada d'un arxiu MD5 de l'arxiu a pujar</font><br clear="all" />
+<b>Context</b>: Incloure al connector de SFTP la creació i pujada d'un fitxer amb l'MD5 del fitxer a pujar<br/>
+<b>Servei afectat</b>: canigo-service-sftp<br/>
+<b>Solució</b>: Modificació del servei SFTP per incloure un flag per indicar la pujada d'un arxiu MD5 de l'arxiu a pujar aprofitant la mateixa connexió.
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Canvi <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1125" title="Visit page outside Confluence"><b>CAN-1125</b></a>: <font color="#333333">Modificació del Servei SFTP per pujar arxius en un path diferent del /</font><br clear="all" />
+<b>Context</b>: Fins ara el servei de SFTP de Canigó no era possible indicar-li en quin path del servidor remot es volia deixar l'arxiu pujat.<br/>
+<b>Servei afectat</b>: canigo-service-sftp<br/>
+<b>Solució</b>: Modificació del servei SFTP per incloure la possibilitat d'indicar un path diferent de / en el moment de pujar arxius a un sservidor remot.
+<br clear="all" />
+<br clear="all" />
+<h5><a name="ReleasenotesCanig%C3%B32.3.10-Incid%C3%A8ncies"></a>Incidències</h5>
+<p><br clear="all" />
+<br clear="all" /></p></li>
+	<li>Incidència <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1148" title="Visit page outside Confluence"><b>CAN-1148</b></a>: <font color="#333333">Més de dos combos depenents no guarden les dades al fer una cerca</font><br clear="all" />
+<b>Context</b>: En utilitzar més de dos combos depenents els valors de la resta de combos depenents no s'actualitzen correctament.<br/>
+<b>Component estàtic afectat</b>: canigo-ajaxtags-select.js<br/>
+<b>Solució</b>: Per cada combo extra afegit es força l'event onchange.
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1035" title="Visit page outside Confluence"><b>CAN-1035</b></a>: <font color="#333333">Problema en la utilització del servei SFTP</font><br clear="all" />
+<b>Context</b>: En utilitzar la opció "identityClassPath" en la configuració del servei SFTP es produeix un error "Could not connect to SFTP server at server" després d'un "logged successfully"<br/>
+<b>Servei afectat</b>: canigo-service-sftp<br/>
+<b>Solució</b>: El servei SFTPen informar l'identityClassPath, internament l'api vfs perd l'username al validar la connexió. El problema s'ha solucionat.
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

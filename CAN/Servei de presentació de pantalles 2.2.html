@@ -1,0 +1,584 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Servei de presentació de pantalles 2.2</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Servei de presentació de pantalles 2.2
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Sep 12, 2007 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="Serveidepresentaci%C3%B3depantalles2.2-SERVEIDEPRESENTACI%C3%93DEPANTALLES"></a>SERVEI DE PRESENTACIÓ DE PANTALLES</h1>
+
+<p><br clear="all" />
+<br clear="all" />
+<div>
+<ul><a href='#Serveidepresentaci%C3%B3depantalles2.2-SERVEIDEPRESENTACI%C3%93DEPANTALLES'>
+    <li>SERVEI DE PRESENTACIÓ DE PANTALLES</li></a><a href='#Serveidepresentaci%C3%B3depantalles2.2-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#Serveidepresentaci%C3%B3depantalles2.2-Prop%C3%B3sit'>
+    <li>Propósit</li></a><a href='#Serveidepresentaci%C3%B3depantalles2.2-ContextiEscenarisd%27%C3%9As'>
+    <li>Context  i Escenaris d'Ús</li></a><a href='#Serveidepresentaci%C3%B3depantalles2.2-VersionsiDepend%C3%A8ncies'>
+    <li>Versions  i Dependències</li></a><a href='#Serveidepresentaci%C3%B3depantalles2.2-Aquivadirigit'>
+    <li>A  qui va dirigit</li></a><a href='#Serveidepresentaci%C3%B3depantalles2.2-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents  i Fonts de Referència</li></a>
+</ul><a href='#Serveidepresentaci%C3%B3depantalles2.2-Descripci%C3%B3Detallada'>
+    <li>Descripció  Detallada</li></a>
+<ul><a href='#Serveidepresentaci%C3%B3depantalles2.2-ArquitecturaiComponents'>
+    <li>Arquitectura  i Components</li></a><a href='#Serveidepresentaci%C3%B3depantalles2.2-Instal%5Claci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal&#45; lació  i Configuració</li></a>
+<ul><a href='#Serveidepresentaci%C3%B3depantalles2.2-Instal%5Claci%C3%B3'>
+    <li>Instal&#45; lació</li></a><a href='#Serveidepresentaci%C3%B3depantalles2.2-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#Serveidepresentaci%C3%B3depantalles2.2-Utilitzaci%C3%B3delServei'>
+    <li>Utilització  del Servei</li></a>
+<ul><a href='#Serveidepresentaci%C3%B3depantalles2.2-Definici%C3%B3delesPantalles'>
+    <li>Definició  de les Pantalles</li></a><a href='#Serveidepresentaci%C3%B3depantalles2.2-Definici%C3%B3delesP%C3%A0ginesPlantilla'>
+    <li>Definició  de les Pàgines Plantilla</li></a><a href='#Serveidepresentaci%C3%B3depantalles2.2-RetorndelesP%C3%A0ginesdesdelesclassesAction'>
+    <li>Retorn  de les Pàgines des de les classes Action</li></a>
+</ul>
+</ul><a href='#Serveidepresentaci%C3%B3depantalles2.2-Exemples'>
+    <li>Exemples</li></a>
+<ul><a href='#Serveidepresentaci%C3%B3depantalles2.2-ExempledePlantillaGen%C3%A9rica'>
+    <li>Exemple  de Plantilla Genérica</li></a>
+<ul><a href='#Serveidepresentaci%C3%B3depantalles2.2-Definici%C3%B3delaP%C3%A0gina'>
+    <li>Definició  de la Pàgina</li></a>
+</ul>
+</ul><a href='#Serveidepresentaci%C3%B3depantalles2.2-Annexos'>
+    <li>Annexos</li></a>
+<ul><a href='#Serveidepresentaci%C3%B3depantalles2.2-Tiles'>
+    <li>Tiles</li></a>
+<ul><a href='#Serveidepresentaci%C3%B3depantalles2.2-Definici%C3%B3d%27unaPantallabasadaenunTemplate'>
+    <li>Definició  d'una Pantalla basada en un Template</li></a>
+<ul><a href='#Serveidepresentaci%C3%B3depantalles2.2-Definici%C3%B3d%27unaPantallaapartird%27unaaltraPantalla'>
+    <li>Definició  d'una Pantalla a partir d'una altra Pantalla</li></a><a href='#Serveidepresentaci%C3%B3depantalles2.2-Definirregionsd%27unaPantallabasadesenaltresPantalles'>
+    <li>Definir  regions d'una Pantalla basades en altres Pantalles</li></a><a href='#Serveidepresentaci%C3%B3depantalles2.2-Retornd%27unaPantalladesd%27Accionsnostres'>
+    <li>Retorn  d'una Pantalla des d'Accions nostres</li></a>
+</ul>
+</ul>
+</ul>
+</ul></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>&nbsp;
+<br clear="all" /></p>
+
+<h1><a name="Serveidepresentaci%C3%B3depantalles2.2-Introducci%C3%B3"></a>Introducció</h1>
+
+
+<h2><a name="Serveidepresentaci%C3%B3depantalles2.2-Prop%C3%B3sit"></a>Propósit</h2>
+
+<p>En tota aplicació Web es necessita un Look&amp;Feel (L&amp;F) comú. Si el  L&amp;F és "harcoded" en totes les pàgines un canvi de L&amp;F es converteix en  un autèntic malson, ja que hauríem de modificar totes les pàgines de  l'aplicació. En un bon disseny és important que aconseguim una separació clara  entre el L&amp;F i el contingut de les pàgines.</p>
+
+<p>L'ús de plantilles ens permet definir un L&amp;F comú, on podem especificar  que usarem una capçalera, un cos, un menú a l'esquerra i un peu. La pàgina final  es construeix passant-li com a paràmetre quina capçalera, quin cos i quin menú  correspon a la pantalla a mostrar com a resposta a la petició.</p>
+
+<h2><a name="Serveidepresentaci%C3%B3depantalles2.2-ContextiEscenarisd%27%C3%9As"></a>Context  i Escenaris d'Ús</h2>
+
+<p>El Servei de Pantalles es troba associat a l'ús de Java Server Pages com a  tecnologia de presentació dinàmica de contingut Web basat en HTML. En la  tecnologia JSP (Java Server Pages) existeixen 2 formes estàndar d'incloure  contingut d'altres pàgines: de forma estàtica i de forma dinàmica.</p>
+<ul>
+	<li>Estàtica: &lt;%@ include file="..." %&gt;<br/>
+Si usem &lt;%@ include  file="..." %&gt;, s'inclou el contingut de la pàgina destí en temps de <b>compilació</b> i no d'execució.<br/>
+D'aquesta manera, el text de la pàgina  inclosa s'insereix en la del pare. Si la pàgina inclosa és una pàgina JSP  (podria ser un HTML, ...), s'avalua i el seu contingut s'insereix en la pàgina  pare. Després, la pàgina pare continua traduint la següent  línia.</li>
+</ul>
+
+
+<ul>
+	<li>Dinàmica: &lt;jsp:include page="..." /&gt;<br/>
+Si usem &lt;jsp:include  page="..." /&gt; el recurs és tractat dinàmicament, de manera que en <b>temps  d'execució</b> s'avalua la pàgina i es volca el resultat.</li>
+</ul>
+
+
+<p>L'ús d'aquests mecanismes és utilitzat en alguns àmbits com la solució a la  incorporació de parts específiques d'una pantalla. Tot i ser una solució  àmpliament utilitzada no permet poder especificar plantilles reutilitzables en  la nostra aplicació. El Servei de Pantalles en contraposició ens permet definir  herència de pantalles i definir estructures comuns reutilitzables en la nostra  aplicació.</p>
+
+<p>El Servei de Pantalles es troba dins dels serveis de Presentació de canigo,  tal i com es mostra en el següent gràfic:</p>
+
+<p>La implementació del servei es basa en la utilització de Spring amb Struts i  Tiles. Per tant, es considera prerequisit el coneixement de la utilització de  Tiles.</p>
+
+<h2><a name="Serveidepresentaci%C3%B3depantalles2.2-VersionsiDepend%C3%A8ncies"></a>Versions  i Dependències</h2>
+
+<p>Les dependències descrites a la següent url son requerides per tal de compilar i fer funcionar el projecte:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-web/dependencies.html" title="Visit page outside Confluence">Dependències Servei de Presentació de pantalles</a></p>
+
+<h2><a name="Serveidepresentaci%C3%B3depantalles2.2-Aquivadirigit"></a>A  qui va dirigit</h2>
+
+<p>Aquest document va dirigit als següents perfils:</p>
+<ol>
+	<li>Programador. Per conéixer l'ús del servei</li>
+	<li>Arquitecte. Per conéixer quins són els components i la configuració del  servei</li>
+</ol>
+
+
+<h2><a name="Serveidepresentaci%C3%B3depantalles2.2-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents  i Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'>&nbsp;</th>
+<th class='confluenceTh'> Documentació Tiles </th>
+<th class='confluenceTh'> <a href="http://struts.apache.org/struts-tiles/index.html" title="Visit page outside Confluence">http://struts.apache.org/struts-tiles/index.html</a> </th>
+</tr>
+</tbody></table>
+
+<h1><a name="Serveidepresentaci%C3%B3depantalles2.2-Descripci%C3%B3Detallada"></a>Descripció  Detallada</h1>
+
+
+<h2><a name="Serveidepresentaci%C3%B3depantalles2.2-ArquitecturaiComponents"></a>Arquitectura  i Components</h2>
+
+<p>L'arquitectura del Servei de Pantalles es basa en la utilització de Struts  Tiles. Per a més informació consultar '<a href="http://struts.apache.org/struts-tiles/index.html" title="Visit page outside Confluence">http://struts.apache.org/struts-tiles/index.html'.</a></p>
+
+<p>Es pot trobar tota la documentació JavaDoc y el codi font referent aquests components a les següents urls:</p>
+
+<p><ins>JavaDoc:</ins> <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-web/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-web/apidocs/index.html</a><br/>
+<ins>Codi Font:</ins>&nbsp; <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-web/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-web/xref/index.html</a></p>
+
+<h2><a name="Serveidepresentaci%C3%B3depantalles2.2-Instal%5Claci%C3%B3iConfiguraci%C3%B3"></a>Instal&#45; lació  i Configuració</h2>
+
+<p>Prerequisit: Per al correcte funcionament d'aquest servei és important que  prèviament s'hagin realitzat les configuracions especificades a l'apartat  'Configuració Bàsica' del document 'Serveis de Presentació'.</p>
+
+<h3><a name="Serveidepresentaci%C3%B3depantalles2.2-Instal%5Claci%C3%B3"></a>Instal&#45; lació</h3>
+
+<p>Per a la instal&#45; lació del Servei de Pantalles es requereix de l'ús del fitxer  'canigo-services-web.jar' i les dependències indicades a l'apartat 'Versions i  Dependències'.</p>
+
+<h3><a name="Serveidepresentaci%C3%B3depantalles2.2-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p>La configuració del Servei de Pantalles es troba ja detallada al document  general 'Serveis de Presentació' a l'apartat 'Configuració de Struts'. A mode de  resum, direm que s'han d'haver realitzat els següents pasos:</p>
+<ul>
+	<li>Definició del control&#45; lador basat en Tiles</li>
+</ul>
+
+
+<p><em>Fitxer de configuració: struts-config.xml</em><br/>
+_ Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/struts/struts-config.xml&#95;
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;controller&gt;
+&lt;set-property property=<span class="code-quote">"processorClass"</span> value="net.gencat.ctti.canigo.services.web.struts.
+ExtendedDelegatingTilesRequestProcessor"/&gt;
+&lt;/controller&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ul>
+	<li>Definició del Plugin de Tiles i la ubicació del fitxer de definicions de  pantalles</li>
+</ul>
+
+
+<p>_ Fitxer de configuració: struts-config.xml&#95;<br/>
+_ Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/struts/struts-config.xml&#95;
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;plug-in className=<span class="code-quote">"org.apache.struts.tiles.TilesPlugin"</span>&gt;
+&lt;set-property property=<span class="code-quote">"definitions-config"</span> value=<span class="code-quote">"/WEB-INF/classes/struts/tiles-definitions.xml"</span>/&gt;
+&lt;/plug-in&gt;
+
+&lt;plug-in className=<span class="code-quote">"org.springframework.web.struts.ContextLoaderPlugIn"</span>&gt;
+&lt;set-property property=<span class="code-quote">"contextConfigLocation"</span> value=<span class="code-quote">"/WEB-INF/classes/spring/action-servlet.xml"</span>/&gt;
+&lt;/plug-in&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h2><a name="Serveidepresentaci%C3%B3depantalles2.2-Utilitzaci%C3%B3delServei"></a>Utilització  del Servei</h2>
+
+<p>El Servei es basa en la utilització de Tiles. Si es coneix cóm usar aquesta  tecnologia ja serem capaços d'usar el Servei amb garanties. Es recomana una  lectura prèvia de l'Annex .</p>
+
+<h3><a name="Serveidepresentaci%C3%B3depantalles2.2-Definici%C3%B3delesPantalles"></a>Definició  de les Pantalles</h3>
+
+<p>Consultar l'apartat '1.2 XML Definitions Configuration' de la url '<a href="http://struts.apache.org/struts-tiles/userGuide.html" title="Visit page outside Confluence">http://struts.apache.org/struts-tiles/userGuide.html'.</a></p>
+
+<h3><a name="Serveidepresentaci%C3%B3depantalles2.2-Definici%C3%B3delesP%C3%A0ginesPlantilla"></a>Definició  de les Pàgines Plantilla</h3>
+
+<p>Cadascuna de les pantalles es basen en un fitxer JSP que defineix el layout i  les parts dinàmiques que seran substituides pels valors definits per les  pantalles.</p>
+
+<p>A les pàgines plantilla hem de fer ús de tags de Tiles, per això, en primer  lloc, la pàgina ha d'importar la llibreria:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;%@ taglib uri=<span class="code-quote">"http:<span class="code-comment">//jakarta.apache.org/struts/tags-tiles"</span> prefix=<span class="code-quote">"tiles"</span>%&gt;</span></pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>La pàgina definida pot fer ús dels tags definits per Tiles. Veure apartats  '1.3 i següents' de la url '<a href="http://struts.apache.org/struts-tiles/userGuide.html" title="Visit page outside Confluence">http://struts.apache.org/struts-tiles/userGuide.html'.</a></p>
+
+<h3><a name="Serveidepresentaci%C3%B3depantalles2.2-RetorndelesP%C3%A0ginesdesdelesclassesAction"></a>Retorn  de les Pàgines des de les classes Action</h3>
+
+<p>Una vegada definida una pàgina de l'aplicació amb el mecanisme de plantilles,  el seu retorn es realitza des de l'atribut 'path' del fitxer de configuració de  Struts.</p>
+
+<h1><a name="Serveidepresentaci%C3%B3depantalles2.2-Exemples"></a>Exemples</h1>
+
+
+<h2><a name="Serveidepresentaci%C3%B3depantalles2.2-ExempledePlantillaGen%C3%A9rica"></a>Exemple  de Plantilla Genérica</h2>
+
+<p>En el següent exemple podem veure la definició de la plantilla genérica d'una  aplicació:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;definition name=<span class="code-quote">"site.mainLayoutPetStore"</span>
+path=<span class="code-quote">"/WEB-INF/jsp/layouts/mainLayout.jspI"</span>&gt;
+&lt;put name=<span class="code-quote">"title"</span> value=<span class="code-quote">"Petstore Demo"</span> /&gt;
+&lt;put name=<span class="code-quote">"optionsBar"</span> value=<span class="code-quote">"/WEB-INF/jsp/includes/optionsBar.jsp"</span> /&gt;
+&lt;put name=<span class="code-quote">"quickSearch"</span> value=<span class="code-quote">"/WEB-INF/jsp/includes/quickHeader.jsp"</span> /&gt;
+&lt;put name=<span class="code-quote">"header"</span> value=<span class="code-quote">"/WEB-INF/jsp/includes/top.jsp"</span> /&gt;
+&lt;put name=<span class="code-quote">"menu"</span> value=<span class="code-quote">"/WEB-INF/jsp/includes/blank.jsp"</span> /&gt;
+&lt;put name=<span class="code-quote">"footer"</span> value=<span class="code-quote">"/WEB-INF/jsp/includes/bottom.jsp"</span> /&gt;
+&lt;/definition&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> 1 </th>
+<th class='confluenceTh'> A l'atribut 'path' hem definit la  ruta a la pàgina (veure a continuació 'Definició de la Pàgina') que conté  l'estructura de les pàgines que es basaran en aquesta plantilla </th>
+</tr>
+<tr>
+<td class='confluenceTd'> 2 </td>
+<td class='confluenceTd'> Mitjançant el tag 'put' hem indicat  que substituirem el lloc de la pàgina 'mainLayout.jsp' (segons l'atribut path)  on aparegui el tag '<b>&lt;tiles:insert attribute='nom'/&gt;</b>' per la pàgina  especificada a l'atribut 'value' </td>
+</tr>
+</tbody></table>
+
+<h3><a name="Serveidepresentaci%C3%B3depantalles2.2-Definici%C3%B3delaP%C3%A0gina"></a>Definició  de la Pàgina</h3>
+
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;%@ page contentType=<span class="code-quote">"text/html;charset=ISO-8859-1"</span>%&gt;
+&lt;%
+response.setHeader(<span class="code-quote">"Cache-Control"</span>,<span class="code-quote">"no-cache"</span>); <span class="code-comment">//HTTP 1.1
+</span>response.setHeader(<span class="code-quote">"Pragma"</span>,<span class="code-quote">"no-cache"</span>); <span class="code-comment">//HTTP 1.0
+</span>response.setDateHeader(<span class="code-quote">"Expires"</span>, 0); <span class="code-comment">//prevents caching at the proxy server
+</span>%&gt;
+&lt;!DOCTYPE html PUBLIC <span class="code-quote">"-<span class="code-comment">//W3C//DTD XHTML 1.0 Transitional//EN"</span> *"http://www.w3.org/TR/xhtml1/
+</span>DTD/xhtml1-transitional.dtd"&gt;*
+&lt;%@ include file=<span class="code-quote">"/WEB-INF/jsp/includes/fwkTagLibs.jsp"</span> %&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;&lt;tiles:insert attribute=<span class="code-quote">"title"</span>/&gt;&lt;/title&gt;
+&lt;link rel=<span class="code-quote">"stylesheet"</span> href='&lt;%=*request.getContextPath()%&gt;*/css/canigo.css' type=<span class="code-quote">"text/css"</span>/&gt;
+&lt;fwk:configuration styleId=<span class="code-quote">"defaultConfiguration"</span> /&gt;
+&lt;script&gt;
+<span class="code-keyword">var</span> contextPath = '&lt;%=*request.getContextPath()%&gt;*';
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;tiles:insert attribute=<span class="code-quote">"header"</span>/&gt;
+&lt;TABLE BORDER=<span class="code-quote">"0"</span> CELLPADDING=<span class="code-quote">"0"</span> CELLSPACING=<span class="code-quote">"0"</span> WIDTH=<span class="code-quote">"100%"</span>&gt;
+&lt;TR&gt;&lt;TD ALIGN=<span class="code-quote">"CENTER"</span> CLASS=<span class="code-quote">"COPY"</span> style=<span class="code-quote">"border-top: #000000 1px solid; "</span>&gt; &lt;tiles:insert
+attribute='optionsBar'/&gt; &lt;/TD&gt;&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;TABLE BORDER=<span class="code-quote">"0"</span> CELLPADDING=<span class="code-quote">"0"</span> CELLSPACING=<span class="code-quote">"1"</span> WIDTH=<span class="code-quote">"100%"</span>&gt;
+&lt;TR&gt;
+&lt;TD ALIGN=<span class="code-quote">"CENTER"</span> VALIGN=<span class="code-quote">"TOP"</span>&gt;&lt;BR&gt;
+&lt;table border=<span class="code-quote">"0"</span> cellpadding=<span class="code-quote">"2"</span>&gt;
+&lt;tr&gt;
+&lt;td valign=<span class="code-quote">"top"</span>&gt;&lt;tiles:insert attribute='menu'/&gt;&lt;/td&gt;
+&lt;TD WIDTH=<span class="code-quote">"100%"</span> VALIGN=<span class="code-quote">"TOP"</span>&gt;
+&lt;!-- Contenido principal --&gt;
+
+&lt;!--TABLE bgcolor=<span class="code-quote">"#000000"</span> cellpadding=<span class="code-quote">"0"</span> cellspacing=<span class="code-quote">"1"</span> border=<span class="code-quote">"0"</span> width=<span class="code-quote">"100%"</span>&gt;
+&lt;tr&gt;&lt;td align=<span class="code-quote">"center"</span> bgcolor=<span class="code-quote">"#FFFFFF"</span>--&gt;
+
+&lt;TABLE BORDER=<span class="code-quote">"0"</span> CELLPADDING=<span class="code-quote">"10"</span> CELLSPACING=<span class="code-quote">"0"</span> bgcolor=<span class="code-quote">"#FFFFFF"</span> width=<span class="code-quote">"100%"</span>&gt;
+&lt;tr&gt;&lt;td style=<span class="code-quote">"border-top: 1px solid #000000; border-left: 1px solid #000000; text-align: left"</span>&gt;
+&lt;tiles:insert attribute='location'/&gt;&lt;br&gt;
+&lt;center&gt;
+&lt;tiles:insert attribute='quickSearch' /&gt;
+&lt;tiles:insert attribute='errors' /&gt;
+&lt;tiles:insert attribute='body' /&gt;
+&lt;/center&gt;
+&lt;BR&gt;
+&lt;/td&gt;&lt;/tr&gt;
+&lt;/TABLE&gt;
+
+&lt;!--/td&gt;&lt;/tr&gt;
+&lt;/table--&gt;
+
+&lt;!-- Fin contenido principal --&gt;
+&lt;/TD&gt;
+&lt;!-- right --&gt;
+&lt;td valign=<span class="code-quote">"top"</span>&gt;&lt;tiles:insert attribute='right'/&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;BR&gt;
+&lt;BR&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;center&gt;
+&lt;TABLE BORDER=<span class="code-quote">"0"</span> CELLPADDING=<span class="code-quote">"0"</span> CELLSPACING=<span class="code-quote">"0"</span> WIDTH=<span class="code-quote">"90%"</span> align=<span class="code-quote">"center"</span>&gt;
+&lt;TR&gt;&lt;TD ALIGN=<span class="code-quote">"CENTER"</span> CLASS=<span class="code-quote">"COPY"</span> style=<span class="code-quote">"border-top: #000000 1px solid;"</span>&gt;
+&lt;tiles:insert attribute='footer'/&gt; &lt;/TD&gt;&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;/center&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>L'avantatge d'haver definit una pàgina plantilla és que podem incorporar  llibreries comunes a totes les pàgines, fitxers d'estils, comportament  javascript, variables, etc.</p>
+
+<h1><a name="Serveidepresentaci%C3%B3depantalles2.2-Annexos"></a>Annexos</h1>
+
+
+<h2><a name="Serveidepresentaci%C3%B3depantalles2.2-Tiles"></a>Tiles</h2>
+
+<p>En Tiles l'element bàsic és el template. El template no és més que una pàgina  JSP que usa una llibreria de tags JSP per a definir el layout d'una pàgina. El  template serveix com a definició de cóm s'ubicaran les pàgines sense especificar  el contingut. Aquest s'insereix en temps d'execució en la pàgina template. Totes  les pàgines de l'aplicació poden reutilitzar el mateix template o bé usar  altres.</p>
+
+<p>Un exemple (<em>basicLayout.jsp</em>) de template seria:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;table border=<span class="code-quote">"0"</span> width=<span class="code-quote">"100%"</span> cellspacing=<span class="code-quote">"5"</span>&gt;
+
+&lt;tr&gt;
+
+&lt;td  colspan=<span class="code-quote">"2"</span>&gt;&lt;tiles:insert attribute=<span class="code-quote">"header"</span>  /&gt;&lt;/td&gt;
+
+&lt;/tr&gt;
+
+&lt;tr&gt;
+
+&lt;td  valign=<span class="code-quote">"top"</span>&gt;
+
+&lt;tiles:insert  attribute='menu'/&gt;
+
+&lt;/td&gt;
+
+&lt;td valign=<span class="code-quote">"top"</span>  align=<span class="code-quote">"left"</span>&gt;
+
+&lt;table width=<span class="code-quote">"100%"</span>&gt;
+
+&lt;tr&gt;&lt;td&gt;
+
+&lt;tiles:insert attribute='body'  /&gt;
+
+&lt;/td&gt;&lt;/tr&gt;
+
+&lt;/table&gt;
+
+&lt;/td&gt;
+
+&lt;/tr&gt;
+
+&lt;tr&gt;
+
+&lt;td  colspan=<span class="code-quote">"2"</span>&gt;
+
+&lt;tiles:insert attribute=<span class="code-quote">"footer"</span>  /&gt;
+
+&lt;/td&gt;
+
+&lt;/tr&gt;
+
+&lt;/table&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>En aquest exemple es barregen codi HTML i tags JSP. En el <em>tag</em> &lt;tiles:insert&gt; s'està indicant de manera declaratòria que el contingut a  mostrar en aquella part ha de crear-se de manera dinàmica a partir del valor que  s'indiqui per al valor del paràmetre 'attribute' ('header',...). El gran  avantatge d'aquesta definició és que diverses pàgines de l'aplicació poden usar  el mateix layout que està controlat per aquest fitxer. Si en algun moment de la  vida del projecte es decideix canviar el layout només és necessari retocar  aquesta pàgina única i no totes les pàgines de l'aplicació.</p>
+
+<h3><a name="Serveidepresentaci%C3%B3depantalles2.2-Definici%C3%B3d%27unaPantallabasadaenunTemplate"></a>Definició  d'una Pantalla basada en un Template</h3>
+
+<p>Una vegada definit el template en el que basarem les nostres pantalles (podem  definir diversos templates amb diferents propòsits), podem definir quin és el  contingut de cada pantalla.</p>
+
+<p>Per a definir una pantalla es pot usar el format següent:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;tiles-definitions&gt;
+
+&lt;definition name=<span class="code-quote">"nombre"</span> path=<span class="code-quote">"path"</span>&gt;
+
+&lt;put  name=<span class="code-quote">"nombreParam"</span> value=<span class="code-quote">"valor"</span> /&gt;
+
+...
+
+&lt;putList  name=<span class="code-quote">"nombreList"</span>&gt;
+
+&lt;add  value=<span class="code-quote">"valor1"</span>/&gt;
+
+&lt;add  value=<span class="code-quote">"valor2"</span>/&gt;
+
+&lt;/putList&gt;
+
+&lt;/definition&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>On es pot fer ús dels següents atributs per a la definició:</p>
+<ol>
+	<li>name: Nom de la pantalla. Aquest nom ha de ser únic</li>
+	<li>path: Ruta a la pàgina JSP que construeix la pantalla (el template  definit)</li>
+</ol>
+
+
+<p>&nbsp;<br/>
+Per a especificar quins són els valors específics a substituir en el template  podem usar:</p>
+<ol>
+	<li>put: Amb cada paràmetre a passar a la definició definirem una entrada  put</li>
+	<li>putList: Serveix per a poder passar una paràmetre que estigui compost per  una llista de valors.</li>
+</ol>
+
+
+<p>Per mitjà de '&lt;put name="header" value="/template/header.jsp" /&gt;'  especifiquem que l'espai de la plantilla amb el codi '&lt;tiles:insert  attribute="header" /&gt;' serà substituït per la pàgina  '/template/header.jsp'.</p>
+
+<h4><a name="Serveidepresentaci%C3%B3depantalles2.2-Definici%C3%B3d%27unaPantallaapartird%27unaaltraPantalla"></a>Definició  d'una Pantalla a partir d'una altra Pantalla</h4>
+
+<p>És molt comú que determinades parts de les nostres pantalles siguen comunes a  moltes pantalles (capçalera, peu,...). Per a cobrir aquests casos, podem  especificar que una definició de pantalla estén una altra definició de  pantalla.</p>
+
+<p>Per a estendre des d'una pantalla una altra pantalla, s'usarà l'atribut  'extends' el valor del qual serà el nom de la definició pare.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;definition name=<span class="code-quote">"site.mainLayout"</span> path=<span class="code-quote">"/layouts/basicLayout.jsp"</span>&gt;
+&lt;put name=<span class="code-quote">"title"</span> value=<span class="code-quote">"Nombre Aplicacion"</span> /&gt;
+&lt;put name=<span class="code-quote">"header"</span> value=<span class="code-quote">"/template/header.jsp"</span> /&gt;
+&lt;put name=<span class="code-quote">"menu"</span> value=<span class="code-quote">"site.menu.bar"</span> /&gt;
+&lt;put name=<span class="code-quote">"footer"</span> value=<span class="code-quote">"/template/footer.jsp"</span> /&gt;
+&lt;/definition&gt;
+...
+&lt;definition name=<span class="code-quote">"pages.nomPage"</span> <span class="code-keyword">extends</span>=<span class="code-quote">"site.mainLayout"</span> &gt;
+&lt;put name=<span class="code-quote">"title"</span> value=<span class="code-quote">"Titol"</span> /&gt;
+&lt;put name=<span class="code-quote">"body"</span> value=<span class="code-quote">"/mantPagina.jsp"</span> /&gt;
+&lt;/definition&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>En el cas mostrat, s'ha especificat una definició <em>'site.mainLayout'</em> que usa el layout definit per la pàgina <em>'basicLayout.jsp'</em>. Aquesta  definició ha estat estesa per <em>'pages.nomPage'</em> especificant únicament  quin serà el títol i el cos del layout, mentres que manté invariable la  capçalera, menú i peu del pare.</p>
+
+<h4><a name="Serveidepresentaci%C3%B3depantalles2.2-Definirregionsd%27unaPantallabasadesenaltresPantalles"></a>Definir  regions d'una Pantalla basades en altres Pantalles</h4>
+
+<p>En determinats casos, pot ser interessant que una de les parts d'una pantalla  sigui una altra pantalla (basada al seu torn en una definició pare si es creu  oportú).</p>
+
+<p>En l'exemple anterior la definició 'site.mainLayout' definix un paràmetre  '&lt;put name=menu&gt;' en el que especifica que aquella regió és una altra  definició de pantalla enlloc d'una pàgina JSP.</p>
+
+<h4><a name="Serveidepresentaci%C3%B3depantalles2.2-Retornd%27unaPantalladesd%27Accionsnostres"></a>Retorn  d'una Pantalla des d'Accions nostres</h4>
+
+<p>Per indicar el path de retorn d'una pantalla en les accions Struts usarem el  nom de la definició:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;action  path=<span class="code-quote">"/..."</span>
+
+type=<span class="code-quote">"..."</span>
+
+name=<span class="code-quote">"..."</span>
+
+scope=<span class="code-quote">"..."</span>
+
+input=<span class="code-quote">"..."</span>
+
+parameter=<span class="code-quote">"reqCode"</span>
+
+&gt;
+
+&lt;forward name=<span class="code-quote">"success"</span> path=<span class="code-quote">"pages.nomPage"</span> /&gt;
+
+&lt;/action&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de presentació de pantalles 2.2_attachments/image001.jpg">image001.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de presentació de pantalles 2.2_attachments/image002.gif">image002.gif</a> (image/gif)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

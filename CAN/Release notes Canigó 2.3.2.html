@@ -1,0 +1,111 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Release notes Canigó 2.3.2</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Release notes Canigó 2.3.2
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Sep 29, 2008 by <font color="#0050B2">otc</font>.
+				    </div>
+
+				    <h2><a name="ReleasenotesCanig%C3%B32.3.2-Releasenotesdelaversi%C3%B32.3.2deCanig%C3%B3"></a>Release notes de la versió 2.3.2 de Canigó</h2>
+
+
+<h3><a name="ReleasenotesCanig%C3%B32.3.2-%28%29BugsfixatsaCanig%C3%B32.3.2%3A"></a><img class="emoticon" src="./icons/emoticons/add.gif" height="16" width="16" align="absmiddle" alt="" border="0"/> Bugs fixats a Canigó 2.3.2:</h3>
+
+<h5><a name="ReleasenotesCanig%C3%B32.3.2-Consultes"></a>Consultes</h5>
+
+<ul>
+	<li>Consulta <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-663" title="Visit page outside Confluence"><b>CAN-663</b></a>: Reporting amb locale.
+<br clear="all" />
+<b>Context</b>: El servei de reporting, quan treballa amb multiidioma, agafa el locale de la request i no el valor del locale definit pel report.
+<br clear="all" />
+<b>Solució</b>: Modificació de la classe WrapperAbstractJasperView per tal de què si li passem per paràmetre el locale, agafi aquest i no el de la request. 
+<br clear="all" />
+<b>Fitxers afectats</b>: &#8211;<br/>
+<b>Serveis afectats</b>: canigo-services-reporting-2.3.2.jar
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Consulta <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-682" title="Visit page outside Confluence"><b>CAN-682</b></a>: Configuració de l'atribut 'validationProperties'
+<br clear="all" />
+<b>Context</b>: Al configurar validacions de tipus servidor, es validen correctament els errors de la jsp però no es mostren
+<br clear="all" />
+<b>Solució</b>: S'ha modificat la jsp encarregada de mostrar els errors del formulari, aquesta jsp es mostra o s'amaga segons hi ha o no errors al formulari a través d'un javascript que modifica l'atribut "display".
+<br clear="all" />
+<b>Fitxers estàtics afectats</b>: jsp/includes/messages.jsp<br/>
+<b>Serveis afectats</b>: &#8211;
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<h5><a name="ReleasenotesCanig%C3%B32.3.2-Incid%C3%A8ncies"></a>Incidències</h5>
+
+<ul>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-623" title="Visit page outside Confluence"><b>CAN-623</b></a>: Tamany textarea tab segona pestanya Firefox 2 i Explorer 6
+<br clear="all" />
+<b>Context</b>: 2 textareas dins d'un component tab, un a cada pestanya. El tamany del textarea que es troba a la segona pestanya no agafa el valor establert a la definició del component  
+<br clear="all" />
+<b>Solució</b>: S'han realitzat modificacions al servei web (tag de configuració i tag TabPanel) i s'ha d'afegir una nova llibreria javscript per al tractament de les pestanyes i textAreas amb enriquidor de text.
+<br clear="all" />
+<b>Fitxers estàtics afectats</b>: scripts/ajax/ajaxtags/canigo-ajaxtags-tabs.js<br/>
+<b>Fitxers estàtics nous</b>: scripts/ajax/jquery-1.2.6.min.js<br/>
+<b>Serveis afectats</b>: canigo-services-web-2.3.2.jar
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-647" title="Visit page outside Confluence"><b>CAN-647</b></a>: Els components textArea amb les validacions de servidor activades perd el valor informat
+<br clear="all" />
+<b>Context</b>: Amb el tag textArea i tinyMCE, quan s'activa la validació 'SERVER', es perd el valor de la propietat i sempre està buit. 
+<br clear="all" />
+<b>Solució</b>: Si està activat l'enriquidor de text (tinyMCE) es recupera la informació introduïda en el textArea.
+<br clear="all" />
+<b>Fitxers estàtics afectats</b>: scripts/ajax/ajaxtags/canigo-ajaxtags-validation.js
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-673" title="Visit page outside Confluence"><b>CAN-673</b></a>: Problemes validació PDF signat amb el Connector Catcert
+<br clear="all" />
+<b>Context</b>: La causa del problema és en la lectura de l'arxiu PDF, que pot recuperar dades incorrectes
+<br clear="all" />
+<b>Solució</b>: La solució es basa en una nova forma de recuperar les dades d'un PDF.
+<br clear="all" />
+<b>Fitxers estàtics afectats</b>: &#8211;<br/>
+<b>Serveis afectats</b>: canigo-connectors-catcert-2.3.2.jar
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-684" title="Visit page outside Confluence"><b>CAN-684</b></a>: Caràcters '&lt;', '&gt;' i '&amp;' escapats en textarea amb TinyMCE
+<br clear="all" />
+<b>Context</b>: Arrel de la incidència CAN-583 es va modificar la classe TextAreaFieldTag, per tal d'escapar els caràcters HTML.
+<br clear="all" />
+<b>Solució</b>: No escapar caràcters HTML en el tag textArea quan es troba en mode edició.
+<br clear="all" />
+<b>Fitxers estàtics afectats</b>: &#8211;<br/>
+<b>Serveis afectats</b>: canigo-services-web-2.3.2.jar
+<br clear="all" />
+<br clear="all" />  </li>
+</ul>
+
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

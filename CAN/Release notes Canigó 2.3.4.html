@@ -1,0 +1,142 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Release notes Canigó 2.3.4</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Release notes Canigó 2.3.4
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Apr 30, 2009 by <font color="#0050B2">otc</font>.
+				    </div>
+
+				    <h2><a name="ReleasenotesCanig%C3%B32.3.4-Releasenotesdelaversi%C3%B32.3.4deCanig%C3%B3"></a>Release notes de la versió 2.3.4 de Canigó</h2>
+
+
+<h3><a name="ReleasenotesCanig%C3%B32.3.4-%28%29BugsfixatsaCanig%C3%B32.3.4%3A"></a><img class="emoticon" src="./icons/emoticons/add.gif" height="16" width="16" align="absmiddle" alt="" border="0"/> Bugs fixats a Canigó 2.3.4:</h3>
+
+
+<h5><a name="ReleasenotesCanig%C3%B32.3.4-Consultes"></a>Consultes</h5>
+
+<ul>
+	<li>Consulta <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-855" title="Visit page outside Confluence"><b>CAN-855</b></a>: fwk:tab.
+<br clear="all" />
+<b>Context</b>: Servei de presentació, pestanyes depenents.
+<br clear="all" />
+<b>Solució</b>: es reincorpora el tractament de l'atribut "callbackJSFunction" al tag fwk:tab, el qual havia existit en versions anteriors.
+<br clear="all" />
+<b>Fitxers afectats</b>: net.gencat.ctti.canigo.services.web.taglib.tabs.TabPageTag<br/>
+<b>Serveis afectats</b>: canigo-services-web-2.3.3.jar
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<h5><a name="ReleasenotesCanig%C3%B32.3.4-Incid%C3%A8ncies"></a>Incidències</h5>
+
+<ul>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-868" title="Visit page outside Confluence"><b>CAN-868</b></a>: Posicionament del selector de calendari en IE7 amb scroll vertical.
+<br clear="all" />
+<b>Context</b>: Quan es clica a sobre d'un calendari que es troba en una pàgina amb scroll vertical el desplegable de calendari no es mostra al costat del botó.
+<br clear="all" />
+<b>Solució</b>: Modificada la funció fixPosition() del JAvaScript afectat.
+<br clear="all" />
+<b>Fitxers estàtics afectats</b>: scripts/calendar/dynarch/calendar.js<br/>
+<b>Serveis afectats</b>: -
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-839" title="Visit page outside Confluence"><b>CAN-839</b></a>: 2 tabPanel a la mateixa JSP.
+<br clear="all" />
+<b>Context</b>: Mostrar 2 tabPanel a la mateixa JSP.
+<br clear="all" />
+<b>Solució</b>: S'arregla el problema modificant el JavaScript canigo-ajaxtags-tabs.js i el servei de presentació.
+<br clear="all" />
+<b>Fitxers estàtics afectats</b>: canigo-ajaxtags-tabs.js<br/>
+<b>Serveis afectats</b>: canigo-services-web-2.3.3.jar
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-842" title="Visit page outside Confluence"><b>CAN-842</b></a>: Problemes amb replicació de la sessió.
+<br clear="all" />
+<b>Context</b>: La classe 'net.gencat.ctti.canigo.services.web.struts.menu.AcegiPermissionsAdapter' conté dos atributs transient i fa que no arribin els valors al replicar l'objecte a sessió.
+<br clear="all" />
+<b>Solució</b>: Eliminat el modificador transient dels atributs.
+<br clear="all" />
+<b>Fitxers estàtics afectats</b>: -<br/>
+<b>Serveis afectats</b>: canigo-services-web-2.3.3.jar
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-834" title="Visit page outside Confluence"><b>CAN-834</b></a>: Creació del patch per solucionar la incidència CAN-552 (select amb multiples valors per obtenir un llistat).
+<br clear="all" />
+<b>Context</b>: Creació del patch per solucionar la incidència CAN-552.
+<br clear="all" />
+<b>Solució</b>: Parsejar els paràmetres de tipus Object[].
+<br clear="all" />
+<b>Fitxers estàtics afectats</b>: -<br/>
+<b>Serveis afectats</b>: canigo-services-web-2.3.3.jar
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-872" title="Visit page outside Confluence"><b>CAN-872</b></a>: Focus en els jocs de pestanyes. Taglib Tab.
+<br clear="all" />
+<b>Context</b>: Quan es clica a sobre d'una pestanya del tag tabPanel el focus es posiciona a dalt de tot de la pantalla.
+<br clear="all" />
+<b>Solució</b>: Correccions al servei web.
+<br clear="all" />
+<b>Fitxers estàtics afectats</b>: -<br/>
+<b>Serveis afectats</b>: canigo-services-web-2.3.3.jar
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-858" title="Visit page outside Confluence"><b>CAN-858</b></a>: Configuració quartz en cluster.
+<br clear="all" />
+<b>Context</b>: Una de les classes del servei canigo-services-scheduler no implementa serializable.
+<br clear="all" />
+<b>Solució</b>: Es fa que la classe implementi serializable.
+<br clear="all" />
+<b>Fitxers estàtics afectats</b>: -<br/>
+<b>Serveis afectats</b>: canigo-services-scheduler-2.3.3.jar
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-860" title="Visit page outside Confluence"><b>CAN-860</b></a>: Validacio amb indexedListProperty.
+<br clear="all" />
+<b>Context</b>: Utilitzant validacions de tipus 'SERVER' i amb la propietat 'indexedListProperty' a l'arxiu de configuració de la validació es produeix una excepció.
+<br clear="all" />
+<b>Solució</b>: Canvis al servei de validació.
+<br clear="all" />
+<b>Fitxers estàtics afectats</b>: -<br/>
+<b>Serveis afectats</b>: canigo-services-validation-2.3.3.jar
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-859" title="Visit page outside Confluence"><b>CAN-859</b></a>: Maven2 plguin no funciona si el repositori no hi és a user.home/.m2.
+<br clear="all" />
+<b>Context</b>: Si la ubicació del repositori local no és la predefinida, el plugin del ctti falla.
+<br clear="all" />
+<b>Solució</b>: Eliminació del plugin i afegides noves funcionalitats maven. Més informació: <a href="http://canigo.ctti.gencat.net/confluence/download/attachments/229/Canigo+-+HowTo+-+Construcci%C3%B3+de+projectes+amb+Maven.pdf?version=1" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/download/attachments/229/Canigo+-+HowTo+-+Construcci%C3%B3+de+projectes+amb+Maven.pdf?version=1</a>
+<br clear="all" />
+<b>Fitxers estàtics afectats</b>: -<br/>
+<b>Serveis afectats</b>: -
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

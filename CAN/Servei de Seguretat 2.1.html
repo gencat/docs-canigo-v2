@@ -1,0 +1,1757 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Servei de Seguretat 2.1</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Servei de Seguretat 2.1
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Jul 06, 2007 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="ServeideSeguretat2.1-SERVEISEGURETAT"></a>SERVEI SEGURETAT</h1>
+
+<p><br clear="all" />
+<div>
+<ul><a href='#ServeideSeguretat2.1-SERVEISEGURETAT'>
+    <li>SERVEI SEGURETAT</li></a><a href='#ServeideSeguretat2.1-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#ServeideSeguretat2.1-Prop%C3%B2sit'>
+    <li>Propòsit</li></a><a href='#ServeideSeguretat2.1-ContextiEscenarid%27%C3%BAs'>
+    <li>Context i  Escenari d'ús</li></a><a href='#ServeideSeguretat2.1-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i  Dependències</li></a><a href='#ServeideSeguretat2.1-Aquiesdirigeix'>
+    <li>A qui es  dirigeix</li></a><a href='#ServeideSeguretat2.1-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents  i Fonts de Referència</li></a><a href='#ServeideSeguretat2.1-Glossari'>
+    <li>Glossari</li></a>
+</ul><a href='#ServeideSeguretat2.1-Descripci%C3%B3Detallada'>
+    <li>Descripció  Detallada</li></a>
+<ul><a href='#ServeideSeguretat2.1-ArquitecturaB%C3%A0sica'>
+    <li>Arquitectura  Bàsica</li></a>
+<ul><a href='#ServeideSeguretat2.1-Acc%C3%A9saunaurlnoprotegida'>
+    <li>Accés a una  url no protegida</li></a><a href='#ServeideSeguretat2.1-Acc%C3%A9saurlsprotegides'>
+    <li>Accés a urls  protegides</li></a><a href='#ServeideSeguretat2.1-Acc%C3%A9saurlsprotegidessiusuariautentificat'>
+    <li>Accés  a urls protegides si usuari autentificat</li></a>
+</ul><a href='#ServeideSeguretat2.1-Interf%C3%ADciesiComponentsGen%C3%A8rics'>
+    <li>Interfícies  i Components Genèrics</li></a>
+<ul><a href='#ServeideSeguretat2.1-Interf%C3%ADciesPrincipals'>
+    <li>Interfícies  Principals</li></a>
+</ul><a href='#ServeideSeguretat2.1-Instal%5Claci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal&#45; lació  i Configuració</li></a>
+<ul><a href='#ServeideSeguretat2.1-Configuraci%C3%B3delaBasedeDades'>
+    <li>Configuració  de la Base de Dades</li></a><a href='#ServeideSeguretat2.1-Configuraci%C3%B3delsfiltresdel%27Aplicaci%C3%B3Web'>
+    <li>Configuració  dels filtres de l'Aplicació Web</li></a><a href='#ServeideSeguretat2.1-Configuraci%C3%B3delafontdedadesdeSeguretat'>
+    <li>Configuració  de la font de dades de Seguretat</li></a><a href='#ServeideSeguretat2.1-Configuraci%C3%B3del%27Autentificaci%C3%B3'>
+    <li>Configuració  de l'Autentificació</li></a><a href='#ServeideSeguretat2.1-Configuraci%C3%B3del%27Autoritzaci%C3%B3'>
+    <li>Configuració  de l'Autorització</li></a><a href='#ServeideSeguretat2.1-Configuraci%C3%B3delServeid%27Acc%C3%A9saInformaci%C3%B3General'>
+    <li>Configuració  del Servei d'Accés a Informació General</li></a>
+</ul><a href='#ServeideSeguretat2.1-Utilitzaci%C3%B3delServei'>
+    <li>Utilització del  Servei</li></a>
+<ul><a href='#ServeideSeguretat2.1-Autentificaci%C3%B3perFormulari'>
+    <li>Autentificació  per Formulari</li></a><a href='#ServeideSeguretat2.1-Utilitzaci%C3%B3del%27Autoritzaci%C3%B3enlesnostresp%C3%A0ginesJSP'>
+    <li>Utilització  de l'Autorització en les nostres pàgines JSP</li></a><a href='#ServeideSeguretat2.1-Obtenci%C3%B3d%27Informaci%C3%B3deSeguretatambAPI'>
+    <li>Obtenció  d'Informació de Seguretat amb API</li></a><a href='#ServeideSeguretat2.1-Gesti%C3%B3delsACLsmitjan%C3%A7antlaAPI'>
+    <li>Gestió  dels ACLs mitjançant la API</li></a>
+</ul><a href='#ServeideSeguretat2.1-EinesdeSuport'>
+    <li>Eines de  Suport</li></a>
+<ul><a href='#ServeideSeguretat2.1-ServidorLDAPdeproves%3AopenLDAP'>
+    <li>Servidor  LDAP de proves: openLDAP</li></a><a href='#ServeideSeguretat2.1-%26nbsp%3BJxplorer'>
+    <li>&nbsp;Jxplorer</li></a>
+</ul>
+</ul><a href='#ServeideSeguretat2.1-Exemples'>
+    <li>Exemples</li></a>
+<ul><a href='#ServeideSeguretat2.1-Exempledeconfiguraci%C3%B3d%27autentificaci%C3%B3ambBBDD%2CSACEiLDAP'>
+    <li>Exemple  de configuració d'autentificació amb BBDD, SACE i LDAP</li></a>
+<ul><a href='#ServeideSeguretat2.1-Exempledeconfiguraci%C3%B3ambautentificaci%C3%B3SACE'>
+    <li>Exemple  de configuració amb autentificació SACE</li></a><a href='#ServeideSeguretat2.1-Autentificaci%C3%B3perBBDDambunaBBDDjaexistent'>
+    <li>Autentificació  per BBDD amb una BBDD ja existent</li></a>
+</ul><a href='#ServeideSeguretat2.1-ExempledeformularideloginambJSTLiStruts'>
+    <li>Exemple  de formulari de login amb JSTL i Struts</li></a><a href='#ServeideSeguretat2.1-Exempledeconfiguraci%C3%B3d%27ACLs'>
+    <li>Exemple  de configuració d'ACLs</li></a>
+</ul>
+</ul></div><br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h1><a name="ServeideSeguretat2.1-Introducci%C3%B3"></a>Introducció</h1>
+
+
+<h2><a name="ServeideSeguretat2.1-Prop%C3%B2sit"></a>Propòsit</h2>
+
+<p>El Servei de Seguretat té com a propòsit principal gestionar l'autentificació  i l'autorització dels usuaris de les nostres aplicacions. L'objectiu de  l'autentificació és comprovar que l'usuari és qui diu ser, mentre que  l'autorització s'encarrega de comprovar que realment té accés al recurs  sol&#45; licitat.</p>
+
+<p>NOTA:</p>
+
+<p>L'especificació JAAS (Java Authorization and Authentication) de J2EE  proporciona els mecanismes necessaris de seguretat. Cada servidor d'aplicacions  pot implementar l'estàndard però ho fa de diferents formes produint problemes de  compatibilitat.<br/>
+L'especificació JAAS s'orienta principalment a temes  d'autentificació, mentre que els temes d'autorització pateixen de moltes  carències.</p>
+
+<p>Actualment, i a causa del seu grau de maduresa i facilitat canigo recomana  l'ús de 'Acegi' com framework base i les extensions que canigo proporciona.</p>
+
+<p>Per a l'ús d'aquest servei i la lectura del present document es necessiten  com a prerequisits els següens aspectes:</p>
+<ol>
+	<li>Coneixements sobre bases de dades</li>
+	<li>Coneixements bàsics sobre LDAP</li>
+	<li>Coneixements bàsics sobre Filtres Servlet i llibreries de tags JSP</li>
+	<li>Coneixements bàsics amb Spring</li>
+</ol>
+
+
+<h2><a name="ServeideSeguretat2.1-ContextiEscenarid%27%C3%BAs"></a>Context i  Escenari d'ús</h2>
+
+<p>El Servei de Seguretat és un servei general de canigo.
+<br clear="all" />
+<br clear="all" /></p>
+
+<h2><a name="ServeideSeguretat2.1-VersionsiDepend%C3%A8ncies"></a>Versions i  Dependències</h2>
+
+<p>Les dependències descrites a la següent url son requerides per tal de compilar i fer funcionar el projecte:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-security/dependencies.html" title="Visit page outside Confluence">Dependències Servei de Seguretat</a></p>
+
+<h2><a name="ServeideSeguretat2.1-Aquiesdirigeix"></a>A qui es  dirigeix</h2>
+
+<p>Aquest document es dirigeix als perfils següents:</p>
+<ol>
+	<li>Arquitecte. Per a definir una estratègia de seguretat i la seua  implementació amb Acegi</li>
+	<li>Programador. Per a configurar el servei de seguretat de cada aplicació  web</li>
+</ol>
+
+
+<h2><a name="ServeideSeguretat2.1-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents  i Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> Guió de referència <br clear="all" />
+D'Acegi </th>
+<th class='confluenceTh'> <a href="http://acegisecurity.sourceforge.net/reference.html" title="Visit page outside Confluence">http://acegisecurity.sourceforge.net/reference.html</a> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> Introducció d'Acegi </td>
+<td class='confluenceTd'> <a href="http://javahispano.net/frs/download.php/120/SeguridadnointrusivaSpring.pdf" title="Visit page outside Confluence">http://javahispano.net/frs/download.php/120/SeguridadnointrusivaSpring.pdf</a> </td>
+</tr>
+</tbody></table>
+
+<h2><a name="ServeideSeguretat2.1-Glossari"></a>Glossari</h2>
+
+<p><b>ACLs (Access Control List)</b></p>
+
+<p>Les llistes de control d'accés o ACLs permeten gestionar les autoritzacions  de cada rol o usuari a nivell de dades o instàncies de lògica de negoci. Per a  cada instància es poden especificar diferents dret: lectura, escriptura,  esborrat, creació.</p>
+
+<h1><a name="ServeideSeguretat2.1-Descripci%C3%B3Detallada"></a>Descripció  Detallada</h1>
+
+
+<h2><a name="ServeideSeguretat2.1-ArquitecturaB%C3%A0sica"></a>Arquitectura  Bàsica</h2>
+
+<p>En el present apartat es mostren els diagrames de seqüència associats al  tractament de peticions i cóm el servei de seguretat activarà el pas o no al  recurs sol&#45; licitat.</p>
+
+<h3><a name="ServeideSeguretat2.1-Acc%C3%A9saunaurlnoprotegida"></a>Accés a una  url no protegida</h3>
+
+<p>Si hi ha un accés a una url que no s'ha configurat com a protegida (veure  apartat 'Configuració') es segueixen els següents pasos:</p>
+<ol>
+	<li>S'activen uns filtres que comproven si l'usuari està autentificat</li>
+	<li>Donat que la url no és protegdia, el servei tramita la petició amb el filtre  "anonymousProcessingFilter" i assigna a la sessió l'usuari 'ANONYMOUS' i el rol  'ROLE_ANONYMOUS'</li>
+	<li>L'usuari a partir d'aquest moment es troba autentificat i pot accedir a  totes les urls no protegides<br/>
+<div align="center"><img src="Servei de Seguretat 2.1_attachments/ServeiSeguretat_img002.jpg" border="0" /></div></li>
+</ol>
+
+
+<h3><a name="ServeideSeguretat2.1-Acc%C3%A9saurlsprotegides"></a>Accés a urls  protegides</h3>
+
+<p><br clear="all" />  <div align="center"><img src="Servei de Seguretat 2.1_attachments/ServeiSeguretat_img003.jpg" border="0" /></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Si s'accedeix a una url protegida, el funcionament és:
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>El servei executa una seqüència de filtres per comprovar  l'autentificació.</li>
+	<li>Com la url és protegida, el servei gestiona la petició amb el filtre  "authenticationProcessingFilter" y llença una excepció de tipus  AuthenticationException (usuari no autentficat).</li>
+	<li>Es redirecciona l'usuari a la pàgina de Login.</li>
+	<li>De nou, s'executen uns filtres per tramitar la petició d'autentificació</li>
+	<li>Es crida al mètode 'authenticate()'. El authenticationManager comprova els  noms d'usuaris /password contra una seqüència d'autentificació (SACE / LDAP /  BBDD).</li>
+	<li>Finalment l'usuari es troba autentificat (i configurat amb el seu(s) rol(s))  i se li redirigeix a la pàgina inicialment sol&#45; licitada</li>
+</ol>
+
+
+<h3><a name="ServeideSeguretat2.1-Acc%C3%A9saurlsprotegidessiusuariautentificat"></a>Accés  a urls protegides si usuari autentificat</h3>
+
+<p><img src="Servei de Seguretat 2.1_attachments/ServeiSeguretat_img004.jpg" align="absmiddle" border="0" /></p>
+
+<p>Si el mateix usuari amb un  rol 1 intenta accedir a una url restringida pel rol 2, la seqüència és:</p>
+<ol>
+	<li>Donat que la url és protegida, es tramita la petició amb el filtre  "authenticationProcessingFilter" per comprovar que l'usuari està  autentificat.</li>
+	<li>Es fa un crida al mètode decide() dels voters configurats. Com la url és  protegida pel rol 2 (per exemple 'ROLE_USER') i l'usuari només té el rol 2 (per  exemple 'ROLE_ADMIN'), es llença una excepció de tipus  BadCredentialsException</li>
+	<li>Se li redirigeix a una pàgina de HTTP 403 d'error (es configurar en el  fitxer web.xml)</li>
+</ol>
+
+
+<h2><a name="ServeideSeguretat2.1-Interf%C3%ADciesiComponentsGen%C3%A8rics"></a>Interfícies  i Components Genèrics</h2>
+
+
+<h3><a name="ServeideSeguretat2.1-Interf%C3%ADciesPrincipals"></a>Interfícies  Principals</h3>
+
+<p>Només la interfície 'SecurityService' serà visible des de les classes  desenvolupades per les aplicacions, les restants classes s'usaran per definir  mitjançant la configuració el comportament dessitjat per la seguretat.</p>
+
+<p>Es pot trobar tota la documentació JavaDoc y el codi font referent aquests components a les següents urls:</p>
+
+<p><ins>JavaDoc:</ins> <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-security/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-security/apidocs/index.html</a><br/>
+<ins>Codi Font:</ins>&nbsp; <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-security/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-security/xref/index.html</a>
+<br clear="all" /></p>
+
+<h2><a name="ServeideSeguretat2.1-Instal%5Claci%C3%B3iConfiguraci%C3%B3"></a>Instal&#45; lació  i Configuració</h2>
+
+<p>Prerequisit: Per al funcionament correcte d'aquest servei és important haver  realitzat prèviament les configuracions especificades de la part 'Configuració  Bàsica' del document 'Servei de Presentació'.</p>
+
+<p>Per a la instal&#45; lació del Servei de Seguretat necessitem usar el fitxer  'canigo-services-security.jar' i les dependències indicades en l'apartat  'Versions i Dependències'.</p>
+
+<p>La configuració del servei de seguretat es descompon en les parts  següents:</p>
+<ol>
+	<li>Configuració de la Base de Dades</li>
+	<li>Configuració dels Filtres de l'Aplicació Web</li>
+	<li>Configuració de la Font de Dades de l'Esquema de Seguretat</li>
+	<li>Configuració de l'Autentificació</li>
+	<li>Configuració de l'Autorització</li>
+	<li>Configuració del Servei d'Accés a la Informació de l'Usuari. Aquesta  configuració ens permetrà fer ús d'una interfície per obtenir dades de l'usuari  connectat (si és d'un rol determinat, ...)</li>
+</ol>
+
+
+<p>El Servei de Seguretat de canigo encapsula la complexitat de "Acegi" per  mitjà d'una configuració simplificada i centralitzada en dos beans:  authenticationConfiguration i authorizationConfiguration.</p>
+
+<p><b>NOTA prèvia:</b><br/>
+Acegi <b>no funciona</b> si s'usen caràcters de  retorn en les definicions de les propietats de tipus "&lt;list&gt;" per als  beans de seguretat.<br/>
+<div align="center"><img src="Servei de Seguretat 2.1_attachments/ServeiSeguretat_img007.jpg" border="0" /></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Exemple:
+<br clear="all" />
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"authorizationConfiguration"</span>  class="net.gencat.ctti.canigo.services.security.
+AuthorizationSecurityConfiguration"&gt; ...
+
+&lt;property  name=<span class="code-quote">"beanNamesPatternList"</span>&gt;
+
+&lt;list&gt;
+
+&lt;value&gt;
+
+?businessService&lt;/value&gt;
+
+&lt;/list&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> Per a més informació sobre el framework "Acegi", consultar la pàgina <a href="http://acegisecurity.sourceforge.net/suggested.html" title="Visit page outside Confluence">http://acegisecurity.sourceforge.net/suggested.html</a></p>
+
+<h3><a name="ServeideSeguretat2.1-Configuraci%C3%B3delaBasedeDades"></a>Configuració  de la Base de Dades</h3>
+
+<p>Per l'ús de la seguretat canigo utilitza, per defecte, l'esquema de base de  dades mostrat a continuació:<br/>
+<div align="center"><img src="Servei de Seguretat 2.1_attachments/ServeiSeguretat_img008.jpg" border="0" /></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />  <b>NOTA:</b><br/>
+Si la base de dades d'usuaris ja existeix en el moment  d'implantació de canigo, no cal crear les taules d'autentificació 'USER_LOGIN',  'PARTY_ROLE' i 'ROLE'. Haurem d'indicar les query per a obtenir el nom d'usuari,  password i rol.
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> Taules d'Autentificació</p>
+
+<p>&#35; USER_LOGIN<br/>
+Els camps de la taula "USER_LOGIN" són:</p>
+<ol>
+	<li>"username": clau primària, representa el nom de l'usuari.</li>
+	<li>"party_id", clau foránia, representa el grup.</li>
+	<li>"password: representa la contrasenya, que pot ser codificada</li>
+</ol>
+
+
+<p>&#35; ROLE<br/>
+Els camps de la taula "ROLE" són:</p>
+<ol>
+	<li>"role_id": clau primària.</li>
+	<li>"role_id_parent": clau foránia, representa el rol pare (opcional)</li>
+	<li>"role_name", nom del rol. El seu nom ha de començar amb el prefix "ROLE_".  Exemple: ROLE_USUARIO, ROLE_GESTOR, ...ç</li>
+	<li>"role_description", representa la descripció del rol.</li>
+</ol>
+
+
+<p>&#35; PARTY_ROLE<br/>
+Els camps de la taula "PARTY_ROLE" són</p>
+<ol>
+	<li>"username": clau primària, representa el nom de l'usuari</li>
+</ol>
+
+
+<ol>
+	<li>"authority": nom del rol de l'usuari. El seu nom ha de començar amb el  prefix "ROLE_". Exemple: ROLE_USUARIO, ROLE_GESTOR, ...</li>
+</ol>
+
+
+<p><b>Taules d'Autorització</b></p>
+
+<p>Les taules d'autorització només són necessàries si necessitem gestionar les  autoritzacions a nivell d'instàncies de la lògica de negoci (ACLs).</p>
+
+<p>&#35; ACL_OBJECT_IDENTITY<br/>
+La taula "ACL_OBJECT_IDENTITY" ens permet identificar els objectes de la  lògica de negoci. Els seus camps són:</p>
+<ol>
+	<li>"id": identificador i clau primària</li>
+	<li>"object_identity": identificador String de l'objecte. Es seguirà com a  convenció 'nomClasse:id', on nomClasse correspon al nom 'full qualified' de la  classe de negoci i id al valor de l'identificador de l'objecte. Exemple:  "com.business.domain.DomainObject:1"</li>
+	<li>"parent_object". Aquest camp permet especificar l'objecte pare de l'objecte  actual. D'aquesta manera, en cas de no disposar d'autoritzacions (en la taula  ACL_PERMISSION) associades a l'objecte s'usaran les autoritzacions que s'hagin  definit per al seu pare.</li>
+	<li>"acl_class". En aquest valor sempre haurem d'introduir  "net.sf.acegisecurity.acl.<em>basic</em>.SimpleAclEntry"<br/>
+&#35; ACL_PERMISSION</li>
+</ol>
+
+
+<p>La taula ACL_PERMISSION conté els permisos que s'apliquin als usuaris o rols  per a cada objecte de la lògica de negoci. Conté els camps següents:</p>
+<ol>
+	<li>"id":identificador i clau primària.</li>
+	<li>"acl_object_identity": clau forània, que referència a una fila de la taula  'ACL_OBJECT_IDENTITY'</li>
+	<li>"recipient": Cadena que representa els noms d'usuari o noms de rols als què  s'aplica el permís. Cada nom ha de ser separat per ','. Es poden representar un  conjunt de noms i rols d'usuari de forma conjunta i barrejada.</li>
+	<li>"mask": representa la màscara del permís que s'aplica a l'objecte. En la  taula següent es presenta la llista de valors possibles:</li>
+</ol>
+
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Valor</b> </th>
+<th class='confluenceTh'> <b>Permisos</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> 0 </td>
+<td class='confluenceTd'> No té permisos a l'objecte </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 1 </td>
+<td class='confluenceTd'> 'ADMIN' (Permisos d'administració) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 2 </td>
+<td class='confluenceTd'> 'READ' (Permís de lectura) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 4 </td>
+<td class='confluenceTd'> 'WRITE' (Permís d'escriptura) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 6 </td>
+<td class='confluenceTd'> 'READ + WRITE </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 8 </td>
+<td class='confluenceTd'> 'CREATE' (Permís de creació) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 14 </td>
+<td class='confluenceTd'> 'READ + WRITE + CREATE' </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 16 </td>
+<td class='confluenceTd'> 'DELETE' (Permís d'esborrat) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 22 </td>
+<td class='confluenceTd'> READ + WRITE + DELETE </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 30 </td>
+<td class='confluenceTd'> READ + WRITE + CREATE + DELETE </td>
+</tr>
+</tbody></table>
+<p>Per a la creació de l'esquema podem fer ús del <em>script</em> següent per  Oracle:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">DROP SEQUENCE ACL_PERMISSION_SEQ;
+
+DROP SEQUENCE ACL_OBJECT_SEQ;
+
+DROP  SEQUENCE PARTY_OBJECT_SEQ;
+
+DROP SEQUENCE ROLE_OBJECT_SEQ;
+
+create sequence ROLE_OBJECT_SEQ
+
+start with 1
+
+increment by 1;
+
+create sequence ACL_OBJECT_SEQ
+
+start with 1
+
+increment by 1;
+
+create sequence ACL_PERMISSION_SEQ
+
+start with 1
+
+increment by 1;
+
+create sequence PARTY_OBJECT_SEQ
+
+start with 1
+
+increment by 1;
+
+DROP TABLE ACL_PERMISSION;
+
+DROP TABLE ACL_OBJECT_IDENTITY;
+
+DROP TABLE  PARTY CASCADE CONSTRAINTS;
+
+DROP TABLE GROUP_ROLE CASCADE CONSTRAINTS;
+
+DROP  TABLE PARTY_GROUP CASCADE CONSTRAINTS;
+
+DROP TABLE PARTY_RELATIONSHIP CASCADE  CONSTRAINTS;
+
+DROP TABLE PARTY_ROLE CASCADE CONSTRAINTS;
+
+DROP TABLE ROLE  CASCADE CONSTRAINTS;
+
+DROP TABLE USER_LOGIN CASCADE CONSTRAINTS;
+
+CREATE TABLE acl_object_identity (
+
+id NUMBER PRIMARY  KEY,
+
+object_identity VARCHAR2(250) NOT NULL,
+
+parent_object  INTEGER,
+
+acl_class VARCHAR2(250) NOT NULL,
+
+CONSTRAINT  unique_object_identity UNIQUE(object_identity),
+
+FOREIGN KEY (parent_object)  REFERENCES acl_object_identity(id)
+
+);
+
+CREATE TABLE acl_permission (
+
+id NUMBER PRIMARY  KEY,
+
+acl_object_identity NUMBER NOT NULL,
+
+recipient VARCHAR2(100) NOT  NULL,
+
+mask NUMBER NOT NULL,
+
+CONSTRAINT unique_recipient  UNIQUE(acl_object_identity, recipient),
+
+FOREIGN KEY (acl_object_identity)  REFERENCES acl_object_identity(id)
+
+);
+
+CREATE TABLE PARTY (
+
+PARTY_ID NUMBER NOT NULL,
+
+PARTY_TYPE_ID  NUMBER,
+
+EXTERNAL_ID VARCHAR2(20),
+
+CREATED_DATE  VARCHAR2(255),
+
+CREATED_BY_USER_LOGIN VARCHAR2(255),
+
+LAST_MODIFIED_DATE  VARCHAR2(255),
+
+LAST_MODIFIED_BY_USER_LOGIN  VARCHAR2(255),
+
+LAST_UPDATED_STAMP VARCHAR2(255),
+
+LAST_UPDATED_TX_STAMP  VARCHAR2(255),
+
+CREATED_STAMP VARCHAR2(255),
+
+CREATED_TX_STAMP  VARCHAR2(255),
+
+CONSTRAINT PK_PARTY_ID UNIQUE(PARTY_ID)
+
+)
+
+;
+
+CREATE TABLE PARTY_GROUP (
+
+PARTY_ID NUMBER NOT NULL,
+
+GROUP_PARENT_ID  NUMBER NULL,
+
+GROUP_NAME VARCHAR2(255) NOT NULL,
+
+CONSTRAINT PK_PARTY_GROUP  UNIQUE(PARTY_ID)
+
+)
+
+;
+
+CREATE TABLE PARTY_RELATIONSHIP (
+
+PARTY_ID_FROM NUMBER NOT  NULL,
+
+PARTY_ID_TO NUMBER NOT NULL,
+
+TYPE NUMBER NULL,
+
+CONSTRAINT  PK_PARTY_RELATIONSHIP UNIQUE(PARTY_ID_FROM, PARTY_ID_TO),
+
+FOREIGN KEY  (PARTY_ID_FROM) REFERENCES PARTY(PARTY_ID),
+
+FOREIGN KEY (PARTY_ID_TO)  REFERENCES PARTY(PARTY_ID)
+
+)
+
+;
+
+CREATE TABLE ROLE (
+
+ROLE_ID NUMBER NOT NULL,
+
+ROLE_ID_PARENT  NUMBER,
+
+ROLE_NAME VARCHAR2(50) NOT NULL,
+
+ROLE_DESCRIPTION  VARCHAR2(255),
+
+CONSTRAINT PK_ROLE UNIQUE(ROLE_ID),
+
+FOREIGN KEY  (ROLE_ID_PARENT) REFERENCES ROLE(ROLE_ID)
+
+)
+
+;
+
+CREATE TABLE USER_LOGIN (
+
+USER_LOGIN_ID VARCHAR2(50) NOT  NULL,
+
+PARTY_ID NUMBER NOT NULL,
+
+PASSWORD VARCHAR2(50) NOT  NULL,
+
+CONSTRAINT PK_USER_LOGIN UNIQUE(USER_LOGIN_ID),
+
+FOREIGN KEY  (PARTY_ID) REFERENCES PARTY_GROUP(PARTY_ID)
+
+)
+
+;
+
+CREATE TABLE PARTY_ROLE (
+
+USER_LOGIN_ID VARCHAR2(50) NOT NULL,
+
+ROLE_ID  NUMBER NOT NULL,
+
+CONSTRAINT PK_PARTY_ROLE UNIQUE(USER_LOGIN_ID,  ROLE_ID),
+
+FOREIGN KEY (USER_LOGIN_ID) REFERENCES  USER_LOGIN(USER_LOGIN_ID),
+
+FOREIGN KEY (ROLE_ID) REFERENCES  ROLE(ROLE_ID)
+
+)
+
+;
+
+CREATE TABLE GROUP_ROLE (
+
+PARTY_ID NUMBER NOT NULL,
+
+ROLE_ID NUMBER NOT  NULL,
+
+CONSTRAINT PK_GROUP_ROLE UNIQUE(PARTY_ID, ROLE_ID),
+
+FOREIGN KEY  (PARTY_ID) REFERENCES PARTY_GROUP(PARTY_ID),
+
+FOREIGN KEY (ROLE_ID) REFERENCES  ROLE(ROLE_ID)
+
+)
+
+;
+
+CREATE OR REPLACE TRIGGER ACL_OBJ_TRIGGER
+
+before insert on  ACL_OBJECT_IDENTITY
+
+<span class="code-keyword">for</span> each row
+
+begin
+
+select ACL_OBJECT_SEQ.nextval  into :<span class="code-keyword">new</span>.id from dual;
+
+end;
+
+CREATE OR REPLACE TRIGGER ACL_PERMISSION_TRIGGER
+
+before insert on  ACL_PERMISSION
+
+<span class="code-keyword">for</span> each row
+
+begin
+
+select ACL_PERMISSION_SEQ.nextval  into :<span class="code-keyword">new</span>.id from dual;
+
+end;
+
+CREATE OR REPLACE TRIGGER PARTY_OBJECT_SEQ_TRIGGER
+
+before insert on  PARTY_GROUP
+
+<span class="code-keyword">for</span> each row
+
+WHEN (<span class="code-keyword">new</span>.PARTY_ID is <span class="code-keyword">null</span>)
+
+begin
+
+select  PARTY_OBJECT_SEQ.nextval into :<span class="code-keyword">new</span>.PARTY_ID from dual;
+
+end;
+
+CREATE OR REPLACE TRIGGER CANIGO.ROLE_OBJECT_SEQ_TRIGGER
+
+before insert on  ROLE
+
+<span class="code-keyword">for</span> each row
+
+WHEN (<span class="code-keyword">new</span>.ROLE_ID is <span class="code-keyword">null</span>)
+
+begin
+
+select  ROLE_OBJECT_SEQ.nextval into :<span class="code-keyword">new</span>.ROLE_ID from dual;
+
+end;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h3><a name="ServeideSeguretat2.1-Configuraci%C3%B3delsfiltresdel%27Aplicaci%C3%B3Web"></a>Configuració  dels filtres de l'Aplicació Web</h3>
+
+<p><em>Fitxer de configuració: web.xml</em><br/>
+<em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/webapp/WEB-INF/web.xml</em></p>
+
+<p>Acegi usa un conjunt de filtres per a detectar aspectes de l'autorització i  autentificació. Per a usar-los definirem en el fitxer 'WEB-INF/web.xml el codi  següent:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;!-- Filter ACEGI, using a FilterChainProxy makes it easier to configure
+
+different Filters in the Spring application context configuration  file--&gt;
+
+&lt;filter&gt;
+
+&lt;filter-name&gt;Acegi Filter Chain  Proxy&lt;/filter-name&gt;
+
+&lt;filter-class&gt;
+
+net.sf.acegisecurity.util.FilterToBeanProxy
+
+&lt;/filter-class&gt;
+
+&lt;init-param&gt;
+
+&lt;param-name&gt;targetClass&lt;/param-name&gt;
+
+&lt;param-value&gt;
+
+net.sf.acegisecurity.util.FilterChainProxy
+
+&lt;/param-value&gt;
+
+&lt;/init-param&gt;
+
+&lt;/filter&gt;
+
+&lt;filter-mapping&gt;
+
+&lt;filter-name&gt;Acegi Filter Chain  Proxy&lt;/filter-name&gt;
+
+&lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+
+&lt;/filter-mapping&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" /></p>
+
+<p>Per a més informació consultar la pàgina <a href="http://acegisecurity.sourceforge.net/docbook/acegi.html" title="Visit page outside Confluence">http://acegisecurity.sourceforge.net/docbook/acegi.html#security-filters</a></p>
+
+<h3><a name="ServeideSeguretat2.1-Configuraci%C3%B3delafontdedadesdeSeguretat"></a>Configuració  de la font de dades de Seguretat</h3>
+
+<p><em>Fitxer de configuració: canigo-services-security.xml</em><br/>
+<em>Ubicació  proposada: &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>El Servei de Seguretat necessita conèixer com connectar-se a l'esquema de  base de dades que defineix les taules anteriorment comentades. Per a això, hem  d'especificar un bean 'dataSource' en el que configurarem les propietats de la  base de dades. Es recomana l'ús de JNDI per a definir la font de dades.</p>
+
+<p>Exemple amb jndi:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"dataSource"</span>  class=<span class="code-quote">"org.springframework.jndi.JndiObjectFactoryBean"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"jndiName"</span> value=<span class="code-quote">"java:comp/env/JNDISource..."</span>/&gt;
+
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" /> Exemple amb jdbc:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean  id=<span class="code-quote">"dataSource"</span>
+
+class=<span class="code-quote">"org.springframework.jdbc.datasource.DriverManagerDataSource"</span>&gt;
+
+&lt;property  name=<span class="code-quote">"driverClassName"</span>&gt;
+
+&lt;value&gt;$\{jdbc.driverClassName\}&lt;/value&gt;
+
+&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"url"</span>&gt;
+
+&lt;value&gt;$\{jdbc.url\}&lt;/value&gt;
+
+&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"username"</span>&gt;
+
+&lt;value&gt;$\{jdbc.username\}&lt;/value&gt;
+
+&lt;/property&gt;
+
+&lt;property  name=<span class="code-quote">"password"</span>&gt;
+
+&lt;value&gt;$\{jdbc.password\}&lt;/value&gt;
+
+&lt;/property&gt;
+
+&lt;bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h3><a name="ServeideSeguretat2.1-Configuraci%C3%B3del%27Autentificaci%C3%B3"></a>Configuració  de l'Autentificació</h3>
+
+<p>En la configuració de l'Autentificació tindrem en consideració:</p>
+<ol>
+	<li>Seleccionar la configuració de la font en que es realitza l'autentificació  (per base de dades, per LDAP, per servei integrador al servidor corporatiu basat  en HTTPS, ...)</li>
+	<li>Configurar el formulari d'autentificació web i la seqüència de cerca on ha  de realitzar-se l'autentificació (primer un LDAP, després una BD,  etc.)</li>
+</ol>
+
+
+<p>Configuració de la Font d'Autorització per Base de Dades</p>
+
+<p><em>Fitxer de configuració: canigo-services-security.xml</em><br/>
+<em>Ubicació  proposada: &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>La configuració de l'autentificació per mitjà de base de dades es realitza  per mitjà del bean de la classe  'net.gencat.ctti.canigo.services.<br/>
+security.acegi.DatabaseAuthenticationConfiguration',  per a la que podem definir les següents propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> passwordEncoderClass </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Aquesta propietat permet especificar  quina encriptació ha de realitzar-se dels passwords. És a dir, si el password  s'emmagatzema per exemple en la base de dades de forma encriptada, el servei de  seguretat hauria d'encriptar el password introduït per l'usuari i comparar-ho  amb el de la base de dades. <br clear="all" />
+La llista de possibles valors és: <br clear="all" />
+&#35; <a href="http://acegisecurity.sourceforge.net/multiproject/acegi-security/apidocs/net/sf/acegisecurity/providers/encoding/BaseDigestPasswordEncoder.html" title="Visit page outside Confluence">BaseDigestPasswordEncoder</a>, <br clear="all" />
+&#35; <a href="http://acegisecurity.sourceforge.net/multiproject/acegi-security/apidocs/net/sf/acegisecurity/providers/encoding/BasePasswordEncoder.html" title="Visit page outside Confluence">BasePasswordEncoder</a>, <br clear="all" />
+&#35; <a href="http://acegisecurity.sourceforge.net/multiproject/acegi-security/apidocs/net/sf/acegisecurity/providers/encoding/Md5PasswordEncoder.html" title="Visit page outside Confluence">Md5PasswordEncoder</a>, <br clear="all" />
+&#35; <a href="http://acegisecurity.sourceforge.net/multiproject/acegi-security/apidocs/net/sf/acegisecurity/providers/encoding/PlaintextPasswordEncoder.html" title="Visit page outside Confluence">PlaintextPasswordEncoder</a>, <br clear="all" />
+&#35; <a href="http://acegisecurity.sourceforge.net/multiproject/acegi-security/apidocs/net/sf/acegisecurity/providers/encoding/ShaPasswordEncoder.html" title="Visit page outside Confluence">ShaPasswordEncoder</a> <br clear="all" /> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> usersByUserNameQuery </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Aquesta propietat permet especificar  una query SQL per a l'obtenció d'un usuari. Serveix per a poder usar un esquema  d'usuaris diferent al proposat en el present document (per exemple si ja existia  abans de la implantació de canigo). <br clear="all" />
+<br clear="all" />
+S'ha de seguir el  següent patró: <br clear="all" />
+<br clear="all" />
+"SELECT <em>{Nom_usuario</em>},  &#95;{contrassenya}_ FROM <em>{usuaris}</em> WHERE {<em>Nom_usuario</em>} =? <br clear="all" />
+<br clear="all" />
+On Nom_usuario correspon al nom del camp de la taula que  conté el nom de l'usuari, contrassenya, al nom del camp que conté el password i  'usuaris' al nom de la taula d'usuaris. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> authoritiesbyUserNameQuery </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Aquesta propietat permet especificar  on es troba la informació dels rols. El seu ús ens permet usar un esquema de  rols diferent al proposat en el present document. <br clear="all" />
+<br clear="all" />
+"SELECT <em>{Nom_usuario</em>}, &#95;{rol}_ FROM <em>{taula_rols}</em> WHERE {<em>Nom_usuario</em>} =? </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"databaseAuthenticationConfiguration1"</span>
+class="net.gencat.ctti.canigo.services.security.
+DatabaseAuthenticationConfiguration"&gt;
+
+&lt;!- Propietats obligatóries -&gt;
+&lt;property
+name =<span class="code-quote">"passwordEncoderClass"</span> value ="net.sf.acegisecurity.providers.encoding.
+PlaintextPasswordEncoder" /&gt;
+
+&lt;!- Propietats opcionals -&gt;
+&lt;property name =<span class="code-quote">"usersByUserNameQuery"</span>&gt; &lt;value&gt;
+SELECT \{Nombre_usuario\}, \{contraseña\} * FROM* \{usuarios\}
+_ WHERE \{_Nombre_usuario\} =?
+&lt;/value&gt;
+&lt;/property&gt;
+
+&lt;property name =<span class="code-quote">"authoritiesbyUserNameQuery"</span>&gt; &lt;value&gt;
+SELECT \{Nombre_usuario\}, \{rol\} * FROM* \{privilegios\}
+_ WHERE \{_Nombre_usuario\} =?
+&lt;/value&gt;
+&lt;/property&gt;
+
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> Configuració de la Font d'Autorització per LDAP</p>
+
+<p><em>Fitxer de configuració: canigo-services-security.xml</em><br/>
+<em>Ubicació  proposada: &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>En el cas que es requereixi configurar l'autentificació per mitjà de crides  directes a LDAP podem fer ús d'una classe diferent.</p>
+
+<p>Per a realitzar les proves en desenvolupament podem instal&#45; lar un servidor  LDAP senzill (veure l'apartat 'Eines de Suport' per a més referència).</p>
+
+<p>La configuració de l'accés al LDAP es fa per mitjà d'un bean de la classe  'net.gencat.ctti.canigo.services.<br/>
+security.acegi.LDAPAuthenticationConfiguration',  per a la que podrem definir les propietats següents:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> ldapURL </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Url del servidor LDAP. Per exemple:  ldap://dir.mycompany.com:389/dc=mycompany,dc=com </td>
+</tr>
+<tr>
+<td class='confluenceTd'> usernameFormat </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> El patró del nom d'usuari usat pel  LDAP. <br clear="all" />
+Per exemple, per a openLDAP: <br clear="all" />
+"uid={0},ou=people,dc=mycompany,dc=com" </td>
+</tr>
+<tr>
+<td class='confluenceTd'> userLookupNameFormat </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> El patró del nom d'usuari usat pel  LDAP per a fer cerques. Per exemple, per a openLDAP: <br clear="all" />
+uid={0},ou=people </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"ldapAuthenticationConfiguration"</span>
+class="net.gencat.ctti.canigo.services.security.
+LDAPAuthenticationConfiguration"&gt;
+
+&lt;!- Propietats obligatóries -&gt;
+&lt;property
+name =<span class="code-quote">"ldapURL"</span> value =<span class="code-quote">"ldap:<span class="code-comment">//localhost:389/dc=mycompany,dc=com"</span> /&gt;
+</span>
+&lt;property
+name =<span class="code-quote">"usernameFormat"</span>
+value =<span class="code-quote">"uid=\{0\},ou=people,dc=mycompany,dc=com"</span> /&gt;
+
+&lt;!- Propietats opcionals -&gt;
+
+&lt;property
+name =<span class="code-quote">"userLookupNameFormat"</span>
+value =<span class="code-quote">"uid=\{0\},ou=people"</span> /&gt;
+
+&lt;property
+name =<span class="code-quote">"roleAttribute"</span>
+value =<span class="code-quote">"title"</span> /&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" /> &#95;Configuració de la Font d'Autorització per  SACE</p>
+
+<p><em>Fitxer de configuració: canigo-services-security.xml</em><br/>
+<em>Ubicació  proposada: &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>En el cas que es requereixi configurar l'autentificació per mitjà de crides  directes a SACE podem fer ús d'una classe diferent.</p>
+
+<p>Per a realitzar les proves en desenvolupament podem instal&#45; lar un VPN Client <b>per connectar-se al servidor SACE</b> (consultar el document 'Directori  Corporatiu de la Generalitat de Catalunya - Guia d'integració d'aplicacions  v3.7').</p>
+
+<p>La configuració de l'accés al SACE es fa per mitjà d'un bean de la classe  'net.gencat.ctti.canigo.services.<br/>
+security.acegi.SACEAuthenticationConfiguration',  per a la que podrem definir les següents propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> urlSACE </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Url del servidor SACE. <br clear="all" />
+&#42;Per exemple, la url del servidor de pre-producció és: <a href="https://sace.prepdc.gencat.intranet/SACE/SACE_Logon.aspx?XMLIn" title="Visit page outside Confluence"><b>https://sace.*prepdc</b>.gencat.intranet/SACE/SACE_Logon.aspx?XMLIn</a>= <br clear="all" />
+<br clear="all" />
+Segons l'entorn podem canviar el valor d'aquesta url: <br clear="all" />
+&#42; dc, per producció <br clear="all" />
+&#42; prepdc, per pre-producció <br clear="all" />
+&#42; desenvdc, per desenvolupament <br clear="all" /> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> userNameFormat </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Format del campo 'user name'. Els 2  valors possibles són:: <br clear="all" />
+&#42; INTERNAL_CODE, codi intern <br clear="all" />
+&#42;  NIF <br clear="all" /> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> authoritiesbyUserNameQuery </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Aquesta propietat permet especificar  la query SQL per a recollir els rols dels usuaris. <br clear="all" />
+<br clear="all" />
+Per exemple, "SELECT {Nombre_usuario}, {rol} FROM {privilegios}  WHERE {Nombre_usuario} =? </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean  id=<span class="code-quote">"SACEAuthenticationConfiguration"</span>
+
+class="net.gencat.ctti.canigo.services.security.
+
+SACEAuthenticationConfiguration"&gt;
+
+&lt;property
+
+name =<span class="code-quote">"urlSACE"</span> value  =<span class="code-quote">"https*:<span class="code-comment">//sace.prepdc.gencat.intranet/SACE/SACE_Logon.aspx?XMLIn=*"</span>/&gt;
+</span>
+&lt;property
+
+name =<span class="code-quote">"userNameFormat"</span> value  =<span class="code-quote">"NIF"</span>/&gt;
+
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" /> Configuració del Formulari d'Autentificació i la Seqüència  d'Autentificació</p>
+
+<p><em>Fitxer de configuració: canigo-services-security.xml</em><br/>
+<em>Ubicació  proposada: &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>Una vegada definides les fonts d'autentificació configurarem quin és el  formulari d'autentificació i com ha de realitzar-se l'autentificació, potser en  més d'una font. Per exemple, podriem considerar que en primer lloc  s'autentifiqui en un esquema de base de dades i si no es troba en aquesta  comprovar-ho en un LDAP corporatiu, etc.</p>
+
+<p>Per a configurar el formulari i la seqüència es farà ús d'un bean de la  classe  'net.gencat.ctti.canigo.services.<br/>
+security.acegi.AuthenticationSecurityConfiguration'  en un fitxer XML "application context" de Spring. La taula següent detalla les  propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> loginFormUrlValue </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Url del formulari d'autentificació.  El formulari ha de seguir unes normatives tal com es defineix en l'apartat  'Autentificació per Formulari' de la secció 'Utilització del Servei' </td>
+</tr>
+<tr>
+<td class='confluenceTd'> authenticationFailureUrlValue </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Per defecte serà el mateix que  'loginFormUrlValue'. <br clear="all" />
+<br clear="all" />
+Si l'autentificació falla es  presentarà la url indicada en el camp 'authenticationFailureUrValue'. Si és  correcta, el navegador serà redirigit a la url inicial protegida que va ser  sol&#45; licitada per l'usuari (per a definir quins recursos són protegits consultar  l'apartat 'Configuració de les urls per rol d'usuari') </td>
+</tr>
+<tr>
+<td class='confluenceTd'> filterProcessesUrl </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Url del 'submit' en el formulari de  login. tal com es defineix en l'apartat 'Autentificació per Formulari' de la  secció 'Utilització del Servei' </td>
+</tr>
+<tr>
+<td class='confluenceTd'> authenticationProvidersConfigurationList </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Llista de beans de configuració  (BBDD o LDAP) que defineixen la seqüència de fonts de l'autentificació. <br clear="all" />
+S'intentarà l'autentificació de l'usuari / contrasenya en cadascun  dels autentificadors definits en l'ordre tal i com apareixen al fitxer de a dalt  a baix. </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"SACEAuthenticationConfiguration1"</span>
+...
+&lt;/bean&gt;
+
+
+&lt;bean id=<span class="code-quote">"ldapAuthenticationConfiguration2"</span>
+...
+&lt;/bean&gt;
+
+
+&lt;bean id=<span class="code-quote">"databaseAuthenticationConfiguration3"</span>
+...
+&lt;/bean&gt;
+
+
+&lt;bean id=<span class="code-quote">"authenticationConfiguration"</span>
+class=<span class="code-quote">"net.gencat.ctti.canigo.services.security.AuthenticationSecurityConfiguration"</span>&gt;
+	&lt;property name=<span class="code-quote">"loginFormUrlValue"</span> value=<span class="code-quote">"/login.jsp"</span> /&gt;
+	&lt;property name=<span class="code-quote">"authenticationFailureUrlValue"</span> value=<span class="code-quote">"/login.jsp"</span> /&gt;
+	&lt;property name=<span class="code-quote">"filterProcessesUrl"</span> value=<span class="code-quote">"/AppJava/acegiLogon"</span> /&gt;
+	&lt;property name=<span class="code-quote">"authenticationProvidersConfigurationList"</span>&gt;
+		&lt;list&gt;
+			&lt;ref local=<span class="code-quote">"SACEAuthenticationConfiguration1"</span> /&gt;
+			&lt;ref local=<span class="code-quote">"ldapAuthenticationConfiguration2"</span> /&gt;
+			&lt;ref local=<span class="code-quote">"databaseAuthenticationConfiguration3"</span> /&gt;
+		&lt;/list&gt;
+	&lt;/property&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h3><a name="ServeideSeguretat2.1-Configuraci%C3%B3del%27Autoritzaci%C3%B3"></a>Configuració  de l'Autorització</h3>
+
+<p><em>Fitxer de configuració: canigo-services-security.xml</em><br/>
+<em>Ubicació  proposada: &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>Podem definir l'autorització a 3 nivells:</p>
+<ol>
+	<li>Configuració de les Autoritzacions d'urls per rol d'usuari</li>
+	<li>Configuració de les Autoritzacions a nivell de classe i mètode</li>
+	<li>Configuració de les Autoritzacions amb ACLs</li>
+</ol>
+
+
+<p>Configuració de les Autoritzacions d'urls per rol d'usuari</p>
+
+<p>L'exemple més normal i el que utilitzarem com a norma general en les nostres  aplicacions, és donar accés segons els rols que té l'usuari. La configuració de  les autoritzacions d'urls es fa per mitjà de la propietat "secureUrls" del bean  de canigo 'authorizationConfiguration'.</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> secureUrls </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Per a cada url que volem restringir,  afegirem una línia amb el format següent: <br clear="all" />
+<br clear="all" />
+&lt;Patró  de URL&gt; = &lt;llista de rols separada per ','&gt; <br clear="all" />
+<br clear="all" />
+Exemples: <br clear="all" />
+<br clear="all" />
+/**/&#42;<font color="black">view</font>&#42; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= &nbsp;<font color="black">ROLE_GESTOR</font>, <font color="black">ROLE_USUARIO</font><br clear="all" />
+/**/&#42;<font color="black">delete</font>&#42;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&nbsp; <font color="black">ROLE_GESTOR</font><br clear="all" />
+/<font color="black">secure</font>/**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&nbsp; <font color="black">ROLE_GESTOR</font><br clear="all" />
+En l'exemple, la primera línia significa  que les urls que contenen la paraula "view" són autoritzades per als usuaris que  tenen el rol GESTOR o el rol USUARI. </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean     id=<span class="code-quote">"authorizationConfiguration"</span>class="net.gencat.ctti.canigo.services.security.
+AuthorizationSecurityConfiguration"&gt;
+
+    &lt;!-- Propietat opcional per les urls autoritzades --&gt;
+    &lt;property    name    =<span class="code-quote">"secureUrls"</span>&gt;
+        &lt;value&gt;
+            /**/*read*    =    ROLE_GESTOR, ROLE_USUARIO
+                  /**/*delete*    =    ROLE_GESTOR
+            /secure/**    =     ROLE_GESTOR
+        &lt;/value&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" /> Configuració de les Autoritzacions a nivell de classe i mètode</p>
+
+<p>Per mitjà de proxies dinàmics lligats a aspectes (programació orientada a  aspectes) podem configurar que determinats rols no tinguin accés a determinats  mètodes de determinades classes.<br/>
+La configuració de les autoritzacions a  nivell de classe i mètode s'han de realitzar per mitjà de la propietat  "secureBusinessObjects" del bean de canigo "authorizationConfiguration". Per a  aquest bean definirem les propietats següents:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> secureBusinessObjects </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Per a cada classe o mètode url que  vulguem restringir, afegirem una línia amb el format següent: <br clear="all" />
+<br clear="all" />
+&lt;Nom de classe full qualified o nom.mètode&gt; = &lt;llista rols  separats per ','&gt; <br clear="all" />
+<br clear="all" />
+Exemple: <br clear="all" />
+<br clear="all" />
+com.business.UsersManager = ROLE_GESTOR <br clear="all" />
+com.business.CategoryManager.delete = ROLE_GESTOR <br clear="all" />
+com.business.CategoryManager.read = ROLE_GESTOR, X <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+En l'exemple, la primera línia especifica que només els  usuaris que tenen el rol GESTOR estan autoritzats a cridar els mètodes de la  classe "UserManager". </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean     id=<span class="code-quote">"authorizationConfiguration"</span> class="net.gencat.ctti.canigo.services.security.
+AuthorizationSecurityConfiguration"&gt;
+
+  &lt;!-- Propietat opcional per les classes i mètodes autoritzats --&gt;
+  &lt;property     name=<span class="code-quote">"secureBusinessObjects"</span>&gt;
+      &lt;value&gt;
+        com.business.UsersManager     = ROLE_GESTOR
+        com.business.CategoryManager.delete = ROLE_GESTOR
+        com.business.CategoryManager.read = ROLE_GESTOR, ROLE_USUARIO
+    &lt;/value&gt;
+  &lt;/property&gt;
+
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" /> Configuració de les Autoritzacions amb ACLS</p>
+
+<p>Hi ha casos en que la protecció de les crides a mètodes no és suficient,  necessitant protegir-se de diferent forma diferents instàncies d'una classe. En  la majoria de casos, no fa falta cap configuració de fitxers XML.</p>
+
+<p>La protecció a les instàncies necessita conéixer quin és l'identificador de  la instància. Per defecte es considerarà el mètode 'getId()' de l'objecte. Si no  existís aquest mètode podrem configurar quin és el mètode a utilitzar per a  obtenir l'identificador de l'objecte.</p>
+
+<p>Aquesta configuració es fa en el bean de canigo 'authorizationConfiguration'  per mitjà de la propietat "domainObjectsIdGetters":</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> domainObjectsIdGetters </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Per a definir el mètode d'obtenció  de l'identificador usarem la sintaxi següent: <br clear="all" />
+<br clear="all" />
+&lt;Nom  de la classe&gt; = &lt;Nom del métode&gt; <br clear="all" />
+<br clear="all" />
+Exemple: <br clear="all" />
+<br clear="all" />
+com.business.ComplexDomainObject=  getDomainObjectId() </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"authorizationConfiguration"</span> class="net.gencat.ctti.canigo.services.security.
+AuthorizationSecurityConfiguration"&gt;
+
+    &lt;!- Propietat pels getters dels identificadors -&gt;
+    &lt;property name =<span class="code-quote">"domainObjectsIdGetters"</span>&gt;
+        &lt;value&gt;com.business.ComplexDomainObject = getDomainObjectId&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h3><a name="ServeideSeguretat2.1-Configuraci%C3%B3delServeid%27Acc%C3%A9saInformaci%C3%B3General"></a>Configuració  del Servei d'Accés a Informació General</h3>
+
+<p>En casos concrets, des del codi voldrem obtenir informació relacionada amb  l'usuari connectat. Per aquest objectiu s'ofereix una interfície  'SecurityService'. En l'actualitat s'ofereix una implementació basada en 'Acegi'  que podrem utilitzar introduint la següetn configuració:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"securityService"</span>  class="net.gencat.ctti.canigo.services.security.acegi.
+SecurityServiceAcegiImpl"/&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> En aquest moment, segons la configuració d'injecció de beans (tal i com  s'exposa al document de Servei de Configuració) podrem usar el servei des de  qualsevol classe de l'aplicació.</p>
+
+<h2><a name="ServeideSeguretat2.1-Utilitzaci%C3%B3delServei"></a>Utilització del  Servei</h2>
+
+
+<h3><a name="ServeideSeguretat2.1-Autentificaci%C3%B3perFormulari"></a>Autentificació  per Formulari</h3>
+
+<p>Hi ha diverses possibilitats d'autentificació des de Web. En aquest apartat  ens centrarem en l'autentificació amb formulari (per a més informació consultar  la secció '1.10' del tutorial de 'Acegi').</p>
+
+<p>És necessari crear una pàgina en què s'introdueixi l'usuari i el password.</p>
+
+<p><img src="Servei de Seguretat 2.1_attachments/ServeiSeguretat_img009.jpg" align="absmiddle" border="0" /></p>
+
+<p>Aquesta pàgina ha de complir els requisits següents:</p>
+<ol>
+	<li>El camp en que s'introdueix el nom d'usuari ha de tenir com a nom  'j_username'</li>
+	<li>El camp en que s'introdueixi el password ha de tenir com a nom  'j_password'</li>
+	<li>L'acció del formulari ha de ser la url especificada en el filtre en la  propietat 'filterProcessesUrl' (per defecte '/j_acegi_security_check')</li>
+</ol>
+
+
+<p>Podem adaptar el codi font següent en les nostres pàgines de Login. <b>El  text en negreta i marcat</b> és codi reutilitzable:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;%@ taglib prefix='c' uri='http:<span class="code-comment">//java.sun.com/jstl/core'%&gt;
+</span>&lt;%@ page <span class="code-keyword">import</span>=<span class="code-quote">"net.sf.acegisecurity.ui.AbstractProcessingFilter"</span>%&gt;
+&lt;%@ page
+<span class="code-keyword">import</span>=<span class="code-quote">"net.sf.acegisecurity.ui.webapp.AuthenticationProcessingFilter"</span>%&gt;
+&lt;%@ page <span class="code-keyword">import</span>=<span class="code-quote">"net.sf.acegisecurity.AuthenticationException"</span>%&gt;
+
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Login&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;h1&gt;Login&lt;/h1&gt;
+
+&lt;p&gt;&lt;%-- <span class="code-keyword">this</span> form-login-page form is also used as the
+         form-error-page to ask <span class="code-keyword">for</span> a login again.
+         --%&gt;
+&lt;c:<span class="code-keyword">if</span> test=<span class="code-quote">"${not empty param.login_error}"</span>&gt;
+    &lt;font color=<span class="code-quote">"red"</span>&gt; Your login attempt was not successful, <span class="code-keyword">try</span> again.&lt;BR&gt;
+    &lt;BR&gt;
+    Reason:
+&lt;%=((AuthenticationException) session
+    .getAttribute(AbstractProcessingFilter.ACEGI_SECURITY_LAST_EXCEPTION_KEY))
+.getMessage()%&gt;
+    &lt;/font&gt;
+&lt;/c:<span class="code-keyword">if</span>&gt;
+
+&lt;form action=<span class="code-quote">"&lt;c:url value='j_acegi_security_check'/&gt;"</span> method=<span class="code-quote">"POST"</span>&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;User:&lt;/td&gt;
+        &lt;td&gt;
+            &lt;input type='text' name='j_username'
+                &lt;c:<span class="code-keyword">if</span> test=<span class="code-quote">"${not empty param.login_error}"</span>&gt;
+                    value='&lt;%=session.getAttribute(AuthenticationProcessingFilter.
+                    ACEGI_SECURITY_LAST_USERNAME_KEY) %&gt;'
+                &lt;/c:<span class="code-keyword">if</span>&gt;&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Password:&lt;/td&gt;
+        &lt;td&gt;
+            &lt;input type='password' name='j_password'&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td colspan='2'&gt;&lt;input name=<span class="code-quote">"submit"</span> type=<span class="code-quote">"submit"</span>&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h3><a name="ServeideSeguretat2.1-Utilitzaci%C3%B3del%27Autoritzaci%C3%B3enlesnostresp%C3%A0ginesJSP"></a>Utilització  de l'Autorització en les nostres pàgines JSP</h3>
+
+<p>En cas de voler presentar determinat contingut depenent dels rols de l'usuari  podem fer ús dels tags proporcionats per Acegi. Per a això, seguirem els passos  següents:</p>
+<ol>
+	<li>Definició de la referència a la llibreria de tags</li>
+</ol>
+
+
+<p>Des de la versió JSP 1.2 no és necessari configurar en el fitxer 'web.xml' la  referència a les llibreries. Podem referenciar directament per mitjà d'una url  el jar, tal com es mostra a continuació:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;%@ taglib prefix=<span class="code-quote">"authz"</span> uri=<span class="code-quote">"http:<span class="code-comment">//acegisecurity.sf.net/authz"</span>  %&gt;</span></pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Utilitzar el tag "authorize" en la pàgina JSP</li>
+</ol>
+
+
+<p>Una vegada definida la referència a la llibreria i el seu prefix 'authz',  podem incorporar el tag a la pàgina JSP per mitjà de '&lt;authz:authorize&gt;',  en el que podrem definir els atributs següents:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Valor</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> ifAllGranted </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Llista de rols separats per coma. <br clear="all" />
+L'usuari ha de tenir tots els rols perquè el contingut dins del  tag (body) sigui mostrat. <br clear="all" /> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> ifAnyGranted: </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Llista de rols separats per coma. <br clear="all" />
+L'usuari ha de tenir qualsevol dels rols perquè el contingut dins del  tag (body) sigui mostrat. <br clear="all" /> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> ifNotGranted </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Llista de rols separats per coma. <br clear="all" />
+L'usuari no ha de tenir cap dels rols perquè el contingut dins del tag  (body) sigui mostrat. </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;authz:authorize ifAllGranted=<span class="code-quote">"ROLE_ADMIN"</span>&gt;
+
+&lt;td&gt;
+
+&lt;A  href=<span class="code-quote">"del.htm?id="</span> 123"&gt;Borrar&lt;/A&gt;
+
+&lt;/td&gt;
+
+&lt;/authz:authorize&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" /> Per a més informació sobre el <em>tag</em> "authorize", consultar la pàgina <a href="http://acegisecurity.sourceforge.net/suggested.html" title="Visit page outside Confluence">http://acegisecurity.sourceforge.net/docbook/acegi.html#N10C28</a></p>
+
+<h3><a name="ServeideSeguretat2.1-Obtenci%C3%B3d%27Informaci%C3%B3deSeguretatambAPI"></a>Obtenció  d'Informació de Seguretat amb API</h3>
+
+<p>El servei de seguretat, definit amb el bean 'SecurityService' (tal i com  s'explica en l'apartat de Configuració) conté una signatura d'operacions</p>
+
+<p>Consultar en el JavaDoc la informació sobre la interfície SecurityService:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-security/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-security/apidocs/index.html</a></p>
+
+<h3><a name="ServeideSeguretat2.1-Gesti%C3%B3delsACLsmitjan%C3%A7antlaAPI"></a>Gestió  dels ACLs mitjançant la API</h3>
+
+<p>Per a cada instància de la lògica de negoci podem afegir a la base de dades  els permisos per mitjà de l'ús de la interfície 'ACLsDAO':</p>
+
+<p>Consultar en el JavaDoc la informació sobre la interfície ACLsDAO:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-security/apidocs/index.html&amp;nbsp" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-security/apidocs/index.html&amp;nbsp</a>;</p>
+
+<h2><a name="ServeideSeguretat2.1-EinesdeSuport"></a>Eines de  Suport</h2>
+
+
+<h3><a name="ServeideSeguretat2.1-ServidorLDAPdeproves%3AopenLDAP"></a>Servidor  LDAP de proves: openLDAP</h3>
+
+<p>Els diferents passos per a instal&#45; lar openLDAP i importar un directori LDAP  d'exemple són:</p>
+<ul>
+	<li>Baixar openLDAP per a Windows <a href="http://lucas.bergmans.us/hacks/openldap/download" title="Visit page outside Confluence">http://lucas.bergmans.us/hacks/openldap/download</a> i instal&#45; lar-ho  (versió 2.2.19).</li>
+	<li>Canviar la configuració per defecte de openldap. Copiar les dades següents  en un fitxer slapd.conf. Copiarem el slapd.conf en la mateixa carpeta que  openLDAP.
+<br clear="all" />
+<div class="panel"><div class="panelContent">
+<p>&#35; See slapd.conf(5) for details on configuration options.<br/>
+&#35; This file should NOT be world readable.<br/>
+&#35;<br/>
+ucdata-path&nbsp;&nbsp;&nbsp; ./ucdata<br/>
+include&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ./etc/schema/core.schema<br/>
+include&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ./etc/schema/cosine.schema<br/>
+include&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ./etc/schema/inetorgperson.schema
+<br clear="all" />
+&#35; Define global ACLs to disable default read access.
+<br clear="all" />
+&#35; Do not enable referrals until AFTER you have a working directory<br/>
+&#35; service AND an understanding of referrals.<br/>
+&#35;referral&nbsp;&nbsp;&nbsp; ldap://root.openldap.org
+<br clear="all" />
+pidfile&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ./var/run/slapd.pid<br/>
+argsfile&nbsp;&nbsp;&nbsp; ./var/run/slapd.args
+<br clear="all" />
+&#35; BDB database definitions<br/>
+&#35;######################################################################
+<br clear="all" />
+&#35;##database&nbsp;&nbsp;&nbsp; bdb<br/>
+&#35;##suffix&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; "dc=my-domain,dc=com"<br/>
+&#35;##rootdn&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; "cn=Manager,dc=my-domain,dc=com"
+<br clear="all" />
+database bdb<br/>
+suffix dc="mycompany",dc="com"<br/>
+rootdn "cn=Manager,dc=mycompany,dc=com"
+<br clear="all" />
+rootpw secret
+<br clear="all" />
+directory&nbsp;&nbsp;&nbsp; ./var/openldap-data<br/>
+index&nbsp;&nbsp;&nbsp; objectClass&nbsp;&nbsp;&nbsp; eq</p>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Obrir una pantalla "DOS command", anar a la carpeta on hem instal&#45; lat el  programa i arrancar openLDAP amb la comanda
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">.\slapd -d 1</pre>
+</div></div><br clear="all" /></li>
+</ul>
+
+
+<p>Si tot ha funcionat bé, hauríem de veure una sortida com la següent:
+<br clear="all" />  <div align="center"><img src="Servei de Seguretat 2.1_attachments/ServeiSeguretat_img012.jpg" border="0" /></div><br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ul>
+	<li>Copiar les dades següents en un fitxer setup.ldif. Aquest fitxer conté un  directori LDAP de l'empresa "mycompany.com" amb 2 persones: "gestoruser" i  "usuari". Copiarem el setup.ldif en la mateixa carpeta que openLDAP.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">### Top level definition
+#dn: dc=mycompany,dc=com
+#objectClass: top
+#objectClass: dcObject
+#objectClass: domain
+#dc: mycompany
+
+### organizationalUnit : PEOPLE
+# Definition of people
+dn: ou=people,dc=mycompany,dc=com
+objectClass: top
+objectClass: organizationalUnit
+ou: people
+
+# Gestor User
+dn: uid=gestoruser,ou=people,dc=mycompany,dc=com
+objectClass: person
+objectClass: inetOrgPerson
+cn: State App
+displayName: App Admin
+givenName: App
+mail: gestor@fake.org
+title: ROLE_ADMIN
+sn: Gestor
+uid: gestoruser
+userPassword: gestorpassword
+
+# usuario normal
+dn: uid=usuario,ou=people,dc=mycompany,dc=com
+objectClass: person
+objectClass: inetOrgPerson
+cn: State App
+displayName: App Admin
+givenName: App
+mail: usuario@fake.org
+title: ROLE_USER
+sn: Usuario
+uid: usuario
+userPassword: usuariopassword</pre>
+</div></div><br clear="all" />
+<br clear="all" /></li>
+	<li>Obrir una altra pantalla "DOS command", anar a la carpeta on hem instal&#45; lat  el programa i importar les dades amb la comanda:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">ldapadd -x -D <span class="code-quote">"cn=Manager,dc=mycompany,dc=com"</span> -W -f setup.ldif</pre>
+</div></div><br clear="all" /></li>
+</ul>
+
+
+<p>La  contrasenya per defecte és "secret".
+<br clear="all" /></p>
+
+<h3><a name="ServeideSeguretat2.1-%26nbsp%3BJxplorer"></a>&nbsp;Jxplorer</h3>
+
+<p>Comprovarem que la importació de dades ha funcionat amb Jxplorer, un client  LDAP Java i opensource.</p>
+<ol>
+	<li>Baixar Jxplorer a la url <a href="http://sourceforge.net/projects/jxplorer/" title="Visit page outside Confluence">http://sourceforge.net/projects/jxplorer/</a> i  instal&#45; lar-ho</li>
+	<li>Prémer el botó per a connectar-se al nostre directori LDAP.</li>
+</ol>
+
+
+<p>La contrasenya per defecte és "secret". La pantalla següent mostra els valors  de la diferents paràmetres:
+<br clear="all" />  <div align="center"><img src="Servei de Seguretat 2.1_attachments/ServeiSeguretat_img013.jpg" border="0" /></div><br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Si tot ha funcionat bé, hauríem de veure la pantalla següent:
+<br clear="all" />  <div align="center"><img src="Servei de Seguretat 2.1_attachments/ServeiSeguretat_img014.jpg" border="0" /></div><br clear="all" /></li>
+</ol>
+
+
+<h1><a name="ServeideSeguretat2.1-Exemples"></a>Exemples</h1>
+
+
+<h2><a name="ServeideSeguretat2.1-Exempledeconfiguraci%C3%B3d%27autentificaci%C3%B3ambBBDD%2CSACEiLDAP"></a>Exemple  de configuració d'autentificació amb BBDD, SACE i LDAP</h2>
+
+<p>En aquesta part es descriuen 2 dels exemples més comuns d'autentificació:</p>
+<ul>
+	<li>Autentificació per SACE</li>
+	<li>Autentificació per BBDD ja existent</li>
+</ul>
+
+
+<h3><a name="ServeideSeguretat2.1-Exempledeconfiguraci%C3%B3ambautentificaci%C3%B3SACE"></a>Exemple  de configuració amb autentificació SACE</h3>
+
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;
+&lt;!DOCTYPE beans PUBLIC <span class="code-quote">"-<span class="code-comment">//SPRING//DTD BEAN//EN"</span> <span class="code-quote">"http://www.springframework.org/dtd/spring-beans.dtd"</span>&gt;
+</span>
+&lt;beans&gt;
+
+    &lt;bean id=<span class="code-quote">"dataSource"</span>             class=<span class="code-quote">"org.springframework.jndi.JndiObjectFactoryBean"</span>&gt;
+        &lt;property name=<span class="code-quote">"jndiName"</span> value=<span class="code-quote">"${dataSource.jndiName}"</span>/&gt;
+&lt;/bean&gt;
+
+
+
+
+&lt;bean id=<span class="code-quote">"SACEAuthenticationConfiguration"</span>
+    class=<span class="code-quote">"net.gencat.ctti.canigo.services.security.SACEAuthenticationConfiguration"</span>&gt;
+
+    &lt;property name=<span class="code-quote">"urlSACE"</span> value="https:<span class="code-comment">//sace.prepdc.gencat.
+</span>    intranet/SACE/SACE_Logon.aspx?XMLIn=" /&gt;
+    &lt;property name=<span class="code-quote">"userNameFormat"</span> value=<span class="code-quote">"NIF"</span> /&gt;
+&lt;/bean&gt;
+
+
+&lt;bean id=<span class="code-quote">"authenticationConfiguration"</span>
+class=<span class="code-quote">"net.gencat.ctti.canigo.services.security.AuthenticationSecurityConfiguration"</span>&gt;
+
+    &lt;property name=<span class="code-quote">"loginFormUrlValue"</span> value=<span class="code-quote">"/login.jsp"</span> /&gt;
+
+    &lt;property     name=<span class="code-quote">"authenticationFailureUrlValue"</span> value=<span class="code-quote">"/login.jsp"</span> /&gt;
+
+
+    &lt;property name=<span class="code-quote">"filterProcessesUrl"</span> value=<span class="code-quote">"/AppJava/acegiLogin"</span> /&gt;
+
+&lt;property name=<span class="code-quote">"authenticationProvidersConfigurationList"</span>&gt;
+    &lt;list&gt;
+          &lt;ref local=<span class="code-quote">"SACEAuthenticationConfiguration"</span> /&gt;
+    &lt;/list&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+
+
+    &lt;bean id=<span class="code-quote">"authorizationConfiguration"</span>
+class=<span class="code-quote">"net.gencat.ctti.canigo.services.security.AuthorizationSecurityConfiguration"</span>&gt;
+        &lt;property name=<span class="code-quote">"rolesList"</span>&gt;
+            &lt;list&gt;
+                &lt;value&gt;ROLE_ADMIN&lt;/value&gt;
+                &lt;value&gt;ROLE_USER&lt;/value&gt;
+            &lt;/list&gt;
+        &lt;/property&gt;
+
+        &lt;property name=<span class="code-quote">"secureUrls"</span>&gt;
+            &lt;value&gt;
+            /**/*.<span class="code-keyword">do</span>* =    ROLE_USER,ROLE_ADMIN
+            &lt;/value&gt;
+        &lt;/property&gt;
+
+    &lt;/bean&gt;
+
+    &lt;<span class="code-keyword">import</span> resource=<span class="code-quote">"classpath:/spring/acegi-beans.xml"</span> /&gt;
+
+&lt;/beans&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> Els beans canigo que usen "Acegi" estan continguts en el jar del servei de  seguretat, per la qual cosa haurem d'importar aquest recurs en el nostre  "application context" de Spring amb la línia següent:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;<span class="code-keyword">import</span> resource=<span class="code-quote">"classpath:spring/acegi-beans.xml"</span> /&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h3><a name="ServeideSeguretat2.1-Autentificaci%C3%B3perBBDDambunaBBDDjaexistent"></a>Autentificació  per BBDD amb una BBDD ja existent</h3>
+
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;
+&lt;!DOCTYPE beans PUBLIC <span class="code-quote">"-<span class="code-comment">//SPRING//DTD BEAN//EN"</span> <span class="code-quote">"http://www.springframework.org/dtd/spring-beans.dtd"</span>&gt;
+</span>
+&lt;beans&gt;
+
+    &lt;bean id=<span class="code-quote">"dataSource"</span>             class=<span class="code-quote">"org.springframework.jndi.JndiObjectFactoryBean"</span>&gt;
+        &lt;property name=<span class="code-quote">"jndiName"</span> value=<span class="code-quote">"${dataSource.jndiName}"</span>/&gt;
+&lt;/bean&gt;
+
+
+
+    &lt;bean id=<span class="code-quote">"existingDatabaseAuthenticationConfiguration"</span>
+        class=<span class="code-quote">"net.gencat.ctti.canigo.services.security.DatabaseAuthenticationConfiguration"</span>&gt;
+
+        &lt;property name=<span class="code-quote">"passwordEncoderClass"</span>
+            value=<span class="code-quote">"net.sf.acegisecurity.providers.encoding.PlaintextPasswordEncoder"</span> /&gt;
+
+        &lt;property name=<span class="code-quote">"usersByUserNameQuery"</span> value="SELECT username,password FROM users
+        WHERE username = ?" /&gt;
+        &lt;property name=<span class="code-quote">"authoritiesbyUserNameQuery"</span> value="SELECT username, role FROM user_roles
+        WHERE username =?" /&gt;
+
+    &lt;/bean&gt;
+
+
+&lt;bean id=<span class="code-quote">"authenticationConfiguration"</span>
+class=<span class="code-quote">"net.gencat.ctti.canigo.services.security.AuthenticationSecurityConfiguration"</span>&gt;
+
+    &lt;property name=<span class="code-quote">"loginFormUrlValue"</span> value=<span class="code-quote">"/login.jsp"</span> /&gt;
+
+    &lt;property     name=<span class="code-quote">"authenticationFailureUrlValue"</span> value=<span class="code-quote">"/login.jsp"</span> /&gt;
+
+
+    &lt;property name=<span class="code-quote">"filterProcessesUrl"</span> value=<span class="code-quote">"/AppJava/acegiLogin"</span> /&gt;
+
+&lt;property name=<span class="code-quote">"authenticationProvidersConfigurationList"</span>&gt;
+    &lt;list&gt;
+          &lt;ref local=<span class="code-quote">" existingDatabaseAuthenticationConfiguration"</span> /&gt;
+    &lt;/list&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+
+
+    &lt;bean id=<span class="code-quote">"authorizationConfiguration"</span>
+class=<span class="code-quote">"net.gencat.ctti.canigo.services.security.AuthorizationSecurityConfiguration"</span>&gt;
+        &lt;property name=<span class="code-quote">"rolesList"</span>&gt;
+            &lt;list&gt;
+                &lt;value&gt;ROLE_ADMIN&lt;/value&gt;
+                &lt;value&gt;ROLE_USER&lt;/value&gt;
+            &lt;/list&gt;
+        &lt;/property&gt;
+
+        &lt;property name=<span class="code-quote">"secureUrls"</span>&gt;
+            &lt;value&gt;
+            /**/*.<span class="code-keyword">do</span>* =    ROLE_USER,ROLE_ADMIN
+            &lt;/value&gt;
+        &lt;/property&gt;
+
+    &lt;/bean&gt;
+
+    &lt;<span class="code-keyword">import</span> resource=<span class="code-quote">"classpath:/spring/acegi-beans.xml"</span> /&gt;
+
+&lt;/beans&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h2><a name="ServeideSeguretat2.1-ExempledeformularideloginambJSTLiStruts"></a>Exemple  de formulari de login amb JSTL i Struts</h2>
+
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;%@ taglib uri=<span class="code-quote">"http:<span class="code-comment">//jakarta.apache.org/struts/tags-bean"</span> prefix=<span class="code-quote">"bean"</span> %&gt;
+</span>&lt;%@ taglib uri=<span class="code-quote">"http:<span class="code-comment">//java.sun.com/jstl/core"</span> prefix=<span class="code-quote">"c"</span> %&gt;
+</span>
+&lt;%@ page <span class="code-keyword">import</span>=<span class="code-quote">"net.sf.acegisecurity.ui.AbstractProcessingFilter"</span>%&gt;
+&lt;%@ page <span class="code-keyword">import</span>=<span class="code-quote">"net.sf.acegisecurity.ui.webapp.AuthenticationProcessingFilter"</span>%&gt;
+&lt;%@ page <span class="code-keyword">import</span>=<span class="code-quote">"net.sf.acegisecurity.AuthenticationException"</span>%&gt;
+
+&lt;style type=<span class="code-quote">"text/css"</span>&gt;
+
+&lt;%-- <span class="code-keyword">this</span> form-login-page form is also used as the
+         form-error-page to ask <span class="code-keyword">for</span> a login again.
+         --%&gt;
+&lt;c:<span class="code-keyword">if</span> test=<span class="code-quote">"${not empty param.login_error}"</span>&gt;
+     &lt;bean:message key=<span class="code-quote">"jsp.login.error"</span> /&gt;
+&lt;/c:<span class="code-keyword">if</span>&gt;
+
+&lt;bean:message key=<span class="code-quote">"jsp.login.message"</span> /&gt;
+
+&lt;form action=<span class="code-quote">"&lt;c:url value='/AppJava/acegiLogin'/&gt;"</span> method=<span class="code-quote">"post"</span>&gt;
+
+    &lt;table width=<span class="code-quote">"100%"</span> border=<span class="code-quote">"0"</span>&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;bean:message key=<span class="code-quote">"jsp.login.user"</span> /&gt;:&lt;/td&gt;
+        &lt;td&gt;&lt;input type='text' name='j_username'
+            &lt;c:<span class="code-keyword">if</span> test=<span class="code-quote">"${not empty param_error}"</span>&gt;
+            	value='&lt;%= session.getAttribute(AuthenticationProcessingFilter.
+            	ACEGI_SECURITY_LAST_USERNAME_KEY)%&gt;'
+            &lt;/c:<span class="code-keyword">if</span>&gt;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;bean:message key=<span class="code-quote">"jsp.login.password"</span> /&gt;:&lt;/td&gt;
+        &lt;td&gt;&lt;input type='password' name='j_password'&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td colspan=<span class="code-quote">"2"</span> align=<span class="code-quote">"right"</span>&gt;&lt;input type=<span class="code-quote">"submit"</span> value=<span class="code-quote">"&lt;bean:message key="</span>jsp.
+        includes.submit<span class="code-quote">"/&gt;"</span>/&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+
+&lt;/form&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h2><a name="ServeideSeguretat2.1-Exempledeconfiguraci%C3%B3d%27ACLs"></a>Exemple  de configuració d'ACLs</h2>
+
+<p>Volem donar els permisos "llegir" i "escriure" (READ &#43;WRITE) a un usuari  "usuari1" per a la instància de la lògica de negoci "Categoria Papagais".</p>
+
+<p>Primer, recollim el DAO de seguretat de canigo:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-comment">// Get the DAO from the Spring context
+</span>
+ACLsDAO securityDAO = (ACLsDAO)  applicationContext.getBean(<span class="code-quote">"securityDao"</span>);</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> Segon, recollim la instància de la lògica de negoci "Categoria Papagais" ,  per mitjà d'un DAO:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-comment">// Get the business object using a DAO
+</span>
+Category papagayo =  CategoryDAO.read(<span class="code-quote">"papagayo"</span>);</pre>
+</div></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /> Finalment podem afegir els permisos per a aquesta instància per l'usuari  "usuari1":
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-comment">// Add permissions <span class="code-keyword">for</span> user <span class="code-quote">"usuario1"</span> <span class="code-keyword">for</span> the  papagayo
+</span>
+securityDAO.addReadPermission(<span class="code-quote">"usuario1"</span>,  papagayo);
+
+securityDAO.addWritePermission(<span class="code-quote">"usuario1"</span>, papagayo);</pre>
+</div></div><br clear="all" /></p>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Seguretat 2.1_attachments/ServeiSeguretat_img011.jpg">ServeiSeguretat_img011.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Seguretat 2.1_attachments/ServeiSeguretat_img001.jpg">ServeiSeguretat_img001.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Seguretat 2.1_attachments/ServeiSeguretat_img012.jpg">ServeiSeguretat_img012.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Seguretat 2.1_attachments/ServeiSeguretat_img009.jpg">ServeiSeguretat_img009.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Seguretat 2.1_attachments/ServeiSeguretat_img005.jpg">ServeiSeguretat_img005.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Seguretat 2.1_attachments/ServeiSeguretat_img010.jpg">ServeiSeguretat_img010.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Seguretat 2.1_attachments/ServeiSeguretat_img006.jpg">ServeiSeguretat_img006.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Seguretat 2.1_attachments/ServeiSeguretat_img013.jpg">ServeiSeguretat_img013.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Seguretat 2.1_attachments/ServeiSeguretat_img003.jpg">ServeiSeguretat_img003.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Seguretat 2.1_attachments/ServeiSeguretat_img008.jpg">ServeiSeguretat_img008.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Seguretat 2.1_attachments/ServeiSeguretat_img004.jpg">ServeiSeguretat_img004.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Seguretat 2.1_attachments/ServeiSeguretat_img007.jpg">ServeiSeguretat_img007.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Seguretat 2.1_attachments/ServeiSeguretat_img014.jpg">ServeiSeguretat_img014.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Seguretat 2.1_attachments/ServeiSeguretat_img002.jpg">ServeiSeguretat_img002.jpg</a> (image/jpeg)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

@@ -1,0 +1,368 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Sitemesh</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Sitemesh
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Jul 19, 2007 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="Sitemesh-SITEMESH%26nbsp%3B"></a>SITEMESH&nbsp;</h1>
+
+<p><br clear="all" />
+<br clear="all" />
+<div>
+<ul><a href='#Sitemesh-SITEMESH%26nbsp%3B'>
+    <li>SITEMESH&nbsp;</li></a><a href='#Sitemesh-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#Sitemesh-Introducci%C3%B3'>
+    <li>Introducció</li></a><a href='#Sitemesh-Prop%C3%B2sit'>
+    <li>Propòsit</li></a><a href='#Sitemesh-SitemeshoTiles'>
+    <li>Sitemesh o Tiles</li></a><a href='#Sitemesh-Depend%C3%A8ncies'>
+    <li>Dependències</li></a><a href='#Sitemesh-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents i Fonts de Referència</li></a>
+</ul><a href='#Sitemesh-Descripci%C3%B3Detallada'>
+    <li>Descripció Detallada</li></a>
+<ul><a href='#Sitemesh-Components'>
+    <li>Components</li></a><a href='#Sitemesh-Configuraci%C3%B3'>
+    <li>Configuració</li></a><a href='#Sitemesh-Utilitzaci%C3%B3Sitemesh'>
+    <li>Utilització Sitemesh</li></a>
+</ul>
+</ul></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h1><a name="Sitemesh-Introducci%C3%B3"></a>Introducció</h1>
+
+
+<h2><a name="Sitemesh-Introducci%C3%B3"></a>Introducció</h2>
+
+<p><br clear="all" /></p>
+
+<p>SiteMesh és un sistema de layout per pàgines web i un sistema d'integració per aplicacions Web que ajuda a crear llocs que contenen un gran número de pàgines amb un look &amp; fell, navegació i esquema de layout consistent.</p>
+
+<h2><a name="Sitemesh-Prop%C3%B2sit"></a>Propòsit</h2>
+
+<p>El propòsit de la integració de Sitemesh en Canigó, és simplificar al màxim la creació de layouts per a pàgines.
+<br clear="all" /></p>
+
+<h2><a name="Sitemesh-SitemeshoTiles"></a>Sitemesh o Tiles</h2>
+
+<p>Sitemesh tot i no tenir unes possibilitats tan obertes com Tiles ens dóna molta flexibilitat en quan al sistema de decoració de la pàgina i sobretot més simplicitat. Tiles i Sitemesh no són incompatibles entre ells i, per tant, es poden utilitzar conjuntament.</p>
+
+<h2><a name="Sitemesh-Depend%C3%A8ncies"></a>Dependències</h2>
+
+<p>Per a la instal&#45; lació és necessaria la llibreria de Sitemesh. En el cas de exemple hem utilitzat la versió 2.3. Es pot descarregar el jar a la pàgina oficial: <a href="http://www.opensymphony.com/sitemesh/download.action" title="Visit page outside Confluence">http://www.opensymphony.com/sitemesh/download.action</a></p>
+
+<p>També podem utilitzar el repositori de maven.&nbsp;</p>
+
+<h2><a name="Sitemesh-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents i Fonts de Referència</h2>
+
+<p>Pàgina oficial Sitemesh: <a href="http://www.opensymphony.com/sitemesh/" title="Visit page outside Confluence">http://www.opensymphony.com/sitemesh/</a>
+<br clear="all" /></p>
+
+<h1><a name="Sitemesh-Descripci%C3%B3Detallada"></a>Descripció Detallada</h1>
+
+
+<h2><a name="Sitemesh-Components"></a>Components</h2>
+
+<p>JavaDoc llibreria Sitemesh: <a href="http://struts.apache.org/2.0.8/struts2-plugins/struts2-sitemesh-plugin/apidocs/index-all.html#_G_" title="Visit page outside Confluence">http://struts.apache.org/2.0.8/struts2-plugins/struts2-sitemesh-plugin/apidocs/index-all.html#_G_</a>
+<br clear="all" /></p>
+
+<h2><a name="Sitemesh-Configuraci%C3%B3"></a>Configuració</h2>
+
+<p><br clear="all" /></p>
+
+<p>Haurem de seguir les 2 passes següents per a la correcte configuració.&nbsp;</p>
+<ol>
+	<li>Editar l'arxiu web.xml per tal de canviar els filtres. Afegirem el següent:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;filter-name&gt;sitemesh&lt;/filter-name&gt;
+    &lt;filter-class&gt;com.opensymphony.module.sitemesh.filter.PageFilter&lt;/filter-class&gt;
+&lt;/filter&gt;
+
+&lt;filter-mapping&gt;
+    &lt;filter-name&gt;sitemesh&lt;/filter-name&gt;
+    &lt;url-pattern&gt;*.<span class="code-keyword">do</span>&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" /></li>
+</ol>
+
+
+<p>D'aquesta manera afegim un nou filtre i especifiquem que totes les peticions .do que es facin les gestioni el nou filtre de Sitemesh.</p>
+<ol>
+	<li>Actualment, al struts-config.xml declarem el plugin de Tiles per tal de poder utilitzar-lo i cridem a la classe "ExtendedDelegatingTilesRequestProcessor" per tal de controlar el procés de la request.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;plug-in className=<span class="code-quote">"org.apache.struts.tiles.TilesPlugin"</span>&gt;
+    &lt;set-property property=<span class="code-quote">"definitions-config"</span> value="/WEB-INF/classes/tiles/tiles-definitions.xml,
+    /WEB-INF/classes/tiles/current/tiles-definitions.xml"/&gt;
+    &lt;set-property property=<span class="code-quote">"moduleAware"</span> value=<span class="code-quote">"<span class="code-keyword">true</span>"</span> /&gt;
+&lt;/plug-in&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;controller&gt;
+	&lt;set-property property=<span class="code-quote">"processorClass"</span>
+		value="net.gencat.ctti.canigo.services.web.struts.
+		ExtendedDelegatingTilesRequestProcessor"/&gt;
+&lt;/controller&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" /></li>
+</ol>
+
+
+<p>Si volem incorporar Sitemesh amb Tiles no hauríem de fer cap canvi. Si pel contrari només es vol la utilització del Sitemesh en primer lloc hauríem d'eliminar el plugin de Tiles i, per altra banda, fer que la crida per controlar el procés de la request sigui a la classe "ExtendedDelegatingSitemeshRequestProcessor".
+<br clear="all" /></p>
+
+<h2><a name="Sitemesh-Utilitzaci%C3%B3Sitemesh"></a>Utilització Sitemesh</h2>
+
+<p>Basarem la explicació seguint el "canigo-env" que s'ha creat amb Sitemesh i que podreu trobar en la següent url: <a href="http://canigo.ctti.gencat.net/confluence/download/attachments/1690/canigo-env-sitemesh-2.1.zip?version=1" title="canigo-env-sitemesh-2.1.zip attached to Sitemesh">canigo-env-sitemesh-2.1.zip</a></p>
+
+
+<p>Haurem de crear els següents arxius dins el projecte per gestionar Sitemesh. L'estructura pot no ser exactament la que es proposa en el següent exemple`.
+<br clear="all" /></p>
+
+<p>&#45;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><ins>Weppapp/WEB-INF/decorators.xml</ins></b> =&gt; En aquest arxiu definim tots els decorators o layouts que hem creat. També tenim la oportunitat de especificar quan utilitzar un layout o l'altre en funció de patterns.
+<br clear="all" /></p>
+
+<p>&#45;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><ins>Weppapp/WEB-INF/decorators/</ins></b> =&gt; Dins aquesta carpeta és on guardarem tots els layouts que s'han definit en l'arxiu decorators.xml
+<br clear="all" /></p>
+
+<p>&#45;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><ins>Weppapp/WEB-INF/jsp/</ins></b> =&gt; Directori on tindrem les nostres jsp i que en principi ja hauria de estar creat.
+<br clear="all" /></p>
+
+<p><ins>Exemple decorators.xml</ins><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"ISO-8859-1"</span>?&gt;
+&lt;decorators defaultdir=<span class="code-quote">"/WEB-INF/decorators/"</span>&gt;
+    &lt;decorator name=<span class="code-quote">"login"</span> page=<span class="code-quote">"login.jsp"</span>&gt;
+      &lt;pattern&gt;*/pagelogin.<span class="code-keyword">do</span>*&lt;/pattern&gt;
+    &lt;/decorator&gt;
+
+    &lt;decorator name=<span class="code-quote">"text"</span> page=<span class="code-quote">"text.jsp"</span>&gt;
+        &lt;pattern&gt;*/pagelogoff.<span class="code-keyword">do</span>*&lt;/pattern&gt;
+        &lt;pattern&gt;*/pageerror.<span class="code-keyword">do</span>*&lt;/pattern&gt;
+    &lt;/decorator&gt;
+
+
+    &lt;decorator name=<span class="code-quote">"main"</span> page=<span class="code-quote">"main.jsp"</span>&gt;
+        &lt;pattern&gt;/*&lt;/pattern&gt;
+    &lt;/decorator&gt;
+&lt;/decorators&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>En aquest cas és molt important tenir en compte l'ordre en la definició dels decorators. S'ha de tenir en compte que la prioritat és major si un decorator està definit en primer lloc.
+<br clear="all" /></p>
+
+<p><ins>Exemple Weppapp/WEB-INF/decorators/login.jsp</ins><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;%@ page contentType=<span class="code-quote">"text/html;charset=ISO-8859-1"</span>%&gt;
+&lt;%response.setHeader(<span class="code-quote">"Cache-Control"</span>, <span class="code-quote">"no-cache"</span>);
+            response.setHeader(<span class="code-quote">"Pragma"</span>, <span class="code-quote">"no-cache"</span>);
+            response.setDateHeader(<span class="code-quote">"Expires"</span>, 0);
+
+        %&gt;
+&lt;!DOCTYPE html PUBLIC <span class="code-quote">"-<span class="code-comment">//W3C//DTD XHTML 1.0 Transitional//EN"</span>
+</span><span class="code-quote">"http:<span class="code-comment">//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"</span>&gt;
+</span>&lt;%@ include file=<span class="code-quote">"/WEB-INF/jsp/includes/fwkTagLibs.jsp"</span>%&gt;
+&lt;%@ taglib uri=<span class="code-quote">"http:<span class="code-comment">//www.opensymphony.com/sitemesh/decorator"</span> prefix=<span class="code-quote">"decorator"</span> %&gt;
+</span>&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;&lt;decorator:title /&gt;&lt;/title&gt;
+&lt;link rel=<span class="code-quote">"stylesheet"</span> href='&lt;c:url value=<span class="code-quote">"/css/<span class="code-keyword">import</span>.css"</span>/&gt;' type=<span class="code-quote">"text/css"</span> /&gt;
+&lt;script&gt;
+    <span class="code-keyword">var</span> contextPath = '&lt;c:url value=<span class="code-quote">"/"</span>/&gt;'.substring(0,'&lt;c:url value=<span class="code-quote">"/"</span>/&gt;'.length-1);
+    &lt;/script&gt;
+&lt;fwk:configuration styleId=<span class="code-quote">"defaultConfiguration"</span> /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=<span class="code-quote">"<span class="code-keyword">outer</span>"</span>&gt;
+    &lt;div id=<span class="code-quote">"top-section"</span>&gt;
+        &lt;%@ include file=<span class="code-quote">"../jsp/includes/header.jsp"</span> %&gt;
+    &lt;/div&gt;
+
+    &lt;div id=<span class="code-quote">"mid-section"</span>&gt;
+        &lt;div id=<span class="code-quote">"mid-col-1"</span>&gt;
+            &lt;div id=<span class="code-quote">"menu"</span>&gt;
+                &lt;%@ include file=<span class="code-quote">"../jsp/includes/menu.jsp"</span> %&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div id=<span class="code-quote">"mid-col-2"</span>&gt;
+            &lt;div id=<span class="code-quote">"mid-col-2-row-1"</span> style=<span class="code-quote">"visibility:hidden;"</span>&gt;
+                &lt;%@ include file=<span class="code-quote">"../jsp/includes/messages.jsp"</span> %&gt;
+            &lt;/div&gt;
+            &lt;decorator:body /&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div id=<span class="code-quote">"bottom-section"</span>&gt;
+        &lt;div id=<span class="code-quote">"bottom-col-1"</span>&gt;
+            &lt;%@ include file=<span class="code-quote">"../jsp/includes/footer.jsp"</span> %&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>Això seria un exemple de layout. Ens hem de fixar especialment en les dues següent entrades:</p>
+
+<p><font color="teal">&lt;</font><font color="#3f7f7f">title</font><font color="teal">&gt;&lt;</font><font color="#3f7f7f">decorator:title</font> <font color="teal">/&gt;&lt;/</font><font color="#3f7f7f">title</font><font color="teal">&gt;</font></p>
+
+<p>Aquí s'introduirà el text de tota la jsp que estigui dins els tags title.</p>
+
+<p><font color="teal">&lt;</font><font color="#3f7f7f">title</font><font color="teal">&gt;&lt;</font><font color="#3f7f7f">decorator:body</font><font color="teal">/&gt;&lt;/</font><font color="#3f7f7f">title</font><font color="teal">&gt;</font></p>
+
+<p>Aquí s'introduirà el text de tota la jsp que estigui dins els tags title.</p>
+
+<p>Podeu trobar informació amb totes les possibilitats a la següent url: <a href="http://www.opensymphony.com/sitemesh/tags.html" title="Visit page outside Confluence">http://www.opensymphony.com/sitemesh/tags.html</a>
+<br clear="all" />
+<br clear="all" /></p>
+
+<p><ins>Exemple Weppapp/WEB-INF/jsp/login.jsp</ins><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;html&gt;
+&lt;head&gt;
+        &lt;title&gt;Login&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;%@ include file=<span class="code-quote">"/WEB-INF/jsp/includes/fwkTagLibs.jsp"</span>%&gt;
+    &lt;link rel=<span class="code-quote">"stylesheet"</span> href='&lt;c:url value=<span class="code-quote">"/css/<span class="code-keyword">import</span>.css"</span>/&gt;' type=<span class="code-quote">"text/css"</span> /&gt;
+    &lt;div id=<span class="code-quote">"<span class="code-keyword">outer</span>"</span>&gt;
+    &lt;table border=<span class="code-quote">"0"</span> cellpadding=<span class="code-quote">"0"</span> cellspacing=<span class="code-quote">"1"</span> width=<span class="code-quote">"100%"</span>&gt;
+    &lt;tr&gt;
+    &lt;td align=<span class="code-quote">"center"</span> valign=<span class="code-quote">"top"</span> style=<span class="code-quote">"text-align:center"</span>&gt;&lt;BR&gt;
+    &lt;center&gt;
+    &lt;table border=<span class="code-quote">"0"</span> cellpadding=<span class="code-quote">"2"</span>&gt;
+    &lt;tr&gt;
+    &lt;td width=<span class="code-quote">"100%"</span> valign=<span class="code-quote">"top"</span> style=<span class="code-quote">"text-align:center"</span>&gt;&lt;!-- Contenido principal --&gt;
+    &lt;%@ page <span class="code-keyword">import</span>=<span class="code-quote">"net.sf.acegisecurity.ui.AbstractProcessingFilter"</span>%&gt;
+    &lt;%@ page
+    <span class="code-keyword">import</span>=<span class="code-quote">"net.sf.acegisecurity.ui.webapp.AuthenticationProcessingFilter"</span>%&gt;
+    &lt;%@ page <span class="code-keyword">import</span>=<span class="code-quote">"net.sf.acegisecurity.AuthenticationException"</span>%&gt;
+    &lt;c:<span class="code-keyword">if</span> test=<span class="code-quote">"${not empty param.login_error}"</span>&gt;
+    &lt;font color=<span class="code-quote">"red"</span>&gt; &lt;fmt:message key=<span class="code-quote">"jsp.login.error"</span> /&gt;&lt;BR&gt;
+    &lt;%=session.getAttribute(AbstractProcessingFilter.ACEGI_SECURITY_LAST_EXCEPTION_KEY)%&gt;
+    &lt;/font&gt;
+    &lt;/c:<span class="code-keyword">if</span>&gt;
+    &lt;div class=<span class="code-quote">"Container"</span>&gt;
+    &lt;div id=<span class="code-quote">"imatge"</span>&gt;
+    &lt;img src=<span class="code-quote">"&lt;c:url value="</span>/images/logo.gif<span class="code-quote">"/&gt;"</span> border=<span class="code-quote">"0"</span> alt=<span class="code-quote">"logo_ctti"</span> width=<span class="code-quote">"207"</span>&gt;
+    &lt;/div&gt;
+    &lt;div id=<span class="code-quote">"separador"</span>&gt;&lt;/div&gt;
+    &lt;div id=<span class="code-quote">"Dialog"</span>&gt;
+    &lt;form action=<span class="code-quote">"&lt;c:url value="</span>/j_acegi_security_check<span class="code-quote">"/&gt;"</span> method=<span class="code-quote">"post"</span>&gt;
+    &lt;fieldset style=<span class="code-quote">"border:0"</span>&gt;
+    &lt;table width=<span class="code-quote">"300"</span> border=<span class="code-quote">"0"</span>&gt;
+    &lt;tr&gt;
+    &lt;td align=<span class="code-quote">"right"</span>&gt;
+    &lt;font class=<span class="code-quote">"asterisc"</span>&gt;*&amp;nbsp;&lt;/font&gt;&lt;fmt:message key=<span class="code-quote">"jsp.login.user"</span> /&gt;:&lt;/td&gt;
+    &lt;td&gt;&lt;input class=<span class="code-quote">"textLogin"</span> type='text' name='j_username' value=<span class="code-quote">"usuario_admin1"</span>
+    &lt;c:<span class="code-keyword">if</span> test=<span class="code-quote">"${not empty param_error}"</span>&gt;value='&lt;%= session.getAttribute(
+    AuthenticationProcessingFilter.ACEGI_SECURITY_LAST_USERNAME_KEY) %&gt;'
+    &lt;/c:<span class="code-keyword">if</span>&gt;&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td align=<span class="code-quote">"right"</span>&gt;&lt;font class=<span class="code-quote">"asterisc"</span>&gt;*&amp;nbsp;&lt;/font&gt;&lt;fmt:message key=<span class="code-quote">"jsp.login.password"</span> /&gt;:&lt;/td&gt;
+    &lt;td&gt;&lt;input class=<span class="code-quote">"textLogin"</span> type='password' name='j_password' value=<span class="code-quote">"password1"</span>&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td colspan=<span class="code-quote">"2"</span> align=<span class="code-quote">"center"</span>&gt;&lt;br&gt;&lt;input class=<span class="code-quote">"botoLogin"</span> type=<span class="code-quote">"submit"</span> value="
+    &lt;fmt:message key=<span class="code-quote">"jsp.login.sumbit"</span>/&gt;          " /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/table&gt;
+    &lt;/fieldset&gt;
+    &lt;/form&gt;
+    &lt;/div&gt;
+    &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/table&gt;
+    &lt;fmt:message key=<span class="code-quote">"jsp.login.disclaimer"</span> /&gt;
+    &lt;br&gt;
+    &lt;br&gt;
+    &amp;nbsp;
+    &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Sitemesh_attachments/canigo-env-sitemesh-2.1.zip">canigo-env-sitemesh-2.1.zip</a> (application/zip)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

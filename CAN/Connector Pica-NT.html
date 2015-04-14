@@ -1,0 +1,331 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Connector Pica-NT</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Connector Pica-NT
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Apr 07, 2011 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="ConnectorPica-NT-CONNECTORPICANOTIFICACIONSELECTR%C3%92NIQUES"></a>CONNECTOR PICA-NOTIFICACIONS ELECTRÒNIQUES</h1>
+
+<p><br clear="all" />
+<br clear="all" />
+<div>
+<ul><a href='#ConnectorPica-NT-CONNECTORPICANOTIFICACIONSELECTR%C3%92NIQUES'>
+    <li>CONNECTOR PICA-NOTIFICACIONS ELECTRÒNIQUES</li></a><a href='#ConnectorPica-NT-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#ConnectorPica-NT-Prop%C3%B2sit'>
+    <li>Propòsit</li></a><a href='#ConnectorPica-NT-ContextiEscenarisd%27%C3%BAs'>
+    <li>Context i Escenaris d'ús</li></a><a href='#ConnectorPica-NT-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i Dependències</li></a><a href='#ConnectorPica-NT-Aquivadirigit'>
+    <li>A qui va dirigit</li></a><a href='#ConnectorPica-NT-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents i Fonts de Referència</li></a>
+</ul><a href='#ConnectorPica-NT-Descripci%C3%B3Detallada'>
+    <li>Descripció Detallada</li></a>
+<ul><a href='#ConnectorPica-NT-ArquitecturaiComponents'>
+    <li>Arquitectura i Components</li></a>
+<ul><a href='#ConnectorPica-NT-Interf%C3%ADciesiComponentsGen%C3%A8rics'>
+    <li>Interfícies i Components Genèrics</li></a><a href='#ConnectorPica-NT-Requeriments'>
+    <li>Requeriments</li></a>
+</ul><a href='#ConnectorPica-NT-Instal.laci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal.lació i Configuració</li></a>
+<ul><a href='#ConnectorPica-NT-Instal.laci%C3%B3'>
+    <li>Instal.lació</li></a><a href='#ConnectorPica-NT-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#ConnectorPica-NT-Utilitzaci%C3%B3delConnector'>
+    <li>Utilització del Connector</li></a>
+<ul><a href='#ConnectorPica-NT-Exempled%27utilitzaci%C3%B3EmpleatP%C3%BAblic%28Consultardetallnotificaci%C3%B3%29ambconnectorfuncionaldeNotificacionselectr%C3%B2niques'>
+    <li>Exemple d'utilització Empleat Públic (Consultar detall notificació) amb connector funcional de Notificacions electròniques</li></a><a href='#ConnectorPica-NT-Exempled%27utilitzaci%C3%B3Ciutad%C3%A0%28Consultardetallnotificaci%C3%B3%29ambconnectorfuncionaldenotificacionselectr%C3%B2niques'>
+    <li>Exemple d'utilització Ciutadà (Consultar detall notificació) amb connector funcional de notificacions electròniques</li></a><a href='#ConnectorPica-NT-Exempled%27utilitzaci%C3%B3EmpleatP%C3%BAblic%28Consultarestattramesa%29Utilitzantelconnectorgen%C3%A8ricalaPICA.'>
+    <li>Exemple d'utilització Empleat Públic (Consultar estat tramesa) Utilitzant el connector genèric a la PICA.</li></a>
+</ul>
+</ul>
+</ul></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h1><a name="ConnectorPica-NT-Introducci%C3%B3"></a>Introducció</h1>
+
+<p>L'objectiu d'aquest connector, és el de proporcionar un punt d'accés utilitzant la plataforma PICA cap al sistema de notificacions de la Generalitat de Catalunya "eNotum v.2", permetent l'enviament i la consulta de trameses de notificacions, consulta d'estats i detall de les notificacions per un ciutadà o empleat públic i l'acceptació i rebuig de les mateixes entre d'altres.</p>
+
+<h2><a name="ConnectorPica-NT-Prop%C3%B2sit"></a>Propòsit</h2>
+
+<p><font color="black">El propòsit del connector és proporcionar una interfície funcional reduida al connector de la Pica que</font> <font color="black"><b>simplifica</b></font> <font color="black">l'utilització&nbsp;del servei de Notificacions Telemàtiques de la Generalitat.</font></p>
+
+<h2><a name="ConnectorPica-NT-ContextiEscenarisd%27%C3%BAs"></a>Context i Escenaris d'ús</h2>
+
+<p><font color="black">El connector de Notificacions Electròniques es troba dins els connectors de serveis funcionals de la Generalitat.</font></p>
+
+<h2><a name="ConnectorPica-NT-VersionsiDepend%C3%A8ncies"></a>Versions i Dependències</h2>
+
+<p><font color="black">En el present apartat es mostren quines són les versions i dependències necessàries per fer ús del Connector.</font></p>
+
+<p><font color="black">Les dependències descrites a la següent url són requerides per tal de fer funcionar el servei:</font><br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_10/canigo-connectors-root/canigo-connectors-nt/dependencies.html" title="Visit page outside Confluence">Dependències del Connector eNotum</a></p>
+
+<h2><a name="ConnectorPica-NT-Aquivadirigit"></a>A qui va dirigit</h2>
+
+<p><font color="black">Aquest document va dirigit als següents perfils:</font></p>
+<ol>
+	<li><font color="black">Programador. Per conéixer l'ús del connector.</font></li>
+	<li><font color="black">Arquitecte. Per conéixer quins són els components i la configuració del connector.</font></li>
+</ol>
+
+
+<h2><a name="ConnectorPica-NT-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents i Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<td class='confluenceTd'> <font color="red">[1]</font> </td>
+<td class='confluenceTd'> <font color="red">Guia d'ús de l'API del Connector NT.</font> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> <font color="red">[2]</font> </td>
+<td class='confluenceTd'> <font color="red">Documentació funcional i tècnica del Connector NT.</font> </td>
+</tr>
+</tbody></table>
+
+<h1><a name="ConnectorPica-NT-Descripci%C3%B3Detallada"></a>Descripció Detallada</h1>
+
+<p>Aquest connector permet realitzar les següents funcionalitats referents a les notificacions telemàtiques:</p>
+
+<p><b>Funcionalitats per a l'empleat públic</b></p>
+<ul class="alternate" type="square">
+	<li><b>Enviar Notificacions</b>: Creació d'una nova notificació electrònica al sistema E-Notum per part del sistema requeridor de notificacions telemàtiques.</li>
+	<li><b>Consultar notificacions destinatari</b>: Consulta de les notificacions telemàtiques adreçades al destinatari.</li>
+	<li><b>Consultar detall notificació</b>: Visualització d'una notificació telemàtica per part d'un empleat públic.</li>
+	<li><b>Consultar evidències notificació</b>: Consulta de les evidències d'una notificació telemàtica gestionades per eNotum.</li>
+	<li><b>Consultar PDF notificació</b>: Permet obtenir un PDF a partir de la notificació.</li>
+</ul>
+
+
+<p><b>Funcionalitats per al ciutadà</b></p>
+<ul class="alternate" type="square">
+	<li><b>Consultar detall notificació</b>: Visualització d'una notificació telemàtica per part del destinatari.</li>
+	<li><b>Consultar notificacions destinatari</b>: Consulta de les notificacions telemàtiques adreçades al destinatari.</li>
+	<li><b>Preparar estat notificació</b>: Preparar la notificació per a poder modificar l'estat.</li>
+	<li><b>Modificar estat notificació</b>: Permet canviar l'estat d'una notificació telemàtica, per qüestions de seguretat un usuari només pugui canviar d'estat les seves pròpies notificacions.</li>
+	<li><b>Consultar PDF notificació</b>: Permet obtenir un PDF a partir de la notificació.</li>
+</ul>
+
+
+<h2><a name="ConnectorPica-NT-ArquitecturaiComponents"></a>Arquitectura i Components</h2>
+
+
+<h3><a name="ConnectorPica-NT-Interf%C3%ADciesiComponentsGen%C3%A8rics"></a>Interfícies i Components Genèrics</h3>
+
+<p><font color="black">Es pot trobar tota la documentació JavaDoc i el codi font referent aquests components a les següents url's:</font></p>
+
+<p><font color="red"><ins>JavaDoc:</ins></font><font color="red">&nbsp;</font><a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_10/canigo-connectors-root/canigo-connectors-nt/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_10/canigo-connectors-root/canigo-connectors-nt/apidocs/index.html</a><br/>
+<font color="red"><ins>Codi Font:</ins></font><font color="red">&nbsp;</font><font color="red">&nbsp;</font><a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_10/canigo-connectors-root/canigo-connectors-nt/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_10/canigo-connectors-root/canigo-connectors-nt/xref/index.html</a></p>
+
+<h3><a name="ConnectorPica-NT-Requeriments"></a>Requeriments</h3>
+
+<p><font color="black">El connector</font> de Notificacions Electròniques és compatible amb les versions 1.5 o superior de Java. Per versions inferiors no es garantitza el seu correcte funcionament.</p>
+
+<p>Per tal de que el connector eNotum funcioni correctament sobre l'aplicació que l'utilitzi, es s'ha de tenir configurat el servei connector genèric de la PICA 1.0.</p>
+
+<h2><a name="ConnectorPica-NT-Instal.laci%C3%B3iConfiguraci%C3%B3"></a>Instal.lació i Configuració</h2>
+
+
+<h3><a name="ConnectorPica-NT-Instal.laci%C3%B3"></a>Instal.lació</h3>
+
+<p><font color="black">La instal.lació del connector requereix de la utilització de la llibreria 'canigo-connectors-nt' i les dependències indicades a l'apartat '</font>Introducció-Versions i Dependències<font color="black">'.</font></p>
+
+<p><font color="black">Per poder disposar del Connector de Notificacions electròniques en una aplicació Canigó s'ha de modificar el pom.xml de l'aplicació per incloure la llibreria del Connector com a dependència.</font><br clear="all" /></p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;dependency&gt;
+        &lt;groupId&gt;canigo.connectors&lt;/groupId&gt;
+        &lt;artifactId&gt;canigo-connectors-nt&lt;/artifactId&gt;
+        &lt;version&gt;1.0&lt;/version&gt;
+&lt;/dependency&gt;</pre>
+</div></div>
+
+<h3><a name="ConnectorPica-NT-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p><br clear="all" /></p>
+
+<p>Per poder configurar el connector eNotum és necessari tenir configurat el connector genèric a la PICA.</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"requeridor"</span> class=<span class="code-quote">"cat.gencat.pica.peticio.core.beans.Requeridor"</span> singleton=<span class="code-quote">"<span class="code-keyword">true</span>"</span>&gt;
+&lt;property name=<span class="code-quote">"fitxerSignatura"</span> value=<span class="code-quote">"signatura.properties"</span>&gt; &lt;/property&gt;
+	&lt;property name=<span class="code-quote">"idSolicitante"</span> value=<span class="code-quote">"1DPGO049"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"idTransmision"</span> value=<span class="code-quote">"213421"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"nombreSolicitante"</span> value=<span class="code-quote">"CTTI"</span>&gt;&lt;/property&gt;
+
+	&lt;property name=<span class="code-quote">"password"</span> value=<span class="code-quote">"password"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"user"</span> value=<span class="code-quote">"usuari"</span>&gt;&lt;/property&gt;
+
+&lt;/bean&gt;
+
+&lt;bean name=<span class="code-quote">"ProducteModalitatBase"</span> <span class="code-keyword">abstract</span>=<span class="code-quote">"<span class="code-keyword">true</span>"</span> class=<span class="code-quote">"cat.gencat.pica.peticio.core.beans.ProducteModalitat"</span>&gt;
+	&lt;property name=<span class="code-quote">"passwordType"</span> value=<span class="code-quote">"PasswordText"</span>&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;bean id=<span class="code-quote">"picaService"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.connectors.pica.impl.PicaServiceWrapper"</span> singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
+	&lt;property name=<span class="code-quote">"axisDefinition"</span> value=<span class="code-quote">"classpath:axis2client/"</span>&gt;&lt;/property&gt;
+
+	&lt;property name=<span class="code-quote">"loggingService"</span> ref=<span class="code-quote">"loggingService"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"requeridor"</span> ref=<span class="code-quote">"requeridor"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"modalitats"</span>&gt;
+		&lt;map&gt;
+			...
+		&lt;/map&gt;
+	&lt;/property&gt;
+&lt;/bean&gt;</pre>
+</div></div>
+<p><br clear="all" />
+Per a configurar el connector enotum, només cal afegir aquest bean informant la url de la pica que es vol utilitzar per a consumir els serveis NT.</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"ntService"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.connectors.enotum.impl.EnotumConnectorImpl"</span> singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
+	&lt;property name=<span class="code-quote">"picaService"</span> ref=<span class="code-quote">"picaService"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"loggingService"</span> ref=<span class="code-quote">"loggingService"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"finalitat"</span> value=<span class="code-quote">"TEST"</span>&gt;&lt;/property&gt;
+	&lt;property name=<span class="code-quote">"urlPica"</span> value=<span class="code-quote">"http:<span class="code-comment">//preproduccio.pica.gencat.intranet/pica_cataleg/AppJava/services/"</span> /&gt;
+</span>&lt;/bean&gt;</pre>
+</div></div>
+
+<h2><a name="ConnectorPica-NT-Utilitzaci%C3%B3delConnector"></a>Utilització del Connector</h2>
+
+<p><br clear="all" /></p>
+
+<h3><a name="ConnectorPica-NT-Exempled%27utilitzaci%C3%B3EmpleatP%C3%BAblic%28Consultardetallnotificaci%C3%B3%29ambconnectorfuncionaldeNotificacionselectr%C3%B2niques"></a>Exemple d'utilització Empleat Públic (Consultar detall notificació) amb connector funcional de Notificacions electròniques</h3>
+
+<p>Referenciar al servei enotum des de l'acció que es vulgui utilitzar (action-servlet-aaa.xml):</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;property name=<span class="code-quote">"connectorNT"</span> ref=<span class="code-quote">"ntService"</span>&gt;&lt;/property&gt;</pre>
+</div></div>
+<p>En l'acció, s'hauran de crear els getters i setters corresponents per al connector de notificacions electròniques:</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">private</span> EnotumConnectorImpl connectorEnotum;
+<span class="code-keyword">public</span> EnotumConnectorImpl getConnectorEnotum() {
+	<span class="code-keyword">return</span> connectorEnotum;
+}
+
+<span class="code-keyword">public</span> void setConnectorEnotum(EnotumConnectorImpl connectorEnotum) {
+	<span class="code-keyword">this</span>.connectorEnotum = connectorEnotum;
+}</pre>
+</div></div>
+<p>Per a consultar l'estat de la tramesa simplement s'haurà de realitzar la següent crida:</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">PeticioNtConsultarDetallNotificacioEPDocument dades = PeticioNtConsultarDetallNotificacioEPDocument.Factory.newInstance();
+PeticioNtConsultarDetallNotificacioEP peticioNotificacio = PeticioNtConsultarDetallNotificacioEP.Factory.newInstance();
+peticioNotificacio.setIdNotificacioNT(<span class="code-quote">"142882"</span>);
+dades.setPeticioNtConsultarDetallNotificacioEP(peticioNotificacio);
+RespostaNtConsultarDetallNotificacioEPDocument resposta = enotumConnector.getServeisEmpleatPublic(getFuncionari()).consultarDetallNotificacio(dades);</pre>
+</div></div>
+<p>Si no es produeix cap error, resposta.getError() ha de ser null. Si es produeix un error intern en la pica o el connector enotum, resposta.getError() vindrà informat amb el detall de l'error. I si es produeix una excepció en el connector es llançarà una excepció EnotumException.</p>
+
+<h3><a name="ConnectorPica-NT-Exempled%27utilitzaci%C3%B3Ciutad%C3%A0%28Consultardetallnotificaci%C3%B3%29ambconnectorfuncionaldenotificacionselectr%C3%B2niques"></a>Exemple d'utilització Ciutadà (Consultar detall notificació) amb connector funcional de notificacions electròniques</h3>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">EnotumConnectorImpl enotumConnector = (EnotumConnectorImpl) beanFactory.getBean(<span class="code-quote">"enotumService"</span>);
+PeticioNtConsultarDetallNotificacioDocument dades = PeticioNtConsultarDetallNotificacioDocument.Factory.newInstance();  	
+PeticioNtConsultarDetallNotificacio peticioNotificacio = PeticioNtConsultarDetallNotificacio.Factory.newInstance();   	
+peticioNotificacio.setIdNotificacioNT(<span class="code-quote">"142882"</span>);    	
+peticioNotificacio.setCertificat64(<span class="code-quote">"MIIHsjCCBpqgAwIBAgI..."</span>);    	
+peticioNotificacio.setPerfil(<span class="code-quote">"20"</span>);    	
+dades.setPeticioNtConsultarDetallNotificacio(peticioNotificacio);    	
+RespostaNtConsultarDetallNotificacioDocument resposta = enotumConnector.getServeisCiutada().consultarDetallNotificacio(dades);</pre>
+</div></div>
+
+<h3><a name="ConnectorPica-NT-Exempled%27utilitzaci%C3%B3EmpleatP%C3%BAblic%28Consultarestattramesa%29Utilitzantelconnectorgen%C3%A8ricalaPICA."></a>Exemple d'utilització Empleat Públic (Consultar estat tramesa) Utilitzant el connector genèric a la PICA.</h3>
+
+<p>S'haurà d'afegir en la definició del servei pica, un producte modalitat segons la funcionalitat que es vulgui utilitzar, per el cas de Consultar tramesa s'hauria d'afegir:</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;property name=<span class="code-quote">"modalitats"</span>&gt;
+	&lt;map&gt;
+		...
+                  &lt;entry key=<span class="code-quote">"NT_CONSULTAR_ESTAT_TRAMESA"</span>&gt;
+			&lt;bean parent=<span class="code-quote">"ProducteModalitatBase"</span>&gt;
+				&lt;property name=<span class="code-quote">"signat"</span> value=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;&lt;/property&gt;
+				&lt;property name=<span class="code-quote">"urlPICA"</span> value=<span class="code-quote">"http:<span class="code-comment">//preproduccio.pica.gencat.intranet/pica_cataleg/AppJava/services/NT_ENVIAR_TRAMESA"</span> /&gt;
+</span>				&lt;property name=<span class="code-quote">"codCertificado"</span> value=<span class="code-quote">"NT_CONSULTAR_ESTAT_TRAMESA"</span>/&gt;
+				&lt;property name=<span class="code-quote">"codProducto"</span> value=<span class="code-quote">"NT"</span>/&gt;
+			&lt;/bean&gt;
+		&lt;/entry&gt;
+	&lt;/map&gt;
+&lt;/property&gt;</pre>
+</div></div>
+<p>Referenciar al servei PICA des de l'acció que es vulgui utilitzar (action-servlet-aaa.xml):</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;property name=<span class="code-quote">"connectorPica"</span> ref=<span class="code-quote">"picaService"</span>&gt;&lt;/property&gt;</pre>
+</div></div>
+<p>En l'acció, s'hauran de crear els getters i setters corresponents per al connectorPica:</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">private</span> IPicaServiceWrapper connectorPica;
+<span class="code-keyword">public</span> IPicaServiceWrapper getConnectorPica() {
+	<span class="code-keyword">return</span> connectorPica;
+}
+
+<span class="code-keyword">public</span> void setConnectorPica(IPicaServiceWrapper connectorPica) {
+	<span class="code-keyword">this</span>.connectorPica = connectorPica;
+}</pre>
+</div></div>
+<p>S'haurà de recuperar el producte modalitat de la PICA:</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">IPICAServiceSincron servei = connectorPica.getPicaWebServiceSincronInstance(<span class="code-quote">"NT_CONSULTAR_ESTAT_TRAMESA"</span>);</pre>
+</div></div>
+<p>Creació de l'XML per a dades específiques:</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-object">StringBuffer</span> sb = <span class="code-keyword">new</span> <span class="code-object">StringBuffer</span>();
+sb.append(<span class="code-quote">"&lt;peticio_nt_consultar_estat_tramesa xmlns=\"</span>http:<span class="code-comment">//gencat.net/scsp/esquemes/productes/nt\<span class="code-quote">"&gt;"</span>);
+</span>sb.append(<span class="code-quote">"&lt;tramesa&gt;&lt;idTramesaNT&gt;"</span> + idTramesaNT + <span class="code-quote">"&lt;/idTramesaNT&gt;&lt;/tramesa&gt;"</span>);
+sb.append( <span class="code-quote">"&lt;/peticio_nt_consultar_estat_tramesa&gt;"</span> );
+List&lt;DadesEspecifiques&gt; dadesEspecifiques = <span class="code-keyword">new</span> ArrayList&lt;DadesEspecifiques&gt;();
+
+DadesEspecifiques dades = <span class="code-keyword">new</span> DadesEspecifiques();
+dades.setIdSolicitud(<span class="code-quote">"1"</span>);
+dades.setDadesXML(sb.toString());
+dadesEspecifiques.add(dades);
+
+servei.setDadesEspecifiques(dadesEspecifiques);</pre>
+</div></div>
+<p>Realitzar la crida al servei:</p>
+<div class="code"><div class="codeContent">
+<pre class="code-java">Funcionari funcionari = <span class="code-keyword">new</span> Funcionari();
+funcionari.setNombreFuncionario(<span class="code-quote">"Nom Funcionari"</span>);
+funcionari.setNifFuncionario(<span class="code-quote">"55555555A"</span>);
+funcionari.setEmailFuncionario(<span class="code-quote">"func@ionari.com"</span>);
+
+servei.setFuncionari(funcionari);
+
+servei.setFuncionari(<span class="code-keyword">this</span>.funcionari);
+<span class="code-keyword">try</span> {
+	servei.crearPeticio(<span class="code-quote">"connector_eNotum_empleat_public_"</span> + <span class="code-object">System</span>.currentTimeMillis() );
+} <span class="code-keyword">catch</span> (PICAException e) {
+	<span class="code-keyword">throw</span> e;
+}
+CridaSincronaResponseDocument resposta = picaService.ferPeticioAlServei(servei);</pre>
+</div></div>
+<p>El resultat de la resposta es pot obtenir fent resposta.getDomNode(), i per tant s'haurà de parsejar el resultat.</p>
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

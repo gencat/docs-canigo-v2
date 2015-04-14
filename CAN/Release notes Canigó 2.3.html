@@ -1,0 +1,119 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Release notes Canigó 2.3</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Release notes Canigó 2.3
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on May 09, 2008 by <font color="#0050B2">otc</font>.
+				    </div>
+
+				    <h2><a name="ReleasenotesCanig%C3%B32.3-Releasenotesdelaversi%C3%B32.3deCanig%C3%B3"></a>Release notes de la versió 2.3 de Canigó</h2>
+
+
+<h3><a name="ReleasenotesCanig%C3%B32.3-%28%29BugsfixatsaCanig%C3%B32.3%3A"></a><img class="emoticon" src="./icons/emoticons/add.gif" height="16" width="16" align="absmiddle" alt="" border="0"/> Bugs fixats a Canigó 2.3:</h3>
+
+<ul>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-431" title="Visit page outside Confluence"><b>CAN-431</b></a>: xFire + Aegi Bindings.
+<br clear="all" />
+<b>Context</b>: Segons la documentació, es podien configurar les característiques d'exportació de les propietats dels beans que intervenien en un mètode exportat dins un webservice, a partir d'arxius de configuració 'nom_bean.aegis.xml' situats en la mateixa ubicació que els beans. Els bindings definits en aquest fitxer eren ignorats a l'hora de generar el wsdl.
+<br clear="all" />
+<b>Solució</b>: Migració de la llibreria de xFire, de la 1.0-M5 a la 1.2.6.
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-463" title="Visit page outside Confluence"><b>CAN-463</b></a>:
+<br clear="all" />
+<b>Context</b>: el tag searchPanel retorna un error al carregar la pàgina.
+<br clear="all" />
+<b>Solució</b>: l'atribut 'indicator' passa a ser no requerit, ja que era la causa de l'error. Sense aquest atribut, el tag funciona correctament. S'ha actualitzat la documentació reflexant aquest aspecte.
+<br clear="all" />
+<b>Fitxers afectats</b>: canigo-ajaxtags-searchPanel.js
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidències <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-454" title="Visit page outside Confluence"><b>CAN-454</b></a> i <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-455" title="Visit page outside Confluence"><b>CAN-455</b></a> (escalen a petició de canvi <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-478" title="Visit page outside Confluence"><b>CAN-478</b></a>):
+<br clear="all" />
+<b>Context</b>: el tag 'autocomplete' no funciona correctament, tant en Firefox com en Internet Explorer (desbordament del popup quan es retornen molts resultats, errors javascript, etc.)
+<br clear="all" />
+<b>Solució</b>: actualització del la llibreria javascript del tag autocomplete per a qué funcioni correctament amb els dos navegadors.
+<br clear="all" />
+<b>Fitxers afectats</b>: canigo-ajaxtags-autocomplete.js
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-524" title="Visit page outside Confluence"><b>CAN-524</b></a>:
+<br clear="all" />
+<b>Context</b>: dos searchPanel a la mateixa JSP no funciona correctament.
+<br clear="all" />
+<b>Solució</b>: cada cop que s'utilitza el searchPanel, se'n crea un de nou i no es reutilitza el que s'havia creat anteriorment; això és degut a què es produïen conflictes en la cerca quan hi havia dos searchPanel a la mateixa jsp.<br/>
+Val a dir també, que quan es creen dos (o més) searchPanel a la mateixa jsp, aquests han de tenir identificadors diferents.
+<br clear="all" />
+<b>Fitxers afectats</b>: canigo-ajaxtags-searchPanel.js
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-525" title="Visit page outside Confluence"><b>CAN-525</b></a>:
+<br clear="all" />
+<b>Context</b>: incidència que sorgeix arrel de la incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-509" title="Visit page outside Confluence"><b>CAN-509</b></a>: En l'Internet Explorer no es bloqueja el botó de submit.
+<br clear="all" />
+<b>Solució</b>: deshabilitació del doble submit tant en Firefox com en Internet Explorer.
+<br clear="all" />
+<b>Fitxers afectats</b>: canigo-ajaxtags-validation.js
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-470" title="Visit page outside Confluence"><b>CAN-470</b></a>:
+<br clear="all" />
+<b>Context</b>: problemes amb l'autenticació d'usuaris mitjançant SACE; aquesta incidència es produeix arrel del canvi de versió de la llibreria d'Acegi, en la què en versions anteriors de Canigó s'utilitzava la 0.8.3 i a la versió 2.2 de Canigó s'utiliza la 0.9.0 d'Acegi.
+<br clear="all" />
+<b>Solució</b>: actualització del servei de seguretat per a un correcte funcionament de l'autenticació a través del connector SACE.
+<br clear="all" />
+<b>Fitxers afectats</b>: canigo-services-security-2.3.jar
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+<h3><a name="ReleasenotesCanig%C3%B32.3-%28%29PeticionsdecanvidesenvolupadesaCanig%C3%B32.3%3A"></a><img class="emoticon" src="./icons/emoticons/add.gif" height="16" width="16" align="absmiddle" alt="" border="0"/> Peticions de canvi desenvolupades a Canigó 2.3:</h3>
+
+<ul>
+	<li>Petició de canvi <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-393" title="Visit page outside Confluence"><b>CAN-393</b></a> (escala a petició de canvi: <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-446" title="Visit page outside Confluence"><b>CAN-446</b></a>):
+<br clear="all" />
+<b>Requeriment</b>: Actualitzar el connector Catcert amb el validador PSIS.
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Petició de canvi <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-157" title="Visit page outside Confluence"><b>CAN-157</b></a>:
+<br clear="all" />
+<b>Requeriment</b>: Integració dins els servei de seguretat de Canigó del nou servei corporatiu de seguretat Gicar.<br/>
+A més, s'ha ampliat la documentació del servei de seguretat, explicant la configuració d'aquest servei per a què realitzi l'autenticació mitjançant Gicar.
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Petició de canvi <a href="http://canigo.ctti.gencat.net/jira/browse/CAN-157" title="Visit page outside Confluence"><b>CAN-369</b></a>:<br/>
+Actualització de la documentació del servei de persistència.
+<br clear="all" />
+<b>Requeriment</b>: canvi de l'ús del plugin Hibernate Synchronizer pel nou plugin Hibernate Tools.
+<br clear="all" />
+<br clear="all" /></li>
+</ul>
+
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

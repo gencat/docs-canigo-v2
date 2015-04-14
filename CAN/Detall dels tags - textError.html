@@ -1,0 +1,160 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Detall dels tags - textError</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Detall dels tags - textError
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Nov 20, 2007 by <font color="#0050B2">manel.batlles</font>.
+				    </div>
+
+				    <h1><a name="Detalldelstags-textError-DetalldelstagstextError"></a>Detall dels tags - textError</h1>
+
+<p>Defineix el posicionament del texte a mostrar en cas d'un error de validació.</p>
+
+<p>La documentació auto-generada del tag és a <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_2/tlddoc/fwk/textError.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_2/tlddoc/fwk/textError.html</a></p>
+
+<hr />
+<div>
+<ul><a href='#Detalldelstags-textError-DetalldelstagstextError'>
+    <li>Detall dels tags - textError</li></a>
+<ul><a href='#Detalldelstags-textError-Atributsheredats'>
+    <li>Atributs heredats</li></a><a href='#Detalldelstags-textError-Atributsespec%C3%ADficsdeCanig%C3%B3'>
+    <li>Atributs específics de Canigó</li></a><a href='#Detalldelstags-textError-Exemple'>
+    <li>Exemple</li></a>
+<ul><a href='#Detalldelstags-textError-P%C3%A0ginaJSP'>
+    <li>Pàgina JSP</li></a><a href='#Detalldelstags-textError-Arxiusd%27internacionalitzaci%C3%B3'>
+    <li>Arxius d'internacionalització</li></a>
+</ul>
+</ul>
+</ul></div>
+<hr />
+
+<p>La funcionalitat d'aquest tag és definir el posicionament i controlar la visualització del texte d'error.</p>
+
+<p>La validació en sí està definida en el propi camp a validar (per exemple un fwk:text) i el texte a presentar és una composicio del texte associat al tipus de validació (per exemple <em>required</em>)amb el texte definit en la validació.</p>
+
+<h2><a name="Detalldelstags-textError-Atributsheredats"></a>Atributs heredats</h2>
+
+<p>cap.</p>
+
+<h2><a name="Detalldelstags-textError-Atributsespec%C3%ADficsdeCanig%C3%B3"></a>Atributs específics de Canigó</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> Atribut </th>
+<th class='confluenceTh'> Funció </th>
+</tr>
+<tr>
+<td class='confluenceTd'> services </td>
+<td class='confluenceTd'>&nbsp;</td>
+</tr>
+<tr>
+<td class='confluenceTd'> styleClass </td>
+<td class='confluenceTd'> referència a la fulla d'estil amb les propietats de presentació </td>
+</tr>
+<tr>
+<td class='confluenceTd'> styleId </td>
+<td class='confluenceTd'> identificador del tag, que es referenciarà al definir la validació </td>
+</tr>
+</tbody></table>
+
+<h2><a name="Detalldelstags-textError-Exemple"></a>Exemple</h2>
+
+<p>A continuació es presenta un fragment de pàgina que utilitza el tag <b>fwk:textError</b></p>
+
+<p><img src="Detall dels tags - textError_attachments/fwk_textError.jpg" align="absmiddle" border="0" /></p>
+
+<h3><a name="Detalldelstags-textError-P%C3%A0ginaJSP"></a>Pàgina JSP</h3>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;%@ include file=<span class="code-quote">"/WEB-INF/jsp/includes/fwkTagLibs.jsp"</span> %&gt;
+
+&lt;fwk:form action=<span class="code-quote">"provesTagsLayout.<span class="code-keyword">do</span>"</span>
+          styleId=<span class="code-quote">"myActionForm"</span>
+          key=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.form"</span>
+          reqCode=<span class="code-quote">"show"</span>
+          layout=<span class="code-quote">"<span class="code-keyword">false</span>"</span>
+          method=<span class="code-quote">"post"</span>&gt;
+
+    &lt;fwk:gridBagLayout gridStyleId=<span class="code-quote">"grid"</span>
+                       size=<span class="code-quote">"2,5"</span>
+                       gridStyle=<span class="code-quote">"border:1px solid green"</span>
+                       style=<span class="code-quote">"0:0=color:red;background-color:yellow,*:2=color:blue;background-color:yellow"</span>&gt;
+
+        (...)
+
+        &lt;span&gt;&amp;nbsp;&lt;/span&gt;
+        &lt;span&gt;&amp;nbsp;&lt;/span&gt;
+
+        &lt;fwk:label styleId=<span class="code-quote">"nameLabel"</span>
+                   key=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.lbl3"</span>
+                   id=<span class="code-quote">"camp1"</span>
+                   styleClass=<span class="code-quote">"label"</span>/&gt;
+        &lt;fwk:text key=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.camp9"</span>
+                  styleId=<span class="code-quote">"camp9"</span>
+                  mode=<span class="code-quote">"E,E,E"</span>
+                  layout=<span class="code-quote">"<span class="code-keyword">false</span>"</span>
+                  styleClass=<span class="code-quote">"fieldText"</span>
+                  maxlength=<span class="code-quote">"10"</span>
+                  size=<span class="code-quote">"10"</span>
+                  validations=<span class="code-quote">"ONCHANGE(required)"</span>
+                  validationFieldMessageMode=<span class="code-quote">"ICON,TEXTERROR"</span>
+                  sourceErrorTooltip=<span class="code-quote">"TEXT"</span>
+                  iconStyleId=<span class="code-quote">"camp9IconError"</span>
+                  textErrorStyleId=<span class="code-quote">"camp9TextError"</span>
+                  errorClass=<span class="code-quote">"errorNew"</span>
+                  errorKey=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.lbl3"</span>
+                  property=<span class="code-quote">"camp9"</span>/&gt;
+        &lt;span&gt;
+            &lt;fwk:textError styleId=<span class="code-quote">"camp9TextError"</span>
+                           styleClass=<span class="code-quote">"errorText"</span> /&gt;
+            &lt;fwk:iconError styleId=<span class="code-quote">"camp9IconError"</span>
+                           style=<span class="code-quote">"display:none"</span>
+                           styleClass=<span class="code-quote">"iconError"</span>&gt;
+                &lt;img src=<span class="code-quote">"&lt;c:url value="</span>/images/iconWarning.gif<span class="code-quote">"/&gt;"</span>
+                     id=<span class="code-quote">"imagen"</span>
+                     class=<span class="code-quote">"icon"</span> /&gt;
+            &lt;/fwk:iconError&gt;
+        &lt;span&gt;
+
+    &lt;/fwk:gridBagLayout&gt;
+&lt;/fwk:form&gt;</pre>
+</div></div>
+
+<h3><a name="Detalldelstags-textError-Arxiusd%27internacionalitzaci%C3%B3"></a>Arxius d'internacionalització</h3>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Detall dels tags - textError_attachments/fwk_textError.jpg">fwk_textError.jpg</a> (image/jpeg)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

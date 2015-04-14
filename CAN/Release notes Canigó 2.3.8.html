@@ -1,0 +1,148 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Release notes Canigó 2.3.8</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Release notes Canigó 2.3.8
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Mar 15, 2010 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h2><a name="ReleasenotesCanig%C3%B32.3.8-Releasenotesdelaversi%C3%B32.3.8deCanig%C3%B3"></a>Release notes de la versió 2.3.8 de Canigó</h2>
+
+
+<h3><a name="ReleasenotesCanig%C3%B32.3.8-%28%29BugsfixatsaCanig%C3%B32.3.8%3A"></a><img class="emoticon" src="./icons/emoticons/add.gif" height="16" width="16" align="absmiddle" alt="" border="0"/> Bugs fixats a Canigó 2.3.8:</h3>
+
+
+<h5><a name="ReleasenotesCanig%C3%B32.3.8-Canvis"></a>Canvis</h5>
+
+<ul>
+	<li>Canvi <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-988" title="Visit page outside Confluence"><b>CAN-988</b></a>: <font color="#333333">Avaluar si cal un connector específic i diferent de l'actual, per a la nova versió de Documentum 6.5 que s'implantarà en breu a SSCC. En cas afirmatiu, construir-lo.</font><br clear="all" />
+<b>Context</b>: Actualització del connector de Documentum per donar-li compatibilitat amb Documentum 6.5.
+<br clear="all" />
+<b>Connector afectat</b>: Connector de Documentum
+<br clear="all" />
+<b>Solució</b>: S'ha fet un canvi de nomenclatura dels connectors de Documentum. La versió del connector compatible amb Documentum 5.3 és ara la versió 1.0 del connector. La versió desenvolupada i compatible amb Documentum 6.5 és la versió 1.1 del connector. De moment la nova versió del connector no incorpora nova funcionalitat.
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Canvi <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1013" title="Visit page outside Confluence"><b>CAN-1013</b></a>: <font color="#333333">Upload i Download de fitxers mitjançant un stream</font>.
+<br clear="all" />
+<b>Context</b>: El servei de SFTP de Canigó necessita disposar de l'arxiu a pujar en el file system. Modificar el comportament del servei per que admeti la possibilitat de passar directament l'arxiu al servei sense passar pel file system.
+<br clear="all" />
+<b>Servei afectat</b>: canigo-services-sftp
+<br clear="all" />
+<b>Solució</b>: Modificació del servei per passar l'arxiu en qüestió directament via un InputStream al servei d'sftp, sense tindre que realitzar el pas entremig d'emmagatzemar-lo en el file system.
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Canvi <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1015" title="Visit page outside Confluence"><b>CAN-1015</b></a>: <font color="#333333">Forma de indicar path fichero de claves en servicio SFTP</font>.
+<br clear="all" />
+<b>Context</b>: El servei d'SFTP de Canigó no pot referenciar arxius de claus de forma relativa, només es pot fer de forma absoluta.
+<br clear="all" />
+<b>Servei afectat</b>: canigo-services-sftp
+<br clear="all" />
+<b>Solució</b>: Modificar el comportament del servei per donar la possibilitat de referenciar arxius de claus de forma relativa.
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Canvi <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1028" title="Visit page outside Confluence"><b>CAN-1028</b></a>: <font color="#333333">Sobre ConfigurationService i getProperty(String key)</font>.
+<br clear="all" />
+<b>Context</b>: En utilitzar el mètode getProperty(key) del servei de configuració es produeix una recarrega innecessària de tots els arxius de propietats.
+<br clear="all" />
+<b>Servei afectat</b>: canigo-service-configuration
+<br clear="all" />
+<b>Solució</b>: Creació d'una cache de propietats de on es poden extreure les propietats sense necessitat d'una recarrega de tots els properties. A més s'ha afegit un mètode extra, reloadData(), per recarregar la cache.
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Canvi <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1040" title="Visit page outside Confluence"><b>CAN-1040</b></a>: <font color="#333333">Cal actualitzar la documentació de com utilitzar el connector CATCert del portal Canigó</font>.
+<br clear="all" />
+<b>Context</b>: Amb la informació disponible en el portal de Canigó es feia molt difícil la configuració del connector de CatCert.
+<br clear="all" />
+<b>Connector afectat</b>: Connector amb CatCert
+<br clear="all" />
+<b>Solució</b>: Modificació de la documentació del portal de Canigó per clarificar la configuració del connector de CatCert.
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Canvi <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1057" title="Visit page outside Confluence"><b>CAN-1057</b></a>: <font color="#333333">Canvis d'estils en la plantilla.</font><br clear="all" />
+<b>Context</b>: La plantilla de Canigó ha d'actualitzar alguns dels seus components estàtics.
+<br clear="all" />
+<b>Servei afectat</b>: Canigó 2.3.8
+<br clear="all" />
+<b>Solució</b>: Modificació de la part estàtica del Framework de Canigó per introduir els canvis sol&#45; licitats.
+<br clear="all" />
+<br clear="all" />
+<h5><a name="ReleasenotesCanig%C3%B32.3.8-Incid%C3%A8ncies"></a>Incidències</h5></li>
+</ul>
+
+
+<ul>
+	<li>Incidència <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1014" title="Visit page outside Confluence"><b>CAN-1014</b></a>: <font color="#333333">Error y mejora en el servicio SFTP 2.3.7</font><br clear="all" />
+<b>Context</b>: En fer un close session i un login immediat amb el servei SFTP de Canigó es produïa un error.
+<br clear="all" />
+<b>Solució</b>: Modificació del servei per eliminar aquest error.<br/>
+<b>Servei afectat:</b> canigo-services-sftp
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1036" title="Visit page outside Confluence"><b>CAN-1036</b></a>: <font color="#333333">El connector CATCert no llegeix la URL de validació de PSIS que no sigui per PDFs.</font><br clear="all" />
+<b>Context</b>: El connector de CatCert utilitza dos mètodes diferents per poder validar documents (validació de PDF's i validació de signatures i certificats), però ambdós mètodes utilitzen el mateix getProperties() per recuperar les propietats específiques.
+<br clear="all" />  <b>Solució</b>: Modificació del connector de CatCert per que recuperi les propietats dels mètodes de validació de PDF's i de signatures i certificats amb mètodes diferents<br/>
+<b>Connector afectat:</b> Connector de CatCert
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1037" title="Visit page outside Confluence"><b>CAN-1037</b></a>: <font color="#333333">El connector SFTP obre dos sessions en el login</font><br clear="all" />
+<b>Context</b>: El servei de SFTP obria dues connexions amb el servidor SFTP per poder pujar un arxiu.<br/>
+<b>Solució</b>: Correcció del servei per que només obri una connexió amb el servidor SFTP.<br/>
+<b>Servei afectat</b>:canigo-service-sftp
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1047" title="Visit page outside Confluence"><b>CAN-1047</b></a>: <font color="#333333">En activar la seguretat a nivell de mètodes de negoci el filtre ValueListFilteringProvider dóna error perquè no es retorna un ValueList</font><br clear="all" />
+<b>Context</b>: En el procés de securització de mètodes d'un BO es produïa un error de class Cast Exception motivat pel fet de que el servei de seguretat obligava a que tots els mètodes securitzats retornessin un ValueList.
+<br clear="all" />
+<b>Solució</b>: Modificació del servei de seguretat per tal de que no obligués als mètodes securitzats el retorn d'un objecte del tipus valueList<br/>
+<b>Servei afectat:</b> canigo-service-security
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1053" title="Visit page outside Confluence"><b>CAN-1053</b></a>: <font color="#333333">Error d'apertura de fitxer a la visualització de traces</font><br clear="all" />
+<b>Context</b>: En llegir el fitxer de traces es produeix un error de parseig una de cada dues vegades que s'intenta llegir.
+<br clear="all" />
+<b>Solució</b>: L'error es produït per el intent de lectura de l'arxiu de traces al mateix temps que s'està escrivint en ell. S'ha blindat el servei de traces per que no permeti llegir l'arxiu de traces a la vegada que s'escriu en ell.<br/>
+<b>Servei afectat</b>: canigo-services-logging
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1058" title="Visit page outside Confluence"><b>CAN-1058</b></a>: <font color="#333333">Build error canigo-ear de la plantilla 2.3.7 (JIRA ANTIC CAN-1029)</font><br clear="all" />
+<b>Context</b>: La plantilla Canigó 2.3.7 conté referències a arxius que no existeixen i a una versió innexistent de Canigó.
+<br clear="all" />
+<b>Solució</b>: Modificació de la plantilla Canigó 2.3.7 per treure les referències a arxius no utilitzats i versions inexistents.<br/>
+<b>Versió afectada</b>: Plantilla-Canigó 2.3.7
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Incidència <a href="http://cstd.ctti.gencat.cat/jiracstd/browse/CAN-1060" title="Visit page outside Confluence"><b>CAN-1060</b></a>: <font color="#333333">El connector CATCert no utilitza la configuració del proxy en funció de l'entorn correctament</font><br clear="all" />
+<b>Context</b>: En configurar un proxy en el connector de CatCert dona un error quan s'informen les variables "PROXY_HOME=" i "PROXY_PORT=".
+<br clear="all" />
+<b>Solució</b>: Modificar el connector per que suporti aquestes variables buides.<br/>
+<b>Connector afectat</b>: Connector de CatCert</li>
+</ul>
+
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

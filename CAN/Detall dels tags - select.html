@@ -1,0 +1,308 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Detall dels tags - select</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Detall dels tags - select
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Apr 12, 2011 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="Detalldelstags-select-Detalldelstagsselect"></a>Detall dels tags - select</h1>
+
+<p>Defineix un element per seleccionar entre una llista de valors, generada a partir d'una consulta la la base de dades.</p>
+
+<p>Estén el tag layout:select ( <a href="http://struts.application-servers.com/doc/tags/select.html#select" title="Visit page outside Confluence">http://struts.application-servers.com/doc/tags/select.html#select</a> ) de Struts-Layout.</p>
+
+<p>La documentació auto-generada del tag és a <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_2/tlddoc/fwk/select.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_2/tlddoc/fwk/select.html</a></p>
+
+<hr />
+<p><div>
+<ul><a href='#Detalldelstags-select-Detalldelstagsselect'>
+    <li>Detall dels tags - select</li></a>
+<ul><a href='#Detalldelstags-select-Atributsheredats'>
+    <li>Atributs heredats</li></a><a href='#Detalldelstags-select-Atributsespec%C3%ADficsdeCanig%C3%B3'>
+    <li>Atributs específics de Canigó</li></a>
+<ul><a href='#Detalldelstags-select-Configuraci%C3%B3del%27acc%C3%A9salaBasedeDades'>
+    <li>Configuració de l'accés a la Base de Dades</li></a>
+</ul><a href='#Detalldelstags-select-Exemple'>
+    <li>Exemple</li></a>
+<ul><a href='#Detalldelstags-select-P%C3%A0ginaJSP'>
+    <li>Pàgina JSP</li></a><a href='#Detalldelstags-select-Arxiusd%27internacionalitzaci%C3%B3'>
+    <li>Arxius d'internacionalització</li></a><a href='#Detalldelstags-select-Configuraci%C3%B3Spring'>
+    <li>Configuració Spring</li></a><a href='#Detalldelstags-select-forceOnChange'>
+    <li>forceOnChange</li></a>
+</ul><a href='#Detalldelstags-select-Bugs'>
+    <li>Bugs</li></a>
+</ul>
+</ul></div><br clear="all" /></p>
+
+<hr />
+<h2><a name="Detalldelstags-select-Atributsheredats"></a>Atributs heredats</h2>
+
+<p>Els atributs heredats de <b>layout:select</b> son: accesskey, arg0, arg1, arg2, arg3, arg4, bundle, filter, hint, isRequired, key, layout, layoutId, maxlength, mode, multiple, name, onblur, onchange, onclick, ondblclick, onfocus, onkeydown, onkeypress, onkeyup, onmousedown, onmousemove, onmouseout, onmouseover, onmouseup, policy, property, size, styleClass, tabindex, tooltip, value.</p>
+
+<h2><a name="Detalldelstags-select-Atributsespec%C3%ADficsdeCanig%C3%B3"></a>Atributs específics de Canigó</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> Atribut </th>
+<th class='confluenceTh'> Funció </th>
+</tr>
+<tr>
+<td class='confluenceTd'> optionsListName </td>
+<td class='confluenceTd'> Nom de la llista de valors </td>
+</tr>
+<tr>
+<td class='confluenceTd'> otherKey </td>
+<td class='confluenceTd'> Per als seleccionables depedents, si es vol un otherKey directe, que no resolgui el literal, s'indicarà un * davant del text a mostrar.<br clear="all" /> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> otherValue </td>
+<td class='confluenceTd'>&nbsp;</td>
+</tr>
+<tr>
+<td class='confluenceTd'> selectFieldSource </td>
+<td class='confluenceTd'>&nbsp;</td>
+</tr>
+<tr>
+<td class='confluenceTd'> selectFieldSourceProperties </td>
+<td class='confluenceTd'>&nbsp;</td>
+</tr>
+<tr>
+<td class='confluenceTd'> services </td>
+<td class='confluenceTd'>&nbsp;</td>
+</tr>
+<tr>
+<td class='confluenceTd'> styleId </td>
+<td class='confluenceTd'> Identificador del tag, per lligar-lo amb la configuració injectada amb Spring </td>
+</tr>
+<tr>
+<td class='confluenceTd'> tooltipKey </td>
+<td class='confluenceTd'> Clau del literal del missatge a mostrar dins el tooltip </td>
+</tr>
+<tr>
+<td class='confluenceTd'> tooltipOptions </td>
+<td class='confluenceTd'> Opcions aplicades segons la implementació (en el cas actual sota DOM Tooltip) </td>
+</tr>
+<tr>
+<td class='confluenceTd'> tooltipTitleKey </td>
+<td class='confluenceTd'> Clau del literal a mostrar si volem mostrar un títol com a capçalera del tooltip </td>
+</tr>
+<tr>
+<td class='confluenceTd'> forceOnChange </td>
+<td class='confluenceTd'> Element que permet no forçar el mètode onChange quan hi ha selects enllaçats. Per defecte es true. </td>
+</tr>
+</tbody></table>
+<p>Per utilitzar els Tooltips cal incloure un conjunt d'arxius JavaScript i CSS:</p>
+<ul>
+	<li>el full d'estil tooltips.css</li>
+	<li>els arxius de scripts domLib.js i domTT.js</li>
+</ul>
+
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java">&lt;LINK REL=StyleSheet
+      HREF=<span class="code-quote">"css/tooltips/tooltips.css"</span>
+      TYPE=<span class="code-quote">"text/css"</span>
+      MEDIA=screen&gt;
+
+&lt;script type=<span class="code-quote">"text/javascript"</span>
+        src=<span class="code-quote">"&lt;c:url value="</span>/scripts/tooltips/dom_tooltip/domLib.js<span class="code-quote">"/&gt;"</span>&gt;
+&lt;/script&gt;
+&lt;script type=<span class="code-quote">"text/javascript"</span>
+        src=<span class="code-quote">"&lt;c:url value="</span>/scripts/tooltips/dom_tooltip/domTT.js<span class="code-quote">"/&gt;"</span>&gt;
+&lt;/script&gt;</pre>
+</div></div><br clear="all" /></p>
+
+<h3><a name="Detalldelstags-select-Configuraci%C3%B3del%27acc%C3%A9salaBasedeDades"></a>Configuració de l'accés a la Base de Dades</h3>
+
+<p>Per tal d'omplir el Select amb un conjunt de valors recuperats de la Base de Dades, cal realitzar una sèrie de configuracions.</p>
+
+<p>En primer lloc, es defineix la consulta a realitzar, en HQL. Normalment aquestes consultes s'afegeixen a l'arxiu canigo-services-web-options-lists.xml com una entrada dins del bean defaultOptionValueListHandler.</p>
+
+<p>Aquesta definició es referència des de la configuració de l'Action Servlet definint, en primer lloc, un bean amb tres propietats</p>
+<ul>
+	<li>el nom de la llista (optionListName)</li>
+	<li>l'atribut visible (optionLabelName, que es fà servir per omplir el Select)</li>
+	<li>l'atribut que es fà servir com a valor seleccionat (optionLabelProperty)</li>
+</ul>
+
+
+<p>Un segon bean optionsListService conté la llista de tots els optionsListSources que s'utilitzin en la pàgina.</p>
+
+<h2><a name="Detalldelstags-select-Exemple"></a>Exemple</h2>
+
+<p>A continuació es presenta un fragment de pàgina que utilitza el tag <b>fwk:select</b></p>
+
+<p><img src="Detall dels tags - select_attachments/fwk_select.jpg" align="absmiddle" border="0" /></p>
+
+<h3><a name="Detalldelstags-select-P%C3%A0ginaJSP"></a>Pàgina JSP</h3>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java">&lt;%@ include file=<span class="code-quote">"/WEB-INF/jsp/includes/fwkTagLibs.jsp"</span> %&gt;
+
+&lt;script type=<span class="code-quote">"text/javascript"</span>
+        src=<span class="code-quote">"&lt;c:url value="</span>/scripts/tooltips/dom_tooltip/domLib.js<span class="code-quote">"/&gt;"</span>&gt;
+&lt;/script&gt;
+&lt;script type=<span class="code-quote">"text/javascript"</span>
+        src=<span class="code-quote">"&lt;c:url value="</span>/scripts/tooltips/dom_tooltip/domTT.js<span class="code-quote">"/&gt;"</span>&gt;
+&lt;/script&gt;
+
+&lt;link rel=<span class="code-quote">"Stylesheet"</span>
+      href=<span class="code-quote">"css/tooltips/tooltips.css"</span>
+      type=<span class="code-quote">"text/css"</span>
+      media=<span class="code-quote">"screen"</span>&gt;
+
+&lt;fwk:form action=<span class="code-quote">"provesTagsSimple.<span class="code-keyword">do</span>"</span>
+          styleId=<span class="code-quote">"myActionForm"</span>
+          key=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.form"</span>
+          reqCode=<span class="code-quote">"show"</span>
+          method=<span class="code-quote">"post"</span>
+          layout=<span class="code-quote">"<span class="code-keyword">true</span>"</span>&gt;
+    (...)
+    &lt;fwk:select styleId=<span class="code-quote">"camp8"</span>
+                key=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.camp8"</span>
+                mode=<span class="code-quote">"E,E,E"</span>
+    		layout=<span class="code-quote">"<span class="code-keyword">true</span>"</span>
+                tooltipTitleKey=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.camp8.tipTitle"</span>
+                tooltipKey=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.camp8.tip"</span>
+                property=<span class="code-quote">"camp8"</span> /&gt;
+    (...)
+&lt;/fwk:form&gt;</pre>
+</div></div><br clear="all" /></p>
+
+<h3><a name="Detalldelstags-select-Arxiusd%27internacionalitzaci%C3%B3"></a>Arxius d'internacionalització</h3>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java">jsp.provesTags.ProvesTagsSimple.camp8=Un altre camp
+jsp.provesTags.ProvesTagsSimple.camp8.tipTitle=Ajuda
+jsp.provesTags.ProvesTagsSimple.camp8.tip=Ajuda del camp que és un Select</pre>
+</div></div><br clear="all" /></p>
+
+<h3><a name="Detalldelstags-select-Configuraci%C3%B3Spring"></a>Configuració Spring</h3>
+
+<p>En canigo-services-web-options-lists.xml<br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean name=<span class="code-quote">"defaultOptionValueListHandler"</span>
+      class=<span class="code-quote">"net.mlw.vlh.DefaultValueListHandlerImpl"</span>&gt;
+    &lt;property name=<span class="code-quote">"config.adapters"</span>&gt;
+        &lt;map&gt;
+            &lt;entry key=<span class="code-quote">"categoriesList"</span>&gt;
+                &lt;bean parent=<span class="code-quote">"defaultOptionBaseHibernateAdapter"</span>&gt;
+                    &lt;property name=<span class="code-quote">"hql"</span>&gt;
+                        &lt;value&gt;
+                            FROM
+                            net.gencat.ctti.canigo.samples.prototip.model.Category
+                            AS vo WHERE 1=1
+                            /~descn: AND vo.descn LIKE {descn} ~/
+                            /~sortColumn: ORDER BY vo.[sortColumn] [sortDirection]~/
+                        &lt;/value&gt;
+                    &lt;/property&gt;
+                &lt;/bean&gt;
+            &lt;/entry&gt;</pre>
+</div></div><br clear="all" /></p>
+
+<p>En la configuració de l'ActionServlet associat a la pantalla:<br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;beans&gt;
+    &lt;bean id=<span class="code-quote">"categoriesOptionListSource"</span>
+          parent=<span class="code-quote">"defaultOptionListSource"</span>&gt;
+        &lt;property name=<span class="code-quote">"optionListName"</span>
+                  value=<span class="code-quote">"categoriesList"</span>/&gt;
+        &lt;property name=<span class="code-quote">"optionLabelName"</span>
+                  value=<span class="code-quote">"name"</span>/&gt;
+        &lt;property name=<span class="code-quote">"optionLabelProperty"</span>
+                  value=<span class="code-quote">"id"</span>/&gt;
+    &lt;/bean&gt;
+
+    &lt;bean id=<span class="code-quote">"optionsListService"</span>
+          class=<span class="code-quote">"net.gencat.ctti.canigo.services.web.taglib.util.options.OptionsListServiceBase"</span>&gt;
+        &lt;property name=<span class="code-quote">"optionsListSources"</span>&gt;
+            &lt;map&gt;
+                &lt;entry key=<span class="code-quote">"categoriesList"</span>&gt;
+                    &lt;ref bean=<span class="code-quote">"categoriesOptionListSource"</span>/&gt;
+                &lt;/entry&gt;
+            &lt;/map&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt;
+
+    &lt;bean id=<span class="code-quote">"selectFieldTag"</span>
+          class=<span class="code-quote">"net.gencat.ctti.canigo.services.web.struts.taglib.forms.fields.SelectFieldTag"</span>&gt;
+        &lt;property name=<span class="code-quote">"optionsListService"</span>
+                  ref=<span class="code-quote">"optionsListService"</span>/&gt;
+    &lt;/bean&gt;
+
+    &lt;bean name=<span class="code-quote">"/provesTagsSimple"</span>
+          class=<span class="code-quote">"net.gencat.ctti.canigo.provesTags.struts.action.ProvesTagsSimpleAction"</span>&gt;
+
+        &lt;property name=<span class="code-quote">"tagsConfiguration"</span>&gt;
+            &lt;map&gt;
+                &lt;entry key=<span class="code-quote">"*"</span>&gt;
+                    &lt;list&gt;
+
+                        &lt;bean parent=<span class="code-quote">"selectFieldTag"</span>&gt;
+                            &lt;property name=<span class="code-quote">"styleId"</span> value=<span class="code-quote">"camp8"</span>/&gt;
+                            &lt;property name=<span class="code-quote">"optionsListName"</span> value=<span class="code-quote">"categoriesList"</span>/&gt;
+                        &lt;/bean&gt;
+
+                    &lt;/list&gt;
+                &lt;/entry&gt;
+            &lt;/map&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt;
+&lt;/beans&gt;</pre>
+</div></div><br clear="all" /></p>
+
+<h3><a name="Detalldelstags-select-forceOnChange"></a>forceOnChange</h3>
+
+<p>El tag de select per defecte llança l'event onChange cada cop que hi ha qualsevol canvi a un select enllaçat. Si el que volem és canviar aquesta funcionalitat per defecte dels selects enllaçats es pot fer amb l'element forceOnSubmit que s'ha afegit propi al tag. Exemple: forceOnChange="false".<br/>
+Aquest element per defecte té valor de true i només actua quan explícitament el canviem a false de la següent forma (forceOnChange="false"). Aquesta funcionalitat estarà inclosa en la propera versió del Framework 2.3.12 que es publicarà a finals de Gener.</p>
+
+<h2><a name="Detalldelstags-select-Bugs"></a>Bugs</h2>
+
+<ul>
+	<li>L'utilització dels atributs tooltipKey i tooltipTitleKey no inclouen automàticament els arxius javascript necessàris i cal fer-ho explícitament.</li>
+</ul>
+
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Detall dels tags - select_attachments/fwk_text.jpg">fwk_text.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Detall dels tags - select_attachments/fwk_submit.jpg">fwk_submit.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Detall dels tags - select_attachments/fwk_select.jpg">fwk_select.jpg</a> (image/jpeg)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

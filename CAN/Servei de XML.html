@@ -1,0 +1,553 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Servei de XML</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Servei de XML
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Sep 12, 2007 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="ServeideXML-SERVEIDEXML"></a>SERVEI DE XML</h1>
+
+<p><br clear="all" />
+<br clear="all" />
+<div>
+<ul><a href='#ServeideXML-SERVEIDEXML'>
+    <li>SERVEI DE XML</li></a><a href='#ServeideXML-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#ServeideXML-Prop%C3%B3sit'>
+    <li>Propósit</li></a><a href='#ServeideXML-ContextiEscenarisd%27%C3%9As'>
+    <li>Context i Escenaris  d'Ús</li></a><a href='#ServeideXML-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i  Dependències</li></a><a href='#ServeideXML-Aquivadirigit'>
+    <li>A qui va  dirigit</li></a><a href='#ServeideXML-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents i  Fonts de Referència</li></a>
+</ul><a href='#ServeideXML-Descripci%C3%B3Detallada'>
+    <li>Descripció  Detallada</li></a>
+<ul><a href='#ServeideXML-ArquitecturaiComponents'>
+    <li>Arquitectura i  Components</li></a><a href='#ServeideXML-Instal%5Claci%C3%B3'>
+    <li>Instal&#45; lació</li></a>
+<ul><a href='#ServeideXML-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#ServeideXML-Utilitzaci%C3%B3delServei'>
+    <li>Utilització del  Servei</li></a>
+</ul><a href='#ServeideXML-Exemples'>
+    <li>Exemples</li></a>
+<ul><a href='#ServeideXML-ExempledeSerialitzaci%C3%B3basadaenXStream'>
+    <li>Exemple  de Serialització basada en XStream</li></a><a href='#ServeideXML-ExempledeManipulaci%C3%B3deFitxersXML'>
+    <li>Exemple de  Manipulació de Fitxers XML</li></a>
+<ul><a href='#ServeideXML-ParseigXML'>
+    <li>Parseig XML</li></a><a href='#ServeideXML-%C3%9Asd%27Iteradors'>
+    <li>Ús  d'Iteradors</li></a><a href='#ServeideXML-Navegaci%C3%B3ambXPath'>
+    <li>Navegació  amb XPath</li></a><a href='#ServeideXML-Manipulaci%C3%B3degransdocuments'>
+    <li>Manipulació de  grans documents</li></a><a href='#ServeideXML-Creaci%C3%B3dedocumentXML'>
+    <li>Creació  de document XML</li></a><a href='#ServeideXML-Escriureenunfitxer'>
+    <li>Escriure en un  fitxer</li></a><a href='#ServeideXML-Conversi%C3%B3delfitxerXMLenunString'>
+    <li>Conversió  del fitxer XML en un String</li></a><a href='#ServeideXML-RealitzartransformacionsXSLT'>
+    <li>Realitzar  transformacions XSLT</li></a>
+</ul>
+</ul>
+</ul></div><br clear="all" /> <br clear="all" />
+<br clear="all" /></p>
+
+<p>&nbsp;
+<br clear="all" /></p>
+
+<h1><a name="ServeideXML-Introducci%C3%B3"></a>Introducció</h1>
+
+
+<h2><a name="ServeideXML-Prop%C3%B3sit"></a>Propósit</h2>
+
+<p>El Servei XML té 2 propósits principals:</p>
+<ol>
+	<li>Serialització i deserialització d'objectes en documents XML</li>
+	<li>Manipulació i lectura de fitxers XML</li>
+</ol>
+
+
+<p>Es tracten de dos característiques diferenciades, però amb el propósit comú  d'oferir la possibilitat de tractament de fitxers XML.</p>
+
+<h2><a name="ServeideXML-ContextiEscenarisd%27%C3%9As"></a>Context i Escenaris  d'Ús</h2>
+
+<p>El Servei XML es troba ubicat dins els Serveis de Presentació de canigo.  L'explicació del per què s'ubica en aquesta capa és degut al seu objectiu  d'integració amb clients. De la mateixa forma, la manipulació de fitxers XML i  serialització/deserialització es considera un tractament necessari per  transformar dades d'entrada en objectes de la lógica de negoci i viceversa.
+<br clear="all" /></p>
+
+<h2><a name="ServeideXML-VersionsiDepend%C3%A8ncies"></a>Versions i  Dependències</h2>
+
+<p>Les dependències descrites a la següent url son requerides per tal de compilar i fer funcionar el projecte:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-xml/dependencies.html" title="Visit page outside Confluence">Dependències Servei de XML</a></p>
+
+<h2><a name="ServeideXML-Aquivadirigit"></a>A qui va  dirigit</h2>
+
+<p>Aquest document va dirigit als següents perfils:</p>
+<ol>
+	<li>Programador. Per conéixer l'ús del servei</li>
+	<li>Arquitecte. Per conéixer quins són els components i la configuració del  servei</li>
+	<li>Administrador. Per conéixer cóm configurar el servei en cadascun dels  entorns en cas de necessitat</li>
+</ol>
+
+
+<h2><a name="ServeideXML-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents i  Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<td class='confluenceTd'> XStream </td>
+<td class='confluenceTd'> <a href="http://xstream.codehaus.org/" title="Visit page outside Confluence">http://xstream.codehaus.org/</a> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> Dom4j </td>
+<td class='confluenceTd'> <a href="http://www.dom4j.org/" title="Visit page outside Confluence">http://www.dom4j.org</a> <br clear="all" /> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> Referències generals (benchmarking,...) </td>
+<td class='confluenceTd'> <br clear="all" />
+http://www.rpbourret.com/xml/XMLDataBinding.htm\\ &nbsp;&nbsp;&nbsp; The Server side. Opinion: What tool for xml binding? http://www.theserverside.com/common/printthread.tss?thread_id=30658&nbsp;\\\\\\\\\\\\\\<br/>
+ Xstream: http://weblogs.java.net/blog/scottschram/archive/2005/09/the_xstream_lib.html\\\\\\\\\\\\\\<br/>
+ Performanceshttp://www.sosnoski.com/opensrc/xmlbench/results.html <br clear="all" />
+Java document model usage:<a href="http://www-128.ibm.com/developerworks/xml/library/x-injava2/index.html" title="Visit page outside Confluence">http://www-128.ibm.com/developerworks/xml/library/x-injava2/index.html</a> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> <br clear="all" /> </td>
+<td class='confluenceTd'> <br clear="all" /> </td>
+</tr>
+</tbody></table>
+
+<h1><a name="ServeideXML-Descripci%C3%B3Detallada"></a>Descripció  Detallada</h1>
+
+
+<h2><a name="ServeideXML-ArquitecturaiComponents"></a>Arquitectura i  Components</h2>
+
+<p>La comunitat opensource proposa una desena d'implementacions diferents per a  la serialització de XML. Actualment, i a causa del seu grau de facilitat i de <em>performance</em> canigo es basa en la llibreria XStream. A diferència de  totes les altres , aquesta llibreria no necessita cap configuració  específica.</p>
+
+<p>En quant a manipulació dels documents XML, usarem la llibreria dom4j, amb un  rendiment millor que jdom i amb més documentació.</p>
+
+<p>El servei permet la manipulació de documents XML per mitjà de l'ús de tres  interfícies:</p>
+<ul>
+	<li>XMLSerializationService, per a la serialització / deserialització de  documents XML</li>
+	<li>XMLSerializationConfiguration, per a configurar el mapeig entre classes Java  i XML</li>
+	<li>XMLDomHelper, per a manipular el fitxer XML (org.w3c.Document) i usar fulls  d'estil XSLT</li>
+</ul>
+
+
+<p>Per a més informació sobre les llibreries XML, una comparació de les APIs i  un <em>benchmark</em> de les performances, veure la secció 'Documents i Fonts de  Referència'</p>
+
+<p>Els components podem classificar-los en:</p>
+<ol>
+	<li>Interfícies i Components Genérics. Interfícies del servei i components d'ús  general amb independència de la implementació escollida.</li>
+	<li>Implementació de la serialització basada en XStream</li>
+	<li>Implementació del parseig basada en DOM4J<br/>
+Es pot trobar tota la documentació JavaDoc y el codi font referent aquests components a les següents urls:</li>
+</ol>
+
+
+<p><ins>JavaDoc:</ins> <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-xml/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-xml/apidocs/index.html</a><br/>
+<ins>Codi Font:</ins>&nbsp; <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-xml/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-xml/xref/index.html</a></p>
+
+<h2><a name="ServeideXML-Instal%5Claci%C3%B3"></a>Instal&#45; lació</h2>
+
+<p>La instal&#45; lació del servei requereix de la utilització de la llibreria  'canigo-services-xml' i les dependències indicades a l'apartat  'Introducció-Versions i Dependències'.</p>
+
+<h3><a name="ServeideXML-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p>La configuració del Servei XML implica 3 pasos:</p>
+<ol>
+	<li>Definir els servei de serialització i el mapeig dels objectes</li>
+	<li>Definir el servei de parseig</li>
+</ol>
+
+
+<p>Definició del servei de serialització<br/>
+<img src="Servei de XML_attachments/image005.gif" align="absmiddle" border="0" /></p>
+
+<p><em>Fitxer de configuració: canigo-services-xml.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>En aquesta configuració es defineix quina implementació específica s'usarà  per la serialització. En l'actualitat es permet l'ús de:</p>
+<ol>
+	<li>net.gencat.ctti.canigo.services.xml.xstream.XMLSerializationServiceXStreamImpl</li>
+</ol>
+
+
+<p>Per aquesta implementació podem definir de forma adicional quin serà el  mapeig entre les classes i atributs i els tags XML del fitxer.</p>
+
+<p>Per a més referència consultar la web de 'XStream'. En l'apartat d'exemples  es mostra un cas pràctic de configuració d'aquest fitxer de mapeig.</p>
+
+<p>Definició del servei de parseig<br/>
+<img src="Servei de XML_attachments/image006.gif" align="absmiddle" border="0" /></p>
+
+<p><em>Fitxer de configuració: canigo-services-xml.xml</em></p>
+
+<p><em>Ubicació proposada:  &lt;PROJECT_ROOT&gt;/src/main/resources/spring</em></p>
+
+<p>En aquesta configuració es defineix quina implementació específica s'usarà  per la manipulació de fitxers XML. En l'actualitat es permet l'ús de:</p>
+<ol>
+	<li>net.gencat.ctti.canigo.services.xml.dom4j.XMLDomHelperDom4jImpl</li>
+</ol>
+
+
+<h2><a name="ServeideXML-Utilitzaci%C3%B3delServei"></a>Utilització del  Servei</h2>
+
+<p>La utilització del Servei es basa en l´ús de les interfícies definides a  l'apartat 'Arquitectura i Components'. Consultar l'apartat 'Exemples' per veure  alguns exemples del tractamen de fitxers XML amb l'API proporcionada.</p>
+
+<p>A mode de resum podem resumir que:</p>
+<ol>
+	<li>La interfície XMLSerializationService proporciona principalment els mètodes  següents:</li>
+</ol>
+
+
+<ol>
+	<li>toXML, serialització d'un objecte (JavaBean o no) cap a un document XML</li>
+	<li>fromXML, deserialització d'un document XML cap a un objecte Java</li>
+	<li>getXMLBindingConfiguration, getter de la configuració del mapeig  XML</li>
+</ol>
+
+
+<ol>
+	<li>La interfície XMLSerializationConfiguration conté els mètodes  següents:</li>
+</ol>
+
+
+<ol>
+	<li>aliasClass, per a fer el mapeig del nom d'una classe</li>
+	<li>aliasField, per a fer el mapeig d'un camp</li>
+</ol>
+
+
+<ol>
+	<li>La interfície XMLDomHelper conté els mètodes següents per a manipular  documents DOM de la interfície org.w3c.Document:</li>
+	<li>parse, per a construir un document XML a partir d'un String</li>
+	<li>writeToFile, per a escriure el contingut d'un document XML en un fitxer</li>
+	<li>transform, per a realitzar transformacions XSLT amb jaxp  interfícies</li>
+</ol>
+
+
+<h1><a name="ServeideXML-Exemples"></a>Exemples</h1>
+
+
+<h2><a name="ServeideXML-ExempledeSerialitzaci%C3%B3basadaenXStream"></a>Exemple  de Serialització basada en XStream</h2>
+
+<p>Per a serialitzar un objecte seguirem el següent procediment:</p>
+<ul>
+	<li>Crear les classes que volem serialitzar en XML
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> class Person {
+    <span class="code-keyword">private</span> <span class="code-object">String</span> firstname;
+    <span class="code-keyword">private</span> <span class="code-object">String</span> lastname;
+    <span class="code-keyword">private</span> PhoneNumber phone;
+    <span class="code-keyword">private</span> PhoneNumber fax;
+    <span class="code-comment">// ... constructors and methods
+</span>}
+
+<span class="code-keyword">public</span> class PhoneNumber {
+    <span class="code-keyword">private</span> <span class="code-object">int</span> code;
+    <span class="code-keyword">private</span> <span class="code-object">String</span> number;
+    <span class="code-comment">// ... constructors and methods
+</span>}
+
+..
+
+Person objectToSerialize = <span class="code-keyword">new</span> Person(<span class="code-quote">"Joe"</span>, <span class="code-quote">"Walnes"</span>);
+objectToSerialize.setPhone(<span class="code-keyword">new</span> PhoneNumber(123, <span class="code-quote">"1234-456"</span>));
+objectToSerialize.setFax(<span class="code-keyword">new</span> PhoneNumber(123, <span class="code-quote">"9999-999"</span>));</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+	<li>Configuració del mapeig</li>
+</ul>
+
+
+<p>Per defecte, Xstream usa el nom complet de la classe de l'objecte que  serialitza. Per exemple, la classe com.mycompany.business.model.Person genera el  XML següent:<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span>  encoding=<span class="code-quote">"ISO-8859-1"</span>?&gt;
+
+&lt;com.mycompany.business.model.person&gt;
+
+...</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>Si volem un nom més fàcil d'ús, podem afegir el mapeig següent:</p>
+
+<p>// Mapeig de la classe Person<br/>
+xmlSerializationService.getXMLBindingConfiguration().aliasClass("person",  Person.class);</p>
+<ol>
+	<li>Serialització d'un objecte a XML
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-object">String</span> xml = xmlSerializationService.toXML(<span class="code-keyword">this</span>.objectToSerialize)</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ol>
+
+
+<p>El resultat de la serialització és el document XML següent:<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span>  encoding=<span class="code-quote">"ISO-8859-1"</span>?&gt;
+
+&lt;person&gt;
+
+&lt;firstname&gt;Joe&lt;/firstname&gt;
+
+&lt;lastname&gt;Walnes&lt;/lastname&gt;
+
+&lt;phone&gt;
+
+&lt;id&gt;123&lt;/id&gt;
+
+&lt;number&gt;1234-456&lt;/number&gt;
+
+&lt;/phone&gt;
+
+&lt;fax&gt;
+
+&lt;id&gt;123&lt;/id&gt;
+
+&lt;number&gt;9999-999&lt;/number&gt;
+
+&lt;/fax&gt;
+
+&lt;/person&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Deserialització de l'objecte des de XML
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">Person person2 = xmlSerializationService.fromXML(xml)</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" /></li>
+</ol>
+
+
+<h2><a name="ServeideXML-ExempledeManipulaci%C3%B3deFitxersXML"></a>Exemple de  Manipulació de Fitxers XML</h2>
+
+<p>Presentarem a través d'exemples concrets les APIs bàsiques de dom4j per  realitzar amb poc codi les operacions següents:</p>
+
+<p><em>1) Parsing XML</em><br/>
+<em>2) Ús d'Iterators</em><br/>
+<em>3) Navegació amb  XPath</em><br/>
+<em>4) Manipulació de gran documents</em><br/>
+<em>5) Creació de  document XML</em><br/>
+<em>6) Escriure en un fitxer</em><br/>
+<em>7) Conversió en  un String</em><br/>
+<em>8) Realitzar transformacions XSLT</em></p>
+
+<p>Per a més informació sobre dom4j, veure la pàgina <a href="http://www.dom4j.org/cookbook.html" title="Visit page outside Confluence">http://www.dom4j.org/cookbook.html</a></p>
+
+<p>En els exemples següents, "domHelper" referencia el bean del servei XML.</p>
+
+<h3><a name="ServeideXML-ParseigXML"></a>Parseig XML</h3>
+
+<p>Per a construir un document XML, amb la interfície  org.<b>w3c</b>.Document:<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-object">String</span> xml = <span class="code-quote">"&lt;?xml version="</span>1.0<span class="code-quote">" encoding="</span>ISO-8859-1<span class="code-quote">"?&gt;&lt;person&gt;  ...&lt;/person&gt;"</span>;
+
+org.w3c.Document = domHelper.parse(xml);</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>amb la interfície org.<b>dom4j</b>.Document:<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-object">String</span> xml = <span class="code-quote">"&lt;?xml version="</span>1.0<span class="code-quote">" encoding="</span>ISO-8859-1<span class="code-quote">"?&gt;&lt;person&gt;  ...&lt;/person&gt;"</span>;
+
+SAXReader reader = <span class="code-keyword">new</span> SAXReader(<span class="code-keyword">new</span>  StringReader(xm));
+
+org.dom4j.Document document = reader.read();</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h3><a name="ServeideXML-%C3%9Asd%27Iteradors"></a>Ús  d'Iteradors</h3>
+
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> void bar(org.dom4j.Document document) <span class="code-keyword">throws</span> DocumentException
+{
+    Element root = document.getRootElement();
+
+    <span class="code-comment">// Iteración de los elementos de la rais del Documento
+</span>    <span class="code-keyword">for</span> ( Iterator i = root.elementIterator(); i.hasNext(); ) {
+    Element element = (Element) i.next();
+        ...
+    }
+
+    <span class="code-comment">// Iteración de los elementos de la raizdel Documento cuyo nombre es <span class="code-quote">"foo"</span>
+</span>    <span class="code-keyword">for</span> ( Iterator i = root.elementIterator( <span class="code-quote">"foo"</span> ); i.hasNext(); ) {
+    Element foo = (Element) i.next();
+        <span class="code-comment">// <span class="code-keyword">do</span> something
+</span>    }
+
+}</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h3><a name="ServeideXML-Navegaci%C3%B3ambXPath"></a>Navegació  amb XPath</h3>
+
+<p>Podem avaluar amb XPath expressions per qualsevol element de l'arbre  representat al document XML (Attribute, Element):<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">public</span> void bar(org.dom4j.Document document) {
+    List list = document.selectNodes( <span class="code-quote">"<span class="code-comment">//foo/bar"</span> );
+</span>
+    Node node = document.selectSingleNode( <span class="code-quote">"<span class="code-comment">//foo/bar/author"</span> );
+</span>
+    <span class="code-object">String</span> name = node.valueOf( <span class="code-quote">"@name"</span> );
+}</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>Per a més informació sobre  XPath, veure el tutorial '<a href="http://www.zvon.org/xxl/XPathTutorial/General/examples.html" title="Visit page outside Confluence">http://www.zvon.org/xxl/XPathTutorial/General/examples.html</a></p>
+
+<h3><a name="ServeideXML-Manipulaci%C3%B3degransdocuments"></a>Manipulació de  grans documents</h3>
+
+<p>Els grans documents no es poden manipular amb iterators perquè aquells  necessiten massa memòria. En en el seu lloc usarem mètodes recursius:<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">org.dom4j.Element root = document.getRootElement();
+treeWalk(root);
+
+<span class="code-keyword">public</span> void treeWalk(org.dom4j.Element element) {
+    <span class="code-keyword">for</span> ( <span class="code-object">int</span> i = 0, size = element.nodeCount(); i &lt; size; i++ ) {
+        Node node = element.node;
+        <span class="code-keyword">if</span> ( node <span class="code-keyword">instanceof</span> Element ) {
+            treeWalk( (Element) node );
+        }
+        <span class="code-keyword">else</span> {
+            <span class="code-comment">// <span class="code-keyword">do</span> something....
+</span>        }
+    }
+}</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h3><a name="ServeideXML-Creaci%C3%B3dedocumentXML"></a>Creació  de document XML</h3>
+
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">org.dom4j.Document document = DocumentHelper.createDocument();
+
+Element  root = document.addElement( <span class="code-quote">"root"</span> );
+
+Element author1 = root.addElement( <span class="code-quote">"escritor"</span> )
+
+.addAttribute( <span class="code-quote">"name"</span>,  <span class="code-quote">"Jaume"</span> )
+
+.addAttribute( <span class="code-quote">"location"</span>, <span class="code-quote">"Barcelona"</span> )
+
+.addText( <span class="code-quote">"Jaume  Primero"</span> );</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h3><a name="ServeideXML-Escriureenunfitxer"></a>Escriure en un  fitxer</h3>
+
+<p>Amb la interfície org.<b>w3c</b>.Document:
+<br clear="all" />
+<div class="panel"><div class="panelContent">
+<p>org.w3c.Document document = ...<br/>
+domHelper.writeToFile(document,  "foo.xml");</p>
+
+<p>Amb la interfície org.<b>dom4j</b>.Document:</p>
+
+<p>org.dom4j.Document document = ...<br/>
+FileWriter out = new FileWriter(  "foo.xml" );<br/>
+document.write( out );</p>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h3><a name="ServeideXML-Conversi%C3%B3delfitxerXMLenunString"></a>Conversió  del fitxer XML en un String</h3>
+
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">org.dom4j.Document document = ...;
+
+<span class="code-object">String</span> text = document.asXML();</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h3><a name="ServeideXML-RealitzartransformacionsXSLT"></a>Realitzar  transformacions XSLT</h3>
+
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-comment">// Get the XML source and XSLT
+</span>
+DOMSource xml = <span class="code-keyword">new</span> DOMSource(<span class="code-keyword">new</span>  File(<span class="code-quote">"afile.xml"</span>));
+
+DOMSource xslt = <span class="code-keyword">new</span> DOMSource(<span class="code-keyword">new</span>  File(<span class="code-quote">"astyle.xslt"</span>));
+
+DOMResult result = domHelper.transform(xml, xslt);</pre>
+</div></div><br clear="all" /></p>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de XML_attachments/image005.gif">image005.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de XML_attachments/image002.gif">image002.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de XML_attachments/image004.gif">image004.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de XML_attachments/image003.gif">image003.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de XML_attachments/image001.jpg">image001.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de XML_attachments/image006.gif">image006.gif</a> (image/gif)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

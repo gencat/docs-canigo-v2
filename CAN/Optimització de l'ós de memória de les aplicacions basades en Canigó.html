@@ -1,0 +1,539 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Optimització de l'ús de memòria de les aplicacions basades en Canigó</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Optimització de l'ús de memòria de les aplicacions basades en Canigó
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Nov 21, 2007 by <font color="#0050B2">fernando.vaquero</font>.
+				    </div>
+
+				    <h1><a name="Optimitzaci%C3%B3del%27%C3%BAsdemem%C3%B2riadelesaplicacionsbasadesenCanig%C3%B3-Optimitzaci%C3%B3del%27%C3%BAsdemem%C3%B2riadelesaplicacionsbasadesenCanig%C3%B3"></a>Optimització de l'ús de memòria de les aplicacions basades en Canigó</h1>
+
+<p><div>
+<ul><a href='#Optimitzaci%C3%B3del%27%C3%BAsdemem%C3%B2riadelesaplicacionsbasadesenCanig%C3%B3-Optimitzaci%C3%B3del%27%C3%BAsdemem%C3%B2riadelesaplicacionsbasadesenCanig%C3%B3'>
+    <li>Optimització de l'ús de memòria de les aplicacions basades en Canigó</li></a>
+<ul><a href='#Optimitzaci%C3%B3del%27%C3%BAsdemem%C3%B2riadelesaplicacionsbasadesenCanig%C3%B3-Context'>
+    <li>Context</li></a><a href='#Optimitzaci%C3%B3del%27%C3%BAsdemem%C3%B2riadelesaplicacionsbasadesenCanig%C3%B3-Propostesdesoluci%C3%B3'>
+    <li>Propostes de solució</li></a>
+<ul><a href='#Optimitzaci%C3%B3del%27%C3%BAsdemem%C3%B2riadelesaplicacionsbasadesenCanig%C3%B3-Opci%C3%B31%3APublicaci%C3%B3alEAR'>
+    <li>Opció 1: Publicació al EAR</li></a><a href='#Optimitzaci%C3%B3del%27%C3%BAsdemem%C3%B2riadelesaplicacionsbasadesenCanig%C3%B3-Opci%C3%B32%3APublicaci%C3%B3aldomini'>
+    <li>Opció 2: Publicació al domini</li></a><a href='#Optimitzaci%C3%B3del%27%C3%BAsdemem%C3%B2riadelesaplicacionsbasadesenCanig%C3%B3-Opci%C3%B33%3ASharedlibraries%28Weblogic%29'>
+    <li>Opció 3: Shared libraries (Weblogic)</li></a>
+</ul>
+</ul>
+</ul></div><br clear="all" /></p>
+
+<h2><a name="Optimitzaci%C3%B3del%27%C3%BAsdemem%C3%B2riadelesaplicacionsbasadesenCanig%C3%B3-Context"></a>Context</h2>
+
+<p>Actualment estan desplegades als entorns J2EE corporatius de la Generalitat diferents aplicacions desenvolupades amb Canigó. Aquestes aplicacions fan ús dels diferents serveis que Canigó ha desenvolupat basant-se en frameworks Open Source (Spring, Hibernate, Struts, quartz, etc.), i per tant fan ús dels jars que contenen aquestes llibreries de suport. Com que cada aplicació carrega totes les llibreries que necessita, el consum de recursos als entorns corporatius creix.</p>
+
+<p>Aquesta situació, de càrrega repetida de llibreries, es pot solucionar desplegant els jars de forma compartida, de forma que reduïm considerablement el tamany en memòria de cada aplicació desplegada.</p>
+
+<h2><a name="Optimitzaci%C3%B3del%27%C3%BAsdemem%C3%B2riadelesaplicacionsbasadesenCanig%C3%B3-Propostesdesoluci%C3%B3"></a>Propostes de solució</h2>
+
+<p>La separació proposada es la següent, per fer-ho s'ha tingut que fer servir spring en la seva versió per mòduls.</p>
+<ul>
+	<li>Llibreries compartibles.</li>
+</ul>
+
+
+<table class='confluenceTable'><tbody>
+<tr>
+<td class='confluenceTd'> acegi-security-0.9.0.jar </td>
+<td class='confluenceTd'> htmlparser-1.6.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> activation-1.1.jar </td>
+<td class='confluenceTd'> httpunit-1.6.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> AdobeCSAUtils-1.0.jar </td>
+<td class='confluenceTd'> itext-1.3.1.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> ajaxtags-1.1.jar </td>
+<td class='confluenceTd'> jasperreports-1.0.2.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> ant-1.6.2.jar </td>
+<td class='confluenceTd'> jaxen-1.1.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> antlr-2.7.5H3.jar </td>
+<td class='confluenceTd'> jaxrpc-1.0.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> aopalliance-1.0.jar </td>
+<td class='confluenceTd'> jcifs-1.2.6.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> apache-ldapber-provider-0.9.jar </td>
+<td class='confluenceTd'> jdbcappender-2.1.01.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> apacheds-core-0.9.jar </td>
+<td class='confluenceTd'> jdbm-0.20-dev.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> apacheds-main-0.9.jar </td>
+<td class='confluenceTd'> jdom-1.0.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> apacheds-shared-0.9.jar </td>
+<td class='confluenceTd'> jdtcore-3.1.0.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> asm-1.5.3.jar </td>
+<td class='confluenceTd'> jmock-1.0.1.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> asn1-ber-0.3.jar </td>
+<td class='confluenceTd'> jmock-cglib-1.0.1.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> asn1-codec-0.3.jar </td>
+<td class='confluenceTd'> jrexx-1.1.1.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> asn1-der-0.3.jar </td>
+<td class='confluenceTd'> js-1.6R2.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> aspectjrt-1.2.jar </td>
+<td class='confluenceTd'> json-lib-0.6.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> aspectwerkz-2.0.jar </td>
+<td class='confluenceTd'> jsr173_api-1.0.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> aspectwerkz-core-2.0.jar </td>
+<td class='confluenceTd'> jta-1.0.1B.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> aspectwerkz-extensions-2.0.jar </td>
+<td class='confluenceTd'> jtidy-4aug2000r7-dev.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> aspectwerkz-jdk14-2.0.jar </td>
+<td class='confluenceTd'> junit-3.8.1.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> axis-1.3.jar </td>
+<td class='confluenceTd'> jwebunit-1.2.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> axis-ant-1.3.jar </td>
+<td class='confluenceTd'> kerberos-common-0.4.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> axis-jaxrpc-1.3.jar </td>
+<td class='confluenceTd'> kerberos-protocol-0.4.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> axis-saaj-1.3.jar </td>
+<td class='confluenceTd'> ldap-common-0.9.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> axis-wsdl4j-1.3.jar </td>
+<td class='confluenceTd'> ldap-protocol-0.9.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> backport-util-concurrent-2.0_01_pd.jar </td>
+<td class='confluenceTd'> log4j-1.2.12.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> bcprov-jdk14-124.jar </td>
+<td class='confluenceTd'> mail-1.4.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> bsf-2.3.0.jar </td>
+<td class='confluenceTd'> mina-0.7.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> canigo-services-configuration-2.2.jar </td>
+<td class='confluenceTd'> mx4j-3.0.1.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> canigo-services-core-2.2.jar </td>
+<td class='confluenceTd'> nekohtml-0.9.5.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> canigo-services-exceptions-2.2.jar </td>
+<td class='confluenceTd'> ognl-2.6.9.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> canigo-services-file-2.2.jar </td>
+<td class='confluenceTd'> ojdbc14_g-10.2.0.1.0.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> canigo-services-ftp-2.2.jar </td>
+<td class='confluenceTd'> oro-2.0.8.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> canigo-services-http-2.2.jar </td>
+<td class='confluenceTd'> PDFManipulationAPI-1.0.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> canigo-services-i18n-2.2.jar </td>
+<td class='confluenceTd'> poi-3.0-alpha3.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> canigo-services-jms-2.2.jar </td>
+<td class='confluenceTd'> poi-scratchpad-3.0-alpha3-20061212.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> canigo-services-logging-2.2.jar </td>
+<td class='confluenceTd'> qdox-1.5.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> canigo-services-mailing-2.2.jar </td>
+<td class='confluenceTd'> quartz-1.4.0.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> canigo-services-merging-2.2.jar </td>
+<td class='confluenceTd'> regexp-1.2.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> canigo-services-ole-2.2.jar </td>
+<td class='confluenceTd'> saaj-1.0.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> canigo-services-persistence-2.2.jar </td>
+<td class='confluenceTd'> saaj-api-1.0.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> canigo-services-portlets-2.2.jar </td>
+<td class='confluenceTd'> saaj-impl-1.0.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> canigo-services-reporting-2.2.jar </td>
+<td class='confluenceTd'> sapjco-2.1.6.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> canigo-services-sap-2.2.jar </td>
+<td class='confluenceTd'> security-5.1.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> canigo-services-scheduler-2.2.jar </td>
+<td class='confluenceTd'> servlet-api-2.4.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> canigo-services-security-2.2.jar </td>
+<td class='confluenceTd'> snmp-3.0.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> canigo-services-validation-2.2.jar </td>
+<td class='confluenceTd'> snmpTrapAppender-1.2.9.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> canigo-services-webservices-2.2.jar </td>
+<td class='confluenceTd'> soap-2.3.1.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> canigo-services-xml-2.2.jar </td>
+<td class='confluenceTd'> spring-aop.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> casclient-2.0.11.jar </td>
+<td class='confluenceTd'> spring-beans.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> cglib-2.1_2.jar </td>
+<td class='confluenceTd'> spring-context.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> cglib-full-2.0.jar </td>
+<td class='confluenceTd'> spring-core.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> cglib-nodep-2.1_2.jar </td>
+<td class='confluenceTd'> spring-dao.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> commons-attributes-api-2.1.jar </td>
+<td class='confluenceTd'> spring-hibernate3.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> commons-attributes-compiler-2.1.jar </td>
+<td class='confluenceTd'> spring-jdbc.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> commons-beanutils-1.7.0.jar </td>
+<td class='confluenceTd'> spring-support.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> commons-beanutils-core-1.7.0.jar </td>
+<td class='confluenceTd'> spring-web.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> commons-chain-1.0.jar </td>
+<td class='confluenceTd'> spring-webmvc.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> commons-codec-1.3.jar </td>
+<td class='confluenceTd'> springmodules-validator-0.4.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> commons-collections-3.1.jar </td>
+<td class='confluenceTd'> stax-1.2.0.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> commons-digester-1.7.jar </td>
+<td class='confluenceTd'> stax-api-1.0.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> commons-discovery-0.2.jar </td>
+<td class='confluenceTd'> trove-1.0.2.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> commons-fileupload-1.2.jar </td>
+<td class='confluenceTd'> urlrewrite-3.0.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> commons-io-1.1.jar </td>
+<td class='confluenceTd'> valuelist-0.1.7.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> commons-jelly-tags-fmt-1.0.jar </td>
+<td class='confluenceTd'> weblogic-1.0.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> commons-lang-2.1.jar </td>
+<td class='confluenceTd'> wsdl4j-1.4.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> commons-logging-1.0.4.jar </td>
+<td class='confluenceTd'> wstx-asl-2.9.1.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> commons-logging-api-1.0.4.jar </td>
+<td class='confluenceTd'> xalan-2.7.0.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> commons-net-1.4.0.jar </td>
+<td class='confluenceTd'> xbean-spring-2.1.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> commons-primitives-20041207.202534.jar </td>
+<td class='confluenceTd'> xercesImpl-2.7.1.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> commons-test-0.1.jar </td>
+<td class='confluenceTd'> xfire-all-1.0-M5.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> commons-validator-1.3.0.jar </td>
+<td class='confluenceTd'> xml-apis-1.3.02.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> connector-api-1.5.jar </td>
+<td class='confluenceTd'> xmlbeans-2.0-20041214.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> datamanager-client-1.0.jar </td>
+<td class='confluenceTd'> xmlbeans-xmlpublic-2.0-20041214.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> DocumentServicesLibrary-1.0.jar </td>
+<td class='confluenceTd'> xmlParserAPIs-2.6.2.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> dom4j-1.6.1.jar </td>
+<td class='confluenceTd'> xmlpull-1.1.3.1.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> easymock-1.1.jar </td>
+<td class='confluenceTd'> xmlunit-1.0.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> ehcache-1.2.4.jar </td>
+<td class='confluenceTd'> xom-1.1.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> emma-2.0.5312.jar </td>
+<td class='confluenceTd'> xpp3-1.1.3_8.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> FastInfoset-1.0.jar </td>
+<td class='confluenceTd'> xstream-1.1.2.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> hibernate-3.0.5.jar </td>
+<td class='confluenceTd'> yom-1.0-alpha-2.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> hsqldb-1.8.0.1.jar </td>
+<td class='confluenceTd'>&nbsp;</td>
+</tr>
+</tbody></table>
+<ul>
+	<li>Llibreries no compartibles.</li>
+</ul>
+
+
+<table class='confluenceTable'><tbody>
+<tr>
+<td class='confluenceTd'> canigo-services-fileupload-2.2.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> canigo-services-web-2.2.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> dwr-1.1.3.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> jsp-api-2.0.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> jstl-1.1.2.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> spring-agent.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> spring-aspects.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> spring-ibatis.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> spring-jca.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> spring-jdo.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> spring-jms.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> spring-jmx.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> spring-jpa.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> spring-mock.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> spring-portlet.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> spring-remoting.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> spring-struts.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> spring-tomcat-weaver.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> spring-toplink.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> standard-1.0.6.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> struts-1.2.7.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> struts-layout-1.2_20051027.jar </td>
+</tr>
+<tr>
+<td class='confluenceTd'> struts-menu-2.3.jar </td>
+</tr>
+</tbody></table>
+<p>Per publicar de forma que estalviem memòria, tenim varies possibilitats, que es detallen a continuació en funció d'on publiquem les llibreries compartibles.</p>
+
+<h3><a name="Optimitzaci%C3%B3del%27%C3%BAsdemem%C3%B2riadelesaplicacionsbasadesenCanig%C3%B3-Opci%C3%B31%3APublicaci%C3%B3alEAR"></a>Opció 1: Publicació al EAR</h3>
+
+<p>Copiem les llibreries compartibles al APP-INF/lib del EAR, la resta haurà d'estar al WEB-INF/lib de cada WAR que formi part del EAR.</p>
+
+<p><b>Avantatges</b></p>
+<ul>
+	<li>Tots els mòduls d'un EAR comparteixen un classloader, amb lo que estalviem memòria si es despleguen més d'una aplicació que faci servir el framework en el mateix EAR.</li>
+</ul>
+
+
+<p><b>Inconvenients</b></p>
+<ul>
+	<li>Nomes es a nivell de EAR, es a dir que si volem definir un altra EAR, haurem de desplegar novament les llibreries compartibles.</li>
+</ul>
+
+
+<h3><a name="Optimitzaci%C3%B3del%27%C3%BAsdemem%C3%B2riadelesaplicacionsbasadesenCanig%C3%B3-Opci%C3%B32%3APublicaci%C3%B3aldomini"></a>Opció 2: Publicació al domini</h3>
+
+<p>Publiquem les llibreries compartides a tot el servidor d'aplicacions. En el cas de weblogic la carpeta lib associada al domini</p>
+
+<p><b>Avantatges</b></p>
+<ul>
+	<li>Estalvi de memòria es molt gran, ja que qualsevol aplicació te accés al classloader d'aquesta manera no nomes es comparteix a nivell de EAR, sinó a nivell de tot el domini.</li>
+</ul>
+
+
+<p><b>Inconvenients</b></p>
+<ul>
+	<li>Tota aplicació desplegada ha de funcionar amb la versió del framework definida per aquest domini. No fer-ho pot portar problemes de versions de llibreries.</li>
+	<li>Un canvi de llibreries publicades al domini implica reiniciar el domini.</li>
+</ul>
+
+
+<h3><a name="Optimitzaci%C3%B3del%27%C3%BAsdemem%C3%B2riadelesaplicacionsbasadesenCanig%C3%B3-Opci%C3%B33%3ASharedlibraries%28Weblogic%29"></a>Opció 3: Shared libraries (Weblogic)</h3>
+
+<p>Publiquem un paquet de jars de forma que es puguin compartir per totes les aplicacions del domini. Aquesta compartició es fa de manera que aquest paquet de jars es publica al classloader de cada EAR que el fa servir, amb lo que aquest estalvi de memòria es equivalent a la opció 1.</p>
+
+<p>Per realitzar aquesta modificació cal desempaquetar tots els jars compartibles, i tornar-los a empaquetar tots junts afegint el MANIFEST amb el nom de la llibreria i la versió de la forma següent:<br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java">Manifest-Version: 1.0
+Extension-Name: canigo-services-shared
+Implementation-Version: 2.2
+Specification-Version: 2.2</pre>
+</div></div><br clear="all" /></p>
+
+<p>Després cada EAR que la vulgui fer servir ha de incloure lo següent al weblogic-application.xml<br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;library-ref&gt;
+    &lt;library-name&gt;canigo-services-shared&lt;/library-name&gt;
+    &lt;specification-version&gt;2.2&lt;/specification-version&gt;
+    &lt;implementation-version&gt;2.2&lt;/implementation-version&gt;
+&lt;/library-ref&gt;</pre>
+</div></div><br clear="all" /></p>
+
+<p><b>Avantatges</b></p>
+<ul>
+	<li>Estalvi de memòria es molt gran, ja que qualsevol aplicació te accés al classloader d'aquesta manera no nomes es comparteix a nivell de EAR, sinó a nivell de tot e domini.</li>
+</ul>
+
+
+<p><b>Inconvenients</b></p>
+<ul>
+	<li>Tota aplicació desplegada ha de funcionar amb la versió del framework definida per aquest domini. No fer-ho pot portar problemes de versions de llibreries.</li>
+	<li>Un canvi de llibreries publicades al domini implica reiniciar el domini.</li>
+</ul>
+
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

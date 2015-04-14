@@ -1,0 +1,470 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Servei de HTTP 2.1</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Servei de HTTP 2.1
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Jul 06, 2007 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="ServeideHTTP2.1-SERVEIDEHTTP"></a>SERVEI DE HTTP</h1>
+
+<p><br clear="all" />
+<br clear="all" />
+<div>
+<ul><a href='#ServeideHTTP2.1-SERVEIDEHTTP'>
+    <li>SERVEI DE HTTP</li></a><a href='#ServeideHTTP2.1-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#ServeideHTTP2.1-Prop%C3%B3sit'>
+    <li>Propósit</li></a><a href='#ServeideHTTP2.1-ContextiEscenarisd%27%C3%9As'>
+    <li>Context i Escenaris  d'Ús</li></a><a href='#ServeideHTTP2.1-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i  Dependències</li></a><a href='#ServeideHTTP2.1-Aquivadirigit'>
+    <li>A qui va  dirigit</li></a><a href='#ServeideHTTP2.1-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents i  Fonts de Referència</li></a>
+</ul><a href='#ServeideHTTP2.1-Descripci%C3%B3Detallada'>
+    <li>Descripció  Detallada</li></a>
+<ul><a href='#ServeideHTTP2.1-ArquitecturaiComponents'>
+    <li>Arquitectura i  Components</li></a>
+<ul><a href='#ServeideHTTP2.1-Proc%C3%A9sdeComunicaci%C3%B3ambelServidor'>
+    <li>Procés  de Comunicació amb el Servidor</li></a>
+</ul><a href='#ServeideHTTP2.1-Instal%5Claci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal&#45; lació  i Configuració</li></a>
+<ul><a href='#ServeideHTTP2.1-Instal%5Claci%C3%B3'>
+    <li>Instal&#45; lació</li></a><a href='#ServeideHTTP2.1-Configuraci%C3%B3'>
+    <li>Configuració</li></a>
+</ul><a href='#ServeideHTTP2.1-Utilitzaci%C3%B3delServei'>
+    <li>Utilització del  Servei</li></a>
+<ul><a href='#ServeideHTTP2.1-Creaci%C3%B3delApplet'>
+    <li>Creació  del Applet</li></a><a href='#ServeideHTTP2.1-Creaci%C3%B3delJardelApplet'>
+    <li>Creació del Jar del  Applet</li></a><a href='#ServeideHTTP2.1-Creaci%C3%B3delaPlanaJSP%2FHTMLContenidoradelApplet'>
+    <li>Creació  de la Plana JSP/HTML Contenidora del Applet</li></a><a href='#ServeideHTTP2.1-Comunicaci%C3%B3JavascriptambelApplet'>
+    <li>Comunicació  Javascript amb el Applet</li></a>
+</ul>
+</ul>
+</ul></div><br clear="all" /> <br clear="all" />
+&nbsp;
+<br clear="all" />
+<br clear="all" /></p>
+
+<h1><a name="ServeideHTTP2.1-Introducci%C3%B3"></a>Introducció</h1>
+
+
+<h2><a name="ServeideHTTP2.1-Prop%C3%B3sit"></a>Propósit</h2>
+
+<p>Aquest servei permet un accés remot mitjançant HTTP als serveis o classes que  es trobin instal&#45; lades al servidor. Per lo general, aquest accés remot es  realitzarà des de Applets Java, però es pot realitzar també des d'altres tipus  de clients que vulguin fer ús del protocol HTTP sense fer ús de WebServices.</p>
+
+<p>Els Serveis podran ser publicats per HTTP per tal que els clients puguin  accedir de forma senzilla.</p>
+
+<h2><a name="ServeideHTTP2.1-ContextiEscenarisd%27%C3%9As"></a>Context i Escenaris  d'Ús</h2>
+
+<p>El Servei d'Accés HTTP es troba ubicat dins els serveis proporcionats a la  Capa de Presentació.</p>
+
+<h2><a name="ServeideHTTP2.1-VersionsiDepend%C3%A8ncies"></a>Versions i  Dependències</h2>
+
+<p>Les dependències descrites a la següent url son requerides per tal de compilar i fer funcionar el projecte:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-http/dependencies.html" title="Visit page outside Confluence">Dependències Servei de HTTP</a></p>
+
+<h2><a name="ServeideHTTP2.1-Aquivadirigit"></a>A qui va  dirigit</h2>
+
+<p>Aquest document va dirigit als següents perfils:</p>
+<ol>
+	<li>Programador. Per conèixer l'ús del servei.</li>
+	<li>Arquitecte. Per conèixer quins són els components i la configuració del  servei.</li>
+	<li>Administrador. Per conèixer cóm configurar el servei en cadascun dels  entorns en cas de necessitat.</li>
+</ol>
+
+
+<h2><a name="ServeideHTTP2.1-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents i  Fonts de Referència</h2>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> [1] </th>
+<th class='confluenceTh'> Hessian </th>
+<th class='confluenceTh'> <a href="http://www.caucho.com/hessian/" title="Visit page outside Confluence">http://www.caucho.com/hessian/</a> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> [2] </td>
+<td class='confluenceTd'> Spring i Hessian </td>
+<td class='confluenceTd'> <a href="http://www.extreme.indiana.edu/xgws/xsoap/xpp/download/PullParser2/README.html" title="Visit page outside Confluence">http://static.springframework.org/spring/docs/1.2.x/reference/remoting.html#d0e12449</a> </td>
+</tr>
+</tbody></table>
+
+<h1><a name="ServeideHTTP2.1-Descripci%C3%B3Detallada"></a>Descripció  Detallada</h1>
+
+
+<h2><a name="ServeideHTTP2.1-ArquitecturaiComponents"></a>Arquitectura i  Components</h2>
+
+<p>Actualment, el Servei HTTP es basa en Hessian, un protocol <em>open-source</em> binari sobre HTTP. Per a més informació sobre Hessian,  veure la plana <a href="http://www.caucho.com/hessian/" title="Visit page outside Confluence">http://www.caucho.com/hessian/</a></p>
+
+<h3><a name="ServeideHTTP2.1-Proc%C3%A9sdeComunicaci%C3%B3ambelServidor"></a>Procés  de Comunicació amb el Servidor</h3>
+
+<p>En el següent gràfic es mostra quin és el flux d'una petició des d'un Applet  fins un servei funcional (anomenat 'Business Service') que s'hagi publicat.</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> 1 <br clear="all" /> </th>
+<th class='confluenceTh'> En primer lloc, des de la pàgina  HTML es fa una crida a l'applet o bé la própia interfície de l'applet rep la  petició de l'usuari. Tots els mètodes públics de l'applet són accessibles des de  la pàgina que el conté </th>
+</tr>
+<tr>
+<td class='confluenceTd'> 2 </td>
+<td class='confluenceTd'> La inicialització de l'applet Java  ha permés d'obtenir una referència al servei "Business Service" per mitjà del  protocol Hessian. El jar de l'applet ha de contenir una còpia de la interfície  "Business Service" per tal que el protocol Hessian pugui funcionar. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 3 </td>
+<td class='confluenceTd'> El Servlet "remoting " rep la  petició i la remet al contenidor de Spring. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 4 </td>
+<td class='confluenceTd'> El contenidor de Spring injecta la  implementació de la interfície "Business Service" en el servei </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 5 </td>
+<td class='confluenceTd'> La resposta de la crida és retornada  a l'Applet iniciador. Aquest ha realitzat la crida a la interfície del servei  sense saber que realment s'ha realitzat una crida remota. </td>
+</tr>
+</tbody></table>
+<p>canigo proporciona una classe abstracta per desenvolupar Applets basats en  aquest protocol.</p>
+
+<p>Es pot trobar tota la documentació JavaDoc y el codi font referent aquests components a les següents urls:<br/>
+<ins>JavaDoc:</ins> <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-http/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-http/apidocs/index.html</a><br/>
+<ins>Codi Font:</ins>&nbsp; <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-http/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-http/xref/index.html</a></p>
+
+<h2><a name="ServeideHTTP2.1-Instal%5Claci%C3%B3iConfiguraci%C3%B3"></a>Instal&#45; lació  i Configuració</h2>
+
+
+<h3><a name="ServeideHTTP2.1-Instal%5Claci%C3%B3"></a>Instal&#45; lació</h3>
+
+<p>La instal&#45; lació del servei requereix de la utilització de la llibreria  'canigo-services-http' i les dependències indicades a l'apartat 'Introducció -  Versions i Dependències'.</p>
+
+<h3><a name="ServeideHTTP2.1-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p>La configuració del Servei d'Accés HTTP implica 3 pasos:</p>
+<ol>
+	<li>Definir el servlet remot que rep les peticions i encapsula i desencapsula  les dades rebudes</li>
+	<li>Definir els serveis que es volen exportar</li>
+</ol>
+
+
+<p>Definició del Servlet Remot<br/>
+<img src="Servei de HTTP 2.1_attachments/image003.gif" align="absmiddle" border="0" /></p>
+
+<p><em>Fitxer de configuració: web.xml</em></p>
+
+<p><em>Ubicació: &lt;PROJECT_ROOT&gt;/src/main/webapp/WEB-INF</em></p>
+
+<p>Definir el següent codi:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;servlet&gt;
+
+&lt;servlet-name&gt;remoting&lt;/servlet-name&gt;
+
+&lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+
+&lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+
+&lt;/servlet&gt;
+
+&lt;servlet-mapping&gt;
+
+&lt;servlet-name&gt;remoting&lt;/servlet-name&gt;
+
+&lt;url-pattern&gt;/remoting/*&lt;/url-pattern&gt;
+
+&lt;/servlet-mapping&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Definició dels Serveis a Exportar<br/>
+<img src="Servei de HTTP 2.1_attachments/image004.gif" align="absmiddle" border="0" /><br clear="all" /></p>
+
+<p><em>Fitxer de configuració: remoting-servlet.xml</em></p>
+
+<p>_<em>Ubicació: &lt;PROJECT_ROOT&gt;/src/main/webapp/WEB-INF</em>_</p>
+
+<p>En el fitxer "remoting-servlet.xml", definirem tots els serveis funcionals  que volem exportar. Per a cada servei, definirem dos beans, un bean que  implementa la interfície del servei i un altre bean per a exportar el servei amb  la classe HessianServiceExporter.</p>
+
+<p>Per cadascun dels serveis que volguem publicar definirem un bean amb la  següent informació:</p>
+<ol>
+	<li>name. Url (amb '/' inicial) que identificarà el servei des de clients  HTTP</li>
+	<li>class. Usar el valor  'org.springframework.remoting.caucho.HessianServiceExporter'</li>
+</ol>
+
+
+<p>Per aquesta classe configurarem les següents propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> service </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Referència al bean implementació la  interfície del servei </td>
+</tr>
+<tr>
+<td class='confluenceTd'> serviceInterface </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Indicar en el value la classe  implementació específica que es vol usar de la interfície definida en el bean  indicat a 'service' </td>
+</tr>
+</tbody></table>
+<p>Exemple:</p>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"serverHelloWorldService"</span> class="net.gencat.ctti.samples.http.business.impl.
+HelloWorldServiceServerImpl"/&gt;
+
+&lt;bean name=<span class="code-quote">"/HelloWorldService"</span>
+class=<span class="code-quote">"org.springframework.remoting.caucho.HessianServiceExporter"</span>&gt;
+&lt;property name=<span class="code-quote">"service"</span> ref=<span class="code-quote">"remoteHelloWorldService"</span> /&gt;
+&lt;property name=<span class="code-quote">"serviceInterface"</span> value=<span class="code-quote">"net.gencat.ctti.samples.http.business.HelloWorldService"</span> /&gt;
+&lt;/bean&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Aquest servei serà exportat per Spring amb la url següent:<br/>
+<a href="http://HOST:8080/remoting/HelloWorldService" title="Visit page outside Confluence">http://servidor:8080/remoting/HelloWorldService</a>
+<br clear="all" /></p>
+
+<h2><a name="ServeideHTTP2.1-Utilitzaci%C3%B3delServei"></a>Utilització del  Servei</h2>
+
+<p>La Utilització del Servei, una vegada realitzada la configuració, implica els  següents pasos:</p>
+<ol>
+	<li>Crear el Applet</li>
+	<li>Crear el Jar del Applet</li>
+	<li>Crear la plana que contindrà el Applet i incorporar el tag  &lt;applet&gt;</li>
+	<li>Especificar la comunicació amb Javascript des de de la plana al Applet  contingut</li>
+</ol>
+
+
+<h3><a name="ServeideHTTP2.1-Creaci%C3%B3delApplet"></a>Creació  del Applet</h3>
+
+<p>Per a usar el Servei realitzarem els següents pasos:</p>
+<ol>
+	<li>Crear una classe que hereti de la classe  net.gencat.ctti.canigo.services.http.HessianApplet.</li>
+	<li>Definir com a a atribut la interfície del servei que volem cridar</li>
+	<li>Definir el constructor buit i cridar al super amb el nom de la classe de la  interfície del servei</li>
+	<li>Sobreescriure el mètode init() de la classe Applet per a inicialitzar els  camps de tipus servei. En aquest mètode cridar al super.init del pare i  inicialitzar la variable que conté el servei cridant el mètode  'getService(nomInterficie)' (on nomInterficie correspon a la interfície del  servei)</li>
+	<li>Si el Applet és accedit des d'una funció Javascript de la pàgina definirem  una funció públic amb el pas dels paràmetres. Aquesta funció farà la crida al  servei.</li>
+</ol>
+
+
+<p>Exemple:</p>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">import</span> net.gencat.ctti.samples.http.business.HelloWorldService;
+<span class="code-keyword">import</span> net.gencat.ctti.canigo.services.http.HessianApplet;
+
+<span class="code-keyword">public</span> class HelloWorldApplet <span class="code-keyword">extends</span> HessianAppletp {
+    <span class="code-keyword">private</span> HelloWorldService service ;
+    <span class="code-keyword">public</span> HelloWorldApplet() {
+        <span class="code-keyword">super</span>(HelloWorldService.class) ;
+    }
+
+    <span class="code-keyword">public</span> void init() {
+        <span class="code-keyword">super</span>.init();
+        <span class="code-keyword">this</span>.service = (HelloWorldService)<span class="code-keyword">super</span>.getService(HelloWorldService.class)W;
+    }
+
+    <span class="code-keyword">public</span> <span class="code-object">String</span> sayHello(<span class="code-object">String</span> yourName){
+        <span class="code-keyword">return</span> service.sayHello(yourName);
+    }
+}</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h3><a name="ServeideHTTP2.1-Creaci%C3%B3delJardelApplet"></a>Creació del Jar del  Applet</h3>
+
+<p>La creació del jar del Applet és necessària per incloure les classes  necessàries del Servei d'Accés HTTP. Cal incloure les llibreries següents:</p>
+<ol>
+	<li>hessian-x.x.x.jar</li>
+	<li>canigo-services-http-x.x.jar</li>
+</ol>
+
+
+<p>On x.x.x correspon a la versió utilitzada (veure l'apartat 'Versions i  Dependències').</p>
+
+<p>Aquestes llibreries les ubicarem al directori 'lib' del projecte per tal de  crear el jar.</p>
+
+<p>A continuació s'ofereix un exemple de fitxer de Ant per a crear aquest  jar:</p>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span>?&gt;
+&lt;project name=<span class="code-quote">"Hessian"</span> <span class="code-keyword">default</span>=<span class="code-quote">"deploy"</span> basedir=<span class="code-quote">"."</span>&gt;
+
+    &lt;property name=<span class="code-quote">"src.dir"</span> value=<span class="code-quote">"src/main/java"</span> /&gt;
+
+    &lt;property name=<span class="code-quote">"lib.dir"</span> value=<span class="code-quote">"lib"</span> /&gt;
+    &lt;property name=<span class="code-quote">"target.dir"</span> value=<span class="code-quote">"target/applet"</span> /&gt;
+    &lt;property name=<span class="code-quote">"jar.file"</span> value=<span class="code-quote">"services-client-applet.jar"</span> /&gt;
+
+    &lt;path id=<span class="code-quote">"classpath"</span>&gt;
+    &lt;pathelement location=<span class="code-quote">"$\{lib.dir\}/hessian-3.0.1.jar"</span> /&gt;
+    &lt;pathelement location=<span class="code-quote">"$\{lib.dir\}/canigo-services-http-1.0.jar"</span> /&gt;
+    &lt;/path&gt;
+
+    &lt;target name=<span class="code-quote">"compile"</span>&gt;
+    &lt;delete dir=<span class="code-quote">"$\{target\}/classes"</span>/&gt;
+    &lt;mkdir dir=<span class="code-quote">"$\{target.dir\}/classes"</span>/&gt;
+
+    &lt;javac srcdir=<span class="code-quote">"$\{src.dir\}"</span> destdir=<span class="code-quote">"$\{target.dir\}/classes"</span>&gt;
+    &lt;classpath refid=<span class="code-quote">"classpath"</span> /&gt;
+    &lt;exclude name=<span class="code-quote">"**/*Impl.java"</span> /&gt;
+    &lt;/javac&gt;
+    &lt;/target&gt;
+
+    &lt;target name=<span class="code-quote">"jar"</span> depends=<span class="code-quote">"compile"</span>&gt;
+    &lt;jar jarfile=<span class="code-quote">"$\{target.dir\}/$\{jar.file\}"</span> basedir=<span class="code-quote">"$\{target.dir\}/classes"</span> /&gt;
+    &lt;/target&gt;
+
+    &lt;target name=<span class="code-quote">"deploy"</span> depends=<span class="code-quote">"jar"</span>&gt;
+    &lt;copy file=<span class="code-quote">"$\{target.dir\}/$\{jar.file\}"</span> todir=<span class="code-quote">"src/main/webapp"</span> /&gt;
+    &lt;copy todir=<span class="code-quote">"src/main/webapp"</span> overwrite=<span class="code-quote">"yes"</span>&gt;
+    &lt;fileset dir=<span class="code-quote">"$\{lib.dir\}"</span>&gt;
+    &lt;include name=<span class="code-quote">"*.jar"</span> /&gt;
+    &lt;/fileset&gt;
+    &lt;/copy&gt;
+    &lt;/target&gt;
+&lt;/project&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h3><a name="ServeideHTTP2.1-Creaci%C3%B3delaPlanaJSP%2FHTMLContenidoradelApplet"></a>Creació  de la Plana JSP/HTML Contenidora del Applet</h3>
+
+<p>Usar el tag &lt;applet&gt; indicant les següents propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> &#42;<b>Descripció</b>&#42; </th>
+</tr>
+<tr>
+<td class='confluenceTd'> id </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Nom de l'element en el document  HTML. Aquest identificador ens permetrà accedir de forma directa des de  Javascript </td>
+</tr>
+<tr>
+<td class='confluenceTd'> code </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Nom complet de la classe Applet </td>
+</tr>
+<tr>
+<td class='confluenceTd'> width,height </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Tamany de l'àrea del Applet a la  plana. Especificar '0,0' per fer que sigui invisible </td>
+</tr>
+<tr>
+<td class='confluenceTd'> archive </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Llista de jars de l'Applet. Indicar  per defecte: <br clear="all" />
+&#35; services-client-applet.jar. Jar que conté les  classes específiques del Applet i les interfícies dels serveis cridats <br clear="all" />
+&#35; hessian-x.x.x.jar <br clear="all" />
+&#35; canigo-services-http-x.x.jar <br clear="all" /> </td>
+</tr>
+</tbody></table>
+<p>A l'applet cal especificar com a mínim el paràmetre 'hostUrl', on  s'especificarà el host en el qual es troba la implementació del servei. Per  defecte usar el següent codi:</p>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java">&lt;param name=<span class="code-quote">"hostUrl"</span> value=<span class="code-quote">"&lt;%  out.print(request.getRequestURL().toString()); %&gt;"</span> /&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Mitjançant aquest codi es generarà com a url la del host des del qual s'ha  descarregat la pàgina.
+<br clear="all" /></p>
+
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;applet id=<span class="code-quote">"service"</span>
+
+code=<span class="code-quote">"net.gencat.ctti.samples.http.client.HelloWorldApplet.class"</span>
+
+width=<span class="code-quote">"0"</span> height=<span class="code-quote">"0"</span>  mayscript=<span class="code-quote">"<span class="code-keyword">true</span>"</span>
+
+archive=<span class="code-quote">"services-client-applet.jar,hessian-3.0.1.jar,canigo-services-http-1.0.jar"</span>&gt;
+
+&lt;param name=<span class="code-quote">"hostUrl"</span> value=<span class="code-quote">"&lt;%  out.print(request.getRequestURL().toString()); %&gt;"</span>  /&gt;
+
+&lt;/applet&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h3><a name="ServeideHTTP2.1-Comunicaci%C3%B3JavascriptambelApplet"></a>Comunicació  Javascript amb el Applet</h3>
+
+<p>Mitjançant la funció document.getElementById() podem accedir a l'Applet java.  Com a paràmetre de 'getElementById' usarem el identificador definit a la  propietat 'name' del tag &lt;applet&gt;.</p>
+
+<p>Després, tots els mètodes públics de l'Applet Java són accessibles com si  l'objecte Javascript fos un objecte java normal.</p>
+
+<p>Exemple:</p>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java">&lt;script language=<span class="code-quote">"JavaScript"</span>&gt;
+function helloWorld()
+{
+    <span class="code-keyword">var</span> appletService=document.getElementById(<span class="code-quote">"appletService"</span>);
+    alert(appletService.sayHello(<span class="code-quote">"World"</span>));
+}
+&lt;/script&gt;
+
+&lt;center&gt;&lt;a href=<span class="code-quote">"javascript:helloWorld()"</span>  &gt;
+Click me to call a service through javascript and an applet&lt;/a&gt;&lt;/center&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />  <img src="Servei de HTTP 2.1_attachments/image005.gif" align="absmiddle" border="0" /><br clear="all" /></p>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de HTTP 2.1_attachments/image004.gif">image004.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de HTTP 2.1_attachments/image003.gif">image003.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de HTTP 2.1_attachments/image002.gif">image002.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de HTTP 2.1_attachments/image005.gif">image005.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de HTTP 2.1_attachments/image001.jpg">image001.jpg</a> (image/jpeg)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

@@ -1,0 +1,140 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Detall dels tags - formatKeyStroke</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Detall dels tags - formatKeyStroke
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Nov 20, 2007 by <font color="#0050B2">manel.batlles</font>.
+				    </div>
+
+				    <h1><a name="Detalldelstags-formatKeyStroke-DetalldelstagsformatKeyStroke"></a>Detall dels tags - formatKeyStroke</h1>
+
+<p>Ofereix una forma alternativa per especificar la màscara d'entrada de dades en un camp de texte.</p>
+
+<p>La documentació auto-generada del tag és a <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_2/tlddoc/fwk/formatKeyStroke.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_2/tlddoc/fwk/formatKeyStroke.html</a></p>
+
+<hr />
+<div>
+<ul><a href='#Detalldelstags-formatKeyStroke-DetalldelstagsformatKeyStroke'>
+    <li>Detall dels tags - formatKeyStroke</li></a>
+<ul><a href='#Detalldelstags-formatKeyStroke-Atributsheredats'>
+    <li>Atributs heredats</li></a><a href='#Detalldelstags-formatKeyStroke-Atributsespec%C3%ADficsdeCanig%C3%B3'>
+    <li>Atributs específics de Canigó</li></a><a href='#Detalldelstags-formatKeyStroke-Exemple'>
+    <li>Exemple</li></a>
+<ul><a href='#Detalldelstags-formatKeyStroke-P%C3%A0ginaJSP'>
+    <li>Pàgina JSP</li></a><a href='#Detalldelstags-formatKeyStroke-Arxiusd%27internacionalitzaci%C3%B3'>
+    <li>Arxius d'internacionalització</li></a>
+</ul><a href='#Detalldelstags-formatKeyStroke-Bugs'>
+    <li>Bugs</li></a>
+</ul>
+</ul></div>
+<hr />
+
+<p>La funcionalitat d'aquest tag és definir una màscara d'entrada de dades, equivalent a la que es pot definir directament en el propi camp de texte.</p>
+
+<h2><a name="Detalldelstags-formatKeyStroke-Atributsheredats"></a>Atributs heredats</h2>
+
+<p>cap.</p>
+
+<h2><a name="Detalldelstags-formatKeyStroke-Atributsespec%C3%ADficsdeCanig%C3%B3"></a>Atributs específics de Canigó</h2>
+
+<p>Els atributs son pràcticament idèntics al subconjunt d'atributs del tag fwk:text que serveixen per configurar les validacions.</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> Atribut </th>
+<th class='confluenceTh'> Funció </th>
+</tr>
+<tr>
+<td class='confluenceTd'> mask </td>
+<td class='confluenceTd'> Màscara que es vol aplicar al camp. Es un string composat pels caràcters "x" (lletra a-z A-Z), "#" (dígit 0-9), "*" (lletra a-z A-Z o dígit 0-9). Qualsevol altre caràcter s'autointrodueix literalment </td>
+</tr>
+<tr>
+<td class='confluenceTd'> maskType </td>
+<td class='confluenceTd'> Tipus de màscara que es vol aplicar: "text", "date", "number" </td>
+</tr>
+<tr>
+<td class='confluenceTd'> source </td>
+<td class='confluenceTd'> Identificador del camp de texte al que s'assòcia la màscara d'entrada </td>
+</tr>
+</tbody></table>
+
+<h2><a name="Detalldelstags-formatKeyStroke-Exemple"></a>Exemple</h2>
+
+<p>A continuació es presenta un fragment de pàgina que utilitza el tag <b>fwk:formatKeyStroke</b>. El tag en sí no és visible, ja que únicament actúa com una màscara d'entrada, impedint la introducció de certs caràcters en algunes posicions i forçant-ne d'altres.</p>
+
+<p><img src="Detall dels tags - formatKeyStroke_attachments/fwk_formatKeyStroke.jpg" align="absmiddle" border="0" /></p>
+
+<h3><a name="Detalldelstags-formatKeyStroke-P%C3%A0ginaJSP"></a>Pàgina JSP</h3>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;%@ include file=<span class="code-quote">"/WEB-INF/jsp/includes/fwkTagLibs.jsp"</span> %&gt;
+
+&lt;fwk:form action=<span class="code-quote">"provesTagsSimple.<span class="code-keyword">do</span>"</span>
+          styleId=<span class="code-quote">"myActionForm"</span>
+          key=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.form"</span>
+          reqCode=<span class="code-quote">"show"</span>
+          layout=<span class="code-quote">"<span class="code-keyword">true</span>"</span>
+          method=<span class="code-quote">"post"</span>&gt;
+
+    (...)
+
+    &lt;fwk:text key=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.camp1"</span>
+              styleId=<span class="code-quote">"camp1"</span>
+              mode=<span class="code-quote">"E,E,E"</span>
+              convertTo=<span class="code-quote">"uppercase"</span>
+              tooltipTitleKey=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.camp1.tipTitle"</span>
+              tooltipKey=<span class="code-quote">"jsp.provesTags.ProvesTagsSimple.camp1.tip"</span>
+              tabindex=<span class="code-quote">"11"</span>
+              property=<span class="code-quote">"camp1"</span>/&gt;
+
+    &lt;fwk:formatKeyStroke source=<span class="code-quote">"camp1"</span>
+                         mask=<span class="code-quote">"########-x"</span>
+                         maskType=<span class="code-quote">"text"</span>/&gt;
+
+    (...)
+
+&lt;/fwk:form&gt;</pre>
+</div></div>
+
+<h3><a name="Detalldelstags-formatKeyStroke-Arxiusd%27internacionalitzaci%C3%B3"></a>Arxius d'internacionalització</h3>
+
+
+<h2><a name="Detalldelstags-formatKeyStroke-Bugs"></a>Bugs</h2>
+
+<p>No és possible especificar una màscara per introduir únicament lletres minúscules o únicament lletres majúscules.</p>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Detall dels tags - formatKeyStroke_attachments/fwk_formatKeyStroke.jpg">fwk_formatKeyStroke.jpg</a> (image/jpeg)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

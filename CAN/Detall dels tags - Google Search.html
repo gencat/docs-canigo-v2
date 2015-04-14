@@ -1,0 +1,207 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Detall dels tags - Google Search</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Detall dels tags - Google Search
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Jun 23, 2010 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="Detalldelstags-GoogleSearch-DetalldelstagsGoogleSearch"></a>Detall dels tags - Google Search</h1>
+
+<p>Aquests tags integren l'api de Google Search <b>v1</b> amb Canigó.</p>
+
+<p>Per a utilitzar la cerca de google s'han creat dos tags:</p>
+<ol>
+	<li>fwk:gSearch: .</li>
+	<li>fwk:gSearchResult: .</li>
+</ol>
+
+
+<p>Aquests tags no implementen totes les funcionalitats de Google Search, podeu trobar més informació de l'api de Google a ( <a href="http://code.google.com/intl/es-ES/apis/ajaxsearch/" title="Visit page outside Confluence">http://code.google.com/intl/es-ES/apis/ajaxsearch/</a> ).</p>
+
+<p><b>Per a poder utilitzar Google Search és necessari sol&#45; licitar un apiKey</b> <b><a href="http://code.google.com/intl/es-ES/apis/ajaxsearch/signup.html" title="Visit page outside Confluence">http://code.google.com/intl/es-ES/apis/ajaxsearch/signup.html</a></b></p>
+
+<hr />
+<p><br clear="all" />
+<div>
+<ul><a href='#Detalldelstags-GoogleSearch-DetalldelstagsGoogleSearch'>
+    <li>Detall dels tags - Google Search</li></a>
+<ul><a href='#Detalldelstags-GoogleSearch-Configuraci%C3%B3Spring'>
+    <li>Configuració Spring</li></a><a href='#Detalldelstags-GoogleSearch-Configuraci%C3%B3js'>
+    <li>Configuració js</li></a><a href='#Detalldelstags-GoogleSearch-fwk%3AgSearch'>
+    <li>fwk:gSearch</li></a>
+<ul><a href='#Detalldelstags-GoogleSearch-Atributs'>
+    <li>Atributs</li></a>
+</ul><a href='#Detalldelstags-GoogleSearch-fwk%3AgSearchResult'>
+    <li>fwk:gSearchResult</li></a>
+<ul><a href='#Detalldelstags-GoogleSearch-Atributs'>
+    <li>Atributs</li></a>
+</ul><a href='#Detalldelstags-GoogleSearch-Exemple1'>
+    <li>Exemple 1</li></a>
+<ul><a href='#Detalldelstags-GoogleSearch-P%C3%A0ginaJSP'>
+    <li>Pàgina JSP</li></a>
+</ul>
+</ul>
+</ul></div><br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<hr />
+<h2><a name="Detalldelstags-GoogleSearch-Configuraci%C3%B3Spring"></a>Configuració Spring</h2>
+
+<p>Validar que existeix el tag configurat a <b>canigo-services-web.xml</b> i sinó afegir-lo.</p>
+
+<p><div class="code"><div class="codeContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"googleSearchTag"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.services.web.taglib.google.GoogleSearchTag"</span>&gt;
+	&lt;property name=<span class="code-quote">"logService"</span> ref=<span class="code-quote">"loggingService"</span>/&gt;
+	    &lt;property name=<span class="code-quote">"i18nService"</span> ref=<span class="code-quote">"i18nService"</span>/&gt;
+	&lt;/bean&gt;</pre>
+</div></div><br clear="all" />
+Afegir a <b>l'action-servlet-&#42;</b> la configuració del tag indicant l'apiKey.<br/>
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;beans&gt;
+  &lt;bean name=<span class="code-quote">"/provesTagsSimple"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.provesTags.struts.action.ProvesTagsSimpleAction"</span>&gt;
+    &lt;property name=<span class="code-quote">"tagsConfiguration"</span>&gt;
+      &lt;map&gt;
+        &lt;entry key=<span class="code-quote">"*"</span>&gt;
+          &lt;list&gt;
+            &lt;bean parent=<span class="code-quote">"googleSearchTag"</span>&gt;
+	       &lt;property name=<span class="code-quote">"apiKey"</span> value=<span class="code-quote">"ABQIAAAAh9RRLpUAwEMRmjhrFT4d9BTwM0brOpm-All5BF6PoaKBxRWWERSSalJFRcWqtpOpjaojckl1YGGtMA"</span>/&gt;
+	    &lt;/bean&gt;
+          &lt;/list&gt;
+        &lt;/entry&gt;
+      &lt;/map&gt;
+    &lt;/property&gt;
+  &lt;/bean&gt;
+&lt;/beans&gt;</pre>
+</div></div><br clear="all" /></p>
+<h2><a name="Detalldelstags-GoogleSearch-Configuraci%C3%B3js"></a>Configuració js</h2>
+
+<p>Per a que el component funcioni correctament és necessari tenir el fitxer search.js porporcionat en la part estàtica del framework colocada a scripts/google/search.js</p>
+
+<p><br clear="all" /></p>
+
+<h2><a name="Detalldelstags-GoogleSearch-fwk%3AgSearch"></a>fwk:gSearch</h2>
+
+<p>Mostra un camp de text per a realitzar la cerca.</p>
+
+<h3><a name="Detalldelstags-GoogleSearch-Atributs"></a>Atributs</h3>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> Atribut </th>
+<th class='confluenceTh'> Obligatori </th>
+<th class='confluenceTh'> Funció </th>
+</tr>
+<tr>
+<td class='confluenceTd'> id </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Identificador del camp de cerca. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> mode </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> linear / tabbed. Indica la manera de mostrar els resultats, si un sota l'altre o en pestanyes. </td>
+</tr>
+</tbody></table>
+
+<h2><a name="Detalldelstags-GoogleSearch-fwk%3AgSearchResult"></a>fwk:gSearchResult</h2>
+
+<p>Mostra els resultats de la cerca.</p>
+
+<h3><a name="Detalldelstags-GoogleSearch-Atributs"></a>Atributs</h3>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> Atribut </th>
+<th class='confluenceTh'> Obligatori </th>
+<th class='confluenceTh'> Funció </th>
+</tr>
+<tr>
+<td class='confluenceTd'> searcher </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Indica el tipus de resultat que es vol visualitzar: local / web / video / blogs / news / image / book / patent </td>
+</tr>
+<tr>
+<td class='confluenceTd'> id </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Identificador del resultat </td>
+</tr>
+<tr>
+<td class='confluenceTd'> mode </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> S'indica com es volen visualitzar els resultats : open / closed / partial </td>
+</tr>
+<tr>
+<td class='confluenceTd'> locationId </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Si el resultat es vol mostrar en una capa en concret, cal indicar aquí l'identificador del component on es vol posar el resultat </td>
+</tr>
+<tr>
+<td class='confluenceTd'> userDefinedLabel </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Nom de la pestanya </td>
+</tr>
+<tr>
+<td class='confluenceTd'> siteRestriction </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Indicar el domini sobre el que es vol restringir la cerca </td>
+</tr>
+</tbody></table>
+
+<h2><a name="Detalldelstags-GoogleSearch-Exemple1"></a>Exemple 1</h2>
+
+<p>A continuació es presenta un fragment de pàgina que utilitza el tag <b>fwk:gSearch</b> i <b>fwk:gSearchResult</b>.</p>
+
+<p><img src="Detall dels tags - Google Search_attachments/fwk_gsearch1.jpg" align="absmiddle" border="0" /></p>
+
+<h3><a name="Detalldelstags-GoogleSearch-P%C3%A0ginaJSP"></a>Pàgina JSP</h3>
+
+<p><br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;fwk:gSearch id=<span class="code-quote">"searchcontrol"</span> mode=<span class="code-quote">"linear"</span>&gt;
+			&lt;fwk:gSearchResult id=<span class="code-quote">"web1"</span> searcher=<span class="code-quote">"web"</span> locationId=<span class="code-quote">"posicioPersonalitzada"</span> userDefinedLabel=<span class="code-quote">"google"</span> siteRestriction=<span class="code-quote">"google.es"</span>&gt;&lt;/fwk:gSearchResult&gt;
+			&lt;fwk:gSearchResult id=<span class="code-quote">"web2"</span> searcher=<span class="code-quote">"web"</span> locationId=<span class="code-quote">"posicioPersonalitzada"</span> userDefinedLabel=<span class="code-quote">"gencat"</span> siteRestriction=<span class="code-quote">"gencat.cat"</span>&gt;&lt;/fwk:gSearchResult&gt;
+			&lt;fwk:gSearchResult id=<span class="code-quote">"image1"</span> searcher=<span class="code-quote">"image"</span> mode=<span class="code-quote">"closed"</span>&gt;&lt;/fwk:gSearchResult&gt;
+			&lt;fwk:gSearchResult id=<span class="code-quote">"book"</span> searcher=<span class="code-quote">"book"</span> mode=<span class="code-quote">"closed"</span>&gt;&lt;/fwk:gSearchResult&gt;
+&lt;/fwk:gSearch&gt;
+
+&lt;div id=<span class="code-quote">"posicioPersonalitzada"</span> style=<span class="code-quote">"position:absolute; top: 0px; left: 400px; width: 400px; height: 200px;"</span> &gt;&lt;/div&gt;</pre>
+</div></div><br clear="all" /></p>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Detall dels tags - Google Search_attachments/fwk_gsearch1.jpg">fwk_gsearch1.jpg</a> (image/jpeg)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

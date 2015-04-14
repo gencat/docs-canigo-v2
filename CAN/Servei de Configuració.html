@@ -1,0 +1,587 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Servei de Configuració</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Servei de Configuració
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Sep 12, 2007 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="ServeideConfiguraci%C3%B3-SERVEIDECONFIGURACI%C3%93"></a>SERVEI DE CONFIGURACIÓ</h1>
+
+<p><br clear="all" />
+<div>
+<ul><a href='#ServeideConfiguraci%C3%B3-SERVEIDECONFIGURACI%C3%93'>
+    <li>SERVEI DE CONFIGURACIÓ</li></a><a href='#ServeideConfiguraci%C3%B3-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#ServeideConfiguraci%C3%B3-Prop%C3%B3sit'>
+    <li>Propósit</li></a><a href='#ServeideConfiguraci%C3%B3-ContextiEscenarisd%27%C3%9As'>
+    <li>Context i  Escenaris d'Ús</li></a><a href='#ServeideConfiguraci%C3%B3-VersionsiDepend%C3%A8ncies'>
+    <li>Versions i  Dependències</li></a><a href='#ServeideConfiguraci%C3%B3-Aquivadirigit'>
+    <li>A qui va  dirigit</li></a><a href='#ServeideConfiguraci%C3%B3-DocumentsiFontsdeRefer%C3%A8ncia'>
+    <li>Documents  i Fonts de Referència</li></a><a href='#ServeideConfiguraci%C3%B3-Glossari'>
+    <li>Glossari</li></a>
+</ul><a href='#ServeideConfiguraci%C3%B3-Descripci%C3%B3Detallada'>
+    <li>Descripció  Detallada</li></a>
+<ul><a href='#ServeideConfiguraci%C3%B3-ArquitecturaiComponents'>
+    <li>Arquitectura i  Components</li></a><a href='#ServeideConfiguraci%C3%B3-Instal%5Claci%C3%B3iConfiguraci%C3%B3'>
+    <li>Instal&#45; lació  i Configuració</li></a>
+<ul><a href='#ServeideConfiguraci%C3%B3-Instal%5Claci%C3%B3'>
+    <li>Instal&#45; lació</li></a><a href='#ServeideConfiguraci%C3%B3-Configuraci%C3%B3'>
+    <li>Configuració</li></a><a href='#ServeideConfiguraci%C3%B3-%C3%9Asdem%C3%BAltiplesfitxersdeconfiguraci%C3%B3'>
+    <li>Ús  de múltiples fitxers de configuració</li></a>
+</ul><a href='#ServeideConfiguraci%C3%B3-Utilitzaci%C3%B3delServei'>
+    <li>Utilització  del Servei</li></a>
+<ul><a href='#ServeideConfiguraci%C3%B3-Obtenci%C3%B3devalorsdeconfiguraci%C3%B3desdelesclasses'>
+    <li>Obtenció  de valors de configuració des de les classes</li></a>
+</ul><a href='#ServeideConfiguraci%C3%B3-Integraci%C3%B3ambAltresServeis'>
+    <li>Integració  amb Altres Serveis</li></a>
+<ul><a href='#ServeideConfiguraci%C3%B3-ServeideTracesbasatenLog4J'>
+    <li>Servei de  Traces basat en Log4J</li></a>
+</ul>
+</ul><a href='#ServeideConfiguraci%C3%B3-Exemples'>
+    <li>Exemples</li></a>
+<ul><a href='#ServeideConfiguraci%C3%B3-ExempledeConfiguraci%C3%B3'>
+    <li>Exemple de  Configuració</li></a><a href='#ServeideConfiguraci%C3%B3-ExempledeConfiguraci%C3%B3ambDefinici%C3%B3segonsl%27Entorn'>
+    <li>Exemple  de Configuració amb Definició segons l'Entorn</li></a>
+<ul><a href='#ServeideConfiguraci%C3%B3-Definici%C3%B3dePropietatssegonsEntorn'>
+    <li>Definició  de Propietats segons Entorn</li></a>
+</ul>
+</ul>
+</ul></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h1><a name="ServeideConfiguraci%C3%B3-Introducci%C3%B3"></a>Introducció</h1>
+
+
+<h2><a name="ServeideConfiguraci%C3%B3-Prop%C3%B3sit"></a>Propósit</h2>
+
+<p>El Servei de Configuració té com a propósit la configuració de les propietats de qualsevol component de l'aplicació. Aquestes propietats poden ser tant referències a altres objectes com propietats internes (atributs) que necessiten per al seu correcte funcionament.</p>
+
+<p>Aquesta configuració es pot realitzar de 2 formes diferenciades:</p>
+<ol>
+	<li>Forma tradicional</li>
+</ol>
+
+
+<p>Una de les formes tradicionals d'estructurar el nostre codi és que siguin els components qui realitzin la localització i instanciació dels serveis o components que han de cridar dins la seva lógica (així com l'obtenció de les propietats internes)</p>
+
+<p>En aquesta aproximació, encara utilitzada però poc pràctica, es pot fer ús del patró factory per amagar la complexitat de la instanciació i obtenció de les instàncies requerides. Tot i això, aquest mecanisme l'han de realitzar els clients, els quals han de conéixer quines dependències tenen els components entre sí i per tant conéixer quina seqüència han de seguir per la inicialització de cadascun d'ells.</p>
+
+<p>En altres casos, l'especificació J2EE fa ús de JNDI com a mecanisme d'obtenció de referències d'objectes. Aquesta implementació requereix molts canvis si es fa un canvi d'entorn i deixa d'usar-se JNDI.</p>
+<ol>
+	<li>Patró 'Dependency Injection'</li>
+</ol>
+
+
+<p>Mitjançant l'ús del patró Dependency Injection el nostre aplicatiu només ha de definir les dependències, i deixar que un codi extern (el framework) s'encarregui de la complexitat d'instanciació, inicialització i seqüència de les referència que requereixin els nostres components. Aquest patró elimina totes les problemàtiques de la forma tradicional.</p>
+
+<p>canigo es basa en l'ús del patró 'Dependency Injection' mitjançant l'ús de Spring. El més important és que el seu ús no és intrusiu, ja que en qualsevol moment podríem canviar de mecanisme intern sense afectar el nostre codi.</p>
+
+<h2><a name="ServeideConfiguraci%C3%B3-ContextiEscenarisd%27%C3%9As"></a>Context i  Escenaris d'Ús</h2>
+
+<p>El Servei de Configuració es troba dins dels serveis de Propósit General de  canigo.<br/>
+El seu ús és imprescindible en canigo, ja que tots els serveis utilitzen la  gestió de configuració definida per aquest servei.</p>
+
+<h2><a name="ServeideConfiguraci%C3%B3-VersionsiDepend%C3%A8ncies"></a>Versions i  Dependències</h2>
+
+<p>Les dependències descrites a la següent url son requerides per tal de compilar i fer funcionar el projecte:<br/>
+<a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-configuration/dependencies.html" title="Visit page outside Confluence">Dependències Servei de Configuració</a></p>
+
+<h2><a name="ServeideConfiguraci%C3%B3-Aquivadirigit"></a>A qui va  dirigit</h2>
+
+<p>Es recomana una lectura prèvia de <a href="http://static.springframework.org/spring/docs/1.2.x/reference/beans.html" title="Visit page outside Confluence">http://static.springframework.org/spring/docs/1.2.x/reference/beans.html</a></p>
+
+<h2><a name="ServeideConfiguraci%C3%B3-DocumentsiFontsdeRefer%C3%A8ncia"></a>Documents  i Fonts de Referència</h2>
+
+<p>Per a començar a fer ús del Servei de Configuració és imprescindible la  lectura dels següents documents:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Nom</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> Configuració amb Spring </td>
+<td class='confluenceTd'> <a href="http://static.springframew/" title="Visit page outside Confluence">http://static.springframew/</a> <br clear="all" />
+<a href="http://static.springframew/static.springframework.org/spring/docs/1.2.x/reference/beans.html" title="Visit page outside Confluence">http://static.springframew/static.springframework.org/spring/docs/1.2.x/reference/beans.html</a> </td>
+</tr>
+</tbody></table>
+<p>I es recomana la lectura de les següents referències:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Nom</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> Introducció patró 'Dependency  Injection' </td>
+<td class='confluenceTd'> <a href="http://www.theserverside.com/articles/article.tss?l=IOCBeginners" title="Visit page outside Confluence">http://www.theserverside.com/articles/article.tss?l=IOCBeginners</a> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> Definició del patró 'Dependency  Injection' </td>
+<td class='confluenceTd'> <a href="http://www.martinfowler.com/articles/injection.html" title="Visit page outside Confluence">http://www.martinfowler.com/articles/injection.html</a> </td>
+</tr>
+</tbody></table>
+
+<h2><a name="ServeideConfiguraci%C3%B3-Glossari"></a>Glossari</h2>
+
+<p><b>Dependency Injection</b></p>
+
+<p>Patró de disseny que estableix un nivell d'abstracció mitjançant la definició de interfícies i eliminant la dependència entre components mitjançant un codi extern que injecta aquestes dependències de forma transparent. Existeixen 3 formes del patró: 'setter', 'constructor' i 'interface based injection'.</p>
+
+<h1><a name="ServeideConfiguraci%C3%B3-Descripci%C3%B3Detallada"></a>Descripció  Detallada</h1>
+
+
+<h2><a name="ServeideConfiguraci%C3%B3-ArquitecturaiComponents"></a>Arquitectura i  Components</h2>
+
+<p>Els components podem classificar-los en:</p>
+<ol>
+	<li>Interfícies i Components Genérics. Interfícies del servei i components d'ús general amb independència de la implementació escollida.</li>
+	<li>Implementació basada en Spring</li>
+</ol>
+
+
+<p>Es pot trobar tota la documentació JavaDoc y el codi font referent aquests components a les següents urls:</p>
+
+<p><ins>JavaDoc:</ins> <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-configuration/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-configuration/apidocs/index.html</a><br/>
+<ins>Codi Font:</ins>&nbsp; <a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-configuration/xref/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_0/canigo-services-configuration/xref/index.html</a>
+<br clear="all" /></p>
+
+<h2><a name="ServeideConfiguraci%C3%B3-Instal%5Claci%C3%B3iConfiguraci%C3%B3"></a>Instal&#45; lació  i Configuració</h2>
+
+
+<h3><a name="ServeideConfiguraci%C3%B3-Instal%5Claci%C3%B3"></a>Instal&#45; lació</h3>
+
+<p>La instal&#45; lació del servei requereix de la utilització de la llibreria 'canigo-services-configuration' i les dependències indicades a l'apartat 'Introducció-Versions i Dependències'.</p>
+
+<h3><a name="ServeideConfiguraci%C3%B3-Configuraci%C3%B3"></a>Configuració</h3>
+
+<p>La configuració del Servei de Configuració es realitza principalment amb el mecanisme d'injecció utilitzat. En el cas de Spring consultar <a href="http://static.springframework.org/spring/docs/1.2.x/reference/beans.html" title="Visit page outside Confluence">http://static.springframework.org/spring/docs/1.2.x/reference/beans.html</a>.</p>
+
+<p>A més de la configuració ja existent mitjançant el mecanisme d'injecció base  (Spring) s'ofereixen les següents facilitats:</p>
+<ol>
+	<li>Definir un configurador que obtingui diferents valors de propietats segons  la màquina en la que instal&#45; lem l'aplicatiu</li>
+	<li>Definir un configurador per obtenir variables de l'entorn del  sistema</li>
+</ol>
+
+
+<ol>
+	<li>Consideració amb Spring</li>
+</ol>
+
+
+<p>En cap lloc s'especificarà quin és el servei de configuració que es fa servir per l'obtenció dels components i la seva injecció. Spring, per defecte cercarà totes les configuracions que s'hagin definit amb les classes configuradores (PropertyPlaceHolderConfigurer,...).</p>
+
+<p>Configuració segons màquina</p>
+
+<p><img src="Servei de Configuració_attachments/ServeiConfiguracio_image004.jpg" align="absmiddle" border="0" /></p>
+
+<p>Atributs:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Atributs</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> class </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Implementació concreta del  configurador a utilitzar <br clear="all" />
+<br clear="all" />
+Usar el valor: <br clear="all" />
+&#35;  net.gencat.ctti.canigo.services.configuration.springframework.beans. <br clear="all" />
+factory.config.HostPropertyPlaceholderConfigurer <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Si es volen definir varis fitxers de  configuració <br clear="all" />
+<br clear="all" />
+&#35;  net.gencat.ctti.canigo.services.configuration.springframework.beans.factory. <br clear="all" />
+config.HostPropertyResourceConfigurer <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Si es vol definir un únic fitxer de  configuració </td>
+</tr>
+</tbody></table>
+<ol>
+	<li>HostPropertyResourceConfigurer</li>
+</ol>
+
+
+<p>Propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> basePropertyFile </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Fitxer de configuració amb la  definició dels beans i les seves propietats <br clear="all" />
+Per obtenir el fitxer de configuració s'obté el path definit en aquesta propietat i se li afegeix com a sufix el DNS de la màquina. És a dir, si s'ha configurat el fitxer 'nomFitxer.ext' es cercarà el fitxer 'nomFitxer.ext.nomHost'. <br clear="all" /> </td>
+</tr>
+</tbody></table>
+<ol>
+	<li>HostPropertyPlaceholderConfigurer</li>
+</ol>
+
+
+<p>Propietats:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <b>Propietat</b> </th>
+<th class='confluenceTh'> <b>Requerit</b> </th>
+<th class='confluenceTh'> <b>Descripció</b> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> basePropertyFiles </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Llista de fitxers de configuració  amb la definició dels beans i les seves propietats <br clear="all" />
+<br clear="all" />
+Per obtenir el fitxer de configuració s'obté el path definit en aquesta propietat i se li afegeix com a sufix el DNS de la màquina. És a dir, si s'ha configurat el fitxer 'nomFitxer.ext' es cercarà el fitxer 'nomFitxer.ext.nomHost'. <br clear="all" /> </td>
+</tr>
+</tbody></table>
+<p>Exemple:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span> ?&gt;
+&lt;!DOCTYPE beans PUBLIC <span class="code-quote">"-<span class="code-comment">//SPRING//DTD BEAN//EN"</span>
+</span><span class="code-quote">"http:<span class="code-comment">//www.springframework.org/dtd/spring-beans.dtd"</span>&gt;
+</span>&lt;beans&gt;
+	&lt;bean id=<span class="code-quote">"configurationService"</span>class="net.gencat.ctti.canigo.services.
+	configuration.springframework.beans.factory.config.HostPropertyPlaceholderConfigurer"&gt;
+		&lt;property  name=<span class="code-quote">"basePropertyFiles"</span>&gt;
+			&lt;list&gt;
+				&lt;value&gt;classpath:jdbc/jdbc.properties&lt;/value&gt;
+			&lt;/list&gt;
+		&lt;/property&gt;
+	&lt;/bean&gt;
+&lt;/beans&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>En el cas a dalt mostrat, si el DNS de la màquina és 'ES-57PYM1J' es cercarà el fitxer de configuració 'jdbc/jdbc.properties.ES-57PYM1J'. En cas que no es trobi aquest fitxer es cercaria el fitxer ' jdbc/jdbc.properties'.
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>Configuració de variables del sistema</p>
+
+<h3><a name="ServeideConfiguraci%C3%B3-%C3%9Asdem%C3%BAltiplesfitxersdeconfiguraci%C3%B3"></a>Ús  de múltiples fitxers de configuració</h3>
+
+<p>Sovint és útil dividir el conjunt de definicions en múltiples fitxers XML. Mitjançant alguns dels configuradors és possible referenciar més d'un fitxer.</p>
+
+<p>Tot i això és possible que volguem repartir els fitxers en diferents parts.  En aquest cas podem fer ús de l'element 'import'.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;beans&gt;
+&lt;<span class="code-keyword">import</span> resource=<span class="code-quote">"services.xml"</span>/&gt;
+&lt;<span class="code-keyword">import</span>  resource=<span class="code-quote">"resources/messageSource.xml"</span>/&gt;
+&lt;<span class="code-keyword">import</span>  resource=<span class="code-quote">"/resources/themeSource.xml"</span>/&gt;
+&lt;bean id=<span class="code-quote">"bean1"</span>  class=<span class="code-quote">"..."</span>/&gt;
+&lt;bean id=<span class="code-quote">"bean2"</span> class=<span class="code-quote">"..."</span>/&gt;
+. . .</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>En aquest exemple, les definicions externes de beans s'estan carregant des de 3 fitxers, services.xml, messageSource.xml i themeSource.xml. Tots els paths són considerats relatius al fitxer de definició que realitza la importació, per tant en aquest cas services.xml ha d'estar en el mateix directori o classpath location que el fitxer que realitza la importació, mentres que messageSource.xml i themeSource.xml han d'estar en el directori resources per sota del fitxer que realitza la importació. Es pot comprovar que una barra inicial és ignorada, però atés que aquests paths són relatius, probablement és millor no usar la barra. Els continguts dels fitxers importats han de ser definicions XML de beans completament vàlides d'acord amb el DTD, incloent l'element bean de més alt nivell. <div align="center"><img src="Servei de Configuració_attachments/ServeiConfiguracio_image005.jpg" border="0" /></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h2><a name="ServeideConfiguraci%C3%B3-Utilitzaci%C3%B3delServei"></a>Utilització  del Servei</h2>
+
+<p>Degut a que la configuració dels elements de l'aplicació o dels serveis es realitza de forma externa mitjançant el patró 'Dependency Injection' no és convenient l'obtenció de propietats des dels clients. Aquesta obtenció es realitza de forma transparent fora de les classes de l'aplicació.</p>
+
+<h3><a name="ServeideConfiguraci%C3%B3-Obtenci%C3%B3devalorsdeconfiguraci%C3%B3desdelesclasses"></a>Obtenció  de valors de configuració des de les classes</h3>
+
+<p>Si en algun cas es requereix de l'obtenció de propietats externes des del nostre codi (opció no recomanada), podem fer ús de la interfície 'ConfigurationService'.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java"><span class="code-keyword">package</span> net.gencat.ctti.canigo.services.configuration;
+...
+<span class="code-keyword">public</span> <span class="code-keyword">interface</span> ConfigurationService {
+	<span class="code-keyword">public</span> <span class="code-object">String</span> getProperty(<span class="code-object">String</span> key) <span class="code-keyword">throws</span> ConfigurationServiceException;
+}</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>Es proporciona una implementació basada en Spring, anomenada  'HostPropertyPlaceholderConfigurer'</p>
+
+<p>El mètode que s'exposa és un i es correspon a la següent signatura:</p>
+<ul>
+	<li><em>&nbsp;&nbsp;&nbsp; public String getProperty(String key)</em>: Demana un valor de  configuració amb la clau <em>key</em>.</li>
+</ul>
+
+
+<p>Si el valor de configuració no es troba, es llença una excepció de tipus 'ConfigurationServiceException' indicant que el valor que es busca no s'ha trobat.</p>
+
+<p>Per a utilitzar-lo, només cal que afegim al fitxer XML de definició de beans el nostre servei de configuració i injectem als nostres beans el servei de configuració, tal i com es mostra a continuació:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+    &lt;bean  id=<span class="code-quote">"myBean"</span> class=<span class="code-quote">"com.myapp.model.MyBean"</span>&gt;
+        &lt;property  name=<span class="code-quote">"configService"</span> ref=<span class="code-quote">"configurationService"</span> /&gt;
+    &lt;/bean&gt;
+
+...
+    &lt;bean id=<span class="code-quote">"configurationService"</span> class="net.gencat.ctti.canigo.
+    services.configuration.springframework.beans.
+    factory.config.HostPropertyResourceConfigurer."&gt;
+        &lt;property  name=<span class="code-quote">"basePropertyFiles"</span>&gt;
+            &lt;list&gt;
+                &lt;value&gt;classpath:config.properties&lt;/value&gt;
+            &lt;/list&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt;
+...</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Referència al servei de configuració des del nostre bean</li>
+	<li>Implementació  del servei de configuració escollida</li>
+	<li>Path del fitxer de propietats</li>
+</ol>
+
+
+<p>I des de la classe que vol fer ús del servei:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+<span class="code-keyword">public</span> class MyBean {
+	<span class="code-keyword">private</span> ConfigurationService configService = <span class="code-keyword">null</span>;
+	<span class="code-keyword">public</span> <span class="code-object">String</span> myMethod() <span class="code-keyword">throws</span> Exception {
+		<span class="code-object">String</span> configValue = configService.getProperty(<span class="code-quote">"config.value"</span>);*
+		...
+	}
+}</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<h2><a name="ServeideConfiguraci%C3%B3-Integraci%C3%B3ambAltresServeis"></a>Integració  amb Altres Serveis</h2>
+
+<p>El Servei de Configuració és usat per tots els Serveis per tal de definir les  seves propietats de forma externa.</p>
+
+<p>En comptats casos, algunes de les implementacions sobre el que es troben els serveis de canigo no permeten la definició de les seves propietats mitjançant la injecció.</p>
+
+<h3><a name="ServeideConfiguraci%C3%B3-ServeideTracesbasatenLog4J"></a>Servei de  Traces basat en Log4J</h3>
+
+<p>En el Servei de Traces canigo ofereix la possibilitat de configurar diferents fitxers segons el host en el que es troba l'aplicació mitjançant la classe 'net.gencat.ctti.canigo.services.logging.log4j.xml.HostDOMConfigurator'. Per a més referència consultar el document 'Servei de Traces'.</p>
+
+<h1><a name="ServeideConfiguraci%C3%B3-Exemples"></a>Exemples</h1>
+
+
+<h2><a name="ServeideConfiguraci%C3%B3-ExempledeConfiguraci%C3%B3"></a>Exemple de  Configuració</h2>
+
+<p>Imaginem que tenim un DAO que fa ús d'una factoria de sessions per llençar els objectes de negoci contra una capa de persistència i persistir les dades. Aquesta relació es representa en la següent figura:<br/>
+<div align="center"><img src="Servei de Configuració_attachments/ServeiConfiguracio_image008.jpg" border="0" /></div><br/>
+Aquests elements i relacions es representen amb un fitxer XML amb una estructura definida. En el nostre exemple, tindríem un fitxer XML amb la següent informació:
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Element 'myDao'</li>
+	<li>Element 'sessionFactory'</li>
+	<li>Relació entre 'myDao' i 'sessionFactory'</li>
+</ol>
+
+
+<p>A continuació es mostra aquest fitxer:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;
+&lt;!DOCTYPE beans PUBLIC  <span class="code-quote">"-<span class="code-comment">//SPRING//DTD BEAN//EN"</span>  <span class="code-quote">"http://www.springframework.org/dtd/spring-beans.dtd"</span>&gt;
+</span>&lt;beans&gt;
+	&lt;!--Element estructural que representa la factoria de sessions--&gt;
+	&lt;bean name=<span class="code-quote">"sessionFactory"</span>  class=<span class="code-quote">"org.springframework.orm.hibernate3.LocalSessionFactoryBean"</span>&gt;
+		&lt;property  name=<span class="code-quote">"configLocation"</span> value=<span class="code-quote">"classpath:hibernate.cfg.xml"</span>  /&gt;
+	&lt;/bean&gt;
+	&lt;!--Element estructural que representa el DAO--&gt;
+	&lt;bean id=<span class="code-quote">"myDao"</span>  class=<span class="code-quote">"test.dao.hibernate.impl.HibernateCategoryDAOImpl"</span>&gt;
+		&lt;!--Relació entre el nostre DAO i la factoria de sessions--&gt;
+		&lt;property  name=<span class="code-quote">"sessionFactory"</span> ref=<span class="code-quote">"sessionFactory"</span> /&gt;
+	&lt;/bean&gt;
+&lt;/beans&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>Tal i com defineix Spring, cada 'bean' representa un element o actor del  nostre aplicatiu i es representa al XML com un node <em>&lt;bean/&gt;.</em> Els  valors més importants a configurar en aquest node són:
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>Atribut 'name': nom amb el que identifiquem el 'bean'</li>
+	<li>Atribut 'class': nom de la classe que s'instanciarà quan es pregunti o  resolgui el bean.</li>
+	<li>Atributs de comportament: indiquen cóm ha de comportar-se el 'bean' en el contenidor. En l'exemple presentat es veu un cas molt senzill, en el que els elements representats són instàncies úniques en l'aplicatiu. Això i altres aspectes són completament configurables però s'escapen de l'objectiu d'aquest document (per exemple, si volem configurar que cada vegada que es demani un 'bean' pel 'name' es retorni una instància diferent, es farà servir l'atribut '<b>singleton</b>'). També existeixen atributs per indicar mètodes  d'inicialització, '<b>init-method</b>' i destrucció  '<b>destroy-method</b>').</li>
+</ol>
+
+
+<p>Per a una explicació en més detall dels diferents atributs del node <em>&lt;bean/&gt;</em> consultar la url: <a href="http://static.springframework.org/spring/docs/1.2.x/reference/beans.html" title="Visit page outside Confluence">http://static.springframework.org/spring/docs/1.2.x/reference/beans.html</a>.</p>
+
+<p>A part els atributs del node <em>&lt;bean/&gt;</em>, aquest pot tenir subnodes, que principalment representen altres 'beans' que necessita per a treballar, és a dir, els col.laboradors. En el nostre exemple hem definit un node <em>&lt;property/&gt;</em> amb el nom 'sessionFactory' que fa referència al col.laborador: el 'bean' amb nom 'sessionFactory' que representa la factoria de sessions..</p>
+
+<p>El nom de les <em>&lt;property/&gt;</em> es correspon amb els noms de les  variables d'instància del propi 'bean'</p>
+
+<p>La definició d'aquests fitxers de configuració XML servirà posteriorment per anar a buscar en l'aplicatiu, en el cas que sigui necessari, les instàncies dels beans corresponents. Hi haurà doncs un procès automàtic que llegirà aquests fitxers i farà de punt d'entrada per a qualsevol petició de 'bean'. Aquest procès l'executa una entitat que es coneix com a 'BeanFactory'. L'existència d'aquesta factory en una aplicació J2EE bé representada per una classe que es diu 'WebApplicationContext'.</p>
+
+<p>??&#42; <em>Nota:</em></p>
+
+<p>L'existència d'aquesta factory és totalment transparent al desenvolupador, ja que no s'ha de preocuperar de conèixer, a no ser que sigui necessari, de l'existència de la mateixa, si no de la correcta configuració dels XML per a que aquesta resolgui les dependències entre col.laboradors correctament.</p>
+
+<h2><a name="ServeideConfiguraci%C3%B3-ExempledeConfiguraci%C3%B3ambDefinici%C3%B3segonsl%27Entorn"></a>Exemple  de Configuració amb Definició segons l'Entorn</h2>
+
+<p>En l'anterior exemple hem vist la forma de configurar la nostra aplicació en funció dels fitxers XML que representen els nostres 'beans' i les seves relacions. Però hi han aspectes que s'escapen en aquesta configuració:</p>
+<ol>
+	<li>Definició de propietats de 'beans' segons l'entorn de l'aplicació</li>
+	<li>Obtenció de valors de configuració que no pertànyin a cap bean</li>
+</ol>
+
+
+<h3><a name="ServeideConfiguraci%C3%B3-Definici%C3%B3dePropietatssegonsEntorn"></a>Definició  de Propietats segons Entorn</h3>
+
+<p>Imaginem que en l'escenari que hem presentat a la Figura 1 i afegim un 'dataSourceBean' que fa de factoria de connexions i que té una relació de col.laboració amb la factoria de sessions: <div align="center"><img src="Servei de Configuració_attachments/ServeiConfiguracio_image009.jpg" border="0" /></div><br/>
+Al fitxer de configuració abans presentat s'afegeix el següent bean:
+<br clear="all" />
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+&lt;bean id=<span class="code-quote">"dataSourceBean"</span>  class=<span class="code-quote">"org.springframework.jdbc.datasource.DriverManagerDataSource"</span>&gt;
+&lt;property  name=<span class="code-quote">"driverClassName"</span> value=<span class="code-quote">"$\{jdbc.driverClassName\}"</span>  /&gt;
+&lt;property name=<span class="code-quote">"url"</span> value=<span class="code-quote">"$\{jdbc.url\}"</span> /&gt;
+&lt;property  name=<span class="code-quote">"username"</span> value=<span class="code-quote">"$\{jdbc.username\}"</span> /&gt;
+&lt;property name=<span class="code-quote">"password"</span>  value=<span class="code-quote">"$\{jdbc.password\}"</span> /&gt;
+&lt;/bean&gt;
+...</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>i es modifica la configuració del bean 'sessionFactory' per afegir la relació  de col.laboració:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;property name=<span class="code-quote">"dataSource"</span> ref=<span class="code-quote">"dataSourceBean"</span> /&gt;</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" /></p>
+
+<p>Si ens fixem en les propietats del bean 'dataSourceBean' veurem que hi han  quatre <em>&lt;property/&gt;</em> sensibles de canviar segons l'entorn:
+<br clear="all" />
+<br clear="all" /></p>
+<ol>
+	<li>driverClassName</li>
+	<li>url</li>
+	<li>username</li>
+	<li>password</li>
+</ol>
+
+
+<p>Els valors d'aquests atributs s'extreuen d'un fitxer extern segons la definició '${jdbc.driverClassName},${jdbc.url},${jdbc.username} i ${jdbc.password}. Però, d'ón es treuen els valors d'aquestes variables?</p>
+
+<p>En aquest punt intervé el servei de configuració: mitjançant les classes 'HostPropertyPlaceholderConfigurer' i 'HostPropertyResourceConfigurer' que trobem en el package 'net.gencat.ctti.canigo.services.configuration.springframework.beans.factory.config' es configura quina és la localització del fitxer extern.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">...
+&lt;bean  id=<span class="code-quote">"dataSourceBean"</span> class=<span class="code-quote">"org.springframework.jdbc.datasource.DriverManagerDataSource"</span>&gt;
+	&lt;property  name=<span class="code-quote">"driverClassName"</span> value=<span class="code-quote">"$\{jdbc.driverClassName\}"</span>  /&gt;
+	&lt;property name=<span class="code-quote">"url"</span> value=<span class="code-quote">"$\{jdbc.url\}"</span> /&gt;
+	&lt;property  name=<span class="code-quote">"username"</span> value=<span class="code-quote">"$\{jdbc.username\}"</span> /&gt;
+	&lt;property name=<span class="code-quote">"password"</span>  value=<span class="code-quote">"$\{jdbc.password\}"</span> /&gt;
+&lt;/bean&gt;...
+&lt;bean  id=<span class="code-quote">"configurationService"</span> class="net.gencat.ctti.canigo.services.configuration.
+	springframework.beans.factory. config.HostPropertyPlaceholderConfigurer"&gt;
+	&lt;list&gt;
+		&lt;value&gt;classpath:config.propertiesc&lt;/value&gt;	&lt;/list&gt;
+&lt;/bean&gt;
+...</pre>
+</div></div><br clear="all" /> <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<p>Configuració del fitxer extern
+<br clear="all" />
+Aquest fitxer extern defineix els valors de les propietats:
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">jdbc.driverClassName=org.hsqldb.jdbcDriver
+jdbc.url=jdbc:hsqldb:  D:/path_to_db/testDB
+jdbc.username=sa
+jdbc.password=</pre>
+</div></div><br clear="all" /></p>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Configuració_attachments/ServeiConfiguracio_image001.jpg">ServeiConfiguracio_image001.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Configuració_attachments/ServeiConfiguracio_image002.jpg">ServeiConfiguracio_image002.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Configuració_attachments/ServeiConfiguracio_image003.jpg">ServeiConfiguracio_image003.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Configuració_attachments/ServeiConfiguracio_image004.jpg">ServeiConfiguracio_image004.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Configuració_attachments/ServeiConfiguracio_image005.jpg">ServeiConfiguracio_image005.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Configuració_attachments/ServeiConfiguracio_image006.jpg">ServeiConfiguracio_image006.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Configuració_attachments/ServeiConfiguracio_image007.jpg">ServeiConfiguracio_image007.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Configuració_attachments/ServeiConfiguracio_image008.jpg">ServeiConfiguracio_image008.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="Servei de Configuració_attachments/ServeiConfiguracio_image009.jpg">ServeiConfiguracio_image009.jpg</a> (image/jpeg)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

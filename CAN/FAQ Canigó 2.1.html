@@ -1,0 +1,2072 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : FAQ Canigó 2.1</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : FAQ Canigó 2.1
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Jul 06, 2007 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="FAQCanig%C3%B32.1-FAQCANIG%C3%932.1"></a>FAQ CANIGÓ 2.1</h1>
+
+
+<h1><a name="FAQCanig%C3%B32.1-%26nbsp%3BPreguntesComuns"></a>&nbsp;Preguntes Comuns</h1>
+
+
+<h2><a name="FAQCanig%C3%B32.1-ErrorsenArrencarl%27Aplicaci%C3%B3"></a>Errors  en Arrencar l'Aplicació</h2>
+
+
+<h3><a name="FAQCanig%C3%B32.1-Errorcreatingbeanwithname%27sessionFactory%27..."></a>Error  creating bean with name 'sessionFactory'...</h3>
+
+<p><b>Problema</b></p>
+
+<p>Si apareix un missatge com el mostrat a continuació:</p>
+
+<p><img src="FAQ Canigó 2.1_attachments/image001.jpg" align="absmiddle" border="0" /></p>
+
+<p><b>Solució</b></p>
+
+<p>En general, aquest problema és degut a que no s'ha definit correctament el  datasource al Servidor. Cada servidor té la seva forma particular de definir el  datasource.</p>
+
+<p>En el cas de fer ús de Tomcat, podem incorporar al fitxer 'server.xml' el  següent codi:</p>
+
+<p>Dins el tag 'Context' de l'aplicació afegir un 'Resource' per definir la  connexió a la font de dades.</p>
+
+<p>Exemple:</p>
+
+<p>&lt;Context  docBase="D:\Users\xescuder\Projectes\canigo-samples-jPetstore\.deployables\canigo-samples-jPetstore"  path="/canigo-samples-jPetstore" reloadable="true"&gt;</p>
+
+<p>&lt;Resource name="canigoDS" auth="Container"  type="javax.sql.DataSource"/&gt; &lt;ResourceParams  name="canigoDS"&gt;<br/>
+&lt;parameter&gt;<br/>
+&lt;name&gt;driverClassName&lt;/name&gt;<br/>
+&lt;value&gt;oracle.jdbc.driver.OracleDriver&lt;/value&gt;<br/>
+&lt;/parameter&gt;<br/>
+&lt;parameter&gt;<br/>
+&lt;name&gt;url&lt;/name&gt;<br/>
+&lt;value&gt;jdbc:oracle:thin:@10.32.14.21:1521:tsydes9&lt;/value&gt;<br/>
+&lt;/parameter&gt;<br/>
+&lt;parameter&gt;<br/>
+&lt;name&gt;username&lt;/name&gt;<br/>
+&lt;value&gt;gpp_adm&lt;/value&gt;<br/>
+&lt;/parameter&gt;<br/>
+&lt;parameter&gt;<br/>
+&lt;name&gt;password&lt;/name&gt;<br/>
+&lt;value&gt;gpp_adm&lt;/value&gt;<br/>
+&lt;/parameter&gt;<br/>
+&lt;parameter&gt;<br/>
+&lt;name&gt;maxActive&lt;/name&gt;<br/>
+&lt;value&gt;20&lt;/value&gt;<br/>
+&lt;/parameter&gt;<br/>
+&lt;parameter&gt;<br/>
+&lt;name&gt;maxIdle&lt;/name&gt;<br/>
+&lt;value&gt;10&lt;/value&gt;<br/>
+&lt;/parameter&gt;<br/>
+&lt;parameter&gt;<br/>
+&lt;name&gt;maxWait&lt;/name&gt;<br/>
+&lt;value&gt;-1&lt;/value&gt;<br/>
+&lt;/parameter&gt;<br/>
+&lt;/ResourceParams&gt;<br/>
+&lt;/Context&gt;</p>
+
+<p>En Eclipse podem accedir a aquest fitxer des de la carpeta 'Servers&gt;Nom  Servidor'.</p>
+
+<p><img src="FAQ Canigó 2.1_attachments/image002.jpg" align="absmiddle" border="0" /></p>
+
+<h3><a name="FAQCanig%C3%B32.1-Beancontextmustcontainatleastonebeanoftypenet.sf.acegisecurity.util.FilterChainProxy"></a>Bean  context must contain at least one bean of type  net.sf.acegisecurity.util.FilterChainProxy</h3>
+
+<p><b>Problema</b></p>
+
+<p>javax.servlet.ServletException: Bean context must contain at least one bean  of type  net.sf.acegisecurity.util.FilterChainProxy<br/>
+net.sf.acegisecurity.util.FilterToBeanProxy.doInit(FilterToBeanProxy.java:200)<br/>
+net.sf.acegisecurity.util.FilterToBeanProxy.doFilter(FilterToBeanProxy.java:122)</p>
+
+<p>Si fas F5 canviarà el missatge a:</p>
+
+<p>java.lang.NullPointerException<br/>
+net.sf.acegisecurity.util.FilterToBeanProxy.doFilter(FilterToBeanProxy.java:125)</p>
+
+<p><b>Solució</b></p>
+
+<p>Aquest missatge apareix perquè s'ha definit el filtre del Servei de Seguretat  de la classe 'net.sf.acegisecurity.util.FilterToBeanProxy'.</p>
+
+<p>&lt;filter&gt;<br/>
+&lt;filter-name&gt;Acegi Filter Chain  Proxy&lt;/filter-name&gt;<br/>
+&lt;filter-class&gt;<br/>
+net.sf.acegisecurity.util.FilterToBeanProxy<br/>
+&lt;/filter-class&gt;</p>
+
+<p>En cas de que no es vulgui activar la seguretat comentar aquest filtre i el  seu filter-mapping associat.</p>
+
+<p>Si es vol activar la seguretat realment ens hem d'assegurar que:</p>
+<ul>
+	<li>S'ha definit la dependència amb la llibreria  'canigo-services-security'</li>
+	<li>S'ha incorporat la referència al fitxer 'acegi-beans.xml' que està contingut  en l'anterior llibreria</li>
+</ul>
+
+
+<p>El Servei de Seguretat defineix alguns beans de configuració dins el jar  desplegat. Ara bé, per tal que aquests siguin carregats hem de definir la seva  importació en els nostres fitxers de configuració:</p>
+
+<p>&lt;import resource="classpath:/spring/acegi-beans.xml" /&gt;</p>
+
+<h3><a name="FAQCanig%C3%B32.1-Apareixelmissatge%27Usuariopasswordincorrecte%27per%C3%B2crecqueest%C3%A0totcorrectamentconfigurat"></a>Apareix  el missatge 'Usuari o password incorrecte' però crec que està tot correctament  configurat</h3>
+
+<p><b>Problema</b></p>
+
+<p>El presentat en el títol.</p>
+
+<p><b>Solució</b></p>
+
+<p>Aquest problema es pot donar si no s'han incorporat els fitxers de càrrega de  hibernate necessaris pel Servei de Seguretat.</p>
+
+<p>Seguir els següents pasos:</p>
+<ol>
+	<li>Accedir al fitxer 'canigo-services-configuration.xml' i observar quin és  el fitxer 'jdbc.properties' que es fa servir (aquest hauria de ser diferent per  cada tipus de Servidor: WebSphere, WebLogic, Tomcat, ...)</li>
+</ol>
+
+
+<p>&lt;beans&gt;<br/>
+&lt;bean id="configurationService"  class="net.gencat.ctti.canigo.services.configuration.springframework.beans.factory.config.HostPropertyPlaceholderConfigurer"&gt;<br/>
+&lt;property  name="basePropertyFiles"&gt;<br/>
+&lt;list&gt;<br/>
+&lt;value&gt;classpath:jdbc/jdbc.properties&lt;/value&gt;<br/>
+&lt;value&gt;classpath:mail/mail.properties&lt;/value&gt;<br/>
+&lt;value&gt;classpath:file/fileUploadService.properties&lt;/value&gt;<br/>
+&lt;value&gt;classpath:file/fileService.properties&lt;/value&gt;<br/>
+&lt;/list&gt;<br/>
+&lt;/property&gt;<br/>
+&lt;/bean&gt;<br/>
+&lt;/beans&gt;</p>
+<ol>
+	<li>Al fitxer corresponent ('jdbc.properties', 'jdbc.websphere.properties',  etc.) mirar quin és el valor de la variable  'sessionFactory.configLocation'</li>
+</ol>
+
+
+<p>sessionFactory.configLocation=hibernate/config/hibernate.cfg.xml</p>
+<ol>
+	<li>Obrir el fitxer referenciat al valor del paràmetre i assegurar-se que en  l'apartat de mappings apareixen les següents referències:</li>
+</ol>
+
+
+<p>&lt;mapping resource="hibernate/mappings/UserLogin.hbm.xml"  /&gt;<br/>
+&lt;mapping resource="hibernate/mappings/PartyGroup.hbm.xml"  /&gt;<br/>
+&lt;mapping resource="hibernate/mappings/Role.hbm.xml" /&gt;</p>
+
+<p>Aquestes referències són necessàries pel Servei de Seguretat. Els fitxers es  troben dins el jar de 'canigo-services-security'.</p>
+
+<h3><a name="FAQCanig%C3%B32.1-Apareixelmissatge%27ClassCastException...TilesRequestProcesso.initDefinitionsMapping%27"></a>Apareix  el missatge 'ClassCastException...  TilesRequestProcesso.initDefinitionsMapping'</h3>
+
+<p><b>Problema</b></p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> <br clear="all" />
+java.lang.ClassCastException <br clear="all" />
+org.apache.struts.tiles.TilesRequestProcessor.initDefinitionsMapping(TilesRequestProcessor.java:84) <br clear="all" /> </th>
+</tr>
+</tbody></table>
+<p><b>Solució</b></p>
+
+<p>Cal definir el plugin de Tiles i la ruta a la definició de les pantalles:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> &lt;plug-in  className="org.apache.struts.tiles.TilesPlugin"&gt; <br clear="all" />
+&lt;set-property property="definitions-config"  value="/WEB-INF/classes/tiles/tiles-definitions.xml"/&gt; <br clear="all" />
+&lt;set-property property="moduleAware" value="true" /&gt; <br clear="all" />
+&lt;/plug-in&gt; </th>
+</tr>
+</tbody></table>
+
+<h2><a name="FAQCanig%C3%B32.1-ProblemesenEclipse"></a>Problemes en  Eclipse</h2>
+
+
+<h3><a name="FAQCanig%C3%B32.1-Obrirunfitxertardamolt%C3%ADssimiesquedaelsistemacomaturat"></a>Obrir  un fitxer tarda moltíssim i es queda el sistema com aturat</h3>
+
+<p>Aquest comportament és degut a la configuració del proxy que valida els  fitxers.</p>
+
+<p>Accedir a l'opció 'Window&gt;Preferences' i seleccionar el node  'Internet&gt;Proxy Settings'.</p>
+
+<p>Si per accedir a la Web es fa ús d'un Proxy configurarem els seus valors, en  cas contrari desmarcar 'Enable proxy':</p>
+
+<p>+ <img src="FAQ Canigó 2.1_attachments/image003.jpg" align="absmiddle" border="0" /> +</p>
+
+<p>+<br/>
++</p>
+
+<h3><a name="FAQCanig%C3%B32.1-OntrobolestracesdelServidorTomcat%3F"></a>On  trobo les traces del Servidor Tomcat?</h3>
+
+<p>Podem accedir a les traces d'arranc de Tomcat per veure si hi ha algun  problema a la carpeta '\.metadata\.plugins\org.eclipse.wst.server.core' del  workspace utilitzat.</p>
+
+<p>Dins aquesta carpeta escollir el subdirectori 'tmpX' corresponent al servidor  i accedir al directori 'logs'.</p>
+
+<h3><a name="FAQCanig%C3%B32.1-Hefetcanvisaunfitxerper%C3%B2semblaquenoesreflecteixenenl%27execuci%C3%B3"></a>He  fet canvis a un fitxer però sembla que no es reflecteixen en l'execució</h3>
+
+<p>El directori '.deployables' és el directori que utilitza Tomcat en els  desplegaments. Si hem fet un canvi a un fitxer dins l'estructura arrel de src,  primer de tot ens assegurarem que s'ha copiat correctament al subdirectori  '.deployables'.</p>
+
+<p>Si no s'ha copiat a '.deployables' hem d'assegurar-nos de que al fitxer  .classpath (a l'arrel del projecte) tenim el següent contingut:</p>
+
+<p>&lt;classpathentry output=".deployables/WEB_NAME/WEB-INF/classes" kind="src"  path="src/main/java"/&gt;<br/>
+&lt;classpathentry  output=".deployables/WEB_NAME/WEB-INF/classes" kind="src"  path="src/main/resources"/&gt;</p>
+
+<p>On WEB_NAME correspon al subdirectori dins de deployables que correspon a  l'aplicació.</p>
+
+<h3><a name="FAQCanig%C3%B32.1-Unsupportedmajor.minorversion49.0"></a>Unsupported major.minor  version 49.0</h3>
+
+<p>BUILD FAILED<br/>
+File...... C:\Documents and  Settings\xavier.escudero\.maven\cache\maven-java-plugin-1.5\plugin.jelly<br/>
+Element...  ant:javac<br/>
+Line...... 63<br/>
+Column.... 48<br/>
+com/sun/tools/javac/Main  (Unsupported major.minor version 49.0)</p>
+
+<p>Window&gt;Preferences.</p>
+
+<p>Canviar 'Java Home' per a que apunti al j2sdk1.4.2_09.</p>
+
+<p><img src="FAQ Canigó 2.1_attachments/image004.jpg" align="absmiddle" border="0" /></p>
+
+<p>Assegurar-se al node 'Java&gt;Installed JREs' que tenim seleccionat per  defecte 'JDK1.4.2'.</p>
+
+<p><img src="FAQ Canigó 2.1_attachments/image005.jpg" align="absmiddle" border="0" /></p>
+
+<p>Des del Panel de Control&gt;Sistema assegurar-se que la variable d'entorn  apunta al JSDK1.4.2</p>
+
+<p><img src="FAQ Canigó 2.1_attachments/image006.jpg" align="absmiddle" border="0" /></p>
+
+<p><img src="FAQ Canigó 2.1_attachments/image007.jpg" align="absmiddle" border="0" /></p>
+
+<h2><a name="FAQCanig%C3%B32.1-ProblemesambMavenaEclipse"></a>Problemes amb  Maven a Eclipse</h2>
+
+
+<h3><a name="FAQCanig%C3%B32.1-Quanesdescarreguenlesdepend%C3%A8nciesdellibreriesd%C3%B3naConnectionTimeOut"></a>Quan  es descarreguen les dependències de llibreries dóna ConnectionTimeOut</h3>
+
+<p><b>Problema</b></p>
+
+<p>En executar algun goal per descarregar les dependències definides al fitxer  'project.xml' dóna problemes de connexió o es queda bastant temps aturat.</p>
+
+<p>La seva resolució normalment depén de la xarxa utilitzada però en la majoria  de casos esdevé mitjançant la configuració del proxy a Internet.</p>
+
+<p><b>Solució</b></p>
+
+<p>En cas de que es faci servir proxy de connexió a Internet, podem definir que  es faci ús del proxy amb els següents pasos:</p>
+<ol>
+	<li>Crear un fitxer amb nom 'build.properties' i ubicar-lo al directori  'C:/Documents and Settings/&lt;username&gt;'. Aquest fitxer ha de ser definit  per cada desenvolupador.</li>
+	<li>En aquest fitxer definir les variables 'maven.proxy.host' i  'maven.proxy.port'.</li>
+</ol>
+
+
+<p>Exemple&nbsp;:</p>
+
+<p>maven.proxy.host=10.49.1.1<br/>
+maven.proxy.port=8080</p>
+
+<p>Si una vegada aplicats els canvis apareix un missatge com el mostrat a  continuació:</p>
+
+<p>Intentando descargar jdtcore-3.1.0.jar.<br/>
+No credentials available for the  'null' authentication realm at proxy.intranet.atosorigin</p>
+
+<p>Cal afegir les variables 'maven.proxy.username' i 'maven.proxy.password'.</p>
+
+<p>&#42;<br/>
+&#42;</p>
+
+<h2><a name="FAQCanig%C3%B32.1-Consultes%2Fincid%C3%A8nciesdiverses"></a>Consultes /  incidències diverses</h2>
+
+
+<h3><a name="FAQCanig%C3%B32.1-Enl%27aplicaci%C3%B3lesmodificacionsdelaBDlesfemenunordreiencanviperlaconsolaesveuenenordreinvers%2CprovocantunerroralaBDdeltipusDataIntegrityViolationException."></a>En  l'aplicació les modificacions de la BD les fem en un ordre i en canvi per la  consola es veuen en ordre invers, provocant un error a la BD del tipus  DataIntegrityViolationException.</h3>
+
+<p><b>Problema</b></p>
+
+<p>El descrit a la pregunta</p>
+
+<p><b>Solució</b></p>
+
+<p>Aquest error es deu a l'ordre en el qual hibernate persisteix els canvis  realitzats en els objectes persistents sobre la BD.</p>
+
+<p>Podem trobar informació sobre aquest procediment al següent link:
+<br clear="all" /></p>
+
+<p><a href="http://www.hibernate.org/hib_docs/v3/reference/en/html_single/#objectstate-flushing" title="Visit page outside Confluence">http://www.hibernate.org/hib_docs/v3/reference/en/html_single/#objectstate-flushing</a><br/>
+&nbsp;</p>
+
+<p>Per exemple, si tenim el següent codi dintre d'un mètode d'un DAO:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> // account és l'objecte que volem  eliminar i tornar a guardar. <br clear="all" />
+<br clear="all" />
+super.delete(account.getId()); (1) <br clear="all" />
+... <br clear="all" />
+super.save(account); (2) <br clear="all" /> </th>
+</tr>
+</tbody></table>
+<p>provocará una excepció del tipus <ins>org.springframework.dao.DataIntegrityViolationException</ins><br/>
+quan  finalitzi la transacció.</p>
+
+<p>Això es deu a que l'ordre en el qual es persisteixen els canvis és el següent  (està més detallat al link anterior):</p>
+<ul>
+	<li>Primer tots els inserts de entitats. (pas 2 de l'exemple)</li>
+	<li>...</li>
+	<li>Per últim, tots els delete d'entitats. (pas 1)</li>
+</ul>
+
+
+<p>La solució a aquest problema consisteix en forçar un <em>flush</em> després  de fer el <em>delete</em>. És a dir:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> // account és l'objecte que volem  eliminar i tornar a guardar. <br clear="all" />
+super.delete(account.getId()); <br clear="all" />
+<b>super.getSession().flush();</b> <br clear="all" />
+... <br clear="all" />
+super.save(account); <br clear="all" /> </th>
+</tr>
+</tbody></table>
+<p><b>Important</b>: no cal confondre el <em>flush</em> amb un <em>commit</em>.  El <em>flush</em> no fa <em>commit</em>, simplement volca els canvis sobre la BD  però no els fa persistents. Per tant un <em>rollback</em> donaria marxa enrera  als canvis.</p>
+
+<h3><a name="FAQCanig%C3%B32.1-Compodemferservirsent%C3%A8nciesSQLenllocdeHQLalsllistatsdel%27aplicaci%C3%B3%2Csiperagenerarelsllistatsfemservirelserveidellistats%3F"></a>Com  podem fer servir sentències SQL en lloc de HQL als llistats de l'aplicació, si  per a generar els llistats fem servir el servei de llistats?</h3>
+
+<p><b>Problema</b></p>
+
+<p>Volem fer servir sentències SQL per a obtenir les dades pels llistats  generats via la llibreria Valuelist.</p>
+
+<p><b>Solució</b></p>
+
+<p>Sabem que el servei de llistats de canigo es fonamenta en la llibreria  open source Valuelist (<a href="http://valuelist.sourceforge.net" title="Visit page outside Confluence">http://valuelist.sourceforge.net</a> ).</p>
+
+<p>Els motius que podem fer-nos fer servir SQL en lloc de HQL són molt diversos:</p>
+<ul>
+	<li>Complexitat alhora de traduïr la sentència SQL a HQL.</li>
+	<li>Ús de elements de la BD que no tenen un pojo associat (podem ser taules  temporals, vistes, taules que no són de negoci, ... ).</li>
+	<li>...</li>
+</ul>
+
+
+<p>En el cas que volguem fer servir SQL en lloc de HQL, l'únic canvi que hem de  fer és a nivell de configuració, ja que la JSP no sap en cap moment de quina  font provenen les dades que està renderitzant.</p>
+
+<p>Els canvis a fer són els següents:</p>
+<ul>
+	<li>Modificar el fitxer canigo-services-web-list.xml, per tal de definir la  consulta SQL amb el seu adaptador.</li>
+	<li>Definir un wrapper que permiti fer el mapeig de les dades retornades per la  consulta a objectes Java.</li>
+</ul>
+
+
+<p><em>Modificació del fitxer</em> canigo_-services-web-list.xml&#95;</p>
+
+<p>La modificació a fer en aquest fitxer consisteix a definir una entrada dintre  de l'apartat de <em>config.adapters</em> corresponent a la nostra consulta.  L'única diferència important respecte a la resta d'entrades és l'adapter que es  fa servir, que no correspon a l'adapter <em>baseHibernateAdapter</em> típic de  les consultes HQL &#95;_sinó a un nou adapter.</p>
+
+<p>Aquí podem veure un exemple:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> &lt;entry  key="accountListSQL"&gt; <br clear="all" />
+&lt;bean  class="net.mlw.vlh.adapter.jdbc.objectWrapper.DefaultWrapperAdapter"&gt; <br clear="all" />
+&lt;property name="dataSource"&gt;&lt;ref  bean="dataSourceSQL"/&gt;&lt;/property&gt; <br clear="all" />
+&lt;property  name="defaultNumberPerPage"&gt;&lt;value&gt;4&lt;/value&gt;&lt;/property&gt; <br clear="all" />
+&lt;property  name="defaultSortColumn"&gt;&lt;value&gt;userid&lt;/value&gt;&lt;/property&gt; <br clear="all" />
+&lt;property  name="defaultSortDirection"&gt;&lt;value&gt;asc&lt;/value&gt;&lt;/property&gt; <br clear="all" />
+&lt;property name="sql"&gt; <br clear="all" />
+&lt;value&gt; <br clear="all" />
+SELECT vo.*, category.&#42; <br clear="all" />
+FROM <br clear="all" />
+Account vo,  Category category <br clear="all" />
+WHERE 1=1 and vo.preferred_category =  category.CATID <br clear="all" />
+/~firstname: AND lower(vo.firstname) LIKE  lower('[firstname]%') &#126;/ <br clear="all" />
+/~lastname: AND lower(vo.lastname) LIKE  lower('[lastname]%') &#126;/ <br clear="all" />
+/~preferredCategory.id: AND  vo.preferred_Category = {preferredCategory.id} &#126;/ <br clear="all" />
+/~lower18: AND  vo.is_lower18 = {lower18} &#126;/ <br clear="all" />
+/<sub>sortColumn: ORDER BY  vo.[sortColumn] [sortDirection]</sub>/ <br clear="all" />
+&lt;/value&gt; <br clear="all" />
+&lt;/property&gt; <br clear="all" />
+&lt;property name="wrapper"&gt;&lt;ref  bean="accountWrapper"/&gt;&lt;/property&gt; <br clear="all" />
+&lt;property  name="wrapResultSet"&gt;&lt;value&gt;true&lt;/value&gt;&lt;/property&gt; <br clear="all" />
+&lt;/bean&gt; <br clear="all" />
+&lt;/entry&gt; </th>
+</tr>
+</tbody></table>
+<p>Com podem veure, definim un adaptador de tipus <em>DefaultWrapperAdapter</em>, al qual li hem d'indicar quin <em>dataSource</em> farà servir per a obtenir les conexions a la BD, li  configurem els paràmetres típics de tot llistat: nombre d'elements per pàgina,  columna d'ordenació per defecte, ..., li indiquem la consulta SQL i per últim, <b>li indiquem quina classe ha de fer servir per a fer el mapeig del resultset a  objectes Java</b>.</p>
+
+<p>En aquest cas li hem indicat una referència a un bean de nom accountWrapper,  la definició del qual és la següent (la podem ficar dintre del mateix fitxer de  configuració):</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> &lt;bean id="accountWrapper"  class="net.gencat.ctti.canigo.formacio.model.jdbc.wrapper.AccountWrapper"/&gt; </th>
+</tr>
+</tbody></table>
+<p>Respecte a la referència al dataSource, en el fitxer canigo_-services-persistence.xml&#95; podem tenir definit el següent bean  (mateix funcionament que un look up mitjançant un ServiceLocator):</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> &lt;bean id="dataSourceSQL"  class="org.springframework.jndi.JndiObjectFactoryBean"&gt; <br clear="all" />
+&lt;property  name="jndiName"&gt;&lt;value&gt;${dataSource.jndiName}&lt;/value&gt;&lt;/property&gt; <br clear="all" />
+&lt;/bean&gt; </th>
+</tr>
+</tbody></table>
+<p><em>Definició de la classe wrapper</em></p>
+
+<p>Hem de definir un mecanisme que ens permeti llegir les dades del resultset I  encapsular-les en un objecte Java per tal de que siguin afegides al llistat del  value list.</p>
+
+<p>A continuació podem veure la implementació de AccountWrapper: en aquest cas  el que fem és traspassar les dades del resultset a un objecte Account (el mateix  pojo que tenim definit al petStore). Podem optar per aixecar completament el  pojo o només informar aquelles columnes a les quals es fa referència al llistat.  En aquest exemple s'ha optat per la segona alternativa, però és recomanable  optar per la primera ja que futures modificacions sobre la presentació del  llistat (per exemple afegir més informació) no implicarien modificar el  wrapper.</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> public class AccountWrapper  implements ObjectWrapper { <br clear="all" />
+<br clear="all" />
+public AccountWrapper()  { <br clear="all" />
+super(); <br clear="all" />
+} <br clear="all" />
+<br clear="all" />
+public  Object getWrappedRecord(Object arg0) { <br clear="all" />
+/&#42; <br clear="all" />
+&#42; Aquest  mètode pot rebre o bé tot l'objecte resultset.next o bé <br clear="all" />
+&#42; una  columna específica de l'objecte. Això es defineix en la configuració <br clear="all" />
+&#42; de l'adapter mitjançant la propietat wrapResultSet. <br clear="all" />
+&#42; <br clear="all" />
+&#42; El mètode ha de retornar l'objecte bean que s'acabarà afegint a  la <br clear="all" />
+&#42; llista que retorna el valueList. <br clear="all" />
+&#42;/ <br clear="all" />
+ResultSet res = (ResultSet)arg0; <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+/&#42; Objecte a retornar. L'aixequem completament, per la qual cosa ens  caldrà generar el seu id. &#42;/ <br clear="all" />
+Account wObject = null; <br clear="all" />
+<br clear="all" />
+try{ <br clear="all" />
+<br clear="all" />
+Category wCategory =  null; <br clear="all" />
+<br clear="all" />
+/&#42; Aixequem l'objecte wCategory. &#42;/ <br clear="all" />
+String sCatId = res.getString(19); <br clear="all" />
+String sName =  res.getString(20); <br clear="all" />
+String sDescn = res.getString(21); <br clear="all" />
+wCategory = new Category(sCatId); <br clear="all" />
+wCategory.setName(sName); <br clear="all" />
+wCategory.setDescn(sDescn); <br clear="all" />
+<br clear="all" />
+/&#42; Aixequem l'objecte wAccount. &#42;/ <br clear="all" />
+String  sUserId = res.getString(1); <br clear="all" />
+String sFirstName =  res.getString(3); <br clear="all" />
+String sLastName = res.getString(4); <br clear="all" />
+<br clear="all" />
+wObject = new Account (sUserId, wCategory, null,  null,null,null, null,sFirstName, sLastName, null, null, null, null); <br clear="all" />
+<br clear="all" />
+}catch(Exception e){e.printStackTrace();}; <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+return wObject; <br clear="all" />
+} <br clear="all" />
+<br clear="all" />
+public void setValueListInfo(ValueListInfo arg0) { <br clear="all" />
+// No implementat en aquest exemple. <br clear="all" />
+<br clear="all" />
+} <br clear="all" />
+<br clear="all" />
+} </th>
+</tr>
+</tbody></table>
+<p>Fixem-nos que el nostre wrapper ha d'implementar la interficie <em>net.mlw.vlh.adapter.util.ObjectWrapper.</em></p>
+
+<p>Com ja s'ha comentat, el mètode <em>getWrappedRecord</em> ha de retornar  l'objecte java que serà afegit al llistat del value list. Aquest mètode rep com  a paràmetre el registre del Resultset a llegir, per tant <b>no hem de fer cap  iteració</b> sobre aquest.</p>
+
+<p>Per últim, el fet de fer servir la posició de la columna en lloc del nom de  la columna és merament anecdotic. Es pot fer servir qualsevold e les dos  alternatives.</p>
+
+<p>Podem trobar més informació a la següent adreça:<br/>
+<a href="http://valuelist.sourceforge.net/adapters/DefaultWrapperAdapter.html" title="Visit page outside Confluence">http://valuelist.sourceforge.net/adapters/DefaultWrapperAdapter.html</a></p>
+
+<h3><a name="FAQCanig%C3%B32.1-Compucimplementarlacercaaproximadamijan%C3%A7antLIKEalesconsultesassociadesalsllistats%3FCompucfercerquescaseinsensitive%3F"></a>Com  puc implementar la cerca aproximada mijançant LIKE a les consultes associades  als llistats? Com puc fer cerques case insensitive?</h3>
+
+<p><b>Problema</b></p>
+
+<p>Volem implementar a les nostres consultes dels llistats la funcionalitat de  cerca LIKE i case insensitive de SQL.</p>
+
+<p><b>Solució</b></p>
+
+<p>A continuació podem veure un exemple en el qual es fa la cerca aproximada  respecte a l'atribut <em>firstname</em> del pojo <em>account</em>. En aquest  exemple també podem veure un exemple de cerca aproximada i sense considerar  majuscules i minúscules sobre l'atribut lastname.</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> &lt;property name="hql"&gt; <br clear="all" />
+&lt;value&gt; <br clear="all" />
+FROM <br clear="all" />
+net.gencat.ctti.canigo.formacio.model.Account AS vo <br clear="all" />
+WHERE 1=1 <br clear="all" />
+/~firstname: AND vo.firstname LIKE  ('[firstname]%') &#126;/ <br clear="all" />
+/~lastname: AND lower(vo.lastname) LIKE  lower('%[lastname]%') &#126;/ <br clear="all" />
+/<sub>sortColumn: ORDER BY vo.[sortColumn]  [sortDirection]</sub>/ <br clear="all" />
+&lt;/value&gt; <br clear="all" />
+&lt;/property&gt; </th>
+</tr>
+</tbody></table>
+
+<h3><a name="FAQCanig%C3%B32.1-Compodemcanviarelscontrolsdenavegaci%C3%B3enelsllistatspertaldequeenllocd%27imatgessiguinbotons%3F"></a>Com  podem canviar els controls de navegació en els llistats per tal de que en lloc  d'imatges siguin botons?</h3>
+
+<p><b>Problema</b></p>
+
+<p>El descrit a la pregunta.</p>
+
+<p><b>Solució</b></p>
+
+<p>La configuració d'aquestes imatges la trobem definida als fitxers de recursos  de l'aplicació (generalment els tindrem dintre del directori  resources/i18n).</p>
+
+<p>En aquests fitxers tenim definides les següents entrades:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> paging.first<img class="emoticon" src="./icons/emoticons/lightbulb.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>=&lt;img  alt="First" src="&nbsp;(CONTEXT_PATH)/images/first<img class="emoticon" src="./icons/emoticons/lightbulb.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>.gif"   border="0"/&gt; <br clear="all" />
+paging.first<img class="emoticon" src="./icons/emoticons/lightbulb_on.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>=&lt;img alt="First"  src="&nbsp;(CONTEXT_PATH)/images/first<img class="emoticon" src="./icons/emoticons/lightbulb_on.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>.gif"   border="0"/&gt; <br clear="all" />
+paging.previous<img class="emoticon" src="./icons/emoticons/lightbulb.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>=&lt;img alt="Previous"  src="&nbsp;(CONTEXT_PATH)/images/previous<img class="emoticon" src="./icons/emoticons/lightbulb.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>.gif"   border="0"/&gt; <br clear="all" />
+paging.previous<img class="emoticon" src="./icons/emoticons/lightbulb_on.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>=&lt;img alt="Previous"  src="&nbsp;(CONTEXT_PATH)/images/previous<img class="emoticon" src="./icons/emoticons/lightbulb_on.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>.gif"   border="0"/&gt; <br clear="all" />
+paging.forward<img class="emoticon" src="./icons/emoticons/lightbulb.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>=&lt;img alt="Next"  src="&nbsp;(CONTEXT_PATH)/images/forward<img class="emoticon" src="./icons/emoticons/lightbulb.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>.gif"   border="0"/&gt; <br clear="all" />
+paging.forward<img class="emoticon" src="./icons/emoticons/lightbulb_on.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>=&lt;img alt="Next"  src="&nbsp;(CONTEXT_PATH)/images/forward<img class="emoticon" src="./icons/emoticons/lightbulb_on.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>.gif"   border="0"/&gt; <br clear="all" />
+paging.last<img class="emoticon" src="./icons/emoticons/lightbulb.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>=&lt;img alt="Last"  src="&nbsp;(CONTEXT_PATH)/images/last<img class="emoticon" src="./icons/emoticons/lightbulb.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>.gif"   border="0"/&gt; <br clear="all" />
+paging.last<img class="emoticon" src="./icons/emoticons/lightbulb_on.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>=&lt;img alt="Last"  src="&nbsp;(CONTEXT_PATH)/images/last<img class="emoticon" src="./icons/emoticons/lightbulb_on.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>.gif"   border="0"/&gt; <br clear="all" />
+<br clear="all" />
+paging.focus<img class="emoticon" src="./icons/emoticons/lightbulb_on.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>=&lt;img alt="Show focus"  src="&nbsp;(CONTEXT_PATH)/images/focus<img class="emoticon" src="./icons/emoticons/lightbulb_on.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>.gif"   border="0"/&gt; <br clear="all" />
+paging.focus<img class="emoticon" src="./icons/emoticons/lightbulb.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>=&lt;img alt="Hide focus"  src="&nbsp;(CONTEXT_PATH)/images/focus<img class="emoticon" src="./icons/emoticons/lightbulb.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>.gif"   border="0"/&gt; <br clear="all" />
+paging.focus(error)=&lt;img alt="Too many items to focus"  src="&nbsp;(CONTEXT_PATH)/images/focus(error).gif"       border="0"/&gt; <br clear="all" />
+paging.focus(disabled)=&lt;img alt="Focus is disabled"  src="&nbsp;(CONTEXT_PATH)/images/focus(disabled).gif"       border="0"/&gt; <br clear="all" />
+<br clear="all" />
+paging.text.totalRow=<b>{0}</b> Total, <br clear="all" />
+paging.text.pageFromTotal= &lt;b&gt;<b>{0}</b>&lt;/b&gt; of <b>{1}</b> page(s) </th>
+</tr>
+</tbody></table>
+<p>Aquestes definicions són les que fa servir el value list per a generar tota  la part de paginació (dintre del fitxer <em>valuelist.tld</em>, si cerquem  l'entrada <em>showSumary</em> podem trobar quina és l'estructura del codi de la  paginació).</p>
+
+<p>Per tant, si volem modificar les imatges que fem servir per a navegar pel  llistat només haurem de modificar les definicions anteriors.</p>
+
+<p>I si en lloc d'imatges volem fer servir botons el que s'ha de fer és canviar  el codi HTML associat al fitxer de recurs per a cada entrada (en lloc del tag  img fer servir el tag input, per exemple). Per exemple, si definim el següent  codi al fitxer de recursos:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> paging.delim= <br clear="all" />
+paging.first<img class="emoticon" src="./icons/emoticons/lightbulb.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>= <br clear="all" />
+paging.first<img class="emoticon" src="./icons/emoticons/lightbulb_on.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>= <br clear="all" />
+paging.previous<img class="emoticon" src="./icons/emoticons/lightbulb.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>= <br clear="all" />
+paging.previous<img class="emoticon" src="./icons/emoticons/lightbulb_on.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>=&lt;input  type=submit value="anterior" /&gt; <br clear="all" />
+paging.forward<img class="emoticon" src="./icons/emoticons/lightbulb.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>= <br clear="all" />
+paging.forward<img class="emoticon" src="./icons/emoticons/lightbulb_on.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>=&lt;input type=submit value="següent" /&gt; <br clear="all" />
+paging.last<img class="emoticon" src="./icons/emoticons/lightbulb.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>= <br clear="all" />
+paging.last<img class="emoticon" src="./icons/emoticons/lightbulb_on.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>= <br clear="all" />
+<br clear="all" />
+paging.focus<img class="emoticon" src="./icons/emoticons/lightbulb_on.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>= <br clear="all" />
+paging.focus<img class="emoticon" src="./icons/emoticons/lightbulb.gif" height="16" width="16" align="absmiddle" alt="" border="0"/>= <br clear="all" />
+paging.focus(error)= <br clear="all" />
+paging.focus(disabled)= <br clear="all" />
+<br clear="all" />
+paging.text.totalRow=<b>{0}</b> Total - <br clear="all" />
+paging.text.pageFromTotal= Pàgina (&lt;b&gt;<b>{0}</b>&lt;/b&gt; de <b>{1}</b>) </th>
+</tr>
+</tbody></table>
+<p>Obtenim</p>
+
+<p><img src="FAQ Canigó 2.1_attachments/image008.jpg" align="absmiddle" border="0" /></p>
+
+<p>Es recomana mirar-se el fitxer <em>valuelist.tld</em> per a veure més  propietats de la generació de llistats mitjançant value list.</p>
+
+<h3><a name="FAQCanig%C3%B32.1-Compucmostrarm%C3%A9sdeunllistatenunap%C3%A0ginafentservirelserveidellistats%3F"></a>Com  puc mostrar més de un llistat en una pàgina fent servir el servei de  llistats?</h3>
+
+<p><b>Problema</b></p>
+
+<p>El descrit a la pregunta</p>
+
+<p><b>Solució</b></p>
+
+<p>Anem a mostrar un exemple en el qual es mostren per pantalla dos llistats: un  de comptes i un altre de categories.</p>
+
+<p>Per a cadascun dels llistats limitarem la seva secció mitjançant el  tag<br/>
+&lt;vlh:root&gt;...&lt;/vlh:root&gt;</p>
+
+<p>i per a distingir cadascun d'aquests haurem de definir un identificador per a  cadascun d'ells:<br/>
+&lt;vlh:root id="****"&gt;...&lt;/vlh:root&gt;</p>
+
+<p>Aquest identificador es fa servir per a identificar a quin llistat pertany  els camps de paginació o ordenació.</p>
+
+<p>La clau del procés està en fer servir el tag <em>&lt;vlh:retrieve  name="id_de_consulta"&gt;</em> que ens permet associar a cadascun dels llistats  una consulta definida en el fitxer de configuració.</p>
+
+<p>El següent codi JSP (només ens mostra la part realment important):</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> &lt;%@ include  file="/WEB-INF/jsp/includes/fwkTagLibs.jsp" %&gt; <br clear="all" />
+&nbsp;&lt;br&gt; <br clear="all" />
+&lt;&#33;-&#45; Primer llistat --&gt; <br clear="all" />
+&lt;vlh:root id="(comptes)"  value="list" url="accounts.do?" includeParameters="reqCode"  configName="vlConfig"&gt; <br clear="all" />
+<b>&lt;vlh:retrieve  name="accountList"&gt;</b> <br clear="all" />
+<b>&lt;vlh:attribute  name="pagingNumberPer" value="3"/&gt;</b> <br clear="all" />
+<b>&lt;/vlh:retrieve&gt;</b> <br clear="all" />
+&lt;table width="700"  align="center" border="0"&gt; <br clear="all" />
+&lt;&#33;-&#45; pagination section --&gt; <br clear="all" />
+&lt;tr&gt; <br clear="all" />
+<b>&lt;vlh: Paging showSummary="true"  attributes="align=right"/&gt;</b> <br clear="all" />
+&lt;/tr&gt; <br clear="all" />
+&lt;&#33;-&#45;  end of Pagination --&gt; <br clear="all" />
+<br clear="all" />
+&lt;vlh:row bean="account"  display="&lt;%=displayProvider%&gt;"&gt; <br clear="all" />
+&lt;vlh:column  titleKey="jsp.accounts.accountList.id" property="id" sortable="desc"&gt; <br clear="all" />
+... <br clear="all" />
+&lt;/vlh:row&gt; <br clear="all" />
+<br clear="all" />
+&lt;/table&gt; <br clear="all" />
+<br clear="all" />
+&lt;/vlh:root&gt; <br clear="all" />
+<br clear="all" />
+&lt;br&gt;&lt;br&gt; <br clear="all" />
+&lt;&#33;-&#45; Segon llistat  --&gt; <br clear="all" />
+&lt;vlh:root id="(categories)" value="list"  url="accounts.do?" includeParameters="reqCode" configName="vlConfig"&gt; <br clear="all" />
+<b>&lt;vlh:retrieve name="categoryList"&gt;</b> <br clear="all" />
+<b>&lt;vlh:attribute name="pagingNumberPer" value="4"/&gt;</b> <br clear="all" />
+<b>&lt;/vlh:retrieve&gt;</b> <br clear="all" />
+&lt;table width="700"  align="center" border="0"&gt; <br clear="all" />
+&lt;&#33;-&#45; pagination section --&gt; <br clear="all" />
+&lt;tr&gt; <br clear="all" />
+<b>&lt;vlh: Paging showSummary="true"  attributes="align=right"/&gt;</b> <br clear="all" />
+&lt;/tr&gt; <br clear="all" />
+&lt;&#33;-&#45;  end of Pagination --&gt; <br clear="all" />
+&lt;vlh:row bean="category" &gt; <br clear="all" />
+&lt;vlh:column titleKey="jsp.categories.category.id" property="id"  sortable="desc"/&gt; <br clear="all" />
+... <br clear="all" />
+&lt;/vlh:row&gt; <br clear="all" />
+<br clear="all" />
+&lt;/table&gt; <br clear="all" />
+<br clear="all" />
+&lt;/vlh:root&gt; </th>
+</tr>
+</tbody></table>
+<p>ens genera la següent sortida per pantalla:</p>
+
+<p><img src="FAQ Canigó 2.1_attachments/image009.jpg" align="absmiddle" border="0" /></p>
+
+<p>Per a aquest exemple s'ha fet servir butons per a la paginació en lloc  d'imatges (tal i com s'ha explicat en una pregunta anterior).</p>
+
+<p><b>Important</b></p>
+
+<p>Aquest mecanisme de generació de llistats té el handicap de que no fa servir  els paràmetres que estiguin a la sessió, i per tant no té '<em>memòria</em>' de  l'estat anterior.</p>
+
+<h3><a name="FAQCanig%C3%B32.1-CompucgenerarunllistatambelserveidellistatsonlaconsultaHQLestiguiformadaperunaJOINiperpantallaesmostriinformaci%C3%B3detotselsobjectesqueconformenlaJOIN%3F"></a>Com  puc generar un llistat amb el servei de llistats on la consulta HQL estigui  formada per una JOIN i per pantalla es mostri informació de tots els objectes  que conformen la JOIN?</h3>
+
+<p><b>Problema</b></p>
+
+<p>El descrit a la pregunta.</p>
+
+<p><b>Solució</b></p>
+
+<p>Anem a veure un exemple de consulta HQL amb una JOIN, i com indicar a la JSP  la informació que volem mostrar.</p>
+
+<p>Per a fer servir aquesta funcionalitat el primer que cal fer <b>és  actualitzar-se les llibreries del framework</b>&nbsp;canigo_-services-core&#95; i canigo_-services-web&#95; a la versió 1.0.1-SNAPSHOT.</p>
+
+<p>Per a veure l'exemple, agafem la següent consulta HQL (la qual tenim definida  dintre del fitxer canigo_-services-web-list.xml_):</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> &lt;entry key="accountList"&gt; <br clear="all" />
+&lt;bean parent="baseHibernateAdapter"&gt; <br clear="all" />
+&lt;property  name="hql"&gt; <br clear="all" />
+&lt;value&gt; <br clear="all" />
+SELECT vo, pr <br clear="all" />
+FROM net.gencat.ctti.canigo.formacio.model.Account AS vo,  net.gencat.ctti.canigo.formacio.model.Product AS pr <br clear="all" />
+WHERE 1=1 AND  vo.preferredProduct.id = pr.id <br clear="all" />
+/~firstname: AND lower(vo.firstname)  LIKE lower('[firstname]%') &#126;/ <br clear="all" />
+/~lastname: AND lower(vo.lastname)  LIKE lower('[lastname]%') &#126;/ <br clear="all" />
+/~preferredCategory.id: AND  vo.preferredCategory.id = {preferredCategory.id} &#126;/ <br clear="all" />
+/~lower18:  AND vo.lower18 = {lower18} &#126;/ <br clear="all" />
+/<sub>sortColumn: ORDER BY  vo.[sortColumn] [sortDirection]</sub>/ <br clear="all" />
+&lt;/value&gt; <br clear="all" />
+&lt;/property&gt; <br clear="all" />
+&lt;/bean&gt; <br clear="all" />
+&lt;/entry&gt; </th>
+</tr>
+</tbody></table>
+<p>Podem veure que tenim definida una JOIN entre Account i Product.</p>
+
+<p>En la pàgina JSP l'únic que hem de fer per a recuperar informació d'un  objecte o de l'altre és fer servir la següent sintaxis:</p>
+
+<p><em>nom_del_bean.array[posicio].propietat</em></p>
+
+<p>on<br/>
+<em>nom_del_bean</em>: correspon al nom del bean amb el qual treballa  el &lt;vlh:row&gt;.<br/>
+<em>posicio</em>: correspon, en aquest cas, a 0 o 1,  depenent si volem recuperar informació<br/>
+de Account o de Product. L'ordre en  el qual es troben dintre de l'array ve<br/>
+determinat per l'ordre en els quals  els hem possat a la sentència SELECT.<br/>
+p_ropietat_: propietat que volem  recuperar.</p>
+
+<p>Per exemple, en aquest cas tindriem:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> &lt;vlh:row bean="llista"  display="&lt;%=displayProvider%&gt;"&gt; <br clear="all" />
+... <br clear="all" />
+&lt;vlh:column titleKey="jsp.accounts.accountList.id" property="id"  sortable="desc"&gt; <br clear="all" />
+&lt;c:out  value="${llista.array[0].id}"&gt;&lt;/c:out&gt; <br clear="all" />
+&lt;/vlh:column&gt; <br clear="all" />
+&lt;vlh:column  titleKey="jsp.accounts.accountList.firstname" property="firstname"  sortable="desc"&gt; <br clear="all" />
+&lt;c:out  value="${llista.array[0].firstname}" /&gt; <br clear="all" />
+&lt;/vlh:column&gt; <br clear="all" />
+&lt;vlh:column titleKey="jsp.accounts.accountList.lastname"  property="lastname" sortable="asc"&gt; <br clear="all" />
+&lt;c:out  value="${llista.array[0].lastname}" /&gt; <br clear="all" />
+&lt;/vlh:column&gt; <br clear="all" />
+&lt;vlh:column titleKey="forms.accountForm.field.preferredCategory"  property="preferredCategory.name" sortable="asc"&gt; <br clear="all" />
+&lt;c:out  value="${llista.array[0].preferredCategory.name}" /&gt; <br clear="all" />
+&lt;/vlh:column&gt; <br clear="all" />
+&lt;vlh:column  titleKey="forms.accountForm.field.preferredAnimal"  property="preferredProduct.name" sortable="asc"&gt; &lt;c:out  value="${llista.array[1].name}" /&gt; <br clear="all" />
+&lt;/vlh:column&gt; <br clear="all" />
+... <br clear="all" />
+&lt;/vlh:row&gt; </th>
+</tr>
+</tbody></table>
+<p>que ens genera el següent llistat:</p>
+
+<p><img src="FAQ Canigó 2.1_attachments/image010.jpg" align="absmiddle" border="0" /></p>
+
+<h3><a name="FAQCanig%C3%B32.1-L%27exportaci%C3%B3delsllistatsaPDFiExcelnom%C3%A9sm%27exportalaprimerap%C3%A0gina."></a>L'exportació  dels llistats a PDF i Excel només m'exporta la primera pàgina.</h3>
+
+<p><b>Problema</b></p>
+
+<p>El descrit a la pregunta</p>
+
+<p><b>Solució</b></p>
+
+<p>Aquest problema ha estat solucionat a partir de la versió 1.0.1-SNAPSHOT de  la llibreria canigo_-services-web.jar&#95;</p>
+
+<p>El comportament que es segueix ara és el següent:</p>
+<ul>
+	<li>Si el paràmetre <em>maxExportRows</em> està informat i és diferent de zero,  el nombre de registres que s'exporten és l'indicat per aquest paràmetre.</li>
+	<li>Si el paràmetre no està informat o bé el seu valor és zero, s'exporta tots  els registres del llistat.</li>
+</ul>
+
+
+<h3><a name="FAQCanig%C3%B32.1-Compodemmodificarelspar%C3%A0metresdecercaquerepelserveidellistatsdelaRequest%3F"></a>Com  podem modificar els paràmetres de cerca que rep el servei de llistats de la  Request?</h3>
+
+<p><b>Problema</b></p>
+
+<p>L'objectiu és o bé afegir més paràmetres de filtre a la cerca dels llistats o  bé modificar els paràmetres que venen a la request.</p>
+
+<p><b>Solució</b></p>
+
+<p>A partir de la versió 1.0.1-SNAPSHOT de la llibreria canigo_-services-web.jar&#95; està disponible una nova funcionalitat que  permet modificar els paràmetres de cerca que rep el servei de generació de  llistats, o be afegir més paràmetres de cerca.</p>
+
+<p>L'únic que cal fer és informar una Map amb els paràmetres que volem fer  servir a la cerca, abans de fer la crida al mètode <em>search</em> del <em>valueListActionHelper</em> del nostre client.</p>
+
+<p>Per exemple, supossem que volem que a totes les cerques que es facin es  tingui en compte un paràmetre de nom <em>idioma</em> el qual no serà informat  per pantalla sinó que serà informat segons certa casuistica de negoci.  Aleshores, el que farem serà el següent:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> public ActionForward  search(ActionMapping mapping, ActionForm form, <br clear="all" />
+javax.servlet.http.HttpServletRequest request, <br clear="all" />
+javax.servlet.http.HttpServletResponse response) <br clear="all" />
+throws  Exception { <br clear="all" />
+<br clear="all" />
+/&#42; Afegim un nou paràmetre de filtre a  la cerca. &#42;/ <br clear="all" />
+Map wParamsUser = new HashMap(); <br clear="all" />
+String  sIdioma = "CAT"; //valor per defecte <br clear="all" />
+<br clear="all" />
+// .....  casuística per a informar sIdioma <br clear="all" />
+<br clear="all" />
+wParamsUser.put("idioma",sIdioma); <br clear="all" />
+request.setAttribute(ValueListActionHelper.VALUE_LIST_FILTERS_ATTRIBUTE_NAME,  wParamsUser); <br clear="all" />
+<br clear="all" />
+valueListActionHelper.search(mapping,form,request,response); <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+return mapping.findForward("success"); <br clear="all" />
+} </th>
+</tr>
+</tbody></table>
+<p>Fixem-nos que el hem de fer es ficar un attribute a la request de nom<br/>
+ValueListActionHelper.VALUE_LIST_FILTERS_ATTRIBUTE_NAME,<br/>
+i que guardi la  Map amb els nous valors de cerca.</p>
+
+<p>Si en aquesta Map existeix un paràmetre amb el mateix nom que un dels  paràmetres de cerca de la request, aleshores en el moment de fer la cerca el  valor que s'agafarà és el de la Map. És a dir, els valors de la Map tenen  preferència respecte als de la Request. Això ens permet modificar els valors  informats per l'usuari al filtre de cerca.</p>
+
+<h3><a name="FAQCanig%C3%B32.1-Compodemafegirnousparametresdecercaperalesconsultesqueretornenlesdadesdelescombos%3F"></a>Com  podem afegir nous parametres de cerca per a les consultes que retornen les dades  de les combos?</h3>
+
+<p><b>Problema</b></p>
+
+<p>Idem a l'anterior.</p>
+
+<p><b>Solució</b></p>
+
+<p>L'objectiu d'aquest punt és com podem informar nous paràmetres de cerca de  les consultes associades a les combos (o Selects), els quals no venen informats  des de el formulari. És a dir, són paràmetres de cerca que no venen informats a  la request.</p>
+
+<p>La idea és fer servir el mateix mecanisme descrit a la faq anterior, però en  aquets cas el nomd e la Map és diferent. En lloc de ser</p>
+
+<p><em>ValueListActionHelper.VALUE_LIST_FILTERS_ATTRIBUTE_NAME</em></p>
+
+<p>hem de fer servir</p>
+
+<p><em>VlhOptionListSourceImpl.VALUE_OPTION_LIST_FILTERS_ATTRIBUTE_NAME</em></p>
+
+<p>Per exemple, imaginem que tenim una combo en les quals les dades han de  sortir filtrades per un paràmetre idioma que ha de ser informat des de  l'aplicació i no per l'usuari.</p>
+
+<p>La consulta que tenim associada a aquesta select és la següent:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> &lt;property name="hql"&gt; <br clear="all" />
+&lt;value&gt; <br clear="all" />
+FROM <br clear="all" />
+net.gencat.ctti.canigo.formacio.model.Product <br clear="all" />
+AS vo  WHERE 1=1 <br clear="all" />
+/~category: AND vo.category.id LIKE {category} &#126;/ <br clear="all" />
+/~idiomaAp: AND vo.idioma = {idomaAp} &#126;/ <br clear="all" />
+ORDER BY  vo.id asc <br clear="all" />
+&lt;/value&gt; <br clear="all" />
+&lt;/property&gt; </th>
+</tr>
+</tbody></table>
+<p>En aquest cas, el paràmetre category serà informat des de el formulari de  dades i el paràmetre idiomaAp haurà de ser informat des de l'aplicació.</p>
+
+<p>Per tal d'informar aquest paràmetre, des del mètode corresponent de l'action  que s'encarregui de gestionar la petició, tindrem el següent codi:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> ..... Codi del mètodo XXX de la  classe Action ActionXXXX ..... <br clear="all" />
+&nbsp;&nbsp;&nbsp; /&#42; Afegim un nou paràmetre de  filtre a la cerca. &#42;/ <br clear="all" />
+&nbsp;&nbsp;&nbsp; &nbsp;Map wParamsUser = new HashMap(); <br clear="all" />
+&nbsp;&nbsp;&nbsp; &nbsp;String  sIdioma = "CAT"; //valor per defecte <br clear="all" />
+&nbsp;&nbsp;&nbsp; &nbsp; <br clear="all" />
+&nbsp;&nbsp;&nbsp; &nbsp;// ..... casuistica per a  informar sIdioma <br clear="all" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wParamsUser.put("idiomaAp",sIdioma); <br clear="all" />
+&nbsp;&nbsp;&nbsp;  &nbsp;request.setAttribute(VlhOptionListSourceImpl.VALUE_OPTION_LIST_FILTERS_ATTRIBUTE_NAME,  wParamsUser); <br clear="all" />
+&nbsp;&nbsp;&nbsp; .... <br clear="all" /> </th>
+</tr>
+</tbody></table>
+<p>Amb això el que estem fent és indicar que la llista de paràmetres de cerca de  aplicar a la consulta ve donada per:</p>
+
+<p>Els paràmetres de la Map informada a l'Action.<br/>
+Els paràmetres informats a  la request.</p>
+
+<p>És important tenir en compte el següent: si a la Map i a la request tenim dos  paràmetres amb el mateix nom, alhora de generar la llista de paràmetres de cerca  que s'aplicarà a la consulta, el valor del paràmetre a la request és el que  s'aplicarà al final. És a dir, els valors dels paràmetres a la request  predominen respecte als valors de la Map en cas de coincidència en els noms.</p>
+
+<h3><a name="FAQCanig%C3%B32.1-Compucimplementarelmeupropicustomeditor%3F"></a>Com puc  implementar el meu propi custom editor?</h3>
+
+<p><b>Problema</b></p>
+
+<p>El descrit a la pregunta</p>
+
+<p><b>Solució</b></p>
+
+<p>Anem a explicar amb un exemple com podem implementar un custom editor per a  un tipus especific de dades.</p>
+
+<p>En el nostre cas la dada que volem formatejar és un número de compte bancari,  el qual per pantalla és informat per l'usuari en un camp de text i en canvi al  nostre objecte de negoci la dada queda representada per un objecte de tipus <em>CompteBancari</em>, el qual té com a atributs: entitat bancaria, oficina,  dígits de control i número de compte.</p>
+
+<p>L'entitat <em>CompteBancari</em> ve representat per la següent pojo:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> public class CompteBancari { <br clear="all" />
+<br clear="all" />
+private String entitat; <br clear="all" />
+private String  oficina; <br clear="all" />
+private String digits; <br clear="all" />
+private String  compte; <br clear="all" />
+<br clear="all" />
+public CompteBancari() { <br clear="all" />
+super(); <br clear="all" />
+// TODO Auto-generated constructor stub <br clear="all" />
+} <br clear="all" />
+<br clear="all" />
+public CompteBancari(String entitat,  String oficina, String digits, String compte){ <br clear="all" />
+super(); <br clear="all" />
+// TODO Auto-generated constructor stub <br clear="all" />
+this.entitat =  entitat; <br clear="all" />
+this.oficina = oficina; <br clear="all" />
+this.digits =  digits; <br clear="all" />
+this.compte = compte; <br clear="all" />
+} <br clear="all" />
+<br clear="all" />
+// setters i getters.... <br clear="all" />
+} </th>
+</tr>
+</tbody></table>
+<p>I al nostre objecte de negoci tindrem un atribut de tipus CompteBancari:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> public class Account extends  BaseAccount { <br clear="all" />
+..... <br clear="all" />
+private CompteBancari  compteBancari; <br clear="all" />
+.... <br clear="all" />
+} </th>
+</tr>
+</tbody></table>
+<p>El primer pas a fer es generar la classe custom editor. Aquesta classe ha  d'extendre de <em>java.beans.PropertyEditorSupport</em>. I l'altra condició que  ha de complir és redefinir el comportament del mètode setAsText.</p>
+
+<p>En el nostre cas, tindrem la següent classe:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> import  java.beans.PropertyEditorSupport; <br clear="all" />
+<br clear="all" />
+import  net.gencat.ctti.canigo.formacio.model.CompteBancari; <br clear="all" />
+<br clear="all" />
+import org.springframework.util.StringUtils; <br clear="all" />
+<br clear="all" />
+public class CompteBancariEditor extends PropertyEditorSupport { <br clear="all" />
+<br clear="all" />
+public CompteBancariEditor() { <br clear="all" />
+super(); <br clear="all" />
+// TODO Auto-generated constructor stub <br clear="all" />
+} <br clear="all" />
+<br clear="all" />
+public CompteBancariEditor(Object source) { <br clear="all" />
+super(source); <br clear="all" />
+// TODO Auto-generated constructor stub <br clear="all" />
+} <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+/*&#42; <br clear="all" />
+&#42; Mètode  que s'encarrega de transformar un String en un compte &lt;br&gt; <br clear="all" />
+&#42;  bancari. &lt;br&gt; <br clear="all" />
+&#42; El format de la'tribut que rep és:  &lt;br&gt; <br clear="all" />
+&#42; EEEEOOOODDCCCCCCCCCCCC &lt;br&gt; <br clear="all" />
+&#42; on:  &lt;br&gt; <br clear="all" />
+&#42; &lt;li&gt; EEEE: Representa a la entitat bancaria. <br clear="all" />
+&#42; &lt;li&gt; OOOO: Representa a la oficina. <br clear="all" />
+&#42;  &lt;li&gt; DD: Representa els digits del compte. <br clear="all" />
+&#42; &lt;li&gt;  CCCCCCCCCCCC: Representa el número de compte. <br clear="all" />
+&#42;/ <br clear="all" />
+public void setAsText(String pText) throws IllegalArgumentException  { <br clear="all" />
+if(&#33;StringUtils.hasText(pText)) <br clear="all" />
+throw new  IllegalArgumentException("El paràmetre no pot ser null"); <br clear="all" />
+<br clear="all" />
+String sEntitat = pText.substring(0,4); <br clear="all" />
+String sOficina =  pText.substring(4,8); <br clear="all" />
+String sDigits = pText.substring(8,10); <br clear="all" />
+String sCompte = pText.substring(10); <br clear="all" />
+<br clear="all" />
+CompteBancari wCompte = new CompteBancari(sEntitat, sOficina, sDigits,  sCompte); <br clear="all" />
+<br clear="all" />
+setValue(wCompte); <br clear="all" />
+} <br clear="all" />
+} </th>
+</tr>
+</tbody></table>
+<p>Fixem-nos que el que fem és formatejar la dada que ens ve com a paràmetre a  un objecte de tipus CompteBancari. Al final fem la crida a <em>setValue(***)</em> que modifica el valor del paràmetre que estem editant  (compteBancari en aquest cas).</p>
+
+<p>Altra mètode interessant d'implementar és el <em>getAsText</em>, el qual ens  permetrà indicar de quina manera s'ha de formatejar l'objecte quan sigui mostrat  per pantalla. Per exemple.</p>
+
+<p>Un cop tenim el custom editor definit, l'únic que cal fer és registrar-lo  dintre de la llista de custom editors de l'aplicació. En el cas del framework,  aquesta tasca es fa al fitxer <em>spring/property-editors.xml</em>.</p>
+
+<p>Haurem d'afegir:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> &lt;bean id="customEditors"  class="java.util.HashMap"&gt; <br clear="all" />
+&lt;constructor-arg&gt; <br clear="all" />
+&lt;map&gt; <br clear="all" />
+... <br clear="all" />
+&lt;entry  key="net.gencat.ctti.canigo.formacio.model.CompteBancari"&gt; <br clear="all" />
+&lt;bean id="compteBancariEditor"  class="net.gencat.ctti.canigo.formacio.util.propertyEditors.CompteBancariEditor"/&gt; <br clear="all" />
+&lt;/entry&gt; <br clear="all" />
+&lt;/map&gt; <br clear="all" />
+&lt;/constructor-arg&gt; <br clear="all" />
+&lt;/bean&gt; </th>
+</tr>
+</tbody></table>
+<p>on la <em>key</em> de la <em>entry</em> correspon al tipus d'objecte al qual  volem associar un custom editor, i el valor de l'entrada correspon al custom  editor a associar.</p>
+
+<h3><a name="FAQCanig%C3%B32.1-Compucgenerarundesplegableamblesdadesd%27unataulamestre%3F"></a>Com  puc generar un desplegable amb les dades d'una taula mestre?</h3>
+
+<p><b>Problema</b></p>
+
+<p>Volem generar un desplegable amb el framework i no sabem com fer-ho. Les  dades a mostrar provenen d'una taula mestre.</p>
+
+<p><b>Solució</b></p>
+
+<p>Els passos a seguir per a generar un desplegable a partir de les dades d'una  taula mestre són els següents:</p>
+<ul>
+	<li>Definir la consulta HQL i configurar el bean del desplegable.</li>
+	<li>Definir els atributs de visualització del desplegable.</li>
+	<li>Definir el tag dintre de la JSP.</li>
+</ul>
+
+
+<p>Per a descriure cada pas anem a definir un desplegable amb les dades de  Categories.</p>
+
+<p><em>Definir la consulta HQL i configurar el bean del desplegable</em></p>
+
+<p>La definició d'aquesta consulta HQL l'hem de fer al fitxer<br/>
+<em>resources/spring/_canigo</em>&#45;services-web-options-lists.xml.&#95;</p>
+
+<p>La modificació que hem d'afegir al fitxer és la següent:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> &lt;bean  name="defaultOptionValueListHandler" <br clear="all" />
+class="net.mlw.vlh.DefaultValueListHandlerImpl"&gt; ? <br clear="all" />
+&lt;property name="config.adapters"&gt; <br clear="all" />
+&lt;map&gt; <br clear="all" />
+&lt;entry key="categoriesList"&gt; <br clear="all" />
+&lt;bean  parent="defaultOptionBaseHibernateAdapter"&gt; <br clear="all" />
+&lt;property  name="hql"&gt; <br clear="all" />
+&lt;value&gt; <br clear="all" />
+FROM <br clear="all" />
+net.gencat.ctti.canigo.formacio.model.Category <br clear="all" />
+AS vo  WHERE 1=1 <br clear="all" />
+ORDER BY vo.id asc <br clear="all" />
+&lt;/value&gt; <br clear="all" />
+&lt;/property&gt; <br clear="all" />
+&lt;/bean&gt; <br clear="all" />
+&lt;/entry&gt; <br clear="all" />
+&lt;/map&gt; <br clear="all" />
+&lt;/property&gt; <br clear="all" />
+&lt;/bean&gt; <br clear="all" />
+<br clear="all" />
+&lt;bean id="categoriesOptionListSource"  parent="defaultOptionListSource"&gt; ? <br clear="all" />
+&lt;property  name="optionListName" value="categoriesList"/&gt; <br clear="all" />
+&lt;property  name="optionLabelName" value="name"/&gt; <br clear="all" />
+&lt;property  name="optionLabelProperty" value="id"/&gt; <br clear="all" />
+&lt;/bean&gt; <br clear="all" />
+<br clear="all" />
+&lt;bean id="optionsListService" ?  class=" net.gencat.ctti.canigo.services.web.taglib.util.options.OptionsListServiceBase"&gt; <br clear="all" />
+&lt;property name="optionsListSources"&gt; <br clear="all" />
+&lt;map&gt; <br clear="all" />
+&lt;entry key="categoriesList"&gt; <br clear="all" />
+&lt;ref  bean="categoriesOptionListSource"/&gt; <br clear="all" />
+&lt;/entry&gt; <br clear="all" />
+&lt;/map&gt; <br clear="all" />
+&lt;/property&gt; <br clear="all" />
+&lt;/bean&gt; </th>
+</tr>
+</tbody></table>
+<p>Podem veure que hi ha definits 3 beans:</p>
+
+<p>P En aquest pas, dintre de la propietat <em>config.adapters</em> del bean hem  d'afegir l'entrada corresponent a la sentència HQL que correspon a com recuperar  les dades del nostre desplegable.</p>
+
+<p>e En aquest pas definim un bean que representa al nostre desplegable:  indiquem quina consulta es farà servir (<em>optionListName</em>), quin serà  l'identificador de cada element del desplegable (<em>optionLabelProperty</em>) i  quina serà l'etiqueta que es mostrarà per a cada element  (<em>optionLabelName</em>).</p>
+
+<p>) Per últim, afegim el bean definit en el pas anterior a la llista de beans  disponibles per a generar un desplegable. El nom amb el qual el registrem dintre  d'aquest llistat es com l'haurem de referenciar després.</p>
+
+<p><em>Definir els atributs de visualització del desplegable</em></p>
+
+<p>Aquest pas implica modificar el fitxer <em>spring/action-servlet-xxx.xml</em> associat al formulari on volem afegir el desplegable.</p>
+
+<p>Dintre de la propietat <em>tags.configuration</em> del bean corresponent a la  nostra acció, afegirem (a la entrada on ens interessi):</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> &lt;bean parent="selectFieldTag"&gt; <br clear="all" />
+&lt;property name="key"  value="forms.accountForm.field.preferredCategory"/&gt; <br clear="all" />
+&lt;property  name="styleId" value="preferredCategory.id"/&gt; <br clear="all" />
+&lt;property  name="optionsListName" value="categoriesList"/&gt; ? <br clear="all" />
+&lt;property  name="layout" value="true"/&gt; <br clear="all" />
+&lt;property name="mode"  value="E,E,E"/&gt; <br clear="all" />
+&lt;/bean&gt; </th>
+</tr>
+</tbody></table>
+<p>Fixem-nos que el nom indicat a e coincideix amb el definit en el pas  anterior.</p>
+
+<p><em>Afegir el tag a la JSP</em></p>
+
+<p>Aquest darrer pas simplement significa afegir el següent codi:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> &lt;fwk:select otherKey="blank"  styleId="preferredCategory.id" property="preferredCategory.id" /&gt; </th>
+</tr>
+</tbody></table>
+
+<h3><a name="FAQCanig%C3%B32.1-ErroramblesconnexionsambTomcat%3ASocketclosed"></a>Error amb  les connexions amb Tomcat: Socket closed</h3>
+
+<p><b>Problema</b></p>
+
+<p>L'aplicació ens retorna el següent error:</p>
+
+<p><em>java.sql.SQLException: Excepción de E/S: Socket closed</em></p>
+
+<p><b>Solució</b></p>
+
+<p>Depenent de la configuració que tinguem al nostre Datasource, pot ser que al  demanar una connexió a aquest i executar qualsevol consulta ens retorni un  missatge d'error on podem trobar la següent causa:</p>
+
+<p><em>java.sql.SQLException: Excepción de E/S: Socket closed</em></p>
+
+<p>Aquest error es produeix quan el datasource està retornant a l'aplicació una  connexió que ja no és valida.</p>
+
+<p>Per tal d'evitar aquest comportament del Datasource, els servidors  d'aplicacions implementen un mecanisme alhora de definir un datasource que  permet validar l'estat de la connexió abans de ser assignada a un client. En  particular el que es fa és que abans de lliurar la connexió a un client,  s'executa una consulta fent servir la connexió: si la consulta retorna  resultats, aleshores la connexió és valida, i sinó retorna resultats o dóna  errors, la connexió és rebutja i s'agafa una altra per a lliurar-la al  client.</p>
+
+<p>En el cas particular del AS Tomcat, aquesta validació s'ha d'afegir a la  configuració del DS que fem al fitxer <em>server.xml</em> (sempre hi quan  tinguem la configuració del DS via el servidor). El codi a afegir és el  següent:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> &lt;ResourceParams  name="jdbc/formacioDS"&gt; <br clear="all" />
+... <br clear="all" />
+&lt;parameter&gt; <br clear="all" />
+&lt;name&gt;validationQuery&lt;/name&gt; <br clear="all" />
+&lt;value&gt;select count<img class="emoticon" src="./icons/emoticons/star_yellow.gif" height="16" width="16" align="absmiddle" alt="" border="0"/> from dual&lt;/value&gt; ? <br clear="all" />
+&lt;/parameter&gt; <br clear="all" />
+... <br clear="all" />
+&lt;/ResourceParams&gt; </th>
+</tr>
+</tbody></table>
+<p>&gt; Aquest paràmetre correspon a la consulta que volem que s'executi per a  validar la connexió. Es recomana fer servir aquesta o <em>SELECT 1 FROM  DUAL</em>.</p>
+
+<h3><a name="FAQCanig%C3%B32.1-Exempled%27invocaci%C3%B3clientservidormitjan%C3%A7antAJAX"></a>Exemple  d'invocació client-servidor mitjançant AJAX</h3>
+
+<p><b>Problema</b></p>
+
+<p>El descrit a la pregunta.</p>
+
+<p><b>Solució</b></p>
+
+<p>L'objectiu d'aquest document és donar un <b>exemple</b> d'ús d'AJAX. En  particular, anem a veure com implementar un filtre per a les combos (o selects),  de tal manera que l'usuari pugui filtrar el contingut d'aquestes simplement  introdunt paraules de filtrat.</p>
+
+<p>Els passos a seguir són els següents:</p>
+<ul>
+	<li>Modificar la consulta HQL que ens retorna el contingut de la combo, per tal  d'afegir els criteris de filtre.</li>
+	<li>Definir una classe Java que volem invocar desde el client.</li>
+	<li>Registrar la classe dintre del fitxer de configuració de DWR.</li>
+	<li>Iniciar el servidor i provar la implementació.</li>
+	<li>Implementar la invocació a la nostra JSP.</li>
+</ul>
+
+
+<p><em>Modificar consulta HQL</em></p>
+
+<p>La consulta HQL de la nostra combo serà la següent (li hem afegit el criteri  de cerca nom)</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> &lt;entry  key="categoriesList"&gt; <br clear="all" />
+&lt;bean  parent="defaultOptionBaseHibernateAdapter"&gt; <br clear="all" />
+&lt;property  name="hql"&gt; <br clear="all" />
+&lt;value&gt; <br clear="all" />
+FROM&nbsp; net.gencat.ctti.canigo.formacio.model.Category <br clear="all" />
+AS vo WHERE 1=1 <br clear="all" />
+/~nom: AND lower(vo.name) LIKE lower('[nom]%') &#126;/ ORDER BY vo.id  asc <br clear="all" />
+&lt;/value&gt; <br clear="all" />
+&lt;/property&gt; <br clear="all" />
+&lt;/bean&gt; <br clear="all" />
+&lt;/entry&gt; </th>
+</tr>
+</tbody></table>
+<p><em>Definir classe Java</em></p>
+
+<p>La única condició que ha de seguir aquesta classe és que implementi la  interface <em>java.io.Serializable</em>.</p>
+
+<p>En el nostre cas, volem que implementi un mètode que rebi el nom del llistat  associat a la select i el paràmetre de cerca, i retorni un llistat amb els  elements de la combo que verifiquin la condició de filtre.</p>
+
+<p>Com la gestió de les combos al framework es delega al servei de llistats,  aquesta classe té definit un atribut de tipus <em>OptionsListService</em>, que  es correspondrà al bean que hi ha definit al fitxer de configuració canigo_-services-web-list-options.xml_.</p>
+
+<p>A continuació es mostra el codi de la classe:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> package&nbsp; net.gencat.ctti.canigo.formacio.util; <br clear="all" />
+<br clear="all" />
+import  java.io.Serializable; <br clear="all" />
+import java.util.HashMap; <br clear="all" />
+import  java.util.List; <br clear="all" />
+import java.util.Map; <br clear="all" />
+<br clear="all" />
+import&nbsp; net.gencat.ctti.canigo.services.web.taglib.util.options.OptionsListService; <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+public class OptionsUtil implements  Serializable { <br clear="all" />
+<br clear="all" />
+private OptionsListService  optionsListService; <br clear="all" />
+<br clear="all" />
+public OptionsUtil() { <br clear="all" />
+super(); <br clear="all" />
+// TODO Auto-generated constructor stub <br clear="all" />
+} <br clear="all" />
+<br clear="all" />
+public List getOptionList(String  pNameList, String pParamFiltre){ <br clear="all" />
+Map wFiltre = new HashMap(); <br clear="all" />
+wFiltre.put("nom",pParamFiltre); <br clear="all" />
+return  optionsListService.getOptionsFromMap(pNameList, wFiltre); <br clear="all" />
+} <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+public OptionsListService  getOptionsListService() { <br clear="all" />
+return optionsListService; <br clear="all" />
+} <br clear="all" />
+public void setOptionsListService(OptionsListService  optionsListService) { <br clear="all" />
+this.optionsListService =  optionsListService; <br clear="all" />
+} <br clear="all" />
+<br clear="all" />
+} </th>
+</tr>
+</tbody></table>
+<p>Un cop hem definit la classe, hem de registrar un bean dintre d'Spring que  ens permeti injectar el valor de l'atribut.</p>
+
+<p>Per fer això, definim el següent bean (una recomanació d'on registrar aquest  bean pot ser al fitxer <em>account-servlet-xxx.xml</em> associat a l'acció):</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> &lt;bean id="optionsUtilBean"  class=" net.gencat.ctti.canigo.formacio.util.OptionsUtil"&gt; <br clear="all" />
+&lt;property name="optionsListService"  ref="optionsListService"/&gt; <br clear="all" />
+&lt;/bean&gt; </th>
+</tr>
+</tbody></table>
+<p><em>Definir la classe dintre del fitxer de configuració de DWR</em></p>
+
+<p>En aquest pas el que hem de fer és afegir dintre del fitxer de configuració  de DWR la referència a la nostra classe (aquest fitxer indica quines classes pot  crear i invocar DWR de manera remota des de javascript).</p>
+
+<p>El codi a afegir-hi al fitxer <em>/resources/dwr/dwr.xml</em> és:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> &lt;create creator="spring"  javascript="optionsUtil" &gt; <br clear="all" />
+&lt;param name="beanName"  value="optionsUtilBean"/&gt; <br clear="all" />
+&lt;/create&gt; </th>
+</tr>
+</tbody></table>
+<p>El paràmetre javascript correspon al nom mitjançant el qual farem referència  al bean des de el nostre codi javascript.</p>
+
+<p><em>Provar la implementació</em></p>
+
+<p>Per a provar que tots els passos anteriors els hem fet bé, simplement hem  d'iniciar el servidor i anar al següent enllaç (al fitxer web.xml és on tenim  definida que totes les peticions del tipus <em>/AppJava/dwr/&#42;</em> siguin  gestionades pel servlet de DWR):
+<br clear="all" /></p>
+
+<p>host:port/YOUR\-WEBAPP/AppJava/dwr/"  title="Visit page outside Confluence" rel="nofollow"linktype="raw" linktext="http://host:port/YOUR\-WEBAPP/AppJava/dwr/"&gt;host:port/YOUR\-WEBAPP/AppJava/dwr/"  title="Visit page outside Confluence" rel="nofollow"linktype="raw" linktext="http://host:port/YOUR\-WEBAPP/AppJava/dwr/"&gt;<a href="http://host:port/YOUR\-WEBAPP/AppJava/dwr/" title="Visit page outside Confluence">http://host:port/YOUR\-WEBAPP/AppJava/dwr/</a><br/>
+&nbsp;</p>
+
+<p>Haurem de veure una pantalla semblant a la següent:</p>
+
+<p><img src="FAQ Canigó 2.1_attachments/image011.jpg" align="absmiddle" border="0" /></p>
+
+<p>Si tot a anat bé, a la llista de classes conegudes per DWR ha de sortir la  que hem definit prèviament.</p>
+
+<p>Si ara clickem sobre l'enllaç de la nostra classe, veurem la següent  pantalla:</p>
+
+<p><img src="FAQ Canigó 2.1_attachments/image012.jpg" align="absmiddle" border="0" /></p>
+
+<p>En aquesta pantalla podem veure tots els mètodes de la classe que podem  invocar des de javascript. I a més, podem provar la seva invocació des d'aquí.</p>
+
+<p>Per exemple, anem a provar si la implementació que hem fet del mètode <em>getOptionList</em> és correcta. Per a això, informem els dos paràmetres  d'entrada amb els valors "categoriesList" i "ca", i polsem el botó execute (ens  ha de retornar tota la llista de categories que comencen per ca, aplicant  ignoreCase).</p>
+
+<p>Obtenim:</p>
+
+<p><img src="FAQ Canigó 2.1_attachments/image013.jpg" align="absmiddle" border="0" /></p>
+
+<p>tal i com esperavem.</p>
+
+<p>Un cop hem validat el funcionament, el que hem de fer és seguir les  indicacions que ens dóna DWR al començament de la pantalla: hem d'afegir 3  fitxers js a la nostra aplicació.</p>
+
+<p>Dos d'ells ja els tenim: <em>engine.js</em> i <em>util.js</em> (s'afegeixen  amb el tag del framework <em>fwk:configuration</em>).</p>
+
+<p>I respecte al tercer fitxer, simplement hem de copiar la línia que aparaeix  per pantalla</p>
+
+<p>&lt;script type='text/javascript' src='<a href="http://localhost:8083/openFrame-formacio/AppJava/dwr/interface/optionsUtil.js" title="Visit page outside Confluence">/</a><a href="http://localhost:8083/openFrame-formacio/AppJava/dwr/interface/optionsUtil.js" title="Visit page outside Confluence">canigo</a><a href="http://localhost:8083/openFrame-formacio/AppJava/dwr/interface/optionsUtil.js" title="Visit page outside Confluence">&#45;formacio/AppJava/dwr/interface/optionsUtil.js</a>'&gt;&lt;/script&gt;</p>
+
+<p>i afegir-la a la nostra JSP (aquest js el genera DWR de manera dinàmica a  l'iniciar el servidor).</p>
+
+<p>_<br/>
+_<em>Invocar implementació a la nostra JSP</em></p>
+
+<p>L'únic que queda ja per fer és implementar el codi javascript a la nostra  JSP. En aquest cas el que volem es que quan es produeixi l'event <em>onKeyPress</em> sobre la nostra select, aquesta es recarregui mostrant només  els elements que comencen per la cadena de caràcters introduïda per  l'usuari.</p>
+
+<p>Per tant, les modificacions a la JSP són 3:</p>
+
+<p><em>Afegir la llibreria JS</em></p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> &lt;script type='text/javascript'  src='&lt;%=request.getContextPath()%&gt;/AppJava/dwr/interface/optionsUtil.js'&gt;&lt;/script&gt; </th>
+</tr>
+</tbody></table>
+<p><em>Afegir els events que volem controlar a la definició de la  select</em></p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> &lt;fwk:select otherKey="blank"  styleId="preferredCategory.id" property="preferredCategory.id"  onkeypress="buscar_op(event)" onblur="borrar_buffer()"  onclick="borrar_buffer()"/&gt; </th>
+</tr>
+</tbody></table>
+<p>En aquest cas, capturem els events <em>onKeyPress</em> més els events <em>onblur</em> i <em>onclick</em>, els quals fan una crida a una funció js que  inicialitza les variables js que controlen el procés.</p>
+
+<p><em>Afegir codi javascript</em></p>
+
+<p>El codi a afegir-hi és:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> &lt;script&gt; <br clear="all" />
+var  digitos=10 //quantitat de digits cercats <br clear="all" />
+var puntero=0 <br clear="all" />
+var buffer=new Array(digitos) //declaració de l'array Buffer <br clear="all" />
+var cadena="" //cadena de caràcters introduïda per l'usuari. <br clear="all" />
+<br clear="all" />
+function recarrega(valorFiltre){ <br clear="all" />
+optionsUtil.getOptionList('categoriesList', valorFiltre,  ompleLlista); <br clear="all" />
+} <br clear="all" />
+<br clear="all" />
+function  ompleLlista(data){ <br clear="all" />
+DWRUtil.removeAllOptions("preferredCategory.id"); <br clear="all" />
+DWRUtil.addOptions("preferredCategory.id", data,"value","label"); <br clear="all" />
+} <br clear="all" />
+<br clear="all" />
+<br clear="all" />
+function  buscar_op(event){ &#42;&#42; <br clear="all" />
+<br clear="all" />
+// Lletra clickada per l'usuari <br clear="all" />
+var letra = String.fromCharCode(event.which) <br clear="all" />
+<br clear="all" />
+if(puntero &gt;= digitos){ <br clear="all" />
+cadena=""; <br clear="all" />
+puntero=0; <br clear="all" />
+} <br clear="all" />
+<br clear="all" />
+// si es  presiona la tecla ENTER, s'inicialitza la select al seu estat inicial <br clear="all" />
+<br clear="all" />
+if (event.keyCode == 13){ <br clear="all" />
+borrar_buffer(); <br clear="all" />
+recarrega(null); <br clear="all" />
+} <br clear="all" />
+else{ <br clear="all" />
+buffer[puntero]=letra; <br clear="all" />
+cadena=cadena+buffer[puntero]; <br clear="all" />
+puntero++; <br clear="all" />
+<br clear="all" />
+recarrega(cadena); <br clear="all" />
+} <br clear="all" />
+<br clear="all" />
+// invalida l'acció de clickat de tecla per a evitar cerca del primer  caràcter. <br clear="all" />
+event.returnValue = false; <br clear="all" />
+} <br clear="all" />
+<br clear="all" />
+function borrar_buffer(){ <br clear="all" />
+&#42;c*adena=""; <br clear="all" />
+puntero=0; <br clear="all" />
+} <br clear="all" />
+<br clear="all" />
+&lt;/script&gt; </th>
+</tr>
+</tbody></table>
+<p>La part important d'aquest codi són les funcions recarrega i ompleLlista.</p>
+
+<p>La primera és la que s'encarrega de fer la petició al servidor. Fixem-nos que  fa una petició a un mètode que té 3 paràmetres: els dos primers corresponen als  paràmetres que nosaltres hem definit a la nostra classe Java. I el tercer? El  tercer correspon a la funció js a la qual ha de cridar quan rebi la resposta del  servidor. Això es deu al fet a que la comunicació amb el servidor és asincrona i  per tant li hem d'indicar per on ha de continuar....</p>
+
+<p>La segona funció és la que rep l'array de dades retornada pel servidor i  s'encarrega d'omplir la select amb les noves dades. En aquest cas fa ús de  crides a funcions js que ja venen implementades dintre de DWR (llibreria <em>util.js</em>).</p>
+
+<p>Amb tot això ja podem provar l'exemple: simplement ens hem de posicionar a la  select i teclejar la paraula per la qual volem que filtri (les tecles polsades  no es veuen per pantalla...).</p>
+
+<p>A continuació podem veure el resultat d'executar l'exemple anterior.</p>
+
+<p>Inicialment tenim la següent select:</p>
+
+<p><img src="FAQ Canigó 2.1_attachments/image014.jpg" align="absmiddle" border="0" /></p>
+
+<p>Si ara ens situem sobre la select i polsem 'ca' el resultat és:<br/>
+<img src="FAQ Canigó 2.1_attachments/image015.jpg" align="absmiddle" border="0" /></p>
+
+<h3><a name="FAQCanig%C3%B32.1-Commodificarelcomportamentdelagesti%C3%B3d%27errorsquet%C3%A9DWR%3F"></a>Com  modificar el comportament de la gestió d'errors que té DWR?</h3>
+
+<p><b>Problema</b><br/>
+El descrit a la pregunta.</p>
+
+<p><b>Solució</b><br/>
+Per defecte, tot error que es produeix en la comunicació  client-servidor mitjançant l'ús de la interficie DWR es mostra a l'usuari  mitjançant un alert de javascript.</p>
+
+<p>Això es deu a que per defecte DWR té definida la següent instrucció al fitxer  engine.js</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> /*&#42; <br clear="all" />
+&#42; A function to  call if something fails. <br clear="all" />
+&#42; @private <br clear="all" />
+&#42;/ <br clear="all" />
+DWREngine._errorHandler = DWREngine.defaultMessageHandler; </th>
+</tr>
+</tbody></table>
+<p>És a dir, està indicant que qualsevol error ha de ser gestionat per la funció  js <em>defaultMessageHandler</em>, el codi de la qual és:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> /*&#42; <br clear="all" />
+&#42; The default  message handler. <br clear="all" />
+&#42; Useful in calls to setErrorHandler() or  setWarningHandler() to allow you to <br clear="all" />
+&#42; get the default back. <br clear="all" />
+&#42; @param message The message to display to the user somehow <br clear="all" />
+&#42;/ <br clear="all" />
+DWREngine.defaultMessageHandler = function(message)  { <br clear="all" />
+if (typeof message == "object" &amp;&amp; message.name ==  "Error" &amp;&amp; message.description) { <br clear="all" />
+alert("Error: " +  message.description); <br clear="all" />
+} <br clear="all" />
+else { <br clear="all" />
+alert(message); <br clear="all" />
+} <br clear="all" />
+}; </th>
+</tr>
+</tbody></table>
+<p>Si a la nostra aplicació volem definir un gestor diferent pels errors,  l´'unic que hem de fer és indicar quina funció ha de ser el nou gestor. I això  ho farem amb la següent crida al nostre codi:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> &lt;script&gt;DWREngine.setErrorHandler=nom_de_la_funcio;  &lt;/script&gt; </th>
+</tr>
+</tbody></table>
+<p>On <em>nom_de_la_funcio</em> és una funció javascript que tindrem definida,  per exemple:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> function  nom_de_la_funcio(message){ <br clear="all" />
+alert("S'ha produït el següent  error:"+message); <br clear="all" />
+} </th>
+</tr>
+</tbody></table>
+<p>_<br/>
+_</p>
+
+<h3><a name="FAQCanig%C3%B32.1-CompucafegirunCustomEditorperlesdadesdetipusNumber%3F"></a>Com  puc afegir un CustomEditor per les dades de tipus Number?</h3>
+
+<p><b>Problema</b><br/>
+Es vol definir un Custom Editor per fer el mapeig de un  string a un objecte de tipus Number, per exemple Integer, en el procés de  binding de les dades.</p>
+
+<p><b>Solució</b><br/>
+Spring ens proporciona una classe que ja fa aquest procés,  CustomNumberEditor. Per a registrar-la dintre dels customs editors de la nostra  aplicació el que s'ha de fer és afegir-la dintre del fitxer  property-editor.xml.</p>
+
+<p>En concret, hem d'afegir el següent codi:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> &lt;entry  key="java.lang.Integer"&gt; <br clear="all" />
+&lt;bean id="integerEditor"  class="org.springframework.beans.propertyeditors.CustomNumberEditor" &gt; <br clear="all" />
+&lt;constructor-arg type="java.lang.Class"&gt;  &lt;value&gt;java.lang.Integer&lt;/value&gt; ? <br clear="all" />
+&lt;/constructor-arg&gt; <br clear="all" />
+&lt;constructor-arg&gt; <br clear="all" />
+&lt;value&gt;false&lt;/value&gt; ? <br clear="all" />
+&lt;/constructor-arg&gt; <br clear="all" />
+&lt;/bean&gt; <br clear="all" />
+&lt;/entry&gt; </th>
+</tr>
+</tbody></table>
+<p>On</p>
+
+<p>Correspon al tipus de dades que volem tractar. Ha de ser una classe de tipus  Number.<br/>
+Si volem permetre valors nulls o buits. Si tenim activat aquest flag  el que fa el custom<br/>
+editor és assignar un null a l'atribut quan des de el  formulari ve el camp buit. Si volem<br/>
+que assigni un valor per defecte  aleshores es recomana extendre el customEditor i<br/>
+redefinir el mètode  setAsText.</p>
+
+<p>_<br/>
+_</p>
+
+<h3><a name="FAQCanig%C3%B32.1-Problemesambelselementsenlla%C3%A7atsodepenents"></a>Problemes  amb els elements enllaçats o depenents</h3>
+
+<p><b>Problema</b></p>
+
+<p>L'enllaçament d'elements no funciona.</p>
+
+<p><b>Solució</b></p>
+
+<p>A la nostra plana tenim elements enllaçats de tal manera que quan es modifica  el valor d'un és recarrega el valor de l'altre.</p>
+
+<p>Per exemple, tenim dos selects <em>selectA</em> i <em>selectB</em>, i quan  modifiquem el valor de la <em>selectA</em> es recarrega el valor de la <em>selectB,</em> és a dir el valor seleccionat a la <em>selectA</em> ens permet  filtrar els elements de la <em>selectB</em>.</p>
+
+<p>Si hem implementat aquesta funcionalitat i veiem que no ens funciona, podem  validar els seguents aspectes de la implementació.</p>
+
+<p><em>Definició de la dependència correcta</em></p>
+
+<p>Al fitxer <em>action-servlet-xxx.xml</em> , on tinguem definida la  dependència, hem de tenir definida la relació de la següent manera:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> &lt;bean parent="selectFieldTag"&gt;  // Configuració del selectA &lt;property name="key"  value="forms.accountForm.field.preferredCategory"/&gt; &lt;property  name="styleId" value="preferredCategory.id"/&gt; &lt;property  name="optionsListName" value="categoriesList"/&gt; <br clear="all" />
+&lt;property  name="layout" value="true"/&gt; <br clear="all" />
+&lt;property name="mode"  value="E,E,I"/&gt; <br clear="all" />
+&lt;/bean&gt; <br clear="all" />
+&lt;bean  parent="selectFieldTag"&gt; // Configuració del selectB <br clear="all" />
+&lt;property name="key"  value="forms.accountForm.field.preferredAnimal"/&gt; &lt;property name="styleId"  value="preferredProduct.id"/&gt; &lt;property name="optionsListName"  value="animalsList"/&gt; <br clear="all" />
+&lt;property name="layout"  value="true"/&gt; <br clear="all" />
+&lt;property name="mode" value="E,E,I"/&gt; <br clear="all" />
+&lt;property name="selectFieldSource"&gt; ? <br clear="all" />
+&lt;map&gt; <br clear="all" />
+&lt;entry&gt; <br clear="all" />
+&lt;key&gt;&lt;value&gt;source&lt;/value&gt;&lt;/key&gt; <br clear="all" />
+&lt;value&gt;preferredCategory.id&lt;/value&gt; <br clear="all" />
+&lt;/entry&gt; <br clear="all" />
+&lt;entry&gt; <br clear="all" />
+&lt;key&gt;&lt;value&gt;paramName&lt;/value&gt;&lt;/key&gt; <br clear="all" />
+&lt;value&gt;category&lt;/value&gt; <br clear="all" />
+&lt;/entry&gt;  &lt;/map&gt; <br clear="all" />
+&lt;/property&gt; <br clear="all" />
+&lt;/bean&gt; </th>
+</tr>
+</tbody></table>
+<p>&gt; Aquesta propietat ens diu que aquesta select té una dependència d'un  altre element,<br/>
+l'identificador del qual ve donat pel valor de l'entrada <em>source</em> (en aquest cas correspon a una<br/>
+altra select).<br/>
+L'entrada <em>paramName</em> ens indica amb quin nom es passarà al filtre de la <em>selectB</em> el valor<br/>
+escollit a la <em>selectA</em>.</p>
+
+<p><em>Definició de la consulta que ens retorna els valors de la  selectB</em></p>
+
+<p>En aquest cas haurem de validar que la consulta que ens retorna els valors de  la <em>selectB</em> està ben definida i té com paràmetre de filtre l'element que  ens ve de la <em>selectA</em>.</p>
+
+<p>Per exemple, en el nostre exemple aquesta consulta correspon a:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> FROM <br clear="all" />
+net.gencat.ctti.canigo.formacio.model.Product <br clear="all" />
+AS vo  WHERE 1=1 <br clear="all" />
+/~category: AND vo.category.id LIKE {category} &#126;/ ? <br clear="all" />
+ORDER BY vo.id asc </th>
+</tr>
+</tbody></table>
+<p>Podem observar que aquesta consulta té un paràmetre de filtre de nom  category, el qual ha de<br/>
+coincidir amb el nom definit a la configuració  anterior.</p>
+
+<p><em>Implementació correcta a la JSP</em></p>
+
+<p>L'ordre en el qual han d'apareixer els elements a la nostra plana JSP ha de  ser el mateix ordre jeràrquic de la dependència, <b>sinó la dependència no  funcionarà</b>.</p>
+
+<p>És a dir, al nostre exemple, a la JSP els elements han d'estar implementats  en el següent ordre:</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> ... <br clear="all" />
+&lt;fwk:select  otherKey="blank" styleId="preferredCategory.id"  property="preferredCategory.id"/&gt; <br clear="all" />
+&lt;fwk:select  styleId="preferredProduct.id" property="preferredProduct.id"/&gt; <br clear="all" />
+... </th>
+</tr>
+</tbody></table>
+<p>La raó per la qual deixa de funcionar la podem resumir en el següent: en el  moment en el qual es renderitza el component JSP depenent, es valida que  existeixi l'element html del qual depèn, i sinó existeix no es modifica el  comportament de l'event <em>onchange</em>, i per tant els valors de la <em>selectB</em> no es recarreguen al modificar la <em>selectA</em>.</p>
+
+<p>Podem mirar el codi següent al js canigo_-ajaxtags-select.js&#95;</p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> if (this.options.sourceElem) { <br clear="all" />
+this.attachBehaviors(this.options.sourceElem,  this.options.eventType, <br clear="all" />
+this.actionElemChanged, this); <br clear="all" />
+this.actionElemChanged(new Object()); <br clear="all" />
+} </th>
+</tr>
+</tbody></table>
+<p>_<br/>
+_</p>
+
+<h3><a name="FAQCanig%C3%B32.1-M%C3%A9sd%27unformularienunamateixaJSP."></a>Més d'un  formulari en una mateixa JSP.</h3>
+
+<p><b>Problema</b></p>
+
+<p>Definir més d'un formulari dins d'una mateixa JSP.</p>
+
+<p><b>Solució</b></p>
+
+<p>Haurem de seguir els següents passos:</p>
+
+<p>1-Primerament haurem d'actualitzar dos fitxers a la release 1.0.8 o  superior:</p>
+
+<p><em>&#45;</em> canigo_-services-web-1.0.8.jar&#95;<br/>
+<em>&#45;</em> canigo_-ajaxtags-validation.js&#95;</p>
+
+<p>2-Definirem les validacions dels formularis en el fitxer validation.xml per  separat. En l'exemple que detallem definim 2 formularis:</p>
+
+<p>&lt;form-validation&gt;</p>
+
+<p>&lt;formset&gt;</p>
+
+<p>&lt;form name="accounts1"&gt;<br/>
+&lt;field property="firstname"  depends="required"&gt;<br/>
+&lt;arg0  key="forms.accountForm.field.firstname"/&gt;<br/>
+&lt;arg1  key="forms.accountForm.field.lastname"/&gt;<br/>
+&lt;/field&gt;</p>
+
+<p>&lt;field property="preferredCategory.id" depends="required"&gt;<br/>
+&lt;arg0  key="forms.accountForm.field.preferredCategory"/&gt;<br/>
+&lt;/field&gt;<br/>
+&lt;field property="email" depends="email"&gt;<br/>
+&lt;arg0  key="forms.accountForm.field.email"/&gt;<br/>
+&lt;/field&gt;<br/>
+&lt;field  property="lastname" depends="required,maxlength"&gt;<br/>
+&lt;arg0  key="forms.accountForm.field.lastname"/&gt;<br/>
+&lt;arg1 name="maxlength"  key="${var:maxlength}"<br/>
+resource="false"  /&gt;<br/>
+&lt;var&gt;<br/>
+&lt;var-name&gt;maxlength&lt;/var-name&gt;<br/>
+&lt;var-value&gt;10&lt;/var-value&gt;<br/>
+&lt;/var&gt;<br/>
+&lt;/field&gt;<br/>
+&lt;field  property="password" depends="required"&gt;<br/>
+&lt;arg0  key="forms.accountForm.field.password"/&gt;<br/>
+&lt;/field&gt;<br/>
+&lt;field  property="addr1" depends="required"&gt;<br/>
+&lt;arg0  key="forms.accountForm.field.addr1"/&gt;<br/>
+&lt;/field&gt;<br/>
+&lt;field  property="city" depends="required"&gt;<br/>
+&lt;arg0  key="forms.accountForm.field.city"/&gt;<br/>
+&lt;/field&gt;<br/>
+&lt;field  property="state" depends="required,minlength"&gt;<br/>
+&lt;arg0  key="forms.accountForm.field.state"/&gt;<br/>
+&lt;arg1 name="minlength"  key="${var:minlength}"<br/>
+resource="false"  /&gt;<br/>
+&lt;var&gt;<br/>
+&lt;var-name&gt;minlength&lt;/var-name&gt;<br/>
+&lt;var-value&gt;1&lt;/var-value&gt;<br/>
+&lt;/var&gt;<br/>
+&lt;/field&gt;<br/>
+&lt;field  property="zip" depends="required"&gt;<br/>
+&lt;arg0  key="forms.accountForm.field.zip"/&gt;<br/>
+&lt;/field&gt;<br/>
+&lt;field  property="country" depends="required"&gt;<br/>
+&lt;arg0  key="forms.accountForm.field.country"/&gt;<br/>
+&lt;/field&gt;<br/>
+&lt;field  property="password" depends="required"&gt;<br/>
+&lt;arg0  key="forms.accountForm.field.password"/&gt;<br/>
+&lt;/field&gt;<br/>
+&lt;field  property="comments" depends="required"&gt;<br/>
+&lt;arg0  key="forms.accountForm.field.password"/&gt;<br/>
+&lt;/field&gt;</p>
+
+<p>&lt;/form&gt;</p>
+
+<p>&lt;form name="accounts2"&gt;<br/>
+&lt;field property="phone"  depends="required"&gt;<br/>
+&lt;arg0  key="forms.accountForm.field.phone"/&gt;<br/>
+&lt;/field&gt;<br/>
+&lt;/form&gt;</p>
+
+<p>&lt;/formset&gt;<br/>
+&lt;/form-validation&gt;</p>
+
+<p>3-Dins del fitxer action-servlet-xxx.xml definirem un formTag per cada  formulari:</p>
+
+<p>...<br/>
+&lt;property name="tagsConfiguration"&gt;<br/>
+&lt;map&gt;<br/>
+&lt;entry  key="*"&gt;<br/>
+&lt;list&gt;</p>
+
+<p>&lt;bean parent="formTag"&gt;<br/>
+&lt;property name="styleId"  value="actionForm"/&gt; &lt;property  name="validationProperties"&gt;<br/>
+&lt;props&gt;<br/>
+&lt;prop  key="validationType"&gt;SERVER&lt;/prop&gt;<br/>
+&lt;prop  key="validatorName"&gt;accounts1&lt;/prop&gt;<br/>
+&lt;prop  key="pojoClass"&gt;net.canigo.Account&lt;/prop&gt;<br/>
+&lt;/props&gt;<br/>
+&lt;/property&gt;<br/>
+&lt;/bean&gt;<br/>
+&lt;bean  parent="formTag"&gt;<br/>
+&lt;property name="styleId" value="actionForm2"/&gt;  &lt;property name="validationProperties"&gt;<br/>
+&lt;props&gt;<br/>
+&lt;prop  key="validationType"&gt;SERVER&lt;/prop&gt;<br/>
+&lt;prop  key="validatorName"&gt;accounts2&lt;/prop&gt;<br/>
+&lt;prop  key="pojoClass"&gt;net.canigo.Account&lt;/prop&gt;<br/>
+&lt;/props&gt;<br/>
+&lt;/property&gt;</p>
+
+<p>&lt;/bean&gt;<br/>
+...</p>
+
+<p>Dins de validationProperties definirem les següents propietats:</p>
+
+<p><em>&#45;  validationType</em>: tipus de validació .Els possibles valors són  CLIENT/SERVER.<br/>
+&#42;&#42;<em>&#45;  validatorName</em>: nom del validador que hem donat  dins del fitxer validation.xml.<br/>
+&#42;&#42;<em>&#45;  pojoClass</em>: classe del Bean del  Formulari.</p>
+
+<p>4&#45; En la JSP definirem els formularis amb el seu corresponent styleId  (corresponent al definit dins del seu formTag de action-servlet-xxx.xml):</p>
+
+<p>&lt;fwk:form action="editAccount.do" styleId="actionForm" reqCode="edit"  width="500" method="post" styleClass="edit"&gt;<br/>
+&lt;tr&gt;<br/>
+&lt;fwk:text  styleId="id" property="id"/&gt;<br/>
+&lt;/tr&gt;<br/>
+&lt;tr&gt;<br/>
+&lt;fwk:text  styleId="password"  property="password"/&gt;<br/>
+&lt;/tr&gt;<br/>
+&lt;tr&gt;<br/>
+&lt;fwk:text  styleId="email" property="email"/&gt;<br/>
+&lt;/tr&gt;<br/>
+&lt;tr&gt;<br/>
+&lt;fwk:text styleId="firstname" property="firstname"/&gt;<br/>
+&lt;tr&gt;</p>
+
+<p>...</p>
+
+<p>&lt;tr&gt;<br/>
+&lt;fwk:submit styleId="saveActionImage"/&gt;<br/>
+&lt;/tr&gt;</p>
+
+<p>&lt;/fwk:form&gt;</p>
+
+<p>&lt;fwk:form action="editAccount.do" styleId="actionForm2" reqCode="edit"  width="500" method="post" styleClass="edit"&gt;<br/>
+&lt;tr&gt;<br/>
+&lt;fwk:text  styleId="phone"  property="phone"/&gt;<br/>
+&lt;/tr&gt;<br/>
+&lt;tr&gt;<br/>
+&lt;fwk:submit  styleId="saveActionImage2"/&gt;<br/>
+&lt;/tr&gt;<br/>
+&lt;/fwk:form&gt;</p>
+
+<p>...</p>
+
+<p>_<br/>
+_</p>
+
+<h3><a name="FAQCanig%C3%B32.1-Eliminarcol.lumnesd%27unllistatal%27exportaraexcelopdf."></a>Eliminar  col.lumnes d'un llistat a l'exportar a excel o pdf.</h3>
+
+<p><b>Problema</b></p>
+
+<p>Eliminar columnes d'un llistat a l'exportar a excel o pdf. Poder eliminar  columnes per títol de la columna o per index de la columna.</p>
+
+<p><b>Solució</b></p>
+
+<p>Eliminar columnes per títol de columna:</p>
+
+<p>Dins del fitxer canigo-services-web-lists.xml hi trobem el bean de  configuració del valuelist (ValueListConfigBean). Aquest bean conté els  displayProviders ExportPdf i ExportExcel. Aquests beans tenen una propietat que  es diu skipColumns. Aquí haurem d'introduïr el titleKey de la columna que volem  ignorar a l'exportar (tant a pdf com a excel):</p>
+
+<p>&lt;entry key="ExportPDF"&gt;<br/>
+&lt;bean  class="net.gencat.ctti.canigo.services.web.vlh.tag.support.PdfDisplayProvider"  singleton="false"&gt;<br/>
+&lt;property name="logService"  ref="loggingService"/&gt;<br/>
+&lt;property name="i18nService"  ref="i18nService"/&gt;<br/>
+&lt;property  name="skipColumns"&gt;<br/>
+&lt;list&gt;<br/>
+&lt;value&gt;jsp.categories.categoryList.actions&lt;/value&gt;<br/>
+&lt;value&gt;jsp.products.productList.actions&lt;/value&gt;<br/>
+&lt;/list&gt;<br/>
+&lt;/property&gt;<br/>
+&lt;/bean&gt;<br/>
+&lt;/entry&gt;<br/>
+&lt;entry  key="ExportExcel"&gt;<br/>
+&lt;bean  class=" net.gencat.ctti.canigo.services.web.vlh.tag.support.ExcelDisplayProvider"  singleton="false"&gt;<br/>
+&lt;property name="logService"  ref="loggingService"/&gt;<br/>
+&lt;property name="i18nService"  ref="i18nService"/&gt;<br/>
+&lt;property  name="skipColumns"&gt;<br/>
+&lt;list&gt;<br/>
+&lt;value&gt;jsp.categories.categoryList.actions&lt;/value&gt;<br/>
+&lt;value&gt;jsp.products.productList.actions&lt;/value&gt;<br/>
+&lt;/list&gt;<br/>
+&lt;/property&gt;<br/>
+&lt;/bean&gt;<br/>
+&lt;/entry&gt;</p>
+
+<p>Eliminar columnes per index de columna:</p>
+
+<p>Per eliminar columnes pel seu index, haurem de configurar-ho en la Action que  fa l'export:</p>
+
+<p>public ActionForward searchExportPDF(ActionMapping mapping, ActionForm  form,<br/>
+javax.servlet.http.HttpServletRequest  request,<br/>
+javax.servlet.http.HttpServletResponse response) throws Exception  {</p>
+
+<p>List skipColumnNumbers = new  ArrayList();<br/>
+skipColumnNumbers.add("1");<br/>
+skipColumnNumbers.add("3");</p>
+
+<p>request.setAttribute(PdfDisplayProvider.SKIP_COLUMN_NUMBERS,skipColumnNumbers);</p>
+
+<p>request.setAttribute("displayProvider","ExportPDF");</p>
+
+<p>return this.search(mapping,form,request,response);<br/>
+}</p>
+
+<p>public ActionForward searchExportExcel(ActionMapping mapping, ActionForm  form,<br/>
+javax.servlet.http.HttpServletRequest  request,<br/>
+javax.servlet.http.HttpServletResponse response) throws Exception  {</p>
+
+<p>List skipColumnNumbers = new  ArrayList();<br/>
+skipColumnNumbers.add("1");<br/>
+skipColumnNumbers.add("3");<br/>
+request.setAttribute(ExcelDisplayProvider.SKIP_COLUMN_NUMBERS,skipColumnNumbers);</p>
+
+<p>request.setAttribute("displayProvider","ExportExcel");</p>
+
+<p>return this.search(mapping,form,request,response);<br/>
+}</p>
+
+<p>En l'exemple anterior, a l'exportar tant a pdf com a excel, estariem ignorant  les columnes primera i tercera.</p>
+
+<p>_<br/>
+_</p>
+
+<h3><a name="FAQCanig%C3%B32.1-M%C3%A9sd%27unaValueListenunamateixaJSP."></a>Més d'una  ValueList en una mateixa JSP.</h3>
+
+<p><b>Problema</b></p>
+
+<p>Configurar una aplicació per poder mostrar més d'una ValueList en una mateixa  JSP.</p>
+
+<p><b>Solució</b></p>
+
+<p>Els passos a seguir són els següents:</p>
+
+<p>&#45; Dins del fitxer action-servlet-xxx.xml, definir un Map d'objectes  ValueListActionHelper, amb una clau que servirà per identificar cada  ValueListActionHelper:</p>
+
+<p>&lt;bean name="/accounts" parent="accountBaseDefinition"&gt;<br/>
+&lt;property  name="valueListActionHelperMap"&gt;<br/>
+&lt;map&gt;<br/>
+&lt;entry  key="accounts"&gt;<br/>
+&lt;bean  parent="valueListActionHelper"&gt;<br/>
+&lt;property  name="listName"&gt;<br/>
+&lt;value&gt;accountList&lt;/value&gt;<br/>
+&lt;/property&gt;<br/>
+&lt;property  name="listAttributeName" value="list" /&gt;<br/>
+&lt;property name="id"  value="valuelist1"/&gt;<br/>
+&lt;property name="tableId"  value="ACCOUNT"/&gt;<br/>
+&lt;/bean&gt;<br/>
+&lt;/entry&gt;<br/>
+&lt;entry  key="categories"&gt;<br/>
+&lt;bean  parent="valueListActionHelper"&gt;<br/>
+&lt;property  name="listName"&gt;<br/>
+&lt;value&gt;categoriesList&lt;/value&gt;<br/>
+&lt;/property&gt;<br/>
+&lt;property  name="listAttributeName" value="list2" /&gt;<br/>
+&lt;property name="id"  value="valuelist2"/&gt;<br/>
+&lt;property name="tableId" value="CATEGORY"  /&gt;<br/>
+&lt;/bean&gt;<br/>
+&lt;/entry&gt;<br/>
+&lt;/map&gt;<br/>
+&lt;/property&gt;<br/>
+...</p>
+
+<p>Per a cada ValueListActionHelper haurem de definir, a part de les que ja  informavem (<em>listName</em> i <em>tableId</em>), les propietats  )<em>listAttributName</em> (nom de la valuelist) i <em>id</em> (id de la  valuelist).</p>
+
+<p>&#45; Dins l'Action definirem el Map d'objectes ValueListActionHelper i  recuperarem els que necessitem per fer les búsquedes:</p>
+
+<p>private Map valueListActionHelperMap;</p>
+
+<p>...</p>
+
+<p>public ActionForward search(ActionMapping mapping, ActionForm  form,<br/>
+javax.servlet.http.HttpServletRequest  request,<br/>
+javax.servlet.http.HttpServletResponse response)<br/>
+throws Exception  {</p>
+
+<p>ValueListActionHelper valueListActionHelperAccounts =  (ValueListActionHelper)valueListActionHelperMap.get("accounts");<br/>
+valueListActionHelperAccounts.search(mapping,form,request,response);</p>
+
+<p>ValueListActionHelper valueListActionHelperCategories =  (ValueListActionHelper)valueListActionHelperMap.get("categories");<br/>
+valueListActionHelperCategories.search(mapping,form,request,response);</p>
+
+<p>FormUtils.setFormDisplayMode(request, form, FormUtils.EDIT_MODE);</p>
+
+<p>return mapping.findForward("success");<br/>
+}</p>
+
+<p>&#45; En la JSP definirem les diferents valuelists posant com a <em>name</em> el  nom que haguem definit en la propietat <em>listAttributeName</em> i <em>id</em> que també haguem definit en la propietat <em>id</em> dins  l'action-servlet-xxx.xml:</p>
+
+<p>&lt;fwk:vlhroot fvalue="list" "id="valuelist1" url="accounts.do?"  includeParameters="reqCode" configName="vlConfig"&gt;<br/>
+...<br/>
+&lt;/fwk:vlhroot&gt;</p>
+
+<p>&lt;vlh:root value="list2" id="valuelist2" url="categories.do?"  includeParameters="reqCode" configName="vlConfig"&gt;<br/>
+...<br/>
+&lt;/fwk:vlhroot&gt;</p>
+
+<p>&#45; Exemple de JSP complet:</p>
+
+<p>&lt;%@ include file="/WEB-INF/jsp/includes/fwkTagLibs.jsp" %&gt;</p>
+
+<p>&lt;fwk:vlhroot value="list" id="valuelist1" url="accounts.do?"  includeParameters="reqCode" configName="vlConfig"&gt;<br/>
+&lt;fwk:form  styleId="actionForm" action="accounts.do" reqCode="search"&gt;</p>
+
+<p>&lt;table width="450" align="center" border="0"&gt;<br/>
+&lt;&#33;-&#45; pagination  section --&gt;<br/>
+&lt;tr&gt;<br/>
+&lt;td align="left"  nowrap="true"&gt;&lt;c:out<br/>
+value="${list.valueListInfo.totalNumberOfEntries}"  /&gt; &lt;fmt:message key="jsp.accounts.accountList.total"/&gt; -  &lt;fmt:message key="jsp.accounts.accountList.page"/&gt;<br/>
+(&lt;c:out  value="${list.valueListInfo.pagingPage}" /&gt; &lt;fmt:message  key="jsp.accounts.accountList.of"/&gt;  &lt;c:out<br/>
+value="${list.valueListInfo.totalNumberOfPages}"  /&gt;)&lt;/td&gt;<br/>
+&lt;td &gt;&lt;table border="0"  align="right"&gt;&lt;tr&gt;&lt;td&gt;&lt;fwk:vlhpaging  /&gt;&lt;/td&gt;&lt;/table&gt;&lt;/td&gt;<br/>
+&lt;/tr&gt;<br/>
+&lt;&#33;-&#45; end of  Pagination --&gt;<br/>
+&lt;tr&gt;<br/>
+&lt;td colspan="2"&gt;<br/>
+&lt;table  width="100%" class="classicLook" cellspacing="0"<br/>
+cellpadding="0"  id="taulaId"&gt;<br/>
+&lt;tbody&gt;<br/>
+&lt;%<br/>
+String displayProvider =  (request.getAttribute("displayProvider")&#33;=<b>null</b>)?request.getAttribute("displayProvider").toString():"";<br/>
+%&gt;<br/>
+&lt;fwk:vlhrow  bean="account" display="&lt;%=displayProvider%&gt;"&gt;</p>
+
+<p>&lt;vlh:attribute  name="onmouseover"&gt;this.className='selected';&lt;/vlh:attribute&gt;<br/>
+&lt;vlh:attribute  name="onmouseout"&gt;this.className='zebra0';&lt;/vlh:attribute&gt;<br/>
+&lt;fwk:vlhcolumn  titleKey="jsp.accounts.accountList.id" property="id"&gt;<br/>
+&lt;fwk:vlhaction  url="editAccount.do?"&gt;<br/>
+&lt;fwk:vlhaddParam name="reqCode" value="edit"  temp="false" /&gt;<br/>
+&lt;fwk:vlhaddParam name="id" property="id" temp="false"  /&gt;<br/>
+&lt;c:out  value="${account.id}"&gt;&lt;/c:out&gt;<br/>
+&lt;/fwk:vlhaction&gt;<br/>
+&lt;/fwk:vlhcolumn&gt;<br/>
+&lt;fwk:vlhcolumn  titleKey="jsp.accounts.accountList.firstname"  property="firstname"/&gt;<br/>
+&lt;fwk:vlhcolumn  titleKey="jsp.accounts.accountList.lastname"  property="lastname"/&gt;<br/>
+&lt;fwk:vlhcolumn  titleKey="forms.accountForm.field.preferredCategory"  property="preferredCategory.id"/&gt;</p>
+
+<p>&lt;/fwk:vlhrow&gt;<br/>
+&lt;tr&gt;<br/>
+&lt;td colspan="4"  style="text-align:right"&gt;<br/>
+&lt;table align="right"&gt;&lt;tr&gt;&lt;td  style="border: 0px"&gt;&lt;fmt:message  key="jsp.common.export"/&gt;&nbsp;&lt;/td&gt;<br/>
+&lt;td style="border:  0px"&gt;&lt;html:link page="/accounts.do?reqCode=searchExportPDF"  target="_blank"&gt;&lt;img src="&lt;c:url  value="/images/icono_acrobat.gif"/&gt;"  border="0"/&gt;&lt;/html:link&gt;&lt;/td&gt;<br/>
+&lt;td style="border:  0px"&gt;&lt;html:link page="/accounts.do?reqCode=searchExportExcel"  target="_blank"&gt;&lt;img src="&lt;c:url value="/images/icono_excel.gif"/&gt;"  border="0"/&gt;&lt;/html:link&gt;&lt;/td&gt;<br/>
+&lt;/td&gt;<br/>
+&lt;/tr&gt;<br/>
+&lt;/tbody&gt;<br/>
+&lt;/table&gt;<br/>
+&lt;/td&gt;<br/>
+&lt;/tr&gt;<br/>
+&lt;/table&gt;</p>
+
+<p>&lt;/fwk:form&gt;</p>
+
+<p>&lt;/fwk:vlhroot&gt;<br/>
+&lt;br&gt;<br/>
+&lt;vlh:root value="list2"  id="valuelist2" url="categories.do?" includeParameters="reqCode"  configName="vlConfig"&gt;<br/>
+&lt;table width="450" align="center"&gt;<br/>
+&lt;&#33;-&#45;  pagination section --&gt;<br/>
+&lt;tr&gt;<br/>
+&lt;td align="left"  nowrap="true"&gt;&lt;c:out<br/>
+value="${list2.valueListInfo.totalNumberOfEntries}"  /&gt; &lt;fmt:message key="jsp.categories.categoryList.total"/&gt; -  &lt;fmt:message key="jsp.categories.categoryList.page"/&gt;<br/>
+(&lt;c:out  value="${list2.valueListInfo.pagingPage}" /&gt; &lt;fmt:message  key="jsp.categories.categoryList.of"/&gt;  &lt;c:out<br/>
+value="${list2.valueListInfo.totalNumberOfPages}"  /&gt;)&lt;/td&gt;<br/>
+&lt;td align="right"&gt;&lt;vlh:  Paging/&gt;&lt;/td&gt;<br/>
+&lt;/tr&gt;<br/>
+&lt;&#33;-&#45; end of Pagination  --&gt;<br/>
+&lt;tr&gt;<br/>
+&lt;td colspan="2"&gt;<br/>
+&lt;table width="100%"  class="classicLook" cellspacing="0"<br/>
+cellpadding="0"&gt;<br/>
+&lt;%<br/>
+String  displayProvider2 =  (request.getAttribute("displayProvider")&#33;=<b>null</b>)?request.getAttribute("displayProvider").toString():"ExportHTML";<br/>
+%&gt;<br/>
+&lt;vlh:row  bean="category" display="&lt;%=displayProvider2%&gt;"&gt;<br/>
+&lt;vlh:attribute  name="onmouseover"&gt;this.className='selected';&lt;/vlh:attribute&gt;<br/>
+&lt;vlh:attribute  name="onmouseout"&gt;this.className='zebra0';&lt;/vlh:attribute&gt;<br/>
+&lt;vlh:column  titleKey="jsp.categories.categoryList.id" property="id"&gt;<br/>
+&lt;vlh:action  url="categories.do?"&gt;<br/>
+&lt;vlh:addParam name="reqCode" value="edit"  temp="false" /&gt;<br/>
+&lt;vlh:addParam name="id" property="id" temp="false"  /&gt;<br/>
+&lt;c:out  value="${category.id}"&gt;&lt;/c:out&gt;<br/>
+&lt;/vlh:action&gt;<br/>
+&lt;/vlh:column&gt;<br/>
+&lt;vlh:column  titleKey="jsp.categories.categoryList.desc" property="descn" sortable="desc"  /&gt;<br/>
+&lt;vlh:controls  titleKey="jsp.categories.categoryList.actions"&gt;<br/>
+[<br/>
+&lt;vlh:action  url="products.do?"&gt;<br/>
+&lt;vlh:addParam name="reqCode" value="search"  temp="false" /&gt; &lt;fmt:message  key="jsp.categories.categoryList.see_products"/&gt;<br/>
+&lt;vlh:addParam  name="category" property="id" temp="false" /&gt;<br/>
+&lt;vlh:addParam name="name"  value="" temp="false"  /&gt;<br/>
+&lt;/vlh:action&gt;<br/>
+]<br/>
+&lt;/vlh:controls&gt;<br/>
+&lt;/vlh:row&gt;<br/>
+&lt;tr&gt;<br/>
+&lt;td  colspan="3" style="text-align:right"&gt;<br/>
+&lt;table  align="right"&gt;&lt;tr&gt;&lt;td style="border: 0px"&gt;&lt;fmt:message  key="jsp.common.export"/&gt;&nbsp;&lt;/td&gt;<br/>
+&lt;td style="border:  0px"&gt;&lt;html:link page="/categories.do?reqCode=searchExportPDF"  target="_blank"&gt;&lt;img src="&lt;c:url  value="/images/icono_acrobat.gif"/&gt;"  border="0"/&gt;&lt;/html:link&gt;&lt;/td&gt;<br/>
+&lt;td style="border:  0px"&gt;&lt;html:link page="/categories.do?reqCode=searchExportExcel"  target="_blank"&gt;&lt;img src="&lt;c:url value="/images/icono_excel.gif"/&gt;"  border="0"/&gt;&lt;/html:link&gt;&lt;/td&gt;<br/>
+&lt;/td&gt;<br/>
+&lt;/tr&gt;<br/>
+&lt;/table&gt;<br/>
+&lt;/td&gt;<br/>
+&lt;/tr&gt;<br/>
+&lt;/table&gt;<br/>
+&lt;/vlh:root&gt;</p>
+
+<h3><a name="FAQCanig%C3%B32.1-Posicionamentbot%C3%B3decalendari."></a>Posicionament botó de  calendari.</h3>
+
+<p><b>Problema</b></p>
+
+<p>El botó del calendari no apareix en la posició desitjada.</p>
+
+<p><b>Solució</b></p>
+
+<p>Per modificar qualsevol propietat del botó del calendari, podem fer-ho  directament amb estils (css), tenint en compte que el botó es crea  automàticament sota la classe 'calendarImageClass'. Així, per modificar, per  exemple, la posició del botó, podem for-ho de la següent manera:</p>
+
+<p>.calendarImageClass{<br/>
+margin-bottom:-5px;<br/>
+margin-left:5px;<br/>
+}</p>
+
+<h3><a name="FAQCanig%C3%B32.1-Posicionamentbot%C3%B3deselectpaginat%28pagedSelect%29."></a>Posicionament  botó de select paginat (pagedSelect).</h3>
+
+<p><b>Problema</b></p>
+
+<p>El botó del select paginat no apareix en la posició desitjada.</p>
+
+<p><b>Solució</b></p>
+
+<p>Per modificar qualsevol propietat del botó del calendari, podem fer-ho  directament amb estils (css), tenint en compte que el botó es crea  automàticament sota la classe 'calendarImageClass'. Així, per modificar, per  exemple, la posició del botó, podem for-ho de la següent manera:</p>
+
+<p>.pagedSelectImageClass{<br/>
+margin-bottom:-5px;<br/>
+margin-left:5px;<br/>
+}</p>
+
+<h3><a name="FAQCanig%C3%B32.1-org.hibernate.exception.SQLGrammarException%3Acouldnotexecutequery"></a>org.hibernate.exception.SQLGrammarException:  could not execute query</h3>
+
+<p><b>Problema</b></p>
+
+<p>Al desplegar una aplicació en un servidor d'aplicacions WebLogic es produeix  la següent excepció:</p>
+
+<p>org.hibernate.exception.SQLGrammarException: could not execute query</p>
+
+<p><b>Solució</b></p>
+
+<p>Això és degut a la incompatibilitat de la llibreria d'antlr que utilitza  WebLogic i la que utilitza Hibernate.</p>
+
+<p>Es pot solucionar de dues maneres:</p>
+
+<p>&#45; Configurar l'aplicació perque doni preferencia als seus jars davant els de  WebLogic. Això és configura en el fitxer weblogic.xml:</p>
+
+<p>&lt;prefer-web-inf-classes&gt;true&lt;/prefer-web-inf-classes&gt;</p>
+
+<p>&#45; Configurant Hibernate per a que utilitzi la interpretació clàssica de  queries:</p>
+
+<p>&lt;property  name="hibernate.query.factory_class"&gt;org.hibernate.hql.classic.ClassicQueryTranslatorFactory&lt;/property&gt;</p>
+
+<p>_<br/>
+_</p>
+
+<h3><a name="FAQCanig%C3%B32.1-CompucafegirunCustomEditorperlespropietatsd%27unpojo%3F"></a>Com  puc afegir un CustomEditor per les propietats d'un pojo?</h3>
+
+<p><b>Problema</b><br/>
+Es vol definir un Custom Editor per fer el mapeig d'una  propietat del pojo d'un formulari.</p>
+
+<p>&#42;<b>Solució</b>&#42;<br/>
+Això ho permet la propietat  _<em>customMappingEditors</em>_ de les Actions (DispatchActionSupport) del  Framework.Això podem fer-ho en la configuració de la Action, dins el fitxer  action-servlet-xxx.xml:</p>
+
+<p>&lt;bean  name="/detailsusers"<br/>
+class=" net.gencat.ctti.canigo.services.security.struts.action.admin.SecurityAdminUsersCRUDAction"&gt;<br/>
+...<br/>
+&lt;property  name="customMappingEditors"&gt;<br/>
+&lt;map&gt;<br/>
+&lt;entry  key="roles"&gt;<br/>
+&lt;bean  class=" net.gencat.ctti.canigo.samples.jpetstore.web.propertyeditors.CustomRolesEditor"&gt;<br/>
+&lt;property  name="logService" ref="loggingService"/&gt;<br/>
+&lt;/bean&gt;<br/>
+&lt;/entry&gt;<br/>
+&lt;/map&gt;<br/>
+&lt;/property&gt;</p>
+
+<p>El map customMappingEditors contindrà les propietats del pojo com a clau i la  classe que implementi el customEditor de la propietat com a valor.</p>
+
+<p>Generalitat de Catalunya<br/>
+Centre de Telecomunicacions<br/>
+i Tecnologies de  la Informació</p>
+
+				    					    <br/>
+                        <div class="tabletitle">
+                            <a name="attachments">Attachments:</a>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="FAQ Canigó 2.1_attachments/image003.jpg">image003.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="FAQ Canigó 2.1_attachments/image015.jpg">image015.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="FAQ Canigó 2.1_attachments/image002.jpg">image002.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="FAQ Canigó 2.1_attachments/image005.jpg">image005.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="FAQ Canigó 2.1_attachments/image007.jpg">image007.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="FAQ Canigó 2.1_attachments/image004.jpg">image004.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="FAQ Canigó 2.1_attachments/image006.jpg">image006.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="FAQ Canigó 2.1_attachments/image012.jpg">image012.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="FAQ Canigó 2.1_attachments/image009.jpg">image009.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="FAQ Canigó 2.1_attachments/image011.jpg">image011.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="FAQ Canigó 2.1_attachments/image008.jpg">image008.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="FAQ Canigó 2.1_attachments/image014.jpg">image014.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="FAQ Canigó 2.1_attachments/image001.jpg">image001.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="FAQ Canigó 2.1_attachments/image013.jpg">image013.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="FAQ Canigó 2.1_attachments/image010.jpg">image010.jpg</a> (image/jpeg)
+                                <br/>
+                                                    </div>
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:27</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

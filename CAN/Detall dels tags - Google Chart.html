@@ -1,0 +1,201 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Detall dels tags - Google Chart</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Detall dels tags - Google Chart
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Jul 14, 2010 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h1><a name="Detalldelstags-GoogleChart-DetalldelstagsGoogleChart"></a>Detall dels tags - Google Chart</h1>
+
+<p>Aquests tags integren l'api de Google Chart amb Canigó.</p>
+
+<p>Per a utilitzar els mapes de google s'han creat dos tags:<br/>
+&#35; fwk:gChart: crea un gràfic del tipus desitjat.</p>
+
+<p>Aquests tags no implementen totes les funcionalitats de Google Chart, podeu trobar més informació de l'api de Google a ( [http://code.google.com/intl/es-ES/apis/charttools/] ).</p>
+
+<hr />
+<p><br clear="all" />
+<div>
+<ul><a href='#Detalldelstags-GoogleChart-DetalldelstagsGoogleChart'>
+    <li>Detall dels tags - Google Chart</li></a>
+<ul><a href='#Detalldelstags-GoogleChart-Configuraci%C3%B3Spring'>
+    <li>Configuració Spring</li></a><a href='#Detalldelstags-GoogleChart-Configuraci%C3%B3js'>
+    <li>Configuració js</li></a><a href='#Detalldelstags-GoogleChart-fwk%3AgChart'>
+    <li>fwk:gChart</li></a>
+<ul><a href='#Detalldelstags-GoogleChart-Atributs'>
+    <li>Atributs</li></a>
+</ul><a href='#Detalldelstags-GoogleChart-Exemple1'>
+    <li>Exemple 1</li></a>
+<ul><a href='#Detalldelstags-GoogleChart-P%C3%A0ginaJSP'>
+    <li>Pàgina JSP</li></a>
+</ul><a href='#Detalldelstags-GoogleChart-Exemple2'>
+    <li>Exemple 2</li></a>
+<ul><a href='#Detalldelstags-GoogleChart-P%C3%A0ginaJSP'>
+    <li>Pàgina JSP</li></a><a href='#Detalldelstags-GoogleChart-Javascript'>
+    <li>Javascript</li></a>
+</ul>
+</ul>
+</ul></div><br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+
+<hr />
+<h2><a name="Detalldelstags-GoogleChart-Configuraci%C3%B3Spring"></a>Configuració Spring</h2>
+
+<p>No requereix cap configuració addicional.</p>
+
+<h2><a name="Detalldelstags-GoogleChart-Configuraci%C3%B3js"></a>Configuració js</h2>
+
+<p>No requereix cap configuració javascript addicional.</p>
+
+<h2><a name="Detalldelstags-GoogleChart-fwk%3AgChart"></a>fwk:gChart</h2>
+
+<p>Mostra una imatge d'un gràfic generat a partir de les dades especificades.</p>
+
+<h3><a name="Detalldelstags-GoogleChart-Atributs"></a>Atributs</h3>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> Atribut </th>
+<th class='confluenceTh'> Obligatori </th>
+<th class='confluenceTh'> Funció </th>
+</tr>
+<tr>
+<td class='confluenceTd'> type </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Tipus de gràfic: <br clear="all" />
+&#45; Horitzontal: GoogleChartTag.TYPE_BAR_HORIZONTAL_STACKED <br clear="all" />
+&#45; Horitzontal Agrupat: GoogleChartTag.TYPE_BAR_HORIZONTAL_GROUPED <br clear="all" />
+&#45; Vertical: GoogleChartTag.TYPE_BAR_VERTICAL_STACKED <br clear="all" />
+&#45; Vertical Agrupat: GoogleChartTag.TYPE_BAR_VERTICAL_GROUPED <br clear="all" />
+&#45; Circular: GoogleChartTag.TYPE_PIE <br clear="all" />
+&#45; Circular 3D: GoogleChartTag.TYPE_PIE_3D <br clear="all" />
+&#45; Línies: GoogleChartTag.TYPE_LINE <br clear="all" />
+&#45; Línies Simple: GoogleChartTag.TYPE_LINE_SIMPLE <br clear="all" />
+&#45; Punts: GoogleChartTag.TYPE_LINE_POINTS </td>
+</tr>
+<tr>
+<td class='confluenceTd'> width </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Amplada del gràfic. Valor màxim de l'amplada per l'alçada no pot superar els 300.000 píxels </td>
+</tr>
+<tr>
+<td class='confluenceTd'> height </td>
+<td class='confluenceTd'> Sí </td>
+<td class='confluenceTd'> Alçada del gràfic. Valor màxim de l'amplada per l'alçada no pot superar els 300.000 píxels </td>
+</tr>
+<tr>
+<td class='confluenceTd'> color </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Color del gràfic. Valors en hexagesimal separats per comes </td>
+</tr>
+<tr>
+<td class='confluenceTd'> legend </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Llegenda del gràfic. Valor possibles: <br clear="all" />
+&#45; no: No es mostra llegenda <br clear="all" />
+&#45; default: Es mostra la llegenda per defecte <br clear="all" />
+&#45; qualsevol altre valor es concatenarà a chdl, que es el que utilitza l'api de google per a mostrar la llegenda. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> axisLabels </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Etiquetes del gràfic. Valor possibles: <br clear="all" />
+&#45; no: No es mostra cap etiqueta <br clear="all" />
+&#45; default: Es mostren les etiquetes per defecte <br clear="all" />
+&#45; qualsevol altre valor es concatenarà a chxt, que es el que utilitza l'api de google per a mostrar les etiquetes en els eixos. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> data </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Dades que s'utilitzen per a mostrar el gràfic. Aquestes dades, s'informaran en un LinkedHashMap i aquest podrà contenir altres LinkedHashMap </td>
+</tr>
+<tr>
+<td class='confluenceTd'> customChart </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Ofereix la possibilitat d'introduïr directament una cadena tal i com s'indica en l'api de google per a mostrar un gràfic. Si s'informa aquest atribut, tots els altres valors seran ignorats. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> customOptions </td>
+<td class='confluenceTd'> No </td>
+<td class='confluenceTd'> Ofereix la possibilitat d'introduïr directament una cadena d'opcions addicionals tal i com s'indica en l'api de google. </td>
+</tr>
+</tbody></table>
+
+<h2><a name="Detalldelstags-GoogleChart-Exemple1"></a>Exemple 1</h2>
+
+<p>A continuació es presenta un fragment de pàgina que utilitza el tag <b>fwk:gChart</b>.</p>
+
+<p><span class="error">!fwk_gmap1.jpg!</span></p>
+
+<h3><a name="Detalldelstags-GoogleChart-P%C3%A0ginaJSP"></a>Pàgina JSP</h3>
+
+<p>Cal especificar un contenidor amb una mida específica, sinó ocuparà el 100% de la pantalla.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;tr&gt;&lt;td style=<span class="code-quote">"width: 800px; height: 600px;"</span>&gt;
+&lt;fwk:gMap id=<span class="code-quote">"mapa1"</span> address=<span class="code-quote">"Canigó"</span> /&gt;
+&lt;/td&gt;&lt;/tr&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" /></p>
+<h2><a name="Detalldelstags-GoogleChart-Exemple2"></a>Exemple 2</h2>
+
+<p>A continuació es presenta un fragment de pàgina que utilitza el tag &#42;fwk:gMap&#42; i &#42;fwk:gMapMarker*.</p>
+
+<p>&#33;fwk_gmap2.jpg&#33;</p>
+
+<h3><a name="Detalldelstags-GoogleChart-P%C3%A0ginaJSP"></a>Pàgina JSP</h3>
+
+<p>Cal especificar un contenidor amb una mida específica, sinó ocuparà el 100% de la pantalla.
+<br clear="all" />
+<div class="code"><div class="codeContent">
+<pre class="code-java">&lt;tr&gt;&lt;td style=<span class="code-quote">"width: 800px; height: 600px;"</span>&gt;
+&amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;fwk:gMap id=<span class="code-quote">"mapa1"</span> address=<span class="code-quote">"Canigó"</span> zoom=<span class="code-quote">"15"</span> showLargeMapControl=<span class="code-quote">"<span class="code-keyword">true</span>"</span> showScaleControl=<span class="code-quote">"<span class="code-keyword">true</span>"</span> showMapTypeControl=<span class="code-quote">"<span class="code-keyword">true</span>"</span> mapType=<span class="code-quote">"G_PHYSICAL_MAP"</span> enableDragging=<span class="code-quote">"<span class="code-keyword">true</span>"</span> enableDoubleClickZoom=<span class="code-quote">"<span class="code-keyword">true</span>"</span> onclick=<span class="code-quote">"mostraCoordenades"</span>&gt;
+&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;fwk:gMapMarker address=<span class="code-quote">"Canigó"</span> info=<span class="code-quote">"&lt;b&gt;Canigó&lt;/b&gt; the Framework &lt;br /&gt;&lt;img src=\"</span>http:<span class="code-comment">//canigo.ctti.gencat.cat/confluence/download/resources/com.atlassian.confluence.themes.ctti:ctti/images/company_logo.gif\<span class="code-quote">" /&gt;&lt;br /&gt;&lt;img src=\"</span>http://canigo.ctti.gencat.cat/confluence/download/resources/com.atlassian.confluence.themes.ctti:ctti/images/OTCanigo_logo175x36.png\<span class="code-quote">" /&gt;"</span>&gt;&lt;/fwk:gMapMarker&gt;
+</span>&amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;/fwk:gMap&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td style=<span class="code-quote">"width: 800px; height: 200px; background-color: blue;"</span>&gt;
+&amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;fwk:gMap id=<span class="code-quote">"mapa2"</span> latitude=<span class="code-quote">"20"</span> longitude=<span class="code-quote">"-2"</span> zoom=<span class="code-quote">"5"</span>&gt;
+&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;fwk:gMapMarker latitude=<span class="code-quote">"20.5"</span> longitude=<span class="code-quote">"-1.8"</span>&gt;&lt;/fwk:gMapMarker&gt;
+&amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;/fwk:gMap&gt;
+&lt;/td&gt;
+&lt;/tr&gt;</pre>
+</div></div><br clear="all" />
+<br clear="all" /></p>
+<h3><a name="Detalldelstags-GoogleChart-Javascript"></a>Javascript</h3>
+
+<div class="code"><div class="codeContent">
+<pre class="code-java">function mostraCoordenades(latitud, longitud) {
+&amp;nbsp;&amp;nbsp; &amp;nbsp;alert(latitud + <span class="code-quote">", "</span> + longitud);
+}</pre>
+</div></div>
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 14, 2015 09:28</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>
