@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="canigoGenerator" default="canigoSourceCodeGenerator" basedir=".">
+	<description>
+	       Generació de manteniments simples pel framework Canigó.
+	</description>
+
+	<target name="canigoSourceCodeGenerator" description="Canigó source code generator.">
+		<java classpath="${classpath}" classname="net.gencat.ctti.canigo.canigoGenerator.Generator">
+			<arg value="c:/generator.properties"/>
+			<classpath>
+				<fileset dir=".">
+					<include name="**/*.jar"/>
+				</fileset>
+				<dirset dir="./bin/" /> 
+  			</classpath>
+		</java>
+	</target>		
+</project>
