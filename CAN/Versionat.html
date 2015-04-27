@@ -1,0 +1,139 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Versionat</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Versionat
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Oct 31, 2008 by <font color="#0050B2">admin</font>.
+				    </div>
+
+				    <h2><a name="Versionat-Canig%C3%B3%3AVersionsireleases"></a>Canigó: Versions i releases</h2>
+
+
+<h3><a name="Versionat-%28%29Introducci%C3%B3"></a><img class="emoticon" src="./icons/emoticons/add.gif" height="16" width="16" align="absmiddle" alt="" border="0"/> Introducció</h3>
+
+<p>A partir de la versió 2.3 de Canigó, s'aniran publicant releases de la mateixa versió.<br/>
+L'objectiu d'aquestes revisions és fer arribar les <b>correccions</b> de <em>bugs</em> de la versió corresponent als desenvolupadors.</p>
+
+
+<p>A més a més, existeix una versió de desenvolupament (<b>SNAPSHOT</b>) on s'aniran publicant els canvis diàriament, podeu trobar més informació a la següent <a href="Com treballar amb la versió SNAPSHOT de Canigó.html" title="Com treballar amb la versio SNAPSHOT de Canigo">página</a>.</p>
+
+<h3><a name="Versionat-%28%29Nomenclatura"></a><img class="emoticon" src="./icons/emoticons/add.gif" height="16" width="16" align="absmiddle" alt="" border="0"/> Nomenclatura</h3>
+
+<p>La nomenclatura utilitzada per a cada release serà la que segueix:</p>
+
+<p><b>&lt;Major&gt;.&lt;Minor&gt;.&lt;Revisió&gt;</b></p>
+
+<p>on <b>&lt;Major&gt;.&lt;Minor&gt;</b>: versió de Canigó<br/>
+<b>&lt;Revisió&gt;</b>: nombre de publicacions intermèdies</p>
+
+<p>Exemple: Canigó 2.3.1, correspon a la primera release que es publica de la versió 2.3 de Canigó.</p>
+
+<h3><a name="Versionat-%28%29Upgradederevisi%C3%B3"></a><img class="emoticon" src="./icons/emoticons/add.gif" height="16" width="16" align="absmiddle" alt="" border="0"/> Upgrade de revisió</h3>
+
+<p>Tots els desenvolupadors han d'estar actualitzats a l'última revisió.</p>
+
+<p>Quan es publiqui una revisió, caldrà modificar el fitxer <tt><b>pom.xml</b></tt> per tal què s'utilitzin les llibreries actualitzades, etiquetades amb
+<br clear="all" />
+el corresponent nombre de versió i release.</p>
+
+<p><b>Exemple:</b></p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> Canigó 2.3 </th>
+<th class='confluenceTh'> Canigó 2.3.1 </th>
+</tr>
+<tr>
+<td class='confluenceTd'> <div class="code"><div class="codeContent">
+<pre class="code-xml">...
+<span class="code-tag">&lt;dependency&gt;</span>
+	<span class="code-tag">&lt;groupId&gt;</span>canigo<span class="code-tag">&lt;/groupId&gt;</span>
+	<span class="code-tag">&lt;artifactId&gt;</span>canigo-services-configuration<span class="code-tag">&lt;/artifactId&gt;</span>
+	<span class="code-tag">&lt;version&gt;</span>2.3<span class="code-tag">&lt;/version&gt;</span>
+<span class="code-tag">&lt;/dependency&gt;</span>
+<span class="code-tag">&lt;dependency&gt;</span>
+	<span class="code-tag">&lt;groupId&gt;</span>canigo<span class="code-tag">&lt;/groupId&gt;</span>
+	<span class="code-tag">&lt;artifactId&gt;</span>canigo-services-persistence<span class="code-tag">&lt;/artifactId&gt;</span>
+	<span class="code-tag">&lt;version&gt;</span>2.3<span class="code-tag">&lt;/version&gt;</span>
+<span class="code-tag">&lt;/dependency&gt;</span>
+...
+<span class="code-tag">&lt;dependency&gt;</span>
+	<span class="code-tag">&lt;groupId&gt;</span>canigo<span class="code-tag">&lt;/groupId&gt;</span>
+	<span class="code-tag">&lt;artifactId&gt;</span>canigo-services-web<span class="code-tag">&lt;/artifactId&gt;</span>
+	<span class="code-tag">&lt;version&gt;</span>2.3<span class="code-tag">&lt;/version&gt;</span>
+<span class="code-tag">&lt;/dependency&gt;</span>
+...</pre>
+</div></div><br clear="all" /> <br clear="all" />  <br clear="all" />  <br clear="all" /> </td>
+<td class='confluenceTd'> <div class="code"><div class="codeContent">
+<pre class="code-xml">...
+<span class="code-tag">&lt;dependency&gt;</span>
+	<span class="code-tag">&lt;groupId&gt;</span>canigo<span class="code-tag">&lt;/groupId&gt;</span>
+	<span class="code-tag">&lt;artifactId&gt;</span>canigo-services-configuration<span class="code-tag">&lt;/artifactId&gt;</span>
+	<span class="code-tag">&lt;version&gt;</span>2.3.1<span class="code-tag">&lt;/version&gt;</span>
+<span class="code-tag">&lt;/dependency&gt;</span>
+<span class="code-tag">&lt;dependency&gt;</span>
+	<span class="code-tag">&lt;groupId&gt;</span>canigo<span class="code-tag">&lt;/groupId&gt;</span>
+	<span class="code-tag">&lt;artifactId&gt;</span>canigo-services-persistence<span class="code-tag">&lt;/artifactId&gt;</span>
+	<span class="code-tag">&lt;version&gt;</span>2.3.1<span class="code-tag">&lt;/version&gt;</span>
+<span class="code-tag">&lt;/dependency&gt;</span>
+...
+<span class="code-tag">&lt;dependency&gt;</span>
+	<span class="code-tag">&lt;groupId&gt;</span>canigo<span class="code-tag">&lt;/groupId&gt;</span>
+	<span class="code-tag">&lt;artifactId&gt;</span>canigo-services-web<span class="code-tag">&lt;/artifactId&gt;</span>
+	<span class="code-tag">&lt;version&gt;</span>2.3.1<span class="code-tag">&lt;/version&gt;</span>
+<span class="code-tag">&lt;/dependency&gt;</span>
+...</pre>
+</div></div><br clear="all" /> <br clear="all" />  <br clear="all" />  <br clear="all" /> </td>
+</tr>
+</tbody></table>
+<p><img class="emoticon" src="./icons/emoticons/star_red.gif" height="16" width="16" align="absmiddle" alt="" border="0"/> <b>Important</b></p>
+
+<hr />
+<p>El upgrade dels .jar descrit actualitzarà tota la part de Canigó desenvolupada en java. Tot i això Canigó també inclou un conjunt de <b>fitxers estàtics</b> com són javascript, css, etc. <b>Aquest fitxer també poden patir modificacions i hauran de ser actualitzats</b>. Quan es produeixi aquest fet els canvis realitzats seran documentats de forma detalla en les release notes de la nova versió</p>
+
+<hr />
+<p><br clear="all" /></p>
+
+<h3><a name="Versionat-%28%29Espaidesuport%28Jira%29"></a><img class="emoticon" src="./icons/emoticons/add.gif" height="16" width="16" align="absmiddle" alt="" border="0"/> Espai de suport (Jira)</h3>
+
+<p>En el moment en què es publiqui una nova release, al Jira quedarà reflectit aquest fet i quan s'obri una nova activitat, s'haurà d'indicar,
+<br clear="all" />
+en el camp <em>"Versió/ons Afectada/es"</em>, el codi de la darrera release de la versió que s'estigui utilitzant, que en el cas de l'exemple correspondria
+<br clear="all" />
+a la versió de Canigó 2.3.1.</p>
+
+<p>Ens agradaria destacar que en moment de publicar una release, es deixaran de tractar incidències sobre la versió corresponent
+<br clear="all" />
+a la revisió, ja que tots els projectes hauran d'actualitzar-se amb la darrera release publicada.</p>
+
+<h3><a name="Versionat-%28%29Documentaci%C3%B3"></a><img class="emoticon" src="./icons/emoticons/add.gif" height="16" width="16" align="absmiddle" alt="" border="0"/> Documentació</h3>
+
+<p>La documentació no es veurà afectada amb la publicació de les releases, per la qual cosa, quan es treballi sobre una release concreta,
+<br clear="all" />
+la documentació a consultar correspondrà a la de la pròpia versió de la release.</p>
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 27, 2015 12:12</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>

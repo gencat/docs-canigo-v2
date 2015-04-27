@@ -1,0 +1,174 @@
+<html>
+    <head>
+        <title>Canigó - Espai Privat : Com treballar amb la versio SNAPSHOT de Canigo</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            Canigó - Espai Privat : Com treballar amb la versio SNAPSHOT de Canigo
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Apr 30, 2009 by <font color="#0050B2">otc</font>.
+				    </div>
+
+				    <h1><a name="ComtreballaramblaversioSNAPSHOTdeCanigo-Comtreballaramblaversi%C3%B3SNAPSHOTdeCanig%C3%B3"></a>Com treballar amb la versió SNAPSHOT de Canigó</h1>
+
+<p><br clear="all" />
+<div>
+<ul><a href='#ComtreballaramblaversioSNAPSHOTdeCanigo-Comtreballaramblaversi%C3%B3SNAPSHOTdeCanig%C3%B3'>
+    <li>Com treballar amb la versió SNAPSHOT de Canigó</li></a><a href='#ComtreballaramblaversioSNAPSHOTdeCanigo-Introducci%C3%B3'>
+    <li>Introducció</li></a>
+<ul><a href='#ComtreballaramblaversioSNAPSHOTdeCanigo-Marc'>
+    <li>Marc</li></a><a href='#ComtreballaramblaversioSNAPSHOTdeCanigo-Problema'>
+    <li>Problema</li></a><a href='#ComtreballaramblaversioSNAPSHOTdeCanigo-Soluci%C3%B3'>
+    <li>Solució</li></a>
+</ul><a href='#ComtreballaramblaversioSNAPSHOTdeCanigo-Descripci%C3%B3Detallada'>
+    <li>Descripció Detallada</li></a>
+<ul><a href='#ComtreballaramblaversioSNAPSHOTdeCanigo-Publicaci%C3%B3'>
+    <li>Publicació</li></a><a href='#ComtreballaramblaversioSNAPSHOTdeCanigo-Versionat'>
+    <li>Versionat</li></a><a href='#ComtreballaramblaversioSNAPSHOTdeCanigo-Utilitzaci%C3%B3'>
+    <li>Utilització</li></a>
+<ul>
+<ul><a href='#ComtreballaramblaversioSNAPSHOTdeCanigo-AmbMaven2'>
+    <li>Amb Maven2</li></a><a href='#ComtreballaramblaversioSNAPSHOTdeCanigo-SenseMaven'>
+    <li>Sense Maven</li></a>
+</ul><a href='#ComtreballaramblaversioSNAPSHOTdeCanigo-Actualitzaci%C3%B3delaplantilla'>
+    <li>Actualització de la plantilla</li></a>
+</ul><a href='#ComtreballaramblaversioSNAPSHOTdeCanigo-Procedimentd%27oberturad%27incid%C3%A8ncies'>
+    <li>Procediment d'obertura d'incidències</li></a>
+</ul>
+</ul></div><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" /></p>
+<h1><a name="ComtreballaramblaversioSNAPSHOTdeCanigo-Introducci%C3%B3"></a>Introducció</h1>
+
+
+<h2><a name="ComtreballaramblaversioSNAPSHOTdeCanigo-Marc"></a>Marc</h2>
+
+<p>Tant per la versió 1.x com per la versió 2.x de Canigó (1.4 i 2.3.3 el dia d'escriure aquest article) s'ha canviat la manera de distribució de les correccions que es van fent a mida que es solucionen les incidències.</p>
+
+<h2><a name="ComtreballaramblaversioSNAPSHOTdeCanigo-Problema"></a>Problema</h2>
+
+<p>El mètode que abans es feia servir era que, per cada correcció s'adjuntava el jar amb les correccions en el moment de resoldre les incidències, això implicava que moltes vegades no s'incloïen les correccions anteriors o els projectes es trobaven amb diferents versions del mateix servei, cosa que podia arribar a ser problemàtic en un entorn de desenvolupament.</p>
+
+<h2><a name="ComtreballaramblaversioSNAPSHOTdeCanigo-Soluci%C3%B3"></a>Solució</h2>
+
+<p>L'Oficina Tècnica propossa com a solució portar a terme un nou versionat d'aquestes versions i unificar-les en una sola anomenada, a partir d'ara, SNAPSHOT.</p>
+
+<p>Una versió SNAPSHOT és aquella que es considera en desenvolupament i per tant, es tracta d'una versió que està canviant constantment. El funcionament de distribució d'aquesta versió és senzill, els canvis que es vagin realitzant durant la jornada quedaran inclosos en el jar de la versió SNAPSHOT i es publicarà al repositori maven al final del dia, per tant, quan es resol una incidència es podrà accedir a la nova versió amb les correccions pertinents a primera hora del dia següent de la resolució.</p>
+
+<h1><a name="ComtreballaramblaversioSNAPSHOTdeCanigo-Descripci%C3%B3Detallada"></a>Descripció Detallada</h1>
+
+
+<h2><a name="ComtreballaramblaversioSNAPSHOTdeCanigo-Publicaci%C3%B3"></a>Publicació</h2>
+
+<p>Cal destacar que la publicació només es durà a terme al repositori de maven2; si el vostre projecte fa servir maven1, existeixen eines que proporciona el propi projecte maven per tal de migrar de la versió 1 a la 2, podeu trobar més informació al següent document: <a href="Migració Maven 1 a Maven 2.html" title="Migració Maven 1 a Maven 2">Migració Maven 1 a Maven 2</a></p>
+
+<p>En el cas de què no es faci servir maven com a sistema de control de versions es podrà accedir al repositori i baixar-se la versió SNAPSHOT que hi hagi aquell dia.</p>
+
+<h2><a name="ComtreballaramblaversioSNAPSHOTdeCanigo-Versionat"></a>Versionat</h2>
+
+<p>El sistema de versionat que seguirà la versió SNAPSHOT serà la que il.lustra el següent exemple:<b>2.x</b>: Si actualment estem a la versió 2.3.3 i la propera en sortir serà la 2.3.4 la versió SNAPSHOT en aquest cas serà la 2.3.4-SNAPSHOT,<br/>
+<b>1.x</b>: Si actualment estem a la versió 1.4 i la propera en sortir serà la 1.4.1 la versió SNAPSHOT en aquest cas serà la 1.4.1-SNAPSHOT<br/>
+És a dir, la versió SNAPSHOT sempre serà la propera release que es publicarà. Això és degut a que una versió, tal i com la coneixem fins ara, només serà una "fotografia" d'un estat concret de la versió SNAPSHOT.</p>
+
+<p>Un cop s'alliberi una versió estable, la versió de la SNAPSHOT també canviarà i passarà a ser la següent en sortir.</p>
+
+<h2><a name="ComtreballaramblaversioSNAPSHOTdeCanigo-Utilitzaci%C3%B3"></a>Utilització</h2>
+
+<p>Els passos a seguir per fer servir la versió SNAPSHOT són els següents:</p>
+
+<h4><a name="ComtreballaramblaversioSNAPSHOTdeCanigo-AmbMaven2"></a>Amb Maven2</h4>
+
+<p>Seguint les pràctiques habituals la versió Snapshot s'anomenarà amb el número de la següent versió amb el sufix "-SNAPSHOT".
+<br clear="all" /></p>
+
+<p>Per configurar un projecte per treballar amb la versió Snapshot només cal canviar la versió de Canigó a la nova variable del pom.xml (canigo.version), el parent a la versió Snapshot que s'estigui fent servir (en el moment d'escriure aquest document es tracta de la 2.3.4-SNAPSHOT) i avilitar la resolució d'snapshots del repositori de canigó. Per exemple:</p>
+
+<p><font color="teal">&lt;</font><font color="#3f7f7f">parent</font><font color="teal">&gt;</font><br/>
+<font color="black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font> <font color="teal">&lt;</font><font color="#3f7f7f">artifactId</font><font color="teal">&gt;</font><font color="black">canigo-root</font><font color="teal">&lt;/</font><font color="#3f7f7f">artifactId</font><font color="teal">&gt;</font><br/>
+<font color="black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font> <font color="teal">&lt;</font><font color="#3f7f7f">groupId</font><font color="teal">&gt;</font><font color="black">canigo</font><font color="teal">&lt;/</font><font color="#3f7f7f">groupId</font><font color="teal">&gt;</font><br/>
+<font color="black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font> <font color="teal">&lt;</font><font color="#3f7f7f">version</font><font color="teal">&gt;</font><font color="black">2.3.4-SNAPSHOT</font><font color="teal">&lt;/</font><font color="#3f7f7f">version</font><font color="teal">&gt;</font><br/>
+<font color="teal">&lt;/</font><font color="#3f7f7f">parent</font><font color="teal">&gt;</font></p>
+
+<p><font color="teal">&lt;</font><font color="#3f7f7f">properties</font><font color="teal">&gt;</font><br/>
+<font color="black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font> <font color="teal">&lt;</font><font color="#3f7f7f">canigo.version</font><font color="teal">&gt;</font><font color="black">2.3.4-SNAPSHOT</font><font color="teal">&lt;/</font><font color="#3f7f7f">canigo.version</font><font color="teal">&gt;</font><br/>
+<font color="teal">&lt;/</font><font color="#3f7f7f">properties</font><font color="teal">&gt;</font></p>
+
+<p><font color="teal">&lt;</font><font color="#3f7f7f">repository</font><font color="teal">&gt;</font><br/>
+<font color="black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="teal">&lt;</font><font color="#3f7f7f">id</font><font color="teal">&gt;</font>canigo<font color="teal">&lt;/</font><font color="#3f7f7f">id</font><font color="teal">&gt;</font><br/>
+<font color="black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="teal">&lt;</font><font color="#3f7f7f">url</font><font color="#3f7f7f">&gt;</font><a href="http://canigo.ctti.gencat.net/repository/maven2" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/repository/maven2</a><font color="teal">&lt;/</font><font color="#3f7f7f">url</font><font color="#3f7f7f">&gt;</font><br/>
+<font color="black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="teal">&lt;</font><font color="#3f7f7f">snapshots</font><font color="teal">&gt;</font><br/>
+<font color="black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font> <font color="black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font> <font color="teal">&lt;</font><font color="#3f7f7f">enabled&gt;</font><font color="black">true</font><font color="teal">&lt;/</font><font color="#3f7f7f">enabled</font><font color="teal">&gt;</font><br/>
+<font color="black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font> <font color="teal">&lt;/</font><font color="#3f7f7f">snapshots</font><font color="teal">&gt;</font><br/>
+<font color="teal">&lt;/</font><font color="#3f7f7f">repository<font color="teal"></font>&gt;</font></p>
+
+<p>El propi Maven s'encarregarà d'actualitzar aquesta versió Snapshot a la última que hi ha al repositori, en el cas de que no es vulgui actualitzar l'Snapshot (no recomenat per la OT), només cal executar Maven en mode offline.</p>
+
+<p>Els fitxers .jar s'anomenaran seguit el mateix nom de la versió seguit del dia i la hora en que s'ha generat el jar corresponent. Per exemple: &#45;2.3.4-20090416.151703-3, aquesta versió és la 2.3.4 generada el dia 16/04/2009 a les 15:17:03. Aquest nom es transparent pels desenvolupadors ja que Maven s'encarrega de la seva gestió.</p>
+
+<p>A més de l'actualització del pom.xml caldrà actualitzar els fitxers afectats de la plantilla com es descriu en el següent apartat.</p>
+
+<h4><a name="ComtreballaramblaversioSNAPSHOTdeCanigo-SenseMaven"></a>Sense Maven</h4>
+
+<p><br clear="all" /></p>
+<ul>
+	<li>Sense Maven:
+	<ul>
+		<li>Connectar-se al repositori de maven 2: <a href="http://canigo.ctti.gencat.net/repository/maven2" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/repository/maven2</a></li>
+		<li>Baixar-se els jars generats de les versions SNAPSHOT</li>
+		<li>Actualitzar la plantilla</li>
+	</ul>
+	</li>
+</ul>
+
+
+<h3><a name="ComtreballaramblaversioSNAPSHOTdeCanigo-Actualitzaci%C3%B3delaplantilla"></a>Actualització de la plantilla</h3>
+
+<p>Alguns dels fitxers de Canigó no són empaquetats com a .jar la seva desitribució es fa mitjançant el .zip d'inici de projecte.</p>
+
+<p>De vegades una correcció pot afectar a aquests fitxers.</p>
+
+<p>Per tal d'actualitzar el projecte hem d'anar al repositori maven 2 i accedir a la carpeta <b>suport</b> que es troba a l'arrel del projecte. En aquest directori trobarem dos arxius comprimits en format zip, els <b>fitxers de suport</b>, que conté la part estàtica de l'aplicació (css, imatges i javascript) i la <b>plantilla</b> completa, on hi trobarem a més a més dels arxius estàtics, configuracions i classes java que la formen.</p>
+
+<p>La actualització d'aquest part a la versió SNAPSHOT només s'ha de fer si es requereix una correcció. En cas contrari es recomana esperar a la entrega de la propera versió i seguir les instruccions de la versió.
+<br clear="all" /></p>
+
+<h2><a name="ComtreballaramblaversioSNAPSHOTdeCanigo-Procedimentd%27oberturad%27incid%C3%A8ncies"></a>Procediment d'obertura d'incidències</h2>
+
+<p>Com hem comentat abans, cada dia es generarà una versió nova del SNAPSHOT que contindrà els canvis anteriors més els d'aquell dia (en el cas de que hi hagi), per tant, només hi haurà una versió SNAPSHOT que s'actualitzarà cada dia.</p>
+
+<p>Tenint això present, el procediment per notificar una incidència canviarà lleugerament respecte al que s'ha fet fins ara.<br/>
+Abans d'obrir una incidència el reportador s'assegurarà de que te la última versió SNAPSHOT, és a dir, la que s'ha generat aquell dia i, en el cas de que persisteixi l'error, reportarà la incidència.</p>
+
+<p>Un cop s'hagi resolt la incidència, el servei o serveis afectats es regeneraran al final d'aquell mateix dia i per tant, el reportador tindrà disponibles els canvis a primera hora del dia següent.</p>
+
+				    
+                    			    </td>
+		    </tr>
+	    </table>
+	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td height="12" background="border/border_bottom.gif"><img src="border/spacer.gif" width="1" height="1" border="0"/></td>
+			</tr>
+		    <tr>
+			    <td align="center"><font color="grey">Document generated by Confluence on Apr 27, 2015 12:12</font></td>
+		    </tr>
+	    </table>
+    </body>
+</html>
