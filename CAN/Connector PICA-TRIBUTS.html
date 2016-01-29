@@ -191,7 +191,7 @@ Per una descripció detallada del servei i de les seves modalitats es pot consul
 <p><font color="black">Es pot trobar tota la documentació JavaDoc i el codi font referent aquests components a les següents url's:</font></p>
 
 <p><font color="red"><ins>JavaDoc:</ins></font><font color="red">&nbsp;</font><a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_15/canigo-connectors-root/canigo-connectors-pica-tributs/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_15/canigo-connectors-root/canigo-connectors-pica-tributs/apidocs/index.html</a><br/>
-<font color="red"><ins>Codi Font:</ins></font><font color="red">&nbsp;</font><font color="red">&nbsp;</font><a href="http://canigo.ctti.gencat.net/repository/maven2/canigo/connectors/canigo-connectors-pica-tributs/1.0.0/" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/repository/maven2/canigo/connectors/canigo-connectors-pica-tributs/1.0.0/</a></p>
+<font color="red"><ins>Codi Font:</ins></font><font color="red">&nbsp;</font><font color="red">&nbsp;</font><a href="http://repos.canigo.ctti.gencat.cat/repository/maven2/canigo/connectors/canigo-connectors-pica-tributs/1.0.2/" title="Visit page outside Confluence">http://repos.canigo.ctti.gencat.cat/repository/maven2/canigo/connectors/canigo-connectors-pica-tributs/1.0.2/</a></p>
 
 <h3><a name="ConnectorPICA-TRIBUTS-Requeriments"></a>Requeriments</h3>
 
@@ -211,7 +211,7 @@ Per una descripció detallada del servei i de les seves modalitats es pot consul
 <pre class="code-java">&lt;dependency&gt;
         &lt;groupId&gt;canigo.connectors&lt;/groupId&gt;
         &lt;artifactId&gt;canigo-connectors-pica-tributs&lt;/artifactId&gt;
-        &lt;version&gt;1.0.0&lt;/version&gt;
+        &lt;version&gt;1.0.2&lt;/version&gt;
 &lt;/dependency&gt;</pre>
 </div></div>
 
@@ -271,7 +271,9 @@ Com al final el connector PICA-TRIBUTS dona servei sobre quatre productes difere
 		&lt;property name=<span class="code-quote">"nomEmisor_PCI"</span> value=<span class="code-quote">"CONSORCI AOC"</span> /&gt;
 		&lt;property name=<span class="code-quote">"nomEmisor_CAT635"</span> value=<span class="code-quote">"CAT365"</span> /&gt;
 		&lt;property name=<span class="code-quote">"finalitat"</span> value=<span class="code-quote">"PROVES"</span>/&gt;
-		&lt;property name=<span class="code-quote">"urlPica"</span> value=<span class="code-quote">"http:<span class="code-comment">//preproduccio.pica.gencat.intranet/pica_cataleg/AppJava/services/"</span>/&gt;
+		&lt;property name=<span class="code-quote">"urlPica"</span> value=<span class="code-quote">"http:<span class="code-comment">//preproduccio.pica.intranet.gencat.cat/pica_cataleg/AppJava/services/"</span> /&gt;
+		</span>	&lt;property name=<span class="code-quote">"funcionari"</span> ref=<span class="code-quote">"funcionari"</span> /&gt;
+
 </span>	&lt;/bean&gt;
 	
 	&lt;bean id=<span class="code-quote">"atcService"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.connectors.pica.tributs.atc.impl.AtcConnectorImpl"</span> singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
@@ -279,7 +281,8 @@ Com al final el connector PICA-TRIBUTS dona servei sobre quatre productes difere
 		&lt;property name=<span class="code-quote">"nifEmisor"</span> value=<span class="code-quote">"[nifEmisor]"</span> /&gt;
 		&lt;property name=<span class="code-quote">"nomEmisor"</span> value=<span class="code-quote">"CONSORCI AOC"</span> /&gt;
 		&lt;property name=<span class="code-quote">"finalitat"</span> value=<span class="code-quote">"PROVES"</span>/&gt;
-		&lt;property name=<span class="code-quote">"urlPica"</span> value=<span class="code-quote">"http:<span class="code-comment">//preproduccio.pica.gencat.intranet/pica_cataleg/AppJava/services/"</span>/&gt;
+		&lt;property name=<span class="code-quote">"urlPica"</span> value=<span class="code-quote">"http:<span class="code-comment">//preproduccio.pica.intranet.gencat.cat/pica_cataleg/AppJava/services/"</span>/&gt;
+		<</span>	&lt;property name=<span class="code-quote">"funcionari"</span> ref=<span class="code-quote">"funcionari"</span> /&gt;
 </span>	&lt;/bean&gt;
 	
 	&lt;bean id=<span class="code-quote">"tgssService"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.connectors.pica.tributs.tgss.impl.TgssConnectorImpl"</span> singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
@@ -287,7 +290,8 @@ Com al final el connector PICA-TRIBUTS dona servei sobre quatre productes difere
 		&lt;property name=<span class="code-quote">"nifEmisor"</span> value=<span class="code-quote">"[nifEmisor]"</span> /&gt;
 		&lt;property name=<span class="code-quote">"nomEmisor"</span> value=<span class="code-quote">"CONSORCI AOC"</span> /&gt;
 		&lt;property name=<span class="code-quote">"finalitat"</span> value=<span class="code-quote">"PROVES"</span>/&gt;
-		&lt;property name=<span class="code-quote">"urlPica"</span> value=<span class="code-quote">"http:<span class="code-comment">//preproduccio.pica.gencat.intranet/pica_cataleg/AppJava/services/"</span>/&gt;
+		&lt;property name=<span class="code-quote">"urlPica"</span> value=<span class="code-quote">"http:<span class="code-comment">//preproduccio.pica.intranet.gencat.cat/pica_cataleg/AppJava/services/"</span>/&gt;
+		</span>	&lt;property name=<span class="code-quote">"funcionari"</span> ref=<span class="code-quote">"funcionari"</span> /&gt;
 </span>	&lt;/bean&gt;
 	
 	&lt;bean id=<span class="code-quote">"aeatAtcTgssService"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.connectors.pica.tributs.aeat_atc_tgss.impl.AeatAtcTgssConnectorImpl"</span> singleton=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;
@@ -295,8 +299,16 @@ Com al final el connector PICA-TRIBUTS dona servei sobre quatre productes difere
 		&lt;property name=<span class="code-quote">"nifEmisor"</span> value=<span class="code-quote">"[nifEmisor]"</span> /&gt;
 		&lt;property name=<span class="code-quote">"nomEmisor"</span> value=<span class="code-quote">"ODAE"</span> /&gt;
 		&lt;property name=<span class="code-quote">"finalitat"</span> value=<span class="code-quote">"PROVES"</span>/&gt;
-		&lt;property name=<span class="code-quote">"urlPica"</span> value=<span class="code-quote">"http:<span class="code-comment">//preproduccio.pica.gencat.intranet/pica_cataleg/AppJava/services/"</span>/&gt;
-</span>	&lt;/bean&gt;</pre>
+		&lt;property name=<span class="code-quote">"urlPica"</span> value=<span class="code-quote">"http:<span class="code-comment">//preproduccio.pica.intranet.gencat.cat/pica_cataleg/AppJava/services/"</span>/&gt;
+		</span>	&lt;property name=<span class="code-quote">"funcionari"</span> ref=<span class="code-quote">"funcionari"</span> /&gt;
+</span>	&lt;/bean&gt;
+
+&lt;bean id=<span class="code-quote">"funcionari"</span> class=<span class="code-quote">"cat.gencat.pica.peticio.core.beans.Funcionari"</span>&gt;
+	&lt;property name=<span class="code-quote">"nifFuncionario"</span> value=<span class="code-quote">"nifFuncionari"</span>/&gt;
+	&lt;property name=<span class="code-quote">"nombreFuncionario"</span> value=<span class="code-quote">"nombreFuncionari"</span>/&gt;
+	&lt;property name=<span class="code-quote">"emailFuncionario"</span> value=<span class="code-quote">"emailFuncionario"</span>/&gt;
+&lt;/bean&gt;</pre>
+
 </div></div>
 
 <p>NOTA: Es molt important que l'ordre de les propietats del bean en tots quatre beans, sigui l'especificat anteriorment.</p>

@@ -149,7 +149,7 @@
 <pre class="code-java">&lt;dependency&gt;
         &lt;groupId&gt;canigo.connectors&lt;/groupId&gt;
         &lt;artifactId&gt;canigo-connectors-nt&lt;/artifactId&gt;
-        &lt;version&gt;1.0&lt;/version&gt;
+        &lt;version&gt;1.0.2&lt;/version&gt;
 &lt;/dependency&gt;</pre>
 </div></div>
 
@@ -179,7 +179,7 @@
 
 	&lt;property name=<span class="code-quote">"loggingService"</span> ref=<span class="code-quote">"loggingService"</span>&gt;&lt;/property&gt;
 	&lt;property name=<span class="code-quote">"requeridor"</span> ref=<span class="code-quote">"requeridor"</span>&gt;&lt;/property&gt;
-	&lt;property name=<span class="code-quote">"modalitats"</span>&gt;
+	&lt;property name=<span class="code-quote">"modalitats"</span>&gt; 
 		&lt;map&gt;
 			...
 		&lt;/map&gt;
@@ -193,8 +193,17 @@ Per a configurar el connector enotum, només cal afegir aquest bean informant la
 	&lt;property name=<span class="code-quote">"picaService"</span> ref=<span class="code-quote">"picaService"</span>&gt;&lt;/property&gt;
 	&lt;property name=<span class="code-quote">"loggingService"</span> ref=<span class="code-quote">"loggingService"</span>&gt;&lt;/property&gt;
 	&lt;property name=<span class="code-quote">"finalitat"</span> value=<span class="code-quote">"TEST"</span>&gt;&lt;/property&gt;
-	&lt;property name=<span class="code-quote">"urlPica"</span> value=<span class="code-quote">"http:<span class="code-comment">//preproduccio.pica.gencat.intranet/pica_cataleg/AppJava/services/"</span> /&gt;
-</span>&lt;/bean&gt;</pre>
+	&lt;property name=<span class="code-quote">"nifEmisor"</span> value=<span class="code-quote">"nifEmisor"</span> /&gt;
+	&lt;property name=<span class="code-quote">"nomEmisor"</span> value=<span class="code-quote">"nomEmisor"</span> /&gt;
+	&lt;property name=<span class="code-quote">"urlPica"</span> value=<span class="code-quote">"http:<span class="code-comment">//preproduccio.pica.intranet.gencat.cat/pica_cataleg/AppJava/services/"</span> /&gt;
+</span>	&lt;property name=<span class="code-quote">"funcionari"</span> ref=<span class="code-quote">"funcionari"</span> /&gt;
+&lt;/bean&gt;
+
+&lt;bean id=<span class="code-quote">"funcionari"</span> class=<span class="code-quote">"cat.gencat.pica.peticio.core.beans.Funcionari"</span>&gt;
+	&lt;property name=<span class="code-quote">"nifFuncionario"</span> value=<span class="code-quote">"nifFuncionari"</span>/&gt;
+	&lt;property name=<span class="code-quote">"nombreFuncionario"</span> value=<span class="code-quote">"nombreFuncionari"</span>/&gt;
+	&lt;property name=<span class="code-quote">"emailFuncionario"</span> value=<span class="code-quote">"emailFuncionario"</span>/&gt;
+&lt;/bean&gt;</pre>
 </div></div>
 
 <h2><a name="ConnectorPica-NT-Utilitzaci%C3%B3delConnector"></a>Utilització del Connector</h2>
@@ -313,7 +322,7 @@ CridaSincronaResponseDocument resposta = picaService.ferPeticioAlServei(servei);
 <p>El resultat de la resposta es pot obtenir fent resposta.getDomNode(), i per tant s'haurà de parsejar el resultat.</p>
 
 				    
-                    			    </td>
+</td>
 		    </tr>
 	    </table>
 	

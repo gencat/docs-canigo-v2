@@ -120,7 +120,7 @@
 <p><font color="black">Es pot trobar tota la documentació JavaDoc i el codi font referent aquests components a les següents url's:</font></p>
 
 <p><font color="red"><ins>JavaDoc:</ins></font><font color="red">&nbsp;</font><a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_18/canigo-connectors-root/canigo-connectors-pica-avisosalertes/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_18/canigo-connectors-root/canigo-connectors-pica-avisosalertes/apidocs/index.html</a><br/>
-<font color="red"><ins>Codi Font:</ins></font><font color="red">&nbsp;</font><font color="red">&nbsp;</font>[ <a href="http://canigo.ctti.gencat.net/repository/maven2/canigo/connectors/canigo-connectors-pica-avisosalertes/1.0.0/" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/repository/maven2/canigo/connectors/canigo-connectors-pica-avisosalertes/1.0.0/</a>]</p>
+<font color="red"><ins>Codi Font:</ins></font><font color="red">&nbsp;</font><font color="red">&nbsp;</font>[ <a href="http://repos.canigo.ctti.gencat.cat/repository/maven2/canigo/connectors/canigo-connectors-pica-avisosalertes/1.0.1/" title="Visit page outside Confluence">http://repos.canigo.ctti.gencat.cat/repository/maven2/canigo/connectors/canigo-connectors-pica-avisosalertes/1.0.1/</a>]</p>
 
 <h3><a name="ConnectorAVISOSiALERTES-Requeriments"></a>Requeriments</h3>
 
@@ -142,7 +142,7 @@
 <pre class="code-java">&lt;dependency&gt;
       &lt;groupId&gt;canigo.connectors&lt;/groupId&gt;
       &lt;artifactId&gt;canigo-connectors-pica-avisosalertes&lt;/artifactId&gt;
-      &lt;version&gt;1.0.0&lt;/version&gt;
+      &lt;version&gt;1.0.1&lt;/version&gt;
 &lt;/dependency&gt;</pre>
 </div></div>
 
@@ -200,8 +200,15 @@
 		&lt;property name=<span class="code-quote">"nifEmisor"</span> value=<span class="code-quote">"[nifEmisor]"</span> /&gt;
 		&lt;property name=<span class="code-quote">"nomEmisor"</span> value=<span class="code-quote">"[nomEmisor]"</span> /&gt;
 		&lt;property name=<span class="code-quote">"finalitat"</span> value=<span class="code-quote">"[finalitat]"</span>/&gt;
-		&lt;property name=<span class="code-quote">"urlPica"</span> value=<span class="code-quote">"http:<span class="code-comment">//preproduccio.pica.gencat.intranet/pica_cataleg/AppJava/services/"</span>/&gt;
-</span>	&lt;/bean&gt;</pre>
+		&lt;property name=<span class="code-quote">"urlPica"</span> value=<span class="code-quote">"http:<span class="code-comment">//preproduccio.pica.intranet.gencat.cat/pica_cataleg/AppJava/services/"</span> /&gt;
+</span>	&lt;property name=<span class="code-quote">"funcionari"</span> ref=<span class="code-quote">"funcionari"</span> /&gt;
+&lt;/bean&gt;
+
+&lt;bean id=<span class="code-quote">"funcionari"</span> class=<span class="code-quote">"cat.gencat.pica.peticio.core.beans.Funcionari"</span>&gt;
+	&lt;property name=<span class="code-quote">"nifFuncionario"</span> value=<span class="code-quote">"nifFuncionari"</span>/&gt;
+	&lt;property name=<span class="code-quote">"nombreFuncionario"</span> value=<span class="code-quote">"nombreFuncionari"</span>/&gt;
+	&lt;property name=<span class="code-quote">"emailFuncionario"</span> value=<span class="code-quote">"emailFuncionario"</span>/&gt;
+&lt;/bean&gt;</pre>
 </div></div>
 
 <p>Els valors d finalitat, urlPica, nifEmisor i nomEmisor s'han de consultar a la OT PICA en requeridors.otpica.ctti@gencat.cat</p>

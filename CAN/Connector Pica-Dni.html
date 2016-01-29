@@ -122,7 +122,7 @@
 <p><font color="black">Es pot trobar tota la documentació JavaDoc i el codi font referent aquests components a les següents url's:</font></p>
 
 <p><font color="red"><ins>JavaDoc:</ins></font><font color="red">&nbsp;</font><a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_14/canigo-connectors-root/canigo-connectors-pica-dni/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_14/canigo-connectors-root/canigo-connectors-pica-dni/apidocs/index.html</a><br/>
-<font color="red"><ins>Codi Font:</ins></font><font color="red">&nbsp;</font><font color="red">&nbsp;</font><a href="http://canigo.ctti.gencat.net/repository/maven2/canigo/connectors/canigo-connectors-pica-dni/1.0.0/" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/repository/maven2/canigo/connectors/canigo-connectors-pica-dni/1.0.0/</a></p>
+<font color="red"><ins>Codi Font:</ins></font><font color="red">&nbsp;</font><font color="red">&nbsp;</font><a href="http://repos.canigo.ctti.gencat.cat/repository/maven2/canigo/connectors/canigo-connectors-pica-dni/1.1.0/" title="Visit page outside Confluence">http://repos.canigo.ctti.gencat.cat/repository/maven2/canigo/connectors/canigo-connectors-pica-dni/1.1.0/</a></p>
 
 <h3><a name="ConnectorPica-Dni-Requeriments"></a>Requeriments</h3>
 
@@ -142,7 +142,7 @@
 <pre class="code-java">&lt;dependency&gt;
         &lt;groupId&gt;canigo.connectors&lt;/groupId&gt;
         &lt;artifactId&gt;canigo-connectors-pica-dni&lt;/artifactId&gt;
-        &lt;version&gt;1.0.0&lt;/version&gt;
+        &lt;version&gt;1.1.0&lt;/version&gt;
 &lt;/dependency&gt;</pre>
 </div></div>
 
@@ -202,7 +202,7 @@ Per a configurar el connector PICA-DNI, només cal afegir aquest bean informant 
 	&lt;property name=<span class="code-quote">"nomEmisor"</span> value=<span class="code-quote">"nomEmisor"</span> /&gt;
 	&lt;property name=<span class="code-quote">"loggingService"</span> ref=<span class="code-quote">"loggingService"</span>&gt;&lt;/property&gt;
 	&lt;property name=<span class="code-quote">"finalitat"</span> value=<span class="code-quote">"PROVES"</span>&gt;&lt;/property&gt;
-	&lt;property name=<span class="code-quote">"urlPica"</span> value=<span class="code-quote">"http:<span class="code-comment">//preproduccio.pica.gencat.intranet/pica_cataleg/AppJava/services/"</span> /&gt;
+	&lt;property name=<span class="code-quote">"urlPica"</span> value=<span class="code-quote">"http:<span class="code-comment">//preproduccio.pica.intranet.gencat.cat/pica_cataleg/AppJava/services/"</span> /&gt;
 </span>	&lt;property name=<span class="code-quote">"funcionari"</span> ref=<span class="code-quote">"funcionari"</span> /&gt;
 &lt;/bean&gt;
 
@@ -238,10 +238,11 @@ Per a configurar el connector PICA-DNI, només cal afegir aquest bean informant 
 </div></div>
 <p>Per realitzar la consulta d'un DNI es pot fer amb la següent crida:</p>
 <div class="code"><div class="codeContent">
-<pre class="code-java">DadesConsultaDni resposta = dniConnector.dniConsultaBasica(numero_document, tipus_document);</pre>
+<pre class="code-java">DadesConsultaDni resposta = dniConnector.dniConsultaBasica(numero_document, tipus_document, cognom1, anyNaixement);</pre>
 </div></div>
 
 <p>on, <b>numero_document</b> correspon al valor del número del document utilitzat i <b>tipus_document</b> correspon al tipus de document que es vol subministrar (Constants.DNI, Constants.NIE, Constants.NIF)</p>
+<p>S'ha d'informar el cognom1 o bé l'any de naixement</p>
 
 <p>En cas que es vulgui sobreescriure les dades del funcionari especificats en el fitxer de configuració de spring, és possible fer-ho abans de fer la crida al servei:</p>
 
