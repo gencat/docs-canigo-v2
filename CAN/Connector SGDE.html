@@ -133,14 +133,13 @@
 <p><font color="black">Es pot trobar tota la documentació JavaDoc i el codi font referent aquests components a les següents url's:</font></p>
 
 <p><font color="red"><ins>JavaDoc:</ins></font><font color="red">&nbsp;</font><a href="http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_19/canigo-connectors-root/canigo-connectors-sgde/apidocs/index.html" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/confluence/canigodocs/site/canigo2_3_19/canigo-connectors-root/canigo-connectors-sgde/apidocs/index.html</a><br/>
-<font color="red"><ins>Codi Font:</ins></font><font color="red">&nbsp;</font><font color="red">&nbsp;</font>[ <a href="http://canigo.ctti.gencat.net/repository/maven2/canigo/connectors/canigo-connectors-sgde/1.0.0/" title="Visit page outside Confluence">http://canigo.ctti.gencat.net/repository/maven2/canigo/connectors/canigo-connectors-sgde/1.0.0/</a>]</p>
+<font color="red"><ins>Codi Font:</ins></font><font color="red">&nbsp;</font><font color="red">&nbsp;</font>[ <a href="http://repos.canigo.ctti.gencat.cat/repository/maven2/canigo/connectors/canigo-connectors-sgde/1.1.0/" title="Visit page outside Confluence">http://repos.canigo.ctti.gencat.cat/repository/maven2/canigo/connectors/canigo-connectors-sgde/1.1.0/</a>]</p>
 
 <h3><a name="ConnectorSGDE-Requeriments"></a>Requeriments</h3>
 
 <p><font color="black">El connector</font> SGDE és compatible amb les versions 1.5 o superior de Java. Per versions inferiors no es garantit el seu correcte funcionament.</p>
 
-<p>El seu ús esta certificat per funcionar correctament en servidors d'aplicacions WL9.2 i Tomcat5.x.</p>
-
+		    
 <h2><a name="ConnectorSGDE-Instal.laci%C3%B3iConfiguraci%C3%B3"></a>Instal.lació i Configuració</h2>
 
 
@@ -153,13 +152,13 @@
 <pre class="code-java">&lt;dependency&gt;
     &lt;groupId&gt;canigo.connectors&lt;/groupId&gt;
     &lt;artifactId&gt;canigo-connectors-sgde&lt;/artifactId&gt;
-    &lt;version&gt;1.0.0&lt;/version&gt;
+    &lt;version&gt;1.1.0&lt;/version&gt;
 &lt;/dependency&gt;
 
 &lt;dependency&gt;
     &lt;groupId&gt;canigo.connectors&lt;/groupId&gt;
 	&lt;artifactId&gt;canigo-connectors-sgde-support&lt;/artifactId&gt;
-	&lt;version&gt;1.0.0&lt;/version&gt;
+	&lt;version&gt;1.1.0&lt;/version&gt;
 &lt;/dependency&gt;</pre>
 </div></div>
 
@@ -221,8 +220,8 @@
 <div class="code"><div class="codeContent">
 <pre class="code-java">&lt;bean id=<span class="code-quote">"sgdeConnector"</span> class=<span class="code-quote">"net.gencat.ctti.canigo.connectors.canigo_connectors_sgde.impl.SGDEServiceImpl"</span> init-method=<span class="code-quote">"setupService"</span>&gt;
 	&lt;property name=<span class="code-quote">"loggingService"</span> ref=<span class="code-quote">"loggingService"</span>&gt;&lt;/property&gt;
-	&lt;property name=<span class="code-quote">"formsWSDLUrl"</span> value=<span class="code-quote">"http:<span class="code-comment">//eformularis.pre.intranet.gencat.cat/ServeisInvocacio/serveis/ServeisInvocacioV1?wsdl"</span> /&gt;
-</span>	&lt;property name=<span class="code-quote">"stdWSDLUrl"</span> value=<span class="code-quote">"http:<span class="code-comment">//sgde.pre.intranet.gencat.cat/ServeisInvocacioSTD/services/ServeisSTD?wsdl"</span> /&gt;
+	&lt;property name=<span class="code-quote">"formsWSDLUrl"</span> value=<span class="code-quote">"http:<span class="code-comment">//eformularis.pre.intranet.gencat.cat/ServeisInvocacio/serveis/ServeisInvocacioV2?wsdl"</span> /&gt;
+</span>	&lt;property name=<span class="code-quote">"stdWSDLUrl"</span> value=<span class="code-quote">"http:<span class="code-comment">//sgde.pre.intranet.gencat.cat/ServeisInvocacioSTD/services/ServeisSTDV2?wsdl"</span> /&gt;
 </span>&lt;/bean&gt;</pre>
 </div></div>
 
